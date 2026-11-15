@@ -1,0 +1,121 @@
+<html>
+    <head>
+        <title>RealityScan 帮助</title>
+        <meta charset="UTF-8"/>
+        <meta name="author" content="Epic Games Slovakia s.r.o."/>
+        <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/style.css"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/colors.css"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css"/>
+        <script src="../scripts/textVars.js" type="text/javascript"></script>
+        <script src="../../scripts/localization.js" type="text/javascript"></script>
+        <script src="../../scripts/main.js" type="text/javascript"></script>
+    </head>
+<body ondragstart="return false;">
+
+    <div data-id="div_cs" class="content_slide">
+
+        <!-- content slide -->
+        <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head" class="head">
+
+            <h1 data-id="h1" data-vn="2">选中所有相机与点</h1>
+            <p data-id="p_h1" data-vn="2">
+                这里列出 <span class="appribbon">SCENE 3D</span>/<span class="appribbon">TOOLS</span> 选项卡 <span class="apppanel">Registration &amp; Sparse Point Cloud</span> 区域中 <span class="appribbonbutton">Select All</span> <span class="appshortcut">(CTRL+A)</span> 与 <span class="appribbonbutton">Invert</span> 按钮的全部用法。 
+            </p>
+        </div>
+
+        <br />
+
+        <div data-id="div_im" data-vn="3" class="importantMessage">WARNING: Do not confuse the <span class="appribbonbutton">Select All</span> button from the <span class="apppanel">Registration &amp; Sparse Point Cloud</span> 
+		part with the one in the <span class="apppanel">Model &amp; Texture</span> part.</div>
+
+        <br />
+
+        <div data-id="div_sb_came" class="slideblock">
+
+            <h2 data-id="h2_selall" data-vn="1">全选</h2>
+			
+			<h3 data-id="h3_came" data-vn="1">选中所有相机</h3>
+            <p data-id="p_h3_came" data-vn="1">
+            若你在组件/模型的 <span class="appaspecttype">3Ds</span> 视图中选中了部分相机或未选，点击 <span class="appribbonbutton">Select All</span> 按钮（来自 <span class="apppanel">Registration &amp; Sparse Point Cloud</span> 面板）会选中 <span class="appaspecttype">1Ds</span>/<span class="appaspecttype">2Ds</span> 以及 <span class="appaspecttype">3Ds</span> 视图中的全部已对齐相机。<br/><br/> 若你在项目的 <span class="appaspecttype">1Ds</span>/<span class="appaspecttype">2Ds</span> 视图中选中了部分相机或未选，点击 <span class="appribbonbutton">Select All</span> 按钮（来自 <span class="apppanel">Registration &amp; Sparse Point Cloud</span> 面板）会选中 <span class="appaspecttype">3Ds</span> 视图中的所有相机（这些都是已对齐的），以及 <span class="appaspecttype">1Ds/2Ds</span> 视图中的所有相机（其中部分可能未对齐）。当然，若项目中没有任何组件，<span class="appaspecttype">3Ds</span> 视图中不会选中任何相机。
+            </p>
+
+            <h3 data-id="h3_poin" data-vn="1">选中所有点</h3>
+            <p data-id="p_h3_came_poin" data-vn="2">
+            当图像已对齐形成组件、你想选中全部三维点时（此时模型尚不能重建，否则此功能无效），先选中若干三维点，再用 <span class="appribbonbutton">Select All</span> 按钮（来自 <span class="apppanel">Registration &amp; Sparse Point Cloud</span> 面板）选中当前 <span class="appaspecttype">3Ds</span> 场景中的全部点。
+            </p>
+
+            <h3 data-id="h3_cpoi" data-vn="1">选中所有控制点</h3>
+            <p data-id="p_h3_cpoi" data-vn="2">
+            当你选中一个或多个控制点后，<span class="appribbonbutton">Select All</span> 按钮（来自 <span class="apppanel">Registration &amp; Sparse Point Cloud</span> 面板）会选中 <span class="appaspecttype">1Ds</span> 视图中列出的所有控制点，选择结果在 <span class="appaspecttype">1Ds</span> 与 <span class="appaspecttype">3Ds</span> 视图中都能看到。
+            </p>
+
+            <h3 data-id="h3_cpme" data-vn="1">选中所有控制点测量</h3>
+            <p data-id="p_h3_cpme" data-vn="1">
+            当你在 <span class="appaspecttype">1Ds</span> 面板中选中某个控制点下的一个或多个图像（控制点测量）后，<span class="appribbonbutton">Select All</span> 按钮（来自 <span class="apppanel">Registration &amp; Sparse Point Cloud</span> 区域）会选中该控制点下的全部测量。
+            </p>
+
+        </div> <!-- slideblock end -->
+
+        <br />
+
+        <div data-id="div_sb_dese" class="slideblock">
+
+            <h2 data-id="h2_dese" data-vn="1">取消选择</h2>
+            <p data-id="p_h2_dese" data-vn="1">
+            <span class="appribbonbutton">Deselect</span> <span class="appshortcut">(CTRL+D)</span> 按钮（来自 <span class="apppanel">Registration &amp; Sparse Point Cloud</span> 区域）会取消所有当前选择，对上述各类选择都适用。
+            </p>
+
+        </div> <!-- slideblock end -->
+
+        <br />
+
+        <div data-id="div_sb_inve" class="slideblock">
+
+            <h2 data-id="h2_inve" data-vn="1" id="Invert">反选</h2>
+            <p data-id="p_h2_inve" data-vn="1">此工具的行为取决于当前选中了什么：</p>
+            <ul>
+                <li data-id="li_inve_noca" data-vn="1">未选相机也未选三维点：会选中 <span class="appaspecttype">3Ds</span> 视图中活动组件的全部相机。</li>
+                <li data-id="li_inve_oneo" data-vn="1">选中了活动组件中的一台或多台相机：将相对于该组件中全部已对齐相机做反选。</li>
+                <li data-id="li_inve_inve" data-vn="1">选中的相机不只来自活动组件：将相对于项目中所有相机做反选。</li>
+                <li data-id="li_inve_po3d" data-vn="1">选中的是三维点：将选中点云中其余所有三维点。</li>
+            </ul>
+
+        </div> <!-- slideblock end -->
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_bc" class="blocksContainer">
+
+            <a href="pointsselection.htm">
+                <div class="block TileColor3">
+                    <h2 data-id="h2_bc_sel3d" data-vn="1">在三维中选择点</h2>
+                    <p data-id="p_h2_bc_sel3d" data-vn="1">了解如何选择三维点</p>
+                </div>
+            </a>
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+
+        </div>
+        
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+        <!-- content slide end -->
+
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+    <script type="text/javascript">
+        InitializeHelpSlide();
+    </script>
+
+</body>
+</html>
+<!-- signature:Zc5lgWgd4eYQetMY6N4vGrxpPFE/Kl996L6qtiN0vUPFQ6YpLxa7xwliVusSomofXg9eqhaSb1B6CwvO15SbpTnmw/jJ0zeSYawEzIKYzI5E6nhpzfDnYGMohHD3CWvVyN7aYBiM2OopuB3wNaQPgaunxfiK7lAGmlCiF8TD4Fk= -->

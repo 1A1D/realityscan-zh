@@ -1,0 +1,134 @@
+<html>
+<head>
+    <title>RealityScan 帮助</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Epic Games Slovakia s.r.o." />
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <link type="text/css" rel="stylesheet" href="../../styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/colors.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css" />
+    <script src="../scripts/textVars.js" type="text/javascript"></script>
+    <script src="../../scripts/localization.js" type="text/javascript"></script>
+    <script src="../../scripts/main.js" type="text/javascript"></script>
+</head>
+<body ondragstart="return false;">
+
+    <div data-id="div_cs" class="content_slide">
+
+        <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head" class="head">
+
+            <h1 data-id="h1" data-vn="1">上色与贴图</h1>
+            <p data-id="p_h1" data-vn="1">
+                模型建好后，就可以给它上色了：可以用<span class="appribbonbutton">Colorize</span> <span class="appshortcut">(F8)</span> 或 <span class="appribbonbutton">Texture</span> <span class="appshortcut">(F9)</span> 功能。理解两者的区别很重要：上色只给模型的顶点赋颜色，对较稠密的物体效果就不错，而且相比带纹理的模型体积更小；简单说，贴图是为模型的每个三角面生成一张小图像，实际会生成一张或多张称为纹理的图像，并定义它们与三角面之间的映射——这个映射就叫展开（unwrap）。因此贴图比上色更真实。
+            </p>
+            <img src="../tutorials/images/colored-vs-textured.jpg" alt="colored-vs-textured" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tutorials/images/colored-vs-textured.jpg';"/>
+        </div>
+
+        <div data-id="div_sb_colo" class="slideblock">
+
+            <h2 data-id="h2_colo" data-vn="1">上色</h2>
+            <p data-id="p_h2_colo" data-vn="3">
+                在 <span class="appribbon">WORKFLOW</span> 或 <span class="appribbon">MESH &amp; COLOR</span> 选项卡 Process 区域中<span class="appgesture">点击</span> <span class="appribbonbutton">Colorize</span> <span class="appshortcut">(F8)</span> 按钮后即对模型上色。
+            </p>
+
+            <ul>
+                <li>
+                    <p data-id="p_colo_ncrm" data-vn="1">请注意，这不会创建新模型，只会为原模型着色。渲染着色图像后，仍可看到模型的未着色版本。</p>
+                </li>
+            </ul>
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_text" class="slideblock">
+            <h2 data-id="h2_text" data-vn="1">贴图</h2>
+
+            <p data-id="p_h2_text" data-vn="3">
+                贴图包含两步：(i) 展开；(ii) 计算纹理图像的颜色。可以在 <span class="appribbon">WORKFLOW</span> 或 <span class="appribbon">MESH &amp; COLOR</span> 选项卡 Process 区域中<span class="appgesture">点击</span> <span class="appribbonbutton">Texture</span> <span class="appshortcut">(F9)</span> 按钮来计算模型纹理。
+            </p>
+
+            <ul>
+                <li>
+                    <p data-id="p_text_auun" data-vn="1">
+                        若模型此前未贴纹理，则会按默认参数自动计算 UV 展开（本教程后面会介绍这些参数）。
+                    </p>
+                </li>
+                <li><p data-id="p_text_alte" data-vn="1">若模型已贴纹理，则只计算纹理图像的颜色，即沿用已有的 UV 展开。</p></li>
+                <li><p data-id="h2_text_reco" data-vn="1">若要重新计算 / 创建模型的 UV 展开，可使用 <span class="appribbonbutton">Unwrap</span> tool.</p>
+                </li>
+            </ul>
+
+            <br/>
+            <div data-id="div_im_cnrm" data-vn="2" class="importantMessage">WARNING: The <span class="apptool">Simplify</span> tool creates a new reduced model which loses its texture and keeps only the coloring.</div>
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sb_inpu" class="slideblock">
+            <h2 data-id="h2_inpu" data-vn="1">使用哪些输入？</h2>
+
+                <p data-id="p_inpu_txsi" data-vn="1">
+                    当某张图像在组件下 Camera poses 列表中的 Tx 标记背后有浅灰底色时，该图像会参与贴图/上色。点击 Tx 按钮即可禁用<span class="appshortcut">(D)</span>该图像的贴图/上色，Tx 背后的浅灰底色会消失；再次<span class="appgesture">点击</span> Tx 可重新启用<span class="appshortcut">(E)</span>。
+                </p>
+                <img src="images/Tx_sign.png" alt="Tx sign" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/Tx_sign.png';"/>
+                <br/>
+                <br/>
+                <p data-id="m_inpu_mult" data-vn="1">
+                    也可以多选图像/相机，在组件的面板中启用<span class="appshortcut">(E)</span>/禁用<span class="appshortcut">(D)</span>贴图/上色。
+                </p>
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_bc" class="blocksContainer">
+
+            <a id="idContinue"  href="texturing_part2.htm">
+                <div class="leadBlock block TileColor6">
+                    <h2 data-id="h2_bc" data-vn="1">继续</h2>
+                    <p data-id="p_bc_acts" data-vn="1">调整上色与贴图设置</p>
+                </div>
+            </a>
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sa" class="rowblock">
+            <h3 data-id="h3_sa" data-vn="1">另见：</h3>
+            <ul class="intend">
+                <li data-id="li_sa_muse" data-vn="1">了解图像多选的更多内容 <a href="../appbasics/multiselect.htm">点击此处</a></li>
+                <li data-id="li_sa_resc" data-vn="1">了解如何渲染截图 <a href="rendering.htm">点击此处</a></li>
+                <li data-id="li_sa_cror" data-vn="1">了解如何创建并导出正射影像与 DSM <a href="../tutorials/orthophoto.htm">点击此处</a></li>
+                <li data-id="li_sa_ex3d" data-vn="1">了解如何导出三维重建结果 <a href="export.htm">点击此处</a></li>
+            </ul>
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+        <!-- content slide end -->
+
+    </div>
+
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+    <script type="text/javascript">
+        InitializeTutorialMode();
+    </script>
+
+</body>
+</html>
+<!-- signature:sGuVTOlv9Q/0dE+srDLPBQriiiErW6aEVXcV+TmlzC74fJU+g5KoO5woGznhG2QJViJQs+pCHOnNCEZfB8cVHBAvm5hPuXVOvu46OGfZNlhDa/NpIe/2ZMZm8li9Foe5sunpJBl6Y+sUx5JZRy1rI3CNFwtnoJk7gcaNtZ9PRZc= -->

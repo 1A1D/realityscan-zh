@@ -1,0 +1,106 @@
+﻿<html>
+<head>
+    <title>RealityScan 帮助</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Epic Games Slovakia s.r.o." />
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <link type="text/css" rel="stylesheet" href="../../styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/colors.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css" />
+    <script src="../scripts/textVars.js" type="text/javascript"></script>
+    <script src="../../scripts/localization.js" type="text/javascript"></script>
+    <script src="../../scripts/main.js" type="text/javascript"></script>
+</head>
+<body ondragstart="return false;">
+
+    <div data-id="div_cs" class="content_slide">
+
+        <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head" class="head">
+
+            <h1 data-id="h1" data-vn="1">以视频作为输入</h1>
+            <p data-id="p_h1" data-vn="2">
+                如果你拍的视频是按<a href="../tutorials/takingpictures.htm">摄影测量拍摄要点</a>来的，就可以用它代替照片和/或激光扫描，或作为拍摄同一物体/场景的其他输入的补充。这类视频的数量同样不限。（你甚至可以用这个功能把任意视频切成图片序列，用于本软件之外的用途。）<br /> RealityScan 只从视频中抽取关键帧（即任意平滑过渡的起止点），忽略内插帧（由编解码器合成、几何上不准确），尽量帮你得到想要的结果。
+            </p>
+
+            <br/>
+
+            <div data-id="div_im_fmts" data-vn="1" class="importantMessage">
+                只要装有 Windows 原生的编解码包（无需额外安装），就能导入以下视频格式：Advanced Systems Formats（.asf）、AVI（.avi）、QuickTime（.mov）、MPEG（.mpg、.mpeg、.mp4）和 Windows Media Video（.wmv）。输出的帧为 PNG。
+            </div>
+            
+            <br/>
+
+            <p data-id="p_viim_blk" data-vn="1">
+                也可以导入 Leica BLK3D 以 .cmi 文件格式采集的图像序列。
+            </p>
+        </div>
+
+        <div class="slideblock">
+
+            <h3 data-id="h3_leica" data-vn="1">什么是 Leica BLK3D？</h3>
+            <p data-id="p_h3_leica" data-vn="2">
+                它是一台手机大小的简易设备，配有两个 1000 万像素相机，可同步连续成像。由于两相机之间的相对位置与距离已知，RealityScan 能利用这类数据自动为你的模型定尺度，无需任何额外操作或输入。之后你可以在场景中量测、加入未缩放的其他输入并对齐这些数据，从而把它们一起缩放。
+            </p>
+
+        </div>
+
+        <br/>
+
+        <div data-id="div_sb_proc" class="slideblock">
+            <h2 data-id="h2_proc" data-vn="1">操作步骤</h2>
+
+            <ol>
+                <li data-id="li_proc_vsbu" data-vn="3">
+                    要导入一个或多个视频，可用 <span class="appribbon">WORKFLOW</span> 选项卡中的 <span class="appribbonbutton">Video</span> 按钮，或直接把视频<span class="appgesture">拖放</span>到 RealityScan 项目中。
+                </li>
+                <li data-id="li_proc_sedi" data-vn="2">
+                    选好之后会进入设置对话框，需要为抽取的帧指定保存位置，以及它们的时间跨度——即 <span class="appproperty">Jumps' length(s)</span>——它定义两帧之间的间隔。导入 .cmi 格式的数据时会跳过此对话框。
+                </li>
+                <li data-id="li_proc_spfr" data-vn="1">
+                    <span class="appgesture">点击</span> <span class="appbutton">Import</span> 后，视频会被拆成帧并载入应用，可在 <span class="appaspecttype">1Ds</span> 面板的 <span class="apptree">Images</span> 根节点下找到。
+                </li>
+                <li data-id="li_proc_alig" data-vn="1">之后就可以像平常一样继续添加其他输入，或直接对齐并做后续处理。</li>
+            </ol>
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_bc" class="blocksContainer">
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sa" class="rowblock">
+            <h3 data-id="h3_sa" data-vn="1">另见：</h3>
+            <ul class="intend">
+                <li data-id="li_sa_scgr" data-vn="1">录屏工具 <a href="../tools/screengrabber.htm">点击此处</a></li>
+                <li data-id="li_sa_ftvi" data-vn="1">飞行漫游视频 <a href="../tools/flythrough.htm">点击此处</a></li>
+                <li data-id="li_sa_anto" data-vn="1">动画工具 <a href="../tools/animation.htm">点击此处</a></li>
+            </ul>
+            <div class="clear">
+                <!-- clear -->
+            </div>
+        </div>
+
+        <!-- content slide end -->
+
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+    <script type="text/javascript">
+        InitializeHelpSlide();
+    </script>
+
+</body>
+</html>
+<!-- signature:Jd62zKw8+Tiqo4CRFtSt4EBhcQr9Kss6Jk38IQTsrDMyf/SQ2O5jZCVsFzH07P0zkXPzdl9HZ7WM+IhQ4wKPwbNmVSr7zdwuSzIUAQoCbuH2EQsxPWlm+zzoalZiM8w5ffk8ug/deNyATaCKWYQkh2IxMIP0cxcur/+eAbRyl9s= -->

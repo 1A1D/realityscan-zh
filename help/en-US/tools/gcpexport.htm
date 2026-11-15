@@ -1,0 +1,180 @@
+<html>
+<head>
+    <title>RealityScan 帮助</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Epic Games Slovakia s.r.o." />
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <link type="text/css" rel="stylesheet" href="../../styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/colors.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css" />
+    <script src="../scripts/textVars.js" type="text/javascript"></script>
+    <script src="../../scripts/localization.js" type="text/javascript"></script>
+    <script src="../../scripts/main.js" type="text/javascript"></script>
+</head>
+<body ondragstart="return false;">
+
+    <div data-id="div_cs" class="content_slide">
+
+        <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head" class="head">
+
+            <h1 data-id="h1" data-vn="1">地面控制点导出</h1>
+            <p data-id="p_h1" data-vn="2">在 RealityScan 中，你可以很方便地<a href="gcpimport.htm">导入</a>和导出地面控制点（GCP）。本页介绍如何把地面控制点导出为文本文件。</p>
+
+            <ul>
+                <li data-id="li_h1_awar" data-vn="2">注意：RealityScan 只导出所选的控制点。要导出全部地面控制点，请不要选中任何控制点。</li>  
+                <li data-id="li_h1_gtex" data-vn="1">进入 <span class="appribbon">ALIGNMENT</span> / <span class="apppanel">Export</span> / <span class="appribbonbutton">Ground Control</span>。</li>
+                <li data-id="li_h1_fifn" data-vn="1">填写文件名并选择文件类型。</li>
+                <li data-id="li_h1_prsa" data-vn="1">点击 <span class="appbutton">Save</span> 按钮，会弹出“导出地面控制点”对话框（见下图）。</li>
+                <li data-id="li_h1_seex" data-vn="1">在设置面板中选择导出的<span class="appproperty">coordinate system</span>。<br /><br/> <img src="images/Export-Ground-Control.png" alt="Export-Ground-Control" onerror="this.onerror=null;this.src='../../en-US/tools/images/Export-Ground-Control.png';"/>
+                </li>
+                <li data-id="li_h1_prok" data-vn="1">点击 <span class="appbutton">OK</span> 导出。</li>
+            </ul>
+            <br />
+            <div data-id="div_im_avai" data-vn="1" class="importantMessage">注意：只有项目中至少存在一个控制点时，此选项才可用。</div>
+            <ul>
+                <li data-id="li_h1+gcpe" data-vn="1">地面控制点也可以用<a href="../Tutorials/commandline_1.htm">命令行</a>导出。</li>
+            </ul>
+        </div>
+
+        <div data-id="div_sb_exse" class="slideblock">
+
+            <h2 data-id="h2_exse" data-vn="1">导出设置</h2>
+            <ul>
+                <li data-id="li_exse_fifo" data-vn="2">File Format: <br />
+                    RealityScan 支持多种不同类型的 csv 文件。导出文件格式的完整列表存放并定义于 <span style="font-style:italic;">controlpoints.xml</span> as simple scripts.
+                    Advanced users can easily modify or create their own format.
+
+                    To export measurements of control points, use the <span style="">$ExportControlPoints(...)</span> function and inside the brackets put everything which should be printed for each measurement. <br />
+                    The expansion system will automatically substitute variables/terms inside the brackets starting with a dollar sign ($). Everything else will be left untouched like it is, including new lines.
+                    <br />
+                    <br />
+                    Example script:
+                    <div class="codeSample">
+                        $ExportControlPoints($If( isGroundControl,$(name), $(alt:g) <br />
+                        ))
+                    </div>
+                    <p data-id="p_exse_excp" data-vn="1">
+                    上述脚本将导出类型为 'Ground control' 或 'Ground test' 的每个控制点的名称与高程。 <br />
+                    输出示例如下：
+                    </p>
+                    <div class="codeSample">
+                        gcp0, 1345.21 <br />
+                        gcp1, 964.36  <br />
+                        gcp2, 1512.24 <br />
+                    </div>
+
+                    <br />
+                    <p data-id="p_exse_toke" data-vn="1">Supported tokens:</p>
+                    <table class="tableofcommands">
+                        <thead data-id="th_exse_toke" data-vn="1">
+                            <tr>
+                                <th>Token</th>
+                                <th>Description</th>
+                                <th>Type</th>
+                            </tr>
+                        </thead>
+                        <tr data-id="tr_exse_inde" data-vn="1">
+                            <td><span class="textEmp">index</span></td>
+                            <td>Index of a control point</td>
+                            <td>Integer</td>
+                        </tr>
+                        <tr data-id="tr_exse_name" data-vn="1">
+                            <td><span class="textEmp">name</span></td>
+                            <td>Name of the control point</td>
+                            <td>String</td>
+                        </tr>
+                        <tr data-id="tr_exse_x" data-vn="1">
+                            <td><span class="textEmp">x</span></td>
+                            <td>X - 地面控制点坐标</td>
+                            <td>Double</td>
+                        </tr>
+                        <tr data-id="tr_exse_y" data-vn="1">
+                            <td><span class="textEmp">y</span></td>
+                            <td>Y - 地面控制点坐标</td>
+                            <td>Double</td>
+                        </tr>
+                        <tr data-id="tr_exse_z" data-vn="1">
+                            <td><span class="textEmp">z</span></td>
+                            <td>Z - 地面控制点坐标</td>
+                            <td>Double</td>
+                        </tr>
+                        <tr data-id="tr_exse_lat" data-vn="1">
+                            <td><span class="textEmp">lat</span></td>
+                            <td>地面控制点的纬度</td>
+                            <td>Double</td>
+                        </tr>
+                        <tr data-id="tr_exse_lon" data-vn="1">
+                            <td><span class="textEmp">lon</span></td>
+                            <td>地面控制点的经度</td>
+                            <td>Double</td>
+                        </tr>
+                        <tr data-id="tr_exse_alt" data-vn="1">
+                            <td><span class="textEmp">alt</span></td>
+                            <td>地面控制点的高程（与 z 相同）</td>
+                            <td>Double</td>
+                        </tr>
+                        <tr data-id="tr_exse_isgc" data-vn="1">
+                            <td><span class="textEmp">isGroundControl</span></td>
+                            <td>控制点类型为 'Ground control' 或 'Ground test' 时为 True</td>
+                            <td>Boolean</td>
+                        </tr>
+                    </table>
+                </li>
+                <li data-id="li_exse_cosy" data-vn="1">Coordinate system: <br />
+                    每个地面控制点都有自己的 <a href="../appbasics/coordinatesystem.htm">coordinate system</a> and the exporter transforms coordinates from this coordinate system to the one selected in the panel of export settings. 
+                    <br />
+                    <br />
+                    Supported coordinate systems are:
+                    <ul>
+                        <li data-id="li_exse_grpl" data-vn="1"><span class="appproperty">Grid plane</span> What you see in the <span class="appaspecttype">3D</span> view.</li>
+                        <li data-id="li_exse_prou" data-vn="1"><span class="appproperty">Project output</span> 该坐标系在 <a href="../appbasics/appsettings.htm#idCoordSystems">Application Settings</a> 的 <span class="appproperty">Coordinate Systems</span> 中定义。要打开应用设置，进入 <span class="appribbon">workflow</span> 选项卡 / <span class="appribbonbutton">Settings</span>。</li>
+                        <li data-id="li_exse_shpo" data-vn="1"><span class="appproperty">Shifted project output</span> 与上一项相同，但会沿指定方向偏移。</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_bc" class="blocksContainer">
+
+            <a href="gcpimport.htm">
+                <div class="block TileColor2">
+                    <h2 data-id="h2_bc_gcim" data-vn="1">地面控制点导入</h2>
+                    <p data-id="p_h2_bc_gcim" data-vn="1">如何把地面控制点加入项目</p>
+                </div>
+            </a>
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sa" class="rowblock">
+            <h3 data-id="h3_sa" data-vn="1">另见：</h3>
+            <ul class="intend">
+                <li data-id="li_sa_cosy" data-vn="1">了解坐标系的更多内容，<a href="../appbasics/coordinatesystem.htm">点击此处</a>。</li>
+            </ul>
+        </div>
+
+        <!-- content slide end -->
+
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+    <script type="text/javascript">
+        InitializeHelpSlide();
+    </script>
+
+
+</body>
+</html>
+<!-- signature:L87nSywbOEfcwF5JMypFDxCYsxvzUhaMxRBGXnwE+kOGbbjQQjIQ+RoON4NKdYNiLxkMHhaK7t1zRZq5H1C9ZX77U/edKbOmGisOYnltazD2QzDT+3TR5f6XprTYqx8kAEzobp+SxC3qwiGHTdw+gm1A/Rq+1dC7JZ5ytiWXSPE= -->

@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <title>RealityScan 帮助</title>
+        <meta charset="UTF-8"/>
+        <meta name="author" content="Epic Games Slovakia s.r.o."/>
+        <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/style.css"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/colors.css"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css"/>
+        <script src="../scripts/textVars.js" type="text/javascript"></script>
+        <script src="../../scripts/localization.js" type="text/javascript"></script>
+        <script src="../../scripts/main.js" type="text/javascript"></script>
+    </head>
+    <body ondragstart="return false;">
+
+        <div data-id="div_cs" class="content_slide">
+
+            <!-- content slide -->
+            <script type="text/javascript">RenderToolNavigation();</script>
+
+            <div data-id="div_head" class="head">
+
+                <h1 data-id="h1" data-vn="1">磁盘空间不足</h1>
+                
+                <p data-id="p_h1" data-vn="2">
+                    RealityScan 处理时会生成缓存文件；若磁盘已没有空间存放，就会出现相应警告。
+                </p>
+                      
+                <div style="padding: 10px 10px 10px 0px">
+                    <img src="images/outofdisk-1.png" alt="outofdisk-1" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/appbasics/images/outofdisk-1.png';"/>
+                </div>             
+
+                <p data-id="p_disk" data-vn="1">
+                    你看到的这条消息是在提醒：存放缓存文件的磁盘快满了，不腾出空间就无法继续处理。警告中会显示是哪个磁盘空间不足、还剩多少。在该磁盘腾出一些空间后，点 <span class="appbutton">Retry</span> 按钮即可继续工作。 
+                </p>
+                
+                <div data-id="div_im_dont" data-vn="1" class="importantMessage">注意：请勿删除缓存文件夹中的文件，否则可能导致项目出错。</div>
+                
+                <br/>
+                
+                <p data-id="p_cancel" data-vn="2">
+                    点 <span class="appbutton">Cancel</span> 按钮会让 RealityScan 停止检查缓存所在磁盘的剩余空间，最终抛出 <span class="appproperty">Out of disk space</span> 错误。<br/> 之后正在运行的处理会被中止，进度全部丢失。届时你需要在缓存磁盘上腾出空间（或干脆换一块盘），再重新执行该处理。                    
+                </p>
+                
+            
+            </div>
+                 
+            <div class="clear">
+                <!-- clear -->
+            </div>
+
+            <div data-id="div_bc" class="blocksContainer">
+
+                <script type="text/javascript">RenderBackToStartTile();</script>
+
+                <div class="clear">
+                    <!-- clear -->
+                </div>
+
+            </div> <!-- content slide end -->
+
+        </div>
+
+        <script type="text/javascript">RenderCopyrightText();</script>
+
+        <script type="text/javascript">
+            InitializeHelpSlide();
+        </script>
+
+    </body>
+</html>
+<!-- signature:j/oKXQqz60fbfO9tI3pDyQ6/jhxYyqcChdvctzLA7qxmv+D5PH164qA7gM/4AupUZUTMb5LwsY2OfpodiNZMEROM8v53v5qxgFPyn8iIQDY6b4yVkqsaDn2KgzX8d7dgRMnQGVbyYsrb4Y3RiQ40uhZynDiO212gBQ3oxOtCee0= -->

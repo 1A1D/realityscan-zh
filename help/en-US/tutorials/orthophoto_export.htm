@@ -1,0 +1,215 @@
+<html>
+<head>
+    <title>RealityScan 帮助</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Epic Games Slovakia s.r.o." />
+    <meta http-equiv="X-UA-Compatible" content="IE=12"/>
+    <link type="text/css" rel="stylesheet" href="../../styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/colors.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css" />
+    <script src="../scripts/textVars.js" type="text/javascript"></script>
+    <script src="../../scripts/localization.js" type="text/javascript"></script>
+    <script src="../../scripts/main.js" type="text/javascript"></script>
+</head>
+<body ondragstart="return false;">
+
+    <div data-id="div_cs" class="content_slide">
+
+        <!-- content slide -->
+        <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head" class="head">
+
+            <h1 data-id="h1" data-vn="1">管理正射投影</h1>
+            <p data-id="p_h1" data-vn="2">
+                管理正射投影在把模型导入新项目时特别有用。每个正射投影都会保存颜色图层，以及带深度和高程图层的数字表面模型。也可以渲染带深度和高程图层的数字地形模型。本教程说明如何显示、处理和以不同格式导出它们。 
+            </p>
+        </div>
+
+        <div data-id="div_noor" class="importantMessage RCNoOrthos">
+            <h4 data-id="h4_noor" data-vn="1">前提条件</h4>
+            <p data-id="p_noor" data-vn="1">必须已创建正射投影。点击 <a href="orthophoto.htm">此处</a>了解如何创建正射投影。</p>
+        </div>
+
+        <br />
+
+        <div data-id="div_sb_diop" class="slideblock">
+
+            <h2 data-id="h2_diop" data-vn="1">显示正射投影</h2>
+
+            <p data-id="p_ordi" data-vn="1">正射投影可以在 <span class="appaspecttype">2D</span> 视图中显示。在左侧 <span class="appaspecttype">1Ds</span> 视图中找到要显示的正射投影 —— 它位于生成该正射投影所用模型的组件下。然后<span class="appgesture">点击</span>该正射投影，<span class="appgesture">拖放</span>到 <span class="appaspecttype">2D</span> 视图中。 
+            </p>
+
+            <p data-id="p_orco" data-vn="2"> 正射投影显示在 <span class="appaspecttype">2D</span> 视图后，功能区会出现 <span class="appribbon">ORTHO 2D</span> 上下文选项卡。在 <span class="appribbon">ORTHO 2D</span>/<span class="appribbon">VIEW</span> 选项卡的 <span class="apppanel">Source</span> 区域可选择显示哪个图层，这样能预览导出后的效果；也可以更改正射投影上显示哪些对象。要使用正射投影相关工具、导出正射投影或其上创建的对象，请到 <span class="appribbon">ORTHO 2D</span>/<span class="appribbon">TOOLS</span> 选项卡。
+            </p>
+
+            <div style="padding: 10px 10px 10px 0px">
+                <img src="images/OrthoContextTab.png" alt="OrthoContextTab" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tutorials/images/OrthoContextTab.png';"/>
+            </div>
+
+            <p data-id="p_mapv" data-vn="1">若投影已地理参考，可以<span class="appgesture">拖放</span>到地图视图中查看其地理位置是否正确。<span class="appaspecttype">map</span> 视图的更多信息 <a href="../tutorials/appbasics_views.htm">点击此处</a>。   
+            </p>
+            
+            <br/>
+            <script type="text/javascript">RenderYouTubeVideo( 640, 480, "https://www.youtube.com/embed/5NIZMgIzVic?enablejsapi=1", "(ortho drag and drop)" )</script>
+            <br/>
+            
+            <p data-id="p_orsa" data-vn="2">也可以用 <span class="appribbon">ORTHO 2D</span>/<span class="appribbon">TOOLS</span> 选项卡 <span class="apppanel">Tools</span> 区域的 <span class="apptool">Sample Points</span> 工具，把正射投影按规则栅格采样。<span class="apptool">Sample Points</span> 工具的详情 <a href="../tools/orthosample.htm">见此处</a>。    
+            </p>
+
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div> 
+
+        <div data-id="div_batc" class="slideblock">
+
+        <h2 data-id="h2_batc" data-vn="1" id="BatchProcessing">批处理</h2>
+        <p data-id="p_h2_batc" data-vn="2">也可以批量处理多个正射投影，即同时执行多个正射投影的计算。</p>
+        <ul>
+            <li data-id="p_batc_semo" data-vn="2">在 <span class="appaspecttype">1Ds</span> 面板中选中要生成正射投影的模型。</li>
+            <li data-id="p_batc_serr" data-vn="2">设置重建区域。关于重建区域的更多内容见 <a href="../tools/reconbox.htm">此处</a>。</li>
+            <li data-id="p_batc_clop" data-vn="2"><span class="appgesture">点击</span> <span class="appproperty">Ortho Projection</span> 工具启用它（<span class="appshortcut">F11</span>）。</li>
+            <li data-id="p_batc_clsi" data-vn="2"><span class="appgesture">点击</span>重建区域上要把模型重投影过去的那一面（用边角的灰色方块确定正射投影的左上角）。用 <span class="appbutton">Estimate</span> 按钮确定正射投影的最佳尺寸（分辨率），或手动修改这些值。然后点击 <span class="appribbonbutton">Add to batch</span> 按钮（未处理的正射投影会出现在 <span class="appaspecttype">1Ds</span> 面板项目树中模型下方）。重复操作，直到定义好所需的所有正射视图。</li>  
+            <li data-id="p_batc_clun" data-vn="1">在 <span class="appaspecttype">1Ds</span> 面板中选中未处理的正射投影。</li>
+            <li data-id="p_batc_reun" data-vn="1">最后<span class="appgesture">点击</span> <span class="appaspecttype">Selected ortho photo(s)</span> 面板中的 <span class="appribbonbutton">Render</span> 按钮，自动处理加入批次的全部未处理正射投影。</li>
+            <li data-id="p_batc_adde" data-vn="1">处理完成的正射投影会加到项目树中，位于未处理的那些下方。</li>
+            <li data-id="p_batc_dele" data-vn="1">要删除所有未处理的正射投影，先在 <span class="appaspecttype">1Ds</span> 面板中选中它们，再点击 <span class="appaspecttype">Selected ortho photo(s)</span> 面板中的 <span class="appbutton">Delete</span> 按钮。</li>
+        </ul>
+
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div> 
+
+        <div data-id="div_sb_meas" class="slideblock">
+
+            <h2 data-id="h2_meas" data-vn="1">测量</h2>
+
+            <p data-id="p_h2_meas" data-vn="2">
+                在正射投影中可以测量距离，并检查面积与体积。
+            </p>
+
+            <p data-id="p_meas_orth" data-vn="2">
+                所选正射投影的面积与体积信息可在 <span class="apppanel">Selected ortho photo(s)</span> 面板中查看：
+            </p>
+
+            <ul class="apppanelitems">
+                <li class="apppanelitem" data-id="li_meas_cuvo" data-vn="1"><span class="appproperty">Cut volume</span> - 重建区域底面与渲染模型可见表面之间的体积。</li>
+                <li class="apppanelitem" data-id="li_meas_fivo" data-vn="1"><span class="appproperty">Fill volume</span> - 重建区域顶面与渲染模型可见表面之间的体积。</li>
+                <li class="apppanelitem" data-id="li_meas_ar2d" data-vn="1"><span class="appproperty">Area 2D</span> - 渲染出的投影面积，或重建区域顶面/底面的面积。</li>
+                <li class="apppanelitem" data-id="li_meas_ar3d" data-vn="1"><span class="appproperty">Area 3D</span> - 渲染模型可见表面的面积。</li>
+            </ul>
+
+            <br/>
+
+            <p data-id="p_meas_ordi" data-vn="2">
+                在 <span class="appribbon">ORTHO 2D</span>/<span class="appribbon">TOOLS</span> 上下文选项卡中可以找到 <span class="apptool">Measure Distance</span> 工具，用于测量线段两端点所代表的两点之间的二维和三维距离。 
+            </p>
+
+            <ul>
+                <li data-id="li_meas_cldi" data-vn="2">在 <span class="appribbon">ORTHO 2D</span>/<span class="appribbon">TOOLS</span> 上下文选项卡的 <span class="apppanel">Tools</span> 面板中<span class="appgesture">点击</span> <span class="apptool">Measure Distance</span> 按钮。</li>
+                <li data-id="li_meas_didi" data-vn="1"><span class="apptool">Measure Distance</span> 工具会在所有正射 <span class="appaspecttype">2D</span> 视图中显示。</li>
+                <li data-id="li_meas_momo" data-vn="2">用鼠标<span class="appgesture">移动</span>工具线段的端点。</li>
+            </ul>            
+            
+            <br/>
+            <script type="text/javascript">RenderYouTubeVideo( 640, 480, "https://www.youtube.com/embed/nQOji8lwE44?enablejsapi=1", "(ortho distance tool)" )</script>
+            <br/>
+            
+            <p data-id="p_meas_ogps" data-vn="1">
+                把鼠标悬停在 <span class="appaspecttype">2D</span> 视图中显示的正射影像上时，还能看到所指每个点的 GPS 坐标和坐标系。
+            </p>
+
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div> 
+
+        <div data-id="div_sb_expo" class="slideblock">
+
+            <h2 data-id="h2_expo" data-vn="1" id="Export">导出</h2>
+
+            <p data-id="p_h2_export" data-vn="2">
+                可以把所选正射投影导出为正射影像、数字表面模型或数字地形模型。这三者提供的信息不同，请按用途选择。<br/> 若选中了多个正射投影，则全部导出。 
+            </p>
+            
+            <p data-id="p_export" data-vn="2">
+                要导出正射投影，进入 <span class="appribbon">ORTHO 2D</span>/<span class="appribbon">TOOLS</span> 上下文选项卡，选择正射投影的导出类型，会弹出保存文件的对话框。输入文件名并选择格式，然后<span class="appgesture">点击</span> <span class="apptool">Save</span>。点击 <span class="apptool">Save</span> 按钮后会出现导出对话框。也可以使用 <span class="appribbon">WORKFLOW</span> 选项卡中通用的 <span class="apptool">Export</span> 按钮。
+            </p>            
+
+            <h3 data-id="h3_orph" data-vn="1">导出正射影像</h3>
+
+            <div style="padding: 10px 10px 10px 0px">
+                <img src="images/export-ortho-photo-1.png" alt="export-ortho-photo-1" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tutorials/images/export-ortho-photo-1.png';"/>
+            </div>   
+            
+            <ul class="apppanelitems">
+                <li class="apppanelitem" data-id="li_exse_exwf" data-vn="1"><span class="appproperty">Export world file</span> 勾选后同时导出 world 文件。</li>
+                <li class="apppanelitem" data-id="li_exse_wfcs" data-vn="1"><span class="appproperty">World file coordinate system </span> 可选 <span class="appproperty">Projected</span>、<span class="appproperty">Global</span> 或 <span class="appproperty">Image</span>。选 <span class="appproperty">Projected</span> 时，模型会投影到由重建框定义的选定平面上，制作翻转立面时很有用；制作地图或顶视图请选 <span class="appproperty">Global</span>；制作立面图或剖面图请选 <span class="appproperty">Image</span>。<br/><br/> <div data-id="div_im_wf" data-vn="1" class="importantMessage"> 注意：world 文件是一种纯文本数据文件，许多地理信息系统（GIS）用它为栅格地图图像做地理参考。小比例尺矩形栅格地图可附带一个 world 文件，供 GIS 软件描述地图的位置、比例和旋转。</div> <br/>
+                </li>
+                <li class="apppanelitem" data-id="li_exse_ppf" data-vn="1"><span class="appproperty">Export projection parameters file</span> 勾选后导出包含投影参数的文件，例如正射图像、全局坐标系与世界坐标系之间的变换矩阵，以及框定义、图像分辨率、坐标系定义等。</li>
+                <li class="apppanelitem" data-id="li_exse_cmpr" data-vn="1"><span class="appproperty">Compression</span> 可选择压缩算法来压缩正射投影，得到更紧凑的数据表示。</li>
+                <li class="apppanelitem" data-id="li_exse_btiff" data-vn="1"><span class="appproperty">Export as BigTIFF</span> 若正射投影超过 4GB，可导出为 BigTIFF。选择 .tif 或 .tiff 格式时可用。</li>
+                <li class="apppanelitem" data-id="li_exse_timf" data-vn="1"><span class="appproperty">Tile image format</span> 金字塔图像文件格式，与 .KML 和 .KMZ 格式配合使用。</li>
+                <li class="apppanelitem" data-id="li_exse_timr" data-vn="1"><span class="appproperty">Tile image resolution (pixel)</span> 金字塔图像分辨率，与 .KML 和 .KMZ 格式配合使用。</li>
+            </ul>
+            
+            
+
+            <h3 data-id="h3_ordm" data-vn="1">导出数字表面模型与数字地形模型</h3>
+
+            <p data-id="p_export_ordm" data-vn="1">
+                数字表面模型与数字地形模型的导出沿用正射影像导出的设置，另外还有以下选项。
+            </p> 
+
+            <div style="padding: 10px 10px 10px 0px">
+                <img src="images/export-dsm-dtm-1.png" alt="export-dsm-dtm-1" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tutorials/images/export-dsm-dtm-1.png';"/>
+            </div>
+            
+            <ul class="apppanelitems">
+                <li class="apppanelitem" data-id="li_exse_palette" data-vn="1"><span class="appproperty">Color palette</span> 选择渲染深度与高程数据所用的调色板。</li>
+                <li class="apppanelitem" data-id="li_exse_depth" data-vn="1"><span class="appproperty">Color depth</span> 选择 8 位或 16 位色深。</li>
+                <li class="apppanelitem" data-id="li_exse_pity" data-vn="2"><span class="appproperty">Pixel type</span> 决定导出内容显示哪种信息。<span class="appproperty">Altitude</span> 显示 RealityScan 坐标系中的高度；若模型已地理参考，则显示项目坐标系中的高度。<span class="appproperty">Depth (local)</span> 是从重建区域顶面量起的深度。<span class="appproperty">Depth (global)</span> 是从「包含项目坐标系零点、且平行于投影面」的平面量起的深度。这样在满足「所有投影面平行」的前提下，可以生成多个深度基准一致的投影。请注意：RGB 文件格式下深度会以 JET 色阶导出；若要以浮点导出深度，请选择 .tiff 格式。</li>
+                <li class="apppanelitem" data-id="li_exse_nori" data-vn="1"><span class="appproperty">Normalize image</span> 启用后，导出的正射投影可直接在各种图像编辑软件中使用。设为 <span class="appproperty">Yes</span> 时，高度会被归一化到 &lt;0,1&gt; 区间。若要保留深度（全局），务必把此项设为 <span class="appproperty">No</span>。</li>
+                <li class="apppanelitem" data-id="li_exse_aphc" data-vn="1"><span class="appproperty">Alpha channel</span> 设为 <span class="appproperty">Yes</span> 时，导出的正射投影为 RGBA 色彩模型，背景透明；不使用此设置则导出为灰度图。请注意设为 <span class="appproperty">Yes</span> 时最终文件可能大四倍。</li>
+
+            </ul>
+            <br/>
+            <div data-id="div_im_map" data-vn="1" class="importantMessage">    
+                    注意：导出为 KML 或 KMZ 格式时，建议使用 Map 类型的正射投影。
+            </div>
+            
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_bc" class="blocksContainer">
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+        <!-- content slide end -->
+
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+    <script type="text/javascript">
+        InitializeTutorialMode(RCOrthoHandler);
+    </script>
+
+
+</body>
+</html>
+<!-- signature:PI5L21w8dangynMZs8uYWkKJkTs/zVIL3OOIvliuzs3uGW/W7UG3mnZBy72b4nm+fp2V1PZB9MHyTjFKqGNHyMYOYUA/F683Krm5be6d78WOmTj+M8ebFdLdOMwF6fJ8AyiS/4xLkgadZbOFM+NcBnt1V3zpGRDom/ZMiTUf1E0= -->

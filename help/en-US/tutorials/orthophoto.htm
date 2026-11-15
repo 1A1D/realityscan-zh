@@ -1,0 +1,221 @@
+﻿<html>
+<head>
+    <title>RealityScan 帮助</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Epic Games Slovakia s.r.o." />
+    <meta http-equiv="X-UA-Compatible" content="IE=12"/>
+    <link type="text/css" rel="stylesheet" href="../../styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/colors.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css" />
+    <script src="../scripts/textVars.js" type="text/javascript"></script>
+    <script src="../../scripts/localization.js" type="text/javascript"></script>
+    <script src="../../scripts/main.js" type="text/javascript"></script>
+</head>
+<body ondragstart="return false;">
+
+    <div data-id="div_cs" class="content_slide">
+
+        <!-- content slide -->
+        <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head" class="head">
+
+            <h1 data-id="h1" data-vn="1">正射投影</h1>
+            <p data-id="p_h1" data-vn="4">
+                RealityScan 支持创建任意方向的正射投影。每个正射投影都连同颜色、深度和高程图层一起保存在项目中。你可以创建并导出带地理配准的正射影像图、图像镶嵌、DSM、DTM、侧视投影等。 
+            </p>
+        </div>
+
+        <div data-id="div_norb" class="importantMessage RCNoReconBox">
+
+            <h2 data-id="h2_prer" data-vn="1">前提条件</h2>
+            <ul>
+                <li data-id="li_prer" data-vn="1" class="RCNoModels">必须已完成模型重建并选中该模型。</li>
+            </ul>
+        </div>
+        <br/>
+
+        <div data-id="div_sb_acus" class="slideblock">
+
+            <h2 data-id="h2_acus" data-vn="1">启用并使用工具</h2>
+
+            <p data-id="p_h2_acus" data-vn="3">只有在指定了重建区域、且至少已创建一个模型之后，该工具才会激活——这对确定投影方向很有帮助。若跳过这一步，正射工具会自动识别一个合理的区域，你之后仍可调整。要创建重建区域，进入 <span class="appribbon">MESH &amp; COLOR</span> 选项卡或 <span class="appribbon">SCENE 3D</span>/<span class="appribbon">TOOLS</span> 选项卡，点击 <span class="appribbonbutton">Set Reconstruction Region</span> 按钮。关于如何设置重建区域的更多内容，<a href="../tools/reconbox.htm">请见此处</a>。</p>
+
+            <p data-id="p_acus_crea" data-vn="1">
+                要为选中的模型创建正射投影：
+             </p>
+            <ul>
+                <li data-id="li_acus_sele" data-vn="3">在 <span class="appaspecttype">3Ds</span> 视图中显示出要用于创建正射投影的模型。<span class="apptool">Ortho Projection</span> 工具位于 <span class="appribbon">SCENE 3D</span>/<span class="appribbon">TOOLS</span> 选项卡的 <span class="apppanel">Tools</span> 区域。</li>
+            </ul>    
+                <div style="padding: 10px 10px 10px 20px">
+                <img src="images/OrthoProjectionToolRibbon.png" alt="OrthoProjectionToolRibbon" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tutorials/images/OrthoProjectionToolRibbon.png';"/>
+                </div>
+            <ul>    
+                <li data-id="li_acus_pres" data-vn="1">也可以直接按键盘上的 <span class="view3dTool">按下</span> <span class="appribbonbutton">F11</span> 代替上述步骤，或使用 <span class="appribbon">WORKFLOW</span> 选项卡中的 <span class="apptool">Ortho Projection</span> 工具。</li>                              
+                <li data-id="li_acus_widg" data-vn="1">正射投影的<span class="view3dTool">widget</span>会出现于 <span class="appaspecttype">3Ds</span> 视图中。选择感兴趣的区域与投影面。</li>
+                <li data-id="li_acus_pane" data-vn="1">在 <span class="appaspecttype">1Ds</span> 视图中还会出现一个新面板 <span class="apppanel">Ortho Projection Panel</span>，在其中填写正射投影的参数。</li>
+                <li data-id="li_acus_rend" data-vn="1"><span class="appgesture">点击</span> <span class="appribbonbutton">Render</span> 按钮创建正射投影。</li>
+            </ul>
+            <br/>
+            <p data-id="p_acus_mult" data-vn="1">想了解如何一次创建多个正射投影，请见 <a href="orthophoto_export.htm#BatchProcessing">Batch Processing</a>。</p>
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div> 
+
+       <div data-id="div_sb_prwi" class="slideblock">
+
+            <h2 data-id="h2_prwi" data-vn="1">投影控件</h2>
+            <p data-id="p_h2_prwi" data-vn="1">
+                该<span class="view3dTool">widget</span>可帮你快速确定要渲染场景的哪一部分、投影方向以及渲染图像的朝向。
+            </p>
+
+            <div class="halfslide" >
+                <ul>
+                    <li data-id="li_prwi_insi" data-vn="1">只有重建区域内的三角面会被投影到所选的橙色面上。</li>
+                    <li data-id="li_prwi_oran" data-vn="1">橙色方块代表渲染图像的左上角。在重建区域任意一个角上<span class="appgesture">点击</span>灰色方块即可改变它。</li>
+                    <li data-id="li_prwi_dire" data-vn="1">点击灰色方块也可以选择正射投影的方向。</li>
+                    <li data-id="li_prwi_reda" data-vn="1">红色箭头表示正射投影方向。</li>
+                    <li data-id="li_prwi_char" data-vn="1">只有当正射投影类型选为 <span class="appproperty">Top</span> 或 <span class="appproperty">Side</span> 时，才能把它切换到某些指定面。</li>
+                    <li data-id="li_prwi_chrr" data-vn="1">可以用缩放、平移和旋转手柄来改变重建区域的属性。</li>
+                    <li data-id="li_prwi_ribb" data-vn="1">当正射投影类型选为 <span class="appproperty">Top</span> 或 <span class="appproperty">Side</span> 时，只能使用红色的旋转手柄。</li>
+                </ul>
+            </div>
+            
+            <div class="halfslide" >
+                <div class="slideShow" id="OrthoprojectionWidget" delay="2">
+                    <ul class="slideShowSlidesContainer">
+                        <li><img src="images/OrthoWidget1.jpg" class="autoimg" title="slide 1" delay="2" alt="OrthoWidget1" onerror="this.onerror=null;this.src='../../en-US/tutorials/images/OrthoWidget1.jpg';"/></li>
+                        <li><img src="images/OrthoWidget2.jpg" class="autoimg" title="slide 2" delay="2" alt="OrthoWidget2" onerror="this.onerror=null;this.src='../../en-US/tutorials/images/OrthoWidget2.jpg';"/></li>
+                        <li><img src="images/OrthoWidget3.jpg" class="autoimg" title="slide 3" delay="2" alt="OrthoWidget3" onerror="this.onerror=null;this.src='../../en-US/tutorials/images/OrthoWidget3.jpg';"/></li>
+                        <li><img src="images/OrthoWidget4.jpg" class="autoimg" title="slide 4" delay="2" alt="OrthoWidget4" onerror="this.onerror=null;this.src='../../en-US/tutorials/images/OrthoWidget4.jpg';"/></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+        
+        <script type="text/javascript">RenderYouTubeVideo( 640, 480, "https://www.youtube.com/embed/rAFQ5qE9HkI" )</script>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sb_sepa" class="slideblock">
+
+            <h2 data-id="h2_sepa" data-vn="2" id="OrthoProjectionSettings">正射投影工具面板</h2>
+
+            <p data-id="p_h2_sepa" data-vn="2"><span class="apptool">Ortho Projection</span> 工具激活时，可在 <span class="appaspecttype">1Ds</span> 视图中看到此面板。它可用于确定正射投影尺寸、指定渲染选项，以及设定该投影任务何时执行。</p>
+
+            <div class="halfslide">
+                <ul>
+                    <li data-id="li_sepa_type" data-vn="1"><span class="appproperty">Type</span> 要创建的正射投影类型。<br/>
+                        <p data-id="p_sepa_type" data-vn="1" style="padding: 15px">
+                            <span class="appproperty">Arbitrary</span> No restrictions.<br/>
+                            <span class="appproperty">Top</span> 需要制作带地理配准的正射影像或 DSM 并导出到 GIS 应用时，用这个类型：可确保投影始终与所选坐标系对齐。<br/>
+                            <span class="appproperty">Side</span> 此时正射投影平面会始终垂直于所选坐标系的地平面。当正射影像要用作 CAD 工程文档的底图时很有用。<br/>
+                            <span class="appproperty">Map</span> 选此选项时坐标系会设为 WGS84，所有旋转选项锁定为 0。把正射影像导出为 KML 或 KMZ 格式时用这个类型。
+                        </p>
+                        <p data-id="p_sepa_tyav" data-vn="1">此选项仅对已做地理配准的场景可用；否则会自动选中任意（arbitrary）类型。 </p>
+                    </li>
+                    <li data-id="li_sepa_info" data-vn="1"><span class="appproperty">Info</span> 定义重建区域的分组。</li>
+                    <li data-id="li_sepa_incs" data-vn="1"><span class="appproperty">Info - Coordinate system</span> 定义重建区域所用的坐标系，正射投影也会在该坐标系中进行。因此请务必注意这些设置并正确选择—— <a href="../appbasics/coordinatesystem.htm">more about coordinate systems</a>.<br/>
+                        <p data-id="p_sepa_inno" data-vn="1" class="note">
+                            请注意：若模型未做地理配准，坐标系面板不会出现，正射投影会建在局部坐标系下。
+                        </p>
+                    </li>
+                    <li data-id="li_sepa_reme" data-vn="1"><span class="appproperty">Rendering method</span> 渲染方式：图像镶嵌（常规或航空）、从带纹理或带颜色的模型生成真正射。</li>
+                    <li data-id="li_sepa_wihe" data-vn="1"><span class="appproperty">Width, Height</span> 渲染正射投影的分辨率。改变高度（宽度）时，正射像素尺寸与宽度（高度）会随之重新计算。</li>
+                    <li data-id="li_sepa_orps" data-vn="1"><span class="appproperty">Ortho pixel size</span> 所选坐标系下一个像素的尺寸（单位/像素）。改变此设置时，宽度与高度会随之重新计算。</li>
+                    <li data-id="li_sepa_esor" data-vn="1"><span class="appproperty">Estimate optimal resolution</span> 依据当前所选模型的属性（带颜色、带纹理、模型质量等）计算出最佳分辨率。</li>
+                    <li data-id="li_sepa_coty" data-vn="1"><span class="appproperty">Color type</span> 若模型已带纹理，可选择用着色还是贴图来计算正射投影。</li>
+                    <li data-id="li_sepa_bact" data-vn="1"><span class="appproperty">Backface color type</span> 若三角面的背面投影到所选投影矩形内，可以选择其颜色类型（<span class="appproperty">Backface color</span>）与颜色透明度（<span class="appproperty">Backface color transparency</span>）。仅在创建模型剖面时适用，见右图。</li>
+                    <li data-id="li_sepa_gdtm" data-vn="1"><span class="appproperty">Generate DTM</span> 想随正射投影一起生成数字地形模型就设为“ON”；不想生成则设为“OFF”。</li>
+                    <li data-id="li_sepa_dtmc" data-vn="1"><span class="appproperty">DTM from classification</span> 选择一个已有分类用于生成 DTM，或新建一个。若选 New Classification，会出现 DTM 生成设置。</li>
+                    <li data-id="li_sepa_reop" data-vn="1"><span class="appproperty">Render ortho projection</span> 点击 <span class="appbutton">Render</span> 开始渲染正射投影。</li>
+                    <li data-id="li_sepa_crun" data-vn="1"><span class="appproperty">创建未处理（待处理）的正射投影</span> 当你点击 <span class="appbutton">Add to batch</span> 时会新建一个空的正射投影。若想快速建好多个正射投影、之后再一次性批量渲染，这很有用。</li>
+                </ul>
+            </div>
+
+            <div class="halfslide" >
+
+                <div class="slideShow" id="OrthoprojectionPanel" delay="2">
+                    <ul class="slideShowSlidesContainer">
+                        <li><img src="images/OrthoPanel1.png" class="autoimg" title="slide 1" delay="2" alt="OrthoPanel1" onerror="this.onerror=null;this.src='../../en-US/tutorials/images/OrthoPanel1.png';"/></li>
+                        <li><img src="images/OrthoPanel2.png" class="autoimg" title="slide 2" delay="2" alt="OrthoPanel2" onerror="this.onerror=null;this.src='../../en-US/tutorials/images/OrthoPanel2.png';"/></li>
+                        <li><img src="images/OrthoPanel3.png" class="autoimg" title="slide 3" delay="2" alt="OrthoPanel3" onerror="this.onerror=null;this.src='../../en-US/tutorials/images/OrthoPanel3.png';"/></li>
+                        <li><img src="images/OrthoPanel4.png" class="autoimg" title="slide 4" delay="2" alt="OrthoPanel4" onerror="this.onerror=null;this.src='../../en-US/tutorials/images/OrthoPanel4.png';"/></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="halfslide" >
+                <img src="../../images/Backface_color.jpg" alt="Backface color" class="autoimg"/>
+            </div>
+
+            <div class="clear splitSpacing">
+                <!-- clear -->
+            </div> 
+
+        </div>
+
+        <div data-id="div_noor" class="RCNoOrthos warningBox">
+            <p data-id="p_noor" data-vn="1">要继续，请创建一个或多个正射投影。</p>
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_bc" class="blocksContainer">
+
+            <div id="idDontContinue" class="RCNoOrthos leadBlock block TileColor5">
+                <h2 data-id="h2_bc_maop" data-vn="1">继续</h2>
+                <p data-id="p_h2_bc_maop" data-vn="1">管理正射投影，以及显示与导出</p>
+            </div>
+
+            <a id="idContinue" href="orthophoto_export.htm" class="RCHasOrtho">
+                <div class="leadBlock block TileColor6">
+                    <h2 data-id="h2_bc_maopc" data-vn="1">继续</h2>
+                    <p data-id="p_h2_bc_maopc" data-vn="1">管理正射投影，以及显示与导出</p>
+                </div>
+            </a>
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sa" class="rowblock">
+            <h3 data-id="h3_sa" data-vn="1">另见：</h3>
+            <ul class="intend">
+                <li data-id="li_sa_setr" data-vn="1">如何选择重建模型中的三角面，<a href="../appbasics/reconselection.htm">点击此处</a></li>
+                <li data-id="li_sa_clmo" data-vn="1">如何对模型进行分类，<a href="../tools/classification.htm">点击此处</a></li>
+            </ul>
+            <div class="clear">
+                <!-- clear -->
+            </div>
+        </div>
+
+        <!-- content slide end -->
+
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+    <script type="text/javascript">
+        InitializeTutorialMode(RCModelsHandler, RCReconBoxHandler, RCOrthoHandler);
+    </script>
+
+
+</body>
+</html>
+<!-- signature:gn3tRVqP4nG1f2JOmdTXZDxKaNM6FZUL1uOCXvLoCczWBtr+QgfUxWfpWjn/RH1xkswFDGL9XX+d+o2T0sEvJJfYR1tb9lqP+pGxedIjcRcmglWV4LU78Df0wMVGa1ETMQEZoMkTtjOcdD1n9bJW3z1OjuFmrwl7Xr/5WKsf+wU= -->

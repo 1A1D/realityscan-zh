@@ -1,0 +1,166 @@
+<html>
+<head>
+    <title>RealityScan 帮助</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Epic Games Slovakia s.r.o." />
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <link type="text/css" rel="stylesheet" href="../../styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/colors.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css" />
+    <script src="../scripts/textVars.js" type="text/javascript"></script>
+    <script src="../../scripts/localization.js" type="text/javascript"></script>
+    <script src="../../scripts/main.js" type="text/javascript"></script>
+</head>
+<body ondragstart="return false;">
+
+    <div data-id="div_cs" class="content_slide">
+
+        <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_cs_cpme" class="head">
+
+            <h1 data-id="h1" data-vn="1">控制点测量导出</h1>
+            <p data-id="p_h1" data-vn="1">若你已在图像中放置<a href="controlpoints.htm">control points</a>，可以很方便地把它们的位置导出为文件。</p>
+
+            <ul>
+                <li data-id="li_h1_awar" data-vn="2">注意：RealityScan 只导出所选控制点的测量值（至少选中 2 个）。要导出全部测量值，请不要选中任何控制点。</li>
+                <li data-id="li_h1_goto" data-vn="1">进入 <span class="appribbon">ALIGNMENT</span> / <span class="apppanel">Export</span> / <span class="appribbonbutton">Control Points</span>。</li>
+                <li data-id="li_h1_fill" data-vn="1">填写文件名并选择文件类型：<br/><br/> <img src="images/Export-Control-Points-Measurements.png" alt="Export-Control-Points-Measurements" onerror="this.onerror=null;this.src='../../en-US/tools/images/Export-Control-Points-Measurements.png';"/>
+                </li>
+                <li data-id="li_h1_pres" data-vn="1">点击 <span class="appbutton">Save</span> 导出。</li>
+            </ul>
+            <br />
+            <div data-id="div_im_al1cp" data-vn="1" class="importantMessage">注意：只有项目中至少存在一个控制点时，此选项才可用。</div>
+            <ul>
+                <li data-id="li_h1_cpme" data-vn="1">控制点测量值也可以用<a href="../Tutorials/commandline_1.htm">命令行</a>导出。</li>
+            </ul>
+        </div>
+
+        <div data-id="div_cs_fifo" class="slideblock">
+
+            <h2 data-id="h2_fifo" data-vn="1" id="formatsID">文件格式</h2>
+            <ul>
+                <li data-id="li_fifo_3typ" data-vn="2">RealityScan 支持 3 种与我们的导入兼容的基本导出格式：逗号分隔、空格分隔和制表符分隔的 csv 文件。</li>
+                <li data-id="li_fifo_stor" data-vn="1">导出格式清单保存在 <span style="font-style: italic">measurementsexport.xml</span> 中，其中所有格式都以简单脚本的形式定义。<br /><br/> <div class="importantMessage">注意：最近使用的 5 种格式会优先显示在导出对话框窗口顶部。</div>
+                </li>
+                <li data-id="li_fifo_adva" data-vn="1">高级用户可通过我们的 API 轻松修改现有格式或创建自己的格式。 <br />
+                    To export measurements of control points, use the <span style="">$ExportControlPointsMeasurements(...)</span> function and inside the brackets put everything which should be printed for each measurement. <br />
+                    The expansion system will automatically substitute variables/terms inside the brackets starting with a dollar sign ($). Everything else will be left untouched like it is, including new lines.
+                    <br />
+                    <br />
+                    <p data-id="p_fifo_exsc" data-vn="1">An example script:</p>
+                    <div class="codeSample">
+                        $ExportControlPointsMeasurements($(imagePath)$(imageName)$(imageExt), Point$(pointIndex + 1), $(x:g), $(y:g) <br />
+                        )
+                    </div>
+
+                    <p data-id="p_fifo_exou" data-vn="1">上述脚本的输出示例：</p>
+                    <div class="codeSample">
+                        Z:\Dataset\DSC_0010.JPG, Point1, 2906.45, 1345.21 <br />
+                        Z:\Dataset\DSC_0011.JPG, Point1, 2632.51, 964.36  <br />
+                        Z:\Dataset\DSC_0011.JPG, Point3, 2786.19, 1512.24 <br />
+                    </div>
+
+                    <br />
+                    <p data-id="p_fifo_suto" data-vn="1">Supported tokens:</p><br />
+                    <table class="tableofcommands">
+                        <thead>
+                            <tr data-id="tr_fifo_head" data-vn="1">
+                                <th>Token</th>
+                                <th>Description</th>
+                                <th>Type</th>
+                            </tr>
+                        </thead>
+                        <tr data-id="tr_fifo_mein" data-vn="1">
+                            <td><span class="textEmp">measurementIndex</span></td>
+                            <td>Index of a measurement</td>
+                            <td>Integer</td>
+                        </tr>
+                        <tr data-id="tr_fifo_imin" data-vn="1">
+                            <td><span class="textEmp">imageIndex</span></td>
+                            <td>含测量值的影像索引</td>
+                            <td>Integer</td>
+                        </tr>
+                        <tr data-id="tr_fifo_impa" data-vn="1">
+                            <td><span class="textEmp">imagePath</span></td>
+                            <td>含测量值影像所在文件夹的路径</td>
+                            <td>String</td>
+                        </tr>
+                        <tr data-id="tr_fifo_imna" data-vn="1">
+                            <td><span class="textEmp">imageName</span></td>
+                            <td>含测量值影像的名称（不含扩展名）</td>
+                            <td>String</td>
+                        </tr>
+                        <tr data-id="tr_fifo_imex" data-vn="1">
+                            <td><span class="textEmp">imageExt</span></td>
+                            <td>Extension of an image</td>
+                            <td>String</td>
+                        </tr>
+                        <tr data-id="tr_fifo_poin" data-vn="1">
+                            <td><span class="textEmp">pointIndex</span></td>
+                            <td>Index of a control point</td>
+                            <td>Integer</td>
+                        </tr>
+                        <tr data-id="tr_fifo_pona" data-vn="1">
+                            <td><span class="textEmp">pointName</span></td>
+                            <td>Name of the control point</td>
+                            <td>String</td>
+                        </tr>
+                        <tr data-id="tr_fifo_x" data-vn="1">
+                            <td><span class="textEmp">x</span></td>
+                            <td>X - 该点相对左上角的坐标（像素）</td>
+                            <td>Double</td>
+                        </tr>
+                        <tr data-id="tr_fifo_y" data-vn="1">
+                            <td><span class="textEmp">y</span></td>
+                            <td>Y - 该点相对左上角的坐标（像素）</td>
+                            <td>Double</td>
+                        </tr>
+                    </table>
+                </li>
+            </ul>
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_bc" class="blocksContainer">
+
+            <a href="cpmeasurementsimport.htm">
+                <div class="block TileColor2">
+                    <h2 data-id="h2_bc_cpmi" data-vn="1">控制点测量导入</h2>
+                    <p data-id="p_h2_bc_cpmi" data-vn="1">如何把控制点位置导入项目</p>
+                </div>
+            </a>
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sa" class="rowblock">
+            <h3 data-id="h3_sa" data-vn="1">另见：</h3>
+            <ul class="intend">
+                <li data-id="li_sa_cp" data-vn="1">了解控制点的更多内容，<a href="controlpoints.htm">点击此处</a>。</li>
+                <li data-id="li_sa_gcp" data-vn="1">导出地面控制点，<a href="gcpexport.htm">点击此处</a>。</li>
+            </ul>
+        </div>
+
+        <!-- content slide end -->
+
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+    <script type="text/javascript">
+        InitializeHelpSlide();
+    </script>
+
+
+</body>
+</html>
+<!-- signature:T/hXUJY+wkQ/iA0d+/01435yBD/V2LTYG5mKIgbGaNVURKwTyivcm5xIDK+4CWgkyvwxFUQsC8eiLfuyTGttX1+0EjHcpX44wF54jVT5m3U4MLXmxw2AefScczNth53BOIAbTY6ufyJGN87DBwaDo0W9RZBPTbZGoxNSSGnSbxM= -->

@@ -1,0 +1,178 @@
+﻿<html>
+<head>
+    <title>RealityScan 帮助</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Epic Games Slovakia s.r.o." />
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <link type="text/css" rel="stylesheet" href="../../styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/colors.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css" />
+    <script src="../scripts/textVars.js" type="text/javascript"></script>
+    <script src="../../scripts/localization.js" type="text/javascript"></script>
+    <script src="../../scripts/main.js" type="text/javascript"></script>
+</head>
+<body ondragstart="return false;">
+
+    <div class="content_slide">
+
+        <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head" class="head">
+            <h1 data-id="h1" data-vn="1">检测标记工具</h1>
+            <p data-id="p_h1" data-vn="2">
+                该工具可自动完成在图像中放置<a href="../tools/controlpoints.htm">control points</a>的过程，比手工寻找又快又准。导入的图像中会检测所选类型的靶标，并为每个靶标创建一个控制点。<br /> 你只需准备好合适的标记（可用我们内置的生成器），在拍照前把它们放进场景，剩下的交给 RealityScan。
+            </p>
+        </div>
+
+        <div data-id="div_sb_wama" class="slideblock">
+            <h2 data-id="h2_wama" data-vn="1">什么是标记</h2>
+            <p data-id="p_h2_wama" data-vn="2">
+                标记是印在平面上的高对比度特殊图案，其形状使其能从任意视角被精确定位。此外，每个标记还能通过内部或附近的附加图码被唯一识别，我们把这些附加图码称为数据（data）。除识别外，数据还用于把标记与图像中的随机图案区分开。为了读取数据，工具要求标记足够大，一般建议拍摄到的标记宽度至少 100 像素。建议相机与标记之间的夹角大于 45 度（最理想是垂直于标记拍摄），并且标记不得被遮挡或以任何方式修改，这包括标记的白色背景。 
+            </p>
+
+            <div data-id="div_im_lslm" data-vn="1" class="importantMessage">提示：请记住，大场景需要大尺寸的标记。</div>
+
+            <h3 data-id="h3_maty" data-vn="1">标记类型</h3>
+            <ul>
+                <li data-id="li_maty_cisi" data-vn="1"><span class="appproperty">Circular, single ring</span> 带数据环的简单圆形靶标。凭借白色中心点，可达到很高精度。</li>
+                <li data-id="li_maty_cidu" data-vn="1"><span class="appproperty">Circular, dual ring</span> 带数据环与外围方向环的圆形靶标，精度与单环型相当。</li>
+                <li data-id="li_maty_sqat" data-vn="1"><span class="appproperty">Square, April Tag</span> 外观类似二维码。检出率高，即在恶劣光照条件或远距离拍摄时更容易被检出。</li>
+                <li data-id="li_maty_cile" data-vn="2"><span class="appproperty">Circular, legacy</span> 该类型仅用于检出旧版 RealityScan 打印的圆形单环标记。旧版标记类型已无法再生成。</li>
+            </ul>
+
+            <br />
+
+            <p data-id="p_maty_subt" data-vn="1">
+                标记还有多种子类型，主要区别在于可用不同标记的数量。由于每个标记在场景中只能放置一次，应确保能生成足够多的不同标记。
+            </p>
+
+            <table>
+                <thead>
+                    <tr data-id="tr_maty_head" data-vn="1">
+                        <th style="text-align: left;">标记类型</th> 
+                        <th>最大唯一标记数</th>
+                    </tr>
+                </thead>
+                <tr data-id="tr_maty_cisi12" data-vn="1">
+                    <td style="padding-right:20px">圆形单环 12 位</td> 
+                    <td>161</td>  
+                </tr>
+                <tr data-id="tr_maty_cisi16" data-vn="1">
+                    <td>圆形单环 16 位</td> 
+                    <td>2,001</td>  
+                </tr>
+                <tr data-id="tr_maty_cisi20" data-vn="1">
+                    <td>圆形单环 20 位</td> 
+                    <td>26,013</td>  
+                </tr>
+                <tr data-id="tr_maty_cidu12" data-vn="1">
+                    <td>圆形双环 12 位</td> 
+                    <td>512</td>  
+                </tr>
+                <tr data-id="tr_maty_sqat16" data-vn="1">
+                    <td>方形 April Tag 16h5</td> 
+                    <td>30</td>  
+                </tr>
+                <tr data-id="tr_maty_sqat257" data-vn="1">
+                    <td>方形 April Tag 25h7</td> 
+                    <td>242</td>  
+                </tr>
+                <tr data-id="tr_maty_sqat259" data-vn="1">
+                    <td>方形 April Tag 25h9</td> 
+                    <td>35</td>  
+                </tr>
+                <tr data-id="tr_maty_sqat3610" data-vn="1">
+                    <td>方形 April Tag 36h10</td> 
+                    <td>2,320</td>  
+                </tr>
+                <tr data-id="tr_maty_sqat3611" data-vn="1">
+                    <td>方形 April Tag 36h11</td> 
+                    <td>587</td>  
+                </tr>
+            </table>
+        </div>
+
+        <br />
+        <div data-id="div_im_ujot" data-vn="1" class="importantMessage">提示：最佳实践是一个数据集只用一种标记类型。</div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sb_proc" class="slideblock">
+            <h2 data-id="h2_proc" data-vn="1">操作步骤</h2>
+            <ol>
+                <li data-id="li_proc_cldm" data-vn="3">点击 <span class="appribbon">ALIGNMENT</span> 选项卡 <span class="apppanel">Constraints</span> 区域的 <span class="apptool">Detect Markers</span> 按钮。也可在 <span class="appribbon">IMAGE 2D</span>/<span class="appribbon">TOOLS</span> 选项卡中找到。</li>
+                <li data-id="li_proc_fise" data-vn="2">这些设置位于 <span class="apptool">Detect Markers</span> Tool panel in the <span class="appaspecttype">1Ds</span> panel:
+
+                    <br /><br />
+
+                    <div style="padding: 10px 10px 10px 0px">
+                        <img src="images/detect-markers.png" alt="detect-markers" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/detect-markers.png';"/>
+                    </div>
+
+                    <p data-id="p_proc_sett" data-vn="2">
+                        <span class="appproperty">Marker type</span> 要检测的标记类型，各种类型见上文。<br />
+                        <span class="appproperty">Required measurements</span> 检出图像数少于此处设定值的新标记会被丢弃。该选项可有效滤掉出现在图像数不足的标记。<br />
+                        <span class="appproperty">Image layer</span> 可选择在哪个图像图层中检测标记，按你的输入内容选择即可。<br />
+                        <span class="appproperty">Marker count</span> 在此指定要生成的标记数量。可生成的标记上限由标记类型决定（见上表）。<br />
+                        <span class="appproperty">Markers per page</span> 指定每页放多少个生成的标记。<br />
+                        <span class="appproperty">Paper size</span> 打印标记所用纸张的尺寸。
+                    </p>
+                    <div data-id="div_im_serm" data-vn="1" class="importantMessage">
+                        TIP: Set <span class="appproperty">Required measurements</span> 设为大于 1 的数值，以便更稳健地检出标记。
+                    </div>
+                </li>
+                <li data-id="li_proc_rcfy" data-vn="2">若想让 RealityScan 替你生成标记，选择数量、每页个数和纸张尺寸，然后点击 <span class="appbutton">Generate</span>。</li>
+                <li data-id="li_proc_subs" data-vn="1">若只想在一部分输入图像中检测标记，请先选中这些图像。</li>
+                <li data-id="li_proc_dete" data-vn="1">现在可以点击“检测标记工具”面板中的 <span class="appbutton">Detect</span> 按钮。</li>
+                <li data-id="li_proc_necp" data-vn="1">每个被检出的标记都会创建一个新的控制点，前提是不存在名称完全相同的控制点。</li>
+            </ol>
+
+            <h3 data-id="h3_proc_whel" data-vn="1">其他说明</h3>
+            <ul>
+                <li data-id="li_whel_auto" data-vn="1">还可能在 <span class="appaspecttype">1Ds</span> 面板的控制点列表中得到一些<a href="../tools/controlpoints.htm">控制点建议</a>，由你确认或丢弃。</li>
+                <li data-id="li_whel_augm" data-vn="1">名称匹配的已有控制点会补充新的测量值，其他属性全部保留。</li>
+                <li data-id="li_whel_nccp" data-vn="1">新建的控制点是连接点，因为这些点的物理位置未知。不过检测完成后可以更改控制点的类型。</li>
+                <li data-id="li_whel_gcp" data-vn="1">给 <a href="../tools/gcpimport.htm">Ground control points</a> 取一个合适的名称，再运行标记检测，就能通过标记检测定位地面控制点。</li>
+            </ul>
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_bc" class="blocksContainer">
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sa" class="rowblock">
+            <h3 data-id="h3_sa" data-vn="1">另见：</h3>
+            <ul class="intend">
+                <li data-id="li_sa_hsmi" data-vn="1">如何多选图像，<a href="../appbasics/multiselect.htm">点击此处</a></li>
+            </ul>
+            <div class="clear">
+                <!-- clear -->
+            </div>
+        </div>
+
+        <!-- content slide end -->
+
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+    <script type="text/javascript">
+        InitializeHelpSlide();
+    </script>
+
+
+</body>
+</html>
+<!-- signature:EcXLKREsAmrsp2ZMFVtOBlitiSZq/6j6tgN3A8445yQ+EJAbFvda5UqXHyzZHkOrAmEzokfSvfr2XkHdOUi2OdCBQkp3f5RoOT/sNPVqUZB/dYcIoX8x3lx0kWwlfGTzJbMHYZh3SgHjMe4m/S5eMx8Y0WMnmIyagE1/VzNiGxw= -->

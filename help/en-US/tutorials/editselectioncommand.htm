@@ -1,0 +1,707 @@
+<html>
+<head>
+    <title>RealityScan 帮助</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Epic Games Slovakia s.r.o." />
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <link type="text/css" rel="stylesheet" href="../../styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/colors.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css"/>
+    <script src="../scripts/textVars.js" type="text/javascript"></script>
+    <script src="../../scripts/localization.js" type="text/javascript"></script>
+    <script src="../../scripts/main.js" type="text/javascript"></script>
+    <script type="text/javascript">InitializeHelpSlide();</script>
+</head>
+<body ondragstart="return false;">
+
+    <div data-id="div_cs" class="content_slide">
+
+        <!-- content slide -->
+
+        <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head" class="head">
+            <h1 data-id="h1" data-vn="1">选区的 CLI 设置</h1>
+            <p data-id="p_h1" data-vn="1">部分选区的设置与参数可以通过 CLI 命令修改：输入、控制点、约束和正射投影。这些命令需要一个<span class="parameter">key</span>（标识要修改的设置）和一个 <span class="parameter">value</span>。下面的表格列出了可修改设置的键与值。</p> 
+            
+            <p data-id="p_keyopts" data-vn="1">
+            几乎每一项设置都有两个可用的键：上面的键（<span class="command">蓝色</span>）通常是设置的缩写，下面的键（<span class="note">灰色</span>）是依据该设置所在面板得出的完整路径。</p>
+        </div>
+
+        <div data-id="div_sb_inputs" class="slideblock splitSpacing">
+            <h2 data-id="h2_inputs" data-vn="1">输入选区</h2>
+            <p data-id="p_h2_inppanel" data-vn="1">
+                这些设置位于 <span class="apppanel">Selected Inputs</span> 面板，可用 <span class="command">-editInputSelection</span> 命令修改。
+            </p>
+            
+            <table class="tableofcommands">
+                <thead data-id="thead_inputs" data-vn="1">
+                <tr>
+                    <th>名称</th> <th >键</th> <th>值</th> <th>值说明</th>
+                </tr>
+                </thead>            
+                <tr data-id="tr_inputs_masklay" data-vn="1">
+                    <td rowspan="4" data-id="td_inputs_masklay">遮罩图层的使用方式</td>
+                    <td rowspan="4" class="command">inpMaskOpts<br/><span class="note">How to use masking layer</span></td> 
+                    <td class="parameter">0</td>
+                    <td data-id="td_inputs_masklay_zero">Do not use</td>
+                </tr>
+                <tr data-id="tr_inputs_masklay_one" data-vn="1">
+                    <td class="parameter">1</td>
+                    <td data-id="td_inputs_masklay_one">Only in alignment</td>
+                </tr>
+                <tr data-id="tr_inputs_masklay_two" data-vn="1">
+                    <td class="parameter">2</td>
+                    <td data-id="td_inputs_masklay_two">Only in meshing</td>
+                </tr>
+                <tr data-id="tr_inputs_masklay_three" data-vn="1">
+                    <td class="parameter">3</td>
+                    <td data-id="td_inputs_masklay_three">Both in alignment and meshing</td>
+                </tr>              
+                <tr data-id="tr_inputs_fsource" data-vn="1">
+                    <td rowspan="3" data-id="td_inputs_fsource">特征来源</td>
+                    <td rowspan="3" class="command">aligFeaturesMode<br/><span class="note">Features source</span></td> 
+                    <td class="parameter">0</td>
+                    <td data-id="td_inputs_fsource_zero">Merge using overlaps</td>
+                </tr>
+                <tr data-id="tr_inputs_fsource_one" data-vn="1">
+                    <td class="parameter">1</td>
+                    <td data-id="td_inputs_fsource_one">Use component features</td>
+                </tr>
+                <tr data-id="tr_inputs_fsource_two" data-vn="1">
+                    <td class="parameter">2</td>
+                    <td data-id="td_inputs_fsource_two">Use all image features</td>
+                </tr>
+                <tr data-id="tr_inputs_visible" data-vn="1">
+                    <td rowspan="2" data-id="td_inputs_visible">可见</td>
+                    <td rowspan="2" class="command">inpVisible<br/><span class="note">Visible</span></td> 
+                    <td class="parameter">true</td>
+                    <td data-id="td_inputs_visible_true">Enable camera cone in the <span class="appaspecttype">3Ds</span> view</td>
+                </tr>
+                <tr data-id="tr_inputs_visible_false" data-vn="1">
+                    <td class="parameter">false</td>
+                    <td data-id="td_inputs_visible_false">Disable camera cone in the <span class="appaspecttype">3Ds</span> view</td>
+                </tr>
+                <tr data-id="tr_inputs_align" data-vn="1">
+                    <td rowspan="2" data-id="td_inputs_align">启用对齐</td>
+                    <td rowspan="2" class="command">inpEnabled<br/><span class="note">Enable alignment</span></td> 
+                    <td class="parameter">true</td>
+                    <td data-id="td_inputs_align_true">Enable in the alignment process</td>
+                </tr>
+                <tr data-id="tr_inputs_align_false" data-vn="1">
+                    <td class="parameter">false</td>
+                    <td data-id="td_inputs_align_false">Disable in the alignment process</td>
+                </tr>
+                <tr data-id="tr_inputs_mesh" data-vn="1">
+                    <td rowspan="2" data-id="td_inputs_mesh">启用网格重建</td>
+                    <td rowspan="2" class="command">inpMeshing<br/><span class="note">Enable meshing</span></td> 
+                    <td class="parameter">true</td>
+                    <td data-id="td_inputs_mesh_true">Enable in the reconstruction process</td>
+                </tr>
+                <tr data-id="tr_inputs_mesh_false" data-vn="1">
+                    <td class="parameter">false</td>
+                    <td data-id="td_inputs_mesh_false">Disable in the reconstruction process</td>
+                </tr>        
+              <tr data-id="tr_inputs_texture" data-vn="1">
+                    <td rowspan="2" data-id="td_inputs_texture">启用贴图与上色</td>
+                    <td rowspan="2" class="command">inpTexturing<br/><span class="note">Enable texturing and coloring</span></td> 
+                    <td class="parameter">true</td>
+                    <td data-id="td_inputs_texture_true">在着色与纹理生成过程中启用</td>
+                </tr>
+                <tr data-id="tr_inputs_texture_false" data-vn="1">
+                    <td class="parameter">false</td>
+                    <td data-id="td_inputs_texture_false">在着色与纹理生成过程中禁用</td>
+                </tr>
+                <tr data-id="tr_inputs_weight" data-vn="1">
+                    <td data-id="td_inputs_weight">贴图权重</td>
+                    <td class="command">inpImageColorsWeight<br/><span class="note">Weight in texturing</span></td> 
+                    <td class="parameter">float</td>
+                    <td data-id="td_inputs_weight_def">0 到 1 之间的值，用于确定该输入在纹理计算中的权重</td>
+                </tr>
+                <tr data-id="tr_inputs_colorref" data-vn="1">
+                    <td rowspan="2" data-id="td_inputs_colorref">色彩校正参照</td>
+                    <td rowspan="2" class="command">inpColorRef<br/><span class="note">Color correction reference</span></td> 
+                    <td class="parameter">true</td>
+                    <td data-id="td_inputs_colorref_true">Enable as a color etalon in the color&#8208;correction processes</td>
+                </tr>
+                <tr data-id="tr_inputs_colorref_false" data-vn="1">
+                    <td class="parameter">false</td>
+                    <td data-id="td_inputs_colorref_false">Disable as a color etalon in the color&#8208;correction processes</td>
+                </tr>
+                <tr data-id="tr_inputs_colornorm" data-vn="1">
+                    <td rowspan="2" data-id="td_inputs_colornorm">色彩校正</td>
+                    <td rowspan="2" class="command">inpColorNorm<br/><span class="note">Color correction</span></td> 
+                    <td class="parameter">true</td>
+                    <td data-id="td_inputs_colornorm_true">Enable in the color&#8208;correction calculation</td>
+                </tr>
+                <tr data-id="tr_inputs_colornorm_false" data-vn="1">
+                    <td class="parameter">false</td>
+                    <td data-id="td_inputs_colornorm_false">Disable in the color&#8208;correction calculation</td>
+                </tr>
+                <tr data-id="tr_inputs_dscale" data-vn="1">
+                    <td data-id="td_inputs_dscale">深度图降采样</td>
+                    <td class="command">inpImageDepthMapDownscale<br/><span class="note">Downscale for depth maps</span></td> 
+                    <td class="parameter">int</td>
+                    <td data-id="td_inputs_dscale_def">任意正整数</td>
+                </tr>
+
+                <tr data-id="tr_prior_pose" data-vn="1">
+                    <th colspan="4">先验位姿设置</th>
+                </tr>
+                
+                <tr data-id="tr_prior_group" data-vn="1">
+                    <td data-id="td_prior_group">锁定位姿组</td>
+                    <td class="command">inpPosePriorRelativeGroup<br/><span class="note">Prior pose&#47;Locked pose group</span></td> 
+                    <td class="parameter">string</td>
+                    <td data-id="td_prior_group_def">任意字母数字值</td>
+                </tr>
+                <tr data-id="tr_prior_relative" data-vn="1">
+                    <td rowspan="3" data-id="td_prior_relative">相对位姿</td>
+                    <td rowspan="3" class="command">inpPosePriorRelative<br/><span class="note">Prior pose&#47;Relative pose </span></td> 
+                    <td class="parameter">0</td>
+                    <td data-id="td_prior_relative_zero">Unknown</td>
+                </tr>
+                <tr data-id="tr_prior_relative_one" data-vn="1">
+                    <td class="parameter">1</td>
+                    <td data-id="td_prior_relative_one">Draft</td>
+                </tr>                
+                <tr data-id="tr_prior_relative_two" data-vn="1">
+                    <td class="parameter">2</td>
+                    <td data-id="td_prior_relative_two">Exact</td>
+                </tr>   
+                <tr data-id="tr_prior_absolute" data-vn="1">
+                    <td rowspan="4" data-id="td_prior_absolute">绝对位姿</td>
+                    <td rowspan="4" class="command">inpPose<br/><span class="note">Prior pose&#47;Absolute pose</span></td> 
+                    <td class="parameter">0</td>
+                    <td data-id="td_prior_absolute_zero">Unknown</td>
+                </tr>
+                <tr data-id="tr_prior_absolute_one" data-vn="1">
+                    <td class="parameter">1</td>
+                    <td data-id="td_prior_absolute_one">Position</td>
+                </tr>                
+                <tr data-id="tr_prior_absolute_two" data-vn="1">
+                    <td class="parameter">2</td>
+                    <td data-id="td_prior_absolute_two">Position and orientation</td>
+                </tr>  
+                <tr data-id="tr_prior_absolute_three" data-vn="1">
+                    <td class="parameter">3</td>
+                    <td data-id="td_prior_absolute_three">Locked</td>
+                </tr>  
+                <tr data-id="tr_prior_xcoord" data-vn="1">
+                    <td>x</td>
+                    <td class="command">inpTx<br/><span class="note">Prior pose&#47;x</span></td> 
+                    <td class="parameter">float</td>
+                    <td data-id="td_prior_xcoord">任意数字</td>
+                </tr>
+                <tr data-id="tr_prior_ycoord" data-vn="1">
+                    <td>y</td>
+                    <td class="command">inpTy<br/><span class="note">Prior pose&#47;y</span></td> 
+                    <td class="parameter">float</td>
+                    <td data-id="td_prior_ycoord">任意数字</td>
+                </tr>
+                <tr data-id="tr_prior_zcoord" data-vn="1">
+                    <td>z</td>
+                    <td class="command">inpTz<br/><span class="note">Prior pose&#47;z</span></td> 
+                    <td class="parameter">float</td>
+                    <td data-id="td_prior_zcoord">任意数字</td>
+                </tr>
+                <tr data-id="tr_prior_yaw" data-vn="1">
+                    <td data-id="td_prior_yaw">偏航 / 航向</td>
+                    <td class="command">inpRx</td> 
+                    <td class="parameter">float</td>
+                    <td data-id="td_prior_yaw_def">-180 到 180 之间的任意值</td>
+                </tr>
+                <tr data-id="tr_prior_pitch" data-vn="1">
+                    <td data-id="td_prior_pitch">俯仰 / 仰角</td>
+                    <td class="command">inpRy</td> 
+                    <td class="parameter">float</td>
+                    <td data-id="td_prior_pitch_def">-90 到 90 之间的任意值</td>
+                </tr>
+                <tr data-id="tr_prior_roll" data-vn="1">
+                    <td data-id="td_prior_roll">翻滚 / 倾斜</td>
+                    <td class="command">inpRz</td> 
+                    <td class="parameter">float</td>
+                    <td data-id="td_prior_roll_def">-180 到 180 之间的任意值</td>
+                </tr>
+                <tr data-id="tr_prior_latitude" data-vn="1">
+                    <td data-id="td_prior_latitude" rowspan="2">纬度</td>
+                    <td class="command" rowspan="2">inpTy<br/><span class="note">Prior pose&#47;Latitude</span></td> 
+                    <td class="parameter">DMS</td>
+                    <td data-id="td_prior_latitude_dms">以度为单位的度分秒值，前缀为对应的方位字母（例如 E32,08,25.18）</td>
+                </tr>
+                <tr data-id="tr_prior_latitude_deg" data-vn="1">
+                    <td class="parameter">decimal degree</td>
+                    <td data-id="td_prior_latitude_dd">十进制角度值，前缀为对应的方位字母（例如 E32.140328）</td>
+                </tr>                
+                <tr data-id="tr_prior_longitude" data-vn="1">
+                    <td data-id="td_prior_longitude" rowspan="2">经度</td>
+                    <td class="command" rowspan="2">inpTx<br/><span class="note">Prior pose&#47;Longitude</span></td> 
+                    <td class="parameter">float</td>
+                    <td data-id="td_prior_longitude_dms">以度为单位的度分秒值，前缀为对应的方位字母（例如 E32,08,25.18）</td>
+                </tr>
+                <tr data-id="tr_prior_longitude_deg" data-vn="1">
+                    <td class="parameter">decimal degree</td>
+                    <td data-id="td_prior_longitude_dd">十进制角度值，前缀为对应的方位字母（例如 E32.140328）</td>
+                </tr> 
+                <tr data-id="tr_prior_altitude" data-vn="1">
+                    <td data-id="td_prior_altitude">高程</td>
+                    <td class="command">inpTz<br/><span class="note">Prior pose&#47;Altitude</span></td> 
+                    <td class="parameter">float</td>
+                    <td data-id="td_prior_altitude_def">任意数字</td>
+                </tr>
+
+                <tr data-id="tr_prior_accuracy" data-vn="1">
+                    <th colspan="4">先验位姿 / 位姿精度设置</th>
+                </tr>
+
+                <tr data-id="tr_pracc_src" data-vn="1">
+                    <td data-id="td_pracc_src" rowspan="2">精度设置来源</td>
+                    <td class="command" rowspan="2">inpPriorAccuracyInh<br/><span class="note">Prior pose&#47;Pose accuracy&#47;Accuracy settings source</span></td> 
+                    <td class="parameter">0</td>  
+                    <td data-id="td_pracc_src_zero">Global camera prior settings</td>
+                </tr>
+                <tr data-id="tr_pracc_src_one" data-vn="1">
+                    <td class="parameter">1</td>
+                    <td data-id="td_pracc_src_one">Edit custom values</td>
+                </tr>
+                <tr data-id="tr_pracc_xacc" data-vn="1">
+                    <td data-id="td_pracc_xacc">位置 X 精度</td>
+                    <td class="command">inpuTx<br/><span class="note">Prior pose&#47;Pose accuracy&#47;Position X accuracy</span></td> 
+                    <td class="parameter">float</td>
+                    <td data-id="td_pracc_xacc_def">任意正数或零</td>
+                </tr>
+                <tr data-id="tr_pracc_yacc" data-vn="1">
+                    <td data-id="td_pracc_yacc">位置 Y 精度</td>
+                    <td class="command">inpuTy<br/><span class="note">Prior pose&#47;Pose accuracy&#47;Position Y accuracy</span></td> 
+                    <td class="parameter">float</td>
+                    <td data-id="td_pracc_yacc_def">任意正数或零</td>
+                </tr>
+                <tr data-id="tr_pracc_zacc" data-vn="1">
+                    <td data-id="td_pracc_zacc">位置 Z 精度</td>
+                    <td class="command">inpuTz<br/><span class="note">Prior pose&#47;Pose accuracy&#47;Position Z accuracy</span></td> 
+                    <td class="parameter">float</td>
+                    <td data-id="td_pracc_zacc_def">任意正数或零</td>
+                </tr>
+                <tr data-id="tr_pracc_yaw" data-vn="1">
+                    <td data-id="td_pracc_yaw">偏航精度</td>
+                    <td class="command">inpuRx<br/><span class="note">Prior pose&#47;Pose accuracy&#47;Yaw accuracy</span></td> 
+                    <td class="parameter">float</td>
+                    <td data-id="td_pracc_yaw_def">任意正数或零</td>
+                </tr>
+                <tr data-id="tr_pracc_pitch" data-vn="1">
+                    <td data-id="td_pracc_pitch">俯仰精度</td>
+                    <td class="command">inpuRy<br/><span class="note">Prior pose&#47;Pose accuracy&#47;Pitch accuracy</span></td> 
+                    <td class="parameter">float</td>
+                    <td data-id="td_pracc_pitch_def">任意正数或零</td>
+                </tr>
+                <tr data-id="tr_pracc_roll" data-vn="1">
+                    <td data-id="td_pracc_roll">翻滚精度</td>
+                    <td class="command">inpuRz<br/><span class="note">Prior pose&#47;Pose accuracy&#47;Roll accuracy</span></td> 
+                    <td class="parameter">float</td>
+                    <td data-id="td_pracc_roll_def">任意正数或零</td>
+                </tr>
+                <tr data-id="tr_pracc_lat" data-vn="1">
+                    <td data-id="td_pracc_lat">纬度精度</td>
+                    <td class="command">inpuTy<br/><span class="note">Prior pose&#47;Pose accuracy&#47;Latitude accuracy</span></td> 
+                    <td class="parameter">float</td>
+                    <td data-id="td_pracc_lat_def">任意正数或零</td>
+                </tr>
+                <tr data-id="tr_pracc_long" data-vn="1">
+                    <td data-id="td_pracc_long">经度精度</td>
+                    <td class="command">inpuTx<br/><span class="note">Prior pose&#47;Pose accuracy&#47;Longitude accuracy</span></td> 
+                    <td class="parameter">float</td>
+                    <td data-id="td_pracc_long_def">任意正数或零</td>
+                </tr>
+                <tr data-id="tr_pracc_alt" data-vn="1">
+                    <td data-id="td_pracc_alt">高程精度</td>
+                    <td class="command">inpuTz<br/><span class="note">Prior pose&#47;Pose accuracy&#47;Altitude accuracy</span></td> 
+                    <td class="parameter">float</td>
+                    <td data-id="td_pracc_alt_def">任意正数或零</td>
+                </tr>
+                
+                <tr data-id="tr_prior_calib" data-vn="1">
+                    <th colspan="4">先验标定</th>
+                </tr>
+                <tr data-id="tr_calib_group" data-vn="1">
+                    <td data-id="td_calib_group">标定组</td>
+                    <td class="command">inpCalibrationGroup<br/><span class="note">Prior calibration&#47;Calibration group</span></td> 
+                    <td class="parameter">int</td>
+                    <td data-id="td_calib_group_def">任意正整数、零或 -1（不分组）</td>
+                </tr>
+                <tr data-id="tr_calib_prior" data-vn="1">
+                    <td data-id="td_calib_prior" rowspan="3">先验</td>
+                    <td class="command" rowspan="3">inpCalibration<br/><span class="note">Prior calibration&#47;Prior</span></td> 
+                    <td class="parameter">0</td>
+                    <td data-id="td_calib_prior_zero">Unknown</td>
+                </tr>
+                <tr data-id="tr_calib_prior_one" data-vn="1">
+                    <td class="parameter">1</td>
+                    <td data-id="td_calib_prior_one">Approximate</td>
+                </tr>
+                <tr data-id="tr_calib_prior_two" data-vn="1">
+                    <td class="parameter">2</td>
+                    <td data-id="td_calib_prior_two">Fixed</td>
+                </tr>
+                <tr data-id="tr_calib_focal" data-vn="1">
+                    <td data-id="td_calib_focal">焦距（35mm）</td>
+                    <td class="command">inpFocal<br/><span class="note">Prior calibration&#47;Focal length (35mm)</span></td> 
+                    <td class="parameter">float</td>
+                    <td data-id="td_calib_focal_def">任意正数</td>
+                </tr>
+                <tr data-id="tr_calib_prpx" data-vn="1">
+                    <td data-id="td_calib_prpx">主点 x [mm]</td>
+                    <td class="command">inpPPX<br/><span class="note">Prior calibration&#47;Principal point x [mm]</span></td> 
+                    <td class="parameter">float</td>
+                    <td data-id="td_calib_prpx_def">任意数字</td>
+                </tr>
+                <tr data-id="tr_calib_prpy" data-vn="1">
+                    <td data-id="td_calib_prpy">主点 y [mm]</td>
+                    <td class="command">inpPPY<br/><span class="note">Prior calibration&#47;Principal point y [mm]</span></td> 
+                    <td class="parameter">float</td>
+                    <td data-id="td_calib_prpy_def">任意数字</td>
+                </tr>
+                <tr data-id="tr_calib_skew" data-vn="1">
+                    <td data-id="td_calib_skew">斜切</td>
+                    <td class="command">inpSkew<br/><span class="note">Prior calibration&#47;Skew</span></td> 
+                    <td class="parameter">float</td>
+                    <td data-id="td_calib_skew_def">任意数字</td>
+                </tr>
+                <tr data-id="tr_calib_arat" data-vn="1">
+                    <td data-id="td_calib_arat">宽高比</td>
+                    <td class="command">inpSkew<br/><span class="note">Prior calibration&#47;Aspect ratio</span></td> 
+                    <td class="parameter">float</td>
+                    <td data-id="td_calib_arat_def">任意数字</td>
+                </tr>
+                
+                <tr data-id="tr_prior_ldist" data-vn="1">
+                    <th colspan="4">先验镜头畸变</th>
+                </tr>
+                
+                <tr data-id="tr_ldist_group" data-vn="1">
+                    <td data-id="td_ldist_group">镜头组</td>
+                    <td class="command">inpLensGroup<br/><span class="note">Prior lens distortion&#47;Lens group</span></td> 
+                    <td class="parameter">int</td>
+                    <td data-id="td_ldist_group_def">任意正整数、零或 -1（不分组）</td>
+                </tr>
+                <tr data-id="tr_ldist_prior" data-vn="1">
+                    <td data-id="td_ldist_prior" rowspan="3">先验</td>
+                    <td class="command" rowspan="3">inpDistortion<br/><span class="note">Prior lens distortion&#47;Prior</span></td> 
+                    <td class="parameter">0</td>
+                    <td data-id="td_ldist_prior_zero">Unknown</td>
+                </tr>
+                <tr data-id="tr_ldist_prior_one" data-vn="1">
+                    <td class="parameter">1</td>
+                    <td data-id="td_ldist_prior_one">Approximate</td>
+                </tr>
+                <tr data-id="tr_ldist_prior_two" data-vn="1">
+                    <td class="parameter">2</td>
+                    <td data-id="td_ldist_prior_two">Fixed</td>
+                </tr>
+                <tr data-id="tr_ldist_model" data-vn="1">
+                    <td data-id="td_ldist_model" rowspan="6">相机模型</td>
+                    <td class="command" rowspan="6">inpDistortionModel<br/><span class="note">Prior lens distortion&#47;Camera model</span></td> 
+                    <td class="parameter">0</td>
+                    <td data-id="td_ldist_model_zero">No lens distortion</td>
+                </tr>
+                <tr data-id="tr_ldist_model_one" data-vn="1">
+                    <td class="parameter">1</td>
+                    <td data-id="td_ldist_model_one">Division</td>
+                </tr>
+                <tr data-id="tr_ldist_model_two" data-vn="1">
+                    <td class="parameter">2</td>
+                    <td data-id="td_ldist_model_two">Brown3</td>
+                </tr>
+                <tr data-id="tr_ldist_model_three" data-vn="1">
+                    <td class="parameter">3</td>
+                    <td data-id="td_ldist_model_three">Brown4</td>
+                </tr>
+                <tr data-id="tr_ldist_model_four" data-vn="1">
+                    <td class="parameter">4</td>
+                    <td data-id="td_ldist_model_four">Brown3 with tangential distortion</td>
+                </tr>
+                <tr data-id="tr_ldist_model_five" data-vn="1">
+                    <td class="parameter">5</td>
+                    <td data-id="td_ldist_model_five">Brown4 with tangential distortion</td>
+                </tr>
+                <tr data-id="tr_ldist_rone" data-vn="1">
+                    <td data-id="td_ldist_rone">径向 1</td>
+                    <td class="command">inpRadial1<br/><span class="note">Prior lens distortion&#47;Radial 1</span></td> 
+                    <td class="parameter">float</td>
+                    <td data-id="td_ldist_rone_def">任意数字</td>
+                </tr>
+                <tr data-id="tr_ldist_rtwo" data-vn="1">
+                    <td data-id="td_ldist_rtwo">径向 2</td>
+                    <td class="command">inpRadial2<br/><span class="note">Prior lens distortion&#47;Radial 2</span></td> 
+                    <td class="parameter">float</td>
+                    <td data-id="td_ldist_rtwo_def">任意数字</td>
+                </tr>
+                <tr data-id="tr_ldist_rthree" data-vn="1">
+                    <td data-id="td_ldist_rthree">径向 3</td>
+                    <td class="command">inpRadial3<br/><span class="note">Prior lens distortion&#47;Radial 3</span></td> 
+                    <td class="parameter">float</td>
+                    <td data-id="td_ldist_rthree_def">任意数字</td>
+                </tr>
+                <tr data-id="tr_ldist_rfour" data-vn="1">
+                    <td data-id="td_ldist_rfour">径向 4</td>
+                    <td class="command">inpRadial4<br/><span class="note">Prior lens distortion&#47;Radial 4</span></td> 
+                    <td class="parameter">float</td>
+                    <td data-id="td_ldist_rfour_def">任意数字</td>
+                </tr>
+                <tr data-id="tr_ldist_tone" data-vn="1">
+                    <td data-id="td_ldist_tone">切向 1</td>
+                    <td class="command">inpTangential1<br/><span class="note">Prior lens distortion&#47;Tangential 1</span></td> 
+                    <td class="parameter">float</td>
+                    <td data-id="td_ldist_tone_def">任意数字</td>
+                </tr>
+                <tr data-id="tr_ldist_ttwo" data-vn="1">
+                    <td data-id="td_ldist_ttwo">切向 2</td>
+                    <td class="command">inpTangential2<br/><span class="note">Prior lens distortion&#47;Tangential 2</span></td> 
+                    <td class="parameter">float</td>
+                    <td data-id="td_ldist_ttwo_def">任意数字</td>
+                </tr>                
+            </table>
+        </div>
+        
+        <div data-id="div_sb_cp" class="slideblock splitSpacing">
+            <h2 data-id="h2_cp" data-vn="1">控制点选区</h2>
+            <p data-id="p_h2_cp" data-vn="1">
+                用以下键与值，可通过 <span class="command">-editControlPointSelection</span> 命令修改 <span class="apppanel">Selected control point(s)</span> 面板中的设置。
+            </p>
+            <table class="tableofcommands">
+                <thead data-id="thead_cp" data-vn="1">
+                <tr>
+                    <th>名称</th> <th>键</th> <th>值</th> <th>值说明</th>
+                </tr>
+                </thead> 
+                <tr data-id="tr_cp_name" data-vn="1">
+                    <td data-id="td_cp_name">名称</td>
+                    <td class="command">gpName<br/><span class="note">Name</span></td> 
+                    <td class="parameter">string</td>  
+                    <td data-id="td_cp_name_def">任意字母数字值</td>
+                </tr>
+                <tr data-id="tr_cp_status" data-vn="1">
+                    <td data-id="td_cp_status" rowspan="2">启用</td>
+                    <td class="command" rowspan="2">gpEnabled<br/><span class="note">Enable</span></td> 
+                    <td class="parameter">true</td>  
+                    <td data-id="td_cp_status_t">Enable in the alignment process</td>
+                </tr>
+                <tr data-id="tr_cp_status_f" data-vn="1">
+                    <td class="parameter">false</td>  
+                    <td data-id="td_cp_status_f">Disable in the alignment process</td>
+                </tr>
+                <tr data-id="tr_cp_type" data-vn="1">
+                    <td data-id="td_cp_type" rowspan="3">启用</td>
+                    <td class="command" rowspan="3">gpType<br/><span class="note">Type</span></td> 
+                    <td class="parameter">0</td>  
+                    <td data-id="td_cp_type_zero">Tie point</td>
+                </tr>
+                <tr data-id="tr_cp_type_one" data-vn="1">
+                    <td class="parameter">1</td>  
+                    <td data-id="td_cp_type_one">Ground control</td>
+                </tr>
+                <tr data-id="tr_cp_type_two" data-vn="1">
+                    <td class="parameter">2</td>  
+                    <td data-id="td_cp_type_two">Ground test</td>
+                </tr> 
+                <tr data-id="tr_cp_weight" data-vn="1">
+                    <td data-id="td_cp_weight">权重</td>
+                    <td class="command">gpWeight<br/><span class="note">Weight</span></td> 
+                    <td class="parameter">float</td>  
+                    <td data-id="td_cp_weight_def">任意数字</td>
+                </tr>
+                <tr data-id="tr_cp_x" data-vn="1">
+                    <td data-id="td_cp_x">x</td>
+                    <td class="command">gpP1<br/><span class="note">x</span></td> 
+                    <td class="parameter">float</td>  
+                    <td data-id="td_cp_x_def">任意数字</td>
+                </tr>
+                <tr data-id="tr_cp_y" data-vn="1">
+                    <td data-id="td_cp_y">y</td>
+                    <td class="command">gpP2<br/><span class="note">y</span></td> 
+                    <td class="parameter">float</td>  
+                    <td data-id="td_cp_y_def">任意数字</td>
+                </tr>
+                <tr data-id="tr_cp_z" data-vn="1">
+                    <td data-id="td_cp_z">z</td>
+                    <td class="command">gpP3<br/><span class="note">z</span></td> 
+                    <td class="parameter">float</td>  
+                    <td data-id="td_cp_z_def">任意数字</td>
+                </tr>
+                <tr data-id="tr_cp_lat" data-vn="1">
+                    <td data-id="td_cp_lat" rowspan="2">纬度</td>
+                    <td class="command" rowspan="2">gpP2<br/><span class="note">Latitude</span></td> 
+                    <td class="parameter">DMS</td>  
+                    <td data-id="td_cp_lat_dms">以度为单位的度分秒值，前缀为对应的方位字母（例如 E32,08,25.18）</td>
+                </tr>
+                <tr data-id="tr_cp_lat_deg" data-vn="1">
+                    <td class="parameter">decimal degree</td>  
+                    <td data-id="td_cp_lat_dec">十进制角度值，前缀为对应的方位字母（例如 E32.140328）</td>
+                </tr>
+                <tr data-id="tr_cp_lon" data-vn="1">
+                    <td data-id="td_cp_lon" rowspan="2">经度</td>
+                    <td class="command" rowspan="2">gpP1<br/><span class="note">Longitude</span></td> 
+                    <td class="parameter">DMS</td>  
+                    <td data-id="td_cp_lon_dms">以度为单位的度分秒值，前缀为对应的方位字母（例如 E32,08,25.18）</td>
+                </tr>
+                <tr data-id="tr_cp_lon_deg" data-vn="1">
+                    <td class="parameter">decimal degree</td>  
+                    <td data-id="td_cp_lon_dec">十进制角度值，前缀为对应的方位字母（例如 E32.140328）</td>
+                </tr>
+                <tr data-id="tr_cp_alt" data-vn="1">
+                    <td data-id="td_cp_alt">高程</td>
+                    <td class="command">gpP3<br/><span class="note">Altitude</span></td> 
+                    <td class="parameter">float</td>
+                    <td data-id="td_cp_alt_def">任意数字</td>
+                </tr>
+                
+                <tr data-id="tr_cp_posacc" data-vn="1">
+                    <th colspan="4">位置精度设置</th>
+                </tr>
+                
+                <tr data-id="tr_cp_xacc" data-vn="1">
+                    <td data-id="td_cp_xacc">位置 X 精度</td>
+                    <td class="command">gpuP1<br/><span class="note">Position accuracy&#47;Position X accuracy</span></td> 
+                    <td class="parameter">float</td>
+                    <td data-id="tr_cp_xacc_def">任意正数或零</td>
+                </tr>
+                <tr data-id="tr_cp_zacc" data-vn="1">
+                    <td data-id="td_cp_yacc">位置 Y 精度</td>
+                    <td class="command">gpuP2<br/><span class="note">Position accuracy&#47;Position Y accuracy</span></td> 
+                    <td class="parameter">float</td>
+                    <td data-id="td_cp_yacc_def">任意正数或零</td>
+                </tr>
+                <tr data-id="tr_cp_yacc" data-vn="1">
+                    <td data-id="td_cp_zacc">位置 Z 精度</td>
+                    <td class="command">gpuP3<br/><span class="note">Position accuracy&#47;Position Z accuracy</span></td> 
+                    <td class="parameter">float</td>
+                    <td data-id="td_cp_zacc_def">任意正数或零</td>
+                </tr>
+                <tr data-id="tr_cp_alat" data-vn="1">
+                    <td data-id="td_cp_alat">纬度精度</td>
+                    <td class="command">gpuP2<br/><span class="note">Position accuracy&#47;Latitude accuracy</span></td> 
+                    <td class="parameter">float</td>
+                    <td data-id="td_cp_alat_def">任意正数或零</td>
+                </tr>
+                <tr data-id="tr_cp_alon" data-vn="1">
+                    <td data-id="td_cp_alon">经度精度</td>
+                    <td class="command">gpuP1<br/><span class="note">Position accuracy&#47;Longitude accuracy</span></td> 
+                    <td class="parameter">float</td>
+                    <td data-id="td_cp_alon_def">任意正数或零</td>
+                </tr>
+                <tr data-id="tr_cp_aalt" data-vn="1">
+                    <td data-id="td_cp_aalt">高程精度</td>
+                    <td class="command">gpuP3<br/><span class="note">Position accuracy&#47;Altitude accuracy</span></td> 
+                    <td class="parameter">float</td>
+                    <td data-id="td_cp_aalt_def">任意正数或零</td>
+                </tr>
+            </table>
+        </div>
+
+        <div data-id="div_sb_con" class="slideblock splitSpacing">
+            <h2 data-id="h2_con" data-vn="1">约束选区</h2>
+            <p data-id="p_h2_con" data-vn="1">
+                以下键与值用于通过 <span class="command">-editConstraintSelection</span> 命令修改 <span class="apppanel">Selected constraint(s)</span> 面板中的设置。
+            </p>
+            <table class="tableofcommands">
+                <thead data-id="thead_con" data-vn="1">
+                <tr>
+                    <th>名称</th> <th>键</th> <th>值</th> <th>值说明</th>
+                </tr>
+                </thead> 
+                <tr data-id="tr_con_name" data-vn="1">
+                    <td data-id="td_con_name">名称</td>
+                    <td class="command">cName<br/><span class="note">Name</span></td> 
+                    <td class="parameter">string</td>  
+                    <td data-id="td_con_name_def">任意字母数字值</td>
+                </tr>
+                <tr data-id="tr_con_a" data-vn="1">
+                    <td data-id="td_con_a">A</td>
+                    <td class="command">cA<br/><span class="note">A</span></td> 
+                    <td class="parameter">string</td>  
+                    <td data-id="td_con_a_def">一个已存在控制点的名称</td>
+                </tr>
+                <tr data-id="tr_con_b" data-vn="1">
+                    <td data-id="td_con_b">B</td>
+                    <td class="command">cB<br/><span class="note">B</span></td> 
+                    <td class="parameter">string</td>  
+                    <td data-id="td_con_b_def">一个已存在控制点的名称</td>
+                </tr>
+                <tr data-id="tr_con_status" data-vn="1">
+                    <td data-id="td_con_status" rowspan="2">启用</td>
+                    <td class="command" rowspan="2">cEnabled<br/><span class="note">Enable</span></td> 
+                    <td class="parameter">true</td>  
+                    <td data-id="td_con_status_e">Enable in the alignment process</td>
+                </tr>
+                <tr data-id="tr_con_status_false" data-vn="1"> 
+                    <td class="parameter">false</td>  
+                    <td data-id="td_con_status_d">Disable in the alignment process</td>
+                </tr>
+                <tr data-id="tr_con_defd" data-vn="1">
+                    <td data-id="td_con_def">定义距离</td>
+                    <td class="command">cValue1<br/><span class="note">Defined distance</span></td> 
+                    <td class="parameter">float</td>  
+                    <td data-id="td_con_defd_def">任意正数</td>
+                </tr>
+                
+                <tr data-id="tr_cp_accsett" data-vn="1">
+                    <th colspan="4">精度设置</th>
+                </tr>
+                
+                <tr data-id="tr_con_dacc" data-vn="1">
+                    <td data-id="td_con_dacc">定义距离精度</td>
+                    <td class="command">cValue1Acc<br/><span class="note">Accuracy/Defined distance accuracy</span></td> 
+                    <td class="parameter">float</td>  
+                    <td data-id="td_con_dacc_def">任意正数</td>
+                </tr>  
+            </table>
+        </div>
+        
+        <div data-id="div_sb_ort" class="slideblock splitSpacing">
+            <h2 data-id="h2_ort" data-vn="1">正射投影选区</h2>
+            <p data-id="p_h2_ort" data-vn="1">
+                用以下键与值，可通过 <span class="command">-editOrthoProjectionSelection</span> 命令修改 <span class="apppanel">Selected ortho projection(s)</span> 面板中的设置。
+            </p>
+            <table class="tableofcommands">
+                <thead data-id="thead_ort" data-vn="1">
+                <tr>
+                    <th>名称</th> <th>键</th> <th>值</th> <th>值说明</th>
+                </tr>
+                </thead> 
+                <tr data-id="tr_ort_name" data-vn="1">
+                    <td data-id="td_ort_name">名称</td>
+                    <td class="command">orthoProjectionName<br/><span class="note">Name</span></td> 
+                    <td class="parameter">string</td>  
+                    <td data-id="td_ort_name_def">任意字母数字值</td>
+                </tr> 
+            </table>
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_bc" class="blocksContainer">
+
+            <a href="../tutorials/commandline_4.htm">
+                <div class="block TileColor2">
+                    <h2 data-id="h2_bc_seco" data-vn="1">了解如何使用 set 命令</h2>
+                    <p data-id="p_h2_bc_seco" data-vn="1">查看命令行界面教程</p>
+                </div>
+            </a>
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+        <!-- content slide end -->
+
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+</body>
+</html>
+<!-- signature:4NKUDsqwgikXBZw2KsAV8W3n/AH6ixuc1OZ0XQ53BwoPbv9062idi49R2spVXIOEhmyOXP+sLMI7K9wNrzAXSByxzI9k2+PJFg3wxaKtUYKhOpEdMtar16h4oThHtSG88yaIHeqzly45yyzsz9NkBwHUFV3uo+pWCpCKlq/6dM4= -->

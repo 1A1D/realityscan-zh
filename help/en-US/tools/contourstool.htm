@@ -1,0 +1,105 @@
+<html>
+<head>
+    <title>RealityScan 帮助</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Epic Games Slovakia s.r.o." />
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <link type="text/css" rel="stylesheet" href="../../styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/colors.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css" />
+    <script src="../scripts/textVars.js" type="text/javascript"></script>
+    <script src="../../scripts/localization.js" type="text/javascript"></script>
+    <script src="../../scripts/main.js" type="text/javascript"></script>
+</head>
+<body ondragstart="return false;">
+
+    <div data-id="div_cs" class="content_slide">
+
+        <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head" class="head">
+
+            <h1 data-id="h1" data-vn="1">等高线工具</h1>
+
+            <p data-id="p_h1" data-vn="1">
+                该工具会在所选正射投影上生成等高线。
+            </p>       
+            <img src="images/contours.png" alt="contours" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/contours.png';"/>
+        </div>
+        
+        <div data-id="div_sb_cont" class="slideblock">
+         
+            <p data-id="p_use" data-vn="3">
+                使用前，先在 <span class="appaspecttype">2D</span> 视图中显示要生成等高线的正射投影，然后在 <span class="appribbon">ORTHO 2D</span>/<span class="appribbon">TOOLS</span> 的 <span class="apppanel">Tools</span> 区域点击 <span class="apptool">Contours</span> 按钮启用等高线工具。
+            </p>
+            <img src="images/contours-button.png" alt="contours-button" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/contours-button.png';"/>
+            <br/><br/>
+            <p data-id="p_menu" data-vn="2">
+                启用后会显示 <span class="apppanel">Contours Tool</span> 面板。
+            </p>  
+            <img src="images/contours-panel.png" alt="contours-panel" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/contours-panel.png';"/>
+            <br/><br/>
+            <ul class="apppanelitems">
+                <li data-id="li_pan_pity" data-vn="1" class="apppanelitem">
+                    <span class="appproperty">Pixel Type</span> 可选 Altitude 或 Depth：
+                </li>
+                <li data-id="li_pan_alti" data-vn="1" class="apppanelitem">
+                    <div style="padding-left: 20px"> <span class="appproperty">Altitude</span> 会显示等高线的高程 </div>
+                </li>
+                <li data-id="li_pan_depth" data-vn="1" class="apppanelitem">
+                    <div style="padding-left: 20px"> <span class="appproperty">Depth</span> 给出的等高线表示从零起算的深度。</div>
+                </li>
+                    <li data-id="li_pan_layer" data-vn="1" class="apppanelitem">
+                   <span class="appproperty">Layer</span> 若随正射一起生成过 DSM 或 DTM，可以选择用哪一个来计算等高线的高度。
+                </li>
+                <li data-id="li_pan_units" data-vn="1" class="apppanelitem">
+                   <span class="appproperty">Units</span> 不可修改，取自正射投影所用的坐标系。
+                </li>
+                <li data-id="li_pan_mini" data-vn="1" class="apppanelitem">
+                    <span class="appproperty">Minimum</span> 等高线的最低值，默认取自正射投影中的最小高度值。
+                </li>
+                <li data-id="li_pan_maxi" data-vn="1" class="apppanelitem">
+                    <span class="appproperty">Maximum</span> 等高线的最高值，默认取自正射投影中的最大高度值。
+                </li>
+                <li data-id="li_pan_done" data-vn="1">
+                    设置完成后，<span class="appgesture">点击</span>面板底部的 <span class="appbutton">Compute</span> 按钮。
+                </li>
+            </ul>
+        </div>
+        
+        <div data-id="div_sb_disp" class="slideblock">
+
+            <h3 data-id="h1_display" data-vn="1">显示等高线</h3>
+
+            <p data-id="p_h1_display" data-vn="1">
+                可以在 <span class="appribbon">ORTHO 2D</span>/<span class="appribbon">VIEW</span> 选项卡的 <span class="apppanel">Display</span> 区域选择显示已生成的等高线，勾选 <span class="apptool">Contours</span> 复选框即可。
+            </p>       
+            <img src="images/contours_display.png" alt="contours" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/contours_display.png';"/>
+        
+        </div> 
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_bc" class="blocksContainer">
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+    <script type="text/javascript">
+        InitializeHelpSlide();
+    </script>
+
+</body>
+</html>
+<!-- signature:ACMzSG+8NXARUS5k8/OyEl88GGBw8P/ahSO033+FIwmY2lLLI1b4lzx78bYBUq/1DGvquqxP2MlWf1DqRBWLKf3Erjgk6novoU6J/PO96G0ZMZ1jxc9MDiUJg7jRBl7RI+MlD391agE3is2NRx+y5e695wdDI1oq0gjS+o+RgdU= -->

@@ -1,0 +1,125 @@
+<html>
+    <head>
+        <title>RealityScan 帮助</title>
+        <meta charset="UTF-8"/>
+        <meta name="author" content="Epic Games Slovakia s.r.o."/>
+        <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/style.css"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/colors.css"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css"/>
+        <script src="../scripts/textVars.js" type="text/javascript"></script>
+        <script src="../../scripts/localization.js" type="text/javascript"></script>
+        <script src="../../scripts/main.js" type="text/javascript"></script>
+    </head>
+    <body ondragstart="return false;">
+
+        <div data-id="div_cs" class="content_slide">
+
+            <!-- content slide -->
+            <script type="text/javascript">RenderToolNavigation();</script>
+
+            <div data-id="div_head" class="head">
+
+                <h1 data-id="h1" data-vn="1">相机设置</h1>
+                <p data-id="p_h1" data-vn="3">在图像对齐（配准）过程中，RealityScan 会计算相机参数以及图像的拍摄位姿。该位姿在 <span class="appaspecttype">3Ds</span> 视图中显示为一个带小图的小白色锥体。</p>
+                <p data-id="p_h1_more" data-vn="1">提供更多关于所用相机的信息，可以简化并加快这一过程。</p>
+            </div>
+
+            <div data-id="div_sb_calib" class="slideblock">
+
+                <h2 data-id="h2_calib" data-vn="1">标定组</h2>
+
+                <p data-id="p_h2_calib" data-vn="1">
+                    定义标定组即声明该组内所有图像具有相同属性，例如相同焦距、相同主点或相同镜头畸变系数。这些组可以利用图像元数据自动创建，也可以由用户手动创建。
+                </p>
+                <h3 data-id="h3_calib" data-vn="1">标定组有什么用？</h3>
+                <p data-id="p_h3_calib" data-vn="1">
+                    举几个实际用例，标定组在以下情况很有用：
+                </p>
+                <ul>
+                    <li data-id="li_calib_fixed" data-vn="1">固定光学的相机（如 GoPro）—— 这类相机每个计算出的位姿都应得到相同的焦距与镜头畸变；</li>
+                    <li data-id="li_calib_weak" data-vn="1">重建纹理较弱或特征点很少的物体 —— 相机参数分组后，计算相机标定所需的特征点更少，有助于配准；</li>
+                    <li data-id="li_calib_force" data-vn="1">或当你需要约束/强制一组相机使用相同焦距时。</li>
+                </ul>
+                <br/>
+                <p data-id="p_h3_calib_general" data-vn="2">
+                    一般来说，同一机身/镜头拍出的图像其标定参数必须相同或非常接近。这些参数可能因对焦、机械位移或温度变化导致的光学微小移动而产生差异。对低分辨率相机这种差异可忽略，但对高分辨率相机（如 6000 万像素以上）就比较明显。另一方面，把标定参数分组后 RealityScan 需要计算的参数更少，计算也更快。
+                </p>
+                <br/>
+            </div>
+
+            <div data-id="div_sb_auto" class="slideblock">
+
+                <h2 data-id="h2_auto" data-vn="1">自动分组</h2>
+                <ul>
+                    <li data-id="li_auto_exif" data-vn="3">图像加入项目时，可根据相机参数自动分组。要启用或关闭该选项，进入 <span class="appribbon">WORKFLOW</span> 选项卡，打开 <span class="apppanel">Aplication</span> 区域的 <span class="appribbonbutton">Settings</span>，然后在 <span class="appproperty">Import Settings</span> 中启用 <span class="appproperty">Group calibration by exif</span>。</li>
+                    <li data-id="li_auto_group" data-vn="2">要对已加入项目的图像执行<span class="appbutton">分组</span>/<span class="appbutton">取消分组</span>，请使用 <span class="apppanel">Inputs</span> 面板 —— 在 <span class="appaspecttype">1Ds</span> 面板中单击一次 Images 根节点即可弹出。取消标定分组后，每台相机的标定会独立优化。<br/> <br/> <img src="images/Images-Inputs.png" alt="Images-Inputs" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/appbasics/images/Images-Inputs.png';"/> <br/>
+                    </li>
+                    <li data-id="li_auto_constant" data-vn="1">也可以一次性为项目中所有图像设置统一标定：在 <span class="apppanel">Images</span> 面板 / <span class="appproperty">Inputs</span> 中<span class="appgesture">点击</span> <span class="appbutton">Constant</span>。</li>
+                </ul>
+
+                <br/>
+            </div>
+
+            <div data-id="div_sb_man" class="slideblock">
+
+                <h2 data-id="h2_man" data-vn="1">手动分组</h2>
+
+                <p data-id="p_h2_man" data-vn="1">也可以对图像逐个分组。</p>
+                <ul>
+                    <li data-id="li_man_select" data-vn="1">选中一张或多张图像。</li>
+                    <li data-id="li_man_use" data-vn="1">在 <span class="appproperty">Calibration group</span> 与 <span class="appproperty">Lens group</span> 中，若不希望分组参数请填 "-1"；填其他任何数字都表示要分组。</li>
+                    <li data-id="li_man_assign" data-vn="1">要把其他图像分到同一组，只需给它们设置相同的组值。</li>
+                </ul>
+                <br/>
+
+                <div data-id="div_im_afca" data-vn="1" class="importantMessage">
+                    提示：用分组相机参数完成场景计算后，点击 <span class="appbutton">ungroup</span> 相机参数并重新对齐场景。这会微调相机参数，同时让场景保持良态（well-conditioned）；建议用于纹理较弱或图像数量较少的场景，此时对齐只需几秒钟。
+                </div>
+            </div>
+
+            <div class="clear splitSpacing">
+                <!-- clear -->
+            </div>
+
+            <div data-id="div_bc" class="blocksContainer">
+
+                <a id="idContinue"  href="camerasettings_priors.htm">
+                    <div class="leadBlock block TileColor6">
+                        <h2 data-id="h2_bc_priors" data-vn="1">相机先验</h2>
+                        <p data-id="p_h2_bc_priors" data-vn="1">定义镜头畸变先验</p>
+                    </div>
+                </a>
+
+                <script type="text/javascript">RenderBackToStartTile();</script>
+
+            </div>
+
+            <div class="clear">
+                <!-- clear -->
+            </div>
+
+            <div data-id="div_sa" class="rowblock">
+                <h3 data-id="h3_sa" data-vn="1">另见：</h3>
+                <ul class="intend">
+                    <li data-id="li_sa_dismodels" data-vn="1">进一步了解应用的畸变模型 <a href="settings_distortion_models.htm">点击此处</a></li>
+                </ul>
+
+                <div class="clear">
+                    <!-- clear -->
+                </div>
+            </div>
+
+            <!-- content slide end -->
+
+        </div>
+
+        <script type="text/javascript">RenderCopyrightText();</script>
+
+        <script type="text/javascript">
+            InitializeHelpSlide();
+        </script>
+
+    </body>
+</html>
+<!-- signature:ue0uB1Lq2lMnYnLvFxK0JIyM7MXocPHvYPzh9RNR4CRPeF7sFBqe5HQ75LCBrz8plqIqPQnxheOG4cVfUVXl7P2TdBV4EYJmYBpp4f88VCccsHiwO+T4t55TngRW93/sH017UxnjGWmzaowFz6D75efdQZ7pogwFR6mworK5EUc= -->

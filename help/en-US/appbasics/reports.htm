@@ -1,0 +1,102 @@
+<html>
+    <head>
+        <title>RealityScan 帮助</title>
+        <meta charset="UTF-8"/>
+        <meta name="author" content="Epic Games Slovakia s.r.o."/>
+        <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/style.css"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/colors.css"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css"/>
+        <script src="../scripts/textVars.js" type="text/javascript"></script>
+        <script src="../../scripts/localization.js" type="text/javascript"></script>
+        <script src="../../scripts/main.js" type="text/javascript"></script>
+    </head>
+    <body ondragstart="return false;">
+
+        <div data-id="div_cs" class="content_slide">
+
+            <!-- content slide -->
+
+            <script type="text/javascript">RenderToolNavigation();</script>
+
+            <div data-id="div_head" class="head">
+                <h1 data-id="h1" data-vn="1">报告</h1>
+            </div>
+
+            <div data-id="div_sb_click" class="slideblock">
+                <p data-id="p_click_export" data-vn="2">要导出报告，请点击 <span class="appribbon">WORKFLOW</span> 选项卡 <span class="apppanel">Output</span> 区域的 <span class="appribbonbutton">Reports</span> 按钮。 </p>
+                <div style="padding: 20px 10px 10px 25px"><img src="images/reports-button.png" alt="Reports-button" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/appbasics/images/reports-button.png';"/>
+				<br /><br />
+                <p data-id="p_click_pick" data-vn="1">点击后会要求选择报告保存的文件夹；点 <span class="appbutton">Save</span> 之后会弹出 <span class="apppanel">Export Report</span> 对话框：</p>
+                <img src="images/reports.png" alt="reports" onerror="this.onerror=null;this.src='../../en-US/appbasics/images/reports.png';"/>
+                <br />
+                <br />
+                <p data-id="p_click_select" data-vn="1">选择其中一个可用模板，生成后会自动在浏览器中打开。</p>
+				</div>
+            </div>
+
+            <div class="clear splitSpacing">
+                <!-- clear -->
+            </div>        
+
+            <div data-id="div_sb_templ" class="slideblock">
+                <h2 data-id="h2_templ" data-vn="1">预置模板</h2>
+                <ul>
+                    <li data-id="li_templ_ove" data-vn="1"><span class="appbutton">Overview Report</span> - 整个项目的基本统计：输入数、组件数、模型数。</li>
+                    <li data-id="li_templ_rgar" data-vn="1"><span class="appbutton">Registration and Georeferencing Accuracy Report</span> - 组件的基本信息、相机位置及其与先验位置的偏差、相机的详细信息，以及地面控制点的先验位置与计算位置。</li>
+                    <li data-id="li_templ_selcom" data-vn="1"><span class="appbutton">Selected Component Report</span> - 所选组件的详细统计：对齐报告、对齐设置、所用控制点的统计以及模型信息。</li>
+                    <li data-id="li_templ_selort" data-vn="1"><span class="appbutton">Selected Ortho Projection Report</span> - 所选正射投影的全部信息，包括各图层的预览与地面控制点信息。</li>
+                    <li data-id="li_templ_selmod" data-vn="1"><span class="appbutton">Selected Model Report</span> - 所选模型的详细统计：纹理信息与处理耗时。</li>
+                    <li data-id="li_templ_tie" data-vn="1"><span class="appbutton">Tie Points of Selected Component</span> - 所选组件连接点的全部信息，包括重投影误差与轨迹长度直方图。</li>
+                    <li data-id="li_templ_map" data-vn="1"><span class="appbutton">Map View Report</span> - 把带地面控制点和相机的所选正射投影导出到 Google 地图。注意组件必须已完成地理参考。</li>
+                </ul>
+                <br />
+            </div>
+
+            <div class="clear splitSpacing">
+                <!-- clear -->
+            </div>        
+
+            <div data-id="div_sb_add" class="slideblock">
+                <h2 data-id="h2_add" data-vn="1">修改预置模板与添加新模板</h2>
+                <p data-id="p_add_v1" data-vn="2">预置模板是 HTML 格式，可以编辑或新建。HTML 模板位于安装目录 C:\Program Files\Epic Games\RealityScan\Reports。也可以通过编辑 CSS 文件来修改和定义报告样式。</p>
+                <img src="../../images/reportsFolder.png" alt="reportsFolder"/>
+                <br />
+                <br />
+                <div data-id="div_im_recom" data-vn="1" class="importantMessage">Note: We recommend you to <span class="textEmp">备份编辑过的模板与样式文件</span> 到本地磁盘，因为软件更新或重装会覆盖它们。</div>
+                <br />
+                <p data-id="p_add_new_v1" data-vn="2">若要<span class="textEmp">添加新模板</span>，请到安装目录 C:\Program Files\Epic Games\RealityScan 编辑 report.xml，在其中定义模板文件路径。建议把模板存放在本机硬盘上，以免软件更新或重装时丢失。修改过的样式文件也可以放在本地 —— 样式文件路径直接写在模板里。</p>
+                <p data-id="p_add_fun" data-vn="1">模板中还包含特殊函数和变量，详见本教程的下一部分。</p>
+            </div>
+
+            <div class="clear splitSpacing">
+                <!-- clear -->
+            </div>
+
+            <div data-id="div_bc" class="blocksContainer">
+
+                <a href="reports_functions_and_variables.htm">
+                    <div class="leadBlock block TileColor6">
+                        <h2 data-id="h2_bc_custom" data-vn="1">自定义报告模板</h2>
+                        <p data-id="p_bc_custom" data-vn="1">了解如何创建自己的个性化报告模板</p>
+                    </div>
+                </a>        
+
+                <script type="text/javascript">RenderBackToStartTile();</script>
+            </div>
+
+            <div class="clear splitSpacing">
+                <!-- clear -->
+            </div>
+
+        </div>
+
+        <script type="text/javascript">RenderCopyrightText();</script>
+
+        <script type="text/javascript">
+            InitializeTutorialMode();
+        </script>    
+
+    </body>
+</html>
+<!-- signature:Tbkw+mk9Y4bg5XjYxdYwasFFwDkDGTbyBWv4nHDYZVAHU1DtqsWE9FHyaJIwCSJWhEzq7XjnMZoQkF5XnoW95airQJuYesUD8Ah/IgeEL85CmqBvb6jPS3/WfpID1vTL77mHuc8VQKh+Qxqc7NSu6bgbw7+N4T9o19oZFSALCHI= -->

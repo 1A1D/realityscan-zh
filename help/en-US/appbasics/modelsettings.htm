@@ -1,0 +1,175 @@
+<html>
+    <head>
+        <title>RealityScan 帮助</title>
+        <meta charset="UTF-8"/>
+        <meta name="author" content="Epic Games Slovakia s.r.o."/>
+        <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/style.css"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/colors.css"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css"/>
+        <script src="../scripts/textVars.js" type="text/javascript"></script>
+        <script src="../../scripts/localization.js" type="text/javascript"></script>
+        <script src="../../scripts/main.js" type="text/javascript"></script>
+    </head>
+    <body ondragstart="return false;">
+
+        <div data-id="div_cs" class="content_slide">
+
+            <script type="text/javascript">RenderToolNavigation();</script>
+
+            <div data-id="div_head" class="head">
+
+                <h1 data-id="h1" data-vn="1">重建设置</h1>
+                <p data-id="p_h1" data-vn="4">
+                    与重建过程相关的设置位于 <span class="appribbon">MESH &amp; COLOR</span> 选项卡的 <span class="apppanel">建立网格</span> 区域。    
+                </p>
+            </div>
+
+            <div data-id="div_sb_depth" class="slideblock">
+                <h2 data-id="h2_depth" data-vn="1">图像深度图计算</h2>
+                <p data-id="p_h2_depth" data-vn="1">
+                    模型计算的第一步是逐张图像计算深度图，这里可以设置这一阶段的参数。该阶段主要使用 GPU，请关闭所有占用 GPU 的程序以降低显存占用。<br/>
+                </p>
+                <div data-id="div_im_depth" data-vn="1" class="importantMessage">
+                    提示：在模型计算之前，可以通过多选图像并在选中输入面板中，把不想参与计算的图像排除。
+                </div>
+
+                <br/>
+                <img src="images/reconstruction-settings-depth-map.png" alt="reconstruction-settings-depth-map" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/appbasics/images/reconstruction-settings-depth-map.png';">
+                <br/>
+
+                <ul>
+                    <li data-id="li_depth_preview" data-vn="1"><span class="appproperty">Preview model</span> 这些设置仅在你使用“预览质量”模型计算时生效。
+                        <ul>
+                            <li data-id="li_depth_downscale" data-vn="1"><span class="appproperty">Image downscale</span> 计算深度图时，图像会按此系数降采样，而不用原始分辨率。数值越大计算越快，但细节越少。取 1 表示尺度不变（100% 分辨率）；取 2 表示图像每边缩小为原来的二分之一（即原分辨率的 25%），依此类推。</li>
+                            <li data-id="li_depth_prmaxdm" data-vn="2"><span class="appproperty">Maximal depth-map pixel count</span> 深度图的最大像素数。该值不会覆盖 Image downscale，两者都会生效并可能影响分辨率。默认值 <span class="appproperty">0</span> 表示忽略此设置；要使用它，请设一个较高的值。</li>
+                        </ul>
+                    </li>
+                    <li data-id="li_depth_normal" data-vn="1"><span class="appproperty">Normal model</span> 这些设置仅在你选择“正常质量”模型计算时生效。
+                        <ul>
+                            <li data-id="li_depth_above" data-vn="2"><span class="appproperty">Image downscale</span> 计算深度图时，图像会按此系数降采样，而不用原始分辨率。数值越大计算越快，但细节越少。取 1 表示尺度不变（100% 分辨率）；取 2 表示图像每边缩小为原来的二分之一（即原分辨率的 25%），依此类推。而 <span class="apptool">High Detail</span> 网格重建模式始终使用全分辨率（值 1），因此不包含此选项。</li>
+                            <li data-id="li_depth_nomaxdm" data-vn="2"><span class="appproperty">Maximal depth-map pixel count</span> 深度图的最大像素数。该值不会覆盖 Image downscale，两者都会生效并可能影响分辨率。默认值 <span class="appproperty">0</span> 表示忽略此设置；要使用它，请设一个较高的值。</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <br />
+
+                <div data-id="div_im_depth_downscale" data-vn="1" class="importantMessage">
+                    NOTE: <span class="appproperty">Downscale for depth maps</span> （在 1Ds 的 Selected input(s) 面板中为所选图像设定）× <span class="appproperty">Image downscale</span> （在 Reconstruction settings 中设定）＝ 所选图像用于深度图计算时的最终降采样系数。
+                </div>
+
+            </div>
+
+            <br/>
+
+            <div data-id="div_sb_scans" class="slideblock">
+                <h2 data-id="h2_scans" data-vn="2">LiDAR 扫描</h2>
+                <p data-id="p-h2_scans" data-vn="2">
+                    在模型计算中使用 LiDAR 扫描时，会用到这些设置。
+                </p>
+                <img src="images/reconstruction-settings-lasers.png" alt="reconstruction-settings-lasers" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/appbasics/images/reconstruction-settings-lasers.png';">
+                <br/>
+                <ul>
+                    <li data-id="li_scans_mind" data-vn="2"><span class="appproperty">Minimal distance between two points</span> 用此设置定义模型中与扫描相关部分的最终密度。不过来自图像（摄影测量）的部分可能更密。要控制最终模型的整体密度，请使用 <span class="appproperty">网格计算 / 两顶点间最小距离</span>。</li>
+                    <li data-id="li_scans_crop" data-vn="1"><span class="appproperty">Point-cloud cropping radius</span> 距扫描仪位置超过该值的点将不参与模型计算。当你已知远处点精度较低、不希望它们进入最终模型时，用此设置。</li>
+                    <li data-id="li_scans_mini" data-vn="1"><span class="appproperty">Minimal intensity</span> 用此设置排除强度低于该值的点。请参考扫描仪规格。通常低强度点的精度不足，你可能不希望它们参与重建。</li>
+                    <li data-id="li_scans_class" data-vn="1"><span class="appproperty">Filtering based on classification</span> 选择哪些 LiDAR 类别参与网格创建、哪些排除。为便于选择，也可以一次性全部启用或禁用。</li>
+                </ul>
+            </div>
+
+            <br/>
+
+            <div data-id="div_sb_mesh" class="slideblock">
+                <h2 data-id="h2_mesh" data-vn="1">网格计算</h2>
+                <p data-id="p_h2_mesh" data-vn="1">
+                    网格在深度图计算完成后创建，这些参数用于控制最终网格的属性。
+                </p>
+                
+                <img src="images/reconstruction-settings-mesh-preview-1.png" alt="reconstruction-settings-mesh-preview-1" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/appbasics/images/reconstruction-settings-mesh-preview-1.png';">
+                <br/>
+                <ul>
+                    <li data-id="li_mesh_accel" data-vn="2"><span class="appproperty">GPU acceleration</span> 启用可加快网格计算，默认已开启。
+                    </li>
+                    <li data-id="li_mesh_marginal" data-vn="1"><span class="appproperty">Remove marginal triangles</span> 启用后会移除边缘三角面，得到非水密网格。
+                    </li>
+                    <li data-id="li_mesh_mind" data-vn="2"><span class="appproperty">Minimal distance between two vertices</span> 用此设置定义模型的最终密度。警告：仅在你确定模型尺度时才使用。若场景已地理参考，该数值的单位是米/英尺。下个项目再做模型计算前，别忘了相应修改。
+                    </li>
+                    <li data-id="li_mesh_prev" data-vn="1"><span class="appproperty">Preview model</span> 这些设置仅在你选择“预览质量”模型计算时生效。以预览模式计算的模型始终是单分块（singleton），即只包含一个分块。
+                        <ul>
+                            <li data-id="li_mesh_sparse" data-vn="2"><span class="appproperty">网格计算策略 </span> 你可以选择 <span class="appproperty">Use sparse point cloud</span>。如果使用此设置，那么 <span class="appproperty">影像深度图计算 / 预览模型 / 影像降采样</span> and <span class="appproperty">网格计算 / 预览模型 / 最大顶点数</span> 将不会被使用，并会因无关而隐藏。或者你也可以选择 <span class="appproperty">Max vertex count</span>。使用此选项可以定义最终模型可包含的最大顶点数，此时会估算一个合适的抽稀系数；当然，最终顶点数不会与你设定的完全一致。</li>
+                            <li data-id="li_mesh_maxvc" data-vn="2"><span class="appproperty">Max vertex count</span> 当 <span class="appproperty">Mesh calculation strategy</span> 设为 <span class="appproperty">Max vertex count</span> 时显示此项。它定义最终模型可包含的最大顶点数，此时会自动估算合适的抽稀系数。当然，实际顶点数不会与你设定的完全一致。</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <br/>
+
+            <div data-id="div_sb_adv" class="slideblock">
+                <h2 data-id="h2_adv" data-vn="1">高级</h2>
+
+                <img src="images/reconstruction-settings-advanced.png" alt="reconstruction-settings-advanced" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/appbasics/images/reconstruction-settings-advanced.png';">
+
+                <br/>
+                <ul>
+                    <li data-id="li_mesh_maxvcpp" data-vn="1"><span class="appproperty">Maximal vertex count per part</span> 定义单个部件中的最大顶点数，不建议修改。</li>
+                    <li data-id="li_mesh_dedefa" data-vn="1"><span class="appproperty">Detail decimation factor</span> 值越大，细节越少，最终模型的三角面数也越少。</li>
+					<li data-id="li_mesh_demaav" data-vn="1"><span class="appproperty">Depth map algorithm version</span> 选择计算深度图所用的算法版本（版本 1 为旧版算法）。</li>
+					<li data-id="li_mesh_adblst" data-vn="2"><span class="appproperty">Adaptive blending start</span> 主要用于 LiDAR 扫描和度量数据，决定将要生成的细节层级。值越大细节越多，不建议改用非默认值（0.45）。</li>
+					<li data-id="li_mesh_smooth" data-vn="2"><span class="appproperty">Smoothing</span> 平滑设置的作用类似 <span class="apptool">Smooth</span> 工具，数值越大模型越平滑。</li>
+                    <li data-id="li_adv_pgm" data-vn="1">Photogrammetry settings
+                    <br/><span class="appproperty">Default grouping factor</span> and <span class="appproperty">Low-texture grouping factor</span> 决定网格顶点的最终密度。
+                    <br/><span class="appproperty">Default noise factor</span> and <span class="appproperty">Low-texture noise factor</span> 决定网格的最终平滑程度。
+                        <ul>
+                            <li data-id="li_adv_group_1" data-vn="3"><span class="appproperty">Default grouping factor</span> 默认密度。若设为 2，顶点数应减少为原来的四分之一（2×2=4）。设为高于默认值也可能损失细节。当图像对网格质量有负面影响时也可用此设置；当图像与 LiDAR 扫描一起用于构建网格时，提高该值意味着优先使用激光扫描数据来构网。</li>
+                            <li data-id="li_adv_low" data-vn="1"><span class="appproperty">Low-texture grouping factor</span> 值越大，网格中纹理较弱部分的顶点密度越低。</li>
+                            <li data-id="li_adv_noise" data-vn="1"><span class="appproperty">Default noise factor</span> 噪声系数越大，网格越平滑。设得比默认值更高时也会丢失细节。</li>  
+                            <li data-id="li_adv_low_noise" data-vn="1"><span class="appproperty">Low-texture noise factor</span> 值越大，网格中纹理较弱的部分越平滑。</li>
+                        </ul>
+                    </li>
+					<li data-id="li_adv_mfil" data-vn="1">Mesh filtration settings
+						<ul>
+                            <li data-id="li_mesh_filrad" data-vn="1"><span class="appproperty">Filter radius</span> 滤波半径用于深度图计算，此设置不应修改。</li>
+							<li data-id="li_mesh_filstr" data-vn="1"><span class="appproperty">Filter strength</span> 滤波强度用于深度图计算，不建议修改此设置。</li>
+                        </ul>
+					</li>
+                    <li data-id="li_adv_pgm1" data-vn="1">Model import settings
+                        <ul>
+                            <li data-id="li_mesh_maxvcpp1" data-vn="1"><span class="appproperty">Maximal vertex count per part</span> 定义导入模型单个分块的最大顶点数。</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="clear splitSpacing">
+                <!-- clear -->
+            </div>
+
+            <div data-id="bc" class="blocksContainer">
+
+                <a href="../tools/texturing.htm">
+                    <div class="block TileColor2">
+                        <h2 data-id="h2_bc" data-vn="1">着色与纹理</h2>
+                        <p data-id="p_h2_bc" data-vn="1">进一步了解如何给三维模型上色</p>
+                    </div>
+                </a>
+
+                <script type="text/javascript">RenderBackToStartTile();</script>
+
+            </div>
+
+            <div class="clear">
+            <!-- clear -->
+            </div>
+
+        </div>  <!-- content slide end -->
+
+        <script type="text/javascript">RenderCopyrightText();</script>
+
+        <script type="text/javascript">
+            InitializeHelpSlide();
+        </script>
+
+    </body>
+</html>
+<!-- signature:GlJA9zlhkaepfuem5HypfDng2QlSER9ujxedRBliXD+ds5WKK8iilg592BBiDsWabtZj8l/twQUO698Bg9hns2o+LVXE4iDeidFNZlsBNY/qc1VkYupJ28vGkPv9YaKDRrtY8jFNUFhWOZZQx6pxQxxCYEB3fZwc21dF9FFjhOI= -->

@@ -1,0 +1,424 @@
+<html>
+<head>
+    <title>RealityScan 帮助</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Epic Games Slovakia s.r.o." />
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <link type="text/css" rel="stylesheet" href="../../styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/colors.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css" />
+    <script src="../scripts/textVars.js" type="text/javascript"></script>
+    <script src="../../scripts/localization.js" type="text/javascript"></script>
+    <script src="../../scripts/main.js" type="text/javascript"></script>
+</head>
+<body ondragstart="return false;">
+
+    <div data-id="div_cs" class="content_slide">
+
+    <!-- content slide -->
+    <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div  data-id="div_head" class="head">
+            <h1 data-id="h1" data-vn="1">重建命令</h1>
+            <p data-id="p_h1_1" data-vn="2">
+                下面的命令可用于设置与修改重建区域，以及运行重建。
+            </p>
+            <table class="tableofcommands">
+                <thead data-id="thead_reco_name" data-vn="1">
+                <tr>
+                    <th>命令名称</th>
+                    <th>必需参数</th>
+                    <th>可选参数</th>
+                    <th>说明</th>
+                </tr>
+                </thead>
+                <tr data-id="tr_reco_regr" data-vn="1">
+                    <td class="command">resetGround</td> 
+                    <td class="parameter"></td>
+                    <td class="parameter"></td>
+                    <td>把地平面恢复为原始的朝向与位置。</td> 
+                </tr>
+                <tr data-id="tr_reco_sgpfrr" data-vn="1">
+                    <td class="command">setGroundPlaneFromReconstructionRegion</td> 
+                    <td class="parameter"></td>
+                    <td class="parameter"></td>
+                    <td>用重建区域自动把模型居中到网格中央，同时调整旋转与平移。</td> 
+                </tr>
+                <tr data-id="tr_reco_srra" data-vn="1">
+                    <td class="command">setReconstructionRegionAuto</td> 
+                    <td class="parameter"></td>  
+                    <td class="parameter"></td>
+                    <td>自动设置重建区域。</td> 
+                </tr>
+                <tr data-id="tr_reco_srr" data-vn="2">
+                    <td class="command">setReconstructionRegion</td> 
+                    <td class="parameter">box.rsbox</td>  
+                    <td class="parameter"></td>
+                    <td>从 box.rsbox 文件导入重建区域。</td> 
+                </tr>
+                <tr data-id="tr_reco_setregionCP" data-vn="1">
+                    <td class="command">setReconstructionRegionOnCPs</td> 
+                    <td class="parameter">controlPoint<br/>controlPoint<br/>controlPoint<br/>controlPoint|heightValue</td>  
+                    <td class="parameter"></td> 
+                    <td>在已有控制点上设置重建区域。三个控制点确定区域底面，区域高度由第四个控制点或输入的高度值确定。见下例。</td> 
+                </tr>
+                
+                <tr data-id="tr_reco_setregden" data-vn="1">
+                    <td class="command">setReconstructionRegionByDensity</td> 
+                    <td class="parameter"></td>  
+                    <td class="parameter"></td> 
+                    <td>把重建区域设为稀疏点云中密度最高的部分。</td> 
+                </tr>              
+                <tr data-id="tr_reco_scale" data-vn="1">
+                    <td class="command">scaleReconstructionRegion</td> 
+                    <td class="parameter">scaleX<br/>scaleY<br/>scaleZ</td>
+                    <td class="parameter">origin|center absolute|factor</td>
+                    <td>按各轴缩放重建区域（<span class="command">scaleX</span>、<span class="command">scaleY</span> 和 <span class="command">scaleZ</span>）。缩放参数既可当作绝对值（<span class="command">absolute</span>），也可当作缩放系数（<span class="command">factor</span>）；缩放基准可以是区域中心（<span class="command">center</span>）或区域原点（<span class="command">origin</span>——使用 <span class="command">setReconstructionRegionOnCPs</span> 命令时由第一个控制点确定）。默认值为 "absolute" 与 "center"。见下例。</td>
+                </tr>
+                <tr data-id="tr_reco_move" data-vn="1">
+                    <td class="command">moveReconstructionRegion</td>
+                    <td class="parameter">moveX<br/>moveY<br/>moveZ</td>
+                    <td class="parameter"></td> 
+                    <td>沿区域自身各轴移动重建区域，数值以坐标系的单位表示。见下例。</td>
+                </tr>
+                <tr data-id="tr_reco_rotate" data-vn="1">
+                    <td class="command">rotateReconstructionRegion</td> 
+                    <td class="parameter">rotateX<br/>rotateY<br/>rotateZ</td>
+                    <td class="parameter"></td> 
+                    <td>绕区域自身各轴旋转重建区域，所有数值以度为单位。见下例。</td> 
+                </tr>
+                <tr data-id="tr_reco_offset" data-vn="1">
+                        <td class="command">offsetReconstructionRegion</td> 
+                        <td class="parameter">offsetX<br/>offsetY<br/>offsetZ</td>  
+                        <td class="parameter"></td> 
+                        <td data-vn="1">按区域自身尺寸的倍数沿各轴偏移重建区域。</td> 
+                    </tr>
+                <tr data-id="tr_reco_err" data-vn="2">
+                    <td class="command">exportReconstructionRegion</td> 
+                    <td class="parameter">box.rsbox</td>  
+                    <td class="parameter"></td>
+                    <td>把重建区域导出到 box.rsbox 文件。</td> 
+                </tr>
+                <tr data-id="tr_reco_cpm" data-vn="1">
+                    <td class="command">calculatePreviewModel</td>
+                    <td class="parameter"></td>  
+                    <td class="parameter"></td>
+                    <td>以预览质量计算三维网格。</td> 
+                </tr>
+                <tr data-id="tr_reco_cnm" data-vn="1">
+                    <td class="command">calculateNormalModel</td> 
+                    <td class="parameter"></td>  
+                    <td class="parameter"></td>
+                    <td>以正常质量计算三维网格。</td> 
+                </tr>
+                <tr data-id="tr_reco_chm" data-vn="1">
+                    <td class="command">calculateHighModel</td> 
+                    <td class="parameter"></td>  
+                    <td class="parameter"></td>
+                    <td>以最高质量计算三维网格。</td> 
+                </tr>
+                <tr data-id="tr_reco_cont" data-vn="1">
+                    <td class="command">continueModelCalculation</td> 
+                    <td class="parameter"></td>  
+                    <td class="parameter"></td>
+                    <td>若模型计算被暂停或发生崩溃，可用该命令继续计算。
+                    </td> 
+                </tr>
+            </table>
+
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sb_reex_v1" data-vn="2" class="slideblock">
+
+            <h2 data-id="h2_reex" data-vn="1">重建示例</h2>
+            <p data-id="p_h2_reex" data-vn="1">以下示例展示如何从命令行运行模型计算。</p>
+            <p data-id="p_rere_scrp" data-vn="2">
+                先从一个展示前两个重建区域命令如何工作的简单脚本开始。
+            </p>
+            <div class="codeSample">
+                RealityScan.exe -addFolder %MyPath%\Images\ -align -setReconstructionRegionAuto -exportReconstructionRegion %MyPath%\myBox.rsbox -quit
+            </div>
+
+            <p data-id="p_rere_baal" data-vn="3">
+                基础对齐之后，它会自动设置重建区域并导出到文件。<br/> 若想导入自定义重建区域，可以先在应用中点击 <span class="appribbon">MESH &amp; COLOR</span> / <span class="appribbonbutton">Export</span> / <span class="appribbonbutton">Reconstruction Region</span> 导出，再修改 .rsbox 文件中的数值与参数。<br/> 下面的脚本会打开一个已对齐的工程、选中最大的组件、导入重建区域，并以预览、正常和高细节三个质量计算模型。 
+            </p>
+            <div class="codeSample">
+                RealityScan.exe -load %MyPath%\AlignedProject.rsproj -selectMaximalComponent -setReconstructionRegion %MyPath%\myBox.rsbox -calculatePreviewModel -calculateNormalModel -calculateHighModel -save %MyPath%\NewProject.rsproj -quit
+            </div>
+            <br/>
+            <div data-id="div_im_brli" data-vn="1" class="importantMessage">提示：在批处理脚本中，可以用 <span class="command">^</span> sign and continue the command sequence on the next line so that the CLI processes it as one line.
+                We will demonstrate it on this example:
+            </div>
+            <br/>
+            <div class="codeSample">
+                RealityScan.exe -load %MyPath%\AlignedProject.rsproj^<br />
+                <div style="padding-left: 20px">
+                -selectMaximalComponent -setReconstructionRegion %MyPath%\myBox.rsbox^<br />
+                -calculatePreviewModel^<br />
+                -calculateNormalModel^<br />
+                -calculateHighModel^<br />
+                -save %MyPath%\NewProject.rsproj -quit
+                </div>
+            </div>
+            <p data-id="p_ircm_mult" data-vn="1">
+                多行脚本应与单行脚本效果相同，但更易读，并按逻辑分段。
+            </p>
+
+            <h2 data-id="h2_rrcp" data-vn="1">在控制点上设置重建区域</h2>
+            <p data-id="p_rrcp_cmds" data-vn="1">
+                可以用 <span class="command">-setReconstructionRegionOnCPs</span> 命令配合控制点设置重建区域。<br /> 使用该命令至少需要三个控制点：前两个确定区域宽度，第三个确定长度——这三个点共同确定重建区域的底面。区域高度可由第四个控制点设定，也可直接输入高度值（以坐标系单位），该值可以为负。
+            </p>
+            <p data-id="p_rrcp_cmds_ex" data-vn="1">
+                示例：
+            </p>                
+            <div class="codeSample">
+                RealityScan.exe -delegateTo * -setReconRegionOnCPs CP1 CP2 CP3 50
+            </div>
+            <p data-id="p_rrcp_cmds_text" data-vn="1">
+                该示例会在控制点 CP1、CP2、CP3 上创建重建区域，高度为 50（坐标系单位）。<br/> 命令中控制点的顺序决定重建区域的各轴：这些轴始终构成右手系，原点位于第一个控制点，X 轴从原点出发穿过第二个控制点。 
+            </p>
+
+            <h2 data-id="h3_scrr" data-vn="1">缩放重建区域</h2>
+            <p data-id="p_scrr_scpt" data-vn="1">
+                可以用 <span class="command">-scaleReconstructionRegion</span> 命令按绝对值或倍数在区域各轴上缩放。还可以选择缩放基准：原点或中心。该命令的默认设置是从区域中心、按绝对值缩放。
+            </p>
+            <p data-id="p_scrr_ex" data-vn="1">
+                示例：
+            </p>
+            <div class="codeSample">
+                RealityScan.exe -delegateTo * -scaleReconstructionRegion 1.1 1.1 1.2 center factor 
+            </div>
+            <p data-id="p_scrr_exmp" data-vn="1">
+                该示例按所定义的系数从中心缩放重建区域：X、Y 轴乘以系数 1.1，Z 轴乘以系数 1.2。
+            </p>
+
+            <h2 data-id="h3_morr" data-vn="1">移动重建区域</h2>
+            <p data-id="p_morr_scpt" data-vn="1">
+                用 <span class="command">-moveReconstructionRegion</span> 命令可移动重建区域。
+            </p>
+            <p data-id="p_morr_ex" data-vn="1">    
+                示例：
+            </p>
+            <div class="codeSample">
+                RealityScan.exe -delegateTo * -moveReconstructionRegion 10 10 10
+            </div>
+            <p data-id="p_morr_exmp" data-vn="1">
+                使用时，该示例会把重建区域沿所有轴各移动 10 个单位（单位由坐标系定义）。
+            </p>
+
+            <h2 data-id="h3_rorr" data-vn="1">旋转重建区域</h2>
+            <p data-id="p_rorr_scpt" data-vn="1">
+                用 <span class="command">-rotateReconstructionRegion</span> 命令可旋转重建区域，所需参数均以度为单位。
+            </p>
+            <p data-id="p_rorr_ex" data-vn="1">
+                示例：
+            </p>
+            <div class="codeSample">
+                RealityScan.exe -delegateTo * -rotateReconstructionRegion 45 45 45
+            </div>
+            <p data-id="p_rorr_exmp" data-vn="1">
+                该示例会把重建区域绕所有轴各旋转 45 度，各轴也随之旋转。 
+            </p>
+
+            <div data-id="div_im_unit" data-vn="1" class="importantMessage">
+                注意：所有改变重建区域边长的命令都以坐标系单位为准（按系数缩放除外）。对于未地理配准的项目，其行为未定义（可手动缩放坐标系，方法是使用 <a href="../tutorials/scaling.htm">distance constraints</a>). 
+            </div>
+            
+            <br/>
+            
+            <h2 data-id="h3_offsetrr" data-vn="1">偏移重建区域</h2>
+            <p data-id="p_offsetrr_scpt" data-vn="1">
+                用 <span class="command">-offsetReconstructionRegion</span> 命令可按区域各边长度偏移重建区域，参数为相对值，用作乘数。
+            </p>
+            <p data-id="p_offsetrr_ex" data-vn="1">
+                示例：
+            </p>
+            <div class="codeSample">
+                RealityScan.exe -delegateTo * -offsetReconstructionRegion 1 2 0.5
+            </div>
+            <p data-id="p_offsetrr_exmp" data-vn="1">
+                该示例会把重建区域在 X 轴上偏移一个深度长度、Y 轴上偏移两个宽度长度、Z 轴上偏移半个高度长度；这些值作用于重建区域的 XYZ 各轴。
+            </p>
+
+        </div>
+
+        
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>        
+
+        <div data-id="div_sb_prdm_v1" data-vn="2" class="slideblock">
+            <h2 data-id="h2_prdm" data-vn="1">预计算深度图</h2>
+
+            <p data-id="p_prdm_pre" data-vn="2">
+                若想用多台电脑加速模型计算，可以用 <span class="appaspecttype">PrecomputeDepthmaps</span> 设置预先计算深度图：
+            </p>
+            <div class="codeSample">
+                RealityScan.exe -set "PrecomputeDepthmaps=true"<br/>
+            </div>
+
+            <ul>
+                <li data-id="li_prdm_true" data-vn="1">若值设为 <span class="appaspecttype">true</span>，预览/正常/高精度命令只会预计算深度图（存放在应用缓存中），不会创建模型。</li>
+                <li data-id="li_prdm_fals" data-vn="1">若保持默认值 <span class="appaspecttype">false</span>，这些命令照常执行，即计算深度图并创建模型。不过若深度图已预计算并存在缓存中，深度图计算这一步会被跳过，只执行模型计算。 </li>
+            </ul>
+
+            <br/>
+            <div data-id="div_im_bade" data-vn="1" class="importantMessage">注意：必须把该值恢复为默认值 <span class="appaspecttype">false</span> for the usual performance of the preview/normal/high commands  after you have finished your job.</div>
+            <br/>
+
+            <p data-id="p_prdm_maxi" data-vn="2">想把 GPU/CPU 利用率拉满、且有很多尺寸相近的资产需要计算（例如大量全身扫描）时，这种做法很有用。你可以配两台机器：一台多块强 GPU 配普通 CPU，另一台普通 GPU 配强 CPU，两台都装 RealityScan CLI。这样就能并行跑两条流水线： 
+            </p>                
+                <ul>
+                    <li data-id="li_prdm_gpu" data-vn="3"><span class="appaspecttype">GPU-PC, Dataset(i+1)</span> : Align \ Turn On Precompute Depth Maps \ Model Computation \ Save \ Move the project and cache to CPU-PC:
+                        <div class="codeSample">
+                            RealityScan.exe -addFolder "C:\MyFolder_on_GPU-PC\Images\"^<br />
+                            <div style="padding-left: 20px">
+                            -align^<br />
+                            -set "PrecomputeDepthmaps=true"^<br />
+                            -calculateNormalModel^<br />
+                            -save "C:\MyFolder_on_GPU-PC\Project.rsproj" -quit
+                            </div>
+                        </div>
+                        <p data-id="p_prdm_mopr" data-vn="3">
+                            Move <span class="command">Project.rsproj</span> from <span class="command">C:\MyFolder_on_GPU-PC</span> to <span class="command">C:\MyFolder_on_CPU-PC</span> 
+                            and cache to <span class="command">C:\MyFolder_on_CPU-PC\Cache</span>.
+                        </p>
+                    </li>
+
+                    <li data-id="li_prdm_cpu" data-vn="3"><span class="appaspecttype">CPU-PC, Dataset(i)</span> : Load \ Import Cache \ Turn Off Precompute Depth Maps \ Model Computation \ Export:
+                        <div class="codeSample">
+                            RealityScan.exe -load "C:\MyFolder_on_CPU-PC\Project.rsproj"^<br />
+                            <div style="padding-left: 20px">
+                            -importCache "C:\MyFolder_on_CPU-PC\Cache\"^<br />
+                            -set "PrecomputeDepthmaps=false"^<br />
+                            -calculateNormalModel^<br />
+                            -exportModel "Model 1" "C:\MyFolder_on_CPU-PC\Model.obj" "C:\MyFolder_on_CPU-PC\params.xml"^<br />
+                            -save "C:\MyFolder_on_CPU-PC\Project_Model.rsproj" -quit
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <br />
+                <div data-id="div_im_nosh" data-vn="1" class="importantMessage">提示：不建议在网络驱动器上共享缓存；建议两台电脑都把缓存放在本地 SSD 上，再在两者之间复制内容。</div>
+
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="h2_cont_div" data-vn="2" class="slideblock">
+            <h2 data-id="h2_cont" data-vn="1">继续模型计算</h2>
+
+            <p data-id="p_cont_comm" data-vn="1">
+                若模型因崩溃而中断、或计算被暂停，可用 <span class="command">-continueModelCalculation</span> 命令继续计算。要在崩溃后使用该命令，必须事先启用 <a href="../appbasics/autosave.htm">auto save mode</a>。<br /> 该命令会扫描项目中未完成的模型，遇到一个就继续其计算。搜索顺序是从最后一个组件到第一个组件，组件内部从最后一个模型到第一个模型。
+            </p>
+            <p data-id="p_cont_expa" data-vn="1">
+               示例（暂停时）：
+            </p>
+            <div class="codeSample">
+                RealityScan.exe -load project.rsproj -continueModelCalculation<br/>
+            </div>
+            <p data-id="p_cont_expa_info" data-vn="1">
+               暂停计算时，可以选择不临时暂停，这样模型会停留在部分计算完成的状态。该示例会在所加载工程于关闭前已保存的情况下，继续该模型的计算。 
+            </p>  
+            <p data-id="p_cont_excr" data-vn="1">
+               示例（崩溃后）：
+            </p>
+            <div class="codeSample">
+                RealityScan.exe -load project.rsproj recoverAutosave -continueModelCalculation<br/>
+            </div>
+            <p data-id="p_cont_excr_info" data-vn="2">
+               如上所述，必须先启用自动保存模式才能使用该命令。启用后，可以在 <span class="command">-load</span> 命令中使用可选参数 <span class="command">recoverAutosave</span>，该参数会让 RealityScan 扫描未完成的模型。 
+            </p>
+
+        </div>
+      
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_bc" data-vn="2" class="blocksContainer">
+
+            <a href="../tutorials/commandline.htm">
+                <div class="block TileColor1">
+                    <h2 data-id="h2_bc_pico" data-vn="1">工程与图像命令</h2>
+                    <p data-id="p_h2_bc_pico" data-vn="1">通过 CLI 管理当前工程、应用本身，以及添加图像</p>
+                </div>
+            </a>
+
+            <a href="../tutorials/commandline_rscmd.htm">
+                <div class="block TileColor1">
+                    <h2 data-id="h2_bc_out" data-vn="1">命令行之外的命令执行方式</h2>
+                    <p data-id="p_h2_bc_out" data-vn="2">用 .rscmd 文件执行 CLI</p>
+                </div>
+            </a>
+            
+            <a href="../tutorials/commandline_deleg.htm">
+                <div class="block TileColor1">
+                    <h2 data-id="h2_bc_del" data-vn="1">命令委派</h2>
+                    <p data-id="p_bc_del" data-vn="2">关于把命令委派给已打开的 RealityScan 实例</p>
+                </div>
+            </a>            
+
+            <a href="../tutorials/commandline_1.htm">
+                <div class="block TileColor1">
+                    <h2 data-id="h2_bc_alco" data-vn="1">对齐命令</h2>
+                    <p data-id="p_h2_bc_alco" data-vn="1">对齐与组件处理命令</p>
+                </div>
+            </a>
+
+            <a href="../tutorials/commandline_3.htm">
+                <div class="block TileColor2">
+                    <h2 data-id="h2_bc_furt" data-vn="1">继续</h2>
+                    <p data-id="p_h2_bc_furt" data-vn="1">通过命令行进一步处理模型</p>
+                </div>
+            </a>
+            
+            <a href="../tutorials/commandline_4.htm">
+                <div class="block TileColor1">
+                    <h2 data-id="h2_bc_seco" data-vn="1">设置命令</h2>
+                    <p data-id="p_h2_bc_seco" data-vn="1">应用设置与行为</p>
+                </div>
+            </a>
+
+            <a href="../tutorials/commandline_5.htm">
+                <div class="block TileColor1">
+                    <h2 data-id="h2_bc_erha" data-vn="1">错误处理命令</h2>
+                    <p data-id="p_h2_bc_erha" data-vn="1">用于处理潜在错误的命令</p>
+                </div>
+            </a>
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sa" class="rowblock">
+            <h3 data-id="h3_sa" data-vn="1">另见：</h3>
+            <ul class="intend">
+                <li data-id="li_sa_mrse" data-vn="1">了解模型与重建设置 <a href="../appbasics/modelsettings.htm">点击此处</a></li>
+                <li data-id="li_sa_cli1" data-vn="1">在一页中查看全部 CLI 命令 <a href="../appbasics/allcommands.htm">点击此处</a></li>
+            </ul>
+        </div>
+    <!-- content slide end -->
+
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+    <script type="text/javascript">
+        InitializeTutorialMode();
+    </script>
+
+
+</body>
+</html>
+<!-- signature:ENPml3ubwTWoqEeh/zHzDVr0WvuJbt1yrbG6FPr0ARbQcisBY4Pt89nDKcGxNzUGqxddZZsythQuYjuf662nx5mY1MbON3iMxIj6Gtb3XeLaIWqnXZ7S+CsiWEOZ+MPzNyHpbxin1S2Y5AKo9jDwoUJ3+JPSn0hzRIgzbHlkfMY= -->

@@ -1,0 +1,126 @@
+<html>
+<head>
+    <title>RealityScan 帮助</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Epic Games Slovakia s.r.o." />
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <link type="text/css" rel="stylesheet" href="../../styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/colors.css" />
+    <script src="../scripts/textVars.js" type="text/javascript"></script>
+    <script src="../../scripts/localization.js" type="text/javascript"></script>
+    <script src="../../scripts/main.js" type="text/javascript"></script>
+    <script type="text/javascript">InitializeHelpSlide();</script>
+</head>
+<body ondragstart="return false;">
+
+    <div data-id="div_cs" class="content_slide">
+
+        <!-- content slide -->
+
+        <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head" class="head">
+
+            <h1 data-id="h1" data-vn="1">正射投影的参数文件</h1>
+            <p data-id="p_h1" data-vn="3">
+                用 <span class="command">-calculateOrthoProjection</span> 命令创建正射投影时，会用扩展名为 <span class="parameter">.rsortho</span> 的参数文件来定义渲染正射投影的参数。下面详细看一下它的内容。
+            </p>
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sb_rcor" class="slideblock">
+
+            <h2 data-id="h2_rcor" data-vn="2">用于计算正射投影的 *.rsortho</h2>
+            <p data-id="p_h2_rcor" data-vn="2">
+                使用 <span class="command">-calculateOrthoProjection</span> 命令时，应用会从指定的 params.rsortho 文件加载参数。要得到格式正确的该文件，可以手动创建一个正射投影，导出为任意格式，并在导出时把 <span class="appproperty">exportProjectionParametersFile</span> 设为 <span class="appproperty">True</span>。<br /> 下面是用于计算正射投影的 .rsortho 文件内容示例：
+            </p>
+
+            <div class="codeSample">
+<pre>
+&lt;OrthoProjection width="10011" height="8076" name="Ortho projection 1" modelName="Model 1"
+    colorType="texturing" boxSideConerIndex="13" bEmpty="0" backFaceColorType="1" backFaceColor="2130706687">
+    &lt;Header magic="5787472" version="1"/&gt;
+&lt;/OrthoProjection&gt;
+&lt;ReconstructionRegion globalCoordinateSystem="NONE" globalCoordinateSystemName="NONE" isGeoreferenced="0"
+    isLatLon="0" yawPitchRoll="0 -0 -0"&gt;
+    &lt;widthHeightDepth>29.8926887512207 29.9313926696777 24.1154346466064&lt;/widthHeightDepth&gt;
+    &lt;Header magic="5395016" version="2"/&gt;
+    &lt;CentreEuclid&gt;
+        &lt;centre&gt;-0.098011314868927 0.0846212208271027 12.4095182418823&lt;/centre&gt;
+    &lt;/CentreEuclid&gt;
+    &lt;Residual R="1 0 0 0 1 0 0 0 1" t="0 0 0" s="1"/&gt;
+&lt;/ReconstructionRegion>
+&lt;DTMParams classificationLayerId="-1">
+  &lt;ClassificationParams modelType="nature" postprocessType="soft_edges" sensitivity="0.5"/&gt;
+  &lt;Header magic="1480868688" version="1"/&gt;
+&lt;/DTMParams>
+</pre>
+            </div>
+
+            <p data-id="p_rcor_pars" data-vn="1">
+                要得到格式正确的该文件，可以手动创建一个正射投影，导出为任意格式，并在导出时把 <span class="appproperty">exportProjectionParametersFile</span> 设为 <span class="appproperty">True</span>。<br /> 文件的第一部分给出创建投影所需的参数。
+            </p>
+            <h3 data-id="h3_rcor_pars" data-vn="1">参数：</h3>
+            <ul>
+                <li data-id="li_rcor_wihe" data-vn="1"><span class="appproperty">width/height</span> —— 投影的宽度/高度</li>
+                <li data-id="li_rcor_name" data-vn="1"><span class="appproperty">name</span> —— 投影的名称</li>
+                <li data-id="li_rcor_mona" data-vn="1"><span class="appproperty">modelName</span> —— 要为其计算投影的模型名称</li>
+                <li data-id="li_rcor_bsci" data-vn="1"><span class="appproperty">boxSideConerIndex</span> —— 0 到 23 的数字；它决定重建区域的哪一面作为投影平面、哪个角作为最终投影的左上角；该数字并非固定值，取决于重建区域的旋转；获取该数字最好的办法是先手动创建一个正射投影，并连投影参数文件一起导出；之后再创建投影时，沿用该 boxSideConerIndex 值即可。
+                </li>
+                <li data-id="li_rcor_coty" data-vn="1"><span class="appproperty">colorType</span> —— 可选值：texturing、coloring</li>
+                <li data-id="li_rcor_bemp" data-vn="1"><span class="appproperty">bEmpty</span> —— 可选值：0 —— 会计算正射投影，等同于在正射投影工具设置中按下 Render 按钮；1 —— 不计算投影，等同于按下 Add to batch 按钮。建议保持为 0。</li>
+                <li data-id="li_rcor_bfct" data-vn="1"><span class="appproperty">backFaceColorType</span> —— 可选值：0 —— None —— 模型投影的内部与外部颜色相同；1 —— FixedColor —— 模型投影的内部与外部颜色不同，颜色由 backFaceColor 定义。</li>
+                <li data-id="li_rcor_bfc" data-vn="1"><span class="appproperty">backFaceColor</span> —— 模型内部部分的颜色</li>
+            </ul>
+            <br/>
+            <p data-id="p_rcor_parr" data-vn="1">
+                第二部分描述重建区域的参数，其中一面即投影平面。这部分可通过手动设置重建区域后将其导出来获得。
+            </p>
+            <p data-id="p_rcor_pardtm" data-vn="1">
+                第三部分（位于“DTMParams”标签之间）包含创建数字地形模型（DTM）所需的参数。
+            </p>
+            <h3 data-id="h3_dtm_pars" data-vn="1">参数：</h3>
+            <ul>
+                <li data-id="li_dtm_clid" data-vn="1"><span class="appproperty">classificationLayerId</span> —— 用于生成 DTM 的分类图层 ID。“-1”表示渲染时计算一个新分类，此时用户还需定义 <span class="appproperty">ClassificationParams</span>（见下文）。</li>
+                <li data-id="li_dtm_moty" data-vn="1"><span class="appproperty">modelType</span> —— 依据场景性质设定的分类类型。可选值："industrial_complex"、"mixed"、"city"、"nature"、"meadows"、"countryside"、"mountains"。</li>
+                <li data-id="li_dtm_ppty" data-vn="1"><span class="appproperty">postprocessType</span> —— 分类后执行清理模型的后期处理器类型。可选值："none"、"soft_edges"、"hard_edges"。 </li>
+                <li data-id="li_dtm_sens" data-vn="1"><span class="appproperty">sensitivity</span> —— 0 到 1 之间的值。设为 0 时全部归为 "Artificial object"，设为 1 时全部归为 "Ground"。 </li>
+            </ul>
+            <br/>
+            <p data-id="p_learn_pcc" data-vn="1">
+                想了解更多点云分类内容，请访问 <a href="../tools/classification.htm">this page</a>。
+            </p>
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_bc" class="blocksContainer">
+            
+            <a href="../tutorials/commandline_3.htm">
+                <div class="block TileColor2">
+                    <h2 data-id="h2_bc_cli" data-vn="1">了解如何使用这些文件</h2>
+                    <p data-id="p_h2_bc_cli" data-vn="1">查看命令行界面教程</p>
+                </div>
+            </a>
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+        <!-- content slide end -->
+
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+</body>
+</html>
+<!-- signature:chUwWk5DSGvQ1+O0cuBt9aPPrb6Yeu0IC7Z+aMzJG+p6oqQS6VKBXXfxwLphgAZYWSu8wAyRcISNU8xu94QLeXK2wzBttoQ15xEzx0qggTVgqQOJfuj4neiG2KNOzztqqAxbIfOVZ9sRpere3BOxZq5ZpEBSeWl6Sgmqq1nxuDg= -->

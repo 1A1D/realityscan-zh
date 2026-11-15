@@ -1,0 +1,150 @@
+<html>
+    <head>
+        <title>RealityScan 帮助</title>
+        <meta charset="UTF-8"/>
+        <meta name="author" content="Epic Games Slovakia s.r.o."/>
+        <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/style.css"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/colors.css"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css"/>
+        <script src="../scripts/textVars.js" type="text/javascript"></script>
+        <script src="../../scripts/localization.js" type="text/javascript"></script>
+        <script src="../../scripts/main.js" type="text/javascript"></script>
+    </head>
+    <body ondragstart="return false;">
+
+        <div data-id="div_cs" class="content_slide">
+
+            <script type="text/javascript">RenderToolNavigation();</script>
+
+            <div data-id="div_head" class="head">
+
+                <h1 data-id="h1" data-vn="1">实时场景渲染器</h1>
+                <p data-id="p_h1_1" data-vn="2">三维场景视图（<span class="appaspecttype">3Ds</span>）可以用多种渲染模式显示场景或其对象。可在 <span class="appribbon">SCENE 3D</span>/<span class="appribbon">VIEW</span> 选项卡的 <span class="apppanel">Model Render</span> 区域切换渲染模式。渲染模式影响模型在 <span class="appaspecttype">3Ds</span> 视图中的显示方式，此外还有一些选项可在 <span class="apppanel">Scene</span> 区域设置：
+                </p>
+                
+                <ul>
+                    <li data-id="scrend_grid" data-vn="2"><span class="appribbonbutton">Grid</span> 默认显示网格。要在 <span class="appaspecttype">3Ds</span> 中隐藏它，取消勾选此框。</li>
+                    <li data-id="scrend_shape" data-vn="2"><span class="appribbonbutton">Shapes</span> 勾选后可在模型上显示在正射投影中创建的形状。这些形状的详情见 <a href="../tools/orthoselection.htm" >此处</a>。</li>
+                    <li data-id="scrend_bckgrnd" data-vn="2"><span class="appribbonbutton">Bright Background</span> 勾选后背景会更亮。</li>
+                </ul>
+            </div>
+
+            <div data-id="div_sb_modes" class="slideblock">
+
+                <h2 data-id="h2_modes" data-vn="1">渲染模式</h2>
+
+                <p data-id="p_h2_modes" data-vn="2">可用的模型渲染模式如下：</p>
+                <ul>
+                    <li data-id="li_modes_ver" data-vn="1"><span class="appribbonbutton">Vertices</span> 只渲染模型顶点的一个合理子集，并带烘焙颜色。子集大小可在应用设置中调整。</li>
+                    <li data-id="li_modes_sol" data-vn="1"><span class="appribbonbutton">Solid</span> 平面着色的三角面，配四向动态光。</li>
+                    <li data-id="li_modes_swe" data-vn="2"><span class="appribbonbutton">Color/Texture</span> 显示最佳效果。这里有两种情况：没有纹理时用烘焙颜色着色，有纹理时显示纹理。</li>
+                </ul>
+
+                <br />
+
+                <div style="padding: 10px 10px 10px 0px">
+                    <img src="images/scene-render-1.png" alt="scene-render-1" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/appbasics/images/scene-render-1.png';"/>
+                </div>        
+            </div>
+
+            <br />
+
+            <div data-id="div_sb_behind" class="slideblock">
+                <h2 data-id="h2_behind" data-vn="1">工作原理</h2>
+
+                <p data-id="p_behind_first" data-vn="1">首先需要计算出网格 —— 也就是图像已对齐、模型已计算，并且布局中有一个 <span class="appaspecttype">3Ds</span> 视图。如果只看到点云，说明要么目前只完成了图像对齐，要么模型太大装不进内存。后者请继续往下看，了解如何渲染大数据。
+                </p>
+
+                <p data-id="p_behind_smooth" data-vn="1">为保证浏览流畅，会执行以下操作：</p>
+                <ul>
+                    <li data-id="li_behind_load" data-vn="1">模型从磁盘载入 GPU 期间，会显示模型点云。</li>
+                    <li data-id="li_behind_text" data-vn="1">纹理载入完成后，点云消失。</li>
+                    <li data-id="li_behind_scale" data-vn="1">纹理会缩放到适配 GPU（最大 16k），因此显示效果可能低于模型本身的画质。</li>
+                </ul>
+
+                <br />
+
+                <h3 data-id="h3_behind_prog" data-vn="1">处理进行中</h3>
+                <p data-id="p_behind_prog" data-vn="1">任何占用 GPU/CPU/内存/显存的密集计算（例如对齐、重建或纹理计算）都会临时把渲染模式切回低负载模式，即点云渲染。处理结束后系统会自动切回原模式 —— 当然，前提是系统资源允许。</p>
+
+                <h3 data-id="h3_behind_conv" data-vn="1">便于操作的细节</h3>
+                <p data-id="p_behind_conv" data-vn="1">为便于编辑，背面三角面始终会被渲染，且用不同颜色显示 —— 更准确地说，与正射投影工具渲染背面几何时使用同一色调。可在 <span class="appribbonbutton">Ortho Projection</span> <span class="appribbonbutton">(F11)</span> 工具中选择其颜色与透明度。
+                </p>
+            </div>
+
+            <br />
+
+            <div data-id="div_sb_restr" class="slideblock">
+                <h2 data-id="h2_restr" data-vn="1">限制</h2>
+                <p data-id="p_h2_texture" data-vn="">
+                    纹理的数量和尺寸没有限制，只会按需缩放。<br/>
+                </p>
+
+                <p data-id="p_h2_triangles" data-vn="2">
+                    实体或 sweet 模式下显示的三角面数量在应用设置中设定（<span class="appribbon">WORKFLOW</span> 选项卡 / <span class="apppanel">Application</span>）。共有 3 档：使用显存的 20%、40% 或 80%。可显示的三角面数取决于 GPU 显存，例如 16GB 显存对应约 7200 万（20%）、1.43 亿（40%）、2.85 亿（80%）。
+                </p>
+
+                <div data-id="div_im_exceed_1" data-vn="2" class="importantMessage">
+                
+                    一旦超过所设上限，就只会显示点云，渲染模式仍保持不变。不过此时可以用 <span class="apptool">Clipping Box</span> 工具来显示模型的局部；该工具位于 <span class="apppanel">View</span> part of the <span class="appribbon">SCENE 3D</span> / <span class="appribbon">VIEW</span> context tab. 
+                </div>
+            </div>
+
+            <br />
+
+            <div class="clear splitSpacing">
+                <!-- clear -->
+            </div>
+
+            <div data-id="div_bc" class="blocksContainer">
+
+                <a href="../tools/rendering.htm">
+                    <div class="block TileColor6">
+                        <h2 data-id="h2_bc_ss" data-vn="1">渲染截图</h2>
+                        <p data-id="p_bc_ss" data-vn="1">了解如何把场景渲染成图像</p>
+                    </div>
+                </a>
+
+                <a href="../tutorials/orthophoto.htm">
+                    <div class="block TileColor6">
+                        <h2 data-id="h2_bc_op" data-vn="1">创建并导出正射影像与 DSM</h2>
+                        <p data-id="p_bc_op" data-vn="1">了解如何创建并导出正射投影</p>
+                    </div>
+                </a>
+
+                <script type="text/javascript">RenderBackToStartTile();</script>
+
+            </div>
+
+            <div class="clear">
+                <!-- clear -->
+            </div>
+
+            <div data-id="div_sa" class="rowblock">
+                <h3 data-id="h3_sa" data-vn="1">另见：</h3>
+                <ul class="intend">
+                    <li data-id="li_sa_clip" data-vn="1">进一步了解裁剪框 <a href="../tools/clipbox.htm">点击此处</a></li>
+                    <li data-id="li_sa_recreg" data-vn="1">进一步了解重建区域 <a href="../tools/reconbox.htm">点击此处</a></li>
+                    <li data-id="li_sa_color" data-vn="1">进一步了解如何给三维模型上色 <a href="../tools/texturing.htm">点击此处</a></li>
+                    <li data-id="li_sa_simpl" data-vn="1">了解如何简化模型 <a href="../tools/simplify.htm">点击此处</a></li>
+                    <li data-id="li_sa_fly" data-vn="1">飞越视频 <a href="../tools/flythrough.htm">点击此处</a></li>
+                </ul>
+                <div class="clear">
+                    <!-- clear -->
+                </div>
+            </div>
+
+            <!-- content slide end -->
+
+        </div>
+
+        <script type="text/javascript">RenderCopyrightText();</script>
+
+        <script type="text/javascript">
+            InitializeHelpSlide();
+        </script>
+
+    </body>
+</html>
+<!-- signature:ibacZ2PZKaM3k0xvE9rXdjLLcO+c4lcr56CBp5WAcxydhyrGT5hTqsQpk8lmTLpwdxLyFdOR0T8Sp2oRteT5dfip3Fvvj0UmlkTp6vj/7BMj8pRvjPOC85u1O2PIHrtH/7c01YvWbNtATlSzlj4cUOqXcgfPQGA/3jiy2r3ejAc= -->

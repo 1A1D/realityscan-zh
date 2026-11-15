@@ -1,0 +1,119 @@
+﻿<html>
+<head>
+    <title>RealityScan 帮助</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Epic Games Slovakia s.r.o." />
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <link type="text/css" rel="stylesheet" href="../../styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/colors.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css" />
+    <script src="../scripts/textVars.js" type="text/javascript"></script>
+    <script src="../../scripts/localization.js" type="text/javascript"></script>
+    <script src="../../scripts/main.js" type="text/javascript"></script>
+</head>
+<body ondragstart="return false;">
+
+    <div data-id="div_cs" class="content_slide">
+
+        <!-- content slide -->
+        <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head" class="head">
+
+            <h1 data-id="h1" data-vn="1">图像镶嵌</h1>
+            <p data-id="p_h1" data-vn="3">
+                创建正射投影时，可以把 <span class="appproperty">Rendering method</span> 设为 Image mosaicing (aerial) 或 Image mosaicing (general)。这两种方法可以只用图像生成正射投影，而其他方法则要使用带纹理或已着色的稠密网格模型。Aerial 与 General 的区别在于相机的分布方式：用 Aerial 方法时建议相机位于同一平面或彼此平行的平面内，它也比 General 更快；General 方法用于相机环绕物体分布的项目，建议用于地面项目。<br/> 与其它渲染方法一样，该方法的前提是至少已创建一个模型。模型创建并选中后，<span class="apptool">Ortho Projection</span> 工具即可使用。
+            </p>
+        </div>
+
+        <br/>
+
+        <div data-id="div_sb_dime" class="slideblock">
+
+            <h2 data-id="h2_dime" data-vn="1">显示方式</h2>
+
+            <p data-id="p_h2_dime" data-vn="4">与任何正射投影一样，图像镶嵌也可以用任意 <span class="appproperty">Input layers</span> 来显示：<span class="appbutton">Ortho</span>、<span class="appbutton">DSM</span> 和 <span class="appbutton">DTM</span>。还有一个只对图像镶嵌可用的选项：<span class="appbutton">Mosaicing</span>。启用该选项时，正射投影会以一组接缝线的形式显示，这些接缝线代表各区域，并与生成每个区域的图像相关联。要更换 <span class="appproperty">Input layer</span>，先显示带正射投影的 <span class="appaspecttype">2D</span> 视图，再在 <span class="appribbon">ORTHO 2D</span>/<span class="appribbon">VIEW</span> 上下文选项卡的 <span class="apppanel">Source</span> 区域选择图层。
+            </p>
+                
+            <div style="padding: 10px 10px 10px 0px">
+                <img src="images/imagemosaic_displayingmethods_1.png" alt="imagemosaic_displayingmethods_1" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tutorials/images/imagemosaic_displayingmethods_1.png';"/>
+            </div>
+
+            <p data-id="p_dime_seam" data-vn="1">接缝线也可以叠加显示在其他输入图层之上，在 <span class="appribbon">ORTHO 2D</span>/<span class="appribbon">VIEW</span> 上下文选项卡中勾选 <span class="appribbonbutton">Seamlines</span> 复选框即可启用。 
+            </p>
+
+            <p data-id="p_dime_rgns" data-vn="1">
+                在正射投影上点击某个区域，就会显示与之对应的图像。这里推荐使用颜色光标：例如另开一个 <span class="appaspecttype">2D</span> 视图，把它的颜色光标设为 Magenta（品红），然后按住小键盘上的数字 3 并<span class="appgesture">点击</span>目标区域，图像就会显示出来，并高亮用于生成该镶嵌区域的部分。 
+            </p>
+
+        </div>
+        
+        <br/>
+        
+        <div data-id="div_sb_enmo" class="slideblock">
+
+            <h2 data-id="h2_enmo" data-vn="1">增强镶嵌</h2>        
+        
+            <p data-id="p_h2_enmo" data-vn="2">可以在图像镶嵌上新建区域，并选择用哪张图像来代表镶嵌中的该部分。<span class="appribbon">ORTHO 2D</span>/<span class="appribbon">TOOLS</span> 上下文选项卡中提供了多种新建区域的选项，<span class="appgesture">点击</span> <span class="appribbonbutton">Enhance Mosaic</span> 按钮即可启用这些选项。关于如何新建区域的更多内容，<a href="../tools/orthoselection.htm">请见此处</a>。<br/> 所有已创建的区域都能在 <span class="appaspecttype">1Ds</span> 视图中对应正射投影下的 <span class="apptree">Mosaicing</span> 里找到。            
+            </p> 
+
+            <p data-id="p_enmo_rgim" data-vn="1">
+                在 <span class="appaspecttype">1Ds</span> 视图中选中某个区域后，<span class="appaspecttype">2Ds</span> 视图中会显示出可选图像，并分为三个区：
+            </p> 
+            <ul>
+                <li data-id="li_enmo_actv" data-vn="1"><span class="appaspecttype">Active</span> 依据形状所覆盖的接缝线，在此可以看到已创建区域范围内的图像。要启用某张图像，把它从其他区<span class="appgesture">拖放</span>到 Active 区；要停用，就<span class="appgesture">拖放</span>到 <span class="appaspecttype">Disabled</span> 区。若<span class="appgesture">双击</span>某张图像，其余图像都会被停用。
+                </li>
+                <li data-id="li_enmo_sugg" data-vn="1"><span class="appaspecttype">Suggested</span> 依据位置推荐的图像，可启用或停用。
+                </li>
+                <li data-id="li_enmo_disb" data-vn="2"><span class="appaspecttype">Disabled</span> 肯定不会使用的图像。若在 <span class="appribbon">MOSAIC EDITOR</span>/<span class="appribbon">VIEW</span> 上下文选项卡中点击 <span class="appribbonbutton">Suggest</span> 按钮，它们会变成推荐图像。
+                </li>
+            </ul>
+            
+            <br/>
+            
+            <p data-id="p_enmo_bake" data-vn="2">
+                选好要用哪些图像后，在 <span class="appribbon">MOSAIC EDITOR</span>/<span class="appribbon">VIEW</span> 上下文选项卡中<span class="appgesture">点击</span> <span class="appribbonbutton">Bake</span> 按钮，创建好的形状就会用所选图像体现在图像镶嵌上。 
+            </p> 
+            
+            <br/>
+            
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_bc" class="blocksContainer">
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sa" class="rowblock">
+            <h3 data-id="h3_sa" data-vn="1">另见：</h3>
+            <ul class="intend">
+                <li data-id="li_sa_setr" data-vn="1">想了解如何创建正射投影，<a href="../tutorials/orthophoto.htm">点击此处</a></li>
+            </ul>
+            <div class="clear">
+                <!-- clear -->
+            </div>
+        </div>
+
+        <!-- content slide end -->
+
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+    <script type="text/javascript">
+        InitializeTutorialMode(RCModelsHandler, RCReconBoxHandler, RCOrthoHandler);
+    </script>
+
+
+</body>
+</html>
+<!-- signature:QMy7brH+qb1Kvq4Fc43oBYwONVkfp6lEgfEyyVkz8Y+KBDDh0hkFKKIpblBFUkGlC/cvIu5QRSaI88EneDM6EKTSA63JzgquUZRsJ/3KwWOGyuWJoJxUxgZi6WZWNQ5pnNh0+HOhsXtJh3wQw7CQ2NzDsKDFgvfzYHDGuiXgpLM= -->

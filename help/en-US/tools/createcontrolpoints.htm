@@ -1,0 +1,232 @@
+<html>
+<head>
+    <title>RealityScan 帮助</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Epic Games Slovakia s.r.o." />
+    <meta http-equiv="X-UA-Compatible" content="IE=12"/>
+    <link type="text/css" rel="stylesheet" href="../../styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/colors.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css" />
+    <script src="../scripts/textVars.js" type="text/javascript"></script>
+    <script src="../../scripts/localization.js" type="text/javascript"></script>
+    <script src="../../scripts/main.js" type="text/javascript"></script>
+</head>
+<body ondragstart="return false;">
+
+    <div data-id="div_cs" class="content_slide">
+
+        <!-- content slide -->
+        <script type="text/javascript">RenderToolNavigation();</script>
+        
+        <div data-id="div_head" class="head">
+       
+            <h1 data-id="h1" data-vn="1">创建与放置控制点</h1>
+            
+            <p data-id="p_h1" data-vn="3">RealityScan 支持多种创建控制点的方式：在 <span class="appaspecttype">2D</span> 或 <span class="appaspecttype">3Ds</span> 视图中用控制点工具创建；从 <span class="appaspecttype">1Ds</span> 视图把控制点拖放到 <span class="appaspecttype">2D</span> 视图（起点是 <span class="appaspecttype">1Ds</span> 视图）；或直接导入控制点。</p>
+            
+        </div><!-- head end -->
+        
+        <div data-id="div_sb_addcp" class="slideblock">
+        
+            <p data-id="p_h1_ad2d" data-vn="1">在 <span class="appaspecttype">2D</span> 图像视图中添加一个或多个控制点：</p>
+            <ul>
+                <li data-id="li_cpcp_acti" data-vn="3">要启用该工具，<span class="appgesture">点击</span> <span class="appribbon">ALIGNMENT</span> 选项卡中的 <span class="appribbonbutton">Add Control Points</span> 按钮；也可以按键盘上的 <span class="appshortcut">F3</span> 键。</li>
+                <li data-id="li_cpcp_assi" data-vn="1">要指定控制点，只需在图像中<span class="appgesture">点击</span>并<span class="appgesture">按住鼠标左键</span>不放。系统会自动创建控制点并放大，便于微调位置。微调时可在<span class="appgesture">按住左键</span>的同时滚动 <span class="appgesture">鼠标滚轮</span>来改变缩放。<span class="appgesture">松开左键</span>即放置并确认控制点，或<span class="appgesture">右键</span>取消放置。控制点编辑器会自动创建并选中该点。若你在另一张图像中<span class="appgesture">点击</span>，会在那张图像中创建对应的连接点，并把两点关联起来。</li>
+                <li data-id="li_cpcp_zoom" data-vn="1">应用会把所有显示同一点的视图一起放大，因此你可以借助其他视图更精准地放置。</li>
+                <li data-id="li_cpcp_alpo" data-vn="2">任何时候都可以<span class="appgesture">按住鼠标左键</span>来调整控制点位置，应用会进入微调模式并放大视图。</li>
+                <li data-id="li_cpcp_crne" data-vn="1">应用总是把新建的点与当前选中的点关联起来。若想新建一个独立的控制点（而不是关联点，例如建筑另一个角上的点），你有几种做法：
+                    <br/>
+                    <ol style="margin-top: 5px;">
+                        <li data-id="li_cpcp_plne" data-vn="1">在同一张图像中放置新的控制点</li>
+                        <li data-id="li_cpcp_dese" data-vn="1">用<span class="appgesture">鼠标右键</span>取消选中当前控制点</li>
+                        <li data-id="li_cpcp_sele" data-vn="1">点击其他控制点即可切换选中 —— 可在应用视图或 <span class="appaspecttype">1Ds</span> 视图中操作</li>
+                    </ol>
+                </li>
+            </ul>
+            <br/>
+            <div data-id="div_im_swit" data-vn="1" class="importantMessage">
+                TIP: Use a <span class="appgesture">left/right arrow</span> to switch among images in the <span class="appaspecttype">2D</span> 视图。只要图像是绕物体依次拍摄的，这就是在其他图像中放置同一控制点最简便的方式。若先多选了图像，那么按 <span class="appgesture">left/right arrow</span> 就只在选中的图像之间切换。
+                </div>
+            <br/>
+            
+            <p data-id="p_cpcp_ad3d" data-vn="1">在 <span class="appaspecttype">3Ds</span> 视图中添加控制点：</p>
+            
+            <ul>
+                <li data-id="li_cpcp_acti3d" data-vn="2">点击 <span class="appribbon">SCENE 3D</span>/<span class="appribbon">TOOLS</span> 中的 <span class="appribbonbutton">Add Control Points</span> 按钮启用控制点工具，也可以按键盘上的 <span class="appshortcut">F3</span> 键。</li>
+                <li data-id="li_cpcp_place3d" data-vn="1">在 <span class="appaspecttype">3Ds</span> 视图中移动鼠标划过点云或网格时，会显示灰色连线。这些线连向能看到鼠标当前位置的相机；与这些线相连的所有相机，会作为「建议测量」显示在 <span class="appaspecttype">1Ds</span> 视图中新建的点下方。单击点云或网格即可创建点。</li>
+                <li data-id="li_cpcp_more3d" data-vn="1">每点击一次就会创建一个新控制点。要改变控制点位置，需在它所属的图像上微调。</li>
+            </ul>
+            
+        </div>
+            
+            <div class="clear">
+            <!-- clear -->
+            </div>
+
+        <div data-id="div_sb_cpopt" class="slideblock">
+                
+            <h3 data-id="h3_dele" data-vn="1">删除控制点</h3>
+            <ul>
+                <li data-id="li_dele_new" data-vn="1">要删除刚创建的控制点，按 <span class="appshortcut">CTRL+Z</span> 撤销上一步即可。</li>
+                <li data-id="h3_dele_any" data-vn="1">要删除任意控制点，请在 <span class="appaspecttype">1Ds</span> 视图中展开控制点列表，把鼠标移到该控制点上，<span class="appgesture">点击</span>关闭图标。</li>
+            </ul>
+            
+            <br/>
+
+            <h3 data-id="h3_drag" data-vn="1">拖放控制点</h3>
+            <p data-id="p_h3_drag" data-vn="1">可以在视图之间拖放控制点，也可以在 <span class="appaspecttype">1Ds</span> 中的控制点之间拖放。</p>
+            <ul>
+                <li data-id="li_drag_1d" data-vn="1">可以从 <span class="appaspecttype">1Ds</span> 视图列表中<span class="appgesture">拖放</span>控制点。</li>
+                <li data-id="li_drag_hold" data-vn="1">在二维图像视图中按住 <span class="appshortcut">ctrl</span> 键<span class="appgesture">拖动</span>控制点，<span class="appgesture">放下</span>到另一张图像上。这会创建新点并自动与源点关联，之后可<span class="appgesture">按住鼠标左键</span>在其上微调位置。
+                </li>
+                <li data-id="li_drag_fix" data-vn="1">如果误建了本应关联到其他点的新点，或把点搞混了，也很容易修正：在 <span class="appaspecttype">1Ds</span> 视图中展开受影响的控制点树，把放错的图像名拖到正确的控制点树上即可。</li>
+            </ul>
+            <br/>
+            
+            <div data-id="div_im_mergecp" data-vn="1" class="importantMessage">
+                提示：可通过以下方式合并控制点： <span class="appgesture">drag and dropping</span> 把一个控制点拖到另一个控制点上，两者会合并到 <span class="appaspecttype">1Ds</span> view.
+            </div>
+            
+            <br/>
+
+            <h3 data-id="h3_sugg" data-vn="1" id="SuggestCP">控制点测量建议</h3>
+            <p data-id="p_h3_sugg" data-vn="2">
+                对任何带三维坐标的控制点（<span class="appproperty">Ground Control</span>，或已分配至少 2 张图像的 <span class="appproperty">Tie Point</span>），都可以给出测量建议。<br /> 使用 <span class="appribbonbutton">Suggest Measurements</span> 按钮，它位于 <span class="appribbon">SCENE 1D</span>/<span class="appribbon">TOOLS</span> 选项卡的 <span class="apppanel">Constraints</span> 区域，或 <span class="appribbon">IMAGE 2D</span>/<span class="appribbon">TOOLS</span> 选项卡中。<br/> 要移除这类建议，点击 <span class="appribbonbutton">Clear Suggestions</span>，或点击 <span class="appaspecttype">1Ds</span> 面板控制点列表中对应行上的 X 按钮。请注意：被移除的建议会被「封禁」，即清除掉的测量建议在后续操作控制点后也不会再次出现。<br/> 若要让被封禁的测量重新参与，请点击 <span class="appribbonbutton">Unban Suggestions</span>，或再次点击 <span class="appribbonbutton">Suggest Measurements</span> 重新生成建议。
+            </p>
+
+            <br/>
+            
+            <h3 data-id="h3_geom" data-vn="1" id="GeorefMap">用地图视图做地理参考</h3>
+            <p data-id="p_h3_geom" data-vn="1">
+                若没有任何地面控制点，也可以在 <span class="appaspecttype">map</span> 视图中创建。<br/> 先把控制点以 <span class="appproperty">Tie points</span> 的形式放进图像中容易在地图上定位的位置；打开 <span class="appaspecttype">map</span> 视图，在 <span class="apptool">Control points</span> 工具处于激活状态、且已选中要放到地图上的控制点时，在地图上目标位置<span class="appgesture">点击</span>，该点会自动变为 <span class="appproperty">Ground control point</span>。注意：这些点的高度总是同一个值（默认 1）。若要更改地面控制点在地图上的位置，把类型改回 <span class="appproperty">Tie point</span>，再用 <span class="apptool">Control points</span> 工具重新放置。<br/> 这在多种场景下都有用：例如没有先验坐标、又想在地图制图软件中使用正射影像时，可以更快定位；又如想把多个已地理参考的组件合并成一个、但没有任何先验地理位置信息时。需要注意，这种地理参考方式的精度可能有米级偏差，因为它取决于所用地图的精度。
+            </p>
+
+            <br/>
+
+            <h3 data-id="h3_upgp" data-vn="1" id="UpdateGCP">更新地面控制点</h3>
+            <p data-id="p_h3_upgp" data-vn="1">创建并放置好控制点后，点击 <span class="appribbonbutton">Align Images</span> <span class="appshortcut">(F6)</span>。也可以改用 <span class="appribbonbutton">Update</span> 按钮，应用对地面控制点或距离约束所做的改动。与完整对齐（会考虑所有控制点和关系）不同，<span class="appribbonbutton">Update</span> 只用地面控制点和距离约束来定位与缩放场景，不改变场景中相机的相对位置，因此也能对已创建的所有模型进行缩放和定位。完整对齐总是更精确，但相机位姿也可能随之改变，导致之前创建的模型与相机不再匹配 —— 所以会生成新组件，原模型保留在之前的（父）组件中。
+            </p>
+            
+            <script type="text/javascript">RenderYouTubeVideo( 640, 480, "https://www.youtube.com/embed/x92tIW65eJU" )</script>
+            
+            <br/>
+            
+            <h3 data-id="h3_seti_rena" data-vn="1" id="RenameCP">重命名控制点</h3>
+            <p data-id="p_seti_chna" data-vn="1">要修改控制点名称：在 <span class="appaspecttype">1Ds</span> 视图中点击该控制点，在同一窗口下方出现的 Selected control point(s) 面板中用鼠标选中其名称，输入新名称后按 <span class="appshortcut">Enter</span> 键。</p>
+            <p data-id="p_seti_remo" data-vn="1">也可以一次重命名多个控制点（注意：系统会自动在输入的名称后加上序号，以便与列表中已有名称区分）：</p>
+
+            <ol>
+                <li data-id="li_seti_conv" data-vn="1">连续多选的便捷做法（在 <span class="appaspecttype">1Ds</span> 窗口中）：点击要选的第一个控制点名称，<span class="appgesture">按住</span> <span class="appshortcut">Shift</span> 并同时点击最后一个控制点，然后在下方 <span class="apppanel">Selected control point(s)</span> 面板中<span class="appgesture">选中</span>「Name」值，重新输入名称。</li>
+                <li data-id="li_seti_more" data-vn="1">若要选择不连续的控制点（在 <span class="appaspecttype">1Ds</span> 列表中），先点击第一个，再在选其他点时<span class="appgesture">按住</span> <span class="appshortcut">Ctrl</span>。选好后同样在 <span class="apppanel">Selected control point(s)</span> 面板中<span class="appgesture">选中</span>名称并重新输入。</li>
+            </ol>
+            
+            <br/>
+            
+            <h3 data-id="h3_seti_order" data-vn="1">排序控制点</h3>
+            <p data-id="p_seti_order" data-vn="1"> <span class="appaspecttype">1Ds</span> 视图中的控制点列表可在 <span class="appribbon">SCENE 1D</span> / <span class="appribbon">VIEW</span> 选项卡中排序：可按创建顺序对应的索引排序，也可按名称排序。 
+            </p>
+
+            <br/>
+            <img src="images/controlpoints-sort_by.png" alt="controlpoints-sort_by" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/controlpoints-sort_by.png';"/>
+            <br/>
+            <br/>
+            
+            <div data-id="div_im_ordercps" data-vn="1" class="importantMessage">
+                 注意：在 <span class="appribbon">SCENE 1D</span> / <span class="appribbon">VIEW</span> tab, the image order in the <span class="appaspecttype">1Ds</span> view will also change.
+            </div>
+                        
+        </div> <!-- slideblock end -->
+            
+            <div class="clear">
+            <!-- clear -->
+            </div>
+            
+            <br/>
+
+        
+        <div data-id="div_sb_reca" class="slideblock">
+            <h2 data-id="h2_reca" data-vn="1" id="RelationToCameras">与相机的关系</h2>
+
+         <p data-id="p_h2_reca" data-vn="1" style="float:left; width: 380px; padding-right: 20px">
+            在 <span class="appaspecttype">1Ds</span>、<span class="appaspecttype">2D</span> 或 <span class="appaspecttype">3Ds</span> 视图中把鼠标移到控制点上或点击控制点时，<span class="appaspecttype">3Ds</span> 视图中会出现该控制点与对应相机的连线，帮助你在 <span class="appaspecttype">3Ds</span> 视图中判断这些控制点位于哪些图像中。
+        </p>
+
+        <div class="slideShow" delay="2" style="width: auto;">
+            <ul class="slideShowSlidesContainer">
+                <li><img src="../../en-US/tools/images/CP_camera_lines_1.jpg" class="autoimg" delay="2" alt="CP_camera_lines_1"/></li>
+                <li><img src="../../en-US/tools/images/CP_camera_lines_2.jpg" class="autoimg" delay="2" alt="CP_camera_lines_2"/></li>
+                <li><img src="../../en-US/tools/images/CP_camera_lines_3.jpg" class="autoimg" delay="2" alt="CP_camera_lines_3"/></li>
+                <li><img src="../../en-US/tools/images/CP_camera_lines_4.jpg" class="autoimg" delay="2" alt="CP_camera_lines_4"/></li>
+            </ul>
+        </div> <!-- slideshow end -->
+
+        <br />
+
+        <div data-id="div_im_find" data-vn="3" class="importantMessage">提示：应用还能在图像中查找控制点（前提是这些点已放置到图像中）。在 <span class="appaspecttype">1Ds/2Ds</span> view or in the <span class="appaspecttype">3Ds</span> view using the <span class="apptool">Camera Rect</span> or <span class="apptool">Camera Lasso</span> tool, 
+                go to the <span class="apppanel">Registration &amp; Sparse Point Cloud</span> part of the <span class="appribbon">SCENE 3D</span>/<span class="appribbon">TOOLS</span> tab and click <span class="appribbonbutton">Find Control Points</span>。该功能会在 <span class="appaspecttype">1Ds</span> and <span class="appaspecttype">3Ds</span> view.</div>
+
+        </div> <!-- slideblock end -->
+                
+        <br/>
+<!-- slideblock end -->
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <br/>
+
+        <div data-id="div_bc" class="blocksContainer">
+
+            <a href="../tools/controlpoints.htm">
+                <div class="block TileColor6">
+                    <h2 data-id="h2_bc_cp" data-vn="1">控制点</h2>
+                    <p data-id="p_h2_bc_cp" data-vn="1">进一步了解控制点
+                    </p>
+                </div>
+            </a>
+            
+            <a href="../tools/cpmeasurementsimport.htm">
+                <div class="block TileColor3">
+                    <h2 data-id="h2_bc_cpmi" data-vn="1">控制点测量导入</h2>
+                    <p data-id="p_h2_bc_cpmi" data-vn="1">了解如何把控制点位置导入项目</p>
+                </div>
+            </a>
+
+            <a href="../tools/gcpimport.htm">
+                <div class="block TileColor3">
+                    <h2 data-id="h2_bc_gcpi" data-vn="1">地面控制点导入</h2>
+                    <p data-id="p_h2_bc_gcpi" data-vn="1">了解如何向项目添加地面控制点</p>
+                </div>
+            </a>
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+
+        </div> <!-- blockContainer end -->
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sa" class="rowblock">
+            <h3 data-id="h3_sa" data-vn="1">另见：</h3>
+            <ul class="intend">
+                <li data-id="li_sa_scsc" data-vn="1">了解如何缩放场景 <a href="../tutorials/scaling.htm">点击此处</a>。</li>
+                <li data-id="li_sa_geos" data-vn="1">了解如何对场景做地理参考 <a href="../tutorials/georeferencing.htm">点击此处</a>。</li>
+                <li data-id="li_sa_cosy" data-vn="1">进一步了解坐标系 <a href="../appbasics/coordinatesystem.htm">点击此处</a>。</li>
+            </ul>
+        </div>
+
+        <!-- content slide end -->
+
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+    <script type="text/javascript">
+        InitializeHelpSlide();
+    </script>
+
+</body>
+</html>
+<!-- signature:vYdnGID2K/HxnMO+uTJ/0K4QRKEWnM1aRJN2eGldBZUIXCsIMCVapOIkx1at7Gb9n5QIkNTIQVG4dUB6BTxZ76RTPWPO0MabjRncNnWoesM+1jk2DhrZk1KlIKVzYrmqlnK8wFO27YjH2yrpFGnCEMkdI5Rq270wz1Huamby2+4= -->

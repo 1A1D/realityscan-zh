@@ -1,0 +1,718 @@
+﻿
+<html>
+    <head>
+        <title>RealityScan 帮助</title>
+        <meta charset="UTF-8"/>
+        <meta name="author" content="Epic Games Slovakia s.r.o."/>
+        <meta http-equiv="X-UA-Compatible" content="IE=12"/>
+        <link type="text/css" rel="stylesheet" href="../styles/style.css"/>
+        <link type="text/css" rel="stylesheet" href="../styles/colors.css"/>
+        <link type="text/css" rel="stylesheet" href="../styles/flagStyles.css"/>
+        <link type="text/css" rel="stylesheet" href="../styles/search.css"/>
+        <script src="scripts/textVars.js" type="text/javascript"></script>
+        <script src="../scripts/localization.js" type="text/javascript"></script>
+        <script src="../scripts/main.js" type="text/javascript"></script>
+        <script src="../scripts/utils.js" type="text/javascript"></script>
+        <script src="../scripts/search.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            Initialize();
+        </script>
+    </head>
+    <body ondragstart="return false;">
+
+        <div data-id="div_content_welcome" class="content">
+
+            <div data-id="head" class="head">
+
+                <h1 data-id="h1" data-vn="2">
+                    <span class="lod2" style="color: #7ECEFD">Reality<strong>Scan</strong></span> 帮助 <a id="openInBrowserLink" href="javascript:RCOpenInBrowser()" class="openInBrowser RCOnly"></a>
+                </h1>
+                <p data-id="p_h1" data-vn="3">
+                    <span class="lod1">欢迎使用 RealityScan —— 一套用于完成各类三维重建任务的先进软件解决方案。</span> 你可以借助本节资源了解：如何自动把照片转成三维模型；如何过滤 LiDAR 扫描并用 LiDAR 数据生成三维网格；如何用图像为 LiDAR 扫描重新上色/贴图；以及如何重建 LiDAR 扫描仪看不到的场景部分等等。
+                </p>
+            </div>
+        </div>
+
+        <div data-id="div_search" id="searchPanel">
+            <div id="searchBar" style="">
+                <div>
+                    <label data-id="label_search" data-vn="1" id="searchLabel" for="searchQuery">Search</label>
+                </div>
+                <div>
+                    <div id="searchProgress" style="position: relative; width: 100% !important;">
+                        <input maxlength="255" id="searchQuery" onkeyup="rcSearch.scheduleSearch(this.value)" />
+                    </div>
+                </div>
+                <div>
+                    <button data-id="button_search" data-vn="1" id="searchButton">Search</button>
+                </div>
+            </div>
+
+            <div id="searchResults">
+            </div>
+
+            <div style="clear: both;"></div>
+        </div>
+
+        <div data-id="div_content_moveon" class="content">
+
+            <div data-id="div_moveon" id="idMoveOn" class="content_empSlideBright" style="display: none">
+
+                <h2 data-id="h2_moveon" data-vn="1">接下来：</h2>
+                <p data-id="p_h2_moveon" data-vn="1"><span class="lod2">根据项目当前所处的状态，建议考虑以下后续步骤：</span>
+                </p>
+                <br/>
+                <br/>
+
+                <!-- blocks -->
+                <div data-id="div_bc_moveon" class="blocksContainer">
+
+                    <a href="tutorials/mergecomponents.htm">
+                        <div class="block TileColor6">
+                            <h2 data-id="h2_div_bc_moveon_merge" data-vn="1">合并组件</h2>
+                            <p data-id="p_h2_div_bc_moveon_merge" data-vn="1">了解如何借助补充照片或控制点合并组件</p>
+                        </div>
+                    </a>
+
+                </div>
+                <div class="clear">
+                    <!-- clear -->
+                </div>
+                <br/>
+            </div>
+
+
+            <h2 data-id="h2_define_goal" data-vn="1">明确你的目标：</h2>
+            <br/>
+
+            <!-- blocks -->
+            <div data-id="div_bc_define_goal" class="blocksContainer">
+
+                <a href="tutorials/quickstart.htm">
+                    <div class="block quadBlock TileColor6">
+                        <h2 data-id="h2_div_bc_define_goal_start" data-vn="1">快速入门</h2>
+                        <p data-id="p_h2_div_bc_define_goal_start" data-vn="1">跟着分步教程创建三维模型</p>
+                    </div>
+                </a>
+
+                <a href="tutorials/appbasics.htm">
+                    <div class="block TileColor6">
+                        <h2 data-id="h2_div_bc_define_basic" data-vn="1">熟悉应用基础操作</h2>
+                    </div>
+                </a>
+
+                <a href="tutorials/importlaser.htm">
+                    <div class="block TileColor1">
+                        <h2 data-id="h2_div_bc_define_goal_create_model" data-vn="2">从 LiDAR 扫描创建三维模型</h2>
+                        <p data-id="p_h2_div_bc_define_goal_create_model" data-vn="2">处理已配准或未配准的 LiDAR 扫描</p>
+                    </div>
+                </a>
+
+                <a href="tutorials/laserandimages.htm">
+                    <div class="block TileColor1">
+                        <h2 data-id="h2_div_bc_define_goal_combine" data-vn="2">照片与 LiDAR 扫描结合</h2>
+                        <p data-id="p_h2_div_bc_define_goal_combine" data-vn="2">了解如何把 LiDAR 扫描与图像一起配准和处理</p>
+                    </div>
+                </a>
+
+                <a href="tutorials/aerialimport.htm">
+                    <div class="block TileColor1">
+                        <h2 data-id="h2_div_bc_define_goal_create_model_aerial" data-vn="1">用航空数据创建三维模型</h2>
+                        <p data-id="p_h2_div_bc_define_goal_create_model_aerial" data-vn="1">了解如何用航空数据创建三维模型</p>
+                    </div>
+                </a>
+
+                <a href="tools/videoimport.htm">
+                    <div class="block TileColor1">
+                        <h2 data-id="h2_div_bc_define_goal_video_import" data-vn="1">以视频作为输入</h2>
+                        <p data-id="p_h2_div_bc_define_goal_video_import" data-vn="1">关于把视频作为输入数据，以及从中生成图像序列</p>
+                    </div>
+                </a>
+
+                <a href="tutorials/orthophoto.htm">
+                    <div class="block TileColor1">
+                        <h2 data-id="h2_div_bc_define_goal_dsm" data-vn="1">创建并导出正射影像与 DSM</h2>
+                        <p data-id="p_h2_div_bc_define_goal_dsm" data-vn="1">了解如何创建并导出正射投影</p>
+                    </div>
+                </a>
+                
+                <a href="tools/classification.htm">
+                    <div class="block TileColor1">
+                        <h2 data-id="h2_div_bc_classif" data-vn="2">网格分类</h2>
+                        <p data-id="p_h2_div_bc_classif" data-vn="1">了解如何对模型进行分类</p>
+                    </div>
+                </a>                
+
+                <a href="tools/mapwiz.htm">
+                    <div class="block TileColor2">
+                        <h2 data-id="h2_div_bc_define_goal_mapwiz" data-vn="1">地图向导</h2>
+                        <p data-id="p_h2_div_bc_define_goal_mapwiz" data-vn="1">自动化地图创建</p>
+                    </div>
+                </a>
+
+                <a href="tutorials/draftalign.htm">
+                    <div class="block TileColor2">
+                        <h2 data-id="h2_div_bc_define_goal_fast_draft_rec" data-vn="1">快速草稿重建</h2>
+                        <p data-id="p_h2_div_bc_define_goal_fast_draft_rec" data-vn="1">在现场校验并分析数据</p>
+                    </div>
+                </a>
+
+                <a href="tools/texturing.htm">
+                    <div class="block TileColor4">
+                        <h2 data-id="h2_div_bc_define_goal_color_texture" data-vn="1">上色与贴图</h2>
+                        <p data-id="p_h2_div_bc_define_goal_color_texture" data-vn="1">了解如何为三维重建结果赋予颜色</p>
+                    </div>
+                </a>
+
+                <a href="tools/normalization.htm">
+                    <div class="block TileColor4">
+                        <h2 data-id="h2_div_bc_define_goal_color_norm" data-vn="1">色彩归一化</h2>
+                        <p data-id="p_h2_div_bc_define_goal_color_norm" data-vn="1">用于在对齐后校正输入图像的颜色</p>
+                    </div>
+                </a>
+
+                <a href="tools/reprojection.htm">
+                    <div class="block TileColor4">
+                        <h2 data-id="h2_div_bc_define_goal_reprojection" data-vn="1">纹理重投影</h2>
+                        <p data-id="p_h2_div_bc_define_goal_reprojection" data-vn="1">从高精度模型为简化/重拓扑后的模型取用纹理</p>
+                    </div>
+                </a>
+
+                <a href="tools/imglayers.htm">
+                    <div class="block TileColor4">
+                        <h2 data-id="h2_div_bc_define_goal_imglayers" data-vn="1">图像图层</h2>
+                        <p data-id="p_h2_div_bc_define_goal_imglayers" data-vn="1">为不同处理流程给图像分类</p>
+                    </div>
+                </a>
+
+                <a href="tools/simplify.htm">
+                    <div class="block TileColor4">
+                        <h2 data-id="h2_div_bc_define_goal_simplify" data-vn="1">简化</h2>
+                        <p data-id="p_h2_div_bc_define_goal_simplify" data-vn="1">了解如何减少模型三角面数量</p>
+                    </div>
+                </a>
+
+                <a href="tools/filter.htm">
+                    <div class="block TileColor4">
+                        <h2 data-id="h2_div_bc_define_goal_filter" data-vn="1">过滤</h2>
+                        <p data-id="p_h2_div_bc_define_goal_filter" data-vn="1">了解如何移除模型中不需要的部分</p>
+                    </div>
+                </a>
+
+                <a href="tools/mask.htm">
+                    <div class="block TileColor4">
+                        <h2 data-id="h2_div_bc_define_goal_mask" data-vn="2">遮罩图像</h2>
+                        <p data-id="p_h2_div_bc_define_goal_mask" data-vn="1">关于对图像的部分区域做遮罩</p>
+                    </div>
+                </a>
+
+                <a href="tools/smoothing.htm">
+                    <div class="block TileColor4">
+                        <h2 data-id="h2_div_bc_define_goal_smooth" data-vn="1">网格平滑</h2>
+                        <p data-id="p_h2_div_bc_define_goal_smooth" data-vn="1">了解如何平滑模型中粗糙的表面</p>
+                    </div>
+                </a>
+
+                <a href="tools/rendering.htm">
+                    <div class="block TileColor4">
+                        <h2 data-id="h2_div_bc_define_goal_screenshot" data-vn="2">渲染图像</h2>
+                        <p data-id="p_h2_div_bc_define_goal_screenshot" data-vn="1">了解如何将三维重建结果可视化</p>
+                    </div>
+                </a>
+
+                <a href="tutorials/mergecomponents.htm">
+                    <div class="block TileColor3">
+                        <h2 data-id="h2_div_bc_define_goal_merge" data-vn="1">合并组件</h2>
+                        <p data-id="p_h2_div_bc_define_goal_merge" data-vn="1">了解如何借助补充照片或控制点合并组件</p>
+                    </div>
+                </a>
+
+                <a href="tutorials/scaling.htm">
+                    <div class="block TileColor3">
+                        <h2 data-id="h2_div_bc_define_goal_scale" data-vn="1">缩放场景</h2>
+                        <p data-id="p_h2_div_bc_define_goal_scale" data-vn="1">为模型添加或更新正确的尺寸</p>
+                    </div>
+                </a>
+
+                <a href="tutorials/georeferencing.htm">
+                    <div class="block TileColor3">
+                        <h2 data-id="h2_div_bc_define_goal_georeference" data-vn="2">地理配准场景</h2>
+                        <p data-id="p_h2_div_bc_define_goal_georeference" data-vn="2">相对某个坐标系做地理配准</p>
+                    </div>
+                </a>
+
+                <a href="tools/alignquality.htm">
+                    <div class="block TileColor3">
+                        <h2 data-id="h2_div_bc_define_align_quality" data-vn="1">评估对齐质量</h2>
+                        <p data-id="p_h2_div_bc_define_goal_align_quality" data-vn="1">了解如何检查配准质量</p>
+                    </div>
+                </a>
+
+                <div class="clear">
+                    <!-- clear -->
+                </div>
+
+            </div>
+
+            <br/>
+            <br/>
+            <h2 data-id="h2_export" data-vn="1">导出、导入与复用计算结果：</h2>
+            <br/>
+
+            <!-- blocks -->
+            <div data-id="div_bc_export" class="blocksContainer">
+
+                <a href="tools/export.htm">
+                    <div class="block TileColor2">
+                        <h2 data-id="h2_div_bc_export_model" data-vn="1">模型导出</h2>
+                        <p data-id="p_h2_div_bc_export_model" data-vn="1">了解如何以最高质量导出三维重建结果</p>
+                    </div>
+                </a>
+
+                <a href="tools/undistort.htm">
+                    <div class="block TileColor2">
+                        <h2 data-id="h2_div_bc_undistortedimgs" data-vn="1">去畸变图像</h2>
+                        <p data-id="p_h2_div_bc_undistortedimgs" data-vn="1">为导出生成去畸变图像的流程</p>
+                    </div>
+                </a>
+
+                <a href="tools/lodexport.htm">
+                    <div class="block TileColor2">
+                        <h2 data-id="h2_div_bc_lod" data-vn="1">LOD 导出</h2>
+                        <p data-id="p_h2_div_bc_lod" data-vn="1">关于按不同细节层级导出三维重建结果</p>
+                    </div>
+                </a>
+                
+                <a href="tools/cesiumion.htm">
+                    <div class="block TileColor2">
+                        <h2 data-id="h2_div_bc_cion" data-vn="1">Cesium ion</h2>
+                        <p data-id="p_h2_div_bc_cion" data-vn="1">关于把内容上传到 Cesium ion</p>
+                    </div>
+                </a>
+
+                <a href="tools/importhdr.htm">
+                    <div class="block TileColor2">
+                        <h2 data-id="h2_div_bc_export_hdr" data-vn="1">16 位与 HDR 图像</h2>
+                        <p data-id="p_h2_div_bc_export_model_hdr" data-vn="1">其导入、贴图流程与结果导出</p>
+                    </div>
+                </a>
+
+                <a href="tools/import.htm">
+                    <div class="block TileColor2">
+                        <h2 data-id="h2_div_bc_export_model_import" data-vn="1">模型导入</h2>
+                        <p data-id="p_h2_div_bc_export_model_import" data-vn="1">了解如何导入模型以便后续处理，例如重新贴图</p>
+                    </div>
+                </a>
+
+                <a href="tools/share.htm">
+                    <div class="block TileColor4">
+                        <h2 data-id="h2_div_bc_share" data-vn="1">发布与分享模型</h2>
+                        <p data-id="p_h2_div_bc_share" data-vn="1">上传到 Sketchfab，通过云端分享地图/概览报告</p>
+                    </div>
+                </a>
+
+                <a href="tools/gcpexport.htm">
+                    <div class="block TileColor3">
+                        <h2 data-id="h2_div_bc_export_gcp" data-vn="1">地面控制点导出</h2>
+                        <p data-id="p_h2_div_bc_export_gcp" data-vn="1">如何把地面控制点导出为文本文件</p>
+                    </div>
+                </a>
+
+                <a href="tools/gcpimport.htm">
+                    <div class="block TileColor3">
+                        <h2 data-id="h2_div_bc_export_gcpimport" data-vn="1">地面控制点导入</h2>
+                        <p data-id="p_h2_div_bc_export_gcpimport" data-vn="1">如何把地面控制点加入项目</p>
+                    </div>
+                </a>
+
+                <a href="tools/cpmeasurementsexport.htm">
+                    <div class="block TileColor3">
+                        <h2 data-id="h2_div_bc_export_cp" data-vn="1">控制点测量导出</h2>
+                        <p data-id="p_h2_div_bc_export_cp" data-vn="1">如何把控制点位置导出为文本文件</p>
+                    </div>
+                </a>
+
+                <a href="tools/cpmeasurementsimport.htm">
+                    <div class="block TileColor3">
+                        <h2 data-id="h2_div_bc_export_model_cp_import" data-vn="1">控制点测量导入</h2>
+                        <p data-id="p_h2_div_bc_export_cp_import" data-vn="1">如何把控制点位置导入项目</p>
+                    </div>
+                </a>
+
+                <a href="tools/flightlogimport.htm">
+                    <div class="block TileColor3">
+                        <h2 data-id="h2_div_bc_export_flightlog" data-vn="2">航迹导入</h2>
+                        <p data-id="p_h2_div_bc_export_flightlog" data-vn="2">如何正确导入航迹文件</p>
+                    </div>
+                </a>
+                
+                <a href="tools/defineimportformat.htm">
+                    <div class="block TileColor3">
+                        <h2 data-id="h2_div_bc_export_defimpfmt" data-vn="1">定义导入格式</h2>
+                        <p data-id="p_h2_div_bc_export_defimpfmt" data-vn="1">如何定义自定义导入格式</p>
+                    </div>
+                </a>
+
+                <a href="tools/flythrough.htm">
+                    <div class="block TileColor4">
+                        <h2 data-id="h2_div_bc_export_fly-through" data-vn="2">飞行漫游视频</h2>
+                        <p data-id="p_h2_div_bc_export_fly_through" data-vn="1">了解其各项选项</p>
+                    </div>
+                </a>
+
+                <a href="tools/xmpalign.htm">
+                    <div class="block TileColor2">
+                        <h2 data-id="h2_div_bc_export_reuse" data-vn="1">复用对齐结果</h2>
+                        <p data-id="p_h2_div_bc_export_reuse" data-vn="1">了解如何优化重复性流程</p>
+                    </div>
+                </a>
+
+                <a href="tools/cmpmvs.htm">
+                    <div class="block TileColor2">
+                        <h2 data-id="h2_div_bc_export_cmpmvs" data-vn="1">CMPMVS、Bundle Out 及其他</h2>
+                        <p data-id="p_h2_div_bc_export_cmpmvs" data-vn="1">导入 CMPMVS 等自定义工程并重新处理</p>
+                    </div>
+                </a>
+
+                <a href="appbasics/reports.htm">
+                    <div class="block TileColor1">
+                        <h2 data-id="h2_div_bc_export_reports" data-vn="1">报告</h2>
+                        <p data-id="p_h2_div_bc_export_reports" data-vn="1">导出各类 HTML 报告</p>
+                    </div>
+                </a>
+
+        <!-- [beta]
+                <a href="tools/import360images.htm">
+                        <div class="block TileColor2">
+                            <h2>导入 360&deg; 图像</h2>
+                            <p>如何把 360&deg; 图像作为相机装置导入项目</p>
+                        </div>
+                    </a>
+        --> 
+
+                <div class="clear">
+                    <!-- clear -->
+                </div>
+
+            </div>
+
+            <br/>
+            <br/>
+            <h2 data-id="h2_tools" data-vn="1">实用工作流与工具：</h2>
+            <br/>
+
+            <!-- blocks -->
+            <div data-id="div_bc_tools" class="blocksContainer">
+
+                <a href="appbasics/selectedinputs.htm">
+                    <div class="block TileColor2">
+                        <h2 data-id="h2_div_bc_tools_selinp" data-vn="1">选中的输入</h2>
+                        <p data-id="p_h2_div_bc_tools_selinp" data-vn="1">了解选中输入的更多内容</p>
+                    </div>
+                </a>
+                
+                <a href="appbasics/smallcomponents.htm">
+                    <div class="block TileColor2">
+                        <h2 data-id="h2_div_bc_tools_smallc" data-vn="1">小组件</h2>
+                        <p data-id="p_h2_div_bc_tools_smallc" data-vn="1">关于对齐与小组件</p>
+                    </div>
+                </a>
+
+                <a href="appbasics/components.htm">
+                    <div class="block TileColor2">
+                        <h2 data-id="h2_div_bc_tools_using" data-vn="1">使用组件</h2>
+                        <p data-id="p_h2_div_bc_tools_using" data-vn="1">了解如何高效处理大批量图像</p>
+                    </div>
+                </a>
+
+                <a href="appbasics/camerasettings.htm">
+                    <div class="block TileColor2">
+                        <h2 data-id="h2_div_bc_tools_cam_prop" data-vn="1">相机属性</h2>
+                        <p data-id="p_h2_div_bc_tools_cam_prop" data-vn="1">了解如何设置标定组与先验、选择相机模型等</p>
+                    </div>
+                </a>
+
+                <a href="appbasics/autosave.htm">
+                    <div class="block TileColor2">
+                        <h2 data-id="h2_div_bc_tools_autosave" data-vn="1">自动保存模式</h2>
+                        <p data-id="p_h2_div_bc_tools_autosave" data-vn="1">了解如何开启自动保存模式及其工作方式</p>
+                    </div>
+                </a>
+
+                <a href="tools/qualityanalysis.htm">
+                    <div class="block TileColor4">
+                        <h2 data-id="h2_div_bc_tools_inspect" data-vn="2">质量分析</h2>
+                        <p data-id="p_h2_div_bc_tools_inspect" data-vn="2">计算成果的质量</p>
+                    </div>
+                </a>
+
+                <a href="tools/showmatches.htm">
+                    <div class="block TileColor3">
+                        <h2 data-id="h2_div_bc_tools_matches" data-vn="1">匹配点显示</h2>
+                        <p data-id="p_h2_div_bc_tools_matches" data-vn="1">显示图像之间的匹配点</p>
+                    </div>
+                </a>
+
+                <a href="tools/reconbox.htm">
+                    <div class="block TileColor4">
+                        <h2 data-id="h2_div_bc_tools_recon" data-vn="1">重建区域</h2>
+                        <p data-id="p_h2_div_bc_tools_recon" data-vn="1">了解如何在三维视图中创建盒状区域</p>
+                    </div>
+                </a>   
+
+                <a href="tools/clipbox.htm">
+                    <div class="block TileColor4">
+                        <h2 data-id="h2_div_bc_tools_clip" data-vn="1">裁剪盒</h2>
+                        <p data-id="p_h2_div_bc_tools_clip" data-vn="1">如何使用以及何时使用</p>
+                    </div>
+                </a>  
+
+                <a href="tools/unwrap.htm">
+                    <div class="block TileColor4">
+                        <h2 data-id="h2_div_bc_tools_unwrap" data-vn="1">纹理展开</h2>
+                        <p data-id="p_h2_div_bc_tools_unwrap" data-vn="1">修改或新建 UV 贴图</p>
+                    </div>
+                </a>
+                
+                <a href="tools/clean_model_check_topo.htm">
+                    <div class="block TileColor3">
+                        <h2 data-id="h2_div_bc_tools_topo" data-vn="1">清理模型并检查拓扑</h2>
+                        <p data-id="p_h2_div_bc_tools_topo" data-vn="1">如何修复拓扑问题</p>
+                    </div>
+                </a>
+                
+                <a href="tools/closeholes.htm">
+                    <div class="block TileColor3">
+                        <h2 data-id="h2_div_bc_tools_holes" data-vn="1">封闭孔洞</h2>
+                        <p data-id="p_h2_div_bc_tools_holes" data-vn="1">封闭模型中的孔洞</p>
+                    </div>
+                </a>
+
+                <a href="tools/detectmarkers.htm">
+                    <div class="block TileColor4">
+                        <h2 data-id="h2_div_bc_tools_markers" data-vn="1">检测标记</h2>
+                        <p data-id="p_h2_div_bc_tools_markers" data-vn="1">如何自动放置控制点</p>
+                    </div>
+                </a>
+
+                <a href="tools/rayofsighttool.htm">
+                    <div class="block TileColor3">
+                        <h2 data-id="h2_div_bc_tools_ray" data-vn="1">视线</h2>
+                        <p data-id="p_h2_div_bc_tools_ray" data-vn="1">用对极几何工具检查配准质量</p>
+                    </div>
+                </a>            
+
+                 <a href="tools/alignground.htm">
+                    <div class="block TileColor4">
+                        <h2 data-id="h2_div_bc_tools_alig_ground" data-vn="1">地面对齐</h2>
+                        <p data-id="p_h2_div_bc_tools_alig_ground" data-vn="1">关于调整场景中的地平面</p>
+                    </div>
+                </a>
+
+                <a href="tools/animation.htm">
+                    <div class="block TileColor4">
+                        <h2 data-id="h2_div_bc_tools_animation" data-vn="1">动画工具</h2>
+                        <p data-id="p_h2_div_bc_tools_animation" data-vn="1">为重建模型制作动画视频</p>
+                    </div>
+                </a>
+
+                <a href="tools/infopanel.htm">
+                    <div class="block TileColor3">
+                        <h2 data-id="h2_div_bc_tools_info" data-vn="1">信息面板</h2>
+                        <p data-id="p_h2_div_bc_tools_info" data-vn="1">了解如何手动设置盒体位置与朝向</p>
+                    </div>
+                </a>
+
+                <a href="appbasics/multiselect.htm">
+                    <div class="block TileColor1">
+                        <h2 data-id="h2_div_bc_tools_multi" data-vn="1">图像多选</h2>
+                        <p data-id="p_h2_div_bc_tools_multi" data-vn="1">同时选中多张图片</p>
+                    </div>
+                </a>
+
+                <a href="appbasics/reconselection.htm">
+                    <div class="block TileColor1">
+                        <h2 data-id="h2_div_bc_tools_triangles" data-vn="1">三维中的三角面选择</h2>
+                        <p data-id="p_h2_div_bc_tools_triangles" data-vn="1">如何选择重建模型中的三角面</p>
+                    </div>
+                </a>
+
+                <a href="appbasics/colorbars.htm">
+                    <div class="block TileColor1">
+                        <h2 data-id="h2_div_bc_tools_cursors" data-vn="1">颜色光标</h2>
+                        <p data-id="p_h2_div_bc_tools_cursors" data-vn="1">给一维、二维和/或三维视图分配色标</p>
+                    </div>
+                </a>
+
+                <div class="clear">
+                    <!-- clear -->
+                </div>
+
+            </div>
+
+            <br/>
+            <br/>
+            <h2 data-id="h2_more" data-vn="1">了解更多：</h2>
+            <br/>
+
+            <!-- blocks -->
+            <div data-id="div_bc_more" class="blocksContainer">
+
+                <a href="tutorials/takingpictures.htm">
+                    <div class="block TileColor1">
+                        <h2 data-id="h2_div_bc_more_howpic" data-vn="1">如何拍摄照片</h2>
+                        <p data-id="p_h2_div_bc_more_howpic" data-vn="1">学习最佳实践，避免常见错误</p>
+                    </div>
+                </a>
+
+                <a href="appbasics/coordinatesystem.htm">
+                    <div class="block TileColor1">
+                        <h2 data-id="h2_div_bc_more_cs" data-vn="1">坐标系选择</h2>
+                        <p data-id="p_h2_div_bc_more_cs" data-vn="1">了解如何选择坐标系</p>
+                    </div>
+                </a>
+
+                <a href="tools/controlpoints.htm">
+                    <div class="block TileColor4">
+                        <h2 data-id="h2_div_bc_more_cp" data-vn="1">控制点</h2>
+                        <p data-id="p_h2_div_bc_more_cp" data-vn="1">添加并理解控制点</p>
+                    </div>
+                </a>
+
+                <a href="tools/screengrabber.htm">
+                    <div class="block TileColor4">
+                        <h2 data-id="h2_div_bc_more_grabber" data-vn="1">视频录屏工具</h2>
+                        <p data-id="p_h2_div_bc_more_grabber" data-vn="1">如何录制操作流程视频</p>
+                    </div>
+                </a>
+
+                <a href="appbasics/cameradb.htm">
+                    <div class="block TileColor1">
+                        <h2 data-id="h2_div_bc_more_extdb" data-vn="1">扩展相机数据库</h2>
+                        <p data-id="p_h2_div_bc_more_extdb" data-vn="1">了解如何向数据库新增相机并定义光学畸变</p>
+                    </div>
+                </a>
+
+                <a href="appbasics/renderingrt.htm">
+                    <div class="block TileColor1">
+                        <h2 data-id="h2_div_bc_more_realtime" data-vn="1">实时场景渲染器</h2>
+                        <p data-id="p_h2_div_bc_more_realtime" data-vn="1">纯色与带纹理的实时渲染模式及其限制</p>
+                    </div>
+                </a>
+
+                <a href="appbasics/alignsettings.htm">
+                    <div class="block TileColor3">
+                        <h2 data-id="h2_div_bc_more_aligset" data-vn="1">对齐设置</h2>
+                        <p data-id="p_h2_div_bc_more_aligset" data-vn="1">调整运动恢复结构算法的设置</p>
+                    </div>
+                </a>
+
+                <a href="appbasics/modelsettings.htm">
+                    <div class="block TileColor3">
+                        <h2 data-id="h2_div_bc_more_recset" data-vn="1">重建设置</h2>
+                        <p data-id="p_h2_div_bc_more_recset" data-vn="1">设置模型重建算法、分块尺寸、限制等</p>
+                    </div>
+                </a>
+
+                <a href="appbasics/appsettings.htm">
+                    <div class="block TileColor3">
+                        <h2 data-id="h2_div_bc_more_appset" data-vn="1">应用设置</h2>
+                        <p data-id="p_h2_div_bc_more_appset__v1" data-vn="1">调整预设、用户界面、缓存管理与账户</p>
+                    </div>
+                </a>
+
+                <a href="appbasics/shortcuts.htm">
+                    <div class="block TileColor5">
+                        <h2 data-id="h2_div_bc_more_shortcuts" data-vn="1">快捷键</h2>
+                        <p data-id="p_h2_div_bc_more_shortcuts" data-vn="2">查看 RealityScan 快捷键与手势列表</p>
+                    </div>
+                </a>
+
+                <a href="tutorials/commandline.htm">
+                    <div class="block TileColor5">
+                        <h2 data-id="h2_div_bc_more_cli" data-vn="1">命令行界面</h2>
+                        <p data-id="p_h2_div_bc_more_cli" data-vn="2">了解如何通过 CLI 使用 RealityScan</p>
+                    </div>
+                </a>
+
+                <a href="appbasics/allcommands.htm">
+                    <div class="block TileColor5">
+                        <h2 data-id="h2_div_bc_more_allcli" data-vn="1">全部 CLI 命令</h2>
+                        <p data-id="p_h2_div_bc_more_allcli" data-vn="1">命令行全部命令清单</p>
+                    </div>
+                </a>
+
+                <a href="tutorials/setkeyvaluetable.htm">
+                    <div class="block TileColor5">
+                        <h2 data-id="h2_div_bc_more_clikeys" data-vn="1">CLI 设置键与值</h2>
+                        <p data-id="p_h2_div_bc_more_clikeys" data-vn="1">set 命令所用键与值的对照表</p>
+                    </div>
+                </a>
+
+                <a href="tools/xmlparamsfiles.htm">
+                    <div class="block TileColor5">
+                        <h2 data-id="h2_div_bc_more_clifiles" data-vn="1">正射投影的 CLI 参数文件</h2>
+                        <p data-id="p_h2_div_bc_more_clifiles" data-vn="2">关于投影所用的 .rsortho 与 .xml 文件的更多内容</p>
+                    </div>
+                </a>
+                
+                <a href="tools/api.htm">
+                    <div class="block TileColor2">
+                        <h2 data-id="h2_div_bc_more_rcnode" data-vn="2">RealityScan Node</h2>
+                        <p data-id="p_h2_div_bc_more_rcnode" data-vn="2">关于 RSNode 及其用法的更多内容</p>
+                    </div>
+                </a>
+
+                <div class="RCDev">
+                    <a href="helpsdk/helpsdk.htm">
+                        <div class="block TileColor5">
+                            <h2>帮助 SDK</h2>
+                        </div>
+                    </a>
+
+                    <a href="helpsdk/helpsdk_slide6.htm">
+                        <div class="block TileColor5">
+                            <h2>帮助 SDK：YouTube</h2>
+                        </div>
+                    </a>
+                </div>
+
+                <!--
+                <a>
+                    <div class="block TileColor5">
+                        <h2>其他目标</h2>
+                        <p>查看应用帮助中的其他选项</p>
+                    </div>
+                </a>
+                -->
+
+                <div class="clear">
+                    <!-- clear -->
+                </div>
+            </div>
+
+            <br/>
+
+            <div data-id="div_sa" class="rowblock">
+                <h3 data-id="h3_div_sa" data-vn="1">另见：</h3>
+                <ul class="intend">
+                    <li data-id="li_div_sa_res" data-vn="2">在线资源 <a href="https://dev.epicgames.com/community/?application=capturing_reality" target="_blank">点击此处</a></li>
+                    <li data-id="li_div_sa_tut" data-vn="2">在线教程与作品展示 <a href="https://dev.epicgames.com/community/capturing-reality/learning?types=tutorial" target="_blank">点击此处</a></li>
+                    <li data-id="li_div_sa_faq" data-vn="2">常见问题 <a href="https://forums.unrealengine.com/docs?tags=capturing-reality" target="_blank">点击此处</a></li>
+                </ul>
+                <div class="clear">
+                    <!-- clear -->
+                </div>
+            </div>
+
+        </div>
+
+        <script type="text/javascript">RenderCopyrightText();</script>
+
+        <script type="text/javascript">
+            SectionProgress.initializeProgress('searchPanel');
+        </script>
+
+    </body>
+</html>
+<!-- signature:Nm1dId6YL2e58ywMFvo3WlZfc0RJvJDx/6uep5jmJU1AGGTyBxlf/rICOmJ49sTYcjoQvgPGVDv4uyGTj/7l9KGgxh3OUK7cLheSAxquJyArKM64HWMENO2BjScL5k4bJffHigqxyUtulDigz6jpHH5/K9b+zZWq1w2RD32fj7E= -->

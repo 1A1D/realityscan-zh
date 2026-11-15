@@ -1,0 +1,136 @@
+<html>
+<head>
+    <title>RealityScan 帮助</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Epic Games Slovakia s.r.o." />
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <link type="text/css" rel="stylesheet" href="../../styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/colors.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css" />
+    <script src="../scripts/textVars.js" type="text/javascript"></script>
+    <script src="../../scripts/localization.js" type="text/javascript"></script>
+    <script src="../../scripts/main.js" type="text/javascript"></script>
+</head>
+<body ondragstart="return false;">
+
+    <div data-id="div_cs" class="content_slide">
+
+        <!-- content slide -->
+        <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head" class="head">
+
+            <h1 data-id="h1" data-vn="1">用航空数据创建三维模型</h1>
+            <p data-id="p_h1" data-vn="1">航空摄影常用于制图，以及拍摄从地面不便到达的结构物。</p>
+        </div>
+
+        <div data-id="div_sb_info" class="slideblock">
+
+            <p data-id="p_info" data-vn="2">在 RealityScan 中，用航空影像建模与用地面数据建模没有区别。你可以任意组合航空照片、街景照片，甚至地面与航空 LiDAR 扫描仪的数据。不过要产出带地理配准的三维模型，可以导入多种数据来自动化处理。<br/>
+            </p>
+            <h3 data-id="h3_info_best" data-vn="1">处理航空数据的最佳实践如下：</h3>
+            <ul>
+                <li data-id="li_best_add" data-vn="2">把航空图像加入已打开的项目。可选地再加入其他输入，例如地面照片、LiDAR 扫描等。输入添加顺序不限。
+                </li>
+                <li data-id="li_best_flog" data-vn="3">若有飞行日志（用 GPS 设备记录的某次飞行轨迹），可点击 <span class="appribbon">WORKFLOW</span> 选项卡 <span class="apppanel">Import Metadata</span> 区域的 <span class="appribbonbutton">Trajectory</span> 按钮导入。
+                </li>
+                <li data-id="li_best_fgcp" data-vn="3">若你有与图像关联的地面控制点文件，可点击 <span class="appribbon">WORKFLOW</span> 选项卡 <span class="apppanel">Import Metadata</span> 区域的 <span class="appribbonbutton">Ground Control</span> 按钮添加。</li>
+            </ul>
+            <br/>
+
+            <p data-id="p_info_fuwf" data-vn="1">后续创建三维模型的一般流程详见这份分步教程：<a href="quickstart_2.htm">点击此处</a>。做到哪一步由你决定。 
+            </p>
+
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sb_cdsm" class="slideblock">
+
+            <h2 data-id="h2_cdsm" data-vn="1">创建真正射影像与数字表面/地形模型</h2>
+
+            <p data-id="p_h2_cdsm" data-vn="1">要创建真正射地图或数字表面模型，请按以下顺序操作：</p>
+            <ul>
+                <li data-id="li_cdsm_addi" data-vn="1">把图像加入项目并<span class="appribbonbutton">对齐</span>。</li>
+                <li data-id="li_cdsm_srer" data-vn="1"><span class="appribbonbutton">设置重建区域</span>，标记感兴趣的范围。</li>
+                <li data-id="li_cdsm_camo" data-vn="1">计算模型，然后<span class="appribbonbutton">上色</span>或<span class="appribbonbutton">贴图</span>。</li>
+                <li data-id="li_cdsm_crop" data-vn="1">创建正射投影。</li>
+                <li data-id="li_cdsm_clas" data-vn="3">若要导出 DTM，用 <span class="appribbonbutton">Classification</span> 工具对模型进行分类。</li>
+                <li data-id="li_cdsm_expo" data-vn="3">点击 <span class="appribbon">ORTHO 2D</span>/<span class="appribbon">TOOLS</span> 选项卡 <span class="apppanel">Export</span> 区域的 <span class="appribbonbutton">Orthophoto</span>、<span class="appribbonbutton">Digital Surface Model</span> 或 <span class="appribbonbutton">Digital Terrain Model</span> 按钮，导出正射投影、DSM 或 DTM。
+                </li>
+            </ul>
+
+        </div>
+
+        <br/>
+        <div data-id="div_im_brow" data-vn="1" class="importantMessage">
+            提示：对于用低成本相机采集的航测数据，建议使用 Brown3 with tangential <a href="../appbasics/settings_distortion_models.htm">distortion model</a>.
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_bc" class="blocksContainer">
+
+            <a href="../tools/flightlogimport.htm">
+                <div class="block TileColor2">
+                    <h2 data-id="h2_bc_fllo" data-vn="2">航迹</h2>
+                    <p data-id="p_h2_bc_fllo" data-vn="2">了解如何导入相机航迹数据</p>
+                </div>
+            </a>
+
+            <a href="../tools/gcpimport.htm">
+                <div class="block TileColor2">
+                    <h2 data-id="h2_bc_igcp" data-vn="1">导入地面控制点</h2>
+                    <p data-id="p_h2_bc_igcp" data-vn="2">用地面控制点对模型做地理配准、量测或提升精度</p>
+                </div>
+            </a>
+
+            <a href="quickstart.htm">
+                <div class="block TileColor1">
+                    <h2 data-id="h2_bc_cr3d" data-vn="1">创建三维模型</h2>
+                    <p data-id="p_h2_bc_cr3d" data-vn="1">了解如何分步创建三维模型</p>
+                </div>
+            </a>
+
+            <a href="orthophoto.htm">
+                <div class="block TileColor1">
+                    <h2 data-id="h2_bc_cdsm" data-vn="1">创建正射投影与 DSM</h2>
+                    <p data-id="p_h2_bc_cdsm" data-vn="1">了解如何创建真正射影像、高程图或 DSM 图</p>
+                </div>
+            </a>
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sa" class="rowblock">
+            <h3 data-id="h3_sa" data-vn="1">另见：</h3>
+            <ul class="intend">
+                <li data-id="li_sa_cadm" data-vn="1">相机畸变模型 <a href="../appbasics/settings_distortion_models.htm">点击此处</a></li>
+                <li data-id="li_sa_txmo" data-vn="1">模型贴图与上色 <a href="../tools/texturing.htm">点击此处</a></li>
+                <li data-id="li_sa_ex3d" data-vn="1">如何导出三维模型 <a href="../tools/export.htm">点击此处</a></li>
+            </ul>
+        </div>
+
+        <!-- content slide end -->
+
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+    <script type="text/javascript">
+        InitializeTutorialMode();
+    </script>
+
+
+</body>
+</html>
+<!-- signature:TVwT0VBrVLa1UgER49BEDLP+Kf1LTQwDEpX0pguSpmB4Svokka5jY/oWg8mQefQun8DU09Rm1AzjpCxeUzBywOVuOVVaWPh+g3/6RH6sOKvO5ZTDdZ1m+Y+0Wxr0e+vyE/dIrCqhBgabwk5XsXvAJC3JBJYh4qBT+FHsmUlflr8= -->

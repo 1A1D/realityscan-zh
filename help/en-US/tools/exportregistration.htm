@@ -1,0 +1,425 @@
+﻿<html>
+<head>
+    <title>RealityScan 帮助</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Epic Games Slovakia s.r.o." />
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <link type="text/css" rel="stylesheet" href="../../styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/colors.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css" />
+    <script src="../scripts/textVars.js" type="text/javascript"></script>
+    <script src="../../scripts/localization.js" type="text/javascript"></script>
+    <script src="../../scripts/main.js" type="text/javascript"></script>
+</head>
+<body ondragstart="return false;">
+
+    <div data-id="div_sb" class="content_slide">
+
+        <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head" class="head">
+
+            <h1 data-id="h1" data-vn="1">配准导出</h1>
+
+            <p data-id="p_h1" data-vn="2">
+                只要输入已完成对齐并成功创建了组件，就可以使用配准导出。<span class="appribbonbutton">Registration</span> 导出按钮位于 <span class="appribbon">ALIGNMENT</span> 选项卡的 <span class="apppanel">Export</span> 区域，或 <span class="appribbon">SCENE 3D</span> / <span class="appribbon">TOOLS</span> 选项卡。
+                
+            </p>
+            
+            <p data-id="p_export_formats" data-vn="1">
+                点击导出按钮后会弹出 Windows 的“另存为”窗口，可设置导出文件名与格式（类型）。请注意，文件名不能包含 Unicode 字符或空格。可选格式如下：
+                
+            </p>
+ 
+            <div style="padding: 10px 10px 20px 0px">
+                <img src="images/exportregistration-formats.png" alt="registration-export-formats" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/exportregistration-formats.png';"/>
+            </div>
+ 
+            <div data-id="div_im_lastfive" data-vn="1" class="importantMessage">最近使用过的五种格式会优先显示在文件类型下拉菜单顶部。</div>
+
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sb_exset" class="slideblock">
+
+            <h2 data-id="h2_exset" data-vn="1">导出设置</h2>
+
+                <p data-id="p_exset" data-vn="2">
+                
+                    选定格式（类型）、名称和位置后，在 Windows“另存为”窗口中点击 <span class="appbutton">Save</span> 按钮，即可打开导出对话框。该对话框中可用的导出设置取决于所选格式，因为每种格式需要的配置项不同。下面列出所有可用设置、其说明，以及使用这些设置的格式。
+             
+                </p>
+                
+                <ul style="margin-bottom: 20px;">
+                
+                    <li data-id="li_ex_format" data-vn="1"><span class="appproperty">File format</span>
+                        <ul>
+                        
+                            <li data-id="li_ex_desc_format" data-vn="1" class="licircle">
+                                定义数据的导出类型，也就是数据的组织方式以及兼容软件读取它的方式。
+                            </li>
+                            <li data-id="li_ex_avail_format" data-vn="2" class="licircle">
+                                适用于所有格式的导出对话框。
+                            </li>
+                            
+                        </ul>      
+                    </li>
+                    
+                    <li data-id="li_ex_name" data-vn="1"><span class="appproperty">File name</span>
+                        <ul>
+                        
+                            <li data-id="li_ex_desc_name" data-vn="1" class="licircle">
+                                导出文件所使用的名称。
+                            </li>
+                            
+                            <li data-id="li_ex_avail_name" data-vn="2" class="licircle">
+                                适用于除 ST Maps 之外所有格式的导出对话框。
+                            </li>
+                            
+                        </ul>       
+                    </li>
+                    
+                    <li data-id="li_ex_loc" data-vn="1"><span class="appproperty">Export location</span>
+                        <ul>
+                        
+                            <li data-id="li_ex_desc_loc" data-vn="1" class="licircle">
+                                导出文件的目标路径，即 Windows“另存为”窗口中选择的位置。
+                            </li>
+                            
+                            <li data-id="li_ex_avail_loc" data-vn="2" class="licircle">
+                                适用于所有格式的导出对话框。
+                            </li>
+                            
+                        </ul>      
+                    </li>
+                    
+                    <li data-id="li_ex_transf" data-vn="1"><span class="appproperty">Export transformation settings</span>
+                        <ul>
+                        
+                            <li data-id="li_ex_desc_transf" data-vn="1" class="licircle">
+                                调整导出配准结果的位置、缩放与朝向。
+                            </li>
+                            
+                            <li data-id="li_ex_avail_transf" data-vn="3" class="licircle">
+                                适用于以下格式：RealityScan XMPs with Image List、Boujou、Bundler v0.3、Bundler v0.3 (negative z)、COLMAP Text Format、Maya 2013 ASCII scene、Radiance Fields Transformation File、Internal/External Camera Parameters、Comma-separated position formats、Comma-separated position and rotation formats。
+                            </li>
+                            
+                        </ul>        
+                    </li>
+                    
+                    <li data-id="li_ex_undimg" data-vn="1"><span class="appproperty">Undistort images</span>
+                        <ul>
+                        
+                            <li data-id="li_ex_desc_undimg" data-vn="1" class="licircle">
+                                开关是否导出去畸变图像。启用此选项（设为 <span class="appproperty">Yes</span>）会显示 <span class="appproperty">Undistortion settings</span>.
+                            </li>
+                            
+                            <li data-id="li_ex_avail_undimg" data-vn="3" class="licircle">
+                                适用于以下格式：RealityScan XMPs with Image List、COLMAP Text Format、OpenCV-compliant Intrinsics/Extrinsics、Radiance Field Transformation File。
+                            </li>
+                            
+                        </ul>        
+                    </li>
+                    
+                    
+                    <li data-id="li_ex_undist" data-vn="1"><span class="appproperty">Undistortion settings</span>
+                        <ul>
+                        
+                            <li data-id="li_ex_desc_undist" data-vn="1" class="licircle">
+                                图像信息与图像会按所选去畸变设置一起导出。
+                            </li>
+                            
+                            <li data-id="li_ex_avail_undist" data-vn="3" class="licircle">
+                                适用于以下格式：RealityScan XMPs with Image List、Boujou、Maya 2013 ASCII scene、Bundler v0.3、Bundler v0.3 (negative z)、COLMAP Text Format、OpenCV-compliant Intrinsics/Extrinsics、Radiance Field Transformation File、ST Maps、Undistorted images with Image List。
+                            </li>
+                            
+                        </ul>        
+                    </li>
+                        
+                    <li data-id="li_ex_eximage" data-vn="1"><span class="appproperty">Export images</span>
+                        <ul>
+                        
+                            <li data-id="li_ex_desc_eximage" data-vn="1" class="licircle">
+                                开关是否在导出配准结果的同时导出图像。启用此选项（设为 <span class="appproperty">Yes</span>）会显示 <span class="appproperty">Export image settings</span>.
+                            </li>
+
+                            <li data-id="li_ex_avail_eximage" data-vn="3" class="licircle">
+                                适用于：RealityScan XMPs with Image List、Boujou、Maya 2013 ASCII scene、Bundler v0.3、Bundler v0.3 (negative z)、COLMAP Text Format、OpenCV-compliant Intrinsics/Extrinsics、Radiance Field Transformation File、Undistorted images with image list。
+                            </li>
+                            
+                        </ul>      
+                    </li>    
+                        
+                    <li data-id="li_ex_eximset" data-vn="1"><span class="appproperty">Export image settings</span>
+                        <ul>
+                        
+                            <li data-id="li_ex_desc_eximset" data-vn="1" class="licircle">  
+                                设置导出图像的相关选项。这些设置仅在启用 <span class="appproperty">Export images</span> is enabled (set to <span class="appproperty">Yes</span>).
+                            </li>
+                            
+                            <li data-id="li_ex_avail_eximset" data-vn="3" class="licircle">
+                                适用于以下格式：RealityScan XMPs with Image List、Boujou、Maya 2013 ASCII scene、Bundler v0.3、Bundler v0.3 (negative z)、COLMAP Text Format、OpenCV-compliant Intrinsics/Extrinsics、Radiance Field Transformation File、Undistorted images with Image List、Original images with Image List。 
+                            </li>
+                            
+                        </ul>       
+                    </li>    
+                    
+                    <li data-id="li_ex_implane" data-vn="1"><span class="appproperty">Export image planes</span>
+                        <ul>
+                        
+                            <li data-id="li_ex_desc_implane" data-vn="1" class="licircle">
+                                启用或禁用兼容 Maya 的图像平面导出。
+                            </li>
+                            
+                            <li data-id="li_ex_avail_implane" data-vn="2" class="licircle">
+                                仅 Maya 2013 ASCII scene 格式支持此导出。
+                            </li>
+                            
+                        </ul>      
+                    </li>
+                    
+                    <li data-id="li_ex_bbscale" data-vn="1"><span class="appproperty">Bounding box scale</span>
+                        <ul>
+                        
+                            <li data-id="li_ex_desc_bbscale" data-vn="1" class="licircle">  
+                                选择包围盒（AABB）缩放值。该值与场景尺寸成正比，场景越大需要的值越高。
+                            </li>
+                            
+                            <li data-id="li_ex_avail_bbscale" data-vn="2" class="licircle">
+                                适用于 Radiance Field Transformation File 导出。
+                            </li>
+                            
+                        </ul>       
+                    </li>
+                    
+                    <li data-id="li_ex_stimgfor" data-vn="1"><span class="appproperty">Exported ST Map Image format</span> 
+                        <ul>
+                        
+                            <li data-id="li_ex_desc_stimgfor" data-vn="1" class="licircle">  
+                                选择 ST Map 图像的格式。ST Maps 会导出为 U、V 两个通道；U、V 值表示源像素的绝对位置，归一化到 0–1，其中 0 对应左下角、1 对应右上角。
+                            </li>
+                            
+                            <li data-id="li_ex_avail_stimgfor" data-vn="2" class="licircle">         
+                                适用于 ST Maps 导出。
+                            </li>
+                            
+                        </ul>            
+                    </li>
+                        
+                    <li data-id="li_ex_stlist" data-vn="1"><span class="appproperty">Export Image List</span>
+                        <ul>
+                        
+                            <li data-id="li_ex_desc_stlist" data-vn="1" class="licircle">  
+                                启用或禁用图像清单导出。清单包含 ST Map 图像的名称，以及对应原始图像的路径、名称与格式扩展名。
+                            </li>
+                            
+                            <li data-id="li_ex_avail_stlist" data-vn="2" class="licircle">         
+                                适用于 ST Maps 导出。
+                            </li>
+                            
+                        </ul>         
+                    </li>   
+                    
+                    <li data-id="li_ex_stlistfile" data-vn="1"><span class="appproperty">Export Image List File Name</span>
+                        <ul>
+                        
+                            <li data-id="li_ex_desc_stlistfile" data-vn="1" class="licircle">  
+                                指定图像清单的导出文件，应为文本格式。
+                            </li>
+                            
+                            <li data-id="li_ex_avail_stlistfile" data-vn="2" class="licircle">         
+                                适用于 ST Maps 导出。
+                            </li>
+                            
+                        </ul>      
+                    </li>
+                    
+                    <li data-id="li_ex_stlistname" data-vn="2"><span class="appproperty">Export File Naming</span>
+                        <ul>
+                        
+                            <li data-id="li_ex_desc_stlistname" data-vn="1" class="licircle">  
+                                指定导出 ST Map 图像的命名规则。
+                            </li>
+                            
+                            <li data-id="li_ex_avail_stlistname" data-vn="2" class="licircle">         
+                                适用于 ST Maps 导出。
+                            </li>
+                            
+                        </ul>        
+                    </li>
+      
+                </ul>           
+
+                <div data-id="div_im_nosettings" data-vn="2" class="importantMessage">
+                    The <span class="appproperty">RealityScan Alignment Component</span>, <span class="appproperty">Image list</span>, and <span class="appproperty">CmpMvs_P matrices</span> 这些导出没有专属设置项：在 Windows“另存为”窗口中选好名称、格式（类型）与位置后即会导出。
+                </div>
+
+        </div>
+       
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+        
+        <div data-id="div_sb_undis" class="slideblock">
+        
+            <h3 data-id="h3_undis" data-vn="1">去畸变设置</h3>
+        
+            <p data-id="p_h2_undis" data-vn="1">
+                设置图像与图像信息的去畸变参数。
+            </p>
+            
+            <div style="padding: 10px 10px 20px 0px">
+                <img src="images/exportregistration-undistortion.png" alt="registration-export-undistortion" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/exportregistration-undistortion.png';"/>
+            </div>
+            
+            <ul style="margin-bottom: 20px;">
+            
+                <li data-id="li_undis_fit" data-vn="1">  
+                    <span class="appproperty">Fit</span> 定义去畸变图像中参与输出的范围。
+                </li>
+                <li data-id="li_undis_width" data-vn="1">  
+                    <span class="appproperty">Custom width</span> 调整导出图像的宽度。默认值为原图宽度。
+                </li>
+                <li data-id="li_undis_height" data-vn="1">  
+                    <span class="appproperty">Custom height</span> 调整导出图像的高度。默认值为原图高度。
+                </li>
+                <li data-id="li_undis_down" data-vn="1">  
+                    <span class="appproperty">Downscale</span> 设置用于缩小图像的分母值。
+                </li>
+                <li data-id="li_undis_cut" data-vn="1">  
+                    <span class="appproperty">Image cut-out</span> 定义去畸变时使用图像的多大比例。
+                </li>
+                <li data-id="li_undis_pixel" data-vn="1">  
+                    <span class="appproperty">Max count of pixels</span> 定义图像的最大分辨率（像素数）。填 0 表示不限制。
+                </li>
+            
+            </ul>
+        
+        </div>
+        
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+         
+        <div data-id="div_sb_image" class="slideblock">
+        
+            <h3 data-id="h3_image" data-vn="1">导出图像设置</h3>
+        
+            <p data-id="p_h2_image" data-vn="1">
+                自定义图像导出。
+            </p>
+            
+            <div style="padding: 10px 10px 20px 0px">
+                <img src="images/exportregistration-imagesettings.png" alt="registration-export-image-settings" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/exportregistration-imagesettings.png';"/>
+            </div>
+            
+            <ul style="margin-bottom: 20px;">
+            
+                <li data-id="li_image_format" data-vn="1">  
+                    <span class="appproperty">Image format</span> 导出图像所用的格式。
+                </li>
+                <li data-id="li_image_pixel" data-vn="1">  
+                    <span class="appproperty">Pixel format</span> 选择导出图像的像素格式：24 位 BGR、32 位 BGRA 或 64 位 RGBA。
+                </li>
+                <li data-id="li_image_naming" data-vn="1">  
+                    <span class="appproperty">Naming convention</span> 选择导出图像的命名规则。
+                </li>
+                <li data-id="li_image_custom" data-vn="1">  
+                    <span class="appproperty">Customize image path</span> 启用此项（设为 <span class="appproperty">Yes</span>）即可自定义图像的导出路径。
+                </li>
+                <li data-id="li_image_path" data-vn="1">  
+                    <span class="appproperty">Image path</span> 自定义图像的导出路径。
+                </li>
+                <li data-id="li_image_back" data-vn="1">  
+                    <span class="appproperty">Background color</span> 设置导出图像的背景色。
+                </li>
+            
+            </ul>
+        
+        </div>
+        
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+         
+        <div data-id="div_sb_transform" class="slideblock">
+        
+            <h3 data-id="h3_transform" data-vn="1">导出变换设置</h3>
+        
+            <p data-id="p_h2_transform" data-vn="1">
+                调整导出场景的位置、旋转与缩放。
+            </p>
+            
+            <div style="padding: 10px 10px 20px 0px">
+                <img src="images/exportregistration-transformation.png" alt="registration-export-transformation" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/exportregistration-transformation.png';"/>
+            </div>
+            
+            <ul style="margin-bottom: 20px;">
+            
+                <li data-id="li_transform_coordinate" data-vn="1">  
+                    <span class="appproperty">Coordinate system</span> 选择场景导出时使用的坐标系。
+                </li>
+                <li data-id="li_transform_scene" data-vn="1">  
+                    <span class="appproperty">Scene transformation</span>
+                    <ul>
+                        <li data-id="li_transform_move" data-vn="1" class="licircle">  
+                            <span class="appproperty">Move X / Y / Z</span> 按坐标系定义的单位（默认米）把场景沿任意方向平移。
+                        </li>
+                        <li data-id="li_transform_rotate" data-vn="1" class="licircle">  
+                            <span class="appproperty">Rotate X / Y / Z</span> 定义场景绕相应坐标轴的欧氏旋转，范围为 -180 到 180 度。
+                        </li>
+                        <li data-id="li_transform_scale" data-vn="1" class="licircle">  
+                            <span class="appproperty">Scale X / Y / Z</span> 沿相应坐标轴缩放场景。
+                        </li>
+                    </ul>
+                </li>
+                <li data-id="li_transform_normal" data-vn="1">  
+                    <span class="appproperty">Normal transformation</span> 
+                    <ul>
+                        <li data-id="li_transform_space" data-vn="1" class="licircle">  
+                            <span class="appproperty">Space</span> 法向量的坐标系可设为 World、Object 或 Tangent（Mikktspace）。选 World 时，法线与点云顶点处于同一坐标系；Object 与 World 类似，只是“场景变换”中指定的旋转不会应用到法线上；Tangent（Mikktspace）选项则兼容多种第三方渲染系统。 
+                        </li>
+                        <li data-id="li_transform_range" data-vn="1" class="licircle">  
+                            <span class="appproperty">Range</span> 决定用于表示法向量的浮点值范围。若选择了非浮点的纹理像素格式，此设置无效。
+                        </li>
+                        <li data-id="li_transform_flip" data-vn="1" class="licircle">  
+                            <span class="appproperty">Flip X / Y / Z coordinate</span> 镜像法向量的方向。在某些第三方渲染系统中，可能需要翻转 Y 坐标才能正确使用导出的法线贴图。
+                        </li>
+                    </ul>
+                </li>
+ 
+            </ul>
+        
+        </div>    
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+
+        <div data-id="div_bc" class="blocksContainer">
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+        <!-- content slide end -->
+
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+    <script type="text/javascript">
+        InitializeHelpSlide();
+    </script>
+
+</body>
+</html>
+<!-- signature:IWUKGtceEnWiUbFHQ43YCEfpfFiswHhbfcFJzfh7syaC8e1AxyZNtcEr1nbgIFLG0jSJ8QUYs7gY6xWnjS/q1sfZsZYhReZYWvhjFWtOaxvxxhXwGl82ZJGvX1fN+QTsZDvmjdRvlUuJA/52C2eZjiKPuyCv8KVrqA3C2lBi5IE= -->

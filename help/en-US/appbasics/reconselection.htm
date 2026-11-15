@@ -1,0 +1,98 @@
+﻿<html>
+    <head>
+        <title>RealityScan 帮助</title>
+        <meta charset="UTF-8"/>
+        <meta name="author" content="Epic Games Slovakia s.r.o."/>
+        <meta http-equiv="X-UA-Compatible" content="IE=12"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/style.css"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/colors.css"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css"/>
+        <script src="../scripts/textVars.js" type="text/javascript"></script>
+        <script src="../../scripts/localization.js" type="text/javascript"></script>
+        <script src="../../scripts/main.js" type="text/javascript"></script>
+    </head>
+    <body ondragstart="return false;">
+
+        <div data-id="div_cs" class="content_slide">
+
+            <!-- content slide -->
+
+            <script type="text/javascript">RenderToolNavigation();</script>
+
+            <div data-id="div_head" class="head">
+
+                <h1 data-id="h1" data-vn="2">在三维中选择三角面</h1>
+                <p data-id="p_h1" data-vn="3">
+                    要在重建出的模型中选中一些三角面，请在 <span class="appribbon">SCENE 3D</span>/<span class="appribbon">TOOLS</span> 选项卡的 <span class="apppanel">Model &amp; Texture</span> 区域选择一个工具。这些选择对所有重建工具都生效，例如<a href="../tools/filter.htm">滤波</a>、<a href="../tools/simplify.htm">简化</a>、<a href="../tutorials/orthophoto.htm">正射投影</a>和<a href="../tools/smoothing.htm">平滑</a>。<br /> 可选的选择工具有：
+                </p>
+
+                <ul>
+                    <li data-id="li_h1_rect" data-vn="1">
+                        <span class="appribbonbutton">Rect</span>：<span class="appgesture">按住左键并移动</span>鼠标，用矩形选择三角面。
+                    </li>
+                    <li data-id="li_h1_lasso" data-vn="1">
+                        <span class="appribbonbutton">Lasso</span>：<span class="appgesture">按住左键并移动</span>鼠标，沿环状轨迹选择。
+                    </li>
+                    <li data-id="li_h1_box" data-vn="1">
+                        <span class="appribbonbutton">Box</span>：<span class="appgesture">按住左键并移动</span>鼠标确定框的底面，再<span class="appgesture">按住左键并移动</span>光标确定框的高度。之后在 <span class="appaspecttype">1Ds</span> 面板的 <span class="apptool">Box Selection Tool</span> 中点击相应按钮，即可选中/取消选中框内或框外的三角面。
+                    </li>
+                    <li data-id="li_h1_exp" data-vn="1">
+                        <span class="appribbonbutton">Expand</span>：把当前选择扩展到所有传递相连的三角面。要能点击此按钮，需先用其他选择工具选中一些三角面。
+                    </li>
+                    <li data-id="li_h1_adv" data-vn="1">
+                        <span class="appribbonbutton">Advanced</span>：高级选择工具可以让你：
+                        <ul>
+                            <li data-id="li_h1_adv_marg" data-vn="1"><span class="appproperty">Select marginal triangles</span>：边缘三角面是重建算法额外添加的三角面，用于保证模型水密。
+                            </li>
+                            <li data-id="li_h1_adv_con" data-vn="1"><span class="appproperty">Select largest connected component</span>
+                            </li>
+                            <li data-id="li_h1_adv_triang" data-vn="1"><span class="appproperty">Select large/small triangles</span>：选中至少有一条边超过/低于阈值的全部三角面。阈值 = 平均边长 × <span class="appproperty">Edge threshold multiplier</span> 字段中的用户自定义值。
+                            </li>
+                        </ul>
+                    </li>
+                    <li data-id="li_h1_selall" data-vn="1">
+                        <span class="appribbonbutton">Select All</span>：选中当前三维场景中的全部三角面。
+                    </li>
+                    <li data-id="li_h1_desel" data-vn="1">
+                        <span class="appribbonbutton">Deselect</span> 清除当前所有三角面选择。
+                    </li>
+                    <li data-id="li_h1_inv" data-vn="1">
+                        <span class="appribbonbutton">Invert</span> 把当前选择切换为模型的其余三角面。
+                    </li>
+                </ul>
+
+                <div class="clear splitSpacing">
+                    <!-- clear -->
+                </div>
+
+                <div data-id="div_im_modify" data-vn="1" class="importantMessage">提示：也可以用以下方式修改选择： <span class="appshortcut">CTRL</span> for union, <span class="appshortcut">SHIFT</span>
+                for subtraction, and <span class="appshortcut">CTRL + SHIFT</span> for intersection.</div>
+
+            </div>
+
+            <div class="clear splitSpacing">
+                <!-- clear -->
+            </div>
+
+            <div data-id="div_bc" class="blocksContainer">
+
+                <script type="text/javascript">RenderBackToStartTile();</script>
+            </div>
+
+            <div class="clear">
+                <!-- clear -->
+            </div>
+
+            <!-- content slide end -->
+
+        </div>
+
+        <script type="text/javascript">RenderCopyrightText();</script>
+
+        <script type="text/javascript">
+            InitializeHelpSlide();
+        </script>
+
+    </body>
+</html>
+<!-- signature:xKjZ8bPmEm8jzOREgzPBIORcZN1+yRVshXF2WZ9wpX6FQyI8W+jslB/33P4Pxc+g1LuvPDA8+TeZZ/rPzKSDl9iwZv4PMcuaEHAkKynLsx4htQ9aB8YX44R2w4lGkAz6XfD1Yfi/52wSDhi2k3Y+51BEhnje1UvX3wS936IqHMM= -->

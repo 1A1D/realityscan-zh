@@ -1,0 +1,169 @@
+﻿<html>
+<head>
+    <title>RealityScan 帮助</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Epic Games Slovakia s.r.o." />
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <link type="text/css" rel="stylesheet" href="../../styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/colors.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css" />
+    <script src="../scripts/textVars.js" type="text/javascript"></script>
+    <script src="../../scripts/localization.js" type="text/javascript"></script>
+    <script src="../../scripts/main.js" type="text/javascript"></script>
+    <script src="../../scripts/rc.js" type="text/javascript"></script>
+    <style type="text/css" id="myStyles">
+        .singleComponent {
+            display: none;
+        }
+
+        .completeComponent {
+            display: none;
+        }
+
+        .notCompleteComponent {
+            display: none;
+        }
+
+        .moreUnregistred {
+            display: none;
+        }
+    </style>
+</head>
+<body ondragstart="return false;">
+
+    <div data-id="div_cs" class="content_slide">
+
+        <!-- content slide -->
+
+        <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head" class="head">
+            <h1 data-id="h1" data-vn="1">合并组件</h1>
+            <p data-id="p_h1" data-vn="3">
+               组件是一组已对齐在一起的图像。有时你会得到多个组件，例如照片集合中包含不止一个互不相连的实物、物体纹理太弱、图像数量不足、视角变化过大、图像之间重叠太少，导致 RealityScan 无法自动配对图像。<br/> 下面我们学习如何用“合并组件”工具、额外提供一组输入图像、使用连接点或地面控制点来合并组件。
+            </p>
+        </div>
+
+        <div data-id="div_noco" class="RCNoComponents warningBox" style="margin-bottom: 20px">
+            <p data-id="p_noco" data-vn="1">
+               当前项目里没有任何组件。你可以继续，但最好先创建一些组件，这样才能跟着这些教程步骤学习如何合并本应属于同一组的组件。
+            </p>
+        </div>
+
+        <div data-id="div_sico" class="singleComponent notCompleteComponent warningBox" style="margin-bottom: 20px">
+            <p data-id="p_sico" data-vn="1">
+                当前项目里只有一个不完整的组件。<span class="moreUnregistred">还有一些图像没能与该组件一起对齐。请目视检查这些图像中是否包含目标物体，并考虑在覆盖不足的位置补充更多图像。补充图像通常比手动添加控制点更快，后者是第二个选项。</span>
+            </p>
+        </div>
+
+        <div data-id="div_coco" class="completeComponent warningBox" style="margin-bottom: 20px">
+            <p data-id="p_coco" data-vn="1">你已经有一个包含全部图像的组件了，恭喜！</p>
+        </div>
+
+        <div data-id="div_sb_comp" class="slideblock">
+
+            <h2 data-id="h2_comp" data-vn="1">组件</h2>
+            <p data-id="p_h2_comp" data-vn="1">在哪里？</p>
+
+            <ul>
+                <li data-id="li_comp_1ds" data-vn="1">打开左侧的 <span class="appaspecttype">1Ds</span> 视图，这里会列出各组件名称。<span class="appgesture">点击</span>名称即可选中组件。</li>
+                <li data-id="li_comp_imsc" data-vn="2">在 <span class="appribbon">1D</span>/<span class="appribbon">VIEW</span> 与 <span class="appribbon">SCENE 3D</span>/<span class="appribbon">VIEW</span> 中有 <span class="appbutton">Component</span> 下拉菜单，用于选择要显示（选中）哪个组件。视图显示的信息都相对于所选组件。</li>
+            </ul>
+            <br />
+            <p data-id="p_comp_whic" data-vn="1">哪些图像已配准？</p>
+            <ul>
+                <li data-id="li_comp_1dvi" data-vn="1">在 <span class="appaspecttype">1Ds</span> 视图中可直接看到每个组件已对齐的图像数量。展开组件节点，可在 <span class="apptree">Camera poses</span> 树节点中找到这些图像的名称。</li>
+                <li data-id="li_comp_2dvi" data-vn="1">在 <span class="appaspecttype">2Ds</span> 视图中，属于所选组件的每张图像右上角会显示一个绿点。</li>
+            </ul>
+
+            <div class="clear">
+                <!-- clear -->
+            </div>
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sb_meop" class="slideblock">
+
+            <h2 data-id="h2_meop" data-vn="1">合并选项</h2>
+            <p data-id="p_h2_meop" data-vn="1">把一个被拆成多个组件的场景连起来，有几种做法。
+            </p>
+            <ul>
+                <li data-id="li_meop_run" data-vn="2">再次运行对齐 —— RealityScan 会先使用专为合并组件设计的特殊算法。</li>
+                <li data-id="li_meop_addi" data-vn="1">使用 <span class="apptool">Merge Components</span> 工具 —— 合并已创建的组件。使用该功能时不会向现有组件添加新图像。该工具位于 <span class="appribbon">ALIGNMENT</span> 选项卡。</li>
+                <li data-id="li_meop_cp" data-vn="2">控制点 —— 用控制点可以在两张或多张图像之间手动建立关联。有了这些额外关联，RealityScan 就能估算图像之间或组件之间的变换。</li>
+                <li data-id="li_meop_gcp" data-vn="2">地面控制点 —— 把每个组件地理配准到同一空间。</li>
+                <li data-id="li_meop_addimore" data-vn="1">补充更多图像 —— 这是较快的一种做法。</li>
+            </ul>
+
+            <div class="clear">
+                <!-- clear -->
+            </div>
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_bc" class="blocksContainer">
+
+            <a href="mergecomponents_images.htm">
+                <div class="block TileColor6">
+                    <h2 data-id="h2_bc_meum" data-vn="1">用图像合并</h2>
+                    <p data-id="p_h2_bc_meum" data-vn="1">分步教程</p>
+                </div>
+            </a>
+
+            <a href="mergecomponents_cp.htm">
+                <div class="block TileColor6">
+                    <h2 data-id="h2_bc_mecp" data-vn="1">用控制点与地面控制点合并</h2>
+                    <p data-id="p_h2_bc_mecp" data-vn="1">分步教程</p>
+                </div>
+            </a>
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+        <div class="rowblock">
+            <h3 data-id="h3_sa" data-vn="1">另见：</h3>
+            <ul class="intend">
+                <li data-id="li_sa_tapi" data-vn="1">想学习如何正确拍照，<a href="takingpictures.htm">点击此处</a></li>
+            </ul>
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+        <!-- content slide end -->
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+    <script type="text/javascript">
+        var myStyleSheetRules = myStyles.sheet.rules;
+        function CustomHandler(id, param, hr) {
+            RCComponentsHandler(id, param, hr);
+
+            if (gForceUpdate || (id == 0x5013) || (id == 0x5015)) {
+
+                var alignInfo = TestAllCamerasAligned();
+                ChangeStyle(myStyleSheetRules, ".singleComponent", (gComponentsCount == 1) ? "block" : "none");
+                ChangeStyle(myStyleSheetRules, ".completeComponent", alignInfo.bAligned ? "block" : "none");
+                ChangeStyle(myStyleSheetRules, ".notCompleteComponent", ((gComponentsCount > 0) && !alignInfo.bAligned) ? "block" : "none");
+                ChangeStyle(myStyleSheetRules, ".moreUnregistred", (alignInfo.totalImagesCount - alignInfo.alignedCount >= 5) ? "block" : "none");
+            }
+        }
+        InitializeTutorialMode(CustomHandler);
+    </script>
+
+
+</body>
+</html>
+<!-- signature:w0N4v0gUHO4iaU2LWT/D3lvtzFlB1MmnU78q+CbhJNlJyB5Y/DKlNNcy0ZCqimybJLrBytb+IigoaMtWtkzw80YZw/dPFv/G8S+eeMhJnynDXdW+P4ulYWYhriU9FHam3hTurInYcbUBodv7wiVCK9B767Ks31WEIDLLyAIcAf8= -->

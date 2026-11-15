@@ -1,0 +1,227 @@
+<html>
+<head>
+    <title>RealityScan 帮助</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Epic Games Slovakia s.r.o." />
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <link type="text/css" rel="stylesheet" href="../../styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/colors.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css" />
+    <script src="../scripts/textVars.js" type="text/javascript"></script>
+    <script src="../../scripts/localization.js" type="text/javascript"></script>
+    <script src="../../scripts/main.js" type="text/javascript"></script>
+</head>
+<body ondragstart="return false;">
+
+    <div data-id="div_cs" class="content_slide">
+
+    <!-- content slide -->
+    <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head" class="head">
+
+            <h1 data-id="h1" data-vn="1">设置命令</h1>
+            <p data-id="p_h1" data-vn="1">
+                用这些命令可以直接从命令行修改应用设置与行为。
+            </p>
+            <table class="tableofcommands">
+                <thead data-id="thead_seco" data-vn="1">
+                <tr>
+                    <th>命令名称</th>
+                    <th>必需参数</th>
+                    <th>可选参数</th>
+                    <th>说明</th>
+                </tr>
+                </thead>
+                <tr data-id="tr_seco_set" data-vn="1">
+                    <td class="command">set</td> 
+                    <td class="parameter">"key=value"</td>  
+                    <td class="parameter"></td> 
+                    <td>设置一个应用状态变量。</td> 
+                </tr>
+                <tr data-id="tr_seco_preset" data-vn="1">
+                    <td class="command">preset</td> 
+                    <td class="parameter">"key=value"</td>
+                    <td class="parameter"></td>
+                    <td data-id="td_seco_preset" data-vn="1">在初始化阶段修改应用设置，适合那些需要重启应用才能生效的改动。关于该命令的用法，<a href="../tutorials/setkeyvaluetable.htm">见此处</a>。</td> 
+                </tr>
+                <tr data-id="tr_seco_reset" data-vn="1">
+                    <td class="command">reset</td>
+                    <td class="parameter">ui &#124; cfg &#124; cfgui &#124; all</td>
+                    <td class="parameter"></td>
+                    <td>重置用户界面、设置，或两者都重置，也可以让 RealityScan 恢复到干净安装的状态。该命令只在批处理文件中使用才有效，且不支持委派命令。重置什么由所选参数决定：<span class="appproperty">ui</span> —— 重置用户界面，<span class="appproperty">cfg</span> —— 重置应用设置，<span class="appproperty">cfgui</span> —— 同时重置界面与设置，<span class="appproperty">all</span> —— 恢复为干净安装状态。</td>                         
+                </tr>
+                <tr data-id="tr_seco_sile" data-vn="1">
+                    <td class="command">silent</td> 
+                    <td class="parameter">crashReportPath</td>  
+                    <td class="parameter"></td> 
+                    <td>设置崩溃报告的存放位置。应用会把报告存到这里，而不再弹出上传向导。</td>                         
+                </tr>
+                <tr data-id="tr_seco_progress" data-vn="1">
+                    <td class="command">writeProgress</td> 
+                    <td class="parameter">fileName </td>  
+                    <td class="parameter">timeout</td> 
+                    <td>把任何新的进度变化写入指定文件（fileName 含路径）。可选的 timeout 参数还会在指定时长内持续输出（timeout 以秒计）。关于文件结构的更多内容见<a href="../tutorials/commandline_5.htm">错误处理命令</a>一节。</td>
+                </tr>
+                <tr data-id="tr_seco_printprogress" data-vn="1">
+                    <td class="command">printProgress</td> 
+                    <td class="parameter"></td>  
+                    <td class="parameter">timeout</td>
+                    <td>把任何新的进度变化打印到 Windows 命令提示符中。可选的 timeout 参数还会在指定时长内持续输出（timeout 以秒计）。</td> 
+                </tr>
+                <tr data-id="tr_seco_tag" data-vn="2">
+                    <td class="command">tag</td>
+                    <td class="parameter">string</td>
+                    <td class="parameter"></td>
+                    <td>把字符串参数输出到 Windows 命令提示符。它遵循所用命令的顺序，会在前一个进程结束后才执行。</td>
+                </tr>                    
+                <tr data-id="tr_seco_stdconsole" data-vn="1">
+                    <td class="command">stdConsole</td> 
+                    <td class="parameter"></td>  
+                    <td class="parameter"></td>
+                    <td>启用控制台重定向到应用的标准输出。启用后，应用控制台的内容会同时镜像到标准 Windows 控制台中，这也便于为 CLI 用途做进一步重定向。</td> 
+                </tr>
+                <tr data-id="tr_seco_dioc__v1" data-vn="1">
+                    <td class="command">disableOnlineCommunication</td> 
+                    <td class="parameter"></td>  
+                    <td class="parameter"></td> 
+                    <td>禁用一切在线通信。</td> 
+                </tr>
+                <tr data-id="tr_seco_imgs" data-vn="2">
+                    <td class="command">importGlobalSettings</td> 
+                    <td class="parameter">settings.rsconfig</td>  
+                    <td class="parameter"></td> 
+                    <td>从 settings.rsconfig 文件导入应用全局设置。</td>
+                </tr>
+                <tr data-id="tr_seco_exgs" data-vn="2">
+                    <td class="command">exportGlobalSettings</td> 
+                    <td class="parameter">settings.rsconfig</td>  
+                    <td class="parameter"></td> 
+                    <td>把应用全局设置导出到 settings.rsconfig 文件。</td>
+                </tr>
+                <tr data-id="tr_seco_spcs" data-vn="1">
+                    <td class="command">setProjectCoordinateSystem</td> 
+                    <td class="parameter">authority:id</td>  
+                    <td class="parameter"></td> 
+                    <td>用权威机构及其 ID 定义项目坐标系（ID 可在特定数据库中查到，例如 epsg.xml 与 local.xml）。</td>
+                </tr>
+                <tr data-id="tr_seco_socs" data-vn="1">
+                    <td class="command">setOutputCoordinateSystem</td> 
+                    <td class="parameter">authority:id</td>  
+                    <td class="parameter"></td> 
+                    <td>用权威机构及其 ID 定义输出坐标系（ID 可在特定数据库中查到，例如 epsg.xml 与 local.xml）。</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sb_exse" data-vn="2" class="slideblock">
+            <h2 data-id="h2_exse" data-vn="1">设置示例</h2>
+
+            <div class="codeSample">
+                RealityScan.exe -set "sfmDistortionModel=Brown3" ^<br/>
+                <div style="padding-left: 20px">
+                -set "unwrapMaximalTexCount=1" ^ <br/>
+                -set "unwrapStyle=1"
+                </div>
+            </div>
+
+            <p data-id="p_locs" data-vn="1">用下面的命令可以把局部欧氏坐标系设为项目坐标系，把 EPSG 代码 4326 的 GPS（WGS84）设为输出坐标系：</p>
+            <div class="codeSample">
+                RealityScan.exe -setProjectCoordinateSystem Local:1 ^<br/>
+                <div style="padding-left: 20px">
+                -setOutputCoordinateSystem epsg:4326
+                </div>
+            </div>
+
+        </div> 
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_bc" data-vn="2" class="blocksContainer">
+
+            <a href="../tutorials/commandline.htm">
+                <div class="block TileColor1">
+                    <h2 data-id="h2_bc_pric" data-vn="1">工程与图像命令</h2>
+                    <p data-id="p_h2_bc_pric" data-vn="1">通过 CLI 管理当前工程、应用本身，以及添加图像</p>
+                </div>
+            </a>
+
+            <a href="../tutorials/commandline_rscmd.htm">
+                <div class="block TileColor1">
+                    <h2 data-id="h2_bc_out" data-vn="1">命令行之外的命令执行方式</h2>
+                    <p data-id="p_h2_bc_out" data-vn="2">用 .rscmd 文件执行 CLI</p>
+                </div>
+            </a>
+            
+            <a href="../tutorials/commandline_deleg.htm">
+                <div class="block TileColor1">
+                    <h2 data-id="h2_bc_del" data-vn="2">命令委派</h2>
+                    <p data-id="p_bc_del" data-vn="2">关于把命令委派给已打开的 RealityScan 实例</p>
+                </div>
+            </a>            
+
+            <a href="../tutorials/commandline_1.htm">
+                <div class="block TileColor1">
+                    <h2 data-id="h2_bc_alco" data-vn="1">对齐命令</h2>
+                    <p data-id="p_h2_bc_alco" data-vn="1">对齐与组件处理命令</p>
+                </div>
+            </a>
+
+            <a href="../tutorials/commandline_2.htm">
+                <div class="block TileColor1">
+                    <h2 data-id="h2_bc_reco" data-vn="1">重建命令</h2>
+                    <p data-id="p_h2_bc_reco" data-vn="1">通过命令行计算模型</p>
+                </div>
+            </a>
+
+            <a href="../tutorials/commandline_3.htm">
+                <div class="block TileColor1">
+                    <h2 data-id="h2_bc_mtco" data-vn="1">模型工具命令</h2>
+                    <p data-id="p_h2_bc_mtco" data-vn="1">通过命令行进一步处理模型</p>
+                </div>
+            </a>
+
+            <a href="../tutorials/commandline_5.htm">
+                <div class="block TileColor2">
+                    <h2 data-id="h2_bc_poer" data-vn="1">继续</h2>
+                    <p data-id="p_h2_bc_poer" data-vn="1">用于处理潜在错误的命令</p>
+                </div>
+            </a>
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sa" class="rowblock">
+            <h3 data-id="h3_sa" data-vn="1">另见：</h3>
+            <ul class="intend">
+                <li data-id="li_sa_allc" data-vn="1">在一页中查看全部 CLI 命令 <a href="../appbasics/allcommands.htm">点击此处</a></li>
+                <li data-id="li_sa_apse" data-vn="2">查看应用设置的键与值 <a href="../tutorials/setkeyvaluetable.htm">点击此处</a></li>
+            </ul>
+        </div> 
+
+    
+    <!-- content slide end -->
+
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+    <script type="text/javascript">
+        InitializeTutorialMode();
+    </script>
+
+
+</body>
+</html>
+<!-- signature:q+g7v+s0BzdAlFKNVYb1htJLoQBsIlstFankY/ihb8o0hOBJPZky06ykNXWEXJx0Y2CQQZH3ZHMHQ0SpBreUsSnRLZseePL9WF/bO4AR9vuISxP7d+ilTfIeIQ0vbWe2Z8Ehd4OhLd0+uAMi2ojlAzHHxfbhnQFLpnK4GYxFIPs= -->

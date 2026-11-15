@@ -1,0 +1,162 @@
+﻿<html>
+<head>
+    <title>RealityScan 帮助</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Epic Games Slovakia s.r.o." />
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <link type="text/css" rel="stylesheet" href="../../styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/colors.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css" />
+    <script src="../scripts/textVars.js" type="text/javascript"></script>
+    <script src="../../scripts/localization.js" type="text/javascript"></script>
+    <script src="../../scripts/main.js" type="text/javascript"></script>
+</head>
+<body ondragstart="return false;">
+
+    <div data-id="div_cs" class="content_slide">
+
+        <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head" class="head">
+
+            <h1 data-id="h1" data-vn="1">LOD 导出</h1>
+
+            <p data-id="p_h1" data-vn="3">
+                RealityScan 允许生成模型的多个简化版本并导出。<br /> 这对许多渲染系统很有用——按观看距离选择合适的细节层级更高效。若只想导出一个最高质量的单文件，请参考 <a href="../tools/export.htm">Model export</a> 指南。
+            </p>
+
+        </div>
+
+        <div data-id="div_sb_prse" class="slideblock">
+
+            <h2 data-id="h2_prse" data-vn="1">操作步骤与设置</h2>
+
+            <ol>
+                <li data-id="li_prse_more" data-vn="2">先完成模型重建</li>
+                <li data-id="li_prse_clel" data-vn="4">点击 <span class="appribbon">MESH &amp; COLOR</span> 选项卡 <span class="apppanel">Export</span> 区域或 <span class="appribbon">SCENE 3D</span>/<span class="appribbon">TOOLS</span> 选项卡中的 <span class="appribbonbutton">Level of Detail</span> 按钮。</li>
+                <li data-id="li_prse_spfn" data-vn="2">在文件对话框中指定文件名与目标格式</li>
+                <li data-id="li_prse_disp" data-vn="2">视格式不同，会显示下文所述的两个对话框之一。调整设置后点击 <span class="appbutton">OK</span> 按钮开始导出。</li>
+            </ol>
+
+            <br/>
+
+            <h3 data-id="h3_prse_llod" data-vn="2">线性 LOD 导出对话框</h3>
+
+            <br />
+            <img src="images/lodexport-1.png" alt="lodexport-1" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/lodexport-1.png';"/>
+            <br />
+            <br />
+
+            <p data-id="p_llod" data-vn="2">
+                选择以下格式之一时显示此对话框：obj、ply、xyz、abc、glb、fbx、dxf、dae。
+            </p>
+
+            <ul>
+                <li data-id="li_llod_stcr" data-vn="2">
+                    <span class="appproperty">Stopping criterion</span> 选 <span class="appproperty">Model Count</span> 可导出精确数量的细节层级；选 <span class="appproperty">Triangle Count</span> 则持续导出细节层级，直到简化模型的三角面数小于指定值为止。
+                </li>
+                <li data-id="li_llod_moco" data-vn="2">
+                    <span class="appproperty">Model count</span> 当 Stopping criterion 设为 <span class="appproperty">Model Count</span> 时，此项指定要导出的细节层级数量。
+                </li>
+                <li data-id="li_llod_sity" data-vn="2">
+                    <span class="appproperty">Simplification type</span> 生成下一级细节所用的简化方法。选 <span class="appproperty">Relative</span> 按指定百分比减少三角面数；选 <span class="appproperty">Absolute</span> 则在给定区间内均匀分布三角面数。<span class="appproperty">Absolute</span> 选项仅在 <span class="appproperty">Stopping criterion</span> 设为 <span class="appproperty">Model count</span> 时可用。
+                </li>
+                <li data-id="li_llod_resf" data-vn="2">
+                    <span class="appproperty">Relative simplification factor</span> 当 <span class="appproperty">Simplification Type</span> 设为 <span class="appproperty">Relative</span> 时，指定某级细节相对于上一级更高质量模型的三角面数比例。
+                </li>
+                <li data-id="li_llod_matr" data-vn="2">
+                    <span class="appproperty">Maximal triangles</span> 导出的最高质量细节层级的三角面数。
+                </li>
+                <li data-id="li_llod_mitr" data-vn="2">
+                    <span class="appproperty">Minimal triangles</span> 导出的最低质量细节层级的三角面数。当 <span class="appproperty">Stopping criterion</span> 设为 <span class="appproperty">Model Count</span> 且 <span class="appproperty">Simplification Type</span> 设为 Relative 时不可用。
+                </li>
+                <li data-id="li_llod_fisu" data-vn="2">
+                    <span class="appproperty">File suffix</span> 默认情况下，每个导出文件的后缀为“<i>_LODn</i>”，其中 n 表示细节层级编号。要自定义后缀，请选 <span class="appproperty">Custom</span>。
+                </li>
+                <li data-id="li_llod_suff" data-vn="2">
+                    <span class="appproperty">Suffix</span> 可输入自定义后缀，附加到每个导出文件名后面。
+                </li>    
+                <li data-id="li_llod_nust" data-vn="2">
+                    <span class="appproperty">Numbering start</span> 在此自定义导出模型的编号。默认第一个（最高质量的）模型编号为整数 0。
+                </li>
+                <li data-id="li_llod_mese" data-vn="1">
+                    <span class="appproperty">Mesh settings</span> 在此自定义导出模型的格式专属设置。选项与 <span class="apppanel">Export Model</span> 对话框中完全相同，详情请参考 <a href="export.htm">Model Export</a>。
+                </li>
+            </ul>
+
+            <br />
+
+            <h3 data-id="h3_prse_hlod" data-vn="2">层级 LOD 导出对话框</h3>
+            
+            <br />
+            <img src="images/lodexport-2.png" alt="lodexport-2" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/lodexport-2.png';"/>
+            <br />
+            <br />
+
+            <p data-id="p_h3_hlod" data-vn="2">
+                选择 Cesium 3D Tiles 格式时显示此对话框。层级细节会把模型拆成质量各异的所谓“节点”层级结构。在兼容的查看器中显示时，只会加载部分节点，以在展示细节几何的同时维持渲染性能。若被导出的模型已做地理配准，其地理空间位置会被保留（见 <a href="../tutorials/georeferencing.htm">Geo-referencing a Model</a>）。<br />
+            </p>
+
+            <ul>
+                <li data-id="li_hlod_insi" data-vn="2">
+                    <span class="appproperty">Initial simplification</span> 可在导出前先简化模型，直接决定导出模型能达到的最大细节。<br /> 把 <span class="appproperty">Type</span> 设为 None 可跳过初始简化；设为 <span class="appproperty">Relative</span> 按相对于原模型的比例减少三角面数；设为 <span class="appproperty">Absolute</span> 可指定具体的三角面数。
+                </li>
+                <li data-id="li_hlod_itsi" data-vn="2">
+                    <span class="appproperty">Iterative simplification</span> 指定生成下一级细节所用的简化步长。目前 <span class="appproperty">Type</span> 唯一允许的取值是 <span class="appproperty">Relative</span>。
+                </li>
+                <li data-id="li_hlod_teop" data-vn="1">
+                    <span class="appproperty">Export textures</span> 控制是否导出纹理。请注意，被导出的模型必须已有纹理才能导出。要为模型计算纹理，请参考 <a href="../tools/texturing.htm">Coloring and Texturing</a> 中的贴图章节。<br /> <span class="appproperty">Source Layer</span> 选择用于贴图的纹理图层。<br /> <span class="appproperty">Texel size</span> 指定导出模型中可达到的最佳纹理质量；纹素尺寸越小，质量越高。<br /> <span class="appproperty">Texture Format</span> 选择纹理格式，可选 .webp、.jpg 或 .png。<br />
+                </li>
+                <li data-id="li_hlod_mntc" data-vn="1">
+                    <span class="appproperty">Maximum node triangle count</span> 决定模型拆分成节点的粒度。该值越小，节点层级越细。
+                </li>
+                <li data-id="li_hlod_basc" data-vn="2">
+                    <span class="appproperty">Bandwidth Scale</span> 设为小于 1 时流式加载更快但模型质量更低；设为大于 1 时加载更慢但质量更高。
+                </li>
+                <li data-id="li_hlod_alti" data-vn="1">
+                    <span class="appproperty">Altitude</span> 用于调整模型相对地形的高度。
+                </li>
+            </ul>
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_bc" class="blocksContainer">
+
+            <a href="export.htm">
+                <div class="block TileColor2">
+                    <h2 data-id="h2_bc_moex" data-vn="1">模型导出</h2>
+                    <p data-id="p_h2_bc_moex" data-vn="1">了解如何以最高质量导出三维重建结果</p>
+                </div>
+            </a>
+
+            <a href="import.htm">
+                <div class="block TileColor2">
+                    <h2 data-id="h2_bc_moim" data-vn="1">模型导入</h2>
+                    <p data-id="p_h2_bc_moim" data-vn="1">了解如何把模型导入新项目</p>
+                </div>
+            </a>
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+        <!-- content slide end -->
+
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+    <script type="text/javascript">
+        InitializeHelpSlide();
+    </script>
+
+</body>
+</html>
+<!-- signature:PqCg6T5jqg+p9xi1gKzgyNzKGhaMbW265UbhtmU+OoqCvBGOUEQ341B8lt9A3JeNLOY8DCm2A9JeOhtfoeB0SEHOjuqUgoitOXMA0K/ltYQ1KZokuMmaT1maHVpNtCkusdvh0XrpmoPqmNwTSCvyVc1aqDMcLC4rTbSmHbOhn+E= -->

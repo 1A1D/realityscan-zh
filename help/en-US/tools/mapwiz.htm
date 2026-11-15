@@ -1,0 +1,198 @@
+﻿<html>
+<head>
+    <title>RealityScan 帮助</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Epic Games Slovakia s.r.o." />
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <link type="text/css" rel="stylesheet" href="../../styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/colors.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css" />
+    <script src="../scripts/textVars.js" type="text/javascript"></script>
+    <script src="../../scripts/localization.js" type="text/javascript"></script>
+    <script src="../../scripts/main.js" type="text/javascript"></script>
+</head>
+<body ondragstart="return false;">
+
+    <div data-id="div_cs" class="content_slide">
+
+        <!-- content slide -->
+        <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head" class="head">
+
+            <h1 data-id="h1" data-vn="1">地图向导</h1>
+            <p data-id="p_h1" data-vn="2">
+                RealityScan 地图向导基本上就是你的私人虚拟助手：它引导你创建带地理配准的地图和/或模型，并且替你完成几乎所有既定处理。<br /> 整个流程非常直观、简单。随时可以在 <span class="appribbon">WORKFLOW</span> 选项卡中<span class="appgesture">点击</span> <span class="appribbonbutton">地图向导</span> 按钮把它调出来。不必从头到尾跟着走——你也可以在任意阶段退出向导自己继续，也随时可以再回来。 
+            </p>
+
+        </div>
+
+        <div data-id="div_sb_stwo" class="slideblock">
+
+            <h2 data-id="h2_stwo" data-vn="1">标准流程</h2>
+
+            <ol>
+                <li>
+                    <p data-id="p_stwo_firs" data-vn="1">从新建的空项目开始时，点击 <span class="appribbonbutton">地图向导</span> 按钮后，系统会先要求你添加要处理的输入：</p>
+
+                    <img src="images/add-images.png" alt="add-images" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/add-images.png';"/>
+
+                    <ul>
+                        <li data-id="li_stwo_imgs" data-vn="1">通过 <span class="appbutton">Images</span> 按钮，可以向项目中插入单张图像或整个图像清单。</li>
+                        <li data-id="li_stwo_imfo" data-vn="1">通过 <span class="appbutton">Image Folders</span> 按钮，可以添加所选文件夹中的全部图像，还可选择是否包含其子文件夹。</li>
+                    </ul>
+
+                    <p data-id="p_stwo_coun" data-vn="1">
+                        导入完所有图像后，你会看到已地理配准图像数、未地理配准图像数，以及传感器当前不在 <a href="../appbasics/cameradb.htm">camera database</a> 中的图像数。默认会依据 EXIF 数据对图像分组（更多信息<a href="../appbasics/camerasettings.htm">见此处</a>）。
+                    </p>
+                </li>
+
+                <li>
+                    <p data-id="p_stwo_npgs" data-vn="1">
+                        如果图像的 EXIF 中没有 GPS 位置，你就需要用 <a href="../tutorials/georeferencing.htm">地理配准</a> 来定位场景，可使用 <a href="../tools/flightlogimport.htm">飞行日志</a> or some <a href="../tools/cpmeasurementsimport.htm">地面控制点</a> （坐标与测量值）：
+                    </p>
+
+                    <img src="images/improve-georeferencing.png" alt="improve-georeferencing" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/improve-georeferencing.png';"/>
+
+                    <ul>
+                        <li data-id="p_stwo_fllo" data-vn="1">通过 <span class="appbutton">Flight Log</span>，可以导入含指定坐标系下相机位置的文件。 </li>
+                        <li data-id="p_stwo_grco" data-vn="1">通过 <span class="appbutton">Ground Control</span>，可以导入指定坐标系下的地面控制点（GCP）坐标。</li>
+                        <li data-id="p_stwo_copo" data-vn="1">通过 <span class="appbutton">Control Points</span> 按钮，可以导入（地面）控制点的图像测量值。</li>
+                    </ul>
+
+                    <br/>
+
+                    <div data-id="div_im_pff" data-vn="2" class="importantMessage">
+                        注意：务必选对导入文件的格式与 <a href="../appbasics/coordinatesystem.htm">坐标系</a> （以上两项）。要用 GCP 做地理配准，需要么把 GCP 的测量值加载到多张图像中，要么把地图向导对话框最小化后手动添加测量值。<br />
+                        还要注意：当同时使用图像中 WGS84 坐标系（GPS）的相机先验与另一坐标系下的 GCP 时，必须确保两者使用相同的垂直坐标系。同时使用相机先验与 GCP 时，RealityScan 会同时考虑这两组坐标。多数情况下，来自相机先验的 GPS 坐标精度低于 GCP 坐标，两组一起使用可能带来更大的误差。
+                    </div>
+                </li>
+
+                <li>
+                    <p data-id="p_stwo_loal" data-vn="1">
+                        所有输入成功加载后，就可以把它们显示在地图上并划定重建区域。在“校验重建区域”对话框中，所有带真实坐标的输入都会基于 OpenStreetMap 显示：
+                    </p>
+
+                    <img src="images/verify-recon-region.png" alt="verify-recon-region" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/verify-recon-region.png';"/>
+
+                    <ul>
+                        <li data-id="li_stwo_dera" data-vn="1">
+                            可以用重建区域控件划定重建区域，用法与应用内的同名控件类似（<a href="../tutorials/quickstart_5_reconstructionRegion.htm">更多信息</a>）。可拖动 <span class="appgesture">dragging</span> 圆形控件改变区域水平尺寸，拖动
+                            <span class="appgesture">dragging</span> 弧形控件改变其旋转。
+                        </li>
+                        <li data-id="li_stwo_orsq" data-vn="1">
+                            橙色方块定义要创建的正射投影（<a href="../tutorials/orthophoto.htm">正射投影</a>）的左上角，<span class="appgesture">点击</span>其他角上的方块即可换到那个角。
+                        </li>
+                        <li data-id="li_stwo_zoom" data-vn="1">要缩放地图，使用<span class="appgesture">鼠标滚轮</span>或 <span class="appbutton">+/-</span> 按钮。</li>
+                        <li data-id="p_stwo_fgcp" data-vn="1"><span class="appbutton">Frame GCP</span> 用此按钮把重建区域居中显示到窗口中间。</li>
+                    </ul>
+                </li>
+
+                <li>
+                    <p data-id="p_stwo_prou" data-vn="1">
+                        下一步是确定重建的目标输出。若只需要一个带地理配准的正射投影，就选 <span class="appproperty">Map</span>，然后继续定义所生成地图的最终质量。若只想创建一个带纹理的三维模型，就选 <span class="appproperty">Model</span> 选项并继续定义重建参数。你也可以两者都选。
+                    </p>
+
+                    <img src="images/choose-map-model.png" alt="choose-map-model" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/choose-map-model.png';"/>
+
+                        <h3 data-id="h3_stwo_masp" data-vn="1">地图相关参数</h3>
+
+                        <p data-id="p_masp" data-vn="1">定义地图最终分辨率（地面采样距离）有两种方式：</p>
+
+                        <img src="images/map-params.png" alt="map-params" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/map-params.png';"/>
+
+                        <ul>
+                            <li data-id="li_masp_quba" data-vn="1">
+                                <span class="appproperty">基于质量</span> 正射投影的最佳分辨率会依据模型质量与已生成的 <a href="../tools/texturing.htm">texture</a>。在此可按所算最佳分辨率的百分比定义最终分辨率：可从下拉选项（100/50%）中选择，也可自行输入百分比数值。
+                            </li>
+                            <li data-id="p_masp_diba" data-vn="1">
+                                <span class="appproperty">基于距离</span> 在此可通过设定真实世界的像素尺寸来定义所需的地图分辨率。可从下拉菜单选择（1/5/10/50 cm/px），或输入其他以 cm/px 为单位的值。
+                            </li>
+                        </ul>
+
+                        <p data-id="p_masp_reex" data-vn="2">
+                            勾选 <span class="appproperty">Save report</span> 并选择预定义报告模板，还可以把报告导出为 HTML 文件。关于 RealityScan 报告的更多信息，<a href="../appbasics/reports.htm">点击此处</a>。
+                        </p>
+
+                        <h3 data-id="h3_stwo_mosp" data-vn="1">模型相关参数</h3>
+
+                        <p data-id="p_mosp" data-vn="1">此窗口用于定义所生成三维网格的细节程度与纹理：</p>
+
+                        <img src="images/model-params.png" alt="model-params" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/model-params.png';"/>
+
+                        <p data-id="p_mosp_deta" data-vn="1"><span class="appproperty">Detail</span> 可从以下预定义模式中选择：</p>
+
+                        <ul>
+                            <li data-id="li_mosp_prmo" data-vn="1"><span class="appproperty">Preview mode</span> 生成网格非常快但细节较低。网格计算只使用空三对齐阶段算出的连接点。</li>
+                            <li data-id="li_mosp_fand" data-vn="1"><span class="appproperty">Fast normal-detail</span> 生成质量较低的网格。计算深度图时图像按 4 倍降采样。</li>
+                            <li data-id="li_mosp_node" data-vn="1"><span class="appproperty">Normal detail</span> 生成质量尚可的网格。计算深度图时图像按 2 倍降采样。</li>
+                            <li data-id="li_mosp_hidm" data-vn="1"><span class="appproperty">High-detail mode</span> 生成细节最高的网格，但计算可能更耗时。此模式下图像不做降采样。</li>
+                        </ul>
+
+                        <p data-id="p_mosp_simp" data-vn="1">
+                            <span class="appproperty">Simplify to</span> 可从下拉菜单选择网格<a href="../tools/simplify.htm">simplification</a>级别（small - 10 万三角面、medium - 50 万、moderate - 100 万、large - 1000 万、10/50/100%），也可输入目标三角面数或目标百分比（后者别忘了带上 % 符号）。
+                        </p>
+
+                        <p data-id="p_mosp_text" data-vn="1"><span class="appproperty">Texture</span> 在此定义简化模型所生成纹理的质量：</p>
+
+                        <ul>
+                            <li data-id="li_mosp_opde" data-vn="1"><span class="appproperty">Optimal detail</span> 自动计算最佳纹素尺寸，用于生成 100% 质量的纹理。纹理最大分辨率设为 2048x2048。</li>
+                            <li data-id="li_mosp_50" data-vn="1"><span class="appproperty">50% quality</span> 使用 2 倍最佳纹素尺寸生成 50% 质量的纹理。纹理最大分辨率设为 2048x2048。</li>
+                            <li data-id="li_mosp_10" data-vn="1"><span class="appproperty">10% quality</span> 使用 10 倍最佳纹素尺寸生成 10% 质量的纹理。纹理最大分辨率设为 2048x2048。</li>
+                            <li data-id="li_mosp_4k" data-vn="1"><span class="appproperty">4K</span> 调整纹素尺寸，以生成单张 4096x4096 分辨率的纹理。</li>
+                            <li data-id="li_mosp_8k" data-vn="1"><span class="appproperty">8K</span> 调整纹素尺寸，以生成单张 8192x8192 分辨率的纹理。</li>
+                            <li data-id="li_mosp_dnct" data-vn="1"><span class="appproperty">Do not create texture</span> 选此项则不计算纹理。</li>
+                            <li data-id="li_mosp_cute" data-vn="1">也可以输入自定义纹素尺寸（cm/px），此时纹理最大分辨率会设为 2048x2048。</li>
+                        </ul>
+                </li>
+
+                <li>
+                    <p data-id="p_mosp_summ" data-vn="1">“摘要与微调”对话框会汇总所选输出，并让你做最后的调整：</p>
+
+                    <img src="images/add-exports.png" alt="add-exports" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/add-exports.png';"/>
+
+                    <ul>
+                        <li data-id="li_mosp_adma" data-vn="1">
+                            你可以通过 <span class="appgesture">clicking</span> the <span class="appbutton">Add Map</span> or <span class="appbutton">Add Model</span> 按钮新增输出。对每一项输出，都可以通过 <span class="appbutton">Show Execution List</span> 按钮查看已选参数，需要时再修改。要移除某一项，请 <span class="appgesture">click</span> <span class="appbutton">Remove</span> 点击对应行中的图标。
+                        </li>
+                        <li data-id="li_mosp_adex" data-vn="1">
+                            每种输出都可以用 <span class="appbutton">Add Export</span> 按钮从下拉菜单中建立导出列表。地图可导出为正射投影和数字表面模型；地图与模型都可以导出为网格，上传到 <a href="../tools/sketchfabexport.htm">Sketchfab</a> 或 <a href="../tools/cesiumion.htm">Cesium ion</a>，并附带报告。
+                        </li>
+                        <li data-id="li_mosp_save" data-vn="1">整套配置可用 <span class="appbutton">Save</span> 与 <span class="appbutton">Load</span> 按钮保存到文件并重新载入。</li>
+                    </ul>
+                </li>
+
+                <li data-id="li_mosp_go" data-vn="1">
+                    <span class="appgesture">按下</span> <span class="appbutton">GO</span> 按钮就会启动所定义的处理流程。你可以跟踪计算进度、预计完成时间，以及当前与已完成的处理步骤。
+                </li>
+
+                <li data-id="li_mosp_clos" data-vn="1">计算完成后，可以关闭地图向导，在 <span class="appaspecttype">1Ds</span> 面板中查看输出结果。</li>
+            </ol>
+
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_bc" class="blocksContainer">
+            <script type="text/javascript">RenderBackToStartTile();</script>
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+        <!-- content slide end -->
+
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+    <script type="text/javascript">
+        InitializeHelpSlide();
+    </script>
+
+</body>
+</html>
+<!-- signature:tuBkLjogQCthqFXauLZip+lXFR4Ib7Bk7qhYuhb9I4NAJ3UiBRkfAF6NlgcxUJu+qGu8VP6KcbB2/684I5Izob2mMHMxf+mr8FtVM5eXLMFxZVdYausCmPHyhDDRER1rkL4bmXbu/Y9fbi0jksnwiKyL9TSzwnUO06x6/dbE9+k= -->

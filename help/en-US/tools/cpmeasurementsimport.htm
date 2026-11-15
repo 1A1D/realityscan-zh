@@ -1,0 +1,107 @@
+<html>
+<head>
+    <title>RealityScan 帮助</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Epic Games Slovakia s.r.o." />
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <link type="text/css" rel="stylesheet" href="../../styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/colors.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css" />
+    <script src="../scripts/textVars.js" type="text/javascript"></script>
+    <script src="../../scripts/localization.js" type="text/javascript"></script>
+    <script src="../../scripts/main.js" type="text/javascript"></script>
+</head>
+<body ondragstart="return false;">
+
+    <div data-id="div_cs" class="content_slide">
+
+        <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head" class="head">
+
+            <h1 data-id="h1" data-vn="1">控制点测量导入</h1>
+            <p data-id="p_h1" data-vn="2">RealityScan 支持导入<a href="controlpoints.htm">control points</a>在特定图像中的位置，以及<a href="gcpimport.htm">ground control points</a>。控制点的位置以像素为单位，原点为图像左上角。 </p>
+            <p data-id="p_h1_two" data-vn="1">导入控制点测量值有两种方式：</p>
+            <ul>
+                <li data-id="li_h1_gui" data-vn="2">Using the <span class="appribbonbutton">Control Points</span> import button.
+                    <ol>
+                        <li data-id="li_gui_goto" data-vn="2">
+                            Go to <span class="appribbon">WORKFLOW</span> / <span class="apppanel">Import Metadata</span> / <span class="appribbonbutton">Control Points</span>.
+                            <br/><br/>
+                            <div class="autoimg" style="margin: 0px 20px 0px 0px;">
+                                <img src="images/Import-Control-Points-Measurements.png" class="autoimg" alt="Import-Control-Points-Measurements" onerror="this.onerror=null;this.src='../../en-US/tools/images/Import-Control-Points-Measurements.png';">
+                            </div> 
+                            <ul class="apppanelitems">
+                                <li class="apppanelitem" data-id="li_gui_fname" data-vn="1"><span class="appproperty">File name</span> 包含控制点测量值的文件名称。</li>
+                                <li class="apppanelitem" data-id="li_gui_fformat" data-vn="1"><span class="appproperty">File format</span> 定义文件中各值的顺序与类型。</li>
+                                <li class="apppanelitem" data-id="li_gui_valsep" data-vn="1"><span class="appproperty">Values separator</span> 用于分隔文件中的各值的分隔符。也支持限定符，即可把每个字段放在双引号（&quot;&quot;）里表示它们是同一个字段。</li>
+                                <li class="apppanelitem" data-id="li_gui_ignfl" data-vn="2"><span class="appproperty">Ignore first line</span> 若文件带表头，可让 RealityScan 忽略第一行。以 <span class="parameter">&num;</span> 符号开头的行会被自动跳过。</li>
+                                <li class="apppanelitem" data-id="li_gui_imdaacc" data-vn="1"><span class="appproperty">Imported data accuracy</span> 可在 <span class="appproperty">Measurements accuracy</span> 中以像素为单位定义导入控制点测量值的精度。该值表示控制点在图像中预期能达到的放置精度。
+                                </li>
+                            </ul>
+                        </li>
+                        <li data-id="li_gui_xml" data-vn="1">可以在应用安装目录下的 measurementsimport.xml 中自定义文件格式、其他值分隔符、注释符号或限定符。关于如何编辑 measurementsimport.xml 的说明，以及导入支持的值列表，<a href="defineimportformat.htm">请见此处</a>。
+                        </li>
+                    </ol>
+
+                    <br/>
+                    <div data-id="div_im_avai" data-vn="1" class="importantMessage">注意：只有当前项目中已导入至少一张图像时，此选项才可用。</div>
+                    <br />
+                </li>
+
+                <li data-id="li_h1_cmd" data-vn="1">使用<a href="../tutorials/commandline_1.htm">命令行</a>。</li>
+            </ul>
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+        
+        <p data-id="p_sample" data-vn="1">以逗号分隔值的“Image, Point, X, Y（字符分隔）”文件示例：</p>
+        
+        <div class="autoimg" style="margin: 0px 20px 0px 0px;">
+            <img src="../../images/Sample-CP-Measurements.png" class="autoimg" alt="Import-Control-Points-File" onerror="this.onerror=null;this.src='../../images/Sample-CP-Measurements.png';">
+        </div> <br />          
+
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_bc" class="blocksContainer">
+
+            <a href="cpmeasurementsexport.htm">
+                <div class="block TileColor2">
+                    <h2 data-id="h2_bc_cpme" data-vn="1">控制点测量导出</h2>
+                    <p data-id="p_h2_bc_cpme" data-vn="1">如何把控制点位置导出为文本文件</p>
+                </div>
+            </a>
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sa" class="rowblock">
+            <h3 data-id="h3_sa" data-vn="1">另见：</h3>
+            <ul class="intend">
+                <li data-id="li_sa_cp" data-vn="1">了解控制点的更多内容，<a href="controlpoints.htm">点击此处</a>。</li>
+                <li data-id="li_sa_igcp" data-vn="1">导入地面控制点，<a href="gcpimport.htm">点击此处</a>。</li>
+            </ul>
+        </div>
+
+        <!-- content slide end -->
+
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+    <script type="text/javascript">
+        InitializeHelpSlide();
+    </script>
+</body>
+</html>
+<!-- signature:n/3CkxAwohBdYirrz4sX4Ntzj1iCjT/zWst2XHktlh7CW7X+id/XqaZnEAULI/QP4WKrYexg40eutRcFtwwpbv0tNRS21/MIS9q54QqRz3XVedz5TOi1vtpQTng8+6dSSAsFhwPyde2dHgURh9zUkB0Q+Ud8odCEn8lCYxDKBjE= -->

@@ -1,0 +1,128 @@
+<html>
+<head>
+    <title>RealityScan 帮助</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Epic Games Slovakia s.r.o." />
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <link type="text/css" rel="stylesheet" href="../../styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/colors.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css" />
+    <script src="../scripts/textVars.js" type="text/javascript"></script>
+    <script src="../../scripts/localization.js" type="text/javascript"></script>
+    <script src="../../scripts/main.js" type="text/javascript"></script>
+</head>
+<body ondragstart="return false;">
+
+    <div data-id="div_cs" class="content_slide">
+
+        <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_commandsequence" class="head">
+        
+            <h1 data-id="h1" data-vn="1">命令序列</h1>
+                <p data-id="p_h1" data-vn="1">
+                    除显示进度外，<span class="appaspecttype">console</span> 视图还可用于直接在界面中使用 CLI 命令，或创建命令序列。 
+                </p>
+                
+                <div style="padding: 20px 10px 10px 25px"><img src="images/command_sequence-text_field.png" alt="command_sequence-text_field" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/command_sequence-text_field.png';"></div>
+        
+                <p data-id="p_entercommand" data-vn="2">
+                    在 <span class="appaspecttype">console</span> 视图中使用 CLI 命令与在命令提示符、.rscmd 文件或批处理文件中使用完全一样：先写一个连字符，然后写命令及其必需和/或可选参数，填入 <span class="appaspecttype">console</span> 视图底部的命令文本框。写完一条或多条命令后，按键盘上的 <span class="appbutton">ENTER</span> 即可执行。
+                </p>
+                
+                <p data-id="p_tabsuggestion" data-vn="1">
+                    如果记不清命令该怎么写，可以只写开头几个字母，然后<span class="appgesture">按下</span>键盘上的 <span class="appbutton">TAB</span> 键，在以这些字母开头的命令之间循环切换。例如在控制台的命令文本框里输入 <span class="command">-select</span> 并<span class="appgesture">按下</span> <span class="appbutton">TAB</span> 键，每按一次 <span class="appbutton">TAB</span> 都会显示一条以 <span class="command">-select</span> 开头的不同命令。下图中就是这样找到了 <span class="command">-selectImage</span> 命令。
+                </p>
+        
+                <div style="padding: 20px 10px 10px 25px"><img src="images/command_sequence-suggestions.png" alt="command_sequence-suggestions" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/command_sequence-suggestions.png';"></div>
+                
+                <p data-id="p_tooltip" data-vn="1">
+                    写命令时会出现如上图所示的提示气泡。它会列出该命令的所有变体，以及它们必需和可选的参数（若有）。
+                </p>
+                
+                <p data-id="p_paths" data-vn="1">
+                    若使用的命令带路径参数（指向电脑上文件或文件夹的路径），可以用快捷键让输入这些路径轻松许多。要搜索某个文件的路径，用 <span class="appshortcut">CTRL+Enter</span> 快捷键，会打开 Windows 资源管理器，从中找到并选中需要的文件；需要文件夹路径时，用 <span class="appshortcut">CTRL+Shift+Enter</span> 快捷键。
+                </p>
+                
+                <p data-id="p_history" data-vn="1">
+                    也可以用键盘上的 <span class="appbutton">UP</span> 与 <span class="appbutton">DOWN</span> 键翻阅已用过的命令。命令按时间顺序存储，用 <span class="appbutton">UP</span> 键可以从最近一次用过的开始往回访问。
+                </p>
+        
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+        
+        <div data-id="div_addcommandbutton" class="slideblock">
+
+            <h2 data-id="h2_addcommandbutton" data-vn="1">添加命令按钮</h2>
+            
+                <p data-id="p_savesequence" data-vn="2">
+                    在 <span class="appaspecttype">console</span> 视图中用过的命令可以保存为命令按钮，并从 <span class="appribbon">WORKFLOW</span> 选项卡的 <span class="apppanel">Commands</span> 区域调用。 
+                </p>
+            
+                <div style="padding: 20px 10px 10px 25px"><img src="images/command_sequence-command_button.png" alt="command_sequence-command_button" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/command_sequence-command_button.png';"></div>
+        
+                <p data-id="p_addbutton" data-vn="2">
+                    要添加命令按钮，<span class="apppanel">Commands</span> 区域中<span class="appgesture">点击</span> <span class="appbutton">Add</span> 按钮，会打开 <span class="appaspecttype">console</span> 视图且命令文本框已选中。也可以手动把某个视图改成 <span class="appaspecttype">console</span> 视图并<span class="appgesture">点击</span>命令文本框来选中它。在命令文本框中写入一条或多条命令，然后按下图所示按 <span class="appbutton">Add</span> 按钮创建新序列。
+                </p>
+                
+                <div style="padding: 20px 10px 10px 25px"><img src="images/command_sequence-add_button.png" alt="command_sequence-add_button" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/command_sequence-add_button.png';"></div>
+        
+                <p data-id="p_runsequence" data-vn="2">
+                    这会打开 <span class="apppanel">Add Command Button</span> 窗口，可为命令按钮命名。所有命令按钮都能在 <span class="appribbon">WORKFLOW</span> 选项卡的 <span class="apppanel">Commands</span> 区域找到。要运行已保存的命令序列，只需<span class="appgesture">点击</span>相应命令按钮。 
+                </p>
+                
+                <div style="padding: 20px 10px 10px 25px"><img src="images/command_sequence-5.png" alt="command_sequence-5" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/command_sequence-5.png';"></div>
+        
+                <p data-id="p_removesequence" data-vn="2">
+                    要删除命令按钮，<span class="apppanel">Commands</span> 区域中<span class="appgesture">点击</span> <span class="appbutton">Remove</span> 按钮，会打开 <span class="apppanel">Remove Command Button</span> 窗口。在下拉菜单中选中要删除的命令按钮，然后<span class="appgesture">点击</span> <span class="appbutton">OK</span> 按钮。
+                </p>
+                
+                <div style="padding: 20px 10px 10px 25px"><img src="images/command_sequence-6.png" alt="command_sequence-6" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/command_sequence-6.png';"></div>
+        
+                <br/>
+        
+                <div class="importantMessage" data-id="div_imme" data-vn="1">注意：所有命令按钮都归属于 RealityScan 而非创建它们的项目，因此在任何 RealityScan 实例、任何项目中都能使用。</div>
+                
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div> 
+        
+        <div data-id="div_bc" class="blocksContainer">
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sa" class="rowblock">
+            <h3 data-id="h3_sa" data-vn="1">另见：</h3>
+            <ul class="intend">
+                <li data-id="li_sa_allcli" data-vn="1">全部 CLI 命令——<a href="../appbasics/allcommands.htm">点击此处</a></li>
+                <li data-id="li_sa_cliui" data-vn="1">命令行界面——<a href="../tutorials/commandline.htm">点击此处</a></li>
+            </ul>
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+        <!-- content slide end -->
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+    <script type="text/javascript">
+        InitializeHelpSlide();
+    </script>
+
+</body>
+</html>
+<!-- signature:aGhG3GrsCkRxrUjumqKVcmwMixujl29lTgLdGHnBTLQv1akRgdPA0z3eXpjJ0xKWnR+wKE296rxBHuKY11Bkr9s5LbSm0R4Vx4A1TlbT9ywJ2vqutKIJ4JswQotgL+4Yme4brcMkblokfqj+RF3ZHuvO5ghYoHRzz3PttYQ1yO4= -->

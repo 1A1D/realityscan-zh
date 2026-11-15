@@ -1,0 +1,2990 @@
+<html>
+<head>
+    <title>RealityScan 帮助</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Epic Games Slovakia s.r.o." />
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <link type="text/css" rel="stylesheet" href="../../styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/colors.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css" />
+    <script src="../scripts/textVars.js" type="text/javascript"></script>
+    <script src="../../scripts/localization.js" type="text/javascript"></script>
+    <script src="../../scripts/main.js" type="text/javascript"></script>
+</head>
+<body ondragstart="return false;">
+
+    <div data-id="div_cs" class="content_slide">
+        <script type="text/javascript">RenderToolNavigation();</script>
+        <div data-id="div_head" class="head">
+            <h1 data-id="h1" data-vn="1">API 方法 - 项目</h1>
+          
+                <p data-id="p_h1" data-vn="2">
+                    可通过 RSNode 使用、用于操作项目的 API 方法。
+                </p>
+        </div>
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+        
+        <div data-id="div_sb_cltags" class="slideblock">  
+            
+            <h2 data-id="h2_cltags" data-vn="1">getProjectCleartags</h2>
+                <p data-id="p_cltags" data-vn="1">
+                    清除项目中的一个标签或全部标签。
+                </p>
+                
+                <div class="codeSample">
+                    <span class="api">GET</span>
+                    <br/>
+                    /project/cleartags
+                </div>
+                <h3 data-id="h3_ctg_par" data-vn="1">参数</h3>
+                
+                    <p data-id="p_ctg_hpar" data-vn="1">请求头参数</p>
+                    <div data-id="sb_ctg_hpar" class="slideblock splitSpacing">
+                        <table class="tableofcommands"> 
+                            <thead data-id="thead_ctg_hpar" data-vn="1">
+                                <tr>
+                                    <th>名称</th> <th>说明</th> <th>是否必需</th>
+                                </tr>
+                            </thead>
+                            <tr data-id="tr_ctghp_clid" data-vn="1">
+                                <td class="command">clientId*</td>
+                                <td><span class="dataType">UUID</span>（uuid）<br/><span class="note">客户端标识</span></td> 
+                                <td>必需</td>  
+                            </tr>      
+                            <tr data-id="tr_ctghp_appt" data-vn="1">
+                                <td class="command">appToken*</td>
+                                <td><span class="dataType">String</span><br/><span class="note">调用方应用标识</span></td> 
+                                <td>必需</td>  
+                            </tr>      
+                            <tr data-id="tr_ctghp_sess" data-vn="1">
+                                <td class="command">Session*</td>
+                                <td><span class="dataType">UUID</span>（uuid）<br/><span class="note">会话标识</span></td>
+                                <td>必需</td>  
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <p data-id="p_ctg_hpar_1" data-vn="1">查询参数</p>
+                    <div data-id="sb_ctg_qpar" class="slideblock splitSpacing">
+                        <table class="tableofcommands"> 
+                            <thead data-id="thead_ctgqpar" data-vn="1">
+                                <tr>
+                                    <th>名称</th> <th>说明</th> <th>是否必需</th>
+                                </tr>
+                            </thead>
+                            <tr data-id="tr_ctgqp_tag" data-vn="1">
+                                <td class="command">tag</td>
+                                <td><span class="dataType">String</span><br/><span class="note">标签名称</span></td> 
+                                <td>可选</td>  
+                            </tr>      
+                        </table>
+                    </div>
+                   
+                <h3 data-id="h3_ctg_resp" data-vn="1">响应</h3>
+                <ul>
+                    <li data-id="li_ctgres_200" data-vn="1">
+                        状态：<span class="parameter">200</span> —— OK
+                    </li>
+                </ul>    
+                        <p data-id="p_ctg200_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                                <span class="dataType">boolean</span><br/>      
+                                &nbsp;<span class="note">Cleared tags</span>
+                        </div>
+                <ul>        
+                    <li data-id="li_ctgres_400" data-vn="1">
+                        状态：<span class="parameter">400</span> —— 请求无效
+                    </li>
+                </ul>    
+                        <p data-id="p_ctg400_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>     
+                    <li data-id="li_ctgres_401" data-vn="1">
+                        状态：<span class="parameter">401</span> —— 未授权
+                    </li>
+                </ul>    
+                        <p data-id="p_ctg401_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>     
+                    <li data-id="li_ctgres_404" data-vn="1">
+                        状态：<span class="parameter">404</span> —— 未找到
+                    </li>
+                </ul>    
+                        <p data-id="p_ctg404_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>     
+                    <li data-id="li_ctgres_500" data-vn="1">
+                        状态：<span class="parameter">500</span> —— 服务器内部错误 apiError
+                    </li>
+                </ul>    
+                        <p data-id="p_ctg500_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                
+        </div>
+        
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+        
+        <div data-id="div_sb_cltask" class="slideblock">  
+            
+            <h2 data-id="h2_cltask" data-vn="1">getProjectCleartasks</h2>
+                <p data-id="p_cltask" data-vn="1">
+                    清除任务信息。
+                </p>
+                
+                <div class="codeSample">
+                    <span class="api">GET</span>
+                    <br/>
+                    /project/cleartasks
+                </div>
+        
+                <h3 data-id="h3_ctk_par" data-vn="1">参数</h3>
+                
+                    <p data-id="p_ctk_hpar" data-vn="1">请求头参数</p>
+        
+                    <div data-id="sb_ctk_hpar" class="slideblock splitSpacing">
+                        <table class="tableofcommands"> 
+                            <thead data-id="thead_ctk_hpar" data-vn="1">
+                                <tr>
+                                    <th>名称</th> <th>说明</th> <th>是否必需</th>
+                                </tr>
+                            </thead>
+                            <tr data-id="tr_ctkhp_clid" data-vn="1">
+                                <td class="command">clientId*</td>
+                                <td><span class="dataType">UUID</span>（uuid）<br/><span class="note">客户端标识</span></td> 
+                                <td>必需</td>  
+                            </tr>      
+                            <tr data-id="tr_ctkhp_appt" data-vn="1">
+                                <td class="command">appToken*</td>
+                                <td><span class="dataType">String</span><br/><span class="note">调用方应用标识</span></td> 
+                                <td>必需</td>  
+                            </tr>      
+                            <tr data-id="tr_ctkhp_sess" data-vn="1">
+                                <td class="command">Session*</td>
+                                <td><span class="dataType">UUID</span>（uuid）<br/><span class="note">会话标识</span></td>
+                                <td>必需</td>  
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <p data-id="p_ctk_hpar_1" data-vn="1">查询参数</p>
+                    <div data-id="sb_ctk_qpar" class="slideblock splitSpacing">
+                        <table class="tableofcommands"> 
+                            <thead data-id="thead_ctk_qpar" data-vn="1">
+                                <tr>
+                                    <th>名称</th> <th>说明</th> <th>是否必需</th>
+                                </tr>
+                            </thead>
+                            <tr data-id="tr_ctkqp_tid" data-vn="1">
+                                <td class="command">taskIds</td>
+                                <td><span class="dataType">array[UUID]</span>（uuid）<br/><span class="note">任务标识</span></td> 
+                                <td>可选</td>  
+                            </tr>      
+                        </table>
+                    </div>
+                   
+                <h3 data-id="h3_ctk_resp" data-vn="1">响应</h3>
+
+                <ul>
+                    <li data-id="li_ctkres_200" data-vn="1">
+                        状态：<span class="parameter">200</span> —— OK
+                    </li>
+                    <li data-id="li_ctkres_400" data-vn="1">
+                        状态：<span class="parameter">400</span> —— 请求无效
+                    </li>
+                </ul>    
+                        <p data-id="p_ctk400_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>    
+                    <li data-id="li_ctkres_401" data-vn="1">
+                        状态：<span class="parameter">401</span> —— 未授权
+                    </li>
+                </ul>    
+                        <p data-id="p_ctk401_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>    
+                    <li data-id="li_ctkres_404" data-vn="1">
+                        状态：<span class="parameter">404</span> —— 未找到
+                    </li>
+                </ul>    
+                        <p data-id="p_ctk404_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>    
+                    <li data-id="li_ctkres_500" data-vn="1">
+                        状态：<span class="parameter">500</span> —— 服务器内部错误 apiError
+                    </li>
+                </ul>    
+                        <p data-id="p_ctk500_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                
+        </div>
+        
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+        
+        <div data-id="div_sb_clpro" class="slideblock">  
+            
+            <h2 data-id="h2_clpro" data-vn="1">getProjectClose</h2>
+                <p data-id="p_clpro" data-vn="1">
+                    关闭项目并释放与该项目关联的已分配资源。
+                </p>
+                
+                <div class="codeSample">
+                    <span class="api">GET</span>
+                    <br/>
+                    /project/closes
+                </div>
+        
+                <h3 data-id="h3_clp_par" data-vn="1">参数</h3>
+                
+                    <p data-id="p_clp_hpar" data-vn="1">请求头参数</p>
+        
+                    <div data-id="sb_clp_hpar" class="slideblock splitSpacing">
+                        <table class="tableofcommands"> 
+                            <thead data-id="thead_clp_hpar" data-vn="1">
+                                <tr>
+                                    <th>名称</th> <th>说明</th> <th>是否必需</th>
+                                </tr>
+                            </thead>
+                            <tr data-id="tr_clphp_clid" data-vn="1">
+                                <td class="command">clientId*</td>
+                                <td><span class="dataType">UUID</span>（uuid）<br/><span class="note">客户端标识</span></td> 
+                                <td>必需</td>  
+                            </tr>      
+                            <tr data-id="tr_clphp_appt" data-vn="1">
+                                <td class="command">appToken*</td>
+                                <td><span class="dataType">String</span><br/><span class="note">调用方应用标识</span></td> 
+                                <td>必需</td>  
+                            </tr>      
+                            <tr data-id="tr_clphp_sess" data-vn="1">
+                                <td class="command">Session*</td>
+                                <td><span class="dataType">UUID</span>（uuid）<br/><span class="note">会话标识</span></td>
+                                <td>必需</td>  
+                            </tr>
+                        </table>
+                    </div>
+                                 
+                <h3 data-id="h3_clp_resp" data-vn="1">响应</h3>
+
+                <ul>
+                    <li data-id="li_clpres_200" data-vn="1">
+                        状态：<span class="parameter">200</span> —— OK
+                    </li>
+                    <li data-id="li_clpres_400" data-vn="1">
+                        状态：<span class="parameter">400</span> —— 请求无效
+                    </li>
+                </ul>    
+                        <p data-id="p_clp400_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>    
+                    <li data-id="li_clpres_401" data-vn="1">
+                        状态：<span class="parameter">401</span> —— 未授权
+                    </li>
+                </ul>    
+                        <p data-id="p_clp401_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>    
+                    <li data-id="li_clpres_404" data-vn="1">
+                        状态：<span class="parameter">404</span> —— 未找到
+                    </li>
+                </ul>    
+                        <p data-id="p_clp404_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>    
+                    <li data-id="li_clpres_500" data-vn="1">
+                        状态：<span class="parameter">500</span> —— 服务器内部错误 apiError
+                    </li>
+                </ul>    
+                        <p data-id="p_clp500_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+        
+        <div data-id="div_sb_prcomm" class="slideblock">  
+            
+            <h2 data-id="h2_prcomm" data-vn="1">getProjectCommand</h2>
+                <p data-id="p_prcomm" data-vn="1">
+                    发送一条 CLI 命令。 
+                </p>
+                
+                <div class="codeSample">
+                    <span class="api">GET</span>
+                    <br/>
+                    /project/command
+                </div>
+                
+                <p data-id="p_prcomm_ex" data-vn="1">
+                    示例：
+                </p>
+                
+                <div class="codeSample">
+                    /project/command?name=align<br/>
+                    /project/command?name=calculateHighModel<br/>
+                    /project/command?name=calculateNormalModel<br/>
+                    /project/command?name=simplify<br/>
+                    /project/command?name=exportModel&amp;param1=Model%201&amp;param2=model_name.obj<br/>
+                    /project/command?name=exportSelectedModel&amp;param1=model_name.obj
+                </div>
+                
+                <h3 data-id="h3_com_par" data-vn="1">参数</h3>
+                
+                    <p data-id="p_com_hpar" data-vn="1">请求头参数</p>
+        
+                    <div data-id="sb_com_hpar" class="slideblock splitSpacing">
+                        <table class="tableofcommands"> 
+                            <thead data-id="thead_com_hpar" data-vn="1">
+                                <tr>
+                                    <th>名称</th> <th>说明</th> <th>是否必需</th>
+                                </tr>
+                            </thead>
+                            <tr data-id="tr_comhp_clid" data-vn="1">
+                                <td class="command">clientId*</td>
+                                <td><span class="dataType">UUID</span>（uuid）<br/><span class="note">客户端标识</span></td> 
+                                <td>必需</td>  
+                            </tr>      
+                            <tr data-id="tr_comhp_appt" data-vn="1">
+                                <td class="command">appToken*</td>
+                                <td><span class="dataType">String</span><br/><span class="note">调用方应用标识</span></td> 
+                                <td>必需</td>  
+                            </tr>      
+                            <tr data-id="tr_comhp_sess" data-vn="1">
+                                <td class="command">Session*</td>
+                                <td><span class="dataType">UUID</span>（uuid）<br/><span class="note">会话标识</span></td>
+                                <td>必需</td>  
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <p data-id="p_com_qpar" data-vn="1">查询参数</p>
+        
+                    <div data-id="sb_com_qpar" class="slideblock splitSpacing">
+                        <table class="tableofcommands"> 
+                            <thead data-id="thead_com_qpar" data-vn="1">
+                                <tr>
+                                    <th>名称</th> <th>说明</th> <th>是否必需</th>
+                                </tr>
+                            </thead>
+                            <tr data-id="tr_comqp_name" data-vn="1">
+                                <td class="command">name*</td>
+                                <td><span class="dataType">String</span><br/><span class="note">命令名称</span></td> 
+                                <td>必需</td>  
+                            </tr>      
+                            <tr data-id="tr_comqp_par1" data-vn="1">
+                                <td class="command">param1</td>
+                                <td><span class="dataType">String</span><br/><span class="note">命令参数</span></td> 
+                                <td>可选</td>  
+                            </tr>
+                            <tr data-id="tr_comqp_par2" data-vn="1">
+                                <td class="command">param2</td>
+                                <td><span class="dataType">String</span><br/><span class="note">命令参数</span></td> 
+                                <td>可选</td>  
+                            </tr>  
+                            <tr data-id="tr_comqp_par3" data-vn="1">
+                                <td class="command">param3</td>
+                                <td><span class="dataType">String</span><br/><span class="note">命令参数</span></td> 
+                                <td>可选</td>  
+                            </tr>  
+                            <tr data-id="tr_comqp_par4" data-vn="1">
+                                <td class="command">param4</td>
+                                <td><span class="dataType">String</span><br/><span class="note">命令参数</span></td> 
+                                <td>可选</td>  
+                            </tr>  
+                            <tr data-id="tr_comqp_par5" data-vn="1">
+                                <td class="command">param5</td>
+                                <td><span class="dataType">String</span><br/><span class="note">命令参数</span></td> 
+                                <td>可选</td>  
+                            </tr>  
+                            <tr data-id="tr_comqp_par6" data-vn="1">
+                                <td class="command">param6</td>
+                                <td><span class="dataType">String</span><br/><span class="note">命令参数</span></td> 
+                                <td>可选</td>  
+                            </tr>  
+                            <tr data-id="tr_comqp_par7" data-vn="1">
+                                <td class="command">param7</td>
+                                <td><span class="dataType">String</span><br/><span class="note">命令参数</span></td> 
+                                <td>可选</td>  
+                            </tr>  
+                            <tr data-id="tr_comqp_par8" data-vn="1">
+                                <td class="command">param8</td>
+                                <td><span class="dataType">String</span><br/><span class="note">命令参数</span></td> 
+                                <td>可选</td>  
+                            </tr>  
+                            <tr data-id="tr_comqp_par9" data-vn="1">
+                                <td class="command">param9</td>
+                                <td><span class="dataType">String</span><br/><span class="note">命令参数</span></td> 
+                                <td>可选</td>  
+                            </tr>  
+                        </table>
+                    </div>
+                  
+                <h3 data-id="h3_com_resp" data-vn="1">响应</h3>
+
+                <ul>
+                    <li data-id="li_comres_202" data-vn="1">
+                        状态：<span class="parameter">202</span> —— 已接受
+                    </li>
+                </ul>    
+                        <p data-id="p_com202_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">Task Handle {</span><br/>
+                                &nbsp;taskID: <span class="dataType">string</span> <span class="note">(uuid)</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>    
+                    <li data-id="li_comres_400" data-vn="1">
+                        状态：<span class="parameter">400</span> —— 请求无效
+                    </li>
+                </ul>    
+                        <p data-id="p_com400_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>    
+                    <li data-id="li_comres_401" data-vn="1">
+                        状态：<span class="parameter">401</span> —— 未授权
+                    </li>
+                </ul>    
+                        <p data-id="p_com401_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>    
+                    <li data-id="li_comres_404" data-vn="1">
+                        状态：<span class="parameter">404</span> —— 未找到
+                    </li>
+                </ul>    
+                        <p data-id="p_com404_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>    
+                    <li data-id="li_comres_500" data-vn="1">
+                        状态：<span class="parameter">500</span> —— 服务器内部错误 apiError
+                    </li>
+                </ul>    
+                        <p data-id="p_com500_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+            
+        <div data-id="div_sb_prccom" class="slideblock">  
+            
+            <h2 data-id="h2_prccom" data-vn="1">getProjectCondcommand</h2>
+                <p data-id="p_prccom" data-vn="1">
+                    发送一条带条件的 CLI 命令。若未发送标签，则发送该 CLI 命令。 
+                </p>
+                
+                <div class="codeSample">
+                    <span class="api">GET</span>
+                    <br/>
+                    /project/condcommand
+                </div>
+                               
+                <h3 data-id="h3_ccm_par" data-vn="1">参数</h3>
+                
+                    <p data-id="p_ccm_hpar" data-vn="1">请求头参数</p>
+        
+                    <div data-id="sb_ccm_hpar" class="slideblock splitSpacing">
+                        <table class="tableofcommands"> 
+                            <thead data-id="thead_ccm_hpar" data-vn="1">
+                                <tr>
+                                    <th>名称</th> <th>说明</th> <th>是否必需</th>
+                                </tr>
+                            </thead>
+                            <tr data-id="tr_ccmhp_clid" data-vn="1">
+                                <td class="command">clientId*</td>
+                                <td><span class="dataType">UUID</span>（uuid）<br/><span class="note">客户端标识</span></td> 
+                                <td>必需</td>  
+                            </tr>      
+                            <tr data-id="tr_ccmhp_appt" data-vn="1">
+                                <td class="command">appToken*</td>
+                                <td><span class="dataType">String</span><br/><span class="note">调用方应用标识</span></td> 
+                                <td>必需</td>  
+                            </tr>      
+                            <tr data-id="tr_ccmhp_sess" data-vn="1">
+                                <td class="command">Session*</td>
+                                <td><span class="dataType">UUID</span>（uuid）<br/><span class="note">会话标识</span></td>
+                                <td>必需</td>  
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <p data-id="p_ccm_qpar" data-vn="1">查询参数</p>
+        
+                    <div data-id="sb_ccm_qpar" class="slideblock splitSpacing">
+                        <table class="tableofcommands"> 
+                            <thead data-id="thead_ccm_qpar" data-vn="1">
+                                <tr>
+                                    <th>名称</th> <th>说明</th> <th>是否必需</th>
+                                </tr>
+                            </thead>
+                            <tr data-id="tr_ccmqp_tag" data-vn="1">
+                                <td class="command">tag*</td>
+                                <td><span class="dataType">String</span><br/><span class="note">标签名称</span></td> 
+                                <td>必需</td>  
+                            </tr>
+                            <tr data-id="tr_ccmqp_name" data-vn="1">
+                                <td class="command">name*</td>
+                                <td><span class="dataType">String</span><br/><span class="note">命令名称</span></td> 
+                                <td>必需</td>  
+                            </tr>      
+                            <tr data-id="tr_ccmqp_par1" data-vn="1">
+                                <td class="command">param1</td>
+                                <td><span class="dataType">String</span><br/><span class="note">命令参数</span></td> 
+                                <td>可选</td>  
+                            </tr>
+                            <tr data-id="tr_ccmqp_par2" data-vn="1">
+                                <td class="command">param2</td>
+                                <td><span class="dataType">String</span><br/><span class="note">命令参数</span></td> 
+                                <td>可选</td>  
+                            </tr>  
+                            <tr data-id="tr_ccmqp_par3" data-vn="1">
+                                <td class="command">param3</td>
+                                <td><span class="dataType">String</span><br/><span class="note">命令参数</span></td> 
+                                <td>可选</td>  
+                            </tr>  
+                            <tr data-id="tr_ccmqp_par4" data-vn="1">
+                                <td class="command">param4</td>
+                                <td><span class="dataType">String</span><br/><span class="note">命令参数</span></td> 
+                                <td>可选</td>  
+                            </tr>  
+                            <tr data-id="tr_ccmqp_par5" data-vn="1">
+                                <td class="command">param5</td>
+                                <td><span class="dataType">String</span><br/><span class="note">命令参数</span></td> 
+                                <td>可选</td>  
+                            </tr>  
+                            <tr data-id="tr_ccmqp_par6" data-vn="1">
+                                <td class="command">param6</td>
+                                <td><span class="dataType">String</span><br/><span class="note">命令参数</span></td> 
+                                <td>可选</td>  
+                            </tr>  
+                            <tr data-id="tr_ccmqp_par7" data-vn="1">
+                                <td class="command">param7</td>
+                                <td><span class="dataType">String</span><br/><span class="note">命令参数</span></td> 
+                                <td>可选</td>  
+                            </tr>  
+                            <tr data-id="tr_ccmqp_par8" data-vn="1">
+                                <td class="command">param8</td>
+                                <td><span class="dataType">String</span><br/><span class="note">命令参数</span></td> 
+                                <td>可选</td>  
+                            </tr>  
+                            <tr data-id="tr_ccmqp_par9" data-vn="1">
+                                <td class="command">param9</td>
+                                <td><span class="dataType">String</span><br/><span class="note">命令参数</span></td> 
+                                <td>可选</td>  
+                            </tr>  
+                        </table>
+                    </div>
+                  
+                <h3 data-id="h3_ccm_resp" data-vn="1">响应</h3>
+
+                <ul>
+                    <li data-id="li_ccmres_202" data-vn="1">
+                        状态：<span class="parameter">202</span> —— 已接受
+                    </li>
+                </ul>    
+                        <p data-id="p_ccm202_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">Task Handle {</span><br/>
+                                &nbsp;taskID: <span class="dataType">string</span> <span class="note">(uuid)</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>    
+                    <li data-id="li_ccmres_400" data-vn="1">
+                        状态：<span class="parameter">400</span> —— 请求无效
+                    </li>
+                </ul>    
+                        <p data-id="p_ccm400_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>    
+                    <li data-id="li_ccmres_401" data-vn="1">
+                        状态：<span class="parameter">401</span> —— 未授权
+                    </li>
+                </ul>    
+                        <p data-id="p_ccm401_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>    
+                    <li data-id="li_ccmres_404" data-vn="1">
+                        状态：<span class="parameter">404</span> —— 未找到
+                    </li>
+                </ul>    
+                        <p data-id="p_ccm404_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>    
+                    <li data-id="li_ccmres_500" data-vn="1">
+                        状态：<span class="parameter">500</span> —— 服务器内部错误 apiError
+                    </li>
+                </ul>    
+                        <p data-id="p_ccm500_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                
+        </div>   
+        
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+        
+        <div data-id="div_sb_prcr" class="slideblock">  
+            
+            <h2 data-id="h2_prcr" data-vn="1">getProjectCreate</h2>
+                <p data-id="p_prcr" data-vn="1">
+                    创建新项目。
+                </p>
+                
+                <div class="codeSample">
+                    <span class="api">GET</span>
+                    <br/>
+                    /project/create
+                </div>
+                               
+                <h3 data-id="h3_prc_par" data-vn="1">参数</h3>
+                
+                    <p data-id="p_prc_hpar" data-vn="1">请求头参数</p>
+        
+                    <div data-id="sb_prc_hpar" class="slideblock splitSpacing">
+                        <table class="tableofcommands"> 
+                            <thead data-id="thead_prc_hpar" data-vn="1">
+                                <tr>
+                                    <th>名称</th> <th>说明</th> <th>是否必需</th>
+                                </tr>
+                            </thead>
+                            <tr data-id="tr_prchp_clid" data-vn="1">
+                                <td class="command">clientId*</td>
+                                <td><span class="dataType">UUID</span>（uuid）<br/><span class="note">客户端标识</span></td> 
+                                <td>必需</td>  
+                            </tr>      
+                            <tr data-id="tr_prchp_appt" data-vn="1">
+                                <td class="command">appToken*</td>
+                                <td><span class="dataType">String</span><br/><span class="note">调用方应用标识</span></td> 
+                                <td>必需</td>  
+                            </tr>      
+                        </table>
+                    </div>                    
+                  
+                <h3 data-id="h3_prc_resp" data-vn="1">响应</h3>
+
+                <ul>
+                    <li data-id="li_prcres_201" data-vn="1">
+                        状态：<span class="parameter">201</span> —— 已创建
+                    </li>
+                </ul>    
+                        <p data-id="p_prcres_h201" data-vn="1" class="note">响应头：</p>
+                        <div data-id="sb_prcres_h201" class="slideblock splitSpacing">
+                            <table class="tableofcommands"> 
+                                <thead data-id="thead_prcres_h201" data-vn="1">
+                                    <tr>
+                                        <th>名称</th> <th>类型</th> <th>格式</th> <th>说明</th>
+                                    </tr>
+                                </thead>
+                                <tr data-id="tr_prch201_sess" data-vn="1">
+                                    <td>Session</td>
+                                    <td>UUID</td> 
+                                    <td>uuid</td>
+                                    <td>会话标识</td>
+                                </tr>
+                            </table>
+                        </div>
+                <ul>    
+                    <li data-id="li_prcres_400" data-vn="1">
+                        状态：<span class="parameter">400</span> —— 请求无效
+                    </li>
+                </ul>    
+                        <p data-id="p_prc400_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>    
+                    <li data-id="li_prcres_401" data-vn="1">
+                        状态：<span class="parameter">401</span> —— 未授权
+                    </li>
+                </ul>    
+                        <p data-id="p_prc401_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>    
+                    <li data-id="li_prcres_500" data-vn="1">
+                        状态：<span class="parameter">500</span> —— 服务器内部错误 apiError
+                    </li>
+                </ul>    
+                        <p data-id="p_prc500_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                
+        </div>   
+        
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+            
+        <div data-id="div_sb_prdel" class="slideblock">  
+            
+            <h2 data-id="h2_prdel" data-vn="1">getProjectDelete</h2>
+                <p data-id="p_prdel" data-vn="1">
+                    删除项目。
+                </p>
+                
+                <div class="codeSample">
+                    <span class="api">GET</span>
+                    <br/>
+                    /project/delete
+                </div>
+                               
+                <h3 data-id="h3_prd_par" data-vn="1">参数</h3>
+                
+                    <p data-id="p_prd_hpar" data-vn="1">请求头参数</p>
+        
+                    <div data-id="sb_prd_hpar" class="slideblock splitSpacing">
+                        <table class="tableofcommands"> 
+                            <thead data-id="thead_prd_hpar" data-vn="1">
+                                <tr>
+                                    <th>名称</th> <th>说明</th> <th>是否必需</th>
+                                </tr>
+                            </thead>
+                            <tr data-id="tr_prdhp_clid" data-vn="1">
+                                <td class="command">clientId*</td>
+                                <td><span class="dataType">UUID</span>（uuid）<br/><span class="note">客户端标识</span></td> 
+                                <td>必需</td>  
+                            </tr>      
+                            <tr data-id="tr_prdhp_appt" data-vn="1">
+                                <td class="command">appToken*</td>
+                                <td><span class="dataType">String</span><br/><span class="note">调用方应用标识</span></td> 
+                                <td>必需</td>  
+                            </tr>      
+                        </table>
+                    </div>
+                    
+                    <p data-id="p_prd_qpar" data-vn="1">查询参数</p>
+        
+                    <div data-id="sb_prd_qpar" class="slideblock splitSpacing">
+                        <table class="tableofcommands"> 
+                            <thead data-id="thead_prd_qpar" data-vn="1">
+                                <tr>
+                                    <th>名称</th> <th>说明</th> <th>是否必需</th>
+                                </tr>
+                            </thead>
+                            <tr data-id="tr_prdqp_guid" data-vn="1">
+                                <td class="command">guid*</td>
+                                <td><span class="dataType">String</span><br/><span class="note">项目 GUID</span></td> 
+                                <td>必需</td>  
+                            </tr>
+                        </table>
+                    </div>
+                  
+                <h3 data-id="h3_prd_resp" data-vn="1">响应</h3>
+
+                <ul>
+                    <li data-id="li_prdres_200" data-vn="1">
+                        状态：<span class="parameter">200</span> —— OK
+                    </li>
+                    <li data-id="li_prdres_400" data-vn="1">
+                        状态：<span class="parameter">400</span> —— 请求无效
+                    </li>
+                </ul>    
+                        <p data-id="p_prd400_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>
+                    <li data-id="li_prdres_401" data-vn="1">
+                        状态：<span class="parameter">401</span> —— 未授权
+                    </li>
+                </ul>    
+                        <p data-id="p_prd401_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>    
+                    <li data-id="li_prdres_404" data-vn="1">
+                        状态：<span class="parameter">404</span> —— 未找到
+                    </li>
+                </ul>    
+                        <p data-id="p_prd404_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>    
+                    <li data-id="li_prdres_500" data-vn="1">
+                        状态：<span class="parameter">500</span> —— 服务器内部错误 apiError
+                    </li>
+                </ul>    
+                        <p data-id="p_prd500_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                
+        </div>   
+        
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sb_prdis" class="slideblock">  
+            
+            <h2 data-id="h2_prdis" data-vn="1">getProjectDisconnect</h2>
+                <p data-id="p_prdis" data-vn="1">
+                    使用户与会话断开连接。当会话中没有待运行的 CLI 命令时，将自动终止。
+                </p>
+                
+                <div class="codeSample">
+                    <span class="api">GET</span>
+                    <br/>
+                    /project/disconnect
+                </div>
+                               
+                <h3 data-id="h3_pdi_par" data-vn="1">参数</h3>
+                
+                    <p data-id="p_pdi_hpar" data-vn="1">请求头参数</p>
+        
+                    <div data-id="sb_pdi_hpar" class="slideblock splitSpacing">
+                        <table class="tableofcommands"> 
+                            <thead data-id="thead_pdi_hpar" data-vn="1">
+                                <tr>
+                                    <th>名称</th> <th>说明</th> <th>是否必需</th>
+                                </tr>
+                            </thead>
+                            <tr data-id="tr_pdihp_clid" data-vn="1">
+                                <td class="command">clientId*</td>
+                                <td><span class="dataType">UUID</span>（uuid）<br/><span class="note">客户端标识</span></td> 
+                                <td>必需</td>  
+                            </tr>      
+                            <tr data-id="tr_pdihp_appt" data-vn="1">
+                                <td class="command">appToken*</td>
+                                <td><span class="dataType">String</span><br/><span class="note">调用方应用标识</span></td> 
+                                <td>必需</td>  
+                            </tr>    
+                            <tr data-id="tr_pdihp_sess" data-vn="1">
+                                <td class="command">Session*</td>
+                                <td><span class="dataType">UUID</span>（uuid）<br/><span class="note">调用方应用标识</span></td> 
+                                <td>必需</td>  
+                            </tr> 
+                        </table>
+                    </div>
+                  
+                <h3 data-id="h3_pdi_resp" data-vn="1">响应</h3>
+
+                <ul>
+                    <li data-id="li_pdires_200" data-vn="1">
+                        状态：<span class="parameter">200</span> —— OK
+                    </li>
+                    <li data-id="li_pdires_400" data-vn="1">
+                        状态：<span class="parameter">400</span> —— 请求无效
+                    </li>
+                </ul>    
+                        <p data-id="p_pdi400_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>    
+                    <li data-id="li_pdires_401" data-vn="1">
+                        状态：<span class="parameter">401</span> —— 未授权
+                    </li>
+                </ul>    
+                        <p data-id="p_pdi401_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>    
+                    <li data-id="li_pdires_404" data-vn="1">
+                        状态：<span class="parameter">404</span> —— 未找到
+                    </li>
+                </ul>    
+                        <p data-id="p_pdi404_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>    
+                    <li data-id="li_pdires_500" data-vn="1">
+                        状态：<span class="parameter">500</span> —— 服务器内部错误 apiError
+                    </li>
+                </ul>    
+                        <p data-id="p_pdi500_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                
+        </div>   
+        
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+            
+        <div data-id="div_sb_prdow" class="slideblock">  
+            
+            <h2 data-id="h2_prdow" data-vn="1">getProjectDownload</h2>
+                <p data-id="p_prdow" data-vn="1">
+                    下载会话的输出文件。
+                </p>
+                
+                <div class="codeSample">
+                    <span class="api">GET</span>
+                    <br/>
+                    /project/download
+                </div>
+                               
+                <h3 data-id="h3_pdo_par" data-vn="1">参数</h3>
+                
+                    <p data-id="p_pdo_hpar" data-vn="1">请求头参数</p>
+        
+                    <div data-id="sb_pdo_hpar" class="slideblock splitSpacing">
+                        <table class="tableofcommands"> 
+                            <thead data-id="thead_pdo_hpar" data-vn="1">
+                                <tr>
+                                    <th>名称</th> <th>说明</th> <th>是否必需</th>
+                                </tr>
+                            </thead>
+                            <tr data-id="tr_pdohp_clid" data-vn="1">
+                                <td class="command">clientId*</td>
+                                <td><span class="dataType">UUID</span>（uuid）<br/><span class="note">客户端标识</span></td> 
+                                <td>必需</td>  
+                            </tr>      
+                            <tr data-id="tr_pdohp_appt" data-vn="1">
+                                <td class="command">appToken*</td>
+                                <td><span class="dataType">String</span><br/><span class="note">调用方应用标识</span></td> 
+                                <td>必需</td>  
+                            </tr>    
+                            <tr data-id="tr_pdohp_sess" data-vn="1">
+                                <td class="command">Session*</td>
+                                <td><span class="dataType">UUID</span>（uuid）<br/><span class="note">调用方应用标识</span></td> 
+                                <td>必需</td>  
+                            </tr> 
+                        </table>
+                    </div>
+                    
+                    <p data-id="p_pdo_qpar" data-vn="1">查询参数</p>
+        
+                    <div data-id="sb_pdo_qpar" class="slideblock splitSpacing">
+                        <table class="tableofcommands"> 
+                            <thead data-id="thead_pdo_qpar" data-vn="1">
+                                <tr>
+                                    <th>名称</th> <th>说明</th> <th>是否必需</th>
+                                </tr>
+                            </thead>
+                            <tr data-id="tr_pdoqp_name" data-vn="1">
+                                <td class="command">name*</td>
+                                <td><span class="dataType">String</span><br/><span class="note">文件名或通配符过滤条件</span></td> 
+                                <td>必需</td>  
+                            </tr>
+                            <tr data-id="tr_pdoqp_fold" data-vn="1">
+                                <td class="command">folder</td>
+                                <td><span class="dataType">String</span><br/><span class="note">指定要查看的文件夹（默认为 output）</span></td> 
+                                <td>可选</td>  
+                            </tr>
+                            <tr data-id="tr_pdoqp_mode" data-vn="1">
+                                <td class="command">mode</td>
+                                <td><span class="dataType">String</span><br/><span class="note">设为 zip 可一次下载多个文件</span></td> 
+                                <td>可选</td>  
+                            </tr>
+                        </table>
+                    </div>
+                  
+                <h3 data-id="h3_pdo_resp" data-vn="1">响应</h3>
+
+                <ul>
+                    <li data-id="li_pdores_200" data-vn="1">
+                        状态：<span class="parameter">200</span> —— OK
+                    </li>
+                </ul>    
+                        <p data-id="p_pdo200_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="dataType">string</span> <span class="note">(binary)</span>
+                        </div>
+                <ul>    
+                    <li data-id="li_pdores_400" data-vn="1">
+                        状态：<span class="parameter">400</span> —— 请求无效
+                    </li>
+                </ul>    
+                        <p data-id="p_pdo400_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>   
+                    <li data-id="li_pdores_401" data-vn="1">
+                        状态：<span class="parameter">401</span> —— 未授权
+                    </li>
+                </ul>    
+                        <p data-id="p_pdo401_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>    
+                    <li data-id="li_pdores_404" data-vn="1">
+                        状态：<span class="parameter">404</span> —— 未找到
+                    </li>
+                </ul>    
+                        <p data-id="p_pdo404_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>    
+                    <li data-id="li_pdores_500" data-vn="1">
+                        状态：<span class="parameter">500</span> —— 服务器内部错误 apiError
+                    </li>
+                </ul>    
+                        <p data-id="p_pdo500_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                
+        </div>   
+        
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>    
+        
+        <div data-id="div_sb_prlist" class="slideblock">  
+            
+            <h2 data-id="h2_prlist" data-vn="1">getProjectList</h2>
+                <p data-id="p_prlist" data-vn="1">
+                    返回已打开项目文件的列表。
+                </p>
+                
+                <div class="codeSample">
+                    <span class="api">GET</span>
+                    <br/>
+                    /project/list
+                </div>
+                               
+                <h3 data-id="h3_pli_par" data-vn="1">参数</h3>
+                
+                    <p data-id="p_pli_hpar" data-vn="1">请求头参数</p>
+        
+                    <div data-id="sb_pli_hpar" class="slideblock splitSpacing">
+                        <table class="tableofcommands"> 
+                            <thead data-id="thead_pli_hpar" data-vn="1">
+                                <tr>
+                                    <th>名称</th> <th>说明</th> <th>是否必需</th>
+                                </tr>
+                            </thead> 
+                            <tr data-id="tr_plihp_sess" data-vn="1">
+                                <td class="command">Session*</td>
+                                <td><span class="dataType">UUID</span>（uuid）<br/><span class="note">调用方应用标识</span></td> 
+                                <td>必需</td>  
+                            </tr> 
+                        </table>
+                    </div>
+                    
+                    <p data-id="p_pli_qpar" data-vn="1">查询参数</p>
+        
+                    <div data-id="sb_pli_qpar" class="slideblock splitSpacing">
+                        <table class="tableofcommands"> 
+                            <thead data-id="thead_pli_qpar" data-vn="1">
+                                <tr>
+                                    <th>名称</th> <th>说明</th> <th>是否必需</th>
+                                </tr>
+                            </thead>
+                            <tr data-id="tr_pliqp_fold" data-vn="1">
+                                <td class="command">folder</td>
+                                <td><span class="dataType">String</span><br/><span class="note">指定要查看的文件夹（默认为 output）</span></td> 
+                                <td>可选</td>  
+                            </tr>
+                        </table>
+                    </div>
+                  
+                <h3 data-id="h3_pli_resp" data-vn="1">响应</h3>
+
+                <ul>
+                    <li data-id="li_plires_200" data-vn="1">
+                        状态：<span class="parameter">200</span> —— OK
+                    </li>
+                </ul>    
+                        <p data-id="p_pli200_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="dataType">[string]</span>
+                        </div>
+                <ul>    
+                    <li data-id="li_plires_400" data-vn="1">
+                        状态：<span class="parameter">400</span> —— 请求无效
+                    </li>
+                </ul>    
+                        <p data-id="p_pli400_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>    
+                    <li data-id="li_plires_401" data-vn="1">
+                        状态：<span class="parameter">401</span> —— 未授权
+                    </li>
+                </ul>    
+                        <p data-id="p_pli401_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>    
+                    <li data-id="li_plires_404" data-vn="1">
+                        状态：<span class="parameter">404</span> —— 未找到
+                    </li>
+                </ul>    
+                        <p data-id="p_pli404_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>    
+                    <li data-id="li_plires_500" data-vn="1">
+                        状态：<span class="parameter">500</span> —— 服务器内部错误 apiError
+                    </li>
+                </ul>    
+                        <p data-id="p_pli500_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                
+        </div>   
+        
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>          
+            
+        <div data-id="div_sb_prop" class="slideblock">  
+            
+            <h2 data-id="h2_prop" data-vn="1">getProjectOpen</h2>
+                <p data-id="p_prop" data-vn="1">
+                    打开已有项目。
+                </p>
+                
+                <div class="codeSample">
+                    <span class="api">GET</span>
+                    <br/>
+                    /project/open
+                </div>
+                               
+                <h3 data-id="h3_pop_par" data-vn="1">参数</h3>
+                
+                    <p data-id="p_pop_hpar" data-vn="1">请求头参数</p>
+        
+                    <div data-id="sb_pop_hpar" class="slideblock splitSpacing">
+                        <table class="tableofcommands"> 
+                            <thead data-id="thead_pop_hpar" data-vn="1">
+                                <tr>
+                                    <th>名称</th> <th>说明</th> <th>是否必需</th>
+                                </tr>
+                            </thead>
+                            <tr data-id="tr_pophp_clid" data-vn="1">
+                                <td class="command">clientId*</td>
+                                <td><span class="dataType">UUID</span>（uuid）<br/><span class="note">客户端标识</span></td> 
+                                <td>必需</td>  
+                            </tr>      
+                            <tr data-id="tr_pophp_appt" data-vn="1">
+                                <td class="command">appToken*</td>
+                                <td><span class="dataType">String</span><br/><span class="note">调用方应用标识</span></td> 
+                                <td>必需</td>  
+                            </tr>      
+                        </table>
+                    </div>                    
+                  
+                    <p data-id="p_pop_qpar" data-vn="1">查询参数</p>
+        
+                    <div data-id="sb_pop_qpar" class="slideblock splitSpacing">
+                        <table class="tableofcommands"> 
+                            <thead data-id="thead_pop_qpar" data-vn="1">
+                                <tr>
+                                    <th>名称</th> <th>说明</th> <th>是否必需</th>
+                                </tr>
+                            </thead>
+                            <tr data-id="tr_popqp_guid" data-vn="1">
+                                <td class="command">guid*</td>
+                                <td><span class="dataType">String</span><br/><span class="note">项目 GUID</span></td> 
+                                <td>必需</td>  
+                            </tr>
+                            <tr data-id="tr_popqp_name" data-vn="1">
+                                <td class="command">name</td>
+                                <td><span class="dataType">String</span><br/><span class="note">场景名称</span></td> 
+                                <td>可选</td>  
+                            </tr>
+                        </table>
+                    </div>
+
+                <h3 data-id="h3_pop_resp" data-vn="1">响应</h3>
+
+                <ul>
+                    <li data-id="li_popres_200" data-vn="1">
+                        状态：<span class="parameter">200</span> —— OK
+                    </li>
+                </ul>    
+                        <p data-id="p_popres_h200" data-vn="1" class="note">响应头：</p>
+                        <div data-id="sb_popres_h200" class="slideblock splitSpacing">
+                            <table class="tableofcommands"> 
+                                <thead data-id="thead_popres_h200" data-vn="1">
+                                    <tr>
+                                        <th>名称</th> <th>类型</th> <th>格式</th> <th>说明</th>
+                                    </tr>
+                                </thead>
+                                <tr data-id="tr_poph200_sess" data-vn="1">
+                                    <td>Session</td>
+                                    <td>UUID</td> 
+                                    <td>uuid</td>
+                                    <td>会话标识</td>
+                                </tr>
+                            </table>
+                        </div>
+                <ul>    
+                    <li data-id="li_popres_400" data-vn="1">
+                        状态：<span class="parameter">400</span> —— 请求无效
+                    </li>
+                </ul>    
+                        <p data-id="p_pop400_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>    
+                    <li data-id="li_popres_401" data-vn="1">
+                        状态：<span class="parameter">401</span> —— 未授权
+                    </li>
+                </ul>    
+                        <p data-id="p_pop401_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>    
+                    <li data-id="li_popres_404" data-vn="1">
+                        状态：<span class="parameter">404</span> —— 未授权
+                    </li>
+                </ul>    
+                        <p data-id="p_pop404_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>    
+                <ul>    
+                    <li data-id="li_popres_500" data-vn="1">
+                        状态：<span class="parameter">500</span> —— 服务器内部错误 apiError
+                    </li>
+                </ul>    
+                        <p data-id="p_pop500_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                
+        </div>   
+        
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>    
+            
+        <div data-id="div_sb_prsa" class="slideblock">  
+            
+            <h2 data-id="h2_prsa" data-vn="1">getProjectSave</h2>
+                <p data-id="p_prsa" data-vn="1">
+                    把项目保存到本地文件系统。
+                </p>
+                
+                <div class="codeSample">
+                    <span class="api">GET</span>
+                    <br/>
+                    /project/save
+                </div>
+                               
+                <h3 data-id="h3_prs_par" data-vn="1">参数</h3>
+                
+                    <p data-id="p_prs_hpar" data-vn="1">请求头参数</p>
+        
+                    <div data-id="sb_prs_hpar" class="slideblock splitSpacing">
+                        <table class="tableofcommands"> 
+                            <thead data-id="thead_prs_hpar" data-vn="1">
+                                <tr>
+                                    <th>名称</th> <th>说明</th> <th>是否必需</th>
+                                </tr>
+                            </thead>
+                            <tr data-id="tr_prshp_clid" data-vn="1">
+                                <td class="command">clientId*</td>
+                                <td><span class="dataType">UUID</span>（uuid）<br/><span class="note">客户端标识</span></td> 
+                                <td>必需</td>  
+                            </tr>      
+                            <tr data-id="tr_prshp_appt" data-vn="1">
+                                <td class="command">appToken*</td>
+                                <td><span class="dataType">String</span><br/><span class="note">调用方应用标识</span></td> 
+                                <td>必需</td>  
+                            </tr>      
+                            <tr data-id="tr_prshp_sess" data-vn="1">
+                                <td class="command">Session*</td>
+                                <td><span class="dataType">UUID</span>（uuid）<br/><span class="note">会话标识</span></td> 
+                                <td>必需</td>  
+                            </tr> 
+                        </table>
+                    </div>                    
+                  
+                    <p data-id="p_prs_qpar" data-vn="1">查询参数</p>
+        
+                    <div data-id="sb_prs_qpar" class="slideblock splitSpacing">
+                        <table class="tableofcommands"> 
+                            <thead data-id="thead_prs_qpar" data-vn="1">
+                                <tr>
+                                    <th>名称</th> <th>说明</th> <th>是否必需</th>
+                                </tr>
+                            </thead>
+                            <tr data-id="tr_prsqp_name" data-vn="1">
+                                <td class="command">name</td>
+                                <td><span class="dataType">String</span><br/><span class="note">场景名称</span></td> 
+                                <td>可选</td>  
+                            </tr>
+                        </table>
+                    </div>
+
+                <h3 data-id="h3_prs_resp" data-vn="1">响应</h3>
+
+                <ul>
+                    <li data-id="li_prsres_202" data-vn="1">
+                        状态：<span class="parameter">202</span> —— 已接受
+                    </li>
+                    <li data-id="li_prsres_400" data-vn="1">
+                        状态：<span class="parameter">400</span> —— 请求无效
+                    </li>
+                </ul>    
+                        <p data-id="p_prs400_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>    
+                    <li data-id="li_prsres_401" data-vn="1">
+                        状态：<span class="parameter">401</span> —— 未授权
+                    </li>
+                </ul>    
+                        <p data-id="p_prs401_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>    
+                    <li data-id="li_prsres_404" data-vn="1">
+                        状态：<span class="parameter">404</span> —— 未授权
+                    </li>
+                </ul>    
+                        <p data-id="p_prs404_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>    
+                <ul>    
+                    <li data-id="li_prsres_500" data-vn="1">
+                        状态：<span class="parameter">500</span> —— 服务器内部错误 apiError
+                    </li>
+                </ul>    
+                        <p data-id="p_prs500_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                
+        </div>   
+        
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>        
+            
+        <div data-id="div_sb_prst" class="slideblock">  
+            
+            <h2 data-id="h2_prst" data-vn="1">getProjectStatus</h2>
+                <p data-id="p_prst" data-vn="1">
+                    获取项目状态。
+                </p>
+                
+                <div class="codeSample">
+                    <span class="api">GET</span>
+                    <br/>
+                    /project/status
+                </div>
+                               
+                <h3 data-id="h3_pst_par" data-vn="1">参数</h3>
+                
+                    <p data-id="p_pst_hpar" data-vn="1">请求头参数</p>
+        
+                    <div data-id="sb_pst_hpar" class="slideblock splitSpacing">
+                        <table class="tableofcommands"> 
+                            <thead data-id="thead_pst_hpar" data-vn="1">
+                                <tr>
+                                    <th>名称</th> <th>说明</th> <th>是否必需</th>
+                                </tr>
+                            </thead>
+                            <tr data-id="tr_psthp_clid" data-vn="1">
+                                <td class="command">clientId*</td>
+                                <td><span class="dataType">UUID</span>（uuid）<br/><span class="note">客户端标识</span></td> 
+                                <td>必需</td>  
+                            </tr>      
+                            <tr data-id="tr_psthp_appt" data-vn="1">
+                                <td class="command">appToken*</td>
+                                <td><span class="dataType">String</span><br/><span class="note">调用方应用标识</span></td> 
+                                <td>必需</td>  
+                            </tr>      
+                            <tr data-id="tr_psthp_sess" data-vn="1">
+                                <td class="command">Session*</td>
+                                <td><span class="dataType">UUID</span>（uuid）<br/><span class="note">会话标识</span></td> 
+                                <td>必需</td>  
+                            </tr> 
+                        </table>
+                    </div>                                   
+
+                <h3 data-id="h3_pst_resp" data-vn="1">响应</h3>
+
+                <ul>
+                    <li data-id="li_pstres_200" data-vn="1">
+                        状态：<span class="parameter">200</span> —— OK
+                    </li>
+                </ul>    
+                        <p data-id="p_pst200_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample" data-id="div_cosa_4" data-vn="1">
+                            <span class="schema">RS Project Status {</span><br/>
+                                &nbsp;restarted: <span class="dataType">boolean</span><br/>
+                                &nbsp;&nbsp;&nbsp;&nbsp;<span class="note">该会话的 RS 实例在意外终止后已自动重启</span><br/>
+                                &nbsp;progress: <span class="dataType">number</span><br/>
+                                &nbsp;&nbsp;&nbsp;&nbsp;<span class="note">Estimated progress</span><br/>
+                                &nbsp;timeTotal: <span class="dataType">number</span><br/>
+                                &nbsp;&nbsp;&nbsp;&nbsp;<span class="note">Time spent</span><br/>
+                                &nbsp;timeEstimation: <span class="dataType">number</span><br/>
+                                &nbsp;&nbsp;&nbsp;&nbsp;<span class="note">Estimated finnish time</span><br/>
+                                &nbsp;errorCode: <span class="dataType">integer</span><br/>
+                                &nbsp;&nbsp;&nbsp;&nbsp;<span class="note">Error code encountered</span><br/>
+                                &nbsp;changeCounter: <span class="dataType">integer</span><br/>
+                                &nbsp;&nbsp;&nbsp;&nbsp;<span class="note">Change counter</span><br/>
+                                &nbsp;processID: <span class="dataType">integer</span><br/>
+                                &nbsp;&nbsp;&nbsp;&nbsp;<span class="note">Instance process ID</span><br/>
+                                <span class="schema">}</span>
+                        </div>                                 
+                <ul>    
+                    <li data-id="li_pstres_400" data-vn="1">
+                        状态：<span class="parameter">400</span> —— 请求无效
+                    </li>
+                </ul>    
+                        <p data-id="p_pst400_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>    
+                    <li data-id="li_pstres_401" data-vn="1">
+                        状态：<span class="parameter">401</span> —— 未授权
+                    </li>
+                </ul>    
+                        <p data-id="p_pst401_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>   
+                    <li data-id="li_pstres_404" data-vn="1">
+                        状态：<span class="parameter">404</span> —— 未授权
+                    </li>
+                </ul>    
+                        <p data-id="p_pst404_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>    
+                <ul>    
+                    <li data-id="li_pstres_411" data-vn="1">
+                        状态：<span class="parameter">411</span> —— 需要长度
+                    </li>
+                </ul>    
+                        <p data-id="p_pst411_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>     
+                <ul>    
+                    <li data-id="li_pstres_500" data-vn="1">
+                        状态：<span class="parameter">500</span> —— 服务器内部错误 apiError
+                    </li>
+                </ul>    
+                        <p data-id="p_pst500_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                
+        </div>   
+        
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>           
+            
+        <div data-id="div_sb_prtag" class="slideblock">  
+            
+            <h2 data-id="h2_prtag" data-vn="1">getProjectTags</h2>
+                <p data-id="p_prtag" data-vn="1">
+                    列出所有已有标签。
+                </p>
+                
+                <div class="codeSample">
+                    <span class="api">GET</span>
+                    <br/>
+                    /project/tags
+                </div>
+                               
+                <h3 data-id="h3_ptg_par" data-vn="1">参数</h3>
+                
+                    <p data-id="p_ptg_hpar" data-vn="1">请求头参数</p>
+        
+                    <div data-id="sb_ptg_hpar" class="slideblock splitSpacing">
+                        <table class="tableofcommands"> 
+                            <thead data-id="thead_ptg_hpar" data-vn="1">
+                                <tr>
+                                    <th>名称</th> <th>说明</th> <th>是否必需</th>
+                                </tr>
+                            </thead>
+                            <tr data-id="tr_ptghp_clid" data-vn="1">
+                                <td class="command">clientId*</td>
+                                <td><span class="dataType">UUID</span>（uuid）<br/><span class="note">客户端标识</span></td> 
+                                <td>必需</td>  
+                            </tr>      
+                            <tr data-id="tr_ptghp_appt" data-vn="1">
+                                <td class="command">appToken*</td>
+                                <td><span class="dataType">String</span><br/><span class="note">调用方应用标识</span></td> 
+                                <td>必需</td>  
+                            </tr>      
+                            <tr data-id="tr_ptghp_sess" data-vn="1">
+                                <td class="command">Session*</td>
+                                <td><span class="dataType">UUID</span>（uuid）<br/><span class="note">会话标识</span></td> 
+                                <td>必需</td>  
+                            </tr> 
+                        </table>
+                    </div>                    
+
+                <h3 data-id="h3_ptg_resp" data-vn="1">响应</h3>
+
+                <ul>
+                    <li data-id="li_ptgres_200" data-vn="1">
+                        状态：<span class="parameter">200</span> —— OK
+                    </li>
+                </ul>    
+                        <p data-id="p_ptg200_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                                <span class="dataType">[string]</span><br/>
+                                &nbsp;&nbsp;&nbsp;<span class="note">Tag names</span><br/>
+                        </div>
+                <ul>    
+                    <li data-id="li_ptgres_400" data-vn="1">
+                        状态：<span class="parameter">400</span> —— 请求无效
+                    </li>
+                </ul>    
+                        <p data-id="p_ptg400_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>    
+                    <li data-id="li_ptgres_401" data-vn="1">
+                        状态：<span class="parameter">401</span> —— 未授权
+                    </li>
+                </ul>    
+                        <p data-id="p_ptg401_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>    
+                    <li data-id="li_ptgres_404" data-vn="1">
+                        状态：<span class="parameter">404</span> —— 未授权
+                    </li>
+                </ul>    
+                        <p data-id="p_ptg404_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>    
+                <ul>    
+                    <li data-id="li_ptgres_500" data-vn="1">
+                        状态：<span class="parameter">500</span> —— 服务器内部错误 apiError
+                    </li>
+                </ul>    
+                        <p data-id="p_ptg500_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                
+        </div>   
+        
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>             
+            
+        <div data-id="div_sb_prtask" class="slideblock">  
+            
+            <h2 data-id="h2_prtask" data-vn="1">getProjectTasks</h2>
+                <p data-id="p_prtask" data-vn="1">
+                    列出所有任务。
+                </p>
+                
+                <div class="codeSample">
+                    <span class="api">GET</span>
+                    <br/>
+                    /project/tasks
+                </div>
+                               
+                <h3 data-id="h3_ptk_par" data-vn="1">参数</h3>
+                
+                    <p data-id="p_ptk_hpar" data-vn="1">请求头参数</p>
+        
+                    <div data-id="sb_ptk_hpar" class="slideblock splitSpacing">
+                        <table class="tableofcommands"> 
+                            <thead data-id="thead_ptk_hpar" data-vn="1">
+                                <tr>
+                                    <th>名称</th> <th>说明</th> <th>是否必需</th>
+                                </tr>
+                            </thead>
+                            <tr data-id="tr_ptkhp_clid" data-vn="1">
+                                <td class="command">clientId*</td>
+                                <td><span class="dataType">UUID</span>（uuid）<br/><span class="note">客户端标识</span></td> 
+                                <td>必需</td>  
+                            </tr>      
+                            <tr data-id="tr_ptkhp_appt" data-vn="1">
+                                <td class="command">appToken*</td>
+                                <td><span class="dataType">String</span><br/><span class="note">调用方应用标识</span></td> 
+                                <td>必需</td>  
+                            </tr>      
+                            <tr data-id="tr_ptkhp_sess" data-vn="1">
+                                <td class="command">Session*</td>
+                                <td><span class="dataType">UUID</span>（uuid）<br/><span class="note">会话标识</span></td> 
+                                <td>必需</td>  
+                            </tr> 
+                        </table>
+                    </div>      
+                    
+                    <p data-id="p_ptk_qpar" data-vn="1">查询参数</p>
+        
+                    <div data-id="sb_ptk_qpar" class="slideblock splitSpacing">
+                        <table class="tableofcommands"> 
+                            <thead data-id="thead_ptk_qpar" data-vn="1">
+                                <tr>
+                                    <th>名称</th> <th>说明</th> <th>是否必需</th>
+                                </tr>
+                            </thead>
+                            <tr data-id="tr_ptkqp_tids" data-vn="1">
+                                <td class="command">taskIDs</td>
+                                <td><span class="dataType">array[UUID]</span>（uuid）<br/><span class="note">任务标识</span></td> 
+                                <td>可选</td>  
+                            </tr>      
+                        </table>
+                    </div>  
+
+                <h3 data-id="h3_ptk_resp" data-vn="1">响应</h3>
+
+                <ul>
+                    <li data-id="li_ptkres_200" data-vn="1">
+                        状态：<span class="parameter">200</span> —— OK
+                    </li>
+                </ul>    
+                        <p data-id="p_ptk200_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">[<br/>    
+                                &nbsp;Task Status {</span><br/>
+                                &nbsp;&nbsp;taskID: <span class="dataType">string</span> <span class="note">(uuid)</span><br/>
+                                &nbsp;&nbsp;timeStart: <span class="dataType">integer <span class="note">(date-time)</span></span><br/>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="note">任务开始时的 UTC Unix 时间（毫秒）</span><br/>
+                                &nbsp;&nbsp;timeEnd: <span class="dataType">integer <span class="note">(date-time)</span></span><br/>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="note">任务结束时的 UTC Unix 时间（毫秒）</span><br/>
+                                &nbsp;&nbsp;state: <span class="dataType">string</span><br/>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="note">任务的执行状态，取值之一：{"scheduled", "started", "finished", "failed"}</span><br/>
+                                &nbsp;&nbsp;errorCode: <span class="dataType">integer</span><br/>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="note">Error code encountered</span><br/>
+                                &nbsp;&nbsp;errorMessage: <span class="dataType">string</span><br/>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="note">Error message encountered</span><br/>
+                                &nbsp;<span class="schema">}<br/>
+                                ]</span>  
+                        </div>  
+                <ul>    
+                    <li data-id="li_ptkres_400" data-vn="1">
+                        状态：<span class="parameter">400</span> —— 请求无效
+                    </li>
+                </ul>    
+                        <p data-id="p_ptk400_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>    
+                    <li data-id="li_ptkres_401" data-vn="1">
+                        状态：<span class="parameter">401</span> —— 未授权
+                    </li>
+                </ul>    
+                        <p data-id="p_ptk401_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>    
+                    <li data-id="li_ptkres_404" data-vn="1">
+                        状态：<span class="parameter">404</span> —— 未授权
+                    </li>
+                </ul>    
+                        <p data-id="p_ptk404_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>    
+                <ul>    
+                    <li data-id="li_ptkres_500" data-vn="1">
+                        状态：<span class="parameter">500</span> —— 服务器内部错误 apiError
+                    </li>
+                </ul>    
+                        <p data-id="p_ptk500_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                
+        </div>   
+        
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>             
+            
+        <div data-id="div_sb_prttg" class="slideblock">  
+            
+            <h2 data-id="h2_prttg" data-vn="1">getProjectTesttag</h2>
+                <p data-id="p_prttg" data-vn="1">
+                    检测项目标签是否存在。
+                </p>
+                
+                <div class="codeSample">
+                    <span class="api">GET</span>
+                    <br/>
+                    /project/testtag
+                </div>
+                               
+                <h3 data-id="h3_ptt_par" data-vn="1">参数</h3>
+                
+                    <p data-id="p_ptt_hpar" data-vn="1">请求头参数</p>
+        
+                    <div data-id="sb_ptt_hpar" class="slideblock splitSpacing">
+                        <table class="tableofcommands"> 
+                            <thead data-id="thead_ptt_hpar" data-vn="1">
+                                <tr>
+                                    <th>名称</th> <th>说明</th> <th>是否必需</th>
+                                </tr>
+                            </thead>
+                            <tr data-id="tr_ptthp_clid" data-vn="1">
+                                <td class="command">clientId*</td>
+                                <td><span class="dataType">UUID</span>（uuid）<br/><span class="note">客户端标识</span></td> 
+                                <td>必需</td>  
+                            </tr>      
+                            <tr data-id="tr_ptthp_appt" data-vn="1">
+                                <td class="command">appToken*</td>
+                                <td><span class="dataType">String</span><br/><span class="note">调用方应用标识</span></td> 
+                                <td>必需</td>  
+                            </tr>      
+                            <tr data-id="tr_ptthp_sess" data-vn="1">
+                                <td class="command">Session*</td>
+                                <td><span class="dataType">UUID</span>（uuid）<br/><span class="note">会话标识</span></td> 
+                                <td>必需</td>  
+                            </tr> 
+                        </table>
+                    </div>     
+
+                    <p data-id="p_ptt_qpar" data-vn="1">查询参数</p>
+        
+                    <div data-id="sb_ptt_qpar" class="slideblock splitSpacing">
+                        <table class="tableofcommands"> 
+                            <thead data-id="thead_ptt_qpar" data-vn="1">
+                                <tr>
+                                    <th>名称</th> <th>说明</th> <th>是否必需</th>
+                                </tr>
+                            </thead>
+                            <tr data-id="tr_pttqp_tag" data-vn="1">
+                                <td class="command">tag*</td>
+                                <td><span class="dataType">String</span><br/><span class="note">标签名称</span></td> 
+                                <td>必需</td>  
+                            </tr>      
+                        </table>
+                    </div>                     
+
+                <h3 data-id="h3_ptt_resp" data-vn="1">响应</h3>
+
+                <ul>
+                    <li data-id="li_pttres_200" data-vn="1">
+                        状态：<span class="parameter">200</span> —— OK
+                    </li>
+                </ul>    
+                        <p data-id="p_ptt200_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                                <span class="dataType">boolean</span><br/>
+                                &nbsp;&nbsp;&nbsp;<span class="note">Tag exists</span><br/>
+                        </div>
+                <ul>    
+                    <li data-id="li_pttres_400" data-vn="1">
+                        状态：<span class="parameter">400</span> —— 请求无效
+                    </li>
+                </ul>    
+                        <p data-id="p_ptt400_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>    
+                    <li data-id="li_pttres_401" data-vn="1">
+                        状态：<span class="parameter">401</span> —— 未授权
+                    </li>
+                </ul>    
+                        <p data-id="p_ptt401_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>    
+                    <li data-id="li_pttres_404" data-vn="1">
+                        状态：<span class="parameter">404</span> —— 未授权
+                    </li>
+                </ul>    
+                        <p data-id="p_ptt404_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>    
+                <ul>    
+                    <li data-id="li_pttres_500" data-vn="1">
+                        状态：<span class="parameter">500</span> —— 服务器内部错误 apiError
+                    </li>
+                </ul>    
+                        <p data-id="p_ptt500_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                
+        </div>   
+        
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sb_acres" class="slideblock">  
+            
+            <h2 data-id="h2_acres" data-vn="1">postProjectAcknowledgeRestart</h2>
+                <p data-id="p_acres" data-vn="2">
+                    确认该会话对应的 RealityScan 实例已重启（把 <span class="appproperty">restarted</span> 状态重置为 <span class="appproperty">false</span>）。
+                </p>
+                
+                <div class="codeSample">
+                    <span class="api">POST</span>
+                    <br/>
+                    /project/acknowledgerestart
+                </div>
+                               
+                <h3 data-id="h3_acr_par" data-vn="1">参数</h3>
+                
+                    <p data-id="p_acr_hpar" data-vn="1">请求头参数</p>
+        
+                    <div data-id="sb_acr_hpar" class="slideblock splitSpacing">
+                        <table class="tableofcommands"> 
+                            <thead data-id="thead_acr_hpar" data-vn="1">
+                                <tr>
+                                    <th>名称</th> <th>说明</th> <th>是否必需</th>
+                                </tr>
+                            </thead>
+                            <tr data-id="tr_acrhp_clid" data-vn="1">
+                                <td class="command">clientId*</td>
+                                <td><span class="dataType">UUID</span>（uuid）<br/><span class="note">客户端标识</span></td> 
+                                <td>必需</td>  
+                            </tr>      
+                            <tr data-id="tr_acrhp_appt" data-vn="1">
+                                <td class="command">appToken*</td>
+                                <td><span class="dataType">String</span><br/><span class="note">调用方应用标识</span></td> 
+                                <td>必需</td>  
+                            </tr>      
+                            <tr data-id="tr_acrhp_sess" data-vn="1">
+                                <td class="command">Session*</td>
+                                <td><span class="dataType">UUID</span>（uuid）<br/><span class="note">会话标识</span></td> 
+                                <td>必需</td>  
+                            </tr> 
+                        </table>
+                    </div>                         
+
+                <h3 data-id="h3_acr_resp_1" data-vn="1">响应</h3>
+
+                <ul>
+                    <li data-id="li_acrres_202" data-vn="1">
+                        状态：<span class="parameter">202</span> —— 已接受
+                    </li>   
+                    <li data-id="li_acrres_400" data-vn="1">
+                        状态：<span class="parameter">400</span> —— 请求无效
+                    </li>
+                </ul>    
+                        <p data-id="p_acr400_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>    
+                    <li data-id="li_acrres_401" data-vn="1">
+                        状态：<span class="parameter">401</span> —— 未授权
+                    </li>
+                </ul>    
+                        <p data-id="p_acr401_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>    
+                    <li data-id="li_acrres_404" data-vn="1">
+                        状态：<span class="parameter">404</span> —— 未授权
+                    </li>
+                </ul>    
+                        <p data-id="p_acr404_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>    
+                <ul>    
+                    <li data-id="li_acrres_500" data-vn="1">
+                        状态：<span class="parameter">500</span> —— 服务器内部错误 apiError
+                    </li>
+                </ul>    
+                        <p data-id="p_acr500_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                
+        </div>   
+        
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sb_prcom" class="slideblock">  
+            
+            <h2 data-id="h2_acres_1" data-vn="1">postProjectCommand</h2>
+                <p data-id="p_acres_1" data-vn="1">
+                    用 POST 数据发送一条 CLI 命令。
+                </p>
+                
+                <div class="codeSample">
+                    <span class="api">POST</span>
+                    <br/>
+                    /project/command
+                </div>
+                
+                <p data-id="p_acres_ex" data-vn="1">
+                    示例：
+                </p>
+                
+                <div class="codeSample">
+                    /project/command?name=add&amp;param1=image_name.jpg<br/>
+                    /project/command?name=simplify&amp;param1=simplification_config.xml<br/>
+                    /project/command?name=exportReport&amp;param1=report.txt&amp;param2=template.txt<br/>
+                    /project/command?name=exportSelectedModel&amp;param1=model_name.obj&amp;param2=export_config.xml
+                </div>
+                
+                <p data-id="p_acres_exmult" data-vn="1">
+                    多个输入时，先使用带 <span class="appproperty">folder=output</span> 的 <span class="appproperty">/project/upload</span> 上传多个文件，再使用 <span class="appproperty">GET /project/command</span>。
+                </p>
+                
+                <h3 data-id="h3_acr_par_1" data-vn="1">参数</h3>
+                
+                    <p data-id="p_acr_hpar_1" data-vn="1">请求头参数</p>
+        
+                    <div data-id="sb_prcom_hpar" class="slideblock splitSpacing">
+                        <table class="tableofcommands"> 
+                            <thead data-id="thead_acr_hpar_1" data-vn="1">
+                                <tr>
+                                    <th>名称</th> <th>说明</th> <th>是否必需</th>
+                                </tr>
+                            </thead>
+                            <tr data-id="tr_acrhp_clid_1" data-vn="1">
+                                <td class="command">clientId*</td>
+                                <td><span class="dataType">UUID</span>（uuid）<br/><span class="note">客户端标识</span></td> 
+                                <td>必需</td>  
+                            </tr>      
+                            <tr data-id="tr_acrhp_appt_1" data-vn="1">
+                                <td class="command">appToken*</td>
+                                <td><span class="dataType">String</span><br/><span class="note">调用方应用标识</span></td> 
+                                <td>必需</td>  
+                            </tr>      
+                            <tr data-id="tr_acrhp_sess_1" data-vn="1">
+                                <td class="command">Session*</td>
+                                <td><span class="dataType">UUID</span>（uuid）<br/><span class="note">会话标识</span></td> 
+                                <td>必需</td>  
+                            </tr> 
+                        </table>
+                    </div> 
+
+                    <p data-id="p_acr_qpar" data-vn="1">查询参数</p>
+        
+                    <div data-id="sb_acr_qpar" class="slideblock splitSpacing">
+                        <table class="tableofcommands"> 
+                            <thead data-id="thead_acr_qpar" data-vn="1">
+                                <tr>
+                                    <th>名称</th> <th>说明</th> <th>是否必需</th>
+                                </tr>
+                            </thead>
+                            <tr data-id="tr_acrqp_name" data-vn="1">
+                                <td class="command">name*</td>
+                                <td><span class="dataType">String</span><br/><span class="note">命令名称</span></td> 
+                                <td>必需</td>  
+                            </tr>
+                            <tr data-id="tr_acrqp_par1" data-vn="1">
+                                <td class="command">param1</td>
+                                <td><span class="dataType">String</span><br/><span class="note">命令参数</span></td> 
+                                <td>可选</td>  
+                            </tr>
+                            <tr data-id="tr_acrqp_par2" data-vn="1">
+                                <td class="command">param2</td>
+                                <td><span class="dataType">String</span><br/><span class="note">命令参数</span></td> 
+                                <td>可选</td>  
+                            </tr>
+                            <tr data-id="tr_acrqp_par3" data-vn="1">
+                                <td class="command">param3</td>
+                                <td><span class="dataType">String</span><br/><span class="note">命令参数</span></td> 
+                                <td>可选</td>  
+                            </tr>
+                            <tr data-id="tr_acrqp_par4" data-vn="1">
+                                <td class="command">param4</td>
+                                <td><span class="dataType">String</span><br/><span class="note">命令参数</span></td> 
+                                <td>可选</td>  
+                            </tr>
+                            <tr data-id="tr_acrqp_par5" data-vn="1">
+                                <td class="command">param5</td>
+                                <td><span class="dataType">String</span><br/><span class="note">命令参数</span></td> 
+                                <td>可选</td>  
+                            </tr>
+                            <tr data-id="tr_acrqp_par6" data-vn="1">
+                                <td class="command">param6</td>
+                                <td><span class="dataType">String</span><br/><span class="note">命令参数</span></td> 
+                                <td>可选</td>  
+                            </tr>
+                            <tr data-id="tr_acrqp_par7" data-vn="1">
+                                <td class="command">param7</td>
+                                <td><span class="dataType">String</span><br/><span class="note">命令参数</span></td> 
+                                <td>可选</td>  
+                            </tr>
+                            <tr data-id="tr_acrqp_par8" data-vn="1">
+                                <td class="command">param8</td>
+                                <td><span class="dataType">String</span><br/><span class="note">命令参数</span></td> 
+                                <td>可选</td>  
+                            </tr>
+                            <tr data-id="tr_acrqp_par9" data-vn="1">
+                                <td class="command">param9</td>
+                                <td><span class="dataType">String</span><br/><span class="note">命令参数</span></td> 
+                                <td>可选</td>  
+                            </tr>
+                            <tr data-id="tr_acrqp_ecod" data-vn="1">
+                                <td class="command">encoded</td>
+                                <td><span class="dataType">String</span><br/><span class="note">设为 "base64" 表示 base64 编码数据（默认为原始数据）</span></td> 
+                                <td>可选</td>  
+                            </tr>
+                        </table>
+                    </div>
+                    
+                <h3 data-id="h3_acr_resp" data-vn="1">响应</h3>
+
+                <ul>
+                    <li data-id="li_acrres_202_1" data-vn="1">
+                        状态：<span class="parameter">202</span> —— 已接受
+                    </li>
+                </ul>    
+                        <p data-id="p_acr202_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">Task Handle {</span><br/>
+                                &nbsp;taskID: <span class="dataType">string</span> <span class="note">(uuid)</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>    
+                    <li data-id="li_acrres_400_1" data-vn="1">
+                        状态：<span class="parameter">400</span> —— 请求无效
+                    </li>
+                </ul>    
+                        <p data-id="p_acr400_sch_1" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>    
+                    <li data-id="li_acrres_401_1" data-vn="1">
+                        状态：<span class="parameter">401</span> —— 未授权
+                    </li>
+                </ul>    
+                        <p data-id="p_acr401_sch_1" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>    
+                    <li data-id="li_acrres_404_1" data-vn="1">
+                        状态：<span class="parameter">404</span> —— 未授权
+                    </li>
+                </ul>    
+                        <p data-id="p_acr404_sch_1" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>    
+                <ul>    
+                    <li data-id="li_acrres_411" data-vn="1">
+                        状态：<span class="parameter">411</span> —— 需要长度
+                    </li>
+                </ul>    
+                        <p data-id="p_acr411_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>    
+                <ul>    
+                    <li data-id="li_acrres_500_1" data-vn="1">
+                        状态：<span class="parameter">500</span> —— 服务器内部错误 apiError
+                    </li>
+                </ul>    
+                        <p data-id="p_acr500_sch_1" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                
+        </div>   
+        
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+               
+        <div data-id="div_sb_comgr" class="slideblock">    
+            
+            <h2 data-id="h2_comgr" data-vn="1">postProjectCommandGroup</h2>
+                <p data-id="p_comgr" data-vn="1">
+                    用 POST 数据把多条 CLI 命令作为一组发送。若其中任一命令失败，该组会停止执行，并把任务错误码设为对应的错误值。
+                </p>
+                
+                <div class="codeSample">
+                    <span class="api">POST</span>
+                    <br/>
+                    /project/commandgroup
+                </div>
+                               
+                <h3 data-id="h3_cgr_par" data-vn="1">参数</h3>
+                
+                    <p data-id="p_cgr_hpar" data-vn="1">请求头参数</p>
+        
+                    <div data-id="sb_cgr_hpar" class="slideblock splitSpacing">
+                        <table class="tableofcommands"> 
+                            <thead data-id="thead_cgr_hpar" data-vn="1">
+                                <tr>
+                                    <th>名称</th> <th>说明</th> <th>是否必需</th>
+                                </tr>
+                            </thead>
+                            <tr data-id="tr_cgrhp_clid" data-vn="1">
+                                <td class="command">clientId*</td>
+                                <td><span class="dataType">UUID</span>（uuid）<br/><span class="note">客户端标识</span></td> 
+                                <td>必需</td>  
+                            </tr>      
+                            <tr data-id="tr_cgrhp_appt" data-vn="1">
+                                <td class="command">appToken*</td>
+                                <td><span class="dataType">String</span><br/><span class="note">调用方应用标识</span></td> 
+                                <td>必需</td>  
+                            </tr>      
+                            <tr data-id="tr_cgrhp_sess" data-vn="1">
+                                <td class="command">Session*</td>
+                                <td><span class="dataType">UUID</span>（uuid）<br/><span class="note">会话标识</span></td> 
+                                <td>必需</td>  
+                            </tr> 
+                        </table>
+                    </div>
+
+                    <p data-id="p_cgr_bpar" data-vn="1">请求体参数</p>
+        
+                    <div data-id="sb_cgr_bpar" class="slideblock splitSpacing">
+                        <table class="tableofcommands"> 
+                            <thead data-id="thead_cgr_bpar" data-vn="1">
+                                <tr>
+                                    <th>名称</th> <th>说明</th> <th>是否必需</th>
+                                </tr>
+                            </thead>
+                            <tr data-id="tr_cgrbp_comc" data-vn="1">
+                                <td class="command">commandCall *</td>
+                                <td><span class="dataType">[undefined]</span><br/><span class="note">令牌请求体</span></td> 
+                                <td>可选</td>  
+                            </tr>      
+                        </table>
+                    </div>             
+
+                <h3 data-id="h3_cgr_resp" data-vn="1">响应</h3>
+
+                <ul>
+                    <li data-id="li_cgrres_202" data-vn="1">
+                        状态：<span class="parameter">202</span> —— 已接受
+                    </li>
+                </ul>    
+                        <p data-id="p_cgr202_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">Task Handle {</span><br/>
+                                &nbsp;taskID: <span class="dataType">string</span> <span class="note">(uuid)</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>    
+                    <li data-id="li_cgrres_400" data-vn="1">
+                        状态：<span class="parameter">400</span> —— 请求无效
+                    </li>
+                </ul>    
+                        <p data-id="p_cgr400_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>    
+                    <li data-id="li_cgrres_401" data-vn="1">
+                        状态：<span class="parameter">401</span> —— 未授权
+                    </li>
+                </ul>    
+                        <p data-id="p_cgr401_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>    
+                    <li data-id="li_cgrres_404" data-vn="1">
+                        状态：<span class="parameter">404</span> —— 未授权
+                    </li>
+                </ul>    
+                        <p data-id="p_cgr404_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>    
+                    <li data-id="li_cgrres_411" data-vn="1">
+                        状态：<span class="parameter">411</span> —— 需要长度
+                    </li>
+                </ul>    
+                        <p data-id="p_cgr411_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>             
+                <ul>    
+                    <li data-id="li_cgrres_500" data-vn="1">
+                        状态：<span class="parameter">500</span> —— 服务器内部错误 apiError
+                    </li>
+                </ul>    
+                        <p data-id="p_cgr500_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                
+        </div>   
+        
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>    
+            
+        <div data-id="div_sb_postcc" class="slideblock">  
+            
+            <h2 data-id="h2_postcc" data-vn="1">postProjectCondcommand</h2>
+                <p data-id="p_postcc" data-vn="1">
+                    发送一条带条件的 CLI 命令。若未设置标签，则发送该 CLI 命令。
+                </p>
+                
+                <div class="codeSample">
+                    <span class="api">POST</span>
+                    <br/>
+                    /project/condcommand
+                </div>
+                               
+                <h3 data-id="h3_cco_par" data-vn="1">参数</h3>
+                
+                    <p data-id="p_cco_hpar" data-vn="1">请求头参数</p>
+        
+                    <div data-id="sb_cco_hpar" class="slideblock splitSpacing">
+                        <table class="tableofcommands"> 
+                            <thead data-id="thead_cco_hpar" data-vn="1">
+                                <tr>
+                                    <th>名称</th> <th>说明</th> <th>是否必需</th>
+                                </tr>
+                            </thead>
+                            <tr data-id="tr_ccohp_clid" data-vn="1">
+                                <td class="command">clientId*</td>
+                                <td><span class="dataType">UUID</span>（uuid）<br/><span class="note">客户端标识</span></td> 
+                                <td>必需</td>  
+                            </tr>      
+                            <tr data-id="tr_ccohp_appt" data-vn="1">
+                                <td class="command">appToken*</td>
+                                <td><span class="dataType">String</span><br/><span class="note">调用方应用标识</span></td> 
+                                <td>必需</td>  
+                            </tr>      
+                            <tr data-id="tr_ccohp_sess" data-vn="1">
+                                <td class="command">Session*</td>
+                                <td><span class="dataType">UUID</span>（uuid）<br/><span class="note">会话标识</span></td> 
+                                <td>必需</td>  
+                            </tr> 
+                        </table>
+                    </div> 
+
+                    <p data-id="p_cco_qpar" data-vn="1">查询参数</p>
+        
+                    <div data-id="sb_cco_qpar" class="slideblock splitSpacing">
+                        <table class="tableofcommands"> 
+                            <thead data-id="thead_cco_qpar" data-vn="1">
+                                <tr>
+                                    <th>名称</th> <th>说明</th> <th>是否必需</th>
+                                </tr>
+                            </thead>
+                            <tr data-id="tr_ccoqp_tag" data-vn="1">
+                                <td class="command">tag*</td>
+                                <td><span class="dataType">String</span><br/><span class="note">标签名称</span></td> 
+                                <td>必需</td>  
+                            </tr>
+                            <tr data-id="tr_ccoqp_name" data-vn="1">
+                                <td class="command">name*</td>
+                                <td><span class="dataType">String</span><br/><span class="note">命令名称</span></td> 
+                                <td>必需</td>  
+                            </tr>
+                            <tr data-id="tr_ccoqp_par1" data-vn="1">
+                                <td class="command">param1</td>
+                                <td><span class="dataType">String</span><br/><span class="note">命令参数</span></td> 
+                                <td>可选</td>  
+                            </tr>
+                            <tr data-id="tr_ccoqp_par2" data-vn="1">
+                                <td class="command">param2</td>
+                                <td><span class="dataType">String</span><br/><span class="note">命令参数</span></td> 
+                                <td>可选</td>  
+                            </tr>
+                            <tr data-id="tr_ccoqp_par3" data-vn="1">
+                                <td class="command">param3</td>
+                                <td><span class="dataType">String</span><br/><span class="note">命令参数</span></td> 
+                                <td>可选</td>  
+                            </tr>
+                            <tr data-id="tr_ccoqp_par4" data-vn="1">
+                                <td class="command">param4</td>
+                                <td><span class="dataType">String</span><br/><span class="note">命令参数</span></td> 
+                                <td>可选</td>  
+                            </tr>
+                            <tr data-id="tr_ccoqp_par5" data-vn="1">
+                                <td class="command">param5</td>
+                                <td><span class="dataType">String</span><br/><span class="note">命令参数</span></td> 
+                                <td>可选</td>  
+                            </tr>
+                            <tr data-id="tr_ccoqp_par6" data-vn="1">
+                                <td class="command">param6</td>
+                                <td><span class="dataType">String</span><br/><span class="note">命令参数</span></td> 
+                                <td>可选</td>  
+                            </tr>
+                            <tr data-id="tr_ccoqp_par7" data-vn="1">
+                                <td class="command">param7</td>
+                                <td><span class="dataType">String</span><br/><span class="note">命令参数</span></td> 
+                                <td>可选</td>  
+                            </tr>
+                            <tr data-id="tr_ccoqp_par8" data-vn="1">
+                                <td class="command">param8</td>
+                                <td><span class="dataType">String</span><br/><span class="note">命令参数</span></td> 
+                                <td>可选</td>  
+                            </tr>
+                            <tr data-id="tr_ccoqp_par9" data-vn="1">
+                                <td class="command">param9</td>
+                                <td><span class="dataType">String</span><br/><span class="note">命令参数</span></td> 
+                                <td>可选</td>  
+                            </tr>
+                            <tr data-id="tr_ccoqp_ecod" data-vn="1">
+                                <td class="command">encoded</td>
+                                <td><span class="dataType">String</span><br/><span class="note">设为 "base64" 表示 base64 编码数据（默认为原始数据）</span></td> 
+                                <td>可选</td>  
+                            </tr>
+                        </table>
+                    </div>
+                    
+                <h3 data-id="h3_cco_resp" data-vn="1">响应</h3>
+
+                <ul>
+                    <li data-id="li_ccores_202" data-vn="1">
+                        状态：<span class="parameter">202</span> —— 已接受
+                    </li>
+                </ul>    
+                        <p data-id="p_cco202_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">Task Handle {</span><br/>
+                                &nbsp;taskID: <span class="dataType">string</span> <span class="note">(uuid)</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>    
+                    <li data-id="li_ccores_400" data-vn="1">
+                        状态：<span class="parameter">400</span> —— 请求无效
+                    </li>
+                </ul>    
+                        <p data-id="p_cco400_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>    
+                    <li data-id="li_ccores_401" data-vn="1">
+                        状态：<span class="parameter">401</span> —— 未授权
+                    </li>
+                </ul>    
+                        <p data-id="p_cco401_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>    
+                    <li data-id="li_ccores_404" data-vn="1">
+                        状态：<span class="parameter">404</span> —— 未授权
+                    </li>
+                </ul>    
+                        <p data-id="p_cco404_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>    
+                <ul>    
+                    <li data-id="li_ccores_411" data-vn="1">
+                        状态：<span class="parameter">411</span> —— 需要长度
+                    </li>
+                </ul>    
+                        <p data-id="p_cco411_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>    
+                <ul>    
+                    <li data-id="li_ccores_500" data-vn="1">
+                        状态：<span class="parameter">500</span> —— 服务器内部错误 apiError
+                    </li>
+                </ul>    
+                        <p data-id="p_cco500_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                
+        </div>   
+        
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>    
+               
+        <div data-id="div_sb_ccgr" class="slideblock">    
+            
+            <h2 data-id="h2_ccgr" data-vn="1">postProjectCommandGroup</h2>
+                <p data-id="p_ccgr" data-vn="1">
+                    若未设置标签，则把多条带条件的 CLI 命令作为一组执行。 
+                </p>
+                
+                <div class="codeSample">
+                    <span class="api">POST</span>
+                    <br/>
+                    /project/condcommandgroup
+                </div>
+                               
+                <h3 data-id="h3_cor_par" data-vn="1">参数</h3>
+                
+                    <p data-id="p_cor_hpar" data-vn="1">请求头参数</p>
+        
+                    <div data-id="sb_cor_hpar" class="slideblock splitSpacing">
+                        <table class="tableofcommands"> 
+                            <thead data-id="thead_cor_hpar" data-vn="1">
+                                <tr>
+                                    <th>名称</th> <th>说明</th> <th>是否必需</th>
+                                </tr>
+                            </thead>
+                            <tr data-id="tr_corhp_clid" data-vn="1">
+                                <td class="command">clientId*</td>
+                                <td><span class="dataType">UUID</span>（uuid）<br/><span class="note">客户端标识</span></td> 
+                                <td>必需</td>  
+                            </tr>      
+                            <tr data-id="tr_corhp_appt" data-vn="1">
+                                <td class="command">appToken*</td>
+                                <td><span class="dataType">String</span><br/><span class="note">调用方应用标识</span></td> 
+                                <td>必需</td>  
+                            </tr>      
+                            <tr data-id="tr_corhp_sess" data-vn="1">
+                                <td class="command">Session*</td>
+                                <td><span class="dataType">UUID</span>（uuid）<br/><span class="note">会话标识</span></td> 
+                                <td>必需</td>  
+                            </tr> 
+                        </table>
+                    </div>
+
+                    <p data-id="p_cor_qpar" data-vn="1">查询参数</p>
+        
+                    <div data-id="sb_cor_qpar" class="slideblock splitSpacing">
+                        <table class="tableofcommands"> 
+                            <thead data-id="thead_cor_qpar" data-vn="1">
+                                <tr>
+                                    <th>名称</th> <th>说明</th> <th>是否必需</th>
+                                </tr>
+                            </thead>
+                            <tr data-id="tr_corqp_tag" data-vn="1">
+                                <td class="command">tag*</td>
+                                <td><span class="dataType">String</span><br/><span class="note">标签名称</span></td> 
+                                <td>必需</td>  
+                            </tr>      
+                        </table>
+                    </div>             
+
+                <h3 data-id="h3_cor_resp" data-vn="1">响应</h3>
+
+                <ul>
+                    <li data-id="li_corres_202" data-vn="1">
+                        状态：<span class="parameter">202</span> —— 已接受
+                    </li>
+                </ul>    
+                        <p data-id="p_cor202_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">Task Handle {</span><br/>
+                                &nbsp;taskID: <span class="dataType">string</span> <span class="note">(uuid)</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>    
+                    <li data-id="li_corres_400" data-vn="1">
+                        状态：<span class="parameter">400</span> —— 请求无效
+                    </li>
+                </ul>    
+                        <p data-id="p_cor400_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>    
+                    <li data-id="li_corres_401" data-vn="1">
+                        状态：<span class="parameter">401</span> —— 未授权
+                    </li>
+                </ul>    
+                        <p data-id="p_cor401_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>    
+                    <li data-id="li_corres_404" data-vn="1">
+                        状态：<span class="parameter">404</span> —— 未授权
+                    </li>
+                </ul>    
+                        <p data-id="p_cor404_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>           
+                <ul>    
+                    <li data-id="li_corres_500" data-vn="1">
+                        状态：<span class="parameter">500</span> —— 服务器内部错误 apiError
+                    </li>
+                </ul>    
+                        <p data-id="p_cor500_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                
+        </div>    
+            
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>    
+            
+        <div data-id="div_sb_prupl" class="slideblock">    
+            
+            <h2 data-id="h2_prupl" data-vn="1">postProjectUpload</h2>
+                <p data-id="p_prupl" data-vn="1">
+                    上传单个项目文件。
+                </p>
+                
+                <div class="codeSample">
+                    <span class="api">POST</span>
+                    <br/>
+                    /project/upload
+                </div>
+                               
+                <h3 data-id="h3_prp_par" data-vn="1">参数</h3>
+                
+                    <p data-id="p_prp_hpar" data-vn="1">请求头参数</p>
+        
+                    <div data-id="sb_prp_hpar" class="slideblock splitSpacing">
+                        <table class="tableofcommands"> 
+                            <thead data-id="thead_prp_hpar" data-vn="1">
+                                <tr>
+                                    <th>名称</th> <th>说明</th> <th>是否必需</th>
+                                </tr>
+                            </thead>
+                            <tr data-id="tr_prphp_clid" data-vn="1">
+                                <td class="command">clientId*</td>
+                                <td><span class="dataType">UUID</span>（uuid）<br/><span class="note">客户端标识</span></td> 
+                                <td>必需</td>  
+                            </tr>      
+                            <tr data-id="tr_prphp_appt" data-vn="1">
+                                <td class="command">appToken*</td>
+                                <td><span class="dataType">String</span><br/><span class="note">调用方应用标识</span></td> 
+                                <td>必需</td>  
+                            </tr>      
+                            <tr data-id="tr_prphp_sess" data-vn="1">
+                                <td class="command">Session*</td>
+                                <td><span class="dataType">UUID</span>（uuid）<br/><span class="note">会话标识</span></td> 
+                                <td>必需</td>  
+                            </tr> 
+                        </table>
+                    </div>
+
+                    <p data-id="p_prp_qpar" data-vn="1">查询参数</p>
+        
+                    <div data-id="sb_prp_qpar" class="slideblock splitSpacing">
+                        <table class="tableofcommands"> 
+                            <thead data-id="thead_prp_qpar" data-vn="1">
+                                <tr>
+                                    <th>名称</th> <th>说明</th> <th>是否必需</th>
+                                </tr>
+                            </thead>
+                            <tr data-id="tr_prpqp_name" data-vn="1">
+                                <td class="command">name*</td>
+                                <td><span class="dataType">String</span><br/><span class="note">文件名</span></td> 
+                                <td>必需</td>  
+                            </tr>
+                            <tr data-id="tr_prpqp_enc" data-vn="1">
+                                <td class="command">encoded</td>
+                                <td><span class="dataType">String</span><br/><span class="note">设为 "base64" 表示 base64 编码数据（默认为原始数据）</span></td> 
+                                <td>可选</td>  
+                            </tr> 
+                            <tr data-id="tr_prpqp_fold" data-vn="1">
+                                <td class="command">folder</td>
+                                <td><span class="dataType">String</span><br/><span class="note">指定要上传到的文件夹</span></td> 
+                                <td>可选</td>  
+                            </tr>                             
+                        </table>
+                    </div>             
+
+                <h3 data-id="h3_prp_resp" data-vn="1">响应</h3>
+
+                <ul>
+                    <li data-id="li_prpres_200" data-vn="1">
+                        状态：<span class="parameter">200</span> —— OK
+                    </li>
+                    <li data-id="li_prpres_400" data-vn="1">
+                        状态：<span class="parameter">400</span> —— 请求无效
+                    </li>
+                </ul>    
+                        <p data-id="p_prp400_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>    
+                    <li data-id="li_prpres_401" data-vn="1">
+                        状态：<span class="parameter">401</span> —— 未授权
+                    </li>
+                </ul>    
+                        <p data-id="p_prp401_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>    
+                    <li data-id="li_prpres_404" data-vn="1">
+                        状态：<span class="parameter">404</span> —— 未授权
+                    </li>
+                </ul>    
+                        <p data-id="p_prp404_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>           
+                <ul>    
+                    <li data-id="li_prpres_500" data-vn="1">
+                        状态：<span class="parameter">500</span> —— 服务器内部错误 apiError
+                    </li>
+                </ul>    
+                        <p data-id="p_prp500_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                
+        </div>    
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_Bc" class="blocksContainer">
+            
+            <a href="../tools/apinode.htm">
+                <div class="block TileColor6">
+                    <h2 data-id="h2_bc_ss" data-vn="1">API 方法 - 节点</h2>
+                    <p data-id="p_bc_ss" data-vn="1">影响节点的 API 方法</p>
+                </div>
+            </a>
+            
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+        <!-- content slide end -->
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+    <script type="text/javascript">
+        InitializeHelpSlide();
+    </script>
+</body>
+</html>
+<!-- signature:BHc5JZ3cKfIs7XNcOhnRxug7H5jauWZAMCWYBs60NYm9usBp5Rm2AYT+z1WJbeMz+50j6QZJSbz7k5v6sQFLQu0gZD2sQ7HpicfeMMI8/tvKNyCiJ1a1+JHB5rrzvt2j65BpUC48Q9fypSIyt38MQo+0yTp6AlAgiDActi0vMrM= -->

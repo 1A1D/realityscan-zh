@@ -1,0 +1,449 @@
+﻿<html>
+    <head>
+        <title>RealityScan 帮助</title>
+        <meta charset="UTF-8"/>
+        <meta name="author" content="Epic Games Slovakia s.r.o."/>
+        <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/style.css"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/colors.css"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css"/>
+        <script src="../scripts/textVars.js" type="text/javascript"></script>
+        <script src="../../scripts/localization.js" type="text/javascript"></script>
+        <script src="../../scripts/main.js" type="text/javascript"></script>
+    </head>
+<body ondragstart="return false;">
+
+    <div data-id="div_cs" class="content_slide">
+
+        <!-- content slide -->
+
+        <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head" class="head">
+            <h1 data-id="h1" data-vn="1">控制点与约束（报告中可用的函数与变量）</h1>
+        </div>
+
+        <div data-id="div_sb_cp" class="slideblock">
+            <h2 data-id="h2_cp" data-vn="1">控制点与约束</h2>
+
+            <p data-id="p_cp_iter" data-vn="1"><span class="appproperty">IterateControlPoints</span> —— 该函数用于输出所有控制点的基本信息。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_cp_iter_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_cp_iter_syn" data-vn="1">
+  $IterateControlPoints( noParametersJustAnyText )</pre>
+                <p data-id="p_cp_iter_avars" data-vn="1"><b>可用变量：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_cp_iter_cpid" data-vn="1"><span class="appproperty">controlPointId</span> —— 控制点的索引</p>
+                    <p data-id="p_cp_iter_guid" data-vn="1"><span class="appproperty">controlPointGUID</span> —— 控制点的 GUID</p>
+                    <p data-id="p_cp_iter_name" data-vn="1"><span class="appproperty">controlPointName</span> —— 控制点名称</p>
+                    <p data-id="p_cp_iter_cpmc" data-vn="1"><span class="appproperty">controlPointMeasurementsCount</span> —— 测量值数量（即该控制点分配到多少张图像）</p>
+                </div>
+                <p data-id="p_cp_iter_ex" data-vn="1"><b>示例：</b></p>
+                <pre data-id="pre_cp_iter_ex" data-vn="1">
+  $IterateControlPoints(
+    Index: $(controlPointId)
+    GUID: $(controlPointGUID)
+    Name: $(controlPointName)
+    Images count: $(controlPointMeasurementsCount)
+  )
+                </pre>
+            </div>
+
+            <p data-id="p_cp_expo" data-vn="1"><span class="appproperty">ExportControlPoints</span> —— 该函数含一个函数与若干变量，用于输出所有控制点的信息。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_cp_expo_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_cp_expo_syn" data-vn="1">
+  $ExportControlPoints( noParametersJustAnyText )</pre>
+                <p data-id="p_cp_expo_avars" data-vn="1"><b>可用变量：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_cp_expo_inde" data-vn="1"><span class="appproperty">index</span> —— 控制点的索引</p>
+                    <p data-id="p_cp_expo_name" data-vn="1"><span class="appproperty">name</span> —— 控制点名称</p>
+                    <p data-id="p_cp_expo_meco" data-vn="1"><span class="appproperty">measurementCount</span> —— 测量值数量（即该控制点分配到多少张图像）</p>
+                    <p data-id="p_cp_expo_isgc" data-vn="1"><span class="appproperty">isGroundControl</span> —— 若为地面控制点或地面测试点则为 true，否则 false</p>
+                    <p data-id="p_cp_expo_isgt" data-vn="1"><span class="appproperty">isGroundTest</span> —— 若为地面测试点则为 true，否则 false</p>
+                    <p data-id="p_cp_expo_caty" data-vn="1"><span class="appproperty">calibrationType</span> —— 连接点为 0，地面控制点为 1，地面测试点为 2</p>
+                    
+                    <p data-id="p_cp_expo_icsn" data-vn="1"><span class="appproperty">inputCSName</span> —— 控制点输入坐标系的名称</p>
+                    <p data-id="p_cp_expo_csll" data-vn="1"><span class="appproperty">inputCSIsLatLon</span> —— 控制点的输入坐标系为地理坐标则为 true，为直角坐标则为 false</p>                    
+                    <p data-id="p_cp_expo_icsu" data-vn="1"><span class="appproperty">inputCSUnit</span> —— 控制点所在坐标系的单位</p>
+                    <p data-id="p_cp_expo_iutm" data-vn="1"><span class="appproperty">inputCSUnitToMeter</span> —— 用于换算单位的乘数</p>                   
+                    
+                    <p data-id="p_cp_expo_inx" data-vn="1"><span class="appproperty">inx</span> —— 控制点输入坐标系中的输入 x 坐标（仅当坐标系为直角坐标、即 <span class="appproperty">inputCSIsLatLon</span> 为 false 时有效）</p>
+                    <p data-id="p_cp_expo_iny" data-vn="1"><span class="appproperty">iny</span> —— 控制点输入坐标系中的输入 y 坐标（仅当坐标系为直角坐标时有效）</p>
+                    <p data-id="p_cp_expo_inz" data-vn="1"><span class="appproperty">inz</span> —— 控制点输入坐标系中的输入 z 坐标（仅当坐标系为直角坐标时有效）</p>
+                    <p data-id="p_cp_expo_inla" data-vn="2"><span class="appproperty">inlat</span> —— 控制点输入坐标系中的输入纬度坐标（仅当坐标系为地理坐标、即 <span class="appproperty">inputCSIsLatLon</span> 为 true 时有效）</p>
+                    <p data-id="p_cp_expo_inlo" data-vn="1"><span class="appproperty">inlon</span> —— 控制点输入坐标系中的输入经度坐标（仅当坐标系为地理坐标时有效）</p>
+                    <p data-id="p_cp_expo_inal" data-vn="1"><span class="appproperty">inalt</span> —— 控制点输入坐标系中的输入高程坐标（仅当坐标系为地理坐标时有效）</p>                    
+                    <p data-id="p_cp_expo_eucx" data-vn="1"><span class="appproperty">euclidx</span> —— 欧氏坐标系中的输入 x 坐标</p>
+                    <p data-id="p_cp_expo_eucy" data-vn="1"><span class="appproperty">euclidy</span> —— 欧氏坐标系中的输入 y 坐标</p>
+                    <p data-id="p_cp_expo_eucz" data-vn="1"><span class="appproperty">euclidz</span> —— 欧氏坐标系中的输入 z 坐标</p>
+                    
+                    <p data-id="p_cp_expo_x" data-vn="1"><span class="appproperty">x</span> —— 输出坐标系中的输入 x 坐标（仅当 <span class="appproperty">isGroundControl</span> 为 true 且输出坐标系为直角坐标、即 <span class="appproperty">isCoordSystemLatLon</span> 为 false 时有效）</p>
+                    <p data-id="p_cp_expo_y" data-vn="1"><span class="appproperty">y</span> —— 输出坐标系中的输入 y 坐标（仅当 <span class="appproperty">isGroundControl</span> 为 true 且输出坐标系为直角坐标时有效）</p>
+                    <p data-id="p_cp_expo_z" data-vn="1"><span class="appproperty">z</span> —— 输出坐标系中的输入 z 坐标（仅当 <span class="appproperty">isGroundControl</span> 为 true 且输出坐标系为直角坐标时有效）</p>
+                    <p data-id="p_cp_expo_lat" data-vn="1"><span class="appproperty">lat</span> —— 输出坐标系中的输入纬度坐标（仅当 <span class="appproperty">isGroundControl</span> 为 true 且坐标系为地理坐标、即 <span class="appproperty">isCoordSystemLatLon</span> 为 true 时有效）</p>
+                    <p data-id="p_cp_expo_lon" data-vn="1"><span class="appproperty">lon</span> —— 输出坐标系中的输入经度坐标（仅当 <span class="appproperty">isGroundControl</span> 为 true 且坐标系为地理坐标时有效）</p>
+                    <p data-id="p_cp_expo_alt" data-vn="1"><span class="appproperty">alt</span> —— 输出坐标系中的输入高程坐标（仅当 <span class="appproperty">isGroundControl</span> 为 true 且坐标系为地理坐标时有效）</p>
+                    
+                    <p data-id="p_cp_expo_glat" data-vn="1"><span class="appproperty">gpsLat</span> —— epsg:4326 - GPS（WGS 84）坐标系中的输入纬度坐标（仅当该控制点已做地理配准时有效）</p>
+                    <p data-id="p_cp_expo_glon" data-vn="1"><span class="appproperty">gpsLon</span> —— epsg:4326 - GPS（WGS 84）坐标系中的输入经度坐标（仅当该控制点已做地理配准时有效）</p>
+                    <p data-id="p_cp_expo_galt" data-vn="1"><span class="appproperty">gpsAlt</span> —— epsg:4326 - GPS（WGS 84）坐标系中的输入高程坐标（仅当该控制点已做地理配准时有效）</p>
+                    
+                    <p data-id="p_cp_expo_weig" data-vn="1"><span class="appproperty">weight</span> —— 控制点的权重</p>                    
+                    <p data-id="p_cp_expo_hunc" data-vn="1"><span class="appproperty">hasUncertainty</span> —— 已为控制点定义先验精度则为 true</p>
+                    <p data-id="p_cp_expo_unsi" data-vn="1"><span class="appproperty">uncertaintySize</span> —— 三角化不确定度（坐标系单位）</p>
+                    <p data-id="p_cp_expo_unvx" data-vn="1"><span class="appproperty">uncertaintyVectorX</span> —— X 轴方向的三角化不确定度</p>
+                    <p data-id="p_cp_expo_unvy" data-vn="1"><span class="appproperty">uncertaintyVectorY</span> —— Y 轴方向的三角化不确定度</p>                    
+                    <p data-id="p_cp_expo_unvz" data-vn="1"><span class="appproperty">uncertaintyVectorZ</span> —— Z 轴方向的三角化不确定度</p>
+                    <p data-id="p_cp_expo_inax" data-vn="1"><span class="appproperty">inAccuracyX</span> —— X 坐标的先验精度</p>
+                    <p data-id="p_cp_expo_inay" data-vn="1"><span class="appproperty">inAccuracyY</span> —— Y 坐标的先验精度</p>
+                    <p data-id="p_cp_expo_inaz" data-vn="1"><span class="appproperty">inAccuracyZ</span> —— Z 坐标的先验精度</p>
+                    <p data-id="p_cp_expo_iaon" data-vn="1"><span class="appproperty">inA1</span> —— 先验精度矩阵的元素 a<sub>1,1</sub>（通常等于 <span class="appproperty">inAccuracyX</span>）</p>
+                    <p data-id="p_cp_expo_iatw" data-vn="1"><span class="appproperty">inA2</span> —— 先验精度矩阵的元素 a<sub>1,2</sub>（通常等于 0）     </p>
+                    <p data-id="p_cp_expo_iath" data-vn="1"><span class="appproperty">inA3</span> —— 先验精度矩阵的元素 a<sub>1,3</sub>（通常等于 0）</p>
+                    <p data-id="p_cp_expo_iafo" data-vn="1"><span class="appproperty">inA4</span> —— 先验精度矩阵的元素 a<sub>2,1</sub>（通常等于 0）            </p>
+                    <p data-id="p_cp_expo_iafi" data-vn="1"><span class="appproperty">inA5</span> —— 先验精度矩阵的元素 a<sub>2,2</sub>（通常等于 <span class="appproperty">inAccuracyY</span>）</p>
+                    <p data-id="p_cp_expo_iasi" data-vn="1"><span class="appproperty">inA6</span> —— 先验精度矩阵的元素 a<sub>2,3</sub>（通常等于 0）</p>
+                    <p data-id="p_cp_expo_iase" data-vn="1"><span class="appproperty">inA7</span> —— 先验精度矩阵的元素 a<sub>3,1</sub>（通常等于 0）</p>
+                    <p data-id="p_cp_expo_iaei" data-vn="1"><span class="appproperty">inA8</span> —— 先验精度矩阵的元素 a<sub>3,2</sub>（通常等于 0） </p>
+                    <p data-id="p_cp_expo_iani" data-vn="1"><span class="appproperty">inA9</span> —— 先验精度矩阵的元素 a<sub>3,3</sub>（通常等于 <span class="appproperty">inAccuracyZ</span>）</p>                                               
+                    <p data-id="p_cp_expo_isal" data-vn="1"><span class="appproperty">isAligned</span> —— 对齐前为 false，对齐后为 true</p>
+                    <p data-id="p_cp_expo_axcs" data-vn="1"><span class="appproperty">actualXInCS</span> —— 输入坐标系中的 x 坐标</p>
+                    <p data-id="p_cp_expo_aycs" data-vn="1"><span class="appproperty">actualYInCS</span> —— 输入坐标系中的 y 坐标</p>
+                    <p data-id="p_cp_expo_azcs" data-vn="1"><span class="appproperty">actualZInCS</span> —— 输入坐标系中的 z 坐标</p>
+                    <p data-id="p_cp_expo_alac" data-vn="1"><span class="appproperty">actualLatInCS</span> —— 输入坐标系中的纬度坐标</p>
+                    <p data-id="p_cp_expo_aloc" data-vn="1"><span class="appproperty">actualLonInCS</span> —— 输入坐标系中的经度坐标</p>
+                    <p data-id="p_cp_expo_aalc" data-vn="1"><span class="appproperty">actualAltInCS</span> —— 输入坐标系中的高程值</p>
+                    
+                    <p data-id="p_cp_expo_axeu" data-vn="1"><span class="appproperty">actualXEuclid</span> —— 欧氏坐标系中的 x 坐标</p>
+                    <p data-id="p_cp_expo_ayeu" data-vn="1"><span class="appproperty">actualYEuclid</span> —— 欧氏坐标系中的 y 坐标</p>
+                    <p data-id="p_cp_expo_azeu" data-vn="1"><span class="appproperty">actualZEuclid</span> —— 欧氏坐标系中的 z 坐标</p>
+
+                    <p data-id="p_cp_expo_actx" data-vn="2"><span class="appproperty">actualX</span> —— 对齐过程中算出的控制点实际位置的 x 坐标（仅当 <span class="appproperty">isAligned</span> 为 true 且输入坐标系为直角坐标、即 <span class="appproperty">inputCSIsLatLon</span> 为 false 时有效）</p>
+                    <p data-id="p_cp_expo_acty" data-vn="1"><span class="appproperty">actualY</span> —— 对齐过程中算出的控制点实际位置的 y 坐标（仅当 <span class="appproperty">isAligned</span> 为 true 且输入坐标系为直角坐标时有效）</p>
+                    <p data-id="p_cp_expo_actz" data-vn="1"><span class="appproperty">actualZ</span> —— 对齐过程中算出的控制点实际位置的 z 坐标（仅当 <span class="appproperty">isAligned</span> 为 true 且输入坐标系为直角坐标时有效）</p>
+                    <p data-id="p_cp_expo_alat" data-vn="2"><span class="appproperty">actualLat</span> —— 对齐过程中算出的控制点实际位置的纬度坐标（仅当 <span class="appproperty">isAligned</span> 为 true 且输入坐标系为地理坐标、即 <span class="appproperty">inputCSIsLatLon</span> 为 true 时有效）</p>
+                    <p data-id="p_cp_expo_alon" data-vn="1"><span class="appproperty">actualLon</span> —— 对齐过程中算出的控制点实际位置的经度坐标（仅当 <span class="appproperty">isAligned</span> 为 true 且输入坐标系为地理坐标时有效）</p>
+                    <p data-id="p_cp_expo_aalt" data-vn="1"><span class="appproperty">actualAlt</span> —— 对齐过程中算出的控制点实际位置的高程坐标（仅当 <span class="appproperty">isAligned</span> 为 true 且输入坐标系为地理坐标时有效）</p>
+                    <p data-id="p_cp_expo_agla" data-vn="1"><span class="appproperty">actualGpsLat</span> —— 对齐过程中算出的控制点实际位置在 epsg:4326 - GPS（WGS 84）坐标系中的纬度坐标（仅当 <span class="appproperty">isAligned</span> 为 true 且组件已做地理配准时有效）</p>
+                    <p data-id="p_cp_expo_aglo" data-vn="1"><span class="appproperty">actualGpsLon</span> —— 对齐过程中算出的控制点实际位置在 epsg:4326 - GPS（WGS 84）坐标系中的经度坐标（仅当 <span class="appproperty">isAligned</span> 为 true 且组件已做地理配准时有效）</p>
+                    <p data-id="p_cp_expo_agal" data-vn="1"><span class="appproperty">actualGpsAlt</span> —— 对齐过程中算出的控制点实际位置在 epsg:4326 - GPS（WGS 84）坐标系中的高程坐标（仅当 <span class="appproperty">isAligned</span> 为 true 且组件已做地理配准时有效）</p>
+                </div>
+                <p data-id="p_cp_expo_afun" data-vn="1"><b>可用函数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_cp_expo_cper" data-vn="1"><span class="appproperty">ControlPointError</span></p>
+                    <div style="padding-left: 20px">
+                        <p data-id="p_cp_cper_syn" data-vn="1"><b>语法：</b></p>
+                        <pre data-id="pre_cp_cper_syn" data-vn="1">
+  $ControlPointError( index, anyText )</pre>
+                        <p data-id="p_cp_cper_par" data-vn="1"><b>参数：</b></p>
+                        <div style="padding-left: 20px">
+                            <p data-id="p_cp_cper_inde" data-vn="1"><span class="appproperty">index</span> —— 控制点的索引：可用 ExportControlPoints 函数获取所有控制点的索引（见下例）</p>
+                        </div>
+                        <p data-id="p_cp_cper_avars" data-vn="1"><b>可用变量：</b></p>
+                        <div style="padding-left: 20px">
+                            <p data-id="p_cp_cper_cpin" data-vn="1"><span class="appproperty">cpIndex</span> —— 控制点的索引</p>
+                            <p data-id="p_cp_cper_er3d" data-vn="1"><span class="appproperty">cpError3D</span> —— 总偏差：算出的位置与给定位置之间的距离，以输入坐标系单位表示</p>
+                            <p data-id="p_cp_cper_errx" data-vn="1"><span class="appproperty">cpErrorX</span> —— X 方向的对齐误差</p>
+                            <p data-id="p_cp_cper_erry" data-vn="1"><span class="appproperty">cpErrorY</span> —— Y 方向的对齐误差</p>
+                            <p data-id="p_cp_cper_errz" data-vn="1"><span class="appproperty">cpErrorZ</span> —— Z 方向的对齐误差</p>
+                            <p data-id="p_cp_cper_mape" data-vn="1"><span class="appproperty">maxPlacementError</span> —— 最大投影误差：算出位置的最大误差，以像素计</p>
+                        </div>
+                    </div>
+                </div>
+                <p data-id="p_cp_expo_ex" data-vn="1"><b>示例：</b></p>
+                <pre data-id="pre_cp_expo_ex" data-vn="2">
+  $ExportControlPoints(
+    Index: $(index)
+    Name: $(name)
+    Number of measurements: $(measurementsCount)
+    Ground control: $(isGroundControl)    
+    Ground test: $(isGroundTest)    
+    Calibration type: $(calibrationType)  
+    Coordinate system name: $(inputCSName)    
+    Geographic coordinate system: $(inputCSIsLatLon)    
+    Input x: $(inx)    
+    Input y: $(iny)    
+    Input z: $(inz)    
+    Input lat: $(inlat)    
+    Input lon: $(inlon)    
+    Input alt: $(inalt)    
+    Euclidean x: $(euclidx)    
+    Euclidean y: $(euclidy)    
+    Euclidean z: $(euclidz)
+    Input x in output coordinate system: $(x)    
+    Input y in output coordinate system: $(y)    
+    Input z in output coordinate system: $(z)    
+    Input lat in output coordinate system: $(lat)    
+    Input lon in output coordinate system: $(lon)    
+    Input alt in output coordinate system: $(alt)
+    Input lat in epsg:4326 - GPS (WGS 84) coordinate system: $(lat)
+    Input lon in epsg:4326 - GPS (WGS 84) coordinate system: $(lon)
+    Input alt in epsg:4326 - GPS (WGS 84) coordinate system: $(alt)
+    Weight: $(weight)
+    isAligned: $(isAligned)
+    actualx: $(actualx)
+    actualy: $(actualy)
+    actualz: $(actualz)
+    actualLat: $(actualLat)
+    actualLon: $(actualLon)
+    actualAlt: $(actualAlt)
+    actualLat in epsg:4326 - GPS (WGS 84) coordinate system: $(actualGpsLat)
+    actualLon in epsg:4326 - GPS (WGS 84) coordinate system: $(actualGpsLon)
+    actualAlt in epsg:4326 - GPS (WGS 84) coordinate system: $(actualGpsAlt)
+    $ControlPointError( index,
+      Index: $(cpIndex)    
+      Total deviation: $(cpError3D)    
+      Error X: $(cpErrorX)    
+      Error Y: $(cpErrorY)    
+      Error Z: $(cpErrorZ)    
+      Maximal projection error: $(maxPlacementError)    
+    )    
+  )
+                </pre>
+            </div>
+
+            <p data-id="p_cp_excpm" data-vn="1"><span class="appproperty">ExportControlPointsMeasurements</span> —— 该函数遍历所有控制点的所有测量值。对每个控制点，它导出该控制点被分配到的所有图像。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_cp_excpm_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_cp_excpm_syn" data-vn="1">
+  $ExportControlPointsMeasurements( noParametersJustAnyText )</pre>
+                <p data-id="p_cp_excpm_avars" data-vn="1"><b>可用变量：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_cp_excpm_meai" data-vn="1"><span class="appproperty">measurementIndex</span> —— 测量值的索引</p>
+                    <p data-id="p_cp_excpm_poii" data-vn="1"><span class="appproperty">pointIndex</span> —— 控制点的索引</p>
+                    <p data-id="p_cp_excpm_imai" data-vn="1"><span class="appproperty">imageIndex</span> —— 图像索引</p>
+                    <p data-id="p_cp_excpm_poin" data-vn="1"><span class="appproperty">pointName</span> —— 控制点名称</p>
+                    <p data-id="p_cp_excpm_imap" data-vn="1"><span class="appproperty">imagePath</span> —— 图像路径</p>
+                    <p data-id="p_cp_excpm_iman" data-vn="1"><span class="appproperty">imageName</span> —— 图像名称</p>
+                    <p data-id="p_cp_excpm_imae" data-vn="1"><span class="appproperty">imageExt</span> —— 图像扩展名</p>
+                    <p data-id="p_cp_excpm_x" data-vn="1"><span class="appproperty">x</span> —— 控制点投影到图像上的 x 坐标，以像素计</p>
+                    <p data-id="p_cp_excpm_y" data-vn="1"><span class="appproperty">y</span> —— 控制点投影到图像上的 y 坐标，以像素计</p>
+                    <p data-id="p_cp_excpm_inax" data-vn="1"><span class="appproperty">inAccuracyX</span> —— 手动放置的控制点在图像中的预期精度（像素）</p>
+                    <p data-id="p_cp_excpm_inay" data-vn="1"><span class="appproperty">inAccuracyY</span> —— 手动放置的控制点在图像中的预期精度（像素）</p>
+                    <p data-id="p_cp_excpm_inaa" data-vn="1"><span class="appproperty">inAccuracyAngle</span> —— 误差区域的旋转角（使用自动标记检测时可计算得出）</p>  
+                </div>
+                <p data-id="p_cp_excpm_afun" data-vn="1"><b>可用函数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_cp_ime" data-vn="1"><span class="appproperty">ImageMeasurementError</span></p>
+                    <div style="padding-left: 20px">
+                        <p data-id="p_cp_ime_syn" data-vn="1"><b>语法：</b></p>
+                        <pre data-id="pre_cp_ime_syn" data-vn="1">
+  $ImageMeasurementError( pointIndex, measurementIndex, anyText )</pre>
+                        <p data-id="p_cp_ime_par" data-vn="1"><b>参数：</b></p>
+                        <div style="padding-left: 20px">
+                            <p data-id="p_cp_ime_poii" data-vn="1"><span class="appproperty">pointIndex</span> —— 控制点的索引：可用 ExportControlPointsMeasurements 函数获取所有控制点的索引（见下例）</p>
+                            <p data-id="p_cp_ime_meai" data-vn="1"><span class="appproperty">measurementIndex</span> —— 测量值的索引：可用 ExportControlPointsMeasurements 函数获取所有测量值的索引（见下例）</p>
+                        </div>
+                        <p data-id="p_cp_ime_avars" data-vn="1"><b>可用变量：</b></p>
+                        <div style="padding-left: 20px">
+                            <p data-id="p_cp_ime_meae" data-vn="1"><span class="appproperty">measurementError</span> —— 偏差：投影位置与给定测量位置之间的误差，以像素计</p>
+                            <p data-id="p_cp_ime_meid" data-vn="1"><span class="appproperty">measurementId</span> —— 测量值的索引</p>
+                        </div>
+                    </div>
+                </div>
+                <p data-id="p_cp_excpm_ex" data-vn="1"><b>示例：</b></p>
+                <pre data-id="pre_cp_excpm_ex" data-vn="1">
+$ExportControlPointsMeasurements(
+    Measurement index: $(measurementIndex)
+    Control point index: $(pointIndex)
+    Image index: $(imageIndex)
+    Control point name: $(pointName)
+    Image path: $(imagePath)
+    Image name: $(imageName)
+    Image extension: $(imageExt)
+    x: $(x)
+    y: $(y)
+    $ImageMeasurementError( pointIndex, measurementIndex,
+      Measurement error: $(measurementError)
+      Measurement index: $(measurementId)
+    )
+)
+                </pre>
+            </div>
+
+            <p data-id="p_cp_item" data-vn="1"><span class="appproperty">IterateMeasurements</span> —— 该函数遍历某个控制点的所有测量值，导出该控制点被分配到的所有图像。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_cp_item_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_cp_item_syn" data-vn="1">
+  $IterateMeasurements( controlPointId, anyText )</pre>
+                <p data-id="p_cp_item_par" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_cp_item_cpid" data-vn="1"><span class="appproperty">controlPointId</span> —— 控制点的索引：可用 IterateControlPoints 函数获取所有控制点的索引（见下例）</p>
+                </div>
+                <p data-id="p_cp_item_avars" data-vn="1"><b>可用变量：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_cp_item_mein" data-vn="1"><span class="appproperty">measurementIndex</span> —— 测量值的索引</p>
+                    <p data-id="p_cp_item_meim" data-vn="1"><span class="appproperty">measurementImage</span> —— 图像索引</p>
+                    <p data-id="p_cp_item_mefe" data-vn="1"><span class="appproperty">measurementFeature</span> —— 控制点在图像中的索引</p>
+                    <p data-id="p_cp_item_meix" data-vn="1"><span class="appproperty">measurementImageX</span> —— 控制点投影到图像上的 x 坐标，以像素计</p>
+                    <p data-id="p_cp_item_meiy" data-vn="1"><span class="appproperty">measurementImageY</span> —— 控制点投影到图像上的 y 坐标，以像素计</p>
+                </div>
+                <p data-id="p_cp_item_ex" data-vn="1"><b>示例：</b></p>
+                <pre data-id="pre_cp_item_ex" data-vn="1">
+  $IterateControlPoints(    
+    $IterateMeasurements( controlPointId,
+      Measurement index: $(measurementIndex)
+      Image index: $(measurementImage)
+      Index of the control point in the image: $(measurementFeature)
+      x: $(measurementImageX)
+      y: $(measurementImageY)
+    )
+  )
+                </pre>
+            </div>
+
+            <p data-id="p_cp_exds" data-vn="1"><span class="appproperty">ExportDistanceConstraints</span> —— 该函数提供若干变量，用于输出全部或仅所选距离约束的信息。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_cp_exds_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_cp_exds_syn" data-vn="1">
+  $ExportDistanceConstraints( noParametersJustAnyText )</pre>
+                <p data-id="p_cp_exds_avars" data-vn="1"><b>可用变量：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_cp_exds_cona" data-vn="1"><span class="appproperty">constraintName</span> —— 距离约束的名称</p>
+                    <p data-id="p_cp_exds_poia" data-vn="1"><span class="appproperty">pointA</span> —— 距离约束的第一个端点</p>
+                    <p data-id="p_cp_exds_poib" data-vn="1"><span class="appproperty">pointB</span> —— 距离约束的第二个端点</p>
+                    <p data-id="p_cp_exds_enab" data-vn="1"><span class="appproperty">Enable</span> —— 该距离约束应参与计算则为 true，否则 false</p>
+                    <p data-id="p_cp_exds_dedi" data-vn="1"><span class="appproperty">definedDistance</span> —— 用户定义的两端点间距离</p>
+                    <p data-id="p_cp_exds_deac" data-vn="1"><span class="appproperty">definedAccuracy</span> —— 所定义两端点间距离的先验精度</p>
+                    <p data-id="p_cp_exds_cadi" data-vn="1"><span class="appproperty">calculatedDistance</span> —— 算出的两端点间距离</p>
+                    <p data-id="p_cp_exds_dier" data-vn="1"><span class="appproperty">distanceError</span> —— <span class="appproperty">calculatedDistance</span> 减去 <span class="appproperty">definedDistance</span></p>                    
+                    <p data-id="p_cp_exds_cocs" data-vn="1"><span class="appproperty">constraintCS</span> —— 约束所在的坐标系</p>
+                    <p data-id="p_cp_exds_ccsu" data-vn="1"><span class="appproperty">constraintCSUnit</span> —— 约束所在坐标系的单位</p>
+                    <p data-id="p_cp_exds_ccus" data-vn="1"><span class="appproperty">constraintCSUnitShort</span> —— 单位名称的短写形式</p>
+                    <p data-id="p_cp_exds_cutm" data-vn="1"><span class="appproperty">constraintCSUnitToMeter</span> —— 用于换算单位的乘数</p>                                     
+                    <p data-id="p_cp_exds_incc" data-vn="1"><span class="appproperty">InCurrentComponent</span> —— 若两个端点都投影到至少一张在所选组件中已配准的图像则为 true，否则 false</p>
+                </div>
+                <p data-id="p_cp_exds_ex" data-vn="1"><b>示例：</b></p>
+                <pre data-id="pre_cp_exds_ex" data-vn="1">
+  $ExportDistanceConstraints(
+    Constraint name: $(constraintName)
+    Point A: $(pointA)
+    Point B: $(pointB)
+    Enable: $(Enable)
+    Defined distance: $(definedDistance)
+    Calculated distance: $(calculatedDistance)
+    Distance error: $(distanceError)
+    InCurrentComponent: $(InCurrentComponent)
+  )
+                </pre>
+            </div>
+            
+            <p data-id="p_cp_dcer" data-vn="1"><span class="appproperty">DistanceConstraintError</span> —— 该函数提供若干变量，用于输出全部或仅所选距离约束的信息。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_cp_dcer_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_cp_dcer_syn" data-vn="1">
+  $DistanceConstraintError( index, anyText )</pre>
+                <p data-id="p_cp_dcer_par" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_cp_dcer_indx" data-vn="1"><span class="appproperty">index</span> —— 距离约束的索引值</p>
+                </div>
+                <p data-id="p_cp_dcer_avars" data-vn="1"><b>可用变量：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_cp_dcer_coer" data-vn="1"><span class="appproperty">constraintError</span> —— 所选距离约束的 <span class="appproperty">calculatedDistance</span> 减去 <span class="appproperty">definedDistance</span></p>
+                </div>
+                <p data-id="p_cp_dcer_ex" data-vn="1"><b>示例：</b></p>
+                <pre data-id="pre_cp_dcer_ex" data-vn="1">
+  $DistanceConstraintError( 1, 
+    Error: $(constraintError)
+  )
+                </pre>
+            </div>
+            
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_bc" class="blocksContainer">
+
+
+            <a href="reports_functions_and_variables.htm">
+                <div class="block TileColor3">
+                    <h2 data-id="h2_bc_script" data-vn="1">报告脚本基础</h2>
+                    <p data-id="p_h2_bc_script" data-vn="1">了解如何创建自定义报告模板</p>
+                </div>
+            </a>
+            
+            <a href="reports_fav_sets.htm">
+                <div class="block TileColor6">
+                    <h2 data-id="h2_bc_sets" data-vn="1">函数集</h2>
+                    <p data-id="p_h2_bc_sets" data-vn="1">函数集及其函数、表达式与变量</p>
+                </div>
+            </a>
+
+            <a href="reports_fav_basic.htm">
+                <div class="block TileColor3">
+                    <h2 data-id="h2_bc_basic" data-vn="1">基础函数</h2>
+                    <p data-id="p_h2_bc_basic" data-vn="1">项目信息、导出器作用域与基础函数集</p>
+                </div>
+            </a>
+
+            <a href="reports_fav_images.htm">
+                <div class="block TileColor3">
+                    <h2 data-id="h2_bc_images" data-vn="1">图像作用域</h2>
+                    <p data-id="p_h2_bc_images" data-vn="1">了解如何导出项目图像的信息</p>
+                </div>
+            </a>
+
+            <a href="reports_fav_components.htm">
+                <div class="block TileColor3">
+                    <h2 data-id="h2_bc_comp" data-vn="1">组件作用域</h2>
+                    <p data-id="p_h2_bc_comp" data-vn="1">组件导出的函数与变量</p>
+                </div>
+            </a>
+
+            <a href="reports_fav_cameras.htm">
+                <div class="block TileColor3">
+                    <h2 data-id="h2_bc_camera" data-vn="1">相机作用域</h2>
+                    <p data-id="p_h2_bc_camera" data-vn="1">了解如何获取相机信息</p>
+                </div>
+            </a>
+
+            <a href="reports_fav_points.htm">
+                <div class="block TileColor3">
+                    <h2 data-id="h2_bc_scene" data-vn="1">场景结构作用域</h2>
+                    <p data-id="p_h2_bc_scene" data-vn="1">了解如何向报告添加自定义点统计</p>
+                </div>
+            </a>
+
+            <a href="reports_fav_models.htm">
+                <div class="block TileColor6">
+                    <h2 data-id="h2_bc_models" data-vn="1">模型作用域</h2>
+                    <p data-id="p_h2_bc_models" data-vn="1">了解如何生成模型报告</p>
+                </div>
+            </a>
+
+            <a href="reports_fav_ortho.htm">
+                <div class="block TileColor6">
+                    <h2 data-id="h2_bc_ortho" data-vn="1">正射投影作用域</h2>
+                    <p data-id="p_h2_bc_ortho" data-vn="1">查看正射投影导出函数的清单</p>
+                </div>
+            </a>
+            
+            <a href="reports_fav_map.htm">
+                <div class="block TileColor6">
+                    <h2 data-id="h2_bc_map" data-vn="1">地图作用域</h2>
+                    <p data-id="p_h2_bc_map" data-vn="1">查看地图导出函数的清单</p>
+                </div>
+            </a>
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+    <script type="text/javascript">
+        InitializeTutorialMode();
+    </script>    
+
+</body>
+</html>
+<!-- signature:jBFOh2+izNl49jo/zoyM2Avyga7xlGzJK82+q7iw0lQnilxnh22O29vBouC5T7xIGCVfqYwwVMX+MNTO8jpO13CDexUQ2FwO264mCBcwrieePL2L/3pF8X8MTS5k7FvjjX+U9rB73g9ce+Xxa59cOypMI+q7U45q9D2NyXV876o= -->

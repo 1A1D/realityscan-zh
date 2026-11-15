@@ -1,0 +1,1073 @@
+﻿<html>
+<head>
+    <title>RealityScan 帮助</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Epic Games Slovakia s.r.o." />
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <link type="text/css" rel="stylesheet" href="../../styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/colors.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css"/>
+    <script src="../scripts/textVars.js" type="text/javascript"></script>
+    <script src="../../scripts/localization.js" type="text/javascript"></script>
+    <script src="../../scripts/main.js" type="text/javascript"></script>
+    <script type="text/javascript">InitializeHelpSlide();</script>
+</head>
+<body ondragstart="return false;">
+
+    <div data-id="div_cs" class="content_slide">
+
+        <!-- content slide -->
+
+        <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head" class="head">
+            <h1 data-id="h1" data-vn="1">键与值</h1>
+            <div data-id="p_h1" data-vn="2">
+                The command-line interface (CLI) of RealityScan allows its users to change various settings of the application with the <a href="../tutorials/commandline_4.htm"><span class="command">set</span></a> or <a href="../tutorials/commandline_4.htm"><span class="command">preset</span></a> command. 
+                This command requires a <span class="parameter">key</span> (identifying the setting you want to change) and a <span class="parameter">value</span>. The tables below contain keys and value types for the basic settings.
+
+                <div data-id="div_im_vari" data-vn="1" class="importantMessage">提示：建议先在应用程序界面中尝试各种设置，之后再到 CLI 中使用这些设置。</div>
+
+            </div>
+        </div>
+
+        <div data-id="div_sb_apse" class="slideblock splitSpacing">
+            <h2 data-id="h2_apse" data-vn="1">应用设置</h2>
+            <p data-id="p_h2_apse" data-vn="1" class="lod1">
+                这些设置位于 <span class="appribbon">Workflow</span> 选项卡。要了解应用设置的更多内容，请访问 <a href="../appbasics/appsettings.htm">此页面</a>。
+            </p>
+
+            <table class="tableofcommands">
+                <thead data-id="thead_apse" data-vn="1">
+                <tr>
+                    <th>名称</th> <th>键</th> <th>值</th> <th>默认值</th>
+                </tr>
+                </thead>
+                <tr data-id="tr_apse_insu" data-vn="1">
+                    <td>包含子目录<br/><span class="note">*仅适用于：addFolder 命令</span></td>
+                    <td class="command">appIncSubdirs</td> 
+                    <td class="parameter">bool</td>  
+                    <td>false</td>
+                </tr>
+                <tr data-id="tr_apse_lofi" data-vn="1">
+                    <td>日志文件</td>
+                    <td class="command">appLog</td> 
+                    <td class="parameter">bool</td>  
+                    <td>true</td>
+                </tr>
+                <tr data-id="tr_apse_oplo" data-vn="1">
+                    <td>操作日志数据</td>
+                    <td class="command">operationLog</td>
+                    <td class="parameter">bool</td>
+                    <td>true</td>
+                </tr>
+                <tr data-id="tr_apse_autosamo" data-vn="1">
+                    <td>自动保存模式</td>
+                    <td class="command">appAutoSaveMode</td> 
+                    <td class="parameter">bool</td>  
+                    <td>true</td>
+                </tr>
+                <tr data-id="tr_apse_handaut" data-vn="2">
+                    <td rowspan="4">自动保存项目的处理方式*<br/><span class="note">*定义使用 load 命令时如何加载自动保存的项目（若存在）。<br/> 有关自动保存功能的更多信息，请见 <a href="../appbasics/autosave.htm">此处</a>。</span></td>
+                    <td class="command" rowspan="4">appAutoSaveCliHandling</td>
+                    <td class="parameter">delete</td>
+                    <td rowspan="4">delete</td>
+                </tr>
+                <tr data-id="tr_apse_handre" data-vn="1">
+                    <td class="parameter">recover</td>
+                </tr>
+                <tr data-id="tr_apse_handab" data-vn="1">
+                    <td class="parameter">abort</td>
+                </tr>
+                <tr data-id="tr_apse_handask" data-vn="1">
+                    <td class="parameter">ask</td>
+                </tr>
+                <tr data-id="tr_apse_maxp" data-vn="1">
+                    <td>最大显示点数</td>
+                    <td class="command">appMaxPointsToDisplay</td>
+                    <td class="parameter">integer</td>
+                    <td>10000000</td>
+                </tr>
+                <tr data-id="tr_calo__v1" data-vn="1">
+                    <td rowspan="2">缓存位置</td>
+                    <td rowspan="2" class="command">appCacheLocation</td> 
+                    <td class="parameter">SystemTemp</td>  
+                    <td rowspan="2">SystemTemp</td>
+                </tr>
+                <tr data-id="tr_apse_cust" data-vn="1">
+                    <td class="parameter">Custom</td>
+                </tr>
+                <tr data-id="tr_apse_cacl" data-vn="1">
+                    <td>缓存自定义位置*<br/><span class="note">*仅适用于："appCacheLocation=Custom"</span></td>
+                    <td class="command">appCacheCustomLocation</td> 
+                    <td class="parameter">path</td>  
+                    <td></td>
+                </tr>
+                <tr data-id="tr_apse_ccoe" data-vn="2">
+                    <td rowspan="7">退出时清除缓存</td>
+                    <td class="command" rowspan="7">appAutoClearCache</td>
+                    <td class="parameter">999999 – 不清除缓存</td>
+                    <td rowspan="7">7 – 清除 1 周前的项目</td>
+                </tr>
+                <tr data-id="tr_apse_clal" data-vn="1">
+                    <td class="parameter">0 – 清除所有缓存项</td>
+                </tr>
+                <tr data-id="tr_apse_old3" data-vn="1">
+                    <td class="parameter">3 – 清除 3 天前的项目</td>
+                </tr>
+                <tr data-id="tr_apse_old7" data-vn="1">
+                    <td class="parameter">7 – 清除 1 周前的项目</td>
+                </tr>
+                <tr data-id="tr_apse_ol14" data-vn="1">
+                    <td class="parameter">14 – 清除 2 周前的项目</td>
+                </tr>
+                <tr data-id="tr_apse_al30" data-vn="1">
+                    <td class="parameter">30 – 清除 1 个月前的项目</td>
+                </tr>
+                <tr data-id="tr_apse_al90" data-vn="1">
+                    <td class="parameter">90 – 清除 3 个月前的项目</td>
+                </tr>
+                <tr data-id="tr_apse_came" data-vn="1">
+                    <td>缓存影像元数据</td>
+                    <td class="command">appCacheImageMetadata</td> 
+                    <td class="parameter">bool</td>  
+                    <td>true</td>
+                </tr>
+                <tr data-id="tr_apse_came1" data-vn="1">
+                    <td>允许只读*<br/><span class="note">*设为 true 时，可在两个程序实例中打开同一个项目。</span></td>
+                    <td class="command">allowReadOnly</td> 
+                    <td class="parameter">bool</td>  
+                    <td>false</td>
+                </tr>
+                <tr data-id="tr_apse_vila" data-vn="1">
+                    <th colspan="4">视觉与语言设置</th>
+                </tr>
+                <tr data-id="tr_apse_zoom" data-vn="1">
+                    <td rowspan="6">缩放</td>
+                    <td class="command" rowspan="6">appThemeZoom</td>
+                    <td class="parameter">0 - 使用 Windows 设置</td>
+                    <td rowspan="6">0 - 使用 Windows 设置</td>
+                </tr>
+                <tr data-id="tr_apse_z100" data-vn="1">
+                    <td class="parameter">1 - 100%</td> 
+                </tr>
+                <tr data-id="tr_apse_z125" data-vn="1">
+                <td class="parameter">1.25 - 125%</td>
+                </tr>
+                <tr data-id="tr_apse_z150" data-vn="1">
+                <td class="parameter">1.5 - 150%</td>
+                </tr>
+                <tr data-id="tr_apse_z200" data-vn="1">
+                <td class="parameter">2 - 4K（200%）</td>
+                </tr>
+                <tr data-id="tr_apse_z300" data-vn="1">
+                <td class="parameter">3 - 300%</td>
+                </tr>
+                <tr data-id="tr_apse_anui" data-vn="1">
+                    <td>界面动画</td>
+                    <td class="command">appUIAnim</td> 
+                    <td class="parameter">bool</td>  
+                    <td>true</td>
+                </tr>
+                <tr data-id="tr_apse_uila" data-vn="3">
+                    <td rowspan="10">界面语言</td>
+                    <td class="command" rowspan="10">UserInterfaceLanguageId</td> 
+                    <td class="parameter">2052 - 简体中文</td>  
+                    <td rowspan="10"></td>
+                </tr>
+                <tr data-id="tr_apse_1028" data-vn="1">
+                    <td class="parameter">1028 - 繁体中文</td> 
+                </tr>
+                <tr data-id="tr_apse_1029" data-vn="1">
+                    <td class="parameter">1029 - 捷克语</td> 
+                </tr>
+                <tr data-id="tr_apse_1033" data-vn="1">
+                    <td class="parameter">1033 - 英语</td> 
+                </tr>
+                <tr data-id="tr_apse_1036" data-vn="1">
+                <td class="parameter">1036 - 法语</td>
+                </tr>
+                <tr data-id="tr_apse_1031" data-vn="1">
+                <td class="parameter">1031 - 德语</td>
+                </tr>
+                <tr data-id="tr_apse_1040" data-vn="1">
+                <td class="parameter">1040 - 意大利语</td>
+                </tr>
+                <tr data-id="tr_apse_1041" data-vn="1">
+                <td class="parameter">1041 - 日语</td>
+                </tr>
+                <tr data-id="tr_apse_1042" data-vn="1">
+                <td class="parameter">1042 - 韩语</td>
+                </tr>
+                <tr data-id="tr_apse_3082" data-vn="1">
+                <td class="parameter">3082 - 西班牙语</td>
+                </tr>
+
+                <tr data-id="tr_apse_imse" data-vn="1">
+                    <th colspan="4">导入设置</th>
+                </tr>
+                <tr data-id="tr_apse_grex" data-vn="1">
+                    <td>按 EXIF 分组相机标定</td>
+                    <td class="command">appGroupCalibrationByExif</td> 
+                    <td class="parameter">bool</td>  
+                    <td>false</td>
+                </tr>
+                <tr data-id="tr_apse_coic" data-vn="1">
+                    <td>把导入的组件复制到缓存</td>
+                    <td class="command">appCopyImportedComponentsToCache</td> 
+                    <td class="parameter">bool</td>  
+                    <td>false</td>
+                </tr>
+                <tr data-id="tr_apse_igex" data-vn="1">
+                    <td>忽略 EXIF 中的 GPS 信息</td>
+                    <td class="command">appIgnoreExifGPS</td> 
+                    <td class="parameter">bool</td>  
+                    <td>false</td>
+                </tr>
+
+                <tr data-id="tr_apse_prno" data-vn="1">
+                    <th colspan="4">进度与通知</th>
+                </tr>
+                <tr data-id="tr_apse_mipd" data-vn="1">
+                    <td>最短进程时长</td>
+                    <td class="command">appProcessActionTime</td> 
+                    <td class="parameter">int</td>  
+                    <td>15</td>
+                </tr>
+                <tr data-id="tr_apse_acti" data-vn="1">
+                    <td rowspan="3">操作</td>
+                    <td class="command" rowspan="3">appProcessAction</td> 
+                    <td class="parameter">None</td>  
+                    <td rowspan="3">None</td>
+                </tr>
+                <tr data-id="tr_apse_plso" data-vn="1">
+                    <td class="parameter">PlaySound</td>
+                </tr>
+                <tr data-id="tr_apse_expr" data-vn="1">
+                    <td class="parameter">ExecuteProgram</td>
+                </tr>
+                <tr data-id="tr_apse_clpr" data-vn="1">
+                    <td>命令行进程*<br/><span class="note">*仅适用于："appProcessAction=ExecuteProgram"</span></td>
+                    <td class="command">appProcessExecCmd</td> 
+                    <td class="parameter">string</td>  
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+
+        <div data-id="div_sb_alse" class="slideblock splitSpacing">
+            <h2 data-id="h2_alse" data-vn="1">对齐设置</h2>
+            <p data-id="p_h2_alse" data-vn="1" class="lod1">
+                这些设置位于 <span class="appribbon">Alignment</span> 选项卡。要了解对齐设置的更多内容，请访问 <a href="../appbasics/alignsettings.htm">此页面</a>。
+            </p>
+
+            <table class="tableofcommands">
+                <thead data-id="thead_alse" data-vn="1">
+                    <tr>
+                    <th>名称</th> <th>键</th> <th>值</th> <th>默认值</th>
+                    </tr>
+                </thead>
+                <tr data-id="tr_alse_fdqu" data-vn="1">
+                    <td rowspan="2">特征检测质量</td>
+                    <td class="command" rowspan="2">sfmFeatureDetectionQuality</td>
+                    <td class="parameter">High</td>
+                    <td rowspan="2">High</td>
+                </tr>
+                <tr data-id="tr_alse_fdqun" data-vn="1">
+                    <td class="parameter">Normal</td>
+                </tr>
+                <tr data-id="tr_alse_mfpm" data-vn="1">
+                    <td>每百万像素最大特征数</td>
+                    <td class="command">sfmMaxFeaturesPerMpx</td> 
+                    <td class="parameter">int</td>  
+                    <td>10000</td>
+                </tr>
+                <tr data-id="tr_alse_mfpi" data-vn="1">
+                    <td>每幅影像最大特征数</td>
+                    <td class="command">sfmMaxFeaturesPerImage</td> 
+                    <td class="parameter">int</td>  
+                    <td>40000</td>
+                </tr>
+                <tr data-id="tr_alse_imov" data-vn="1">
+                    <td rowspan="3">影像重叠度</td>
+                    <td class="command" rowspan="3">sfmImagesOverlap</td> 
+                    <td class="parameter">Low</td>  
+                    <td rowspan="3">Medium</td>
+                </tr>
+                <tr data-id="tr_alse_mediov" data-vn="1">
+                    <td class="parameter">Medium</td>  
+                </tr>
+                <tr data-id="tr_alse_highov" data-vn="1">
+                    <td class="parameter">High</td>  
+                </tr>
+                <tr data-id="tr_alse_imdfov" data-vn="1">
+                    <td>影像降采样系数</td>
+                    <td class="command">sfmImageDownscaleFactor</td> 
+                    <td class="parameter">int</td>  
+                    <td>1</td>
+                </tr>
+                <tr data-id="tr_alse_mfre" data-vn="1">
+                    <td>最大特征重投影误差</td>
+                    <td class="command">sfmMaxFeatureReprojectionError</td> 
+                    <td class="parameter">float</td>  
+                    <td>2.0</td>
+                </tr>
+
+                <tr data-id="tr_alse_capr" data-vn="2">
+                    <th colspan="4">相机先验设置</th>
+                </tr>
+                <tr data-id="tr_alse_enab" data-vn="2">
+                    <td>使用相机先验进行地理配准</td>
+                    <td class="command">sfmEnableCameraPrior</td> 
+                    <td class="parameter">bool</td>  
+                    <td>true</td>
+                </tr>
+                <tr data-id="tr_alse_xacc" data-vn="1">
+                    <td>X 位置精度</td>
+                    <td class="command">sfmCameraPriorAccuracyX</td> 
+                    <td class="parameter">float</td>  
+                    <td>10.0</td>
+                </tr>
+                <tr data-id="tr_alse_yacc" data-vn="1">
+                    <td>Y 位置精度</td>
+                    <td class="command">sfmCameraPriorAccuracyY</td> 
+                    <td class="parameter">float</td>  
+                    <td>10.0</td>
+                </tr>
+                <tr data-id="tr_alse_zacc" data-vn="1">
+                    <td>Z 位置精度</td>
+                    <td class="command">sfmCameraPriorAccuracyZ</td> 
+                    <td class="parameter">float</td>  
+                    <td>20.0</td>
+                </tr>
+                <tr data-id="tr_alse_poprhard" data-vn="1">
+                    <td>位置先验硬度</td>
+                    <td class="command">sfmCameraPriorWeight</td> 
+                    <td class="parameter">float</td>  
+                    <td>1.0</td>
+                </tr>
+                <tr data-id="tr_alse_yaw" data-vn="1">
+                    <td>偏航角精度</td>
+                    <td class="command">sfmCameraPriorAccuracyYaw</td> 
+                    <td class="parameter">float</td>  
+                    <td>10.0</td>
+                </tr>
+                <tr data-id="tr_alse_pitch" data-vn="1">
+                    <td>俯仰角精度</td>
+                    <td class="command">sfmCameraPriorAccuracyPitch</td> 
+                    <td class="parameter">float</td>  
+                    <td>10.0</td>
+                </tr>
+                <tr data-id="tr_alse_roll" data-vn="1">
+                    <td>翻滚角精度</td>
+                    <td class="command">sfmCameraPriorAccuracyRoll</td> 
+                    <td class="parameter">float</td>  
+                    <td>10.0</td>
+                </tr>
+                <tr data-id="tr_alse_oriehard" data-vn="1">
+                    <td>姿态先验硬度</td>
+                    <td class="command">sfmCameraPriorWeightOrientation</td> 
+                    <td class="parameter">float</td>  
+                    <td>1.0</td>
+                </tr>
+                <tr data-id="tr_alse_cppr" data-vn="1">
+                    <th colspan="4">控制点先验设置</th>
+                </tr>
+                <tr data-id="tr_alse_immeasacc" data-vn="1">
+                    <td>影像测量精度 [px]</td>
+                    <td class="command">sfmControPointImageMeasAccuracy</td> 
+                    <td class="parameter">float</td>  
+                    <td>2.0</td>
+                </tr>
+                <tr data-id="tr_alse_cpx" data-vn="1">
+                    <td>X 位置精度</td>
+                    <td class="command">sfmControlPointXAccuracy</td> 
+                    <td class="parameter">float</td>  
+                    <td>0.05</td>
+                </tr>
+                <tr data-id="tr_alse_cpy" data-vn="1">
+                    <td>Y 位置精度</td>
+                    <td class="command">sfmControlPointYAccuracy</td> 
+                    <td class="parameter">float</td>  
+                    <td>0.05</td>
+                </tr>
+                <tr data-id="tr_alse_cpz" data-vn="1">
+                    <td>Z 位置精度</td>
+                    <td class="command">sfmControlPointZAccuracy</td> 
+                    <td class="parameter">float</td>  
+                    <td>0.10</td>
+                </tr>
+                <tr data-id="tr_alse_dist" data-vn="1">
+                    <td>定义距离精度</td>
+                    <td class="command">sfmDefinedDistanceAccuracy</td> 
+                    <td class="parameter">float</td>  
+                    <td>0.10</td>
+                </tr>
+
+                <tr data-id="tr_alse_drmo" data-vn="1">
+                    <th colspan="4">草稿模式</th>
+                </tr>
+                <tr data-id="tr_alse_ovim" data-vn="1">
+                    <td rowspan="3">影像重叠度</td>
+                    <td class="command" rowspan="3">sfmImagesOverlapDraftMode</td> 
+                    <td class="parameter">Low</td>  
+                    <td rowspan="3">Medium</td>
+                </tr>
+                <tr data-id="tr_alse_medidm" data-vn="1">
+                    <td class="parameter">Medium</td>
+                </tr>
+                <tr data-id="tr_alse_highdm" data-vn="1">
+                    <td class="parameter">High</td>
+                </tr>
+                <tr data-id="tr_alse_imdfdm" data-vn="1">
+                    <td>影像降采样系数</td>
+                    <td class="command">sfmImageDownscaleFactorDraftMode</td> 
+                    <td class="parameter">integer</td>  
+                    <td>2</td>
+                </tr>
+                <tr data-id="tr_alse_fmop" data-vn="1">
+                    <td>最终模型优化</td>
+                    <td class="command">sfmFinalModelOptimizationDraftMode</td> 
+                    <td class="parameter">bool</td>  
+                    <td>false</td>
+                </tr>
+
+                <tr data-id="tr_alse_adva" data-vn="1">
+                    <th colspan="4">Advanced</th>
+                </tr>
+                <tr data-id="tr_alse_arra" data-vn="1">
+                    <td>对齐后添加重建区域</td>
+                    <td class="command">sfmAutoReconRegionAfterAlignment</td> 
+                    <td class="parameter">bool</td>  
+                    <td>true</td>
+                </tr>
+                <tr data-id="tr_alse_fcre" data-vn="1">
+                    <td>强制重新匹配组件</td>
+                    <td class="command">sfmForceComponentRematch</td> 
+                    <td class="parameter">bool</td>  
+                    <td>false</td>
+                </tr>
+                <tr data-id="tr_alse_prfe" data-vn="1">
+                    <td>预选器特征</td>
+                    <td class="command">sfmPreselectorFeatures</td> 
+                    <td class="parameter">int</td>  
+                    <td>10000</td>
+                </tr>
+                <tr data-id="tr_alse_dese" data-vn="1">
+                    <td rowspan="4">检测器灵敏度</td>
+                    <td rowspan="4" class="command">sfmDetectorSensitivity</td> 
+                    <td class="parameter">Low</td>  
+                    <td rowspan="4">Medium</td>
+                </tr>
+                <tr data-id="tr_alse_medids" data-vn="1">
+                    <td class="parameter">Medium</td>  
+                </tr>
+                <tr data-id="tr_alse_highds" data-vn="1">
+                    <td class="parameter">High</td>  
+                </tr>
+                <tr data-id="tr_alse_ultr" data-vn="1">
+                    <td class="parameter">Ultra</td>  
+                </tr>
+                <tr data-id="tr_alse_mgec" data-vn="1">
+                    <td>合并已地理配准的组件</td>
+                    <td class="command">sfmMergeGeoreferencedComponents</td> 
+                    <td class="parameter">bool</td>  
+                    <td>false</td>
+                </tr>
+                <tr data-id="tr_alse_dimo" data-vn="1">
+                    <td rowspan="7">畸变模型</td>
+                    <td class="command" rowspan="7">sfmDistortionModel</td> 
+                    <td class="parameter">Division</td>  
+                    <td rowspan="7">Brown3</td>
+                </tr>
+                <tr data-id="tr_alse_bro3" data-vn="1">
+                    <td class="parameter">Brown3</td>
+                </tr>
+                <tr data-id="tr_alse_bro4" data-vn="1">
+                    <td class="parameter">Brown4</td>
+                </tr>
+                <tr data-id="tr_alse_br3t" data-vn="1">
+                    <td class="parameter">Brown3WithTangential2</td>
+                </tr>
+                <tr data-id="tr_alse_br4t" data-vn="1">
+                    <td class="parameter">Brown4WithTangential2</td>
+                </tr>
+                <tr data-id="tr_alse_kb3t" data-vn="1">
+                    <td class="parameter">KplusBrown3WithTangential2</td>
+                </tr>
+                <tr data-id="tr_alse_kb4t" data-vn="1">
+                    <td class="parameter">KplusBrown4WithTangential2</td>
+                </tr>
+                <tr data-id="tr_alse_przf" data-vn="2">
+                    <td>导入 Z+F 扫描时优先使用影像作为特征来源</td>
+                    <td class="command">lisPreferImagesAsFeatureSource</td>
+                    <td class="parameter">bool</td>
+                    <td>true</td>
+                </tr>
+            </table>
+        </div>
+
+        <div data-id="div_sb_rese" class="slideblock splitSpacing">
+            <h2 data-id="h2_rese" data-vn="1">重建设置</h2>
+            <p data-id="p_h2_rese" data-vn="3" class="lod1">
+                这些设置位于 <span class="appribbon">MESH &amp; COLOR</span> 选项卡的 <span class="apppanel">Create Mesh</span> 部分。要了解重建设置的更多内容，请访问 <a href="../appbasics/modelsettings.htm">此页面</a>。
+            </p>
+
+            <!-- tato tabulka bola vygenerovana priamo zo setting panelu - kukni SettingsPanels.h/.cpp revision 2433, casti kodu pod makrom EXPORT_HELP_TABLE_ON_SETUP -->
+            <table class="tableofcommands">
+                <thead data-id="thead_rese" data-vn="1">
+                <tr>
+                    <th>名称</th> <th>键</th> <th>值</th> <th>默认值</th>
+                </tr>
+                </thead>
+                <tr data-id="tr_rese_prev" data-vn="1">
+                    <th colspan="4">影像深度图计算 - 预览模型</th>
+                </tr>
+                <tr data-id="tr_rese_idpr" data-vn="1">
+                    <td>影像降采样</td>
+                    <td class="command">mvsPreviewDownscaleFactor</td>
+                    <td class="parameter">int</td>
+                    <td>4</td>
+                </tr>
+
+                <tr data-id="tr_rese_norm" data-vn="1">
+                    <th colspan="4">影像深度图计算 - 常规模型</th>
+                </tr>
+                <tr data-id="tr_rese_idno" data-vn="1">
+                    <td>影像降采样</td>
+                    <td class="command">mvsNormalDownscaleFactor</td>
+                    <td class="parameter">int</td>
+                    <td>2</td>
+                </tr>
+
+                <tr data-id="tr_rese_lasc" data-vn="2">
+                    <th colspan="4">LiDAR 扫描</th>
+                </tr>
+                <tr data-id="tr_rese_mid2" data-vn="1">
+                    <td>两点间最小距离</td>
+                    <td class="command">mvsMinSampleDistanceLaserScan</td>
+                    <td class="parameter">float</td>
+                    <td>0.002</td>
+                </tr>
+                <tr data-id="tr_rese_pcgr" data-vn="1">
+                    <td>点云裁剪半径</td>
+                    <td class="command">mvsMaxSampleDistanceLaserScan</td>
+                    <td class="parameter">float</td>
+                    <td>150.0</td>
+                </tr>
+                <tr data-id="tr_rese_miin" data-vn="1">
+                    <td>最小强度</td>
+                    <td class="command">mvsMinIntensityLaserScan</td>
+                    <td class="parameter">float</td>
+                    <td>0.03</td>
+                </tr>
+
+                <tr data-id="tr_rese_meca" data-vn="1">
+                    <th colspan="4">网格计算</th>
+                </tr>
+                <tr data-id="tr_rese_gpuacc" data-vn="1">
+                    <td>GPU 加速</td>
+                    <td class="command">MvsGeometryGpuAccel</td>
+                    <td class="parameter">bool</td>
+                    <td>true</td>
+                </tr>
+                <tr data-id="tr_rese_remmarg" data-vn="1">
+                    <td>移除边缘三角形</td>
+                    <td class="command">MvsGeometryMarginStyle</td>
+                    <td class="parameter">bool</td>
+                    <td>false</td>
+                </tr>           
+                <tr data-id="tr_rese_md2v" data-vn="1">
+                    <td>两顶点间最小距离</td>
+                    <td class="command">mvsMinSampleDistance</td>
+                    <td class="parameter">float</td>
+                    <td>0.0</td>
+                </tr>
+
+                <tr data-id="tr_rese_mepr" data-vn="1">
+                    <th colspan="4">网格计算 - 预览模型</th>
+                </tr>
+                <tr data-id="tr_rese_mecs" data-vn="1">
+                    <td rowspan="2">网格计算策略</td>
+                    <td class="command" rowspan="2">mvsPreviewMeshStrategy</td>
+                    <td class="parameter">sfm - 使用稀疏点云</td>
+                    <td rowspan="2">sfm</td>
+                </tr>
+                <tr data-id="tr_alse_veco" data-vn="1">
+                    <td class="parameter">vertexCount - 最大顶点数</td>
+                </tr>
+                <tr data-id="tr_rese_mvspms" data-vn="1">
+                    <td>最大顶点数*<br/><span class="note">*仅适用于："mvsPreviewMeshStrategy=vertexCount"</span></td>
+                    <td class="command">mvsPreviewMaxVetrexCountInModel</td>
+                    <td class="parameter">int</td>
+                    <td>10000000</td>
+                </tr>
+                <tr data-id="tr_rese_adva" data-vn="1">
+                    <th colspan="4">Advanced</th>
+                </tr>
+                <tr data-id="tr_rese_mvcip" data-vn="1">
+                    <td>每个分块的最大顶点数</td>
+                    <td class="command">mvsMaxVertexCountInPart</td>
+                    <td class="parameter">int</td>
+                    <td>5000000</td>
+                </tr>
+                <tr data-id="tr_rese_mvsdedf" data-vn="1">
+                    <td>细节抽稀系数</td>
+                    <td class="command">mvsDecimationFactor</td>
+                    <td class="parameter">float</td>
+                    <td>1.0</td>
+                </tr>
+                <tr data-id="tr_dpth_ver1" data-vn="1">
+                    <td rowspan="2">深度图算法版本</td>
+                    <td class="command" rowspan="2">MvsDepthMapsLibVersion</td>
+                    <td class="parameter">0 - 版本 1</td>
+                    <td rowspan="2">1</td>
+                </tr>
+                <tr data-id="tr_dpth_ver2" data-vn="1">
+                    <td class="parameter">1 - 版本 2</td>
+                </tr>            
+                <tr data-id="tr_rese_adbs" data-vn="1">
+                    <td>自适应混合起始值</td>
+                    <td class="command">mvsAdaptiveBlendingStart</td>
+                    <td class="parameter">float</td>
+                    <td>0.45</td>
+                </tr>
+                <tr data-id="tr_rese_smoo" data-vn="1">
+                    <td>平滑</td>
+                    <td class="command">mvsSmoothingWeight</td>
+                    <td class="parameter">float</td>
+                    <td>1.5</td>
+                </tr>
+                <tr data-id="tr_rese_adph" data-vn="1">
+                    <th colspan="4">高级 - 摄影测量</th>
+                </tr>
+                <tr data-id="tr_rese_degf" data-vn="1">
+                    <td>默认分组系数</td>
+                    <td class="command">mvsDefaultGroupingFactor</td>
+                    <td class="parameter">float</td>
+                    <td>1.0</td>
+                </tr>
+                <tr data-id="tr_rese_ltgf" data-vn="1">
+                    <td>低纹理分组系数</td>
+                    <td class="command">mvsLowTextureGroupingFactor</td>
+                    <td class="parameter">float</td>
+                    <td>0.25</td>
+                </tr>
+                <tr data-id="tr_rese_denf" data-vn="1">
+                    <td>默认噪声系数</td>
+                    <td class="command">mvsDefaultNoiseFactor</td>
+                    <td class="parameter">float</td>
+                    <td>1.0</td>
+                </tr>
+                <tr data-id="tr_rese_ltnf" data-vn="1">
+                    <td>低纹理噪声系数</td>
+                    <td class="command">mvsLowTextureNoiseFactor</td>
+                    <td class="parameter">float</td>
+                    <td>2.0</td>
+                </tr>
+
+                <tr data-id="tr_rese_admf" data-vn="1">
+                    <th colspan="4">高级 - 网格过滤</th>
+                </tr>
+                <tr data-id="tr_rese_fira" data-vn="1">
+                    <td>过滤半径</td>
+                    <td class="command">mvsFilteringRadius</td>
+                    <td class="parameter">float</td>
+                    <td>3.0</td>
+                </tr>
+                <tr data-id="tr_rese_fist" data-vn="1">
+                    <td>过滤强度</td>
+                    <td class="command">mvsFilteringStrength</td>
+                    <td class="parameter">int</td>
+                    <td>2</td>
+                </tr>
+
+                <tr data-id="tr_rese_admi" data-vn="1">
+                    <th colspan="4">高级 - 模型导入</th>
+                </tr>
+                <tr data-id="tr_rese_mvcppmi" data-vn="1">
+                    <td>每个分块的最大顶点数</td>
+                    <td class="command">mvsImportMaxTrianglesPerPart</td>
+                    <td class="parameter">int</td>
+                    <td>100000000</td>
+                </tr>
+            </table>
+        </div>
+
+        <div data-id="div_sb_ctse" class="slideblock splitSpacing">
+            <h2 data-id="h2_ctse" data-vn="1">颜色与纹理设置</h2>
+            <p data-id="p_h2_ctse" data-vn="3" class="lod1">
+                这些设置位于 <span class="appribbon">MESH &amp; COLOR</span> 选项卡的 <span class="apppanel">Color &amp; Texture</span> 部分。要了解重建设置的更多内容，请访问 <a href="../appbasics/modelsettings.htm">此页面</a>。
+            </p>
+            <table class="tableofcommands">
+                <thead data-id="thead_ctse" data-vn="1">
+                <tr>
+                    <th>名称</th> <th>键</th> <th>值</th> <th>默认值</th>
+                </tr>
+                </thead>
+                <tr data-id="tr_ctse_deup" data-vn="1">
+                    <th colspan="4">默认 UV 展开参数</th>
+                </tr>
+                <tr data-id="tr_ctse_gutt" data-vn="1">
+                    <td>边距（Gutter）</td>
+                    <td class="command">unwrapGutter</td>
+                    <td class="parameter">int</td>
+                    <td>2</td>
+                </tr>
+                <tr data-id="tr_ctse_mitr" data-vn="1">
+                    <td rowspan="6">最小纹理分辨率</td>
+                    <td rowspan="6" class="command">unwrapMinTexResolution</td>
+                    <td class="parameter">512</td>
+                    <td rowspan="6">512</td>
+                </tr>
+                <tr data-id="tr_ctmi_1024">
+                    <td class="parameter">1024</td>
+                </tr>
+                <tr data-id="tr_ctmi_2048">
+                    <td class="parameter">2048</td>
+                </tr>
+                <tr data-id="tr_ctmi_4096">
+                    <td class="parameter">4096</td>
+                </tr>
+                <tr data-id="tr_ctmi_8192">
+                    <td class="parameter">8192</td>
+                </tr>
+                <tr data-id="tr_ctmi_16384">
+                    <td class="parameter">16384</td>
+                </tr>
+                <tr data-id="tr_ctse_matr" data-vn="1">
+                    <td rowspan="6">最大纹理分辨率</td>
+                    <td rowspan="6" class="command">unwrapMaxTexResolution</td>
+                    <td class="parameter">512</td>
+                    <td rowspan="6">8192</td>
+                </tr>
+                <tr data-id="tr_ctse_1024">
+                    <td class="parameter">1024</td>
+                </tr>
+                <tr data-id="tr_ctse_2048">
+                    <td class="parameter">2048</td>
+                </tr>
+                <tr data-id="tr_ctse_4096">
+                    <td class="parameter">4096</td>
+                </tr>
+                <tr data-id="tr_ctse_8192">
+                    <td class="parameter">8192</td>
+                </tr>
+                <tr data-id="tr_ctse_16384">
+                    <td class="parameter">16384</td>
+                </tr>
+                <tr data-id="tr_ctse_ltrt" data-vn="1">
+                    <td>大三角形移除阈值</td>
+                    <td class="command">unwrapLargeTriangleRemovalThr</td>
+                    <td class="parameter">int</td>
+                    <td>10</td>
+                </tr>
+                <tr data-id="tr_ctse_styl" data-vn="1">
+                    <td rowspan="3">样式</td>
+                    <td rowspan="3" class="command">unwrapStyle</td>
+                    <td class="parameter">MaxTexturesCount</td>
+                    <td rowspan="3">MaxTexturesCount</td>
+                </tr>
+                <tr data-id="tr_ctse_fits" data-vn="1">
+                    <td class="parameter">FixedTexelSize</td>
+                </tr>
+                <tr data-id="tr_ctse_adts" data-vn="1">
+                    <td class="parameter">AdaptiveTexelSize</td>
+                </tr>
+                <tr data-id="tr_ctse_matc" data-vn="1">
+                    <td>最大纹理数量*<br/><span class="note">*仅适用于："unwrapStyle=MaxTexturesCount"</span></td>
+                    <td class="command">unwrapMaximalTexCount</td>
+                    <td class="parameter">int</td>
+                    <td>1</td>
+                </tr>
+
+                <tr data-id="tr_ctse_tesi" data-vn="1">
+                    <td rowspan="6">纹理元素尺寸*<br/><span class="note">*仅适用于："unwrapStyle=FixedTexelSize"</span></td>
+                    <td rowspan="6" class="command">unwrapFixedTexelSizeType</td>
+                    <td class="parameter">0 - 最优</td>
+                    <td rowspan="6">0</td>
+                </tr>
+                <tr data-id="tr_ctse_tesi1" data-vn="1">
+                    <td class="parameter">1 - 2 倍最优（50% 纹理质量）</td>
+                </tr>
+                <tr data-id="tr_ctse_tesi2" data-vn="1">
+                    <td class="parameter">2 - 4 倍最优（25% 纹理质量）</td>
+                </tr>
+                <tr data-id="tr_ctse_tesi3" data-vn="1">
+                    <td class="parameter">3 - 10 倍最优（10% 纹理质量）</td>
+                </tr>
+                <tr data-id="tr_ctse_tesi4" data-vn="1">
+                    <td class="parameter">4 - 100 倍最优（1% 纹理质量）</td>
+                </tr>
+                <tr data-id="tr_ctse_tesi5" data-vn="1">
+                    <td class="parameter">5 - 自定义</td>
+                </tr>
+                <tr data-id="tr_ctse_cuts" data-vn="1">
+                    <td>自定义纹理元素尺寸*<br/><span class="note">*仅适用于："unwrapStyle=FixedTexelSize"<br /> "unwrapFixedTexelSizeType =5"</span></td>
+                    <td class="command">unwrapFixedTexelSize</td>
+                    <td class="parameter">float</td>
+                    <td>0.01</td>
+                </tr>
+
+                <tr data-id="tr_ctse_mrts" data-vn="1">
+                    <td rowspan="6">最小所需纹理元素尺寸*<br/><span class="note">*仅适用于："unwrapStyle=AdaptiveTexelSize"</span></td>
+                    <td rowspan="6" class="command">unwrapMinTexelSize</td>
+                    <td class="parameter">0 - 最优</td>
+                    <td rowspan="6">0</td>
+                </tr>
+                <tr data-id="tr_ctse_mir1" data-vn="1">
+                    <td class="parameter">1 – 2 倍最优（50% 纹理质量）</td>
+                </tr>
+                <tr data-id="tr_ctse_mir2" data-vn="1">
+                    <td class="parameter">2 – 4 倍最优（25% 纹理质量）</td>
+                </tr>
+                <tr data-id="tr_ctse_mir3" data-vn="1">
+                    <td class="parameter">3 – 10 倍最优（10% 纹理质量）</td>
+                </tr>
+                <tr data-id="tr_ctse_mir4" data-vn="1">
+                    <td class="parameter">4 – 100 倍最优（1% 纹理质量）</td>
+                </tr>
+                <tr data-id="tr_ctse_mir5" data-vn="1">
+                    <td class="parameter">5 - 自定义</td>
+                </tr>
+
+                <tr data-id="tr_ctse_cumi" data-vn="1">
+                    <td>自定义最小所需纹理元素尺寸*<br/><span class="note">*仅适用于："unwrapStyle=FixedTexelSize"<br /> "unwrapFixedTexelSizeType =5"</span></td>
+                    <td class="command">unwrapMinTexelSize</td>
+                    <td class="parameter">float</td>
+                    <td>0.01</td>
+                </tr>
+
+                <tr data-id="tr_ctse_mare" data-vn="1">
+                    <td rowspan="6">最大所需纹理元素尺寸*<br/><span class="note">*仅适用于："unwrapStyle=AdaptiveTexelSize"</span></td>
+                    <td rowspan="6" class="command">unwrapMaxTexelSize</td>
+                    <td class="parameter">0 - 最优</td>
+                    <td rowspan="6">4</td>
+                </tr>
+                <tr data-id="tr_ctse_mare1" data-vn="1">
+                    <td class="parameter">1 – 2 倍最优（50% 纹理质量）</td>
+                </tr>
+                <tr data-id="tr_ctse_mare2" data-vn="1">
+                    <td class="parameter">2 – 4 倍最优（25% 纹理质量）</td>
+                </tr>
+                <tr data-id="tr_ctse_mare3" data-vn="1">
+                    <td class="parameter">3 – 10 倍最优（10% 纹理质量）</td>
+                </tr>
+                <tr data-id="tr_ctse_mare4" data-vn="1">
+                    <td class="parameter">4 – 100 倍最优（1% 纹理质量）</td>
+                </tr>
+                <tr data-id="tr_ctse_mare5" data-vn="1">
+                    <td class="parameter">5 - 自定义</td>
+                </tr>
+
+                <tr data-id="tr_ctse_cuma" data-vn="1">
+                    <td>自定义最大所需纹理元素尺寸*<br/><span class="note">*仅适用于："unwrapStyle=FixedTexelSize"<br /> "unwrapFixedTexelSizeType =5"</span></td>
+                    <td class="command">unwrapMaxTexelSize</td>
+                    <td class="parameter">float</td>
+                    <td>10</td>
+                </tr>
+
+                <tr data-id="tr_ctse_cote" data-vn="1">
+                    <th colspan="4">着色 / 纹理</th>
+                </tr>
+                <tr data-id="tr_cote_imdtp" data-vn="1">
+                    <td rowspan="6">导入模型的默认纹理分辨率</td>
+                    <td rowspan="6" class="command">txtImportDefaultTexResolution</td>
+                    <td class="parameter">512</td>
+                    <td rowspan="6">8192</td>
+                </tr>
+                <tr data-id="tr_cote_1024">
+                    <td class="parameter">1024</td>
+                </tr>
+                <tr data-id="tr_cote_2048">
+                    <td class="parameter">2048 </td>
+                </tr>
+                <tr data-id="tr_cote_4096">
+                    <td class="parameter">4096</td>
+                </tr>
+                <tr data-id="tr_cote_8192">
+                    <td class="parameter">8192</td>
+                </tr>
+                <tr data-id="tr_cote_16384">
+                    <td class="parameter">16384</td>
+                </tr>
+                <tr data-id="tr_cote_come" data-vn="1">
+                    <td rowspan="2">着色方法</td>
+                    <td rowspan="2" class="command">txtMethod</td>
+                    <td class="parameter">Linear</td>
+                    <td rowspan="2">MultiBand</td>
+                </tr>
+                <tr data-id="tr_cote_muba" data-vn="1">
+                    <td class="parameter">MultiBand</td>
+                </tr>
+                <tr data-id="tr_cote_cost" data-vn="1">
+                    <td rowspan="2">着色风格</td>
+                    <td rowspan="2" class="command">colStyle</td>
+                    <td class="parameter">PhotoConsistencyBased</td>
+                    <td rowspan="2">VisibilityBased</td>
+                </tr>
+                <tr data-id="tr_cote_viba" data-vn="1">
+                    <td class="parameter">VisibilityBased</td>
+                </tr>
+                <tr data-id="tr_cote_colimglay" data-vn="2">
+                    <td rowspan="3">着色影像图层</td>
+                    <td rowspan="3" class="command">ImageLayerForColoring</td>
+                    <td class="parameter">geometry/name_of_geometry_layer</td>
+                    <td rowspan="3">geometry（若不存在纹理图层）<br/> texture01（若存在任意纹理图层）
+                    </td>
+                </tr>
+                <tr data-id="tr_cote_txt1" data-vn="2">
+                    <td class="parameter">texture01/name_of_texture_layer</td>
+                </tr>
+                <tr data-id="tr_cote_txt2" data-vn="2">
+                    <td class="parameter">texture2/name_of_texture_layer2</td>
+                </tr>
+                <tr data-id="tr_cote_test" data-vn="2">
+                    <td rowspan="6">纹理风格</td>
+                    <td rowspan="6" class="command">txtStyle</td>
+                    <td class="parameter">PhotoConsistencyBased</td>
+                    <td rowspan="6">VisibilityBased</td>
+                </tr>
+                <tr data-id="tr_test_viba" data-vn="1">
+                    <td class="parameter">VisibilityBased</td>
+                </tr>
+                <tr data-id="tr_test_moba" data-vn="1">
+                    <td class="parameter">MosaicingBased</td>
+                </tr>
+                <tr data-id="tr_test_main" data-vn="1">
+                    <td class="parameter">MaximalIntensity</td>
+                </tr>
+                <tr data-id="tr_test_miin" data-vn="1">
+                    <td class="parameter">MinimalIntensity</td>
+                </tr>
+                <tr data-id="tr_test_avin" data-vn="1">
+                    <td class="parameter">AverageIntensity</td>
+                </tr>
+                <tr data-id="tr_cote_teximglay" data-vn="1">
+                    <td rowspan="4">纹理影像图层</td>
+                    <td rowspan="4" class="command">ImageLayerForTexturing</td>
+                    <td class="parameter">geometry/name_of_geometry_layer</td>
+                    <td rowspan="4">all（所有纹理图层）
+                    </td>
+                </tr>
+                <tr data-id="tr_teximglay_txt1" data-vn="1">
+                    <td class="parameter">texture01/name_of_texture_layer</td>
+                </tr>
+                <tr data-id="tr_teximglay_txt2" data-vn="1">
+                    <td class="parameter">texture2/name_of_texture_layer2</td>
+                </tr>
+                <tr data-id="tr_teximglay_txtall" data-vn="1">
+                    <td class="parameter">all</td>
+                </tr>
+                <tr data-id="tr_test_difbt" data-vn="1">
+                    <td>纹理生成前降采样影像</td>
+                    <td class="command">txtImageDownscaleTexture</td>
+                    <td class="parameter">int</td>
+                    <td>1</td>
+                </tr>
+                <tr data-id="tr_test_difbc" data-vn="1">
+                    <td>着色前降采样影像</td>
+                    <td class="command">txtImageDownscaleColor</td>
+                    <td class="parameter">int</td>
+                    <td>2</td>
+                </tr>
+                <tr data-id="tr_test_fiucp" data-vn="1">
+                    <td>填充未着色部分</td>
+                    <td class="command">txtFillInUncoloredParts</td>
+                    <td class="parameter">bool</td>
+                    <td>true</td>
+                </tr>
+                <tr data-id="tr_test_fiutp" data-vn="1">
+                    <td>填充未贴纹理部分</td>
+                    <td class="command">txtFillInUntextoredParts</td>
+                    <td class="parameter">bool</td>
+                    <td>true</td>
+                </tr>
+                <tr data-id="tr_test_remat" data-vn="1">
+                    <td>纹理生成后重新着色模型</td>
+                    <td class="command">txtRecolorAfterTexturing</td>
+                    <td class="parameter">bool</td>
+                    <td>true</td>
+                </tr>
+                <tr data-id="tr_cote_dococo" data-vn="1">
+                    <td>校正颜色</td>
+                    <td class="command">MvsDoCorrectColors</td>
+                    <td class="parameter">bool</td>
+                    <td>false</td>
+                </tr>
+                <tr data-id="tr_cote_igncoco" data-vn="1">
+                    <td>忽略颜色校正</td>
+                    <td class="command">MvsIgnoreCorrectColors</td>
+                    <td class="parameter">bool</td>
+                    <td>false</td>
+                </tr>
+                <tr data-id="tr_test_hdr" data-vn="1">
+                    <td>优先生成 16 位 / HDR 纹理</td>
+                    <td class="command">MvsGeometryTexturingDoHdr</td>
+                    <td class="parameter">bool</td>
+                    <td>true</td>
+                </tr>
+            </table>
+        </div>
+
+        <div data-id="div_sb_erhs" class="slideblock splitSpacing">
+            <h2 data-id="h2_erhs" data-vn="1">错误处理设置</h2>
+            <p data-id="p_h2_erhs" data-vn="1" class="lod1">
+                通过以下设置，可处理命令行处理过程中可能出现的错误：
+            </p>
+            <table class="tableofcommands">
+                <thead data-id="thead_erhs" data-vn="1">
+                <tr>
+                    <th>名称</th> <th>键</th> <th>值</th> <th>默认值</th>
+                </tr>
+                </thead>
+                <tr data-id="tr_erhs_quoe" data-vn="1">
+                    <td>出错时退出</td>
+                    <td class="command">appQuitOnError</td> 
+                    <td class="parameter">bool</td>  
+                    <td>false</td>
+                </tr>
+                <tr data-id="tr_erhs_qurr" data-vn="1">
+                    <td>需要重启时退出</td>
+                    <td class="command">appQuitOnReset</td> 
+                    <td class="parameter">bool</td>  
+                    <td>false</td>
+                </tr>
+                <tr data-id="tr_erhs_supp" data-vn="1">
+                    <td>抑制错误消息</td>
+                    <td class="command">suppressErrors</td>
+                    <td class="parameter">bool</td>
+                    <td>false</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_bc" class="blocksContainer">
+
+            <a href="../tutorials/commandline_4.htm">
+                <div class="block TileColor2">
+                    <h2 data-id="h2_bc_seco" data-vn="1">了解如何使用 Set 命令</h2>
+                    <p data-id="p_h2_bc_seco" data-vn="1">查看命令行界面教程</p>
+                </div>
+            </a>
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+        <!-- content slide end -->
+
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+</body>
+</html>
+<!-- signature:cuQNpASGZxWSGlU1kUViiYsJzRCzw0rQ/tFZ+IfnvTetDl49tKW4T2U5aUchSqOJOskFZzgYOpM0Ee7qGgPkamVkgW++VvGgWsyJAaAYHzvXk/Njvszt3Ej4o3Ba2USfmGiKFWyJxJ2A4Y6wGgZP5J4s0E26bD3rdvTZzTFrtTo= -->

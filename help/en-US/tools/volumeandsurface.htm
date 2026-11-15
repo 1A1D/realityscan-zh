@@ -1,0 +1,123 @@
+﻿<html>
+<head>
+    <title>RealityScan 帮助</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Epic Games Slovakia s.r.o." />
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <link type="text/css" rel="stylesheet" href="../../styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/colors.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css" />
+    <script src="../scripts/textVars.js" type="text/javascript"></script>
+    <script src="../../scripts/localization.js" type="text/javascript"></script>
+    <script src="../../scripts/main.js" type="text/javascript"></script>
+</head>
+<body ondragstart="return false;">
+
+    <div data-id="div_cs" class="content_slide">
+
+        <!-- content slide -->
+        <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head" class="head">
+
+            <h1 data-id="h1" data-vn="1">体积与表面积测量</h1>
+            <p data-id="p_h1" data-vn="2">
+                体积与表面积是依据正射投影上创建的形状计算出来的，因此至少需要一个正射投影，且形状要用 <span class="appaspecttype">2D TOOLS</span> 上下文选项卡中的工具创建。 
+            </p>
+            
+            <p data-id="p_vnsm_panl" data-vn="1">
+                至少创建一个形状后选中它，就会出现 <span class="apppanel">Selected 2D region(s)</span> 面板。 
+            </p>
+            
+            <div style="padding: 10px 10px 10px 0px">
+                <img src="images/volumeandsurface_1.png" alt="volumeandsurface_1" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/volumeandsurface_1.png';"/>
+            </div>   
+
+            <p data-id="p_vnsm_mult" data-vn="1">
+                可以多选形状，查看这些形状合计的体积与面积信息。
+            </p>           
+            
+        </div>
+
+
+        <div class="slide_left_text">
+            <h3 data-id="h3_voli" data-vn="1">体积信息</h3>
+                <p data-id="p_h3_voli" data-vn="1">体积信息分为 <span class="appproperty">Cut volume</span>（基准面以上的体积）与 <span class="appproperty">Fill volume</span>（基准面以下的体积），从定义的基准面算到模型表面。修改 <span class="appproperty">Base plane type</span> 设置即可选择基准面：
+                </p>
+                <ul>
+                    <li data-id="li_voli_none" data-vn="1"><span class="appproperty">None</span> 未选择基准面时，体积信息不会更新，仍显示上次计算的体积。</li>
+                    <li data-id="li_voli_intp" data-vn="1"><span class="appproperty">Interpolated</span> 对所选形状内的地形做插值生成一个面。这种情况下该面不必是平的。</li>
+                    <li data-id="li_voli_mamh" data-vn="1"><span class="appproperty">在最小与最大高度处取平</span> 会生成两个基准面：底面位于所选测量形状内最低点的高度，顶面位于最高点的高度。据此，挖方体积从底面算到模型表面，填方体积从顶面算到模型表面。</li>
+                    <li data-id="li_voli_usdh" data-vn="1"><span class="appproperty">Flat at user-defined height</span> 可通过修改 <span class="appproperty">Base plane at height</span> 的值来自定义基准面高度。</li>
+                    <li data-id="li_voli_bftp" data-vn="1"><span class="appproperty">Best-fit plane</span> 用线性回归结合测量形状内的地形高度值，算出一个平面。</li>
+                </ul>
+
+                <br/>
+
+                <p data-id="p_voli_opts" data-vn="1">启用 <span class="appproperty">Show base plane</span> 可以在 <span class="appaspecttype">3D</span> 视图中显示所选基准面。若选择 <span class="appproperty">在最小与最大高度处取平</span> 类型，还可以选择显示顶面、底面，或都不显示。 
+                </p>
+
+        </div>
+
+        <br/>
+
+        <div class="slide_left_text">
+            <h3 data-id="h3_area" data-vn="1">面积信息</h3>
+                <p data-id="p_h3_area" data-vn="1">定义面积的只有两个值：
+                </p>
+                <ul>
+                    <li data-id="li_area_artw" data-vn="1"><span class="appproperty">Area 2D</span> 形状表面中平行于创建正射投影所用重建区域上表面的面积。</li>
+                    <li data-id="li_area_arth" data-vn="1"><span class="appproperty">Area 3D</span> 形状表面映射到模型上的面积。</li>
+                </ul>
+
+        </div>
+        
+        
+
+        <br/>
+        
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_bc" class="blocksContainer">
+
+            <a href="../tools/orthoselection.htm">
+                <div class="block TileColor1">
+                    <h2 data-id="h2_bc_orsl" data-vn="1">正射选择工具</h2>
+                    <p data-id="p_h2_bc_orsl" data-vn="1">了解如何使用正射选择工具</p>
+                </div>
+            </a>
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sa" class="rowblock">
+            <h3 data-id="h3_sa" data-vn="1">另见：</h3>
+            <ul class="intend">
+                <li data-id="li_sa_cror" data-vn="1">想了解如何创建正射投影，<a href="../tutorials/orthophoto.htm">点击此处</a></li>
+            </ul>
+            <div class="clear">
+                <!-- clear -->
+            </div>
+        </div>
+
+        <!-- content slide end -->
+
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+    <script type="text/javascript">
+        InitializeHelpSlide();
+    </script>
+
+
+</body>
+</html>
+<!-- signature:XFSeUMsACbtO3B/J8YN3OJZZtNPs9R7jjdPagS8/06dLo4UE4b6nUO6rKzdQkoU5+L5lQUjBEvllpfuW0GdeS45vzUGSXhjkL7h/U1/uqnhZQnrSWE5ErQ8GAfcPk28ADRg9YtvdW+6uyra9do+f5XPNujtUpMcVNXwQ1iwlrdk= -->

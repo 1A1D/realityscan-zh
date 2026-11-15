@@ -1,0 +1,98 @@
+<html>
+<head>
+    <title>RealityScan 帮助</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Epic Games Slovakia s.r.o." />
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <link type="text/css" rel="stylesheet" href="../../styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/colors.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css" />
+    <script src="../scripts/textVars.js" type="text/javascript"></script>
+    <script src="../../scripts/localization.js" type="text/javascript"></script>
+    <script src="../../scripts/main.js" type="text/javascript"></script>
+</head>
+<body ondragstart="return false;">
+
+    <div data-id="div_sb" class="content_slide">
+
+        <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head" class="head">
+
+            <h1 data-id="h1" data-vn="1">1Ds 视图与地图视图中的相机不确定度</h1>
+
+            <p data-id="p_h1" data-vn="1">
+                现在不仅能从配准与相机精度报告中查看相机不确定度，也能直接在应用里查看。相机不确定度是表示相机位置精度的数值，即拍摄时相机应落在误差椭球内。它有助于找出拍摄不佳的位置，便于补拍。
+            </p>       
+
+        </div>
+        
+         <div class="slideblock">
+         
+            <p data-id="p_opt" data-vn="1"> 
+                对已地理参考和未地理参考的图像，都能在 <span class="appaspecttype">1Ds</span> 视图的 <span class="apppanel">Selected inputs panel</span> 中找到此选项。 
+            </p>
+
+            <div class="importantMessage">
+                注意：此选项仅对已配准的图像可用，显示的单位取自项目坐标系。
+            </div>
+                
+            <br/>
+                
+            <p data-id="p_relpu" data-vn="1">
+            <span class="appproperty"> Relative position uncertainty</span> 包含 X、Y、Z 三个轴上的不确定度值，单位为项目坐标系单位。
+            </p>
+            
+            <img src="images/Relative_position_uncertainty.png" alt="Relative_position_uncertainty" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/appbasics/images/Relative_position_uncertainty.png ';"/>
+            
+            <br/>
+            <br/>
+        </div>
+        
+        <div class="slideblock">
+        
+            <ul class="listitems">
+                <li class="listitem" data-id="li_geor" data-vn="1">
+                    若所用图像已地理参考，也可以在 <span class="appribbon">map</span> 视图中查看这些数值。 
+                </li>
+                <li class="listitem" data-id="li_view" data-vn="1">
+                    要查看这些参数，需在 <span class="appribbon">Map VIEW</span> 上下文选项卡 <span class="apppanel">Display</span> 区域勾选 <span class="appproperty">Camera</span> 和 <span class="appproperty"> Uncertainty </span> 复选框。<br/> <br/> <img src="images/map_uncertainty.png" alt="map_uncertainty" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/appbasics/images/map_uncertainty.png ';"/> <br/><br/>
+                </li>
+                <li class="listitem" data-id="li_tool_elps" data-vn="1">
+                    显示的椭圆来自 <span class="appaspecttype">1Ds</span> 视图中选中的组件。图例中的单位基于所选项目坐标系。<br/><br/> <img src="images/Camera_uncertainty_map.png" alt="Camera_uncertainty_map" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/appbasics/images/Camera_uncertainty_map.png ';"/> <br/><br/>
+                </li>
+                <li class="listitem" data-id="li_tool_scale" data-vn="1">
+                    椭圆在 XY 平面的不确定度尺度由图例中的标尺定义；Z 轴的不确定度由图例中从白（较小）到黑（较大）的颜色表示。
+                </li>                
+            </ul>
+        </div>
+        
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_bc" class="blocksContainer">
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+
+        <!-- content slide end -->
+
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+    <script type="text/javascript">
+        InitializeHelpSlide();
+    </script>
+
+
+</body>
+</html>
+<!-- signature:SEDGnysjw6DwRfM7mtxUpEqXX9VcPIuOsgepOZmz3jafnLZBSxiL+9C7/ImqCXXLwNlBD4ZrEf61x1oPGg0h7I9GByFlzOANrxZ1GSYj67QR/BVDN1pdZj/dx9WN+7N/2/vms/+eAX/pujmGu75ZDfo1OqHVCNGv+1u3hUtznSc= -->

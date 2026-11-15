@@ -1,0 +1,457 @@
+﻿<html>
+    <head>
+        <title>RealityScan 帮助</title>
+        <meta charset="UTF-8"/>
+        <meta name="author" content="Epic Games Slovakia s.r.o."/>
+        <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/style.css"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/colors.css"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css"/>
+        <script src="../scripts/textVars.js" type="text/javascript"></script>
+        <script src="../../scripts/localization.js" type="text/javascript"></script>
+        <script src="../../scripts/main.js" type="text/javascript"></script>
+    </head>
+<body ondragstart="return false;">
+
+    <div data-id="div_cs" class="content_slide">
+    
+        <!-- content slide -->
+
+        <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head" class="head">
+            <h1 data-id="h1" data-vn="1">函数集（报告中可用的函数与变量）</h1>
+        </div>
+
+        <div data-id="div_sb_fs" class="slideblock">
+            <h2 data-id="h2_fs" data-vn="1">函数集</h2>
+            <p data-id="p_fs" data-vn="1">函数集由若干函数、表达式与变量组成，只有在唤起某个函数集之后才能使用。要唤起函数集，使用 <span class="appproperty">$Using</span> 函数。关于该函数的更多内容<a href="reports_fav_basic.htm">见此处</a>。</p>
+            
+            <p data-id="p_fs_using_syn" data-vn="1"><b>语法：</b></p>
+              <pre data-id="pre_bf_using_syn" data-vn="2">
+  $Using(RealityScan.Report.functionSet)</pre>
+                <br/>
+                
+            <p data-id="p_fs_using-par" data-vn="1"><b>函数集：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_using_cefp" data-vn="1"><span class="appproperty">CameraErrorsExportFunctionSet</span> —— 相机误差相关信息</p>
+                    <p data-id="p_bf_using_cofp" data-vn="1"><span class="appproperty">ComponentFunctionSet</span> —— 返回组件相关信息</p>
+                    <p data-id="p_bf_using_cxfp" data-vn="1"><span class="appproperty">ConfigExportFunctionSet</span> —— 与设置中的变量配合使用的函数</p>
+                    <p data-id="p_bf_using_cnfp" data-vn="1"><span class="appproperty">ContoursFunctionSet</span> —— 用于获取等高线相关信息</p>
+                    <p data-id="p_bf_using_cpfp" data-vn="1"><span class="appproperty">ControlPointsExportFunctionSet</span> —— 导出控制点及其测量值的信息</p>
+                    <p data-id="p_bf_using_dcfp" data-vn="1"><span class="appproperty">DistanceConstraintsExportFunctionSet</span> —— 导出距离约束的相关信息</p>
+                    <p data-id="p_bf_using_hlfp" data-vn="1"><span class="appproperty">HelperFunctionSet</span> —— 导入辅助函数</p>
+                    <p data-id="p_bf_using_iefp" data-vn="1"><span class="appproperty">ImageExportFunctionSet</span> —— 保存图像或获取其信息</p>
+                    <p data-id="p_bf_using_infp" data-vn="1"><span class="appproperty">InputsFunctionSet</span> —— 获取图像与相机的基本信息</p>
+                    <p data-id="p_bf_using_itfp" data-vn="1"><span class="appproperty">IteratorsFunctionSet</span> —— 遍历项目中的各类元素</p>
+                    <p data-id="p_bf_using_lefp" data-vn="1"><span class="appproperty">LocalizationExportFunctionSet</span> —— 用于获取本地化文本</p>
+                    <p data-id="p_bf_using_mefp" data-vn="1"><span class="appproperty">MapExportFunctionSet</span> —— 导出地图及其信息</p>
+                    <p data-id="p_bf_using_mifp" data-vn="1"><span class="appproperty">MisalignmentFunctionSet</span> —— 导出失配的点与相机</p>
+                    <p data-id="p_bf_using_mofp" data-vn="1"><span class="appproperty">ModelExportFunctionSet</span> —— 获取模型及其纹理的信息</p>
+                    <p data-id="p_bf_using_omfp" data-vn="1"><span class="appproperty">OrthoMeasurementFunctionSet</span> —— 获取正射测量值与投影边界值的信息</p>
+                    <p data-id="p_bf_using_opfp" data-vn="1"><span class="appproperty">OrthoProjectionFunctionSet</span> —— 导出正射投影的相关信息</p>
+                    <p data-id="p_bf_using_pifp" data-vn="1"><span class="appproperty">ProjectInformationExportFunctionSet</span> —— 项目的总体信息</p>
+                    <p data-id="p_bf_using_rcfp" data-vn="1"><span class="appproperty">RelativeCameraUncertaintyFunctionSet</span> —— 相对相机不确定度（相机之间的位置精度）信息</p>
+                    <p data-id="p_bf_using_sefp" data-vn="1"><span class="appproperty">SfmExportFunctionSet</span> —— 获取组件的相机、图像与点信息 </p>
+                    <p data-id="p_bf_using_shfp" data-vn="1"><span class="appproperty">SfmHistogramExportFunctionSet</span> —— 创建直方图</p> 
+                  <p data-id="p_bf_using_effp" data-vn="1"><span class="appproperty">EditorFunctionSetGroup</span> —— 导入全部函数集</p>
+                </div>  
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sb_sets" class="slideblock">
+            <h2 data-id="h2_fs_cees" data-vn="1">相机误差导出函数集</h2>
+            
+            <p data-id="p_fs_cees_avf" data-vn="1"><b>可用函数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_cees_cerr" data-vn="1"><span class="appproperty">CameraErrors</span> —— 该函数用于输出相机误差与轨迹长度的信息（<a href="reports_fav_cameras.htm">Cameras Scope</a>）。</p>
+                </div> 
+            <br/> 
+            <h2 data-id="h2_fs_cofs" data-vn="1">组件函数集</h2>
+            
+            <p data-id="p_fs_cofs_avf" data-vn="1"><b>可用函数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_cofs_coin" data-vn="1"><span class="appproperty">ComponentInfo</span> —— 该函数用于输出组件的基本信息（<a href="reports_fav_components.htm">Components Scope</a>）。</p>
+                    <p data-id="p_bf_cofs_cost" data-vn="1"><span class="appproperty">ComponentStats</span> —— 该函数用于输出组件的对齐精度信息与统计结果（<a href="reports_fav_components.htm">Components Scope</a>）。</p>
+                    <p data-id="p_bf_cofs_cose" data-vn="1"><span class="appproperty">ComponentSettings</span> —— 该函数用于输出对齐设置信息（<a href="reports_fav_components.htm">Components Scope</a>）。</p>   
+                </div> 
+            
+            
+            <br/> 
+            <h2 data-id="h2_fs_cxfs" data-vn="1">配置导出函数集</h2>
+            
+            <p data-id="p_fs_cxfs_avf" data-vn="1"><b>可用函数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_cxfs_getp" data-vn="1"><span class="appproperty">GetProperty</span> —— 输出配置中该变量的值；若变量不存在则输出默认值（<a href="reports_fav_basic.htm">Basic Scope</a>）。</p>
+                    <p data-id="p_bf_cxfs_setp" data-vn="1"><span class="appproperty">SetProperty</span> —— 设置配置中该变量的值（<a href="reports_fav_basic.htm">Basic Scope</a>）。</p>
+                    <p data-id="p_bf_cxfs_resp" data-vn="1"><span class="appproperty">ResetProperty</span> —— 从配置中删除该变量（<a href="reports_fav_basic.htm">Basic Scope</a>）。</p>   
+                </div> 
+                
+            <p data-id="p_fs_cxfs_avv" data-vn="1"><b>可用变量：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_cxfs_vars" data-vn="2">RealityScan 配置中定义的变量。</p>
+                </div>     
+            
+            
+            <br/>    
+            <h2 data-id="h2_fs_cnfs" data-vn="1">等高线函数集</h2>
+            
+            <p data-id="p_fs_cnfs_avf" data-vn="1"><b>可用函数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_cnfs_itcs" data-vn="1"><span class="appproperty">IterateContourSets</span> —— 该函数遍历所选正射投影的等高线集合（<a href="reports_fav_ortho.htm">Ortho Scope</a>）。</p>
+                    <p data-id="p_bf_cnfs_excs" data-vn="1"><span class="appproperty">ExportContourSet</span> —— 该函数用于输出等高线集合的信息（<a href="reports_fav_ortho.htm">Ortho Scope</a>）。</p>
+                </div> 
+                
+            <p data-id="p_fs_cnfs_ave" data-vn="1"><b>可用的表达式函数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_cnfs_gncs" data-vn="1"><span class="appproperty">GetNumberOfContourSets</span> —— 返回等高线集合的数量（<a href="reports_fav_ortho.htm">Ortho Scope</a>）。</p>
+                    <p data-id="p_bf_cnfs_gscs" data-vn="1"><span class="appproperty">GetSelectedContourSetId</span> —— 返回所选等高线集合的 ID（<a href="reports_fav_ortho.htm">Ortho Scope</a>）。</p>
+                    <p data-id="p_bf_cnfs_gsff" data-vn="1"><span class="appproperty">GetSimplifyingFactor</span> —— 返回简化系数（<a href="reports_fav_ortho.htm">Ortho Scope</a>）。</p>
+                </div>    
+
+
+            <br/> 
+            <h2 data-id="h2_fs_cpfs" data-vn="1">控制点导出函数集</h2>
+            
+            <p data-id="p_fs_cpfs_avf" data-vn="1"><b>可用函数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_cpfs_excp" data-vn="1"><span class="appproperty">ExportControlPoints</span> —— 该函数含一个函数与若干变量，用于输出所有控制点的信息（<a href="reports_fav_controlPoints.htm">Control Points Scope</a>）。</p>
+                    <p data-id="p_bf_cpfs_excm" data-vn="1"><span class="appproperty">ExportControlPointsMeasurements</span> —— 该函数遍历所有控制点的所有测量值。对每个控制点，它导出该控制点被分配到的所有图像（<a href="reports_fav_controlPoints.htm">Control Points Scope</a>）。</p>
+                </div> 
+
+
+            <br/> 
+            <h2 data-id="h2_fs_dcfs" data-vn="1">距离约束导出函数集</h2>
+            
+            <p data-id="p_fs_dcfs_avf" data-vn="1"><b>可用函数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_dcfs_exdc" data-vn="1"><span class="appproperty">ExportDistanceConstraints</span> —— 该函数提供若干变量，用于输出全部或仅所选距离约束的信息（<a href="reports_fav_controlPoints.htm">Control Points Scope</a>）。</p>
+                    <p data-id="p_bf_dcfs_exer" data-vn="1"><span class="appproperty">DistanceConstraintError</span> —— 该函数提供若干变量，用于输出全部或仅所选距离约束的信息（<a href="reports_fav_controlPoints.htm">Control Points Scope</a>）。</p>
+                </div>         
+
+   
+            <br/> 
+            <h2 data-id="h2_fs_hlfs" data-vn="1">辅助函数集</h2>
+            
+            <p data-id="p_fs_hlfs_avf" data-vn="1"><b>可用函数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_hlfs_tgla" data-vn="1"><span class="appproperty">ToGpsLat</span> —— 把以度为单位的纬度值输出为度分秒格式（<a href="reports_fav_basic.htm">Basic Scope</a>）。</p>
+                    <p data-id="p_bf_hlfs_tglo" data-vn="1"><span class="appproperty">ToGpsLon</span> —— 把以度为单位的经度值输出为度分秒格式（<a href="reports_fav_basic.htm">Basic Scope</a>）。</p>
+                    <p data-id="p_bf_hlfs_tdms" data-vn="1"><span class="appproperty">ToDMS</span> —— 把以度为单位的输入值转换为度分秒（<a href="reports_fav_basic.htm">Basic Scope</a>）。</p>
+                    <p data-id="p_bf_hlfs_fort" data-vn="1"><span class="appproperty">FormatTime</span> —— 以 "dd hh:mm:ss" 格式输出时间（<a href="reports_fav_basic.htm">Basic Scope</a>）。</p>
+                </div>     
+            
+            <p data-id="p_fs_hlfs_ave" data-vn="1"><b>可用的表达式函数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_hlfs_pmla" data-vn="1"><span class="appproperty">ToPseudoMercatorLat</span> —— 结果为伪墨卡托投影中的欧氏 y 坐标（<a href="reports_fav_basic.htm">Basic Scope</a>）。</p>
+                    <p data-id="p_bf_hlfs_pmlo" data-vn="1"><span class="appproperty">ToPseudoMercatorLon</span> —— 结果为伪墨卡托投影中的欧氏 x 坐标（<a href="reports_fav_basic.htm">Basic Scope</a>）。</p>
+                </div>              
+
+   
+            <br/> 
+            <h2 data-id="h2_fs_iefs" data-vn="1">图像导出函数集</h2>
+            
+            <p data-id="p_fs_iefs_avf" data-vn="1"><b>可用函数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_iefs_simg" data-vn="1"><span class="appproperty">SaveImage</span> —— 该函数保存图像（<a href="reports_fav_images.htm">Images Scope</a>）。</p>
+                    <p data-id="p_bf_iefs_giin" data-vn="1"><span class="appproperty">GetImageInfo</span> —— 该函数提供若干变量，用于输出图像的基本信息（<a href="reports_fav_images.htm">Images Scope</a>）。</p>
+                </div>    
+
+       
+            <br/> 
+            <h2 data-id="h2_fs_infs" data-vn="1">输入函数集</h2>
+            
+            <p data-id="p_fs_infs_avf" data-vn="1"><b>可用函数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_infs_eirs" data-vn="1"><span class="appproperty">ExportImageResolutionStats</span> —— 该函数可输出所有图像分辨率及其图像数量（<a href="reports_fav_images.htm">Images Scope</a>）。</p>
+                    <p data-id="p_bf_infs_excm" data-vn="1"><span class="appproperty">ExportCameraModels</span> —— 该函数提供若干变量，用于输出图像的基本信息（<a href="reports_fav_images.htm">Images Scope</a>）。</p>
+                    <p data-id="p_bf_infs_exig" data-vn="1"><span class="appproperty">ExportInputsGrouping</span> —— 该函数提供若干变量，用于输出图像的基本信息（<a href="reports_fav_images.htm">Images Scope</a>）。</p>
+                </div>     
+
+    
+            <br/> 
+            <h2 data-id="h2_fs_itfs" data-vn="1">迭代器函数集</h2>
+            
+            <p data-id="p_fs_itfs_avf" data-vn="1"><b>可用函数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_itfs_selc" data-vn="1"><span class="appproperty">SelectComponent</span> —— 为 <span class="appproperty">IteratorsFunctionSet</span> 函数集的内部使用选中一个组件。它只影响 <span class="appproperty">IterateImages</span> 与 <span class="appproperty">IterateCameras</span> 两个函数，可在这两个函数之前或内部调用（<a href="reports_fav_components.htm">Components Scope</a>）。</p>
+                    <p data-id="p_bf_itfs_itim" data-vn="1"><span class="appproperty">IterateImages</span> —— 该函数提供若干变量，用于输出项目中每个输入的信息（<a href="reports_fav_images.htm">Images Scope</a>）。</p>
+                    <p data-id="p_bf_itfs_itca" data-vn="1"><span class="appproperty">IterateCameras</span> —— 该函数可获取所选组件中所有相机的索引及对应图像的索引（<a href="reports_fav_cameras.htm">Cameras Scope</a>）。</p>
+                    <p data-id="p_bf_itfs_itco" data-vn="1"><span class="appproperty">IterateComponents</span> —— 该函数用于输出所有组件的基本信息。（<a href="reports_fav_components.htm">Components Scope</a>）。</p> 
+                    <p data-id="p_bf_itfs_itmo" data-vn="1"><span class="appproperty">IterateModels</span> —— 该函数用于输出某个组件内所有模型的基本信息（<a href="reports_fav_models.htm">Models Scope</a>）。</p> 
+                    <p data-id="p_bf_itfs_itcp" data-vn="1"><span class="appproperty">IterateControlPoints</span> —— 该函数用于输出所有控制点的基本信息（<a href="reports_fav_controlPoints.htm">Control Points Scope</a>）。</p> 
+                    <p data-id="p_bf_itfs_itme" data-vn="1"><span class="appproperty">IterateMeasurements</span> —— 该函数遍历某个控制点的所有测量值，导出该控制点被分配到的所有图像（<a href="reports_fav_controlPoints.htm">Control Points Scope</a>）。</p>                     
+                </div>
+       
+            <br/> 
+            <h2 data-id="h2_fs_lofs" data-vn="1">本地化导出函数集</h2>
+            
+            <p data-id="p_fs_lofs_avf" data-vn="1"><b>可用函数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_lofs_setl" data-vn="1"><span class="appproperty">SetLocalization</span> —— 设置本地化字符串文件（本地化文件）的路径（<a href="reports_fav_basic.htm">Basic Scope</a>）。</p>
+                    <p data-id="p_bf_lofs_locl" data-vn="1"><span class="appproperty">Localize</span> —— 在本地化文件中查找映射到该字符串 ID 的字符串：找到则输出该字符串，否则输出默认文本。（<a href="reports_fav_basic.htm">Basic Scope</a>）。</p>
+                </div>      
+
+     
+            <br/> 
+            <h2 data-id="h2_fs_mafs" data-vn="1">地图导出函数集</h2>
+            
+            <p data-id="p_fs_mafs_avf" data-vn="1"><b>可用函数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_mafs_exmp" data-vn="1"><span class="appproperty">ExportMap</span> —— 该函数创建并保存一块地图裁剪图（<a href="reports_fav_map.htm">Map Scope</a>）。</p>
+                    <p data-id="p_bf_mafs_gemi" data-vn="1"><span class="appproperty">GetExportedMapInfo</span> —— 该函数返回已导出地图的信息（<a href="reports_fav_map.htm">Map Scope</a>）。</p>
+                </div>    
+            
+            <p data-id="p_fs_mafs_ave" data-vn="1"><b>可用的表达式函数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_mafs_mpva" data-vn="1"><span class="appproperty">MapProviderCredentialsAreValid</span> —— 结果为 BOOL 值（true/false）。若提供者有效，返回 "true"（<a href="reports_fav_map.htm">Map Scope</a>）。</p>
+                    <p data-id="p_bf_mafs_mpcv" data-vn="1"><span class="appproperty">MapProviderCredentialsAreNeeded</span> —— 结果为 BOOL 值（true/false）。若需要凭据，返回 "true"（<a href="reports_fav_map.htm">Map Scope</a>）。</p>
+                </div>            
+            
+            <br/> 
+            <h2 data-id="h2_fs_mifs" data-vn="1">失配函数集 </h2>
+            
+            <p data-id="p_fs_mifs_avf" data-vn="1"><b>可用函数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_mifs_exmp" data-vn="1"><span class="appproperty">ExportMisalignmentPoints</span> —— 该函数用于导出点的索引及其失配量（<a href="reports_fav_points.htm">Points Scope</a>）。</p>
+                    <p data-id="p_bf_mifs_exmc" data-vn="1"><span class="appproperty">ExportMisalignmentCameras</span> —— 该函数用于获取相机的失配信息（<a href="reports_fav_cameras.htm">Cameras Scope</a>）。</p>
+                </div>
+
+
+            <br/> 
+            <h2 data-id="h2_fs_mofs" data-vn="1">模型导出函数集 </h2>
+            
+            <p data-id="p_fs_mofs_avf" data-vn="1"><b>可用函数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_mofs_exmp" data-vn="1"><span class="appproperty">ExportModels</span> —— 该函数用于输出所选组件内所有模型的详细信息（<a href="reports_fav_models.htm">Models Scope</a>）。</p>
+                    <p data-id="p_bf_mofs_exmc" data-vn="1"><span class="appproperty">RenderMesh</span> —— 把模型的图像导出为单独文件（<a href="reports_fav_models.htm">Models Scope</a>）。</p>
+                    <p data-id="p_bf_mofs_exor" data-vn="1"><span class="appproperty">RenderMeshFromCustomPositionYPR</span> —— 用朝向值从自定义位置渲染图像（<a href="reports_fav_models.htm">Models Scope</a>）。</p>
+                    <p data-id="p_bf_mofs_exla" data-vn="1"><span class="appproperty">RenderMeshFromCustomPositionLookAt</span> —— 用自定义的注视位置从自定义位置渲染图像（<a href="reports_fav_models.htm">Models Scope</a>）。</p>
+                </div>
+             
+            <p data-id="p_fs_mofs_ave" data-vn="1"><b>可用的表达式函数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_mofs_gnom" data-vn="1"><span class="appproperty">GetNumberOfModels</span> —— 返回某个组件下创建的模型数量（<a href="reports_fav_models.htm">Models Scope</a>）。</p>
+                </div>  
+
+
+            <br/> 
+            <h2 data-id="h2_fs_orfs" data-vn="1">正射测量函数集 </h2>
+            
+            <p data-id="p_fs_orfs_avf" data-vn="1"><b>可用函数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_orfs_irom" data-vn="1"><span class="appproperty">IterateOrthoMeasurements</span> —— 该函数遍历正射测量值（<a href="reports_fav_ortho.htm">Ortho Scope</a>）。</p>
+                    <p data-id="p_bf_orfs_iobs" data-vn="1"><span class="appproperty">IterateOrthoBoundarySamples</span> —— 该函数遍历区域的边界点（2D）（<a href="reports_fav_ortho.htm">Ortho Scope</a>）。</p>
+                    <p data-id="p_bf_orfs_iobv" data-vn="1"><span class="appproperty">IterateOrthoBoundaryVertices</span> —— 该函数遍历区域的边界点（3D）（<a href="reports_fav_ortho.htm">Ortho Scope</a>）。</p>
+
+                </div>
+            
+            <p data-id="p_fs_orfs_ave" data-vn="1"><b>可用的表达式函数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_orfs_gnom" data-vn="1"><span class="appproperty">GetNumberOfOrthoMeasurements</span> —— 返回正射投影上的区域数量（<a href="reports_fav_ortho.htm">Ortho Scope</a>）。</p>
+                </div>
+
+            
+            <br/> 
+            <h2 data-id="h2_fs_opfs" data-vn="1">正射投影函数集 </h2>
+            
+            <p data-id="p_fs_opfs_avf" data-vn="1"><b>可用函数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_opfs_itop" data-vn="1"><span class="appproperty">IterateOrthoProjections</span> —— 该函数遍历所选的正射投影；若没有选中任何投影，则遍历全部（<a href="reports_fav_ortho.htm">Ortho Scope</a>）。</p>
+                    <p data-id="p_bf_opfs_oprv" data-vn="1"><span class="appproperty">OrthoProjectionVolume</span> —— 该函数用于输出正射投影的体积与表面积（<a href="reports_fav_ortho.htm">Ortho Scope</a>）。</p>
+                    <p data-id="p_bf_opfs_oprt" data-vn="1"><span class="appproperty">OrthoProjectionTiming</span> —— 返回计算正射投影各部分所花的时间（<a href="reports_fav_ortho.htm">Ortho Scope</a>）。</p>
+                    <p data-id="p_bf_opfs_bgop" data-vn="1"><span class="appproperty">BeginOrthoProjections</span> —— 该函数用于把三维点投影到正射影像中（<a href="reports_fav_ortho.htm">Ortho Scope</a>）。</p>
+                    <p data-id="p_bf_opfs_savo" data-vn="1"><span class="appproperty">SaveOrtho</span> —— 该函数把正射影像保存到所选文件夹（<a href="reports_fav_ortho.htm">Ortho Scope</a>）。</p>
+                    <p data-id="p_bf_opfs_sowr" data-vn="1"><span class="appproperty">SaveOrthoWithRegions</span> —— 该函数把带区域的正射影像保存到所选文件夹（<a href="reports_fav_ortho.htm">Ortho Scope</a>）。</p>
+                    <p data-id="p_bf_opfs_exop" data-vn="1"><span class="appproperty">ExportOrthoProjection</span> —— 该函数用于输出正射投影的信息（<a href="reports_fav_ortho.htm">Ortho Scope</a>）。</p>
+                    <p data-id="p_bf_opfs_iopt" data-vn="1"><span class="appproperty">IterateOrthoMapTiles</span> —— 该函数仅对已做地理配准的组件可用（<a href="reports_fav_ortho.htm">Ortho Scope</a>）。</p>
+                    <p data-id="p_bf_opfs_itmp" data-vn="1"><span class="appproperty">IterateOrthoMapPalette</span> —— 该函数遍历正射投影高程或深度图层调色板的颜色与数值（<a href="reports_fav_ortho.htm">Ortho Scope</a>）。</p>
+                </div>
+                
+            <br/> 
+            <h2 data-id="h2_fs_pifs" data-vn="1">项目信息导出函数集</h2>
+            
+            <p data-id="p_fs_pifs_avf" data-vn="1"><b>可用函数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_pifs_expr" data-vn="1"><span class="appproperty">ExportProjectInfo</span> —— 该函数提供若干变量，用于输出项目的基本信息（<a href="reports_fav_basic.htm">Basic Scope</a>）。</p>
+                </div>
+            
+            <p data-id="p_fs_pifs_avv" data-vn="1"><b>可用变量：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_pifs_applang" data-vn="2"><span class="appproperty">appLanguage</span> —— RealityScan 当前所选界面语言的语言标签（代码）（<a href="reports_fav_basic.htm">Basic Scope</a>）。</p>
+                    <p data-id="p_bf_pifs_pdlpf" data-vn="1"><span class="appproperty">programDataLangPackFolder</span> —— 存放语言包的文件夹路径（<a href="reports_fav_basic.htm">Basic Scope</a>）。</p>
+                    <p data-id="p_bf_pifs_true" data-vn="1"><span class="appproperty">true</span> —— BOOL 值 "true"（<a href="reports_fav_basic.htm">Basic Scope</a>）。</p>
+                    <p data-id="p_bf_pifs_false" data-vn="1"><span class="appproperty">false</span> —— BOOL 值 "false"（<a href="reports_fav_basic.htm">Basic Scope</a>）。</p>
+                </div>            
+                
+            <br/> 
+            <h2 data-id="h2_fs_rcfs" data-vn="1">相对相机不确定度函数集</h2>
+            
+            <p data-id="p_fs_rcfs_avf" data-vn="1"><b>可用函数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_rcfs_exrc" data-vn="1"><span class="appproperty">ExportRelativeCameraPositionUncertainty</span> —— 该函数给出相对相机位置不确定度的信息（<a href="reports_fav_cameras.htm">Cameras Scope</a>）。</p>
+                    <p data-id="p_bf_rcfs_ctel" data-vn="1"><span class="appproperty">CovToEllipse2D</span> —— 该函数由协方差值计算不确定度椭圆（<a href="reports_fav_cameras.htm">Cameras Scope</a>）。</p>
+                </div>    
+               
+               
+            <br/> 
+            <h2 data-id="h2_fs_sefs" data-vn="1">Sfm 导出函数集</h2>
+            
+            <p data-id="p_fs_sefs_avf" data-vn="1"><b>可用函数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_sefs_exrc" data-vn="1"><span class="appproperty">ExportCameras</span> —— 该函数用于输出所选相机的信息，或所选组件中所有已配准相机的信息（<a href="reports_fav_cameras.htm">Cameras Scope</a>）。</p>
+                    <p data-id="p_bf_sefs_exip" data-vn="1"><span class="appproperty">ExportImagePriors</span> —— 该函数提供若干变量，用于输出各个输入的先验信息（<a href="reports_fav_images.htm">Images Scope</a>）。</p>
+                    <p data-id="p_bf_sefs_expo" data-vn="1"><span class="appproperty">ExportPoints</span> —— 该函数用于输出每个已配准点的信息（<a href="reports_fav_points.htm">Points Scope</a>）。</p>
+                    <p data-id="p_bf_sefs_expe" data-vn="1"><span class="appproperty">ExportPointsEx</span> —— 该函数用于输出指定已配准点的信息（<a href="reports_fav_points.htm">Points Scope</a>）。</p>
+                </div>    
+            
+            <p data-id="p_fs_sefs_ave" data-vn="1"><b>可用的表达式函数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_sefs_gpco" data-vn="1"><span class="appproperty">GetPointCount</span> —— 结果为满足以下条件的点数量：能被至少一台所选相机看到、符合指定 flags、且被追踪的视图数不少于 minTrack、不多于 maxTrack（<a href="reports_fav_points.htm">Points Scope</a>）。</p>
+                    <p data-id="p_bf_sefs_imtc" data-vn="1"><span class="appproperty">ImageToCameraIndex</span> —— 结果为指定图像的相机索引（<a href="reports_fav_cameras.htm">Cameras Scope</a>）。</p>
+                </div>            
+            
+            <p data-id="p_fs_sefs_avv" data-vn="1"><b>可用变量：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_sefs_camcnt" data-vn="1"><span class="appproperty">cameraCount</span> —— 所选组件中已配准的全部/所选相机数量（<a href="reports_fav_basic.htm">Basic Scope</a>）。</p>
+                    <p data-id="p_bf_sefs_poco" data-vn="1"><span class="appproperty">pointCount</span> —— 所选组件中已配准的点数量（<a href="reports_fav_basic.htm">Basic Scope</a>）。</p>
+                    <p data-id="p_bf_sefs_meco" data-vn="1"><span class="appproperty">measurementCount</span> —— 所选组件中的测量值数量（<a href="reports_fav_basic.htm">Basic Scope</a>）。</p>
+                    <p data-id="p_bf_sefs_cowi" data-vn="1"><span class="appproperty">commonWidth</span> —— 去畸变图像的宽度（<a href="reports_fav_basic.htm">Basic Scope</a>）。</p>
+                    <p data-id="p_bf_sefs_cohi" data-vn="1"><span class="appproperty">commonHeight</span> —— 去畸变图像的高度（<a href="reports_fav_basic.htm">Basic Scope</a>）。</p>
+                    <p data-id="p_bf_sefs_isge" data-vn="1"><span class="appproperty">isGeoreferenced</span> —— 所选组件已做地理配准则输出 1，否则 0（<a href="reports_fav_basic.htm">Basic Scope</a>）。</p>
+                    <p data-id="p_bf_sefs_icll" data-vn="1"><span class="appproperty">isCoordSystemLatLon</span> —— 输出坐标系为地理坐标则 true，为直角坐标则 false（<a href="reports_fav_basic.htm">Basic Scope</a>）。</p>
+                    <p data-id="p_bf_sefs_unit" data-vn="1"><span class="appproperty">units</span> —— 输出所选组件的测量单位，例如 meter（<a href="reports_fav_basic.htm">Basic Scope</a>）。</p>
+                    <p data-id="p_bf_sefs_unsh" data-vn="1"><span class="appproperty">unitsShort</span> —— 输出测量单位的短名，例如 m（<a href="reports_fav_basic.htm">Basic Scope</a>）。</p>
+                    <p data-id="p_bf_sefs_csnm" data-vn="1"><span class="appproperty">coordSystemName</span> —— 若所选组件已做地理配准（isGeoreferenced 值为 1）则输出输出坐标系的名称，否则输出 "Grid Plane"（<a href="reports_fav_basic.htm">Basic Scope</a>）。</p>
+                    <p data-id="p_bf_sefs_cutm" data-vn="1"><span class="appproperty">coordSystemUnit2Meter</span> —— 坐标系单位到米的换算系数（<a href="reports_fav_basic.htm">Basic Scope</a>）。</p>
+                    <p data-id="p_bf_sefs_diss" data-vn="1"><span class="appproperty">displayScale</span> —— 渲染时一个单位的推荐尺寸（<a href="reports_fav_basic.htm">Basic Scope</a>）。</p>
+                    
+                    <p data-id="p_bf_sefs_ancx" data-vn="1"><span class="appproperty">anchorX</span> —— 锚点的 X 坐标（<a href="reports_fav_basic.htm">Basic Scope</a>）。</p>
+                    <p data-id="p_bf_sefs_ancy" data-vn="1"><span class="appproperty">anchorY</span> —— 锚点的 Y 坐标（<a href="reports_fav_basic.htm">Basic Scope</a>）。</p>
+                    <p data-id="p_bf_sefs_ancz" data-vn="1"><span class="appproperty">anchorZ</span> —— 锚点的 Z 坐标（<a href="reports_fav_basic.htm">Basic Scope</a>）。</p>
+                    <p data-id="p_bf_sefs_arzz" data-vn="1"><span class="appproperty">aR00</span> —— 锚点旋转矩阵中相对锚点坐标系的一个元素（<a href="reports_fav_basic.htm">Basic Scope</a>）。</p>
+                    <p data-id="p_bf_sefs_arzo" data-vn="1"><span class="appproperty">aR01</span> —— 锚点旋转矩阵中相对锚点坐标系的一个元素（<a href="reports_fav_basic.htm">Basic Scope</a>）。</p>
+                    <p data-id="p_bf_sefs_arzt" data-vn="1"><span class="appproperty">aR02</span> —— 锚点旋转矩阵中相对锚点坐标系的一个元素（<a href="reports_fav_basic.htm">Basic Scope</a>）。</p>
+                    <p data-id="p_bf_sefs_aroz" data-vn="1"><span class="appproperty">aR10</span> —— 锚点旋转矩阵中相对锚点坐标系的一个元素（<a href="reports_fav_basic.htm">Basic Scope</a>）。</p>
+                    <p data-id="p_bf_sefs_aroo" data-vn="1"><span class="appproperty">aR11</span> —— 锚点旋转矩阵中相对锚点坐标系的一个元素（<a href="reports_fav_basic.htm">Basic Scope</a>）。</p>
+                    <p data-id="p_bf_sefs_arot" data-vn="1"><span class="appproperty">aR12</span> —— 锚点旋转矩阵中相对锚点坐标系的一个元素（<a href="reports_fav_basic.htm">Basic Scope</a>）。</p>
+                    <p data-id="p_bf_sefs_artz" data-vn="1"><span class="appproperty">aR20</span> —— 锚点旋转矩阵中相对锚点坐标系的一个元素（<a href="reports_fav_basic.htm">Basic Scope</a>）。</p>
+                    <p data-id="p_bf_sefs_arto" data-vn="1"><span class="appproperty">aR21</span> —— 锚点旋转矩阵中相对锚点坐标系的一个元素（<a href="reports_fav_basic.htm">Basic Scope</a>）。</p>
+                    <p data-id="p_bf_sefs_artt" data-vn="1"><span class="appproperty">aR22</span> —— 锚点旋转矩阵中相对锚点坐标系的一个元素（<a href="reports_fav_basic.htm">Basic Scope</a>）。</p>
+                    <p data-id="p_bf_sefs_anya" data-vn="1"><span class="appproperty">anchorYaw</span> —— 锚点的偏航（yaw）值（<a href="reports_fav_basic.htm">Basic Scope</a>）。</p>
+                    <p data-id="p_bf_sefs_anpi" data-vn="1"><span class="appproperty">anchorPitch</span> —— 锚点的俯仰（pitch）值（<a href="reports_fav_basic.htm">Basic Scope</a>）。</p>
+                    <p data-id="p_bf_sefs_anro" data-vn="1"><span class="appproperty">anchorRoll</span> —— 锚点的翻滚（roll）值（<a href="reports_fav_basic.htm">Basic Scope</a>）。</p>
+                </div>              
+                
+
+            <br/> 
+            <h2 data-id="h2_fs_shfs" data-vn="1">Sfm 直方图导出函数集</h2>
+            
+            <p data-id="p_fs_shfs_avf" data-vn="1"><b>可用函数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_shfs_tphi" data-vn="1"><span class="appproperty">TiePointsHistogram</span> —— 该函数用于输出连接点最大误差的直方图。每个连接点都有其最大投影误差（即投影到误差最大的那张图像上的误差），以像素计。（<a href="reports_fav_points.htm">Points Scope</a>）。</p>
+                    <p data-id="p_bf_shfs_trst" data-vn="1"><span class="appproperty">TracksStats</span> —— 该函数用于输出连接点轨迹长度的直方图。（<a href="reports_fav_points.htm">Points Scope</a>）。</p>
+                    <p data-id="p_bf_shfs_crhi" data-vn="1"><span class="appproperty">CreateHistogram</span> —— 该函数用于输出直方图，会创建若干步（分箱）。每个分箱有各自的区间，大小为 "1/((maxValue-minValue)*steps)"，且初始元素数为 0（<a href="reports_fav_basic.htm">Basic Scope</a>）。</p>
+                </div>                   
+
+
+        </div> 
+           
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+        
+        
+     <div data-id="div_bc" class="blocksContainer">
+
+            <a href="reports_functions_and_variables.htm">
+                <div class="block TileColor6">
+                    <h2 data-id="h2_bc_script" data-vn="1">报告脚本基础</h2>
+                    <p data-id="p_h2_bc_script" data-vn="1">了解如何创建自定义报告模板</p>
+                </div>
+            </a>
+
+            <a href="reports_fav_basic.htm">
+                <div class="block TileColor6">
+                    <h2 data-id="h2_bc_basic" data-vn="1">基础函数</h2>
+                    <p data-id="p_h2_bc_basic" data-vn="1">项目信息、导出器作用域与基础函数集</p>
+                </div>
+            </a>
+
+            <a href="reports_fav_images.htm">
+                <div class="block TileColor6">
+                    <h2 data-id="h2_bc_images" data-vn="1">图像作用域</h2>
+                    <p data-id="p_h2_bc_images" data-vn="1">了解如何导出项目图像的信息</p>
+                </div>
+            </a>
+
+            <a href="reports_fav_components.htm">
+                <div class="block TileColor6">
+                    <h2 data-id="h2_bc_comp" data-vn="1">组件作用域</h2>
+                    <p data-id="p_h2_bc_comp" data-vn="1">组件导出的函数与变量</p>
+                </div>
+            </a>
+
+            <a href="reports_fav_cameras.htm">
+                <div class="block TileColor6">
+                    <h2 data-id="h2_bc_camera" data-vn="1">相机作用域</h2>
+                    <p data-id="p_h2_bc_camera" data-vn="1">了解如何获取相机信息</p>
+                </div>
+            </a>
+
+            <a href="reports_fav_points.htm">
+                <div class="block TileColor6">
+                    <h2 data-id="h2_bc_scene" data-vn="1">场景结构作用域</h2>
+                    <p data-id="p_h2_bc_scene" data-vn="1">了解如何向报告添加自定义点统计</p>
+                </div>
+            </a>
+
+            <a href="reports_fav_controlPoints.htm">
+                <div class="block TileColor6">
+                    <h2 data-id="h2_bc_cp" data-vn="1">控制点与约束作用域</h2>
+                    <p data-id="p_h2_bc_cp" data-vn="1">查看控制点与约束功能的清单</p>
+                </div>
+            </a>
+
+            <a href="reports_fav_models.htm">
+                <div class="block TileColor6">
+                    <h2 data-id="h2_bc_model" data-vn="1">模型作用域</h2>
+                    <p data-id="p_h2_bc_model" data-vn="1">了解如何生成模型报告</p>
+                </div>
+            </a>
+
+            <a href="reports_fav_ortho.htm">
+                <div class="block TileColor6">
+                    <h2 data-id="h2_bc_ortho" data-vn="1">正射投影作用域</h2>
+                    <p data-id="p_h2_bc_ortho" data-vn="1">查看正射投影导出函数的清单</p>
+                </div>
+            </a>
+            
+            <a href="reports_fav_map.htm">
+                <div class="block TileColor6">
+                    <h2 data-id="h2_bc_map" data-vn="1">地图作用域</h2>
+                    <p data-id="p_h2_bc_map" data-vn="1">查看地图导出函数的清单</p>
+                </div>
+            </a>
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+    
+    <script type="text/javascript">
+        InitializeTutorialMode();
+    </script>    
+
+</body>
+</html>
+<!-- signature:QwcurMiwN2/fSyguQm2LiYdZoGlrecy+IStb/TPwEZHRmOwycWOIUcQfPXtDHGlTa7YungKArHsw1ZpuYG9R0iC0z4JF0JYbFHUlaD1xnnAi1D7wF0f+dORcYRejbzTAXOPR7/MByq54fie5fGqETjKQM/aWarkgN90NcCVTxFQ= -->

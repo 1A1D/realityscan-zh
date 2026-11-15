@@ -1,0 +1,353 @@
+<html>
+<head>
+    <title>RealityScan 帮助</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Epic Games Slovakia s.r.o." />
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <link type="text/css" rel="stylesheet" href="../../styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/colors.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css" />
+    <script src="../scripts/textVars.js" type="text/javascript"></script>
+    <script src="../../scripts/localization.js" type="text/javascript"></script>
+    <script src="../../scripts/main.js" type="text/javascript"></script>
+</head>
+
+<body ondragstart="return false;">
+
+    <div data-id="div_cs" class="content_slide">
+
+    <!-- content slide -->
+    <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head" class="head">
+            <h1 data-id="h1" data-vn="2">自定义导入格式</h1>
+            <p data-id="p_h1__v1" data-vn="1">    
+                部分导入格式可以按你的具体需求和偏好进行自定义。例如，当你需要导入额外信息、文件包含任意列，或数据格式不正确时，可以编辑以下导入项：控制点、地面控制点、距离定义和飞行日志。             
+            </p>
+            
+            <p data-id="p_h1_destination" data-vn="1">
+               要自定义这些导入项，需要编辑安装目录下对应的文件。若安装时未更改安装位置，可在以下路径找到：
+            </p>    
+            
+            <pre data-id="h1_instaldest_v1" data-vn="2">
+C:\Program Files\Epic Games\RealityScan
+            </pre>
+            
+        </div>
+                    
+        <div class="slideblock">    
+            <h2 data-id="h2_fileformat" data-vn="1">导入文件结构</h2>
+            
+            <p data-id="p_fileformat" data-vn="1">
+                每个导入文件的结构都相同，这让自定义变得更容易。
+            </p>  
+              
+            <div class="codeSample">
+                <pre>
+&lt;format id&equals;&quot;&quot; descID&equals;&quot;&quot; desc&equals;&quot;Text Displayed in the Import Dialog&quot; reader&equals;&quot;&quot;&gt;
+    &lt;parser allowedSeparators&equals;&quot;&quot; comment&equals;&quot;&quot; showIgnoreFirstline&equals;&quot;&quot; qualifiers&equals;&quot;&quot;&gt; 
+        &lt;Variable index&equals;&quot;&quot; format&equals;&quot;&quot;&sol;&gt; 
+    &lt;&sol;parser&gt; 
+&lt;&sol;format&gt;</pre>
+            </div>
+
+            <ul>
+            <li data-id="li_synt_frmt" data-vn="3"><span class="appproperty">&lt;format&gt;</span> 定义导入的参数。
+                <ul>
+                    <li data-id="li_synt_id" data-vn="3" class="licircle"><span class="appproperty">id</span> <span class="note">(optional)</span> 唯一标识号（GUID）。</li>
+                    <li data-id="li_synt_descid" data-vn="3" class="licircle"><span class="appproperty">descID</span> <span class="note">（可选）</span> 用于语言本地化的唯一内部标识号。</li>
+                    <li data-id="li_synt_desc" data-vn="3" class="licircle"><span class="appproperty">desc</span> 在导入对话框中显示的文件格式名称。</li>
+                    <li data-id="li_synt_rder__v1" data-vn="2" class="licircle"><span class="appproperty">reader</span> 文件读取器。建议沿用文件中已有格式所用的同一个读取器。</li>
+                </ul>
+            </li>
+
+            <li data-id="li_synt_prsr" data-vn="3"><span class="appproperty">&lt;parser&gt;</span> 定义文件的读取方式。
+                <ul>
+                    <li data-id="li_synt_sprt" data-vn="3" class="licircle"><span class="appproperty">separator</span> 用作分隔符的符号（例如逗号 &quot;,&quot; 或空格 &quot; &quot;）。</li>
+                    <li data-id="li_synt_alsp" data-vn="3" class="licircle"><span class="appproperty">allowedSeparators</span> 在导入对话框中显示的分隔符列表。分隔符可由文件自动识别，也可由用户手动选择。若未定义允许的分隔符，则使用 <span class="appproperty">separator</span> 参数中指定的符号。</li>
+                    <li data-id="li_synt_comm" data-vn="3" class="licircle"><span class="appproperty">comment</span> 用于标识文件中注释的符号。该符号之后同行内的所有文本都会被忽略。</li>
+                    <li data-id="li_synt_sifl" data-vn="3" class="licircle"><span class="appproperty">showIgnoreFirstline</span> 设为 <span class="appproperty">true</span> 或 <span class="appproperty">false</span>，决定是否在导入对话框中显示“忽略第一行”选项。设为 true 时该选项会显示。</li>
+                    <li data-id="li_synt_qual" data-vn="3" class="licircle"><span class="appproperty">qualifier</span> 可包裹数值的符号，例如双引号。当数值中可能出现与分隔符相同的字符时很有用。建议沿用文件中已有格式所用的同一组符号。</li>               
+                </ul>
+             </li>
+
+             <li data-id="li_synt_var" data-vn="3"><span class="appproperty">&lt;Variable&gt;</span> 导入值的类型。可用变量取决于所选 reader；控制点、地面控制点、距离定义与飞行日志各自可用的变量清单，见下文对应段落。
+                <ul>
+                    <li data-id="li_synt_var_indx" data-vn="3" class="licircle"><span class="appproperty">index </span> 定义存放该值的列号，从 0 开始计数。可以用它跳过不需要的列。</li>
+                    <li data-id="li_synt_var_frmt" data-vn="3" class="licircle"><span class="appproperty">format</span> 导入值的数据类型。支持的类型有：<span class="appproperty">value</span> —— 精确数值；<span class="appproperty">degrees</span> —— 以度为单位的值（例如 GPS 值 N65 23 12.1）；<span class="appproperty">name</span> —— 字符串（例如控制点名称）；<span class="appproperty">name.ext</span> —— 含扩展名的文件路径与名称（例如 IMG_0001.jpg）。</li>
+                </ul>
+            </li>
+            </ul>
+         
+        </div> 
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div class="slideblock">
+            <h2 data-id="h2_ddim" data-vn="2">距离定义</h2>
+
+            <p data-id="p_h2_dim" data-vn="3">
+                修改 &quot;distancedefinitions.xml&quot; 文件即可自定义距离定义的导入。作为 <span class="appproperty">reader</span> 使用 &quot;RealityScan.Import.CsvDistanceDefinition&quot;。
+            </p>
+
+            <h3 data-id="h3_ddim_sfft" data-vn="1">示例文件格式：</h3>
+
+            <div class="codeSample"  data-id="div_cosa_0" data-vn="1">
+            <pre>
+&lt;format id&equals;&quot;{08192FC0-A5D9-4E99-B993-F274EFA5745F}&quot; descID&equals;&quot;8413&quot; desc&equals;&quot;Name, Point A, Point B, Distance, Accuracy (character-separated)&quot; reader&equals;&quot;RealityScan.Import.CsvDistanceDefinition&quot;&gt;
+    &lt;parser allowedSeparators&equals;&quot;,; &tab;&quot; comment&equals;&quot;&num;&quot; showIgnoreFirstline&equals;&quot;true&quot; qualifiers&equals;&quot;&amp;quot;optional&quot; &gt;
+        &lt;Name index&equals;&quot;0&quot;&sol;&gt;
+        &lt;PointA index&equals;&quot;1&quot;&sol;&gt;
+        &lt;PointB index&equals;&quot;2&quot;&sol;&gt;
+        &lt;Distance index&equals;&quot;3&quot;&sol;&gt;
+        &lt;DistanceAccuracy index&equals;&quot;4&quot;&sol;&gt;
+    &lt;&sol;parser&gt;
+&lt;&sol;format&gt;</pre>
+            </div>
+
+            <h3 data-id="h3_ddim_avva" data-vn="1">可用变量：</h3>
+
+            <ul>
+                <li data-id="li_ddim_avva_nm" data-vn="3"><span class="appproperty">Name</span> 距离约束的名称。</li>
+                <li data-id="li_ddim_avva_pA" data-vn="3"><span class="appproperty">PointA</span> 定义该距离约束的第一个点的名称。</li>
+                <li data-id="li_ddim_avva_pB" data-vn="3"><span class="appproperty">PointB</span> 定义该距离约束的第二个点的名称。</li>
+                <li data-id="li_ddim_avva_ds" data-vn="3"><span class="appproperty">Distance</span> 距离约束的长度。</li>
+                <li data-id="li_ddim_avva_da" data-vn="3"><span class="appproperty">DistanceAccuracy</span> 所定义距离的先验精度。</li>
+            </ul>
+           
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div class="slideblock">
+            <h2 data-id="h2_cpmi" data-vn="2">控制点</h2>
+
+
+            <p data-id="p_h2_cpmi" data-vn="3">
+                修改 &quot;measurementsimport.xml&quot; 文件即可自定义控制点的导入。作为 <span class="appproperty">reader</span> 使用 &quot;RealityScan.Import.CSVControlPointsMeasurements&quot;。
+            </p>
+
+            <h3 data-id="h3_cpmi_sfft" data-vn="1">示例文件格式：</h3>
+
+            <div class="codeSample"  data-id="div_cosa_1" data-vn="1">
+            <pre>
+&lt;format id&equals;&quot;{FDB5E38A-823C-446A-B144-6D33B2172D8A}&quot; descID&equals;&quot;8388&quot; desc&equals;&quot;Image, Point, X, Y (character-separated)&quot; reader&equals;&quot;RealityScan.Import.CSVControlPointsMeasurements&quot;&gt;
+    &lt;parser allowedSeparators&equals;&quot;,; &tab;&quot; comment&equals;&quot;#&quot; showIgnoreFirstline&equals;&quot;true&quot; qualifiers&equals;&quot;&amp;quot;optional&quot; &gt;
+        &lt;Image index&equals;&quot;0&quot; format&equals;&quot;name&quot; &sol;&gt;
+        &lt;PointName index&equals;&quot;1&quot; &sol;&gt;
+        &lt;X index&equals;&quot;2&quot; &sol;&gt;
+        &lt;Y index&equals;&quot;3&quot; &sol;&gt;
+    &lt;&sol;parser&gt;
+&lt;&sol;format&gt;</pre>    
+            </div>
+
+            <h3 data-id="h3_cpmi_avva" data-vn="1">可用变量：</h3>
+
+            <ul>
+                <li data-id="li_cpmi_avva_im" data-vn="3"><span class="appproperty">Image</span> 图像名称，含路径与格式扩展名。</li>
+                <li data-id="li_cpmi_avva_pn" data-vn="3"><span class="appproperty">PointName</span> 控制点名称。</li>
+                <li data-id="li_cpmi_avva_x" data-vn="3"><span class="appproperty">X</span> 控制点在图像中沿 X 轴的位置，以距图像左上角的像素数计。</li>
+                <li data-id="li_cpmi_avva_y" data-vn="3"><span class="appproperty">Y</span> 控制点在图像中沿 Y 轴的位置，以距图像左上角的像素数计。</li>
+                <li data-id="li_cpmi_avva_xa" data-vn="3"><span class="appproperty">XAccuracy</span> X 轴方向的位置精度。</li>
+                <li data-id="li_cpmi_avva_ya" data-vn="3"><span class="appproperty">YAccuracy</span> Y 轴方向的位置精度。</li>                
+                <li data-id="li_cpmi_avva_ra" data-vn="3"><span class="appproperty">RotationAccuracy</span> 精度区域相对 X 轴的旋转角，左手坐标系。</li>
+            </ul>
+
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+        
+        <div class="slideblock">
+            <h2 data-id="h2_gcpm" data-vn="2">地面控制点</h2>
+
+
+            <p data-id="p_h2_gcpm" data-vn="3">
+                修改 &quot;groundcontrol.xml&quot; 文件即可自定义控制点的导入。作为 <span class="appproperty">reader</span> 使用 &quot;RealityScan.Import.CSVGroundControl&quot;。
+            </p>
+
+            <h3 data-id="h3_gcpi_sfft" data-vn="1">示例文件格式：</h3>
+
+            <div class="codeSample"  data-id="div_cosa_2" data-vn="1">
+            <pre>
+&lt;format id&equals;&quot;{28626CC0-6311-41FD-88EE-988A673A5CB8}&quot; descID&equals;&quot;8406&quot; desc&equals;&quot;Name, X (East), Y (North), Alt, X Accuracy, Y Accuracy, Alt Accuracy (character-separated)&quot; reader&equals;&quot;RealityScan.Import.CSVGroundControl&quot;&gt;
+    &lt;parser allowedSeparators&equals;&quot;,; &tab;&quot; comment&equals;&quot;&num;;&quot; showIgnoreFirstline&equals;&quot;true&quot; qualifiers&equals;&quot;&amp;quot;optional&quot;&gt;
+        &lt;Name index&equals;&quot;0&quot; format&equals;&quot;name&quot;&sol;&gt;
+        &lt;X index&equals;&quot;1&quot; format&equals;&quot;value&quot;&sol;&gt;
+        &lt;Y index&equals;&quot;2&quot; format&equals;&quot;value&quot;&sol;&gt;
+        &lt;Altitude index&equals;&quot;3&quot; format&equals;&quot;value&quot;&sol;&gt;
+        &lt;XAccuracy index&equals;&quot;4&quot; format&equals;&quot;value&quot;&sol;&gt;
+        &lt;YAccuracy index&equals;&quot;5&quot; format&equals;&quot;value&quot;&sol;&gt;
+        &lt;AltitudeAccuracy index&equals;&quot;6&quot; format&equals;&quot;value&quot;&sol;&gt;
+    &lt;&sol;parser&gt;
+&lt;&sol;format&gt;</pre>    
+            </div>
+
+            <h3 data-id="h3_gcpi_avva" data-vn="1">可用变量：</h3>
+
+            <ul>
+                <li data-id="li_gcpi_avva_nm" data-vn="3"><span class="appproperty">Name</span> 地面控制点的名称。</li>
+                <li data-id="li_gcpi_avva_lo" data-vn="3"><span class="appproperty">Longitude</span> 地面控制点的经度坐标。</li>
+                <li data-id="li_gcpi_avva_loa" data-vn="3"><span class="appproperty">LongitudeAccuracy</span> 经度坐标的位置精度。</li>
+                <li data-id="li_gcpi_avva_x" data-vn="3"><span class="appproperty">X</span> 地面控制点的 X 坐标。</li>
+                <li data-id="li_gcpi_avva_xa" data-vn="3"><span class="appproperty">XAccuracy</span> X 坐标的位置精度。</li>
+                <li data-id="li_gcpi_avva_la" data-vn="3"><span class="appproperty">Latitude</span> 地面控制点的纬度坐标。</li>                
+                <li data-id="li_gcpi_avva_laa" data-vn="3"><span class="appproperty">LatitudeAccuracy</span> 纬度坐标的位置精度。</li>                
+                <li data-id="li_gcpi_avva_y" data-vn="3"><span class="appproperty">Y</span> 地面控制点的 Y 坐标。</li>                
+                <li data-id="li_gcpi_avva_ya" data-vn="3"><span class="appproperty">YAccuracy</span> Y 坐标的位置精度。</li>                
+                <li data-id="li_gcpi_avva_al" data-vn="3"><span class="appproperty">Altitude</span> 地面控制点的高程（Z）坐标。</li>                
+                <li data-id="li_gcpi_avva_ala" data-vn="3"><span class="appproperty">AltitudeAccuracy</span> 高程（Z）坐标的位置精度。</li>
+            </ul>
+
+        </div>       
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+        
+        <div class="slideblock">
+            <h2 data-id="h2_flgi" data-vn="3">飞行日志</h2>
+
+
+            <p data-id="p_h2_flgi" data-vn="3">
+                修改 &quot;flightlogs.xml&quot; 文件即可自定义控制点的导入。作为 <span class="appproperty">reader</span> 使用 &quot;RealityScan.Import.CSVFlightLog&quot;。
+            </p>
+
+            <h3 data-id="h3_flgi_sfft" data-vn="1">示例文件格式：</h3>
+
+            <div class="codeSample"  data-id="div_cosa_4" data-vn="1">
+            <pre>
+&lt;format id&equals;&quot;{97F08A22-F231-4AB4-A2FD-6FA42BB6D663}&quot; descID&equals;&quot;8436&quot; desc&equals;&quot;Name, X (East), Y (North), Alt, X Accuracy, Y Accuracy, Alt Accuracy, Yaw, Pitch, Roll (character-separated)&quot; reader&equals;&quot;RealityScan.Import.CSVFlightLog&quot;&gt;
+    &lt;parser allowedSeparators&equals;&quot;,; &tab;&quot; comment&equals;&quot;&num;&quot; showIgnoreFirstline&equals;&quot;true&quot; qualifiers&equals;&quot;&amp;quot;optional&quot; &gt;
+        &lt;Image index&equals;&quot;0&quot; format&equals;&quot;name.ext&quot;&sol;&gt;
+        &lt;X index&equals;&quot;1&quot; format&equals;&quot;value&quot;&sol;&gt;
+        &lt;Y index&equals;&quot;2&quot; format&equals;&quot;value&quot;&sol;&gt;
+        &lt;Altitude index&equals;&quot;3&quot; format&equals;&quot;value&quot;&sol;&gt;
+        &lt;XAccuracy index&equals;&quot;4&quot; format&equals;&quot;value&quot;&sol;&gt;
+        &lt;YAccuracy index&equals;&quot;5&quot; format&equals;&quot;value&quot;&sol;&gt;
+        &lt;AltitudeAccuracy index&equals;&quot;6&quot; format&equals;&quot;value&quot;&sol;&gt;
+        &lt;Yaw index&equals;&quot;7&quot; format&equals;&quot;value&quot;&sol;&gt;
+        &lt;Pitch index&equals;&quot;8&quot; format&equals;&quot;value&quot;&sol;&gt;
+        &lt;Roll index&equals;&quot;9&quot; format&equals;&quot;value&quot;&sol;&gt;
+    &lt;&sol;parser&gt;
+&lt;&sol;format&gt;</pre>    
+            </div>
+
+            <h3 data-id="h3_flgi_avva" data-vn="1">可用变量：</h3>
+
+            <ul>
+                <li data-id="li_flgi_avva_im" data-vn="3"><span class="appproperty">Image</span> 图像名称，含完整路径与格式扩展名。</li>
+                <li data-id="li_flgi_avva_lo" data-vn="3"><span class="appproperty">Longitude</span> 相机位置的经度坐标。</li>
+                <li data-id="li_flgi_avva_loa" data-vn="3"><span class="appproperty">LongitudeAccuracy</span> 经度坐标的位置精度。</li>
+                <li data-id="li_flgi_avva_x" data-vn="3"><span class="appproperty">X</span> 相机位置的 X 坐标。</li>
+                <li data-id="li_flgi_avva_xa" data-vn="3"><span class="appproperty">XAccuracy</span> X 坐标的位置精度。</li>
+                <li data-id="li_flgi_avva_la" data-vn="3"><span class="appproperty">Latitude</span> 相机位置的纬度坐标。</li>
+                <li data-id="li_flgi_avva_laa" data-vn="3"><span class="appproperty">LatitudeAccuracy</span> 纬度坐标的位置精度。</li>
+                <li data-id="li_flgi_avva_y" data-vn="3"><span class="appproperty">Y</span> 相机位置的 Y 坐标。</li>
+                <li data-id="li_flgi_avva_ya" data-vn="3"><span class="appproperty">YAccuracy</span> Y 坐标的位置精度。</li>
+                <li data-id="li_flgi_avva_al" data-vn="3"><span class="appproperty">Altitude</span> 相机位置的高程（Z）坐标。</li>
+                <li data-id="li_flgi_avva_ala" data-vn="3"><span class="appproperty">AltitudeAccuracy</span> 高程（Z）坐标的位置精度。</li>
+            </ul>
+            <br/>
+            <ul>
+                <li data-id="li_flgi_avva_yaw" data-vn="3"><span class="appproperty">Yaw</span> 偏航角先验（绕 Y 轴）。</li>
+                <li data-id="li_flgi_avva_yawa" data-vn="3"><span class="appproperty">YawAccuracy</span> 偏航角先验精度。</li>
+                <li data-id="li_flgi_avva_om" data-vn="3"><span class="appproperty">Omega</span> omega 旋转先验（仅用于地理配准场景）。</li>
+                <li data-id="li_flgi_avva_oma" data-vn="3"><span class="appproperty">OmegaAccuracy</span> omega 旋转先验精度。</li>
+                <li data-id="li_flgi_avva_pi" data-vn="3"><span class="appproperty">Pitch</span> 俯仰角先验（绕 X 轴）。</li>
+                <li data-id="li_flgi_avva_pia" data-vn="3"><span class="appproperty">PitchAccuracy</span> 俯仰角先验精度。</li>
+                <li data-id="li_flgi_avva_ph" data-vn="3"><span class="appproperty">Phi</span> phi 旋转先验（仅用于地理配准场景）。</li>
+                <li data-id="li_flgi_avva_pha" data-vn="3"><span class="appproperty">PhiAccuracy</span> phi 旋转先验精度。</li>
+                <li data-id="li_flgi_avva_ro" data-vn="3"><span class="appproperty">Roll</span> 翻滚角先验（绕 Z 轴）。</li>
+                <li data-id="li_flgi_avva_roa" data-vn="3"><span class="appproperty">RollAccuracy</span> 翻滚角先验精度。</li>
+                <li data-id="li_flgi_avva_ka" data-vn="3"><span class="appproperty">Kappa</span> kappa 旋转先验（仅用于地理配准场景）。</li>
+                <li data-id="li_flgi_avva_kaa" data-vn="3"><span class="appproperty">KappaAccuracy</span> kappa 旋转先验精度。</li>
+            </ul>
+            <br/>
+            <ul>                
+                <li data-id="li_flgi_avva_fl" data-vn="3"><span class="appproperty">FocalLength</span> 焦距（先验标定值）。</li>
+                <li data-id="li_flgi_avva_pu" data-vn="3"><span class="appproperty">PrincipalU</span> 主点 x（先验标定值）。</li>
+                <li data-id="li_flgi_avva_pv" data-vn="3"><span class="appproperty">PrincipalV</span> 主点 y（先验标定值）。</li>
+                <li data-id="li_flgi_avva_sk" data-vn="3"><span class="appproperty">Skew</span> 相机斜切系数（先验标定值）。</li>
+                <li data-id="li_flgi_avva_ar" data-vn="3"><span class="appproperty">AspectRatio</span> 相机宽高比校正系数（先验标定值）。</li>
+                <li data-id="li_flgi_avva_rd1" data-vn="3"><span class="appproperty">RadialDistortion1</span> 畸变模型第一径向系数（先验镜头畸变）。</li>
+                <li data-id="li_flgi_avva_rd2" data-vn="3"><span class="appproperty">RadialDistortion2</span> 畸变模型第二径向系数（先验镜头畸变）。</li>
+                <li data-id="li_flgi_avva_rd3" data-vn="3"><span class="appproperty">RadialDistortion3</span> 畸变模型第三径向系数（先验镜头畸变）。</li>
+                <li data-id="li_flgi_avva_rd4" data-vn="3"><span class="appproperty">RadialDistortion4</span> 畸变模型第四径向系数（先验镜头畸变）。</li>
+                <li data-id="li_flgi_avva_td1" data-vn="3"><span class="appproperty">TangentialDistortion1</span> 畸变模型第一切向系数（先验镜头畸变）。</li>
+                <li data-id="li_flgi_avva_td2" data-vn="3"><span class="appproperty">TangentialDistortion2</span> 畸变模型第二切向系数（先验镜头畸变）。</li>
+            </ul>
+
+        </div>
+
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_bc" class="blocksContainer">
+
+            <a href="../tutorials/scaling.htm">
+                <div class="block TileColor1">
+                    <h2 data-id="h2_bc_scas" data-vn="1">缩放场景</h2>
+                    <p data-id="p_bc_scas" data-vn="1">用几种不同方法缩放场景</p>
+                </div>
+            </a>
+
+            <a href="../tools/cpmeasurementsimport.htm">
+                <div class="block TileColor1">
+                    <h2 data-id="h2_bc_cocp" data-vn="1">控制点测量导入</h2>
+                    <p data-id="p_bc_cocp" data-vn="1">用文本文件导入控制点测量</p>
+                </div>
+            </a>
+            
+            <a href="../tools/gcpimport.htm">
+                <div class="block TileColor1">
+                    <h2 data-id="h2_bc_gcpi" data-vn="1">地面控制点导入</h2>
+                    <p data-id="p_bc_gcpi" data-vn="1">用文本文件导入地面控制点</p>
+                </div>
+            </a>            
+
+            <a href="../tools/flightlogimport.htm">
+                <div class="block TileColor1">
+                    <h2 data-id="h2_bc_flgi" data-vn="1">飞行日志导入</h2>
+                    <p data-id="p_bc_flgi" data-vn="1">把飞行日志作为文本文件导入</p>
+                </div>
+            </a>
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+
+        </div>
+        
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sa" class="rowblock">
+            <h3 data-id="h3_sa" data-vn="1">另见：</h3>
+            <ul class="intend">
+                <li data-id="li_sa_export" data-vn="1"><a href="../tools/defineexportformat.htm">Customize Export Formats</a> —— 了解哪些导出可以自定义以及如何自定义</li>
+            </ul>
+            <div class="clear">
+                <!-- clear -->
+            </div>
+        </div>
+
+    <!-- content slide end -->
+
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+    <script type="text/javascript">
+        InitializeTutorialMode();
+    </script>
+
+</body>
+</html>
+<!-- signature:5KeNHd6cyNNz2ol2o91BPBO8NOd0qWcMDlk+mp8Qs7GoTGjdW3ilhJh48gv0TElEa+O5RmJPmoMmOMcMowXt5aa6+MbpSjAiy7vJjslXsfJdHEvPpPnms6xChyB7qHh+sZlGcT+1LKEQTOm6J1eD1/FgeWS9KHOF37/LMiCkBBA= -->

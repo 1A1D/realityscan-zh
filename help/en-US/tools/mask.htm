@@ -1,0 +1,161 @@
+﻿<html>
+<head>
+    <title>RealityScan 帮助</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Epic Games Slovakia s.r.o." />
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <link type="text/css" rel="stylesheet" href="../../styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/colors.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css" />
+    <script src="../scripts/textVars.js" type="text/javascript"></script>
+    <script src="../../scripts/localization.js" type="text/javascript"></script>
+    <script src="../../scripts/main.js" type="text/javascript"></script>
+</head>
+<body ondragstart="return false;">
+
+    <div data-id="div_cs" class="content_slide">
+
+        <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head" class="head">
+
+            <h1 data-id="h1_mask" data-vn="1">遮罩图像</h1>
+            <p data-id="p_h1_mask" data-vn="1">
+                遮罩可让你把图像的特定区域排除在处理之外，例如窗户、水面、天空、阴影、植被或图像噪点。从多个角度或方向扫描物体时尤其有用，能通过剔除不需要的图像数据来提高重建的准确性与一致性。使用遮罩还有助于在重建过程中滤掉不需要的几何，使模型更干净，减少后续用过滤工具做大量处理的需要。
+            </p>
+
+            <p data-id="p_mask_expl" data-vn="1">
+                遮罩提供了一种非破坏性的方式来排除图像的部分内容。它既可以是单独的灰度图像（如 PNG 文件），也可以嵌在原图的 alpha 通道中（如 TIFF 文件）。遮罩中白色区域参与处理，黑色区域被排除。虽然可以使用多达 256 级的灰度（或部分透明），但不建议这样做，因为它们可能干扰处理、导致结果不一致。
+            </p>
+        </div>
+        
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div> 
+        
+        
+        <div class="slideblock">
+            <h2 data-id="h2_genm" data-vn="1">生成遮罩</h2>
+
+            <p data-id="p_h2_genm" data-vn="2">
+                使用 <span class="apptool">AI Masking</span> 工具甚至可以在对齐之前生成遮罩图像；模型创建之后也可以用 <span class="apptool">Masking from Mesh</span> 工具生成。两个选项都在 <span class="apptool">Mask Images</span> 下拉菜单中，该菜单位于 <span class="appribbon">ALIGNMENT</span> 选项卡的 <span class="apppanel">Process</span> 区域。
+            </p>    
+                <div style="padding: 20px 10px 10px 10px">
+                    <img src="./images/Mask-Generate.png" alt="Mask-Generate" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/Mask-Generate.png';"/>
+                </div>
+                
+                
+                <ul>
+                    <li data-id="p_genm_ai" data-vn="1"><span class="apptool">AI Masking</span> 自动识别背景并分离出图像中的目标物体。对转台拍摄或背景特征很少的环境最为理想。
+                    </li>
+                    <li data-id="p_genm_mesh" data-vn="1"><span class="apptool">Masking from Mesh</span> 依据场景中相机所见的重建网格生成遮罩图像。网格之外的区域会被遮掉，在后续处理中被忽略。
+                    </li>
+                </ul>
+     
+            
+        </div>
+        
+        
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div> 
+        
+        
+        <div class="slideblock">
+            <h2 data-id="h2_impm" data-vn="1" id="ImportMasks">导入遮罩图像</h2>
+            <p data-id="p_h2_impm" data-vn="1">
+                遮罩图像在导入时必须遵循与图像图层相同的命名规则。具体采用哪种命名约定，取决于是逐个导入文件，还是从文件夹整体加载所有遮罩图像。若图像是用 <span class="apptool">AI Masking</span> 或 <span class="apptool">Masking from Mesh</span> 工具生成的，则无需如此，它们会被自动加入项目。
+            </p>
+            
+            <p data-id="p_impm_link" data-vn="1">
+                了解<a href="../tools/imglayers.htm">image layers</a>以及命名规则的更多内容。
+            </p>
+
+        </div>
+        
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div> 
+        
+        
+        <div class="slideblock">
+            <h2 data-id="h2_exop" data-vn="1" id="ExportMasks">导出选项</h2>
+            <p data-id="p_h2_exop" data-vn="1">
+                用 <span class="apptool">AI Masking</span> 或 <span class="apptool">Masking from Mesh</span> 工具生成遮罩后，可以从这些工具所在的下拉菜单中导出遮罩。同一导出选项也可用来保存手动导入的遮罩。        
+            </p>
+            
+            <p data-id="p_h2_dndm" data-vn="2">
+                也可以用 <span class="apptool">Maps and Masks</span> 按钮自动生成并导出遮罩，该按钮位于 <span class="appribbon">MESH &amp; COLOR</span> 选项卡的 <span class="apppanel">Export</span> 区域，或 <span class="appribbon">SCENE 3D</span>/<span class="appribbon">TOOLS</span> 之下。这些遮罩与 <span class="apptool">Masking from Mesh</span> 生成遮罩的方式相同，都是由网格生成，但不会加入项目，而是与深度图一起直接导出。深度图存储相机与可见表面之间的距离信息，有助于确定插入物体的哪些部分是可见的。遮罩保存为 PNG 文件，深度图保存为 EXR 文件。<br /> 在 <span class="apppanel">Export Depth Maps and Masks</span> 对话框中，可以选择导出网格遮罩、深度图，或两者都导出。关于对话框中去畸变设置的更多信息，见 <a href="../tools/undistort.htm">Undistorted Images</a>。               
+            </p>
+            
+            
+            
+        </div>
+        
+        
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div> 
+        
+        
+        <div data-id="div_htdm" class="slideblock">
+
+            <h2 data-id="h2_vism" data-vn="1">可视化遮罩</h2>
+            <p data-id="p_h2_vism" data-vn="1">要查看遮罩，在 <span class="appaspecttype">2D</span> 视图中打开目标图像，进入 <span class="appribbon">Image 2D</span>/<span class="appribbon">VIEW</span> 选项卡，在功能区的 <span class="apppanel">Source</span> 区域把 <span class="appproperty">Input Layer</span> 设为 <span class="appribbonbutton">Mask</span>。若所选图像没有遮罩图层，该选项会置灰。</p>
+
+                <div style="padding: 20px 10px 10px 10px">
+                    <img src="./images/Mask-Visualize.png" alt="Mask-Visualize" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/Mask-Visualize.png';"/>
+                </div>
+
+			<p data-id="p_vism_selbet" data-vn="1">若 <span class="appaspecttype">2D</span> 视图中显示的图像被分配了多个图像图层，可用键盘上的 <span class="appshortcut">TAB</span> 键在它们之间切换。
+			</p>
+        </div>
+        
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div> 
+               
+        <div class="slideblock">
+            <h2 data-id="h2_usem" data-vn="1">使用遮罩图像</h2>
+            <p data-id="p_h2_usem" data-vn="1">              
+                至少选中一个输入时会显示 <span class="apppanel">Selected input</span> 面板。在 <span class="appannel">Image layers</span> 区域可以看到分配给所选图像的所有图层，若有遮罩图层也会一并列出。对遮罩图层，可以通过修改相应设置来决定它在对齐、网格重建或贴图过程中是否生效。
+            </p>
+            
+                <div style="padding: 20px 10px 10px 10px">
+                    <img src="./images/Mask-Use.png" alt="Mask-Use" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/Mask-Use.png';"/>
+                </div>
+
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_bc" class="blocksContainer">
+
+            <a href="imglayers.htm">
+                <div class="block TileColor2">
+                    <h2 data-id="h2_bc_gcpe" data-vn="1">图像图层</h2>
+                    <p data-id="p_h2_bc_gcpe" data-vn="1">了解如何命名并使用图像图层</p>
+                </div>
+            </a>
+            
+            <script type="text/javascript">RenderBackToStartTile();</script>
+
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+    <script type="text/javascript">
+        InitializeHelpSlide();
+    </script>
+
+</body>
+</html>
+<!-- signature:OK4Y1JBccfPWkYL30wym4NufiQGtnrZrs1AlGM31da5oeoyCDenXXfIJyYw5qp1pHjQrlHe/TlK33+XZGIBIJLbHpQXDZxY3QuiUXwQXnLf4FtR52XuM7xljEzv0ldyEutssOWUuKWDMqqoytSgRAVgZn1sHdoG7B252LUnXoaY= -->

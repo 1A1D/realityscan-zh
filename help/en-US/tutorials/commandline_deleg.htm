@@ -1,0 +1,205 @@
+<html>
+<head>
+    <title>RealityScan 帮助</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Epic Games Slovakia s.r.o." />
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <link type="text/css" rel="stylesheet" href="../../styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/colors.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css" />
+    <script src="../scripts/textVars.js" type="text/javascript"></script>
+    <script src="../../scripts/localization.js" type="text/javascript"></script>
+    <script src="../../scripts/main.js" type="text/javascript"></script>
+</head>
+<body ondragstart="return false;">
+
+    <div data-id="div_cs" class="content_slide">
+
+    <!-- content slide -->
+    <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head" class="head">
+            <h1 data-id="h1" data-vn="1">命令委派</h1>
+            <p data-id="p_h1" data-vn="2">
+                本教程介绍如何为运行中的 RealityScan 实例命名、把命令委派给其中某个实例、暂停、中止以及查看进程状态。
+            </p>
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sb_inam" data-vn="2" class="slideblock">
+            <h2 data-id="h2_inam" data-vn="1">实例命名</h2>
+            <p data-id="p_h2_inam" data-vn="2">
+                RealityScan 最多可同时打开 4 个实例，也就是可以同时打开 4 个项目。<br /> 使用命令行界面时，可以给各实例命名，再把命令委派给已打开的实例——用 <span class="command">setInstanceName</span> 命令加 <span class="command">instanceName</span> 参数即可。实例名不能包含空格。<br /><br /> 示例——下面会把实例名设为 RS1：
+            </p>
+            <div class="codeSample">
+                RealityScan.exe -setInstanceName RS1
+            </div>
+        </div>
+        
+        <br/>
+        
+        <div data-id="div_sb_delcom" data-vn="2" class="slideblock">
+            <h2 data-id="h2_delcom" data-vn="1">命令委派</h2>
+            <p data-id="p_h2_delcom" data-vn="2">
+                可以用 <span class="command">delegateTo</span> 命令把一条命令或一串命令委派给已打开的 RealityScan 实例，它有两个参数：<span class="command">instanceName</span> 与 <span class="command">commandsDefinition</span>。<span class="command">instanceName</span> 处也可以写星号（*），此时命令会委派给找到的第一个实例。<br /><br /> 示例 1 —— 向第一个已打开的 RealityScan 实例添加图像：
+            </p>
+            <div class="codeSample">
+                RealityScan.exe -delegateTo * -add D:\\datasets\\test\\img001.JPG
+            </div>
+            <p data-id="p_delcom_RS1" data-vn="1">示例 2 —— 向名为 RS1 的实例添加图像：</p>
+            <div class="codeSample">
+                RealityScan.exe -delegateTo RS1 -add D:\\datasets\\test\\img001.JPG
+            </div>
+            <p data-id="p_delcom_5" data-vn="1">示例 3 —— 从指定文件夹中每 5 张取 1 张加入，然后对齐图像、保存项目并退出应用：</p>
+            <div class="codeSample">
+                start RealityScan.exe<br />
+                     TIMEOUT 2<br />
+
+                         for /l %%A in (1,5,100) do (<br />
+                            RealityScan.exe -delegateTo * -add D:\\datasets\\test\\img%%A.JPG<br />
+                         )<br />
+
+                         RealityScan.exe -delegateTo * -align<br />
+                         RealityScan.exe -delegateTo * -save d:\\datasets\\test\\processed\\scene.rsproj<br />
+                         RealityScan.exe -delegateTo * -quit
+            </div>
+        </div>
+        
+        <br/>
+        
+        <div data-id="div_sb_wacom" class="slideblock">
+            <h2 data-id="h2_wacom" data-vn="1">等待完成</h2>
+            <p data-id="p_h2_wacom" data-vn="1">
+                还有 <span class="command">waitCompleted</span> 命令，可让后续命令暂停执行，直到当前进程结束。把它与 <span class="command">instanceName</span> 参数（或 * 符号）一起使用时，后续命令只会在该命令所指实例中的进程结束后才执行。见下例。<br /><br /> 示例 —— 在找到的第一个实例中运行对齐，等对齐结束后再执行批处理的后续步骤并查看结果：
+            </p>
+            <div class="codeSample">
+                 ...<br />
+                         RealityScan.exe -delegateTo * -align<br />
+                         RealityScan.exe -waitCompleted *<br />
+                         call CheckResult<br />
+                 ...
+            </div>
+        </div>
+        
+        <br/>
+        
+        <div data-id="div_sb_chis" data-vn="2" class="slideblock">
+            <h2 data-id="h2_chis" data-vn="1">查看实例状态</h2>
+            <p data-id="p_h2_chis" data-vn="2">
+                用 <span class="command">getStatus</span> 命令加 <span class="command">instanceName</span>（或星号 *）可返回运行中实例的进度。<br /><br /> 示例 —— 取回已打开的实例 RS1 的当前状态：
+            </p>
+            <div class="codeSample">
+                RealityScan.exe -getStatus RS1
+            </div>
+            <p data-id="p_chis_res" data-vn="1">
+                结果 —— 在该实例的控制台中，你会得到进度 ID、当前进程的完成百分比、已用时间与预计剩余时间：
+            </p>
+            <div class="codeSample">
+                id:0x10001 progress:57.5% runtime:4.26sec endEstimation:3.40sec
+            </div>
+            <p data-id="p_chis_gst" data-vn="1">
+                也可以把 <span class="command">getStatus</span> 的结果输出到外部文本文件，命令如下：
+            </p>
+            <div class="codeSample">
+                RealityScan.exe -getStatus * > D:\statusreport.txt
+            </div>            
+        </div>
+        
+        <br/>
+        
+        <div data-id="div_conpro" data-vn="2" class="slideblock">
+            <h2 data-id="h2_conpro" data-vn="1">控制进程</h2>
+            <p data-id="p_h2_conpro" data-vn="2">
+                可以用 <span class="command">pauseInstance</span>、<span class="command">unpauseInstance</span> 和 <span class="command">abortInstance</span> 命令，配合 <span class="command">instanceName</span> 参数（或 * 符号）控制已打开实例中正在运行的进程。这在服务器或渲染农场上处理时尤其有用：这些命令让你能暂停当前进程，以便先跑优先级更高的任务，之后再恢复；也可以直接彻底中止。<br /><br /> 示例 —— 暂停实例 RS1 中运行的进程：
+            </p>
+            <div class="codeSample">
+                RealityScan.exe -pauseInstance RS1
+            </div>
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_bc" data-vn="2" class="blocksContainer">
+
+            <a href="../tutorials/commandline.htm">
+                <div class="block TileColor1">
+                    <h2 data-id="h2_bc_pric" data-vn="1">工程与图像命令</h2>
+                    <p data-id="p_bc_pric" data-vn="1">通过 CLI 管理当前工程、应用本身，以及添加图像</p>
+                </div>
+            </a>
+
+            <a href="../tutorials/commandline_rscmd.htm">
+                <div class="block TileColor1">
+                    <h2 data-id="h2_bc_out" data-vn="1">命令行之外的命令执行方式</h2>
+                    <p data-id="p_h2_bc_out" data-vn="2">用 .rscmd 文件执行 CLI</p>
+                </div>
+            </a>
+            
+            <a href="../tutorials/commandline_1.htm">
+                <div class="block TileColor2">
+                    <h2 data-id="h2_bc_cacs" data-vn="1">继续</h2>
+                    <p data-id="p_bc_cacs" data-vn="1">对齐与组件处理命令</p>
+                </div>
+            </a>
+
+            <a href="../tutorials/commandline_2.htm">
+                <div class="block TileColor1">
+                    <h2 data-id="h2_bc_reco" data-vn="1">重建命令</h2>
+                    <p data-id="p_bc_reco" data-vn="1">通过命令行计算模型</p>
+                </div>
+            </a>
+
+            <a href="../tutorials/commandline_3.htm">
+                <div class="block TileColor1">
+                    <h2 data-id="h2_bc_mtco" data-vn="1">模型工具命令</h2>
+                    <p data-id="p_bc_mtco" data-vn="1">通过命令行进一步处理模型</p>
+                </div>
+            </a>
+
+            <a href="../tutorials/commandline_4.htm">
+                <div class="block TileColor1">
+                    <h2 data-id="h2_bc_seco" data-vn="1">设置命令</h2>
+                    <p data-id="p_bc_seco" data-vn="1">应用设置与行为</p>
+                </div>
+            </a>
+
+            <a href="../tutorials/commandline_5.htm">
+                <div class="block TileColor1">
+                    <h2 data-id="h2_bc_erhc" data-vn="1">错误处理命令</h2>
+                    <p data-id="p_bc_erhc" data-vn="1">用于处理潜在错误的命令</p>
+                </div>
+            </a>
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sa" class="rowblock">
+            <h3 data-id="h3_sa" data-vn="1">另见：</h3>
+            <ul class="intend">
+                <li data-id="li_sa_acli" data-vn="1">在一页中查看全部 CLI 命令 <a href="../appbasics/allcommands.htm">点击此处</a></li>
+            </ul>
+        </div>
+
+    <!-- content slide end -->
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+    <script type="text/javascript">
+        InitializeTutorialMode();
+    </script>
+
+
+</body>
+</html>
+<!-- signature:CICLY78QO3JWbyF0V7FbLAGl2+7cpmW+vcH7Aw52mGDUkAG80P9NSh8q5ekco/VSanp0a+TN4iobqueYCi49szlsWXgYILx3bJLzoAtDyCMYP1UbQI4uR2Kyv5lamorK0w7/MSlSbow0KImiIGLx/o2saqosEdni7hHRUGklbZ8= -->

@@ -1,0 +1,253 @@
+<html>
+<head>
+    <title>RealityScan 帮助</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Epic Games Slovakia s.r.o." />
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <link type="text/css" rel="stylesheet" href="../../styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/colors.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css" />
+    <script src="../scripts/textVars.js" type="text/javascript"></script>
+    <script src="../../scripts/localization.js" type="text/javascript"></script>
+    <script src="../../scripts/main.js" type="text/javascript"></script>
+</head>
+<body ondragstart="return false;">
+
+    <div data-id="div_cs" class="content_slide">
+
+    <!-- content slide -->
+    <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head" class="head">
+            <h1 data-id="h1" data-vn="1">命令行之外的命令执行方式</h1>
+            <p data-id="p_h1" data-vn="2">
+                RealityScan 不直接使用命令行也能执行命令：只需把包含一串受支持命令的文本文件<span class="appgesture">拖放</span>到应用中即可，文件保存为 <span class="appproperty">.rscmd</span> 扩展名。
+            </p>
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sb_exex" data-vn="2" class="slideblock">
+            <h2 data-id="h2_exex" data-vn="1">示例讲解</h2>
+            <p data-id="p_h2_exex" data-vn="2">
+                下面是一个可写入 <span class="appproperty">.rscmd</span> 文件的命令序列示例，用于加载 <span class="command">C:\MyFolder\Images\</span> 文件夹中的图像、对齐所有已加载图片、以正常细节创建模型，并把项目保存到 <span class="command">C:\MyFolder\MyProject.rsproj</span>：
+            </p>
+
+            <div class="codeSample" data-id="div_cosa" data-vn="1">
+                -addFolder C:\MyFolder\Images\ -align -setReconstructionRegionAuto -calculateNormalModel -save C:\MyFolder\MyProject.rsproj
+            </div>
+
+            <p data-id="p_exex_row" data-vn="1">
+                所有命令可以写在一行（如上），也可以每条各占一行，这样代码结构更清晰：
+            </p>
+
+            <div class="codeSample">
+                -addFolder C:\MyFolder\Images\<br/>
+                -align<br/>
+                -setReconstructionRegionAuto<br/>
+                -calculateNormalModel<br/>
+                -save C:\MyFolder\MyProject.rsproj
+            </div>
+
+            <p data-id="p_exex_sign" data-vn="1">
+                也可以用 <span class="command">^</span> 符号换行（<span class="command">^</span> 前后有无空格都可以）：
+            </p>
+
+            <div class="codeSample">
+                -addFolder C:\MyFolder\Images\^<br/>
+                -align^<br/>
+                -setReconstructionRegionAuto^<br/>
+                -calculateNormalModel^<br/>
+                -save C:\MyFolder\MyProject.rsproj
+            </div>
+
+            <br/>
+
+            <div data-id="div_im_sign" data-vn="2" class="importantMessage">
+                注意：在批处理脚本中，始终需要用 <span class="command">^</span> in case you want to continue the sequence of RealityScan commands 
+                on the next line and process them as one.<br/>
+                Any lines beginning with <span class="command">#</span>, <span class="command">//</span>, <span class="command">REM</span> or <span class="command">rem</span> are skipped. 
+                You can use these symbols before a portion of text to mark it as a code comment, for instance: <span class="command">// I am a comment</span>.
+            </div>
+
+        </div>
+        
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>        
+        
+        <div class="slideblock">
+            <h2 data-id="h2_exrscmd" data-vn="2">执行 .rscmd 文件中列出的命令</h2>
+            <p data-id="p_h2_exrscmd" data-vn="2">
+                可以用 <span class="command">execrscmd</span> 命令执行指定 <span class="appproperty">.rscmd</span> 文件中列出的所有命令。<span class="command">execrscmd</span> 的必需参数是 <span class="appproperty">.rscmd</span> 文件的完整文件名与路径。<span class="command">execrscmd</span> 可在 Windows 命令行、.bat 文件或其他 <span class="appproperty">.rscmd</span> 文件中使用（见下例）。
+            </p>
+        </div> 
+        
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+                
+        <div class="slideblock">
+            <h2 data-id="h2_parscmd" data-vn="2">向 .rscmd 文件传参</h2>
+            <p data-id="p_h2_parscmd" data-vn="2">
+                用 <span class="command">execrscmd</span> 执行 <span class="appproperty">.rscmd</span> 文件时，最多可传 10 个参数——第一个参数与被执行文件的路径是必需的。要在 .rscmd 文件内使用这些参数，写 $(arg0) $(arg1) … $(arg9)。下面示例用 sample.bat 打开 RealityScan，并调用 addFolder.rscmd 把 "D:\MyFolder\Images" 文件夹中的图像加入应用；"D:\MyFolder\Images" 就是传给 addFolder.rscmd 的唯一参数。<br/><br/> 文件 sample.bat 内容如下：
+            </p>
+                
+            <div class="codeSample" data-id="div_cosa_3_v1" data-vn="1">
+                "C:\Program Files\Epic Games\RealityScan\RealityScan.exe" -execrscmd D:\MyFolder\addFolder.rscmd "D:\MyFolder\Images"
+            </div>
+
+            <p data-id="p_h2_parscmd_sample" data-vn="2">
+                文件 addFolder.rscmd 内容如下：
+            </p>
+            
+            <div class="codeSample">
+                -addFolder $(arg1)
+            </div>
+        
+        </div>
+        
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>        
+        
+        <div class="slideblock">
+            <h2 data-id="h2_rcfnv" data-vn="2">使用 RealityScan 函数与变量</h2>
+            <p data-id="p_h2_rcfnv" data-vn="2">
+                使用 RealityScan 命令或执行 <span class="appproperty">.rscmd</span> 文件时，可以使用预定义的基础 RealityScan 函数与变量；导出“报告”时也能用同一套函数与变量。关于用法说明以及可用函数与变量清单，<a href="../appbasics/reports_fav_basic.htm">见此处</a>的“报告 —— 基础函数”一节。<br/> 下面是 <span class="appproperty">.rscmd</span> 中的命令；把该 <span class="appproperty">.rscmd</span> 拖放到应用后，会执行以下操作： 
+            </p>            
+            
+            <ol>
+                <li data-id="li_rcfnv_nsopo" data-vn="1">打开一个新场景。</li>
+                <li data-id="li_rcfnv_iftao" data-vn="1">把 D:\MyFolder\1 文件夹中的所有输入加入应用。</li>
+                <li data-id="li_rcfnv_ifapo" data-vn="1">对齐该文件夹中的输入，并在自动重建区域下创建预览模型。</li>
+                <li data-id="li_rcfnv_prsao" data-vn="2">把项目保存到 D:\MyFolder\project_1.rsproj</li>
+                <li data-id="li_rcfnv_nsopt" data-vn="1">打开一个新场景。</li>
+                <li data-id="li_rcfnv_iftat" data-vn="1">把 D:\MyFolder\2 文件夹中的所有输入加入应用。</li>
+                <li data-id="li_rcfnv_ifapt" data-vn="1">对齐该文件夹中的输入，并在自动重建区域下创建预览模型。</li>
+                <li data-id="li_rcfnv_prsat" data-vn="2">把项目保存到 D:\MyFolder\project_2.rsproj</li>
+            </ol>
+            <br/>
+            
+            <p data-id="p_rcfnv_ex" data-vn="1"><b>示例：</b></p>
+            <div class="codeSample" data-id="div_cosa_4" data-vn="1">
+    $For( "i", 1, 1, 3,<br/>
+        -newScene<br/>
+        -addFolder D:\MyFolder\$(i)<br/>
+        -align<br/>
+        -setReconstructionRegionAuto<br/>
+        -calculatePreviewModel<br/>
+        -save D:\MyFolder\project_$(i).rsproj<br/>
+    )<br/>
+    </div>
+
+            <br/>
+
+            <div data-id="div_im_iint" data-vn="1" class="importantMessage">
+                注意：“i” 取自右开区间 [1,3)，步长为 1。
+            </div>
+
+            <br/>
+
+            <p data-id="p_h2_addgv" data-vn="1">
+                此外还可以使用这些全局变量：
+            </p>
+            <p data-id="p_glob_rdir_v1" data-vn="2"><span class="appproperty">$(appRootDir)</span> —— RealityScan 应用安装目录的路径，通常是 C:\Program Files\Epic Games\RealityScan。</p>
+            <p data-id="p_glob_sdir" data-vn="2"><span class="appproperty">$(appStartDir)</span> —— 执行 RealityScan.exe 时所在文件夹的路径（例如调用 RealityScan.exe 的 .bat 文件所在路径）。</p>
+            <p data-id="p_glob_cdir" data-vn="2"><span class="appproperty">$(cmdStartDir)</span> —— 被执行的 <span class="appproperty">.rscmd</span> 文件所在文件夹的路径。</p>
+            <p data-id="p_glob_args" data-vn="2"><span class="appproperty">$(arg1), ..., $(arg9)</span> —— 传给 execrscmd 命令的变量。</p>
+
+            <br/>
+
+            <div data-id="div_im_quotes" data-vn="1" class="importantMessage">
+                注意：把这些变量用作参数时，别忘了放在引号内。若完整路径中含空格，可能会被当作多个独立参数（示例： <span class="command">-addFolder $(cmdStartDir)</span>).
+            </div>
+
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_bc" class="blocksContainer">
+
+            <a href="../tutorials/commandline.htm">
+                <div class="block TileColor1">
+                    <h2 data-id="h2_bc_pric" data-vn="1">工程与图像命令</h2>
+                    <p data-id="p_bc_pric" data-vn="1">通过 CLI 管理当前工程、应用本身，以及添加图像</p>
+                </div>
+            </a>
+            
+            <a href="../tutorials/commandline_deleg.htm">
+                <div class="block TileColor2">
+                    <h2 data-id="h2_bc_del" data-vn="1">继续</h2>
+                    <p data-id="p_bc_del" data-vn="2">关于把命令委派给已打开的 RealityScan 实例</p>
+                </div>
+            </a>            
+
+            <a href="../tutorials/commandline_1.htm">
+                <div class="block TileColor1">
+                    <h2 data-id="h2_bc_cacs" data-vn="1">对齐命令</h2>
+                    <p data-id="p_bc_cacs" data-vn="1">对齐与组件处理命令</p>
+                </div>
+            </a>
+
+            <a href="../tutorials/commandline_2.htm">
+                <div class="block TileColor1">
+                    <h2 data-id="h2_bc_reco" data-vn="1">重建命令</h2>
+                    <p data-id="p_bc_reco" data-vn="1">通过命令行计算模型</p>
+                </div>
+            </a>
+
+            <a href="../tutorials/commandline_3.htm">
+                <div class="block TileColor1">
+                    <h2 data-id="h2_bc_mtco" data-vn="1">模型工具命令</h2>
+                    <p data-id="p_bc_mtco" data-vn="1">通过命令行进一步处理模型</p>
+                </div>
+            </a>
+
+            <a href="../tutorials/commandline_4.htm">
+                <div class="block TileColor1">
+                    <h2 data-id="h2_bc_seco" data-vn="1">设置命令</h2>
+                    <p data-id="p_bc_seco" data-vn="1">应用设置与行为</p>
+                </div>
+            </a>
+
+            <a href="../tutorials/commandline_5.htm">
+                <div class="block TileColor1">
+                    <h2 data-id="h2_bc_erhc" data-vn="1">错误处理命令</h2>
+                    <p data-id="p_bc_erhc" data-vn="1">用于处理潜在错误的命令</p>
+                </div>
+            </a>
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sa" class="rowblock">
+            <h3 data-id="h3_sa" data-vn="1">另见：</h3>
+            <ul class="intend">
+                <li data-id="li_sa_acli" data-vn="1">在一页中查看全部 CLI 命令 <a href="../appbasics/allcommands.htm">点击此处</a></li>
+            </ul>
+        </div>
+
+    <!-- content slide end -->
+
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+    <script type="text/javascript">
+        InitializeTutorialMode();
+    </script>
+
+
+</body>
+</html>
+<!-- signature:uV9aO7EH8RWzhk9Cp9SztCuarP3h7V6e87X9YH/q1euFnFh8zu/hxxiimbnG9+XvQYZaUySFqFVGXbkhKajFSJwJ3QZBva/pREW+nvYcWdMmSUABDYApOGML9Cd+XS4pbRw1ECwbKTVZDSWgvzQtHEpjdEqAAoR7w1MRKMlbUxg= -->

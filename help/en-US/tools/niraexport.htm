@@ -1,0 +1,115 @@
+﻿<html>
+<head>
+    <title>RealityScan 帮助</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Epic Games Slovakia s.r.o." />
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <link type="text/css" rel="stylesheet" href="../../styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/colors.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css" />
+    <script src="../scripts/textVars.js" type="text/javascript"></script>
+    <script src="../../scripts/localization.js" type="text/javascript"></script>
+    <script src="../../scripts/main.js" type="text/javascript"></script>
+</head>
+<body>
+
+    <div data-id="div_cs" class="content_slide">
+
+        <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head" class="head">
+            <h1 data-id="h1" data-vn="1">模型上传到 Nira</h1>
+            <p data-id="p_h1" data-vn="2">
+                可以把模型直接上传到 Nira——一个能实时渲染超大规模三维资产、支持在任何设备（含手机与平板）上进行交互式协作式网页审阅的平台。从 RealityScan 上传模型到 Nira 之前，必须先有 Nira 账号；创建账号请访问 <a href="https://nira.app/" target="_blank">Nira.app</a> 网站。
+            </p>
+            
+            <p data-id="p_h1_coord" data-vn="1">
+                Nira 既支持带地理配准的模型，也支持局部坐标系下的非地理配准模型。若要导出带地理配准的模型，输出坐标系应为笛卡尔坐标；若你偏好的坐标系不是笛卡尔坐标，请使用与模型地理位置相匹配的 UTM 投影带。上传前请先设好所需坐标系，可在 <span class="appribbon">WORKFLOW</span> 选项卡 / <span class="apppanel">Application</span> / <span class="appribbonbutton">Settings</span> / <span class="apppanel">Coordinate systems</span> 中设置输出坐标系。
+            </p>
+
+        </div>
+
+        <div data-id="div_sb_hoto" class="slideblock">
+            <h2 data-id="h2_hoto" data-vn="1">如何上传模型</h2>
+                <p data-id="p_hoto_share" data-vn="4">
+                要把模型上传到 Nira，用 <span class="appribbon">WORKFLOW</span> 选项卡功能区 <span class="apppanel">Output</span> 区域的 <span class="appribbonbutton">Share</span> 按钮，在 <span class="apppanel">Publish and Share Your Creation</span> 菜单中选择 <span class="appbutton">Upload to Nira</span>。首次从 RealityScan 导出模型到 Nira 时会收到提示：Nira 是第三方服务，与 Epic Games 无关。  
+                </p>
+            
+            
+            <div style="padding: 20px 10px 10px 10px">
+                <img src="images/niraexport_tac.png" alt="Nira Terms and Conditions" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/niraexport_tac.png';">
+            </div>
+            
+                <br/>
+                <p data-id="p_hoto_appk" data-vn="1">
+                接受条款后会进入 Nira 认证。认证需要填写的（Nira）<span class="appproperty">Organization</span> 名称、<span class="appproperty">Key ID</span> 和 <span class="appproperty">Key secret</span> 可从你的 Nira 管理页面获取。  
+                </p>
+
+            <div style="padding: 20px 10px 10px 10px">
+                <img src="images/niraexport_appkey.png" alt="Nira Authentication APP Key" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/niraexport_appkey.png';">
+            </div>
+            
+                <br/>
+                <p data-id="p_hoto_modu" data-vn="1">
+                认证通过后即可为模型命名。上传还有两个可选选项：<span class="appproperty">Upload Camera parameters and images</span> 与 <span class="appproperty">上传后在默认网页浏览器中打开</span>。<span class="appproperty">Upload Camera parameters and images</span> 会在上传模型的同时导出相机位置与图像，便于细致检查模型；<span class="appproperty">上传后在默认网页浏览器中打开</span> 会在默认浏览器中打开 Nira 网站显示你的模型。
+
+                </p>
+  
+            <div style="padding: 20px 10px 10px 10px">
+                <img src="images/niraexport_modelupload.png" alt="Nira Model Upload" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/niraexport_modelupload.png';">
+            </div>
+            
+                <br/>
+                <p data-id="p_hoto_done" data-vn="2">
+                设好名称与可选项后，<span class="appgesture">点击</span> <span class="appbutton">Upload button</span>。RealityScan 会先准备待上传的文件，暂时存放在 RealityScan 缓存中；文件准备完成后上传到 Nira，上传速度取决于网络状况。上传完成后，可在 Nira 的 Asset 列表中找到该模型。
+
+                </p>
+        
+
+        
+        </div>
+      
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_bc" class="blocksContainer">
+
+            <a href="share.htm">
+                <div class="block TileColor2">
+                    <h2 data-id="h2_bc_share" data-vn="1">分享你的作品</h2>
+                    <p data-id="p_h2_bc_share" data-vn="1">了解如何分享你的作品</p>
+                </div>
+            </a>
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sa" class="rowblock">
+            <h3 data-id="h3_sa" data-vn="1">另见：</h3>
+            <ul class="intend">
+                <li data-id="li_sa_hece" data-vn="1">Nira 帮助中心 <a href="https://help.nira.app/hc/en-us" target="_blank">点击此处</a></li>
+            </ul>
+            <div class="clear">
+                <!-- clear -->
+            </div>
+        </div>
+
+    </div>  <!-- content slide end -->
+
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+    <script type="text/javascript">
+        InitializeHelpSlide();
+    </script>
+
+
+</body>
+</html>
+<!-- signature:RxF+j9wVJyl9IpelvszxZdX+lj+cYpnQgFasKuUifWPmFAdq8Wy0RjWW3Xzjx5Q+s58AzrrxIxXdJl7kZKzD6BPzvItw8as4bogvzDBca0HThOVCOT8CfoDyz7SULfYsvVB2Jz2VtbgVYUUPU93gcTXRBlBxEOi95HtNOJTkr+c= -->

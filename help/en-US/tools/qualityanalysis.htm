@@ -1,0 +1,122 @@
+<html>
+<head>
+    <title>RealityScan 帮助</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Epic Games Slovakia s.r.o." />
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <link type="text/css" rel="stylesheet" href="../../styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/colors.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css" />
+    <script src="../scripts/textVars.js" type="text/javascript"></script>
+    <script src="../../scripts/localization.js" type="text/javascript"></script>
+    <script src="../../scripts/main.js" type="text/javascript"></script>
+</head>
+<body ondragstart="return false;">
+
+    <div data-id="div_cs" class="content_slide">
+
+        <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head"  class="head">
+
+            <h1 data-id="h1" data-vn="1">质量分析</h1>
+
+            <p data-id="h1_tool" data-vn="1"><span class="apptool">Quality Analysis</span> 工具用于评估场景中的连接点质量、网格质量以及相机依赖关系，提供三种分析类型：</p>
+            
+            <ul>
+                <li data-id="li_type_tie" data-vn="1"><span class="appproperty">Tie point quality</span> 计算对齐过程中生成的连接点质量，主要反映每个连接点的相机覆盖情况。</li>
+				<li data-id="li_type_mesh" data-vn="1"><span class="appproperty">Mesh quality</span> 计算网格质量，主要依据每个三角面的相机覆盖情况。结果可烘焙到纹理中，或用于给网格顶点着色以表示质量信息。</li>
+				<li data-id="li_type_adv" data-vn="1"><span class="appproperty">Advanced</span> 分析相机之间的依赖与关系，以及稀疏点云中潜在的对齐错误。</li>     
+            </ul>
+            
+            <br/>
+            
+            <p data-id="h1_button" data-vn="2">要启用 <span class="apptool">Quality Analysis</span> 工具，进入 <span class="appribbon">ALIGNMENT</span> 选项卡或 <span class="appribbon">MESH &amp; COLOR</span> 选项卡的 <span class="apppanel">Analyze</span> 区域。</p>
+			
+        </div>
+        
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+        
+        <div data-id="div_sb_tiep" class="slideblock">
+					
+			<h2 data-id="h2_tiep" data-vn="1">连接点质量</h2>	            
+            
+            <p data-id="p_tiep" data-vn="1">计算稀疏点云中连接点的质量。它主要评估每个连接点的相机覆盖情况，并在 <span class="appaspecttype">3Ds</span> 视图中用从绿（质量好）到红（质量差）的色标显示质量值。
+			</p>
+			
+			<div style="padding: 20px 10px 10px 25px"><img src="images/Quality-Tie-Points.png" alt="Quality-Tie-Points" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/Quality-Tie-Points.png';">
+			</div>
+
+            <p data-id="p_tiep_tip" data-vn="1">
+                这可用于对齐后快速评估质量，帮助找出相机覆盖还能提升、或需要加控制点来更好连接图像的区域。
+            </p>
+
+
+		</div>
+        
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div> 
+        
+        <div data-id="div_sb_mesh" class="slideblock">
+            
+            <h2 data-id="h2_mesh" data-vn="1">网格质量</h2>
+                
+            <p data-id="p_mesh" data-vn="1">通过评估每个三角面的相机覆盖情况来计算网格质量，并在三维视图中用从绿（质量好）到红（质量差）的色标显示。这些数值可用 <span class="appbutton">Bake</span> 按钮烘焙到纹理，或用 <span class="appbutton">Colorize</span> 按钮给网格顶点着色。不必事先单独计算质量——烘焙或着色的过程中会自动计算。
+			</p>
+            
+            <div style="padding: 20px 10px 10px 25px"><img src="images/Quality-Mesh.png" alt="Quality-Mesh" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/Quality-Mesh.png';">
+			</div>
+            
+            <p data-id="p_mesh_tip" data-vn="1"><br/> 给网格质量值着色或烘焙，可以把质量信息保留下来用于后期处理，有助于改进纹理、法线贴图等相关输出。
+			</p>
+
+        </div>    
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_bc" class="blocksContainer">
+
+            <a href="../tools/inspection.htm">
+                <div class="block TileColor1">
+                    <h2 data-id="h2_bc_insp" data-vn="1">高级质量分析</h2>
+                    <p data-id="p_h2_bc_insp" data-vn="1">了解高级质量选项的更多内容</p>
+                </div>
+            </a>
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sa" class="rowblock">
+            <h3 data-id="h3_sa" data-vn="1">另见：</h3>
+            <ul class="intend">
+                <li data-id="li_sa_meco" data-vn="1">合并组件 <a href="../tutorials/mergecomponents.htm">点击此处</a></li>
+                <li data-id="li_sa_alqu" data-vn="1">对齐质量 <a href="alignquality.htm">点击此处</a></li>
+            </ul>
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+        <!-- content slide end -->
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+    <script type="text/javascript">
+        InitializeHelpSlide();
+    </script>
+
+</body>
+</html>
+<!-- signature:lPrt1UrzavZZBdARPZUbhzfni0vx745Yr6hRC4tWDcb/px1KRFK2a/9SkxDBfVKWyhwvfJ0CMyZxJmFSxl5AVZcE9/cJK63siSVG1V18mWxvLlYN5SUUAW1I2ORz/9sfiBbJmmBYxS4HoGsEula3cZXHnesJnDZvhOs1mSluZXc= -->

@@ -1,0 +1,368 @@
+<html>
+    <head>
+        <title>RealityScan 帮助</title>
+        <meta charset="UTF-8"/>
+        <meta name="author" content="Epic Games Slovakia s.r.o."/>
+        <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/style.css"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/colors.css"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css"/>
+        <script src="../scripts/textVars.js" type="text/javascript"></script>
+        <script src="../../scripts/localization.js" type="text/javascript"></script>
+        <script src="../../scripts/main.js" type="text/javascript"></script>
+    </head>
+<body ondragstart="return false;">
+
+    <div data-id="div_cs" class="content_slide">
+
+        <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head" class="head">
+            <h1 data-id="h1" data-vn="1">动画工具</h1>
+            <p data-id="p_h1" data-vn="2">此工具可让你在 RealityScan 中直接为重建模型创建和修改动画（编辑相机路径、切换视图），并生成、播放和重新加载视频。</p>
+        </div>
+
+        <br />
+
+        <div data-id="div_bs_bawo" class="slideblock">
+            <h2 data-id="h2_bawo" data-vn="1">基本流程</h2>
+            <ol>
+                <li data-id="h2_bawo_use" data-vn="2">使用应用的「带控制台的 1+1+1 布局」，打开 <span class="appaspecttype">1Ds</span> 面板、两个 <span class="appaspecttype">3Ds</span> 视图和 <span class="appaspecttype">4Ds</span> 面板，</li>
+                <li data-id="h2_bawo_dis" data-vn="2">在 <span class="appaspecttype">3Ds</span> 视图中显示重建好的模型，</li>
+                <li data-id="h2_bawo_got" data-vn="3">进入 <span class="appribbon">ANIMATION 4D</span> 上下文选项卡，勾选全部 3 个选项以显示相机路径、关键帧和相机，<div style="padding: 10px 10px 10px 0px"><img src="images/4D-scene-tab.png" alt="4D-scene-tab" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/4D-scene-tab.png';"/></div>                
+                </li>
+                <li data-id="h2_bawo_exp" data-vn="2">在 <span class="appaspecttype">4Ds</span> 窗口左侧菜单中展开「Animation Objects」（见下图）—— 点击「Animation Objects」左侧的加号；同时展开同一树中的「Camera」，</li>
+                <li data-id="h2_bawo_cha" data-vn="2">要指定用哪个 <span class="appaspecttype">3Ds</span> 窗口显示动画，点击 <span class="appaspecttype">4Ds</span> 面板左上角的第 2 个按钮 —— 第 6 步也可以同样操作，</li>
+                <li data-id="h2_bawo_cre" data-vn="2">在 <span class="appaspecttype">4Ds</span> 视图中创建关键帧（即视频时间轴上的位置），步骤如下：
+                    <ul>
+                        <li data-id="h2_bawo_rot" data-vn="1">旋转、移动和/或缩放场景，得到动画中要用的另一个模型视角；也可以用数字小键盘快捷键快速切换到标准视图（见文末）。</li>
+                        <li data-id="h2_bawo_add" data-vn="2">点击 <span class="appaspecttype">4Ds</span> 面板顶部的 <span class="appbutton">Add a key-frame</span> 按钮（4D 按钮的说明可看 tooltip）—— 这会在所选 <span class="appaspecttype">3Ds</span> 和 <span class="appaspecttype">4Ds</span> 视图中创建相机轨迹的起点，</li>
+                        <li data-id="h2_bawo_adj" data-vn="1">调整视图后再用同样方式创建另一个关键帧 —— 也可以<span class="appgesture">右键</span>时间轴上的目标位置，从右键菜单添加关键帧；或按住 <span class="appgesture">Ctrl 拖动</span>已有关键帧；还可以用 <span class="appshortcut">Insert</span> 按钮添加新关键帧；最后一种方式是在三维视图中双击相机，</li>
+                        <li data-id="h2_bawo_if2" data-vn="1">如果两个帧叠在一起，或想移动某个帧的位置，只需在 <span class="appaspecttype">4Ds</span> 时间轴上把新建的帧<span class="appgesture">拖动</span>到一侧 —— 这样两个帧视图之间的相机轨迹也会相应延长，</li>
+                        <li data-id="h2_bawo_many" data-vn="1">想加多少关键帧都可以 —— 注意：当滑块位于已建关键帧之间时，新关键帧会插在 <span class="appaspecttype">4Ds</span> 蓝色滑块线的位置；否则会附加在最后一帧之后。</li>
+                    </ul>
+                </li>
+                <li data-id="h2_bawo_mod" data-vn="2">在 <span class="appaspecttype">3Ds</span> 中按喜好修改相机路径 —— 可以沿蓝色三维路径滑动相机；<span class="appgesture">双击</span>相机后，可<span class="appgesture">拖动</span>三个圆环之一来朝对应方向旋转相机控件；要修改相机坐标，对相机轴心（显示相机三维坐标系）做同样操作；另见本教程末尾的「Selected key-frames panel」一节，</li>
+                <li data-id="h2_bawo_rev" data-vn="1">回放检查（播放动画）并反复修改，直到满意，</li>
+                <li data-id="h2_bawo_ren" data-vn="2">用 <span class="appaspecttype">4Ds</span> 窗口顶部菜单的最后一个按钮渲染并保存动画。</li>
+            </ol>
+        </div>
+
+        <br />
+
+        <div data-id="div_im_ungr" data-vn="1" class="importantMessage">
+        提示：取消关键帧的编组后，就可以为动画相机对象的平移、旋转和/或投影分别使用不同设置。例如想让相机沿笔直走廊前进、途中依次看向两侧时，可用 2 个关键帧定义位置（走廊起点与终点），再把相机先转向一侧、再转向另一侧。<br />
+        取消关键帧编组的做法，见本页下方“动画”一节。
+        </div>
+
+        <br />
+
+        <div data-id="div_sb_bu4d" class="slideblock">
+            <h2 data-id="h2_bu4d" data-vn="1">4D 窗口中的按钮</h2>
+
+            <div style="padding: 10px 10px 10px 0px"><img src="images/4D-window.png" alt="4D app window" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/4D-window.png';"/></div>
+
+            <ul>
+                <li data-id="h2_bu4d_pair" data-vn="2"><span class="appbutton">Pair Views</span> 这些按钮（位于 <span class="appaspecttype">4Ds</span> 面板左上角）把当前 4D 参数应用到选中的 <span class="appaspecttype">3Ds</span> 视图。回放的动画会显示在配对的 <span class="appaspecttype">3Ds</span> 视图中。相机关键帧将从该视图添加。</li>
+                <li data-id="h2_bu4d_play" data-vn="1"><span class="appbutton">Play/Pause</span> 播放或暂停动画；前提是 <span class="appaspecttype">4Ds</span> 窗口中的蓝色滑块线位于时间轴中间 —— 若它在末尾且 Loop（见下文）已关闭则不适用。这种情况下要继续播放，把蓝线拖回起点再按播放。</li>
+                <li data-id="h2_bu4d_stop" data-vn="1"><span class="appbutton">Stop</span> 暂停正在播放的动画并跳到 0 秒（动画起点）。</li>
+                <li data-id="h2_bu4d_loop" data-vn="1"><span class="appbutton">Loop On/Off</span> 动画到达末尾后会重新播放。再次点击该切换按钮可停止循环。</li>
+                <li data-id="h2_bu4d_prev" data-vn="1"><span class="appbutton">Prev key-frame</span> 跳到上一个关键帧。</li>
+                <li data-id="h2_bu4d_next" data-vn="1"><span class="appbutton">Next key-frame</span> 跳到下一个关键帧。</li>
+                <li data-id="h2_bu4d_add" data-vn="1"><span class="appbutton">Add a key-frame</span> 添加新关键帧（从配对视图）。</li>
+                <li data-id="h2_bu4d_del" data-vn="1"><span class="appbutton">Delete the selected key-frames</span> 删除选中的关键帧。更高级的选择方式见下文的关键帧操作。</li>
+                <li data-id="h2_bu4d_ren" data-vn="1"><span class="appbutton">Render animation</span> 从已创建的动画渲染视频。若动画长度为零，则只渲染一帧 —— 一张图片。<a href="../tools/flythrough.htm">点击此处</a>了解视频导出设置。</li>
+            </ul>
+        </div>
+
+        <br />
+
+        <div data-id="div_sb_otco" class="slideblock">
+
+            <h2 data-id="h2_otco" data-vn="1">其他操作</h2>
+
+            <br />
+
+            <h3 data-id="h3_tili" data-vn="1">时间轴</h3>
+            <table class="tableofcommands">
+                <thead>
+                    <tr data-id="tr_tili_acti" data-vn="1">
+                        <th>操作</th>
+                        <th>说明</th>
+                    </tr>
+                </thead>
+                <tr data-id="tr_tili_stre" data-vn="1">
+                    <td><span class="appgesture">右键上下拖动 / Ctrl + 滚轮</span></td> 
+                    <td>向两侧拉伸时间轴。</td>  
+                </tr>
+                <tr data-id="tr_tili_move" data-vn="1">
+                    <td><span class="appgesture">左键拖动</span></td> 
+                    <td>把时间轴的蓝色滑块线拖向一侧。</td>  
+                </tr>
+                <tr data-id="tr_tili_fram" data-vn="1">
+                    <td><span class="appgesture">Shift + 左键点击 / Shift + 拖动</span></td> 
+                    <td>在配对视图中显示该帧。</td>  
+                </tr>
+                <tr data-id="tr_tili_cont" data-vn="1">
+                    <td>在时间轴区域<span class="appgesture">右键</span></td> 
+                    <td>弹出右键菜单「Add a key-frame」（在点击位置添加相机关键帧）。</td>  
+                </tr>
+                <tr data-id="tr_tili_chan" data-vn="1">
+                    <td><span class="appgesture">左键拖动</span></td> 
+                    <td>改变时间。</td>  
+                </tr>
+                <tr data-id="tr_tili_repl" data-vn="1">
+                    <td><span class="appgesture">左键拖动 + Shift</span></td> 
+                    <td>改变时间并在配对视图中重放动画。</td>  
+                </tr>
+                <tr data-id="tr_tili_x" data-vn="1">
+                    <td>X</td> 
+                    <td>跳到第 X 秒（如 0.05）。</td>  
+                </tr>
+                <tr data-id="tr_tili_xs" data-vn="1">
+                    <td>Xs</td> 
+                    <td>同上。</td>  
+                </tr>
+                <tr data-id="tr_tili_xm" data-vn="1">
+                    <td>Xm</td> 
+                    <td>跳到第 X 分钟。</td>  
+                </tr>
+                <tr data-id="tr_tili_xh" data-vn="1">
+                    <td>Xh</td> 
+                    <td>跳到第 X 小时。</td>  
+                </tr>
+                <tr data-id="tr_tili_xyz" data-vn="1">
+                    <td>XsYmZh</td> 
+                    <td>上面三种方式的组合 —— 跳到 Z 时 Y 分 X 秒。</td>  
+                </tr>
+            </table>
+
+            <br />
+
+            <h3 data-id="h3_anim" data-vn="1">动画</h3>
+            <table class="tableofcommands">
+                <thead>
+                    <tr data-id="tr_anim_acti" data-vn="1">
+                        <th>操作</th>
+                        <th>说明</th>
+                    </tr>
+                </thead>
+                <tr data-id="tr_anim_cont" data-vn="1">
+                    <td><span class="appgesture">右键</span>关键帧（时间轴中贯穿 3D、Matrix、Matrix 这几行的竖线）</td> 
+                    <td>弹出右键菜单：<br/> 更新关键帧（从配对视图刷新相机关键帧的值），<br/> 分组/取消分组关键帧（把多个关键帧合并为一个；或把一个关键帧拆成多个独立关键帧，例如把相机关键帧拆成平移、旋转、投影三个关键帧）。<br /><br /> 若要把已取消分组的关键帧重新分组，需把它的各部分上下对齐成一条竖线，然后<span class="appgesture">右键</span>该竖线并<span class="appgesture">左键点击</span>「Group the key-frame」。</td>  
+                </tr>
+                <tr data-id="tr_anim_move" data-vn="1">
+                    <td><span class="appgesture">拖动</span>时间轴中「Camera」行的中间部分</td> 
+                    <td>可整体移动动画在时间轴上的位置。</td>  
+                </tr>
+                <tr data-id="tr_anim_scal" data-vn="1">
+                    <td><span class="appgesture">拖动</span>时间轴中「Camera」行的边界</td> 
+                    <td>可缩放动画面板，并对齐到最近的时间帧。</td>  
+                </tr>
+                <tr data-id="tr_anim_igno" data-vn="1">
+                    <td><span class="appgesture">拖动</span>时间轴中 Camera 行的边界并按住 Shift</td> 
+                    <td>忽略对最近关键帧/时间的吸附。</td>  
+                </tr>
+                <tr data-id="tr_anim_tick" data-vn="2">
+                    <td><span class="appribbon">ANIMATION 4D</span>/<span class="appribbonbutton">Show 3D Path</span></td> 
+                    <td>勾选/取消以在三维视图中显示已创建的相机路径。</td>  
+                </tr>
+                <tr data-id="tr_anim_4d" data-vn="2">
+                    <td><span class="appribbon">ANIMATION 4D</span>/<span class="appribbonbutton">Show Camera</span></td> 
+                    <td>仅在动画路径可见时可用。勾选/取消以在三维视图中显示相机控件。</td>  
+                </tr>
+                <tr data-id="tr_anim_drag" data-vn="2">
+                    <td>在 <span class="appaspecttype">3Ds</span> 视图中（沿蓝色三维路径线）<span class="appgesture">拖动</span>相机</td> 
+                    <td>以改变时间并在配对视图中显示相应帧。</td>  
+                </tr>
+            </table>
+
+            <br />
+
+            <h3 data-id="h3_kefr" data-vn="1">关键帧</h3>
+            <table class="tableofcommands">
+                <thead>
+                    <tr data-id="tr_kefr_acti" data-vn="1">
+                        <th>操作</th>
+                        <th>说明</th>
+                    </tr>
+                </thead>
+                <tr data-id="tr_kefr_drag" data-vn="1">
+                    <td><span class="appgesture">拖动</span></td> 
+                    <td>移动并对齐到最近的时间点。</td>  
+                </tr>
+                <tr data-id="tr_kefr_sdra" data-vn="1">
+                    <td><span class="appgesture">Shift + 拖动</span></td> 
+                    <td>移动但不吸附到最近的关键帧/时间。</td>  
+                </tr>
+                <tr data-id="tr_kefr_cdra" data-vn="1">
+                    <td><span class="appgesture">Ctrl + 拖动</span></td> 
+                    <td>复制选中的关键帧。</td>  
+                </tr>
+                <tr data-id="tr_kefr_lcli" data-vn="2">
+                    <td><span class="appgesture">左键点击</span></td> 
+                    <td>在 <span class="appaspecttype">4Ds</span> 中选中关键帧，并在 <span class="appaspecttype">1Ds</span> 中显示其属性。</td>  
+                </tr>
+                <tr data-id="tr_kefr_clcli" data-vn="1">
+                    <td><span class="appgesture">Ctrl + 左键点击</span></td> 
+                    <td>把关键帧加入选择，或从选择中移除。</td>  
+                </tr>
+                <tr data-id="tr_kefr_slcli" data-vn="1">
+                    <td><span class="appgesture">Shift + 左键点击</span></td> 
+                    <td>先对第一个关键帧执行，再对最后一个关键帧执行同样操作，即可选中两者之间的全部关键帧。</td>  
+                </tr>
+                <tr data-id="tr_kefr_sakf" data-vn="1">
+                    <td>在时间轴「Camera」行上<span class="appgesture">左键点击</span></td> 
+                    <td>选中全部关键帧。</td>  
+                </tr>
+                <tr data-id="tr_kefr_4d" data-vn="2">
+                    <td><span class="appribbon">ANIMATION 4D/Show Keyframes</span></td> 
+                    <td>仅在动画路径可见时可用。勾选/取消以在 <span class="appaspecttype">4Ds</span> 视图中显示已创建的关键帧。</td>  
+                </tr>
+                <tr data-id="tr_kefr_sekf" data-vn="2">
+                    <td>在 <span class="appaspecttype">3Ds</span> 视图中<span class="appgesture">点击</span>关键帧（相机锥体）</td> 
+                    <td>以选中该关键帧。</td>  
+                </tr>
+                <tr data-id="tr_kefr_dmwd" data-vn="2">
+                    <td><span class="appgesture">点击</span>该关键帧</td> 
+                    <td>以在 <span class="appaspecttype">3Ds</span> 视图中显示操作控件。</td>  
+                </tr>
+                <tr data-id="tr_kefr_ankf" data-vn="2">
+                    <td>在 <span class="appaspecttype">3Ds</span> 视图中<span class="appgesture">双击</span>相机</td> 
+                    <td>以添加新关键帧。新帧可能与原帧位置重叠（相当于复制），这时只需<span class="appgesture">拖动</span>它移开即可。<br /> 另外，<span class="appgesture">双击</span>相机后，三维视图中会出现朝向控件 —— 拖动 3 个圆环之一即可朝对应方向旋转；同时出现相机轴心，可修改其三维坐标。</td>  
+                </tr>
+            </table>
+
+            <br />
+
+            <h3 data-id="h3_skfp" data-vn="1">选中关键帧面板</h3>
+            <p data-id="p_skfp_pane" data-vn="2">在 <span class="appaspecttype">4Ds</span> 视图中点击关键帧时，该面板会显示在 <span class="appaspecttype">1Ds</span> 面板中。</p>
+            <p data-id="p_skfp_time" data-vn="2"><span class="apppanel">Time</span> 选中关键帧的时长。重新输入该值会改变帧在时间轴上的位置。当全部关键帧都被选中时，在此输入的数字还会在 <span class="appaspecttype">4Ds</span> 中创建新关键帧（若尚不存在），否则会把该关键帧显示在 <span class="appaspecttype">4Ds</span> 中。</p>
+            <ul>
+                <li data-id="li_skfp_capo" data-vn="1">
+                <span class="apppanel">Camera position</span><br/> <span class="apppanel">x/y/z</span> 相机的三维坐标。修改这些值可调整该关键帧在 <span class="appaspecttype">3Ds</span> 视图中对应的相机位置。
+                </li>
+                <li data-id="li_skfp_caro" data-vn="1">
+                <span class="apppanel">Camera rotation</span><br/>
+                <span class="apppanel">Camera Rotation Type</span><br/>
+                    <ul>
+                        <li data-id="li_skfp_ypr" data-vn="2"><span class="apppanel">Classic (yaw, pitch, roll)</span> 偏航/俯仰/翻滚角，以度为单位。修改这些数值可调整赋给该关键帧的相机旋转，作用于 <span class="appaspecttype">3Ds</span> view.</li>
+                        <li data-id="li_skfp_look" data-vn="2"><span class="apppanel">Look at</span> 使用以下两个附加参数：<br/> 相机注视点 - 定义相机要对焦的点的坐标。这些值的变化可在 <span class="appaspecttype">3Ds</span> 视图中看到。<br/> 相机上方向矢量 - 定义相机视图的方向，用于设定相机翻滚角，至少有一个坐标必须非零。这些值的变化可在 <span class="appaspecttype">3Ds</span> 视图中看到。
+                        </li>
+                    </ul>
+                </li>
+                <li data-id="li_skfp_came" data-vn="1">
+                <span class="apppanel">Camera projection parameters</span><br/> <span class="apppanel">Focal length / zoom</span> 透视视图下为焦距，即焦点到相机中心的距离，焦距越小视野越大；平行投影下则为缩放。<br/> <span class="apppanel">Projection</span> 透视或平行。
+                </li>
+            </ul>
+
+        </div>
+
+        <br />
+
+        <div data-id="div_sb_shcu" class="slideblock">
+            <h2 data-id="h2_shcu" data-vn="1">快捷键</h2>
+            <table class="tableofcommands">
+                <thead>
+                    <tr data-id="tr_shcu_acti" data-vn="1">
+                        <th>快捷键</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tr data-id="tr_shcu_view" data-vn="2">
+                    <td>在 <span class="appaspecttype">3Ds</span> 视图中按一次 <span class="appshortcut">0-7</span></td> 
+                    <td>配对视图：0 透视、1 平行、2 顶视、3 底视、4-7 侧视。</td>  
+                </tr>
+                <tr data-id="tr_shcu_play" data-vn="1">
+                    <td><span class="appshortcut">Space bar</span></td> 
+                    <td>播放/暂停动画。</td>  
+                </tr>
+                <tr data-id="tr_shcu_stop" data-vn="1">
+                    <td><span class="appshortcut">Esc</span></td> 
+                    <td>停止动画。</td>  
+                </tr>
+                <tr data-id="tr_shcu_jump" data-vn="1">
+                    <td><span class="appshortcut">Home</span></td> 
+                    <td>跳到 0.0 秒（动画起点）。</td>  
+                </tr>
+                <tr data-id="tr_shcu_togg" data-vn="1">
+                    <td><span class="appshortcut">L</span></td> 
+                    <td>切换循环。</td>  
+                </tr>
+                <tr data-id="tr_shcu_dele" data-vn="1">
+                    <td><span class="appshortcut">Del</span></td> 
+                    <td>删除选中的关键帧。</td>  
+                </tr>
+                <tr data-id="tr_shcu_adkf" data-vn="1">
+                    <td><span class="appshortcut">Insert</span></td> 
+                    <td>添加关键帧（从配对视图）。</td>  
+                </tr>
+                <tr data-id="tr_shcu_jpkf" data-vn="1">
+                    <td><span class="appshortcut">&lt;-</span></td> 
+                    <td>跳到上一个关键帧 / 把选中的关键帧左移 + 0.1 秒。</td>  
+                </tr>
+                <tr data-id="tr_shcu_jnkf" data-vn="1">
+                    <td><span class="appshortcut">-&gt;</span></td> 
+                    <td>跳到下一个关键帧 / 把选中的关键帧右移 - 0.1 秒。</td>  
+                </tr>
+                <tr data-id="tr_shcu_add1" data-vn="1">
+                    <td><span class="appshortcut">+</span></td> 
+                    <td>增加 1 秒。</td>  
+                </tr>
+                <tr data-id="tr_shcu_sub1" data-vn="1">
+                    <td><span class="appshortcut">-</span></td> 
+                    <td>减少 1 秒。</td>  
+                </tr>
+                <tr data-id="tr_shcu_add0" data-vn="1">
+                    <td><span class="appshortcut">CTRL +</span></td> 
+                    <td>增加 0.05 秒。</td>  
+                </tr>
+                <tr data-id="tr_shcu_sub0" data-vn="1">
+                    <td><span class="appshortcut">CTRL -</span></td> 
+                    <td>减少 0.05 秒。</td>  
+                </tr>
+            </table>
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_bc" class="blocksContainer">
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+    <div data-id="div_sa" class="rowblock">
+            <h3 data-id="h3_sa" data-vn="1">另见：</h3>
+            <ul class="intend">
+                <li data-id="li_sa_flth" data-vn="1">飞越视频 <a href="../tools/flythrough.htm">点击此处</a></li>
+            </ul>
+            <div class="clear">
+                <!-- clear -->
+            </div>
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+
+        <!-- content slide end -->
+
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+    <script type="text/javascript">
+        InitializeHelpSlide();
+    </script>
+
+</body>
+</html>
+<!-- signature:R0YhL1i5/A/VDVbMAD9RG7x9ftR8y7AraMNAizmV9xBlmWNKV8iqmpWZKE742ySJsb7qe8l2ZkX0yqQAzxFa9OH8Z1tqnGN3HEKTmPjxztH8etcIKUI6g29jT9UO+PZmLglvzwDmdzDwUHWA5RbWMF/VMbHyXE7ltPm85fsY+NI= -->

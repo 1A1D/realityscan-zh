@@ -1,0 +1,386 @@
+<html>
+<head>
+    <title>RealityScan 帮助</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Epic Games Slovakia s.r.o." />
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <link type="text/css" rel="stylesheet" href="../../styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/colors.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css" />
+    <script src="../scripts/textVars.js" type="text/javascript"></script>
+    <script src="../../scripts/localization.js" type="text/javascript"></script>
+    <script src="../../scripts/main.js" type="text/javascript"></script>
+    <style>
+        .slideblock div {
+            cursor: default;
+        }
+        
+        span.help {
+            cursor: help;
+        }        
+        
+        .distanceCalc {
+            font-size: 100%;
+        }
+        
+        .smallEdit {
+            width: 80px;
+        }
+
+        .distanceCalc input, .distanceCalc select {
+            padding: 4px 4px;
+            border: 1px gray solid;
+            margin: 2px 0;
+        }
+
+        .distanceCalc input:hover, .distanceCalc select:hover {
+            border-color: white;
+        }
+    </style>
+</head>
+<body ondragstart="return false;">
+    <div data-id="div_cs" class="content_slide">
+
+        <!-- content slide -->
+        <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head" class="head">
+            <h1 data-id="h1" data-vn="1">如何拍摄照片</h1>
+            <p data-id="p_h1" data-vn="1">
+               用照片创建三维模型既有趣又简单，但想要高质量的结果，还是得遵循一些规则。这并不难，遵守这些规则能帮你减少甚至完全省掉后续的手工修补。
+            </p>
+        </div>
+
+        <div data-id="div_sb_geru" class="slideblock">
+            <h2 data-id="h2_geru" data-vn="1">通用规则</h2>
+            <p data-id="p_h2_geru" data-vn="2">想从 RealityScan 得到最好、最快的结果，有几条要点要始终记着：</p>
+            <ul>
+                <li data-id="li_geru_nlim" data-vn="2">不要限制图像数量，RealityScan 能处理任意数量。</li>
+                <li data-id="li_geru_hire" data-vn="1">使用尽可能高的分辨率。</li>
+                <li data-id="li_geru_clvi" data-vn="1">场景表面上的每个点都应至少在两张高质量图像中清晰可见。这里适用“越多越好”。</li>
+                <li data-id="li_geru_move" data-vn="1">拍摄时一定要移动。站在一个点上拍只能得到全景，对建模没有帮助；要绕着物体转圈拍摄。</li>
+                <li data-id="li_geru_nm30" data-vn="1">相邻视角的变化不要超过 30 度。</li>
+                <li data-id="li_geru_fine" data-vn="1">由粗到细原则：先拍整个物体、绕着走一圈，再聚焦细节。注意不要一下子凑得太近，要逐步靠近。</li>
+                <li data-id="li_geru_loop" data-vn="1">闭合环线。拍雕像、建筑之类的物体时，一定要绕一圈并回到起点。</li>
+            </ul>
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sb_lod" class="slideblock">
+            <h2 data-id="h2_lod" data-vn="1">细节层级与精度</h2>
+            <p data-id="p_h2_lod" data-vn="2">用 RealityScan 可以得到非常精确的三维模型，甚至达到亚毫米级分辨率。我的三维模型分辨率会是多少？这取决于图像的质量与分辨率，以及到物体的距离。</p>
+            <p data-id="p_lod_calc" data-vn="1">可以用这个计算器根据所需精度反算到物体的距离。请谨慎使用该工具；若工作需要保证精度，应咨询摄影测量专业人士。</p>
+            <br/>            
+            <!--
+            <div style="padding-bottom: 10px;">Calculate using standard <span class="help" title="35mm Full Frame ( 36 mm x 24 mm )&#10;Standard image sensor size used in most DSLRs">35mm sensor</span></div>
+            -->
+            <table class="distanceCalc">
+                <tr data-id="tr_calc_sesi" data-vn="1">
+                    <td style="width:200px;"><label for="idSensor"><span class="help" title="Image sensor dimensions in mm">传感器尺寸：</span></label></td>
+                    <td>
+                        <select id="idSensor"> <option value="35">35mm - 全画幅（36 mm x 24 mm）</option> </select>
+                    </td>
+                </tr>
+                <tr data-id="tr_calc_cafo" data-vn="1">
+                    <td style="width:200px;"><label for="idFocalLength"><span class="help" title="Camera focal length in mm">相机焦距：</span></label></td>
+                    <td><input id="idFocalLength" type="text" value="28" /> [mm]</td>
+                </tr>
+                <tr data-id="tr_calc_imwi" data-vn="1">
+                    <td><label for="idWidth"><span class="help" title="Width of the photo in pixels">图像宽度：</span></label></td>
+                    <td><input id="idWidth" type="text" value="6 000" /> [px]</td>
+                </tr>
+                <tr data-id="tr_calc_imhe" data-vn="1">
+                    <td><label for="idHeight"><span class="help" title="Height of the photo in pixels">图像高度：</span></label></td>
+                    <td><input id="idHeight" type="text" value="4 000" /> [px]</td>
+                </tr>
+                <tr data-id="tr_calc_deps" data-vn="1">
+                    <td><label for="idAccuracy"><span class="help" title="Desired pixel size, mm per pixel">目标像素尺寸：</span></label></td>
+                    <td><input id="idAccuracy" type="text" value="1" class="smallEdit" /> [mm/px]</td>
+                </tr>
+                <tr data-id="tr_calc_depr" data-vn="1">
+                    <td><label for="idAccuracyR"><span class="help" title="Desired pixel resolution, pixels per mm">目标像素分辨率：</span></label></td>
+                    <td><input id="idAccuracyR" type="text" value="1" class="smallEdit" /> [px/mm]</td>
+                </tr>
+            </table>
+            <br/>
+            <div id="idResult"></div>
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_bc" class="blocksContainer">
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+        <!-- content slide end -->
+
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+    <script type="text/javascript">            
+        
+        var sensors = [
+            ["35mm - full frame", 36, 24],
+            ["1/10''", 1.28, 0.96],
+            ["1/8''", 1.60, 1.20],
+            ["1/6''", 2.40, 1.80],    // (Panasonic SDR-H20, SDR-H200)
+            ["1/4''", 3.20, 2.40],
+            ["1/3.6''", 4.00, 3.00], // (Nokia Lumia 720)
+            ["1/3.2'' (iPhone 5)", 4.54, 3.42],
+            ["Standard 8mm film frame", 4.8, 3.5],
+            ["1/3'' (iPhone 5S, iPhone 6)", 4.80, 3.60],
+            ["1/2.7''", 5.37, 4.4],
+            ["Super 8mm film frame", 5.79, 4.1],
+            ["1/2.5''", 5.76, 4.29],    //(Nokia Lumia 1520, Sony Cyber-shot DSC-T5)
+            ["1/2.3'' (Pentax Q) (gopro hero 3)", 6.17, 4.55],    // (Sony Cyber-shot DSC-W330) (Panasonic HX-A500)
+            ["1/2.3'' (Sony Exmor IMX220)", 6.30, 4.72],
+            ["1/2''", 6.40, 4.80],    // (Fujifilm HS30EXR) (Espros EPC 660)
+            ["1/1.8''", 7.18, 5.32],    //  (Nokia N8) (Olympus C-5050, C-5060, C-7070)
+            ["1/1.7'' (Pentax Q7)", 7.60, 5.70],    // , Canon G10, G15)
+            ["1/1.6''", 8.8, 6.1],
+            ["2/3''", 8.80, 6.60],    // (Nokia Lumia 1020, Fujifilm X-S1, X20, XF1)
+            ["Standard 16mm film frame", 10.26, 7.49],
+            ["1/1.2''", 10.67, 8.00],    // (Nokia 808 PureView)
+            /*["Blackmagic Pocket Cinema Camera & Blackmagic Studio Camera", 12.48, 7.2],*/
+            ["Super 16mm film frame", 12.52, 7.41],
+            ["1'' Sony RX100 and RX10", 13.20, 8.80], // , Nikon CX, Samsung NX Mini
+            ["1'' Digital Bolex d16", 12.80, 9.60],
+            /*["Blackmagic Cinema Camera EF", 15.81, 8.88],
+            ["Four Thirds, Micro Four Thirds (''4/3'', ''m4/3'')", 17.30, 13],
+            ["Blackmagic Production Camera/URSA/URSA Mini 4K", 21.12, 11.88],*/
+            ["1.5'' Canon PowerShot G1 X Mark II", 18.70, 14],
+            ["'35mm'' 2 Perf Techniscope", 21.95, 9.35],
+            ["original Sigma Foveon X3", 20.70, 13.80],
+            ["'Super 35mm'' 2 Perf", 9.35, 24.89],
+            ["Canon EF-S, APS-C", 22.30, 14.90],
+            ["Standard 35mm film frame", 22.0, 16.0],
+            ["Blackmagic URSA/URSA Mini 4.6", 25.34, 14.25],
+            ["APS-C (Sony &alpha; DT, Sony E)", 23.6, 15.60],    // , Nikon DX, Pentax K, Samsung NX, Fuji X)
+            ["'35mm 3 Perf''", 24.89, 13.86],
+            ["Super 35mm film 4 Perf", 24.89, 18.66],
+            ["Canon APS-H", 27.90, 18.60],
+            ["Leica S", 45, 30],
+            ["Pentax 645D", 44, 33],
+            ["Standard 65mm film frame", 52.48, 23.1],
+            ["Kodak KAF 39000 CCD", 49, 36.80],
+            ["Leaf AFi 10", 56, 36],
+            ["Medium-format", 53.7, 40.2],    // (Hasselblad H5D-60)
+            ["Phase One P 65+, IQ160, IQ180", 53.90, 40.40],
+            ["Medium Format Film 6x4.5", 56, 42],
+            ["Medium Format Film 6x6", 56, 56],
+            ["Medium Format Film 6x7", 67, 56],
+            ["IMAX film frame", 70.41, 52.63],
+            ["Large Format Film 4x5", 121, 97],
+            ["Large Format Film 5x7", 178, 127],
+            ["Large Format Film 8x10", 254, 203]
+        ];
+        
+        // 35mm sensor -> 24x36mm        
+        var sensorWidth = sensors[0][1]; // mm
+        var sensorHeight = sensors[0][2]; // mm
+        
+        var focalLength = 28; //mm
+        var imgWidth = 6000; // px
+        var imgHeight = 4000; // px
+        var accuracy = 1;  // mm/pix
+        var accuracyR = 1;  // mm/pix
+        
+        function computeDistance( sensorDim, pixelsDim, focalLength, detail, detailR ) {
+            return (( detail * pixelsDim * focalLength ) / sensorDim / 1000 );
+        }
+
+
+        function computeDistanceR( sensorDim, pixelsDim, focalLength, detail, detailR ) {
+            return (( pixelsDim * focalLength ) / sensorDim / detailR / 1000 );
+        }
+        
+        var computeStrategy = computeDistance;    // based on whether 
+        
+        function updateHeight() {
+            imgHeight = ((imgWidth/sensorWidth)*sensorHeight);
+        }
+        
+        function updateWidth() {
+            imgWidth = ((imgHeight/sensorHeight)*sensorWidth);
+        }
+        
+        // populate sensor select        
+        document.getElementById('idSensor').innerHTML = '';        
+        for( var sensor in sensors ) {
+           var opt = document.createElement("option");
+           opt.value= sensor;
+           opt.innerHTML = sensors[sensor][0] + " (" + sensors[sensor][1] + ' mm x ' + sensors[sensor][2] + ' mm )'; // whatever property it has
+
+           // then append it to the select element
+           document.getElementById('idSensor').appendChild(opt);           
+        }
+        
+        document.getElementById('idSensor').onchange = function(e) {
+            var value = document.getElementById('idSensor').value;
+            if ( typeof sensors[value] !== 'undefined' ) {
+                sensorWidth = sensors[value][1];
+                sensorHeight = sensors[value][2];                
+                updateHeight();        
+                setFloatValue('idHeight', imgHeight, 2);
+                //recalcUI('','');
+                recomputeDistance();
+            }                    
+        };
+
+        function escapeRegExp(str) {
+            return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+        }
+
+        String.prototype.replaceAll = function(search, replacement) {
+            var target = this;
+            return target.replace( new RegExp( escapeRegExp( search ), 'g'), replacement );
+        };
+        
+        String.prototype.countStrings = function( string ) {
+            var target = this;
+            return ( target.match( new RegExp( string, 'g' ) ) || [] ).length;
+        };
+
+        function getLocalDecimalSeparator() {
+            var n = 1.1;
+            n = n.toLocaleString().substring(1, 2);
+            return n;
+        }
+        
+        function getLocalThousandsSeparator() {
+            var n = 1000; n = n.toLocaleString();
+            return n.match(/1(.*?)000/)[1];
+        }
+
+        function separateThousands( number, separator ) {
+            return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, separator);
+        }
+
+        function parseFloatValue( value ) {
+            value = value.replace(/\s/g, '');    // replace all whitespaces
+
+            var thousandsSeparator = getLocalThousandsSeparator();
+            var decimalSeparator = getLocalDecimalSeparator();
+            value = value.replaceAll( thousandsSeparator , '' );
+
+            if ( decimalSeparator !== '.' ) {
+                value = value.replaceAll( decimalSeparator, '.' );
+            }
+
+            value = parseFloat( value );                    
+            
+            return value;
+        }
+        
+        function parseValues() {
+            focalLength = parseFloatValue( document.getElementById( 'idFocalLength' ).value );
+            imgWidth = parseFloatValue( document.getElementById( 'idWidth' ).value );
+            imgHeight = parseFloatValue( document.getElementById( 'idHeight' ).value );
+            accuracy = parseFloatValue( document.getElementById( 'idAccuracy' ).value );
+            accuracyR = parseFloatValue( document.getElementById( 'idAccuracyR' ).value );
+        }
+        
+        function setFloatValue( id, value, precision ) {
+
+            var decimalSeparator = getLocalDecimalSeparator();
+
+            if ( !isFinite( value ) ) {
+                value = 0;
+            }
+            
+            if ( typeof precision !== 'undefined' ) {
+                value = value.toFixed( precision );
+            }        
+            
+            var newValue = value.toString();
+
+            newValue = newValue.replace('.', decimalSeparator ).replace(new RegExp("("+ escapeRegExp( decimalSeparator )+".*?)(0*)$"),'$1').replace( new RegExp( "[" + escapeRegExp( decimalSeparator ) + "]0*$","i" ), '');
+
+            newValue = separateThousands( newValue, getLocalThousandsSeparator() );
+
+            document.getElementById( id ).value = newValue;
+        }        
+        
+        function recomputeDistance() {
+            var d = computeStrategy( sensorWidth, imgWidth, focalLength, accuracy, accuracyR );
+            updateResultText( isFinite(d) ? d : 0 );
+        }            
+        
+        function updateResultText( distance ) {
+            var text = rcLoadString("ENTER_VALID_VALUE_DISTANCE");
+
+            if ( distance >= 0.005 ) {
+                text = rcLoadString("STAND_AT_MOST_PART1") + distance.toLocaleString( undefined, { maximumFractionDigits: 2 }) + rcLoadString("STAND_AT_MOST_PART2");
+            }
+            
+            document.getElementById( 'idResult' ).innerHTML = text;
+        }
+        
+        function updateUI( idElement, keyEvent ) {
+            
+            parseValues();
+            
+            if ( keyEvent && keyEvent.keyCode != 9 ) {
+                if ( idElement == 'idHeight' ) {
+                    updateWidth();
+                }
+                else if ( idElement == 'idWidth' ) {
+                    updateHeight();
+                }        
+                
+                if ( idElement == 'idAccuracy' ) {
+                    accuracyR = 1.0/accuracy;        
+                    computeStrategy = computeDistance;
+                }
+                else if ( idElement == 'idAccuracyR' ) {
+                    accuracy = 1.0/accuracyR;
+                    computeStrategy = computeDistanceR;
+                }
+            }
+
+            if ( idElement != 'idHeight' ) setFloatValue( 'idHeight', imgHeight, 2 );
+            if ( idElement != 'idWidth' ) setFloatValue( 'idWidth', imgWidth, 2 );
+            if ( idElement != 'idFocalLength' ) setFloatValue( 'idFocalLength', focalLength, 2 );
+            if ( idElement != 'idAccuracy' ) setFloatValue( 'idAccuracy', accuracy, 6 );
+            if ( idElement != 'idAccuracyR' ) setFloatValue( 'idAccuracyR', accuracyR, 6 );
+
+            recomputeDistance();
+            
+        }
+        
+        function setEvents( id ) {
+            document.getElementById(id).onkeyup = function (e) { updateUI(id, e); }
+            document.getElementById(id).onchange = function (e) { updateUI(id) };
+            document.getElementById(id).onblur = function (e) { updateWidth(); updateHeight(); updateUI(); };
+        }
+
+        setEvents( 'idFocalLength' );
+        setEvents( 'idWidth' );
+        setEvents( 'idHeight' );
+        setEvents( 'idAccuracy' );
+        setEvents( 'idAccuracyR' );
+                    
+        updateUI( );
+        //document.getElementById( 'idFocalLength' ).focus();
+        //document.getElementById( 'idFocalLength' ).select();
+        
+        InitializeHelpSlide();
+        
+    </script>
+
+
+</body>
+</html>
+<!-- signature:ehTSlh/opIIbHtgdvAdiXucjwSIdMTH2zeqwauaVi3eFIEG+RuDOzERSSOA/eOP2myzSn7ieTMbTenGD1le8vhpNJ5R0Hd9LFZY1dWg9X3Z5CLLCZVhyZqOIqkWBVvHSytSPcNTTNvL48D/tJkCkuncMlTb6GYsCcyYOUEPpkMA= -->

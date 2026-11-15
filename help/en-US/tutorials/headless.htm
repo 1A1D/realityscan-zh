@@ -1,0 +1,161 @@
+﻿<html>
+    <head>
+        <title>RealityScan 帮助</title>
+        <meta charset="UTF-8"/>
+        <meta name="author" content="Epic Games Slovakia s.r.o." />
+        <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/style.css" />
+        <link type="text/css" rel="stylesheet" href="../../styles/colors.css" />
+        <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css" />
+        <script src="../scripts/textVars.js" type="text/javascript"></script>
+        <script src="../../scripts/localization.js" type="text/javascript"></script>
+        <script src="../../scripts/main.js" type="text/javascript"></script>
+    </head>
+    <body ondragstart="return false;">
+
+        <div class="content_slide">
+
+            <script type="text/javascript">RenderToolNavigation();</script>
+
+            <div class="head">
+
+                <h1 data-id="h1" data-vn="1">无界面模式</h1>
+
+                <p data-id="p_h1" data-vn="2">
+                    用命令行操作 RealityScan 时，界面总会出现。该模式可以把界面隐藏起来，改为在 Windows 任务栏的系统托盘显示图标。
+                </p>
+
+                <img src="images/Headless_System-Tray.png" alt="Headless_System-Tray" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tutorials/images/Headless_System-Tray.png';"/>
+
+            </div>
+            
+            <div class="clear splitSpacing">
+                <!-- clear -->
+            </div>              
+
+            <div class="slideblock">               
+               
+                <h2 data-id="h2_usage" data-vn="1">用法</h2>
+                <p data-id="p_usage" data-vn="2">
+                    要使用该功能，只需在 RealityScan 可执行文件后加上 <span class="command">-headless</span> 命令：
+                </p>
+        
+                <div data-id="p_usage_path_v1" data-vn="1" class="codeSample">
+                    "C:\Program Files\Epic Games\RealityScan\RealityScan.exe" -headless 
+                </div>
+        
+                <p data-id="p_instances" data-vn="2">
+                    可同时显示多个图标，数量取决于 RealityScan 实例数。每个图标会显示对应实例的编号，最多支持四个实例。<br/> 使用 <span class="command">-headless</span> 命令之后仍可继续执行其他命令，且界面不会显示。不过有几种情况 RealityScan 会退出无界面模式：
+                </p>
+                <ul>
+                    <li data-id="li_rtrn_user" data-vn="1">
+                        需要用户交互。
+                    </li>
+                    <li data-id="li_rtrn_ppup" data-vn="1">
+                        打开了任何弹窗。
+                    </li>               
+                    <li data-id="li_rtrn_err" data-vn="1">
+                        显示错误。
+                    </li>
+                </ul>
+                
+                <br/>
+                
+                <p data-id="p_silent" data-vn="1">
+                    其中多数可用 <span class="command">-silent</span> 或 <span class="command">-set “appQuitOnError=true”</span> 命令抑制，但有些（例如登录窗口）仍需要交互。
+                </p>
+
+                <h3 data-id="h3_menu" data-vn="1">菜单</h3>
+
+                <p data-id="p_menu" data-vn="1">
+                    用鼠标右键<span class="appgesture">点击</span>系统托盘图标即可显示菜单，其中有几项：
+                </p>
+
+                <ul>
+                    <li data-id="li_menu_show" data-vn="1">
+                        <span class="appproperty">Show App</span> 可开可关。开启时界面可见；关闭则启用无界面模式。
+                    </li>
+                    <li data-id="li_menu_info" data-vn="2">
+                        <span class="appproperty">About</span> 显示 RealityScan 与你账号的相关信息。
+                    </li>               
+                    <li data-id="li_menu_exit" data-vn="2">
+                        <span class="appproperty">Exit</span> 退出 RealityScan。
+                    </li>
+                </ul>
+
+                <br/>
+    
+                <img src="images/Headless_Menu.png" alt="Headless_Menu" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tutorials/images/Headless_Menu.png';"/>
+            
+            </div>
+
+            <div class="clear splitSpacing">
+                <!-- clear -->
+            </div>  
+
+            <div class="slideblock">
+
+                <h2 data-id="h2_statuses" data-vn="1">进度状态</h2>
+                <p data-id="p_statuses" data-vn="2">
+                    依据系统托盘中的 RealityScan 图标可以判断项目状态。
+                </p>
+
+                <h3 data-id="h3_ongo" data-vn="1">处理中</h3>
+                <p data-id="p_ongo" data-vn="2">
+                    RealityScan 内有任务在进行时，系统托盘图标周围会有一条蓝线顺时针转动，这条线表示任务的完成百分比；绕成完整一圈表示任务完成。
+                </p>
+
+                <img src="images/Headless_Ongoing-Process.png" alt="Headless_Ongoing-Process" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tutorials/images/Headless_Ongoing-Process.png';"/>
+
+                <h3 data-id="h3_pause" data-vn="1">已暂停</h3>
+                <p data-id="p_pause" data-vn="1">
+                    任务暂停时，系统托盘图标的背景会变成黄色。
+                </p>
+           
+                <img src="images/Headless_Pause-Process.png" alt="Headless_Pause-Process" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tutorials/images/Headless_Pause-Process.png';"/>
+
+                <h3 data-id="h3_error" data-vn="1">发生错误</h3>
+                <p data-id="p_error" data-vn="1">
+                    处理过程中发生错误时，图标背景会变成红色。
+                </p>
+                
+                    <img src="images/Headless_Error.png" alt="Headless_Error" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tutorials/images/Headless_Error.png';"/>
+               
+            </div>
+            <br/>
+
+                    <div class="clear splitSpacing">
+                <!-- clear -->
+            </div>
+
+            <br/>
+
+            <div data-id="div_bc" class="blocksContainer">
+
+                <a href="../tutorials/commandline_5.htm">
+                    <div class="block TileColor1">
+                        <h2 data-id="h2_bc_ehco" data-vn="1">错误处理命令</h2>
+                        <p data-id="p_h2_bc_ehco" data-vn="1">用于处理潜在错误的命令</p>
+                    </div>
+                </a>
+
+                <script type="text/javascript">RenderBackToStartTile();</script>
+
+            </div>
+            
+            <div class="clear">
+                <!-- clear -->
+            </div>            
+
+            <!-- content slide end -->
+        </div>
+
+        <script type="text/javascript">RenderCopyrightText();</script>
+
+		<script type="text/javascript">
+			InitializeTutorialMode();
+		</script>
+
+    </body>
+</html>
+<!-- signature:H3Q0Io3SJmtiBx/YZJenB2BPzz7k+Jk2/tfUeU8M4WhL44eXe+m1Kan2m5K4vUZ/VTYJYAAgmsFaI+GvtLCh8j2RScKMKkzNpljkiaWLCnFXX1hRTYuT+zVzzab0MWXN4SfKc37iDN+mQAXN2ZHA7kKp7dV5bRoqTMFr1WwHobA= -->

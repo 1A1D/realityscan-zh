@@ -1,0 +1,97 @@
+<html>
+    <head>
+        <title>RealityScan 帮助</title>
+        <meta charset="UTF-8"/>
+        <meta name="author" content="Epic Games Slovakia s.r.o."/>
+        <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/style.css"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/colors.css"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css"/>
+        <script src="../scripts/textVars.js" type="text/javascript"></script>
+        <script src="../../scripts/localization.js" type="text/javascript"></script>
+        <script src="../../scripts/main.js" type="text/javascript"></script>
+    </head>
+    <body ondragstart="return false;">
+
+        <div data-id="div_cs" class="content_slide">
+
+            <!-- content slide -->
+            <script type="text/javascript">RenderToolNavigation();</script>
+
+            <div data-id="div_head" class="head">
+
+                <h1 data-id="h1" data-vn="1">彩色光标</h1>
+                <p data-id="p_h1" data-vn="2">给 <span class="appaspecttype">1D, 2D</span> 和/或 <span class="appaspecttype">3Ds</span> 视图分配一个或多个彩色光标（色条）（蓝、绿、洋红或珊瑚色），有助于在复杂场景中导航，也便于整理数据。可以把多个视图都设为显示同一个光标（比如蓝色）；之后当你把某个对象分配给蓝色光标，所有关联蓝色光标的视图都会立即显示该对象的信息。</p>
+            </div>
+
+            <div data-id="div_sb_assign" class="slideblock">
+
+                <h2 data-id="h2_assign" data-vn="1">把对象分配给光标</h2>
+                <p data-id="p_h2_assign" data-vn="2">RealityScan 定义了四个光标。</p>
+                <ul>
+                    <li data-id="li_assign_hold" data-vn="1">在 <span class="appaspecttype">1Ds</span> 或 <span class="appaspecttype">2Ds</span> 面板中，<span class="appgesture">按住</span> <span class="appshortcut">1/2/3/4</span>，<span class="appgesture">并点击</span>图像、正射投影或其他可拾取对象，即可「切换」其光标：1 = 蓝，2 = 绿，3 = 洋红，4 = 珊瑚色。所以<span class="appgesture">按住</span> <span class="appshortcut">1/2/3/4</span> 点一次是分配光标，再<span class="appgesture">按住</span>同一个数字点一次则是移除光标。</li>
+                    <li data-id="li_assign_3d" data-vn="3">同样，在 <span class="appaspecttype">3Ds</span> 或 <span class="appaspecttype">MAP</span> 视图中点击对象时<span class="appgesture">按住</span> <span class="appshortcut">1/2/3/4</span>，也能分配颜色。
+                    </li>
+                </ul>
+                <br/>
+            </div>
+
+            <div data-id="div_sb_set" class="slideblock">
+                <h2 data-id="h2_set" data-vn="1">让视图显示某个光标</h2>
+                <p data-id="p_h2_set" data-vn="2">给视图分配颜色后，该视图就会显示光标所指对象的信息。按视图类型不同，可能是对象属性（<span class="appaspecttype">1D</span> 视图）、图像（<span class="appaspecttype">2D</span> 视图）或空间位置（<span class="appaspecttype">3Ds</span> 视图）。借助光标，给多个视图分别分配颜色就能同时看到这些信息。用户选择或更改光标对象时，系统会自动刷新视图。</p>
+                <ul>
+                    <li data-id="li_set_assign" data-vn="1">要给视图分配彩色光标，可在活动视图（带蓝色边框的当前窗口）中按 <span class="appshortcut">ctrl+1/2/3/4</span>。</li>
+                    <li data-id="li_set_change" data-vn="1">也可以在视图的上下文功能区中更改视图光标颜色。</li>
+                </ul>
+                <br/>
+            </div>
+
+            <div data-id="div_sb_move" class="slideblock">
+                <h2 data-id="h2_move" data-vn="1">在光标与视图之间移动对象</h2>
+                <p data-id="p_h2_move" data-vn="1">有时我们希望保持视图光标不变，却在视图中显示另一个对象。</p>
+                <ul>
+                    <li data-id="li_move_drag" data-vn="1">当你<span class="appgesture">拖放</span>一张图像（<span class="appgesture">按住鼠标左键并移动</span>），例如从 <span class="appaspecttype">1Ds</span> 面板拖到 <span class="appaspecttype">2D</span> 视图窗口，并在放下时<span class="appgesture">按住</span> <span class="appshortcut">shift</span>，程序会把拖动的图像设为光标对象并显示它，而不是直接查看该图像。</li>
+                    <li data-id="li_move_threed" data-vn="3"><span class="appaspecttype">3Ds</span> 视图同样支持光标。需要按 <span class="appshortcut">enter</span> 键「进入」相机空间。要退出 <span class="appaspecttype">3Ds</span> 视图中的色条分配，转动一下视图即可。</li>
+                </ul>
+                <br/>
+            </div>
+            
+            <div class="slideblock">
+                <h2 data-id="h2_navigate" data-vn="1">在图像间导航</h2>
+                <p data-id="p_h2_navigate" data-vn="1">依据彩色光标和选中的 <span class="appaspecttype">2D</span> 视图，可以用键盘快捷键在图像间导航： </p>
+                <ul>
+                    <li data-id="li_navigate_imglist" data-vn="1">用 <span class="appshortcut">左/右</span> 方向键在图像列表中前后切换。</li>
+                    <li data-id="li_navigate_aligned" data-vn="1">用 <span class="appshortcut">SHIFT + 左/右</span> 方向键在所选组件的已对齐相机之间切换。</li>
+                    <li data-id="li_navigate_cntrlpoint" data-vn="1">用 <span class="appshortcut">上/下</span> 方向键在当前所选控制点的图像之间切换。</li>
+                    <li data-id="li_navigate_pageud" data-vn="1">用 <span class="appshortcut">Page Up/Down 键</span> 在图像列表中一次跳过 20 张。</li>
+                </ul>
+                <br/>
+            </div>
+
+            <div data-id="div_im_nocolor" data-vn="1" class="importantMessage">
+                注意：即使没有为视图分配颜色光标，也可以浏览图像： <span class="appaspecttype">2D</span> view. 
+            </div>
+
+            <br/>            
+
+            <div data-id="div_bc" class="blocksContainer">
+
+                <script type="text/javascript">RenderBackToStartTile();</script>
+
+                <div class="clear">
+                    <!-- clear -->
+                </div>
+
+            </div> <!-- content slide end -->
+
+        </div>
+
+        <script type="text/javascript">RenderCopyrightText();</script>
+
+        <script type="text/javascript">
+            InitializeHelpSlide();
+        </script>
+
+    </body>
+</html>
+<!-- signature:gM3u4mU+yNTqPtAZB2xUbOdk5NYWi+nSvv4hAQ+6+ob1BwLkmYZYq6QScwRs3ZChq+WkTL55MwCgPv15MZG2gl5tzCiQ7jjst+v5skr/vukZR9cMQ6b1ghpcyYRktTvrrn/qipQsZCbTzKcJQudGEVSXyXUaRplUHxhrGXs1CnU= -->

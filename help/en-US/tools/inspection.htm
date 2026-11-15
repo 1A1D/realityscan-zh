@@ -1,0 +1,241 @@
+<html>
+<head>
+    <title>RealityScan 帮助</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Epic Games Slovakia s.r.o." />
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <link type="text/css" rel="stylesheet" href="../../styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/colors.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css" />
+    <script src="../scripts/textVars.js" type="text/javascript"></script>
+    <script src="../../scripts/localization.js" type="text/javascript"></script>
+    <script src="../../scripts/main.js" type="text/javascript"></script>
+</head>
+<body ondragstart="return false;">
+
+    <div data-id="div_cs" class="content_slide">
+
+        <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head"  class="head">
+
+            <h1 data-id="h1" data-vn="2">高级质量分析</h1>
+
+
+            <p data-id="li_tool_very" data-vn="4">高级质量分析选项用于分析场景中相机之间的依赖关系。有三种检查方法可用：</p>
+            
+            <ul>
+                <li data-id="li_vals_care" data-vn="3"><span class="appproperty">Camera relations</span> 用此选项检查相机之间的关系。</li>
+				<li data-id="li_vals_ssun" data-vn="4"><span class="appproperty">Point cloud uncertainty</span> 用于分析连接点位置的精度以及计算位置的不确定度。</li>
+				<li data-id="li_vals_mide" data-vn="1"><span class="appproperty">Misalignment detection</span> 该项目会直观提示项目中是否存在未对齐，并帮助排查。</li>     
+            </ul>
+			
+        </div>
+        
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+        
+        <div data-id="div_sb_care" class="slideblock">
+					
+			<h2 data-id="h2_care" data-vn="1">相机关系</h2>
+			
+			<p data-id="p_h2_care" data-vn="1"> 使用这种方式时，相机会依据彼此的连接情况和所设参数连成虚拟组件，同一虚拟组件内的相机用同一颜色标记。如果生成了多个虚拟（彩色）组件，说明这些组件之间相机的连接可能更稳定 —— 建议在这些区域补拍图像。<br/>	
+			</p>
+			
+			<div style="padding: 20px 10px 10px 25px"><img src="images/Inspection-Relations.png" alt="Inspection-Relations" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/Inspection-Relations.png';">
+			</div>
+			
+            <ul class="apppanelitems">
+                <li data-id="ul_care_coco" data-vn="1" class="apppanelitem"><span class="appproperty">Component connectivity</span> 与相邻相机/图像的最小连接数。若相机之间的边数达到该值，这些相机就连成一个组件（同色标记）。相机之间的边依据以下设置生成。
+                </li>
+                <li data-id="ul_care_apan" data-vn="1" class="apppanelitem"><span class="appproperty">Apical angle</span> 相邻相机/图像之间的最小张角。它由两条投影线（来自两台相机）构成，连接点位于角的顶点。数值越小越好。
+                </li>
+                <li data-id="ul_care_feco" data-vn="1" class="apppanelitem"><span class="appproperty">Feature consistency</span> 表示特征的最小一致性，定义需要「看到」该特征的相机数量。若该特征在此数量的相机/图像中可见，且相机对之间的夹角大于 <span class="appproperty">Apical angle</span> 所定义的角，则该边的 <span class="appproperty">Matches count</span> 加一。
+                </li>
+                <li data-id="ul_care_maco" data-vn="1" class="apppanelitem"><span class="appproperty">Match count</span> 在此指定图像之间期望的总连接数。只有当两台相机之间的共同特征（匹配）达到该数量时，它们才会连入同一虚拟组件。匹配是指满足 <span class="appproperty">Apical angle</span> 与 <span class="appproperty">Feature consistency</span> 条件的特征。
+                </li>
+                <li data-id="ul_care_mima" data-vn="1" class="apppanelitem"><span class="appproperty">Minimal matches</span> 在此指定两张图像之间期望的最小连接数。特征数低于该值的边完全不显示；恰好等于该值的边显示为深蓝色。
+                </li> 
+                <li data-id="ul_care_mama" data-vn="1" class="apppanelitem"><span class="appproperty">Maximal matches</span> 在此指定两张图像之间期望的最大连接数，填 0 表示不限制。特征数最高的边显示为深红色。若设了具体数值，它就是两张图像间连接数的上限；颜色刻度会按最小/最大匹配重新计算。
+                </li>
+                <li data-id="ul_care_shed" data-vn="1" class="apppanelitem"><span class="appproperty">Show edges</span> 要显示的边类型：internal/external/both。内部边是虚拟组件内部的边；外部边是虚拟组件之外、连接各虚拟组件的边。选 both 可看到全部边（灰色为内部边，彩色为外部边）。
+                </li>  
+                <li data-id="ul_care_anse" data-vn="1" class="apppanelitem"><span class="appproperty">Analyze selection</span> 若想把连通性分析限制在所选相机/点云范围内，设为 True。
+                </li>         
+            </ul>
+		
+            <br/>
+            
+            <p data-id="p_tool_pic" data-vn="1">
+                    下图可以看到：大部分相机连成一个虚拟组件，三台粉色相机连成第二个虚拟组件（红框内），还有一些用不同颜色标记、未连入任何组件的相机。在这些不连通区域，建议补拍更多图像以增强连接的稳定性。
+            </p>
+                                                                                                                                                                            
+            <div style="padding: 20px 10px 10px 25px">
+                <img src="../../images/inspection_example.jpg" alt="inspection_example" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/inspection_example.png';">
+            </div>
+            
+            <p data-id="p_img_scale1" data-vn="2">
+            边（相机之间的连接）的颜色刻度如下：
+            </p>
+        
+            <div style="padding: 20px 10px 10px 25px">
+                <img src="images/inspection_scale.png" alt="inspection_scale" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/inspection_scale.png';">
+            </div>
+		</div>
+        
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div> 
+        
+        <div data-id="div_sb_pcun" class="slideblock">
+            
+            <h2 data-id="h2_pcun" data-vn="1">点云不确定度</h2>
+                <div style="padding: 20px 10px 10px 25px">
+                    <img src="images/Inspection-Uncertainty.png" alt="Inspection Uncertainty" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/Inspection-Uncertainty.png';">
+				</div>
+                <ul class="apppanelitems">
+                    <li data-id="ul_pcun_unem" data-vn="1" class="apppanelitem"><span class="appproperty">Uncertainty enumeration method</span> 定义计算连接点不确定度的方法。此工具只作用于在 <span class="appribbon">3D SCENE</span>/<span class="appribbon">VIEW</span> 上下文选项卡中按 <span class="appproperty">Track length</span> 筛选后显示的点，可用滑块限定范围。方法可选 <span class="appproperty">Relative</span> 与 <span class="appproperty">Absolute</span>。
+                    </li>
+                    
+                    <li class="apppanelitem">
+                        <ul>
+                            <li data-id="ul_unem_rel" data-vn="1"><span class="appproperty">Relative</span> 该方法适用于未做地理配准或未缩放的模型，此时点的精度（不确定度）是相对全部点的某个百分比来显示的。相对法可用的设置如下： 
+                            </li>
+                            <li class="apppanelitem">
+                                <ul>
+                                    <li data-id="ul_rel_reun" data-vn="1" class="apppanelitem"><span class="appproperty">Reference uncertainty region percentile</span> 是一个百分比值，定义可视为正确的点的比例。默认 70，即 70% 的连接点被视为稳定且质量良好；这些点显示为蓝色，并作为参照用于 <span class="appproperty">Estimated reference uncertainty (blue)</span> number.
+                                    </li>
+                                    <li data-id="ul_rel_colp" data-vn="1" class="apppanelitem"><span class="appproperty">Color palette radius</span> 是定义点不确定度范围的乘数：<span class="appproperty">Estimated reference uncertainty (blue)</span> 乘以该数即得 <span class="appproperty">Low-quality points' threshold (red)</span>。
+                                    </li>
+                                    <li data-id="ul_rel_erun" data-vn="1" class="apppanelitem"><span class="appproperty">Estimated reference uncertainty (blue)</span> 与 <span class="appproperty">Low-quality points' threshold (red)</span> 是定义颜色刻度范围的不确定度最小/最大值。不确定度低于 <span class="appproperty">Estimated reference uncertainty (blue)</span> 的点显示为深蓝（精度较高），高于 <span class="appproperty">Low-quality points' threshold (red)</span> 的点显示为深红（精度较低），其余点按上述颜色刻度着色。
+                                    </li>
+                                </ul>
+                            </li> 
+                            <li class="apppanelitem"><br/> <div data-id="div_im_pore" data-vn="1" class="importantMessage"> 注意：红色点表示该区域计算出的点不确定度较高。在这些区域应补拍更多图像，以获得精度更高的连接点。红色不确定度线的方向即不确定度的方向；此时应在垂直于不确定度线的方向上补拍。</div>
+                            </li>
+                            <li data-id="ul_unem_abs" data-vn="1"><span class="appproperty">Absolute</span> 该方法适用于已地理参考、已标定尺度的模型，可用场景单位定义点的不确定度。绝对法可用的设置有：
+                            </li>
+                            <li class="apppanelitem">
+                                <ul>
+                                    <li data-id="ul_abs_musb" data-vn="1" class="apppanelitem"><span class="appproperty">Minimal uncertainty size (blue)</span> 定义色标的下界。不确定度低于该值的点都标为蓝色。例如对于以米为单位的坐标系，数值 0.01 表示连接点位置有 1 厘米的不确定度。
+                                    </li>
+                                    <li data-id="ul_abs_musr" data-vn="1" class="apppanelitem"><span class="appproperty">Maximal uncertainty size (red)</span> 定义颜色刻度的上限。不确定度高于该值的点全部标红，介于其间的其余点按上述颜色刻度着色。
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="apppanelitem"><br/></li>
+                    <li data-id="ul_pcun_unlm" data-vn="1" class="apppanelitem"><span class="appproperty">Uncertainty line multiplier</span> 所显示不确定度线的缩放系数。值越大，<span class="appaspecttype">3Ds</span> 视图中的线越长、越显眼。
+                    </li>
+                </ul>
+
+                <br/>
+              
+                <p data-id="p_pcun_ex" data-vn="1">    
+                  下图中红点较多的区域不确定度更高、精度更低；在这些区域补拍图像可提升精度：
+                </p>
+
+                <div style="padding: 20px 10px 10px 25px">
+                <img src="../../images/inspection_example_2.jpg" alt="Inspection Example" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/inspection_example_2.jpg.png';">>
+                </div>
+            
+                <p data-id="p_img_scale2" data-vn="1">
+                    点的不确定度按此颜色刻度显示：
+                </p>
+                
+                <div style="padding: 20px 10px 10px 25px">
+                    <img src="images/uncertainty_scale.png" alt="uncertainty_scale" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/uncertainty_scale.png';">
+                </div>
+        </div>
+        
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+		
+		<div data-id="div_sb_mide" class="slideblock">
+			
+			<h2 data-id="h2_mide" data-vn="1">未对齐检测</h2>
+            
+            <p data-id="p_h2_mide" data-vn="1">
+                该选项可帮你找出场景中未对齐的相机或薄弱位置。
+            </p>
+            
+            <div style="padding: 20px 10px 10px 25px">
+            <img src="images/Inspection-Misalignment-detection.png" alt="Inspection-Misalignment-detection" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/Inspection-Misalignment-detection.png';">
+            </div>
+            
+            <ul class="apppanelitems"> 
+                <li data-id="ul_mise_mptr" data-vn="1" class="apppanelitem"><span class="appproperty">Misaligned points threshold</span> 按给定百分比给最可能未对齐的点着色。例如设为 50%，该工具会标记出 50% 最未对齐的点。
+                </li>
+                <li data-id="ul_mise_mctr" data-vn="1" class="apppanelitem"><span class="appproperty">Misaligned camera pairs threshold</span> 为每个未对齐相机组显示给定百分比的最未对齐相机对。例如设为 50%，该工具会为每个检测到的相机组标记 50% 最未对齐的相机关系。
+                </li>
+                <li data-id="ul_mise_mdse" data-vn="1" class="apppanelitem"><span class="appproperty">Misalignment detector sensitivity</span> 设置未对齐检测器的灵敏度。灵敏度越高计算越慢，但产出的数据更多。某些情况下高灵敏度会产生误报。
+                </li>
+                <li data-id="ul_mise_psmu" data-vn="1" class="apppanelitem"><span class="appproperty">Point size multiplier</span> 增大该值可放大显示的点，使其更易看清。
+                </li>
+                <li data-id="ul_mise_domp" data-vn="1" class="apppanelitem"><span class="appproperty">Display only misaligned points</span> 仅显示被判定为未对齐的点。改为「是」会隐藏所有正确对齐的点。
+                </li>
+                <li data-id="ul_mise_domc" data-vn="1" class="apppanelitem"><span class="appproperty">Display only misaligned cameras</span> 仅显示被判定为未对齐的相机。改为「是」会隐藏所有正确对齐的相机。
+                </li>
+                <li data-id="ul_mise_micc" data-vn="1" class="apppanelitem"><span class="appproperty">Misaligned components count</span> 限制显示的未对齐相机组件数量，只显示该数量最差的组件。
+                </li>    
+            </ul>
+                   
+            <div style="padding: 20px 10px 10px 25px">
+                <img src="images/Inspection-Misalignment_example.png" alt="Inspection-Misalignment_example" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/Inspection-Misalignment_example.png';">
+            </div>
+            
+            <p data-id="p_h2_clrs" data-vn="3">
+                选中「未对齐检测」后，<span class="appaspecttype">3Ds</span> 视图中的点会分成多种颜色：蓝色点表示正确对齐的点，红色或其他非蓝色点则是 RealityScan 判定为未对齐的点。 
+           </p>        
+           
+           <p data-id="p_h2_macm" data-vn="1">
+                每一组点代表一个「未对齐组件」，它在 <span class="appaspecttype">1Ds</span> 视图中看不到，但与 <span class="apptool">Inspection tool</span> 相关。据此可以通过调整控制点来校正对齐，最终得到精度更高的单一组件。
+           </p> 
+           
+           <p data-id="p_h2_camr" data-vn="4">
+                未对齐相机会以随机颜色显示在 <span class="appaspecttype">3Ds</span> 视图中，且比代表输入的相机更大。点击其中一个未对齐相机，会选中与它相关的相机；颜色表示精度：浅蓝色是 RealityScan 判定精度较低的，灰色则精度较好。相机之间可能连有白线，通常指向有问题的相机。
+                
+           </p>           
+		</div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_bc" class="blocksContainer">
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sa" class="rowblock">
+            <h3 data-id="h3_sa" data-vn="1">另见：</h3>
+            <ul class="intend">
+                <li data-id="li_sa_meco" data-vn="1">合并组件 <a href="../tutorials/mergecomponents.htm">点击此处</a></li>
+                <li data-id="li_sa_alqu" data-vn="1">对齐质量 <a href="alignquality.htm">点击此处</a></li>
+            </ul>
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+        <!-- content slide end -->
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+    <script type="text/javascript">
+        InitializeHelpSlide();
+    </script>
+
+</body>
+</html>
+<!-- signature:0ZqaKsG+boz++hx4b1UM28M6rJs1IPmGOgrmoGNakhywBb3HMFMdl/JZzMLpDkJfvYVtghdIpQJ8D9tVfSQ8fpKS1xfNiXCtY2vx+8Q8WSBDgKnP6sbXzIjLZRE7LkGFXmoq4c0XyEt5Aw60joGXuVtjpRoJ/pCdynZq3roXVxU= -->

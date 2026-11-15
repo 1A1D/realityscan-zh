@@ -1,0 +1,167 @@
+<html>
+    <head>
+        <title>RealityScan 帮助</title>
+        <meta charset="UTF-8"/>
+        <meta name="author" content="Epic Games Slovakia s.r.o."/>
+        <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/style.css"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/colors.css"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css"/>
+        <script src="../scripts/textVars.js" type="text/javascript"></script>
+        <script src="../../scripts/localization.js" type="text/javascript"></script>
+        <script src="../../scripts/main.js" type="text/javascript"></script>
+    </head>
+    <body ondragstart="return false;">
+
+        <div class="content_slide">
+
+            <script type="text/javascript">RenderToolNavigation();</script>
+
+            <div class="head">
+
+                <h1 data-id="h1" data-vn="1">自动保存模式</h1>
+                <p data-id="p_h1" data-vn="3">
+                    当电脑出现意外问题、RealityScan 进程被中断时，这个功能很适合用来恢复项目的改动。只要相关处理此前已成功完成，它就能恢复你之前的改动，例如已放置的地面控制点、已计算的模型、纹理等。
+                </p>
+            </div>
+
+            <div class="slideblock">
+
+                <h3 data-id="h3_aasm" data-vn="1">
+                    如何启用自动保存模式：
+                </h3>
+
+                <ul>
+                    <li data-id="li_aasm_auto" data-vn="2"><span class="appgesture">点击</span> <span class="appribbon">WORKFLOW</span> 选项卡中的 <span class="apptool">Settings</span> 按钮，打开应用设置。</li>
+                    <li data-id="li_aasm_check" data-vn="2">启用 <span class="appproperty">Auto Save mode</span> 设置。</li>
+                </ul>
+
+            </div>
+            <br/>
+
+            <div class="slideblock">
+
+                <h2 data-id="h2_savefiles" data-vn="1">自动保存文件存在哪里 </h2>
+                <p data-id="p_h2_savefiles" data-vn="1">
+                    自动保存文件的第一部分存到资源缓存（不建议把系统临时目录当作缓存位置 —— 启用 <span class="appproperty">Auto Save mode</span> 后该文件夹会占用存储）。第二部分以 "project_name".autosave 的形式保存到项目文件夹。
+                </p>
+
+            </div>
+            <br/>
+
+            <div class="slideblock">
+
+                <h2 data-id="h2_saveperiod" data-vn="1">自动保存的周期</h2>
+                <p data-id="p_h2_saveperiod" data-vn="1">
+                    用户对项目做出任何改动后，自动保存会在 30 秒后（目前不可更改）生成 "project_name".autosave 文件，文件位于项目文件夹。<br/> 但当你执行 <span class="appproperty">Align Images</span>、<span class="appproperty">Normal Detail</span> 重建或其他高计算量功能时，自动保存会立即执行（覆盖 30 秒间隔）。
+                </p>
+
+                <p data-id="p_project_newp" data-vn="2">
+                    对于新项目，自动保存只会存到资源缓存，路径为：<br/> C:\Users\”CurrentUser”\AppData\Local\Temp\RealityScan 或 RealityScan-1、RealityScan-2、RealityScan-3（其中 RealityScan = 实例 1，RealityScan-1 = 实例 2，以此类推）<br/> 若项目此前已保存过，自动保存会写到该项目路径下，后缀为 project.autosave<br/> 下次打开原项目时会弹出对话框，询问是否恢复之前的改动。<br/>
+                </p>
+                <img src="images/autosave_load-project.png" alt="autosave-loadproject" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/appbasics/images/autosave_load-project.png';"/>
+                <br/><br/> 
+                <p data-id="p_project_opts" data-vn="1">选择其中一个选项：</p>
+                <ul class="listitems">
+                    <li class="listitem" data-id="li_project_recover" data-vn="1">按 <span class="appbutton">Recover</span> 恢复自动保存的改动</li>
+                    <li class="listitem" data-id="li_project_delete" data-vn="1">按 <span class="appbutton">Delete</span> 删除自动保存</li>
+                    <li class="listitem" data-id="li_project_ignore" data-vn="1">按 <span class="appbutton">Ignore</span> 忽略自动保存，打开不含这些改动的项目（自动保存不会被删除）</li>
+                </ul>
+
+            </div>
+            <br/>
+
+            <div class="slideblock">
+
+                <h2 data-id="h2_notes" data-vn="1">自动保存的通用说明</h2>
+                <ul>
+                    <li data-id="li_notes_noch" data-vn="1">
+                        如果项目没有改动，不会创建新的自动保存。
+                    </li>
+                    <li data-id="li_notes_term" data-vn="1">
+                        若大型计算过程（例如纹理计算）中途被终止，自动保存无法恢复到该时间点的任何改动。自动保存只恢复已完成的过程（重建过程除外 —— 详见「继续中断的模型计算」一节）。
+                    </li>
+                </ul>
+
+            </div>
+            <br/>
+
+            <div class="slideblock">
+
+                <h2 data-id="h2_cimc" data-vn="1">用自动保存继续中断的模型计算</h2>
+                <p data-id="p_h2_cimc" data-vn="2">
+                    启用自动保存后还会得到一项子功能：RealityScan 创建模型（重建过程）时会自动保存各个模型部件。这样即使应用意外关闭或出现类似情况，也不会丢失已处理完的模型部件。
+                </p>
+                
+                <h3 data-id="h3_cimc" data-vn="1">增量模型重建的工作方式：</h3>
+                <p data-id="p_h3_cimc" data-vn="2">
+                    每创建一个模型部件，RealityScan 会在该部件处理完成 15 分钟后自动保存（存入资源缓存）。若在成功保存模型部件之后进程被中断，可以从该自动保存点继续计算。打开项目后会出现自动保存对话框。<span class="appgesture">点击</span> <span class="appbutton">Recover</span>，在 <span class="appaspecttype">1Ds</span> 视图中选择要继续计算的模型，到左下角选择 <span class="appproperty">Continue model calculation</span>，然后<span class="appgesture">点击</span> <span class="appbutton">Continue</span> 按钮。重建会从此前的自动保存点继续。
+                </p>
+            </div>
+            <br/>
+
+            <div class="slideblock">
+
+                <h2 data-id="h2_example" data-vn="1">典型场景示例</h2>
+
+                <ul>
+                    <li data-id="li_example_open" data-vn="2">打开一个 RealityScan 项目</li>
+                    <li data-id="li_example_asmy" data-vn="1">进入 <span class="appproperty">Application settings</span>，把 <span class="appproperty">Auto save mode</span> 设为「是」</li>
+                    <li data-id="li_example_reco" data-vn="1">创建普通或高细节重建</li>
+                    <li data-id="li_example_crmp" data-vn="2">等待进入「Creating model」阶段（可在 RealityScan 控制台中查看），再等 10 分钟让该网格部件自动保存到资源缓存（可在资源缓存中确认已生成一个模型部件）
+                    </li>
+                    <li data-id="li_example_quit" data-vn="2">用 Windows 任务管理器结束 RealityScan 进程</li>
+                    <li data-id="li_example_opre" data-vn="2">重新打开你要恢复自动保存的 RealityScan 项目（.rsproj）；若开了多个实例，请在原来那个实例中打开
+                    </li>
+                    <li data-id="li_example_rcvr" data-vn="1"><span class="appgesture">点击</span> <span class="appbutton">Recover</span></li>
+                    <li data-id="li_example_selm" data-vn="1">在 <span class="appaspecttype">1Ds</span> 视图中，<span class="appgesture">点击</span>要继续计算的模型（这里也能看到从自动保存中恢复了多少个部件）<br/><br/> <img src="images/autosave_continue-model-calculation.png" alt="autosave_continue-model-calculation" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/appbasics/images/autosave_continue-model-calculation.png';"/>
+                    </li>
+                    <li data-id="li_example_cont" data-vn="1"><span class="appgesture">点击</span> <span class="appbutton">Continue</span> 按钮</li>
+                    <li data-id="li_example_prgb" data-vn="2">会出现 <span class="appproperty">Resuming model calculation</span> 进度条，初始缓存完成后，就会从 RealityScan 最后成功自动保存的模型部件继续「Creating model」阶段（约在最后一个部件计算完成 15 分钟后）
+                    </li>
+                </ul>
+
+            </div>
+            <br/>
+
+            <div class="importantMessage" data-id="div_counter" data-vn="2">注意：在模型计算中使用「Continue」会让控制台为剩余部件重新计数 —— 例如总共 555 个部件、RealityScan 已自动保存 500 个，控制台会显示「Processing part 1 / 55. Estimated 2265 vertices」，而不是「Processing part 501 / 555」。
+            </div>
+
+            <div class="clear splitSpacing">
+                <!-- clear -->
+            </div>
+
+            <div data-id="div_bc" class="blocksContainer">
+
+                <script type="text/javascript">RenderBackToStartTile();</script>
+
+            </div>
+
+            <div class="clear">
+            <!-- clear -->
+            </div>
+
+            <div data-id="div_sa" class="rowblock">
+                <h3 data-id="h3_sa" data-vn="1">另见：</h3>
+                <ul class="intend">
+                    <li data-id="li_sa_appset" data-vn="1">进一步了解应用设置 <a href="../appbasics/appsettings.htm">点击此处</a></li>
+                </ul>
+
+                <div class="clear">
+                    <!-- clear -->
+                </div>
+            </div>
+
+            <!-- content slide end -->
+
+        </div>
+
+        <script type="text/javascript">RenderCopyrightText();</script>
+
+        <script type="text/javascript">
+            InitializeHelpSlide();
+        </script>
+
+    </body>
+</html>
+<!-- signature:arWy3hVm6zecO/r5Tee7vBpXQ5rH6TZnWuBeJQgAUQ9PEYzEUnq+x/QopaIjJkknZqINoW3t3k9eXkgLZcbp9c9E3Nl27BtjyOT0LxG3d5XzH8RbG7cBwFJllVSXJgZhBgKObZ04JimZjbMG1WSPcKOSu+MFokHC2+ELOzV8Gls= -->

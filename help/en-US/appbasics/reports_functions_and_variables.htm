@@ -1,0 +1,214 @@
+﻿<html>
+    <head>
+        <title>RealityScan 帮助</title>
+        <meta charset="UTF-8"/>
+        <meta name="author" content="Epic Games Slovakia s.r.o."/>
+        <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/style.css"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/colors.css"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css"/>
+        <script src="../scripts/textVars.js" type="text/javascript"></script>
+        <script src="../../scripts/localization.js" type="text/javascript"></script>
+        <script src="../../scripts/main.js" type="text/javascript"></script>
+    </head>
+<body ondragstart="return false;">
+
+    <div data-id="div_cs" class="content_slide">
+    
+        <!-- content slide -->
+
+        <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head" class="head">
+            <h1 data-id="h1" data-vn="1">报告模板</h1>
+            <p data-id="p_h1" data-vn="2">模板系统使用一套简单易懂的脚本，基于替换机制，把模板转换成人类可读、填满重要信息的文档——例如一个列出项目信息的 HTML 文件。</p>
+        </div>
+
+        <div data-id="div_sb_fav" class="slideblock">
+            <h2 data-id="h2_fav" data-vn="1">函数与变量</h2>
+
+            <p data-id="p_fav_var" data-vn="1">应用暴露了一些变量，系统会自动把它们替换为对应的值。当模板中写成 $(variable_name) 这种形式时，<span class="appproperty">variable</span> 的值就会打印到最终报告中。例如：
+            </p>
+            <pre data-id="pre_fav" data-vn="1">
+  Today is $(dateTime)
+            </pre>
+            <p data-id="p_fav_ren" data-vn="1">
+                会被自动替换为当前的日期与时间。实际上，括号里不一定只有变量名，还可以是表达式 <span class="appproperty">$(expression)</span>，而且你还能控制渲染样式，例如：
+            </p>
+            <pre data-id="pre_fav_ex" data-vn="1">
+
+  Focal length [35mm] = $(focalLength*36:.2)
+            </pre>
+            <p data-id="p_fav_eva" data-vn="1">会计算括号中的表达式，把 focalLength 乘以 36，得到相对于 35mm 胶片格式的焦距；结果以浮点数写出并四舍五入到两位小数。</p>
+
+            <h3 data-id="h3_fun" data-vn="1">函数</h3>
+
+            <p data-id="p_h3_fun" data-vn="1">函数可以控制这些变量的填充方式，也能定义或删除变量。<span class="appproperty">function</span> 同样以 $ 开头，但名字不放在括号里：$function_name()。例如：
+            </p>
+            <pre data-id="pre_fun" data-vn="1">
+  $ImportFile("Reports\\images\\camera.png", "camera.png")
+            </pre>
+            <p data-id="p_fun_copy" data-vn="1">
+                会把文件从应用的 reports 文件夹复制到导出的附件文件夹。
+             </p>
+            <p data-id="p_fun_crea" data-vn="1">系统还把函数用作函数/变量作用域的创建者与迭代器，例如：
+            </p>
+            <pre>
+  $ExportCameras( innerFunctionText )
+            </pre>
+            <p data-id="p_fun_iter" data-vn="1">
+                会遍历所有相机，定义若干保存被迭代相机信息的变量，并对每个被迭代的相机展开并替换 <span class="appproperty">innerFunctionText</span>。
+            </p>
+            <p data-id="p_fun_deta" data-vn="1">
+                详细解释一下：假设有个组件含 3 台相机，分别由“image1.jpg”“image2.jpg”“image3.jpg”算出，且该组件被导出。<span class="appproperty">$ExportCameras</span> 函数会先读取第一台相机的信息，建立新变量（如相机矩阵、标定、标志位等），然后展开 <span class="appproperty">innerFunctionText</span>。展开后的文本可以使用此前所有变量以及这些新变量。展开完成后，<span class="appproperty">$ExportCameras</span> 会移到第二台相机重复同样操作，最后对第三台再做一次。若模板文本如下：
+             </p>
+            <pre data-id="pre_fun_deta" data-vn="1">
+  $ExportCameras(Camera $(index), image=”$(imageName).$(imageExt)\n”)
+            </pre>
+            <p data-id="p_fun_resa" data-vn="1">
+                那么结果会是：
+            </p>
+            <pre data-id="pre_fun_resa" data-vn="1">
+
+  Camera 1, image=”image1.jpg”
+  Camera 2, image=”image2.jpg”
+  Camera 3, image=”image3.jpg”
+            </pre>
+            <p data-id="p_fun_note" data-vn="2">请注意，你也可以使用其他函数，并且可以递归使用。更复杂的示例请查看 RealityScan 安装目录 Reports 子文件夹中提供的模板。</p>
+        </div>
+
+        <div data-id="div_sb_exfl" class="slideblock">
+            <h2 data-id="h2_exfl" data-vn="1">导出文件位置</h2>
+            <p data-id="p_h2_exfl" data-vn="1">系统识别两种导出位置：主文件位置——由用户在导出对话框中指定；以及附件文件夹——自动创建，用于存放生成的内容。除非另有说明，所有导出路径都自动相对于附件文件夹。例如：
+            </p>
+            <pre data-id="pre_exfl" data-vn="1">
+  $SaveOrtho( "$(orthoGuid)", "color", "image.jpg", 800, 800 )
+            </pre>
+            <p data-id="h_exfl_crea" data-vn="1">
+                会在附件文件夹下创建并保存“image.jpg”。若需要用绝对路径访问/保存文件，可以在路径前加前缀“global://”，例如“global://d:/exports/image.jpg”
+            </p>
+        </div>
+
+        <div data-id="div_adnt" class="slideblock">
+            <h2 data-id="h2_adnt" data-vn="1">添加新模板</h2>
+            <p data-id="p_h2_adnt" data-vn="2">
+                创建新模板需要一些编程或网页开发基础。不过即便不是专家，也能轻松修改已有模板。RealityScan 的默认模板位于应用安装目录的“Reports”文件夹下。
+            </p>
+            <h3 data-id="h3_rent" data-vn="1">注册模板</h3>
+            <p data-id="p_h3_rent" data-vn="1">
+                “导出报告”对话框显示的报告由报告定义文件“Report.xml”定义，该文件直接位于应用安装目录下。创建好自己的报告模板后（假设名为“myReport.html”），只需在“Report.xml”中已有的“&lt;Report&gt;”与 &lt;Report&gt; 标签之间加入以下几行：
+            </p>
+            <pre data-id="pre_rent" data-vn="2">
+  &lt;format id="{00000000-0000-0000-0000-000000000000}" 
+          mask="*.htm" 
+          desc="Your Custom Report Name" 
+          writer="RealityScan.Export.ReportWriter"&gt;
+      &lt;hint&gt;Describe what the report is intended for&lt;/hint&gt;
+      &lt;body&gt;$Include("Reports\myReport.html")&lt;/body&gt;
+  &lt;/format&gt;
+            </pre>
+            <p data-id="p_rent_iden" data-vn="1">其中 id="{00000000-0000-0000-0000-000000000000}" 应为你模板的唯一标识符。若只是自己用，把其中几个零改成数字就完全够用，例如 {00000000-0000-0000-0000-000000000001}。但若要分享模板，这个值应当唯一，建议使用在线 GUID 生成器。另请注意 body 字符串也会被替换，它只是包含你的模板文件；你还可以创建任意类型的文件，不限于 HTML。</p>
+        </div>
+
+        <div data-id="div_scid" class="slideblock">
+            <h2 data-id="h2_scid" data-vn="1">脚本与思路</h2>
+            <p data-id="p_scid_foll" data-vn="2">以下帮助页面介绍 RealityScan 导出的函数与变量，可用于构建你自己的模板。</p>
+            <p data-id="p_scid_howe" data-vn="2">
+            不过为了改进 RealityScan 应用与帮助体验，欢迎随时给我们反馈。我们很乐意协助你创建模板或扩展默认模板。
+            </p>
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>        
+
+        <div data-id="div_bc" class="blocksContainer">
+
+            <a href="reports_fav_sets.htm">
+                <div class="block TileColor6">
+                    <h2 data-id="h2_bc_sets" data-vn="1">函数集</h2>
+                    <p data-id="p_h2_bc_sets" data-vn="1">函数集及其函数、表达式与变量</p>
+                </div>
+            </a>
+            
+            <a href="reports_fav_basic.htm">
+                <div class="block TileColor6">
+                    <h2 data-id="h2_bc_basic" data-vn="1">基础函数</h2>
+                    <p data-id="p_h2_bc_basic" data-vn="1">项目信息、导出器作用域与基础函数集</p>
+                </div>
+            </a>
+
+            <a href="reports_fav_images.htm">
+                <div class="block TileColor6">
+                    <h2 data-id="h2_bc_images" data-vn="1">图像作用域</h2>
+                    <p data-id="p_h2_bc_images" data-vn="1">了解如何导出项目图像的信息</p>
+                </div>
+            </a>
+
+            <a href="reports_fav_components.htm">
+                <div class="block TileColor6">
+                    <h2 data-id="h2_bc_comp" data-vn="1">组件作用域</h2>
+                    <p data-id="p_h2_bc_comp" data-vn="1">组件导出的函数与变量</p>
+                </div>
+            </a>
+
+            <a href="reports_fav_cameras.htm">
+                <div class="block TileColor6">
+                    <h2 data-id="h2_bc_camera" data-vn="1">相机作用域</h2>
+                    <p data-id="p_h2_bc_camera" data-vn="1">了解如何获取相机信息</p>
+                </div>
+            </a>
+
+            <a href="reports_fav_points.htm">
+                <div class="block TileColor6">
+                    <h2 data-id="h2_bc_scene" data-vn="1">场景结构作用域</h2>
+                    <p data-id="p_h2_bc_scene" data-vn="1">了解如何向报告添加自定义点统计</p>
+                </div>
+            </a>
+
+            <a href="reports_fav_controlPoints.htm">
+                <div class="block TileColor6">
+                    <h2 data-id="h2_bc_cp" data-vn="1">控制点与约束作用域</h2>
+                    <p data-id="p_h2_bc_cp" data-vn="1">查看控制点与约束功能的清单</p>
+                </div>
+            </a>
+
+            <a href="reports_fav_models.htm">
+                <div class="block TileColor6">
+                    <h2 data-id="h2_bc_models" data-vn="1">模型作用域</h2>
+                    <p data-id="p_h2_bc_models" data-vn="1">了解如何生成模型报告</p>
+                </div>
+            </a>
+
+            <a href="reports_fav_ortho.htm">
+                <div class="block TileColor6">
+                    <h2 data-id="h2_bc_ortho" data-vn="1">正射投影作用域</h2>
+                    <p data-id="p_h2_bc_ortho" data-vn="1">查看正射投影导出函数的清单</p>
+                </div>
+            </a>
+            
+            <a href="reports_fav_map.htm">
+                <div class="block TileColor6">
+                    <h2 data-id="h2_bc_map" data-vn="1">地图作用域</h2>
+                    <p data-id="p_h2_bc_map" data-vn="1">查看地图导出函数的清单</p>
+                </div>
+            </a>
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+    
+    <script type="text/javascript">
+        InitializeTutorialMode();
+    </script>
+
+</body>
+</html>
+<!-- signature:3BoXThEoDW6BK/69YChYMVMA96TH8JT49frAn+UOyFrK2uFVf5819YQd9Tuaj2e1YW8Hu2lpbsZxm452PeDJJEMqJmflmmoDTQBViP0Y82zyp3ncjWwHi1DUIFiDybWHX2uc9pdNlCDcg+wVyZ92oaD2m/7s2hl396eRhxpznbM= -->

@@ -1,0 +1,297 @@
+﻿<html>
+    <head>
+        <title>RealityScan 帮助</title>
+        <meta charset="UTF-8"/>
+        <meta name="author" content="Epic Games Slovakia s.r.o."/>
+        <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/style.css"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/colors.css"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css"/>
+        <script src="../scripts/textVars.js" type="text/javascript"></script>
+        <script src="../../scripts/localization.js" type="text/javascript"></script>
+        <script src="../../scripts/main.js" type="text/javascript"></script>
+    </head>
+<body ondragstart="return false;">
+
+    <div data-id="div_cs" class="content_slide">
+
+        <!-- content slide -->
+
+        <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head" class="head">
+            <h1 data-id="h1" data-vn="1">组件（报告中可用的函数与变量）</h1>
+        </div>
+
+        <div data-id="div_sb_comp" class="slideblock">
+            <h2 data-id="h2_comp" data-vn="1">组件</h2>
+
+            <p data-id="p_comp_iter" data-vn="1"><span class="appproperty">IterateComponents</span> —— 该函数用于输出所有组件的基本信息。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_comp_iter_syn" data-vn="1"><b>语法：</b></p>
+                <p><pre data-id="pre_comp_iter_syn" data-vn="1">
+  $IterateComponents( noParametersJustAnyText )</pre></p>
+                <p data-id="p_comp_iter_avars" data-vn="1"><b>可用变量：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_comp_iter_guid" data-vn="1"><span class="appproperty">componentGUID</span> —— 组件的 GUID</p>
+                    <p data-id="p_comp_iter_name" data-vn="1"><span class="appproperty">componentName</span> —— 组件名称</p>
+                    <p data-id="p_comp_iter_cocc" data-vn="1"><span class="appproperty">componentCamerasCount</span> —— 组件中已配准的相机数量</p>
+                </div>
+                <p data-id="p_comp_iter_ex" data-vn="1"><b>示例：</b></p>
+                <pre data-id="pre_comp_iter_ex" data-vn="1">
+  $IterateComponents(
+    Component GUID: $(componentGUID)
+    Component name: $(componentName)
+    Cameras count: $(componentCamerasCount)
+  )
+                </pre>
+            </div>
+
+            <p data-id="p_comp_info" data-vn="1"><span class="appproperty">ComponentInfo</span> —— 该函数用于输出某个组件的基本信息。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_comp_info_syn" data-vn="1"><b>语法：</b></p>
+                <p><pre data-id="pre_comp_info_syn" data-vn="1">
+  $ComponentInfo( componentGUID, anyText )</pre></p>
+                <p data-id="p_comp_info_par" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_comp_info_guid" data-vn="1"><span class="appproperty">componentGUID</span> —— 组件的 GUID：可用 IterateComponents 函数获取所有组件的 GUID</p>
+                </div>
+                <p data-id="p_comp_info_avfun" data-vn="1"><b>可用函数：</b></p>
+                    <div style="padding-left: 20px">
+                        <p data-id="p_comp_info_gimgc" data-vn="1"><span class="appproperty">GetImageCamera</span> —— 直接输出局部相机索引。</p>
+                        <p data-id="p_comp_gimgc_syn" data-vn="1"><b>语法：</b></p>
+                        <pre data-id="pre_omp_gimgc_syn" data-vn="1">  $GetImageCamera( sfmIndex )
+                        </pre>
+                    </div>
+        
+                <p data-id="p_comp_info_avexpr" data-vn="1"><b>可用的表达式函数：</b></p>
+                    <div style="padding-left: 20px">
+                        <p data-id="p_comp_info_getimc" data-vn="1"><span class="appproperty">GetImageCamera</span> —— 结果为局部相机索引。</p>
+                        <p data-id="p_comp_getimc_syn" data-vn="1"><b>语法：</b></p>
+                        <pre data-id="pre_omp_getimc_syn" data-vn="1">  GetImageCamera( sfmIndex )
+                        </pre>
+                    </div>
+        
+        
+                <p data-id="p_comp_info_avars" data-vn="1"><b>可用变量：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_comp_info_name" data-vn="1"><span class="appproperty">componentName</span> —— 组件名称</p>
+                    <p data-id="p_comp_info_cgui" data-vn="1"><span class="appproperty">componentId</span> —— 组件的 GUID</p>
+                    <p data-id="p_comp_info_rgui" data-vn="1"><span class="appproperty">componentReconstructionId</span> —— 重建运行的 GUID</p>
+                    <p data-id="p_comp_info_cocc" data-vn="1"><span class="appproperty">componentCameraCount</span> —— 已配准的相机数量</p>
+                    <p data-id="p_comp_info_copc" data-vn="1"><span class="appproperty">componentPointCount</span> —— 已配准的点数量</p>
+                    <p data-id="p_comp_info_nucp" data-vn="1"><span class="appproperty">componentControlPointCountUsed</span> —— 已使用的控制点数量</p>
+                    <p data-id="p_comp_info_nudc" data-vn="1"><span class="appproperty">componentConstraintCountUsed</span> —— 已使用的距离约束数量</p>
+                </div>
+                <p data-id="p_comp_info_ex" data-vn="1"><b>示例：</b></p>
+                <pre data-id="pre_comp_info_ex" data-vn="1">
+  $IterateComponents(
+    $ComponentInfo( "$(componentGUID)",
+      Component name: $(componentName)
+      Component GUID: $(componentId)
+      Reconstruction-run GUID: $(componentReconstructionId)
+      Cameras' count: $(componentCamerasCount)
+      Points' count: $(componentPointsCount)
+      Control points' count used: $(componentControlPointsCountUsed)
+      Constraints' count used: $(componentConstraintsCountUsed)
+    )
+  )
+                </pre>
+            </div>
+
+            <p data-id="p_comp_stat" data-vn="1"><span class="appproperty">ComponentStats</span> —— 该函数用于输出某个组件的对齐精度信息与统计结果。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_comp_stat_syn" data-vn="1"><b>语法：</b></p>
+                <p><pre data-id="pre_comp_stat_syn" data-vn="1">
+  $ComponentStats( componentGUID, anyText )</pre></p>
+                <p data-id="p_comp_stat_par" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_comp_stat_cgui" data-vn="1"><span class="appproperty">componentGUID</span> —— 组件的 GUID：可用 IterateComponents 函数获取所有组件的 GUID</p>
+                </div>  
+                <p data-id="p_comp_stat_avars" data-vn="1"><b>可用变量：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_comp_stat_totp" data-vn="1"><span class="appproperty">componentTotalProjection</span> —— 图像投影的总数</p>
+                    <p data-id="p_comp_stat_avt" data-vn="1"><span class="appproperty">componentAverageTrackLength</span> —— 每个被观测三维点平均出现在多少张图像中</p>
+                    <p data-id="p_comp_stat_maxe" data-vn="1"><span class="appproperty">componentMaximalError</span> —— 以像素计的最大重投影误差</p>
+                    <p data-id="p_comp_stat_mede" data-vn="1"><span class="appproperty">componentMedianError</span> —— 以像素计的重投影误差中位数</p>
+                    <p data-id="p_comp_stat_meae" data-vn="1"><span class="appproperty">componentMeanError</span> —— 以像素计的平均重投影误差</p>
+                    <p data-id="p_comp_stat_isgr" data-vn="1"><span class="appproperty">componentIsGeoreferenced</span> —— 组件是否已做地理配准</p>
+                    <p data-id="p_comp_stat_metr" data-vn="1"><span class="appproperty">componentMetric</span> —— 组件是否已缩放到真实尺寸</p>
+                    <p data-id="p_comp_stat_alit" data-vn="1"><span class="appproperty">componentAlignmentTime</span> —— 单次运行中所有组件的总对齐耗时</p>
+                </div>
+                <p data-id="p_comp_stat_ex" data-vn="1"><b>示例：</b></p>
+                <pre data-id="pre_comp_stat_ex" data-vn="1">
+  $IterateComponents(
+    $ComponentStats( "$(componentGUID)",
+      Total projections: $(componentTotalProjection)
+      Average track length: $(componentAverageTrackLength)
+      Maximal reprojection error [pixels]: $(componentMaximalError)
+      Median reprojection error [pixels]: $(componentMedianError)
+      Mean reprojection error [pixels]: $(componentMeanError)
+      Geo-referenced: $(componentIsGeoreferenced)
+      Metric: $(componentMetric)
+      Alignment time: $(componentAlignmentTime)
+    )
+  )
+                </pre>
+            </div>
+
+            <p data-id="p_comp_sett" data-vn="1"><span class="appproperty">ComponentSettings</span> —— 该函数用于输出对齐设置信息。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_comp_sett_syn" data-vn="1"><b>语法：</b></p>
+                <p><pre data-id="pre_comp_sett_syn" data-vn="1">
+  $ComponentSettings( componentGUID, anyText )</pre></p>
+                <p data-id="p_comp_sett_par" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_comp_sett_guid" data-vn="1"><span class="appproperty">componentGUID</span> —— 组件的 GUID：可用 IterateComponents 函数获取所有组件的 GUID</p>
+                </div>  
+                <p data-id="p_comp_sett_avars" data-vn="1"><b>可用变量：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_comp_sett_alie" data-vn="1"><span class="appproperty">componentAlignmentEngine</span> —— 对齐引擎</p>
+                    <p data-id="p_comp_sett_alim" data-vn="1"><span class="appproperty">componentAlignmentMode</span> —— 对齐模式</p>
+                    <p data-id="p_comp_sett_mfpm" data-vn="1"><span class="appproperty">componentMaxFeaturesPerMpx</span> —— 每百万像素的最大特征数</p>
+                    <p data-id="p_comp_sett_mfpi" data-vn="1"><span class="appproperty">componentMaxFeaturesPerImage</span> —— 每张图像的最大特征数</p>
+                    <p data-id="p_comp_sett_dese" data-vn="1"><span class="appproperty">componentDetectorSensitivity</span> —— 检测器灵敏度</p>
+                    <p data-id="p_comp_sett_pref" data-vn="1"><span class="appproperty">componentPreselectorFeatures</span> —— 预筛选器特征数</p>
+                    <p data-id="p_comp_sett_imdf" data-vn="1"><span class="appproperty">componentImageDownscaleFactor</span> —— 图像降采样系数</p>
+                    <p data-id="p_comp_sett_mfre" data-vn="1"><span class="appproperty">componentMaxFeatureReprojectionError</span> —— 以像素计的最大特征重投影误差</p>
+                    <p data-id="p_comp_sett_camp" data-vn="1"><span class="appproperty">componentUseCameraPositions</span> —— 是否使用了相机中心的 GPS 位置</p>
+                    <p data-id="p_comp_sett_ledm" data-vn="1"><span class="appproperty">componentLensDistortionModel</span> —— 镜头畸变模型</p>
+                    <p data-id="p_comp_sett_fiop" data-vn="1"><span class="appproperty">componentFinalOptimization</span> —— 是否使用了最终优化</p>
+                </div>
+                <p data-id="p_comp_sett_ex" data-vn="1"><b>示例：</b></p>
+                <pre data-id="pre_comp_sett_ex" data-vn="1">
+  $IterateComponents(
+    $ComponentSettings( "$(componentGUID)",
+      Alignment engine: $(componentAlignmentEngine)
+      Alignment mode: $(componentAlignmentMode)
+      Max features per Mpx: $(componentMaxFeaturesPerMpx)
+      Max features per image: $(componentMaxFeaturesPerImage)
+      Detector sensitivity: $(componentDetectorSensitivity)
+      Preselector features: $(componentPreselectorFeatures)
+      Image downscale factor: $(componentImageDownscaleFactor)
+      Maximal feature reprojection error [pixels]: $(componentMaxFeatureReprojectionError)
+      Use camera positions: $(componentUseCameraPositions)
+      Lens distortion model: $(componentLensDistortionModel)
+      Final optimization: $(componentFinalOptimization)
+    )
+)
+                </pre>
+            </div>
+            
+            <p data-id="p_comp_selc" data-vn="1"><span class="appproperty">SelectComponent</span> —— 为 <span class="appproperty">IteratorsFunctionSet</span> 函数集的内部使用选中一个组件。它只影响 <span class="appproperty">IterateImages</span> 与 <span class="appproperty">IterateCameras</span> 两个函数，可在这两个函数之前或内部调用。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_comp_selc_syn" data-vn="1"><b>语法：</b></p>
+                <p><pre data-id="pre_comp_selc_syn" data-vn="1">
+  $SelectComponent( componentGUID )</pre></p>
+                <p data-id="p_comp_selc_par" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_comp_selc_guid" data-vn="1"><span class="appproperty">componentGUID</span> —— 组件的 GUID</p>
+                </div>
+                <p data-id="p_comp_selc_ex" data-vn="1"><b>示例：</b></p>
+                <pre data-id="pre_comp_selc_ex" data-vn="1">
+  $IterateComponents(
+    $SelectComponent ( "$(componentGUID)"
+    )
+  )
+                </pre>
+            </div>
+            
+            
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_bc" class="blocksContainer">
+
+            
+            <a href="reports_functions_and_variables.htm">
+                <div class="block TileColor3">
+                    <h2 data-id="h2_bc_script" data-vn="1">报告脚本基础</h2>
+                    <p data-id="p_h2_bc_script" data-vn="1">了解如何创建自定义报告模板</p>
+                </div>
+            </a>
+            
+            <a href="reports_fav_sets.htm">
+                <div class="block TileColor6">
+                    <h2 data-id="h2_bc_sets" data-vn="1">函数集</h2>
+                    <p data-id="p_h2_bc_sets" data-vn="1">函数集及其函数、表达式与变量</p>
+                </div>
+            </a>
+
+            <a href="reports_fav_basic.htm">
+                <div class="block TileColor3">
+                    <h2 data-id="h2_bc_basic" data-vn="1">基础函数</h2>
+                    <p data-id="p_h2_bc_basic" data-vn="1">项目信息、导出器作用域与基础函数集</p>
+                </div>
+            </a>
+
+            <a href="reports_fav_images.htm">
+                <div class="block TileColor3">
+                    <h2 data-id="h2_bc_images" data-vn="1">图像作用域</h2>
+                    <p data-id="p_h2_bc_images" data-vn="1">了解如何导出项目图像的信息</p>
+                </div>
+            </a>
+
+            <a href="reports_fav_cameras.htm">
+                <div class="block TileColor6">
+                    <h2 data-id="h2_bc_camera" data-vn="1">相机作用域</h2>
+                    <p data-id="p_h2_bc_camera" data-vn="1">了解如何获取相机信息</p>
+                </div>
+            </a>
+
+            <a href="reports_fav_points.htm">
+                <div class="block TileColor6">
+                    <h2 data-id="h2_bc_scene" data-vn="1">场景结构作用域</h2>
+                    <p data-id="p_h2_bc_scene" data-vn="1">了解如何向报告添加自定义点统计</p>
+                </div>
+            </a>
+
+            <a href="reports_fav_controlPoints.htm">
+                <div class="block TileColor6">
+                    <h2 data-id="h2_bc_cp" data-vn="1">控制点与约束作用域</h2>
+                    <p data-id="p_h2_bc_cp" data-vn="1">查看控制点与约束功能的清单</p>
+                </div>
+            </a>
+
+            <a href="reports_fav_models.htm">
+                <div class="block TileColor6">
+                    <h2 data-id="h2_bc_models" data-vn="1">模型作用域</h2>
+                    <p data-id="p_h2_bc_models" data-vn="1">了解如何生成模型报告</p>
+                </div>
+            </a>
+
+            <a href="reports_fav_ortho.htm">
+                <div class="block TileColor6">
+                    <h2 data-id="h2_bc_ortho" data-vn="1">正射投影作用域</h2>
+                    <p data-id="p_h2_bc_ortho" data-vn="1">查看正射投影导出函数的清单</p>
+                </div>
+            </a>
+            
+            <a href="reports_fav_map.htm">
+                <div class="block TileColor6">
+                    <h2 data-id="h2_bc_map" data-vn="1">地图作用域</h2>
+                    <p data-id="p_h2_bc_map" data-vn="1">查看地图导出函数的清单</p>
+                </div>
+            </a>
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+    
+    <script type="text/javascript">
+        InitializeTutorialMode();
+    </script>    
+
+</body>
+</html>
+<!-- signature:1l88xOp8UI1x7jQAfkFbaQYdOFWLdNeeiwqK/VF+6wADdKzqfn7mhz+tlA0lRwtCryCwa5MRe/NfqdSMXXssKgc9Sp3E4BtRXxnbEKNz60GEgqpFSE7FeWxaGybCIU97eMaMBYka1h1ooBKFDqqKLXinl7jgxLwJ5wA4+ZfglwU= -->

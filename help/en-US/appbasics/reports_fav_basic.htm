@@ -1,0 +1,1291 @@
+<html>
+    <head>
+        <title>RealityScan 帮助</title>
+        <meta charset="UTF-8"/>
+        <meta name="author" content="Epic Games Slovakia s.r.o."/>
+        <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/style.css"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/colors.css"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css"/>
+        <script src="../scripts/textVars.js" type="text/javascript"></script>
+        <script src="../../scripts/localization.js" type="text/javascript"></script>
+        <script src="../../scripts/main.js" type="text/javascript"></script>
+    </head>
+<body ondragstart="return false;">
+
+    <div data-id="div_cs" class="content_slide">
+
+        <!-- content slide -->
+
+        <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head" class="head">
+            <h1 data-id="h1" data-vn="1">全局变量与项目信息（报告中可用的函数与变量）</h1>
+        </div>
+
+        <p data-id="p_h1" data-vn="1">
+            正如本教程上一部分所述，有些变量和函数会被替换。下面列出全局变量与函数，后续部分还会列出针对点、坐标、颜色、数值、组件等信息的专用变量与函数。
+        </p>
+
+        <div data-id="div_sb_glob" class="slideblock">
+            <h2 data-id="h2_glob" data-vn="1">全局变量</h2>
+                <p data-id="p_glob_time" data-vn="1"><span class="appproperty">dateTime</span> - 输出当前的日期和时间</p>
+                <p data-id="p_glob_name" data-vn="1"><span class="appproperty">fileName</span> - 报告文件的名称</p>
+                <p data-id="p_glob_ver" data-vn="2"><span class="appproperty">appVersion</span> - RealityScan 的版本号</p>
+                <p data-id="p_glob_lang" data-vn="2"><span class="appproperty">appLanguage</span> - RealityScan 当前所选界面语言的语言标记（代码）</p>
+                <p data-id="p_glob_lanp" data-vn="1"><span class="appproperty">programDataLangPackFolder </span> - 语言包所在文件夹的路径</p>
+                <p data-id="p_glob_att" data-vn="1"><span class="appproperty">attachmentPath</span> - fileName 与报告附件文件夹之间的相对路径。除主文件外，所有文件都会自动保存到附件文件夹中。在主文件中可用 attachmentPath 引用附件。</p>
+                <p data-id="p_glob_camc" data-vn="1"><span class="appproperty">cameraCount</span> - 所选组件中已注册的全部 / 已选相机数量</p>
+                <p data-id="p_glob_poic" data-vn="1"><span class="appproperty">pointCount</span> - 所选组件中已注册点的数量</p>
+                <p data-id="p_glob_measc" data-vn="1"><span class="appproperty">measurementCount</span> - 所选组件中测量值的数量</p>
+                <p data-id="p_glob_comw" data-vn="1"><span class="appproperty">commonWidth</span> - 未畸变图像的宽度</p>
+                <p data-id="p_glob_comh" data-vn="1"><span class="appproperty">commonHeight</span> - 未畸变图像的高度</p>
+                <p data-id="p_glob_isg" data-vn="1"><span class="appproperty">isGeoreferenced</span> - 所选组件已地理配准时输出 1，否则输出 0</p>
+                <p data-id="p_glob_units" data-vn="1"><span class="appproperty">units</span> - 输出所选组件的测量单位，例如米（meter）</p>
+                <p data-id="p_glob_short" data-vn="1"><span class="appproperty">unitsShort</span> - 输出测量单位的简称，例如 m</p>
+                <p data-id="p_glob_cs" data-vn="1"><span class="appproperty">coordSystemName</span> - 若所选组件已地理配准（isGeoreferenced 的值为 1），则输出坐标系的名称，否则输出 "Grid Plane"</p>
+                <p data-id="p_glob_isll" data-vn="1"><span class="appproperty">isCoordSystemLatLon</span> - 输出坐标系为地理坐标系时为 true，为笛卡尔坐标系时为 false</p>
+                <p data-id="p_glob_cstm" data-vn="1"><span class="appproperty">coordSystemUnit2Meter</span> - 把坐标系单位换算为米所需的系数</p>
+                <p data-id="p_glob_disc" data-vn="1"><span class="appproperty">displayScale</span> - 渲染时推荐的一个单位尺寸</p>
+                <p data-id="p_glob_true" data-vn="1"><span class="appproperty">true</span> - BOOL 值 "true"</p>
+                <p data-id="p_glob_flse" data-vn="1"><span class="appproperty">false</span> - BOOL 值 "false"</p>
+            
+            <br/>
+            <h3 data-id="h3_glob_anch" data-vn="1">组件锚点变量</h3>
+            <p data-id="p_glob_anch" data-vn="1">为尽可能提高计算精度，组件在接近零的坐标系中进行计算。锚点（旋转 + 平移）把这样的局部场景变换到全局欧几里得空间。</p>
+            <pre data-id="pre_proj_syn" data-vn="1">
+  EuclideanX = anchor.Rotation * X + anchor
+  EuclideanY = anchor.Rotation * Y + anchor
+  EuclideanZ = anchor.Rotation * Z + anchor</pre>
+            
+            <br/>
+                <p data-id="p_glob_anch_aX" data-vn="1"><span class="appproperty">anchorX</span> - 锚点的 X 坐标</p>
+                <p data-id="p_glob_anch_aY" data-vn="1"><span class="appproperty">anchorY</span> - 锚点的 Y 坐标</p>
+                <p data-id="p_glob_anch_aZ" data-vn="1"><span class="appproperty">anchorZ</span> - 锚点的 Z 坐标</p>
+                <p data-id="p_glob_anch_ar00" data-vn="2"><span class="appproperty">anchorR00</span> - 锚点旋转矩阵相对于锚点坐标系的一个元素</p>
+                <p data-id="p_glob_anch_ar01" data-vn="2"><span class="appproperty">anchorR01</span> - 锚点旋转矩阵相对于锚点坐标系的一个元素</p>
+                <p data-id="p_glob_anch_ar02" data-vn="2"><span class="appproperty">anchorR02</span> - 锚点旋转矩阵相对于锚点坐标系的一个元素</p>
+                <p data-id="p_glob_anch_ar10" data-vn="2"><span class="appproperty">anchorR10</span> - 锚点旋转矩阵相对于锚点坐标系的一个元素</p>
+                <p data-id="p_glob_anch_ar11" data-vn="2"><span class="appproperty">anchorR11</span> - 锚点旋转矩阵相对于锚点坐标系的一个元素</p>
+                <p data-id="p_glob_anch_ar12" data-vn="2"><span class="appproperty">anchorR12</span> - 锚点旋转矩阵相对于锚点坐标系的一个元素</p>
+                <p data-id="p_glob_anch_ar20" data-vn="2"><span class="appproperty">anchorR20</span> - 锚点旋转矩阵相对于锚点坐标系的一个元素</p>
+                <p data-id="p_glob_anch_ar21" data-vn="2"><span class="appproperty">anchorR21</span> - 锚点旋转矩阵相对于锚点坐标系的一个元素</p>
+                <p data-id="p_glob_anch_ar22" data-vn="2"><span class="appproperty">anchorR22</span> - 锚点旋转矩阵相对于锚点坐标系的一个元素</p>
+                <p data-id="p_glob_anch_ayaw" data-vn="1"><span class="appproperty">anchorYaw</span> - 锚点的偏航角（Yaw）值</p>
+                <p data-id="p_glob_anch_apitch" data-vn="1"><span class="appproperty">anchorPitch</span> - 锚点的俯仰角（Pitch）值</p>
+                <p data-id="p_glob_anch_aroll" data-vn="1"><span class="appproperty">anchorRoll</span> - 锚点的翻滚角（Roll）值</p>
+        
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>        
+
+        <div data-id="div_sb_proj" class="slideblock">
+            <h2 data-id="h2_proj" data-vn="1">项目信息</h2>
+            <p data-id="p_proj_epi" data-vn="1"><span class="appproperty">ExportProjectInfo</span> - 该函数提供多个变量，可用于输出项目的基本信息。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_proj_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_proj_syn_expro" data-vn="1">
+  $ExportProjectInfo( noParametersJustAnyText )</pre>
+                <p data-id="p_proj_var" data-vn="1"><b>可用变量：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_proj_var_name" data-vn="1"><span class="appproperty">projectName</span> - 项目名称</p>
+                    <p data-id="p_proj_var_path" data-vn="1"><span class="appproperty">projectPath</span> - 项目所在位置</p>
+                    <p data-id="p_proj_var_chco" data-vn="1"><span class="appproperty">changeCount</span> - 项目中所有更改（操作）的次数</p>
+                    <p data-id="p_proj_var_icount" data-vn="1"><span class="appproperty">imageCount</span> - 输入影像的数量</p>
+                    <p data-id="p_proj_var_ccount" data-vn="1"><span class="appproperty">componentCount</span> - 组件数量</p>
+                    <p data-id="p_proj_var_guid" data-vn="1"><span class="appproperty">actualComponentGUID</span> - 所选组件的 GUID</p>
+                    <p data-id="p_proj_var_sguid" data-vn="1"><span class="appproperty">actualModelGUID</span> - 所选模型的 GUID</p>
+                    <p data-id="p_proj_var_pguid" data-vn="1"><span class="appproperty">projectGUID </span> - 项目的 GUID</p>
+                    <p data-id="p_proj_var_imgps" data-vn="1"><span class="appproperty">imagesWithGps  </span> - 含 GPS 信息的影像数量</p>
+                </div>
+                <p data-id="p_proj_ex" data-vn="1"><b>示例：</b></p>
+                <pre data-id="pre_proj_ex" data-vn="1">
+  $ExportProjectInfo(
+    Project name: $(projectName)
+    Project location: $(projectPath)
+    Number of inputs: $(imageCount)
+    Number of components: $(componentCount)
+    GUID of the selected component: $(actualComponentGUID)
+    GUID of the selected model: $(actualModelGUID)
+  )
+                </pre>
+            </div>
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>      
+
+        <div data-id="div_sb_arfu" class="slideblock">
+            <h2 data-id="h2_arfu" data-vn="1">算术函数</h2>
+            <p data-id="p_arfu" data-vn="1">表达式中可以使用算术函数。可用的算术函数如下：</p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_arfu_sqrt" data-vn="1"><span class="appproperty">Sqrt(x)</span> - 返回括号内数值的平方根</p>
+                    <p data-id="p_arfu_abs" data-vn="1"><span class="appproperty">Abs(x)</span> - 返回括号内数值的绝对值</p>
+                    <p data-id="p_arfu_floo" data-vn="1"><span class="appproperty">Floor(x)</span> - 返回小于或等于括号内数值的整数</p>
+                    <p data-id="p_arfu_ceil" data-vn="1"><span class="appproperty">Ceil(x)</span> - 返回大于或等于括号内数值的整数</p>
+                    <p data-id="p_arfu_ln" data-vn="1"><span class="appproperty">Log(x)</span> - 返回括号内数值的自然对数。</p>
+                    <p data-id="p_arfu_log" data-vn="1"><span class="appproperty">Log10(x)</span> - 返回括号内数值以 10 为底的对数。</p>
+                    <p data-id="p_arfu_pow" data-vn="1"><span class="appproperty">Pow(base, exponent)</span> - 返回底数的指数次幂。
+                    </p>
+                    <p data-id="p_arfu_min" data-vn="1"><span class="appproperty">Min(a,b,c,d…)</span> - 从括号内的各数值中选出最小值</p>
+                    <p data-id="p_arfu_max" data-vn="1"><span class="appproperty">Max(a,b,c,d…)</span> - 从括号内的各数值中选出最大值</p>          
+                    <p data-id="p_arfu_sum" data-vn="1"><span class="appproperty">Sum(a,b,c,d…)</span> - 返回括号内所有数值之和</p>
+                    <p data-id="p_arfu_prod" data-vn="1"><span class="appproperty">Prod(a,b,c,d…)</span> - 返回括号内所有数值之积</p>
+                    <p data-id="p_arfu_mean" data-vn="1"><span class="appproperty">Mean(a,b,c,d…)</span> - 计算括号内所有数值之和并返回平均值</p>
+                    <p data-id="p_arfu_stds" data-vn="1"><span class="appproperty">StdDevS(a,b,c,d…)</span> - 基于括号内数值返回样本标准偏差</p>
+                    <p data-id="p_arfu_stdp" data-vn="1"><span class="appproperty">StdDevP(a,b,c,d…)</span> - 基于括号内数值返回总体标准偏差</p>
+                </div>
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div> 
+      
+
+        <div data-id="div_sb_bf" class="slideblock">
+            <h2 data-id="h2_bf" data-vn="1">基础函数</h2>
+
+            <p data-id="p_h2_bf" data-vn="1"><span class="appproperty">If</span> - 仅当条件成立时，该函数才输出指定文本。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_bf_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_bf_syn" data-vn="1">
+  $If( expression operator expression, anyText )</pre>
+                <p data-id="p_bf_par" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_syntax" data-vn="2"><span class="appproperty">expression operator expression</span> - 条件；可用的运算符为：&#8804; &lt; &#8805; &gt; == !=</p>
+                </div>
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_logop" data-vn="1">可以使用逻辑运算符构造更复杂的表达式：</p>
+                </div>   
+
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_negop" data-vn="1"><span class="appproperty">!</span> - 逻辑非运算符</p>
+
+                    <div style="padding-left: 25px">
+                        <p>!true == false</p>
+                        <p>!false == true</p>
+                    </div>
+                </div>
+
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_logdis" data-vn="1"><span class="appproperty">| |</span> - 逻辑或</p>
+
+                    <div style="padding-left: 25px">
+                        <p>true || true == true</p>
+                        <p>false || true == true</p>
+                        <p>true || false == true</p>
+                        <p>false || false == false</p>
+                    </div>   
+                </div>
+
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_logcon" data-vn="1"><span class="appproperty">&amp;&amp;</span> - 逻辑与</p>
+
+                    <div style="padding-left: 25px">
+                        <p>true &amp;&amp; true == true</p>
+                        <p>false &amp;&amp; true == false</p>
+                        <p>true &amp;&amp; false == false</p>
+                        <p>false &amp;&amp; false == false</p>
+                    </div>   
+                </div>
+
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_logord" data-vn="1">使用逻辑运算符时需注意它们的优先级不同：逻辑与 > 逻辑或 > 相等判断。 </p>
+                </div> 
+
+                <p data-id="p_bf_ex" data-vn="1"><b>示例</b>（注意 isGeoreferenced 和 units 是全局变量）<b>：</b></p>
+                <pre data-id="pre_bf_ex" data-vn="2">
+  $If( 1 > 0, One is more than zero. )
+  $If( 1, One is more than zero. )
+  $If( isGeoreferenced == 1, The selected component is geo-referenced. )
+  $If( "$(units)" == "meter", The measurement unit of the selected component is meter. )
+                </pre>
+            </div>
+
+            <p data-id="p_bf_dec" data-vn="1"><span class="appproperty">Declare</span> - 该函数用于声明一个新变量。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_bf_dec_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_bf_dec_syn">
+  $Declare( "variable", value )</pre>
+                <p data-id="p_bf_dec_par" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_dec_var" data-vn="1"><span class="appproperty">variable</span> - 新变量的名称</p>
+                    <p data-id="p_bf_dec_val" data-vn="1"><span class="appproperty">value</span> - 新变量的值</p>
+                </div>
+                <p data-id="p_bf_dec_ex" data-vn="1"><b>示例：</b></p>
+                <pre data-id="pre_bf_dec_ex" data-vn="1">
+  $Declare( "myVariable1", 0 )
+  $Declare( "myVariable2", "test" )
+                </pre>
+            </div>
+
+            <p data-id="p_bf_ifd" data-vn="1"><span class="appproperty">Ifdef</span> - 仅当输入变量已定义时，该函数才输出指定文本。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_bf_ifd_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_bf_ifd_syn" data-vn="1">
+  $Ifdef( variable, anyText )</pre>
+                <p data-id="p_bf_ifd_par" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_var" data-vn="1"><span class="appproperty">variable</span></p>
+                </div>
+                <p data-id="p_bf_ifd_ex" data-vn="1"><b>示例：</b></p>
+                <pre>
+  $Ifdef( dateTime, $(dateTime) )
+                </pre>
+            </div>
+
+            <p data-id="p_bf_ifnd" data-vn="1"><span class="appproperty">Ifndef</span> - 仅当输入变量未定义时，该函数才输出指定文本。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_bf_ifnd_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_bf_ifnd_syn" data-vn="1">
+  $Ifndef( variable, anyText )</pre>
+                <p data-id="p_bf_ifnd_par" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_ifnd_var" data-vn="1"><span class="appproperty">variable</span></p>
+                </div>
+                <p data-id="p_bf_ifnd_ex" data-vn="1"><b>示例：</b></p>
+                <pre data-id="pre_bf_ifnd_ex" data-vn="1">
+  $Ifndef( dateTime, dateTime variable is not defined )
+                </pre>
+            </div>
+
+            <p data-id="p_bf_set" data-vn="1"><span class="appproperty">Set</span> - 该函数用于为变量设置一个新值。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_bf_set_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_bf_set_syn" data-vn="1">
+  $Set( "variable", value )</pre>
+                <p data-id="p_bf_set_par" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_set_var" data-vn="1"><span class="appproperty">variable</span> - 变量名称</p>
+                    <p data-id="p_bf_val" data-vn="1"><span class="appproperty">value</span> - 变量的新值</p>
+                </div>
+                <p data-id="p_bf_set_ex" data-vn="1"><b>示例</b>（<span class="appproperty">Set</span> 函数会把值 2 存入 myVariable）<b>：</b></p>
+                <pre data-id="pre_bf_set_ex" data-vn="1">
+  $Declare( "myVariable", 1 )
+  $Set( "myVariable", myVariable + 1 )
+                </pre>
+            </div>
+
+            <p data-id="p_bf_sum" data-vn="1"><span class="appproperty">Sum</span> - 该函数对给定数值求和。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_bf_sum_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_bf_sum_syn" data-vn="1">
+  $Sum( "outputVar", var1, var2, ..., varN )</pre>
+                <p data-id="p_bf_sum_par" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_sum_ovar" data-vn="1"><span class="appproperty">outputVar</span> - 用于保存结果的变量名称</p>
+                    <p data-id="p_bf_sum_vars" data-vn="1"><span class="appproperty">var1, ..., varN</span> - 任意数量的变量或数值，以逗号分隔，用于求和</p>
+                </div>  
+                <p data-id="p_bf_sum_ex" data-vn="1"><b>示例</b>（<span class="appproperty">Sum</span> 函数会把值 3 存入变量 sum）<b>：</b></p>
+                <pre data-id="pre_bf_sum_ex" data-vn="1">
+  $Declare( "sum", 0 )
+  $Sum( "sum", 1, 2 )
+                </pre>
+            </div>
+
+            <p data-id="p_bf_pro" data-vn="1"><span class="appproperty">Prod</span> - 该函数对给定数值求积。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_bf_pro_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_bf_pro_syn" data-vn="1">
+  $Prod( "outputVar", var1, var2, ..., varN )</pre>
+                <p data-id="p_bf_pro_par" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_pro_ovar" data-vn="1"><span class="appproperty">outputVar</span> - 用于保存结果的变量名称</p>
+                    <p data-id="p_bf_pro_vars" data-vn="1"><span class="appproperty">var1, ..., varN</span> - 任意数量的变量或数值，以逗号分隔，用于求积</p>
+                </div>  
+                <p data-id="p_bf_pro_ex" data-vn="1"><b>示例</b>（<span class="appproperty">Prod</span> 函数会把值 2 存入变量 prod）<b>：</b></p>
+                <pre data-id="pre_bf_pro_ex" data-vn="1">
+  $Declare( "prod", 0 )
+  $Prod( "prod", 1, 2 )
+                </pre>
+            </div>
+
+            <p data-id="p_bf_app" data-vn="1"><span class="appproperty">Append</span> - 该函数用于拼接给定的字符串。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_bf_app_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_bf_app_syn" data-vn="1">
+  $Append( "variable", var1, var2, ..., varN )</pre>
+                <p data-id="p_bf_app_par" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_app_var" data-vn="1"><span class="appproperty">variable</span> - 其余参数将追加到该变量上，此处为其名称</p>
+                    <p data-id="p_bf_app_vars" data-vn="1"><span class="appproperty">var1, ..., varN</span> - 任意数量的变量或数值，以逗号分隔，将被拼接</p>
+                </div>
+                <p data-id="p_bf_app_example" data-vn="1"><b>示例</b>（<span class="appproperty">Append</span> 函数会把类似「所选组件的测量单位是 meter.」的文本存入变量 text）<b>：</b></p>
+                <pre data-id="pre_bf_app_example" data-vn="1">
+  $Declare( "text", "The measurement unit" )
+  $Declare( "text2", " of the selected component is " )
+  $Append( "text", text2, "$(units)", "." )
+                </pre>
+            </div>            
+
+             <p data-id="p_bf_using" data-vn="1"><span class="appproperty">Using</span> - 用于引入函数集。使用后，报告中只有被该函数引入的函数集可用；不使用时所有函数集均可用，但会牺牲性能并增大报告体积。</p>
+            <div style="padding-left: 20px">
+              <p data-id="p_bf_using_syn" data-vn="1"><b>语法：</b></p>
+              <pre data-id="pre_bf_using_syn" data-vn="2">
+  $Using(RealityScan.Report.functionSet)</pre>
+                <br/>
+              <p data-id="p_bf_using-par" data-vn="1"><b>函数集：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_using_fp_ceefs" data-vn="1"><span class="appproperty">CameraErrorsExportFunctionSet</span> - 相机误差信息</p>
+                    <p data-id="p_bf_using_fp_cfs" data-vn="1"><span class="appproperty">ComponentFunctionSet</span> - 返回组件相关信息</p>
+                    <p data-id="p_bf_using_fp_cefs" data-vn="1"><span class="appproperty">ConfigExportFunctionSet</span> - 配合设置中变量使用的函数</p>
+                    <p data-id="p_bf_using_fp_cofs" data-vn="1"><span class="appproperty">ContoursFunctionSet</span> - 用于获取轮廓线信息</p>
+                    <p data-id="p_bf_using_fp_cpefs" data-vn="1"><span class="appproperty">ControlPointsExportFunctionSet</span> - 导出控制点及其测量值信息</p>
+                    <p data-id="p_bf_using_fp_dcefs" data-vn="1"><span class="appproperty">DistanceConstraintsExportFunctionSet</span> - 导出距离约束信息</p>
+                    <p data-id="p_bf_using_fp_hfs" data-vn="1"><span class="appproperty">HelperFunctionSet</span> - 引入辅助函数</p>
+                    <p data-id="p_bf_using_fp_iefs" data-vn="1"><span class="appproperty">ImageExportFunctionSet</span> - 保存图像或获取其信息</p>
+                    <p data-id="p_bf_using_fp_ifs" data-vn="1"><span class="appproperty">InputsFunctionSet</span> - 获取影像与相机的基本信息</p>
+                    <p data-id="p_bf_using_fp_itfs" data-vn="1"><span class="appproperty">IteratorsFunctionSet</span> - 遍历项目中的各类元素</p>
+                    <p data-id="p_bf_using_fp_lefs" data-vn="1"><span class="appproperty">LocalizationExportFunctionSet</span> - 用于获取本地化文本</p>
+                    <p data-id="p_bf_using_fp_mefs" data-vn="1"><span class="appproperty">MapExportFunctionSet</span> - 导出地图及其信息</p>
+                    <p data-id="p_bf_using_fp_mfs" data-vn="1"><span class="appproperty">MisalignmentFunctionSet</span> - 导出未对齐的点与相机</p>
+                    <p data-id="p_bf_using_fp_moefs" data-vn="1"><span class="appproperty">ModelExportFunctionSet</span> - 获取模型及其纹理的信息</p>
+                    <p data-id="p_bf_using_fp_omfs" data-vn="1"><span class="appproperty">OrthoMeasurementFunctionSet</span> - 获取正射测量与投影边界值的信息</p>
+                    <p data-id="p_bf_using_fp_opfs" data-vn="1"><span class="appproperty">OrthoProjectionFunctionSet</span> - 导出正射投影相关信息</p>
+                    <p data-id="p_bf_using_fp_piefs" data-vn="1"><span class="appproperty">ProjectInformationExportFunctionSet</span> - 项目的常规信息</p>
+                    <p data-id="p_bf_using_fp_rcufs" data-vn="1"><span class="appproperty">RelativeCameraUncertaintyFunctionSet</span> - 相机相对不确定度（相机间位置精度）信息</p>
+                    <p data-id="p_bf_using_fp_sfmefs" data-vn="1"><span class="appproperty">SfmExportFunctionSet</span> - 获取组件中相机、影像与点的信息 </p>
+                    <p data-id="p_bf_using_fp_sfmhefs" data-vn="1"><span class="appproperty">SfmHistogramExportFunctionSet</span> - 生成直方图</p> 
+				    <p data-id="p_bf_using_fp_edfs" data-vn="1"><span class="appproperty">EditorFunctionSetGroup</span> - 引入全部函数集</p>
+                </div>
+            </div>  
+            
+            <p data-id="p_bf_app_ex" data-vn="1"><b>示例：</b></p>
+                <pre data-id="pre_bf_app_ex" data-vn="1">
+  $Using(RealityScan.Report.EditorFunctionSetGroup)
+                </pre>
+            
+            <div data-id="div_im_using" data-vn="1" class="importantMessage">
+                    注意：可以使用全部算术函数、部分全局变量（<span class="appproperty">dateTime</span>, <span class="appproperty">fileName</span>, <span class="appproperty">appVersion</span> and <span class="appproperty">attachmentPath</span>), and most of the basic functions (all except <span class="appproperty">ToDMS</span>, <span class="appproperty">ToGpsLat</span>, <span class="appproperty">ToGpsLon</span>, <span class="appproperty">FormatTime</span>, and the expression functions).
+            </div>
+            <br/>
+                  
+          <p data-id="p_bf_wf" data-vn="1"><span class="appproperty">WriteFile</span> - 该函数把指定文本保存到文件中；若文件尚不存在，则自动创建。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_bf_wf_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_bf_wf_syn" data-vn="1">
+  $WriteFile( "filePath", anyText )</pre>
+                <p data-id="p_bf_wf-par" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_wf_fp" data-vn="1"><span class="appproperty">filePath</span> - 文件路径</p>
+                </div>
+            </div>
+
+            <p data-id="p_bf_cf" data-vn="1"><span class="appproperty">CopyFile</span> - 该函数把文件复制到指定的 filePath。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_bf_cf_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_bf_cf_syn" data-vn="1">
+  $CopyFile( "srcFilePath", "dstFilePath" )</pre>
+                <p data-id="p_bf_cf_par" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_cf_sfp" data-vn="1"><span class="appproperty">srcFilePath</span> - 附件文件夹内源文件的路径</p>
+                    <p data-id="p_bf_cf_dfp" data-vn="1"><span class="appproperty">dstFilePath</span> - 附件文件夹内的目标路径</p>
+                </div>
+            </div>
+
+            <p data-id="p_bf_imf" data-vn="1"><span class="appproperty">ImportFile</span> - 该函数把文件复制到指定的 filePath。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_bf_imf_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_bf_imf_syn" data-vn="1">
+  $ImportFile( "srcFilePath", "dstFilePath" )</pre>
+                <p data-id="p_bf_imf_par" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_imf_sfp" data-vn="1"><span class="appproperty">srcFilePath</span> - 源文件路径，可位于用户磁盘上的任意位置</p>
+                    <p data-id="p_bf_imf_dfp" data-vn="1"><span class="appproperty">dstFilePath</span> - 附件文件夹内的有效目标路径</p>
+                </div>
+            </div>
+
+            <p data-id="p_bf_inc" data-vn="1"><span class="appproperty">Include</span> - 该函数输出指定文件的内容。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_bf_inc_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_bf_inc_syn" data-vn="1">
+  $Include( "filePath" )</pre>
+                <p data-id="p_bf_inc_par" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_inc_fp" data-vn="1"><span class="appproperty">filePath</span> - 文件路径</p>
+                </div>
+                <p data-id="p_bf_inc_ex" data-vn="1"><b>示例：</b></p>
+                <pre>
+  $Include( "Reports\style.css" )
+                </pre>
+            </div>
+
+            <p data-id="p_bf_for" data-vn="1"><span class="appproperty">For</span> - 该函数用于重复执行一段代码。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_bf_for_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_bf_for_syn" data-vn="1">
+  $For( "iteratorVariable", start, step, end, anyText )</pre>
+                <p data-id="p_bf_for_par" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_for_ivar" data-vn="1"><span class="appproperty">iteratorVariable</span> - 保存当前迭代索引的变量</p>
+                    <p data-id="p_bf_for_startv" data-vn="1"><span class="appproperty">start</span> - <span class="appproperty">iteratorVariable</span> 的起始值</p>
+                    <p data-id="p_bf_for_step" data-vn="1"><span class="appproperty">step</span> - for 循环每执行一次，<span class="appproperty">iteratorVariable</span> 的值会按 <span class="appproperty">step</span> 参数递增 / 递减</p>
+                    <p data-id="p_bf_for_stop" data-vn="1"><span class="appproperty">end</span> - 当 <span class="appproperty">iteratorVariable</span> 达到 <span class="appproperty">end</span> 参数的值时，for 循环停止</p>
+                </div>
+                <p data-id="p_bf_for_note" data-vn="1">
+                    注意："iteratorVariable" 取自右开区间 [start,end)，步长由 "step" 定义。
+                </p>
+                <p data-id="p_bf_for_ex" data-vn="1"><b>示例</b>（注意 cameraCount 是全局变量）<b>：</b></p>
+                <pre data-id="pre_bf_for_ex" data-vn="1">
+  $For( "cameraIndex", 0, 1, cameraCount,
+    cameraIndex: $(cameraIndex),
+  )
+                </pre>
+            </div>
+
+            <p data-id="p_bf_min" data-vn="1"><span class="appproperty">Min</span> - 该函数从给定数值中找出最小值并保存。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_bf_min_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_bf_min_syn" data-vn="1">
+  $Min( "outputVar", var1, var2, ..., varN )</pre>
+                <p data-id="p_bf_min_par" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_min_ovar" data-vn="1"><span class="appproperty">outputVar</span> - 用于保存结果的变量名称</p>
+                    <p data-id="p_bf_min_vars" data-vn="1"><span class="appproperty">var1, ..., varN</span> - 任意数量的变量或数值，以逗号分隔，用于查找最小值</p>
+                </div>  
+                <p data-id="p_bf_min_ex" data-vn="1"><b>示例</b>（<span class="appproperty">Min</span> 函数会把值 1 存入变量 min）<b>：</b></p>
+                <pre data-id="pre_bf_min_ex" data-vn="1">
+  $Declare( "min", 0 )
+  $Min( "min", 1, 2 )
+                </pre>
+            </div>
+
+            <p data-id="p_bf_max" data-vn="1"><span class="appproperty">Max</span> - 该函数从给定数值中找出最大值并保存。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_bf_max_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_bf_max_syn" data-vn="1">
+  $Max( "outputVar", var1, var2, ..., varN )</pre>
+                <p data-id="p_bf_max_par" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_max_ovar" data-vn="1"><span class="appproperty">outputVar</span> - 用于保存结果的变量名称</p>
+                    <p data-id="p_bf_max_vars" data-vn="1"><span class="appproperty">var1, ..., varN</span> - 任意数量的变量或数值，以逗号分隔，用于查找最大值</p>
+                </div>
+                <p data-id="p_bf_max_ex" data-vn="1"><b>示例</b>（<span class="appproperty">Max</span> 函数会把值 2 存入变量 max）<b>：</b></p>
+                <pre data-id="pre_bf_max_ex" data-vn="1">
+  $Declare( "max", 0 )
+  $Max( "max", 1, 2 )
+                </pre>
+            </div>
+            
+            <p data-id="p_bf_sqrt" data-vn="1"><span class="appproperty">Sqrt</span> - 该函数计算变量绝对值的平方根。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_bf_sqrt_syn" data-vn="1"><b>语法：</b></p>
+              <pre data-id="pre_bf_sqrt_syn" data-vn="1">
+  $Sqrt( "outputVar", var )</pre>
+              <p data-id="p_bf_sqrt_par" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                  <p data-id="p_bf_sqrt_ovar" data-vn="1"><span class="appproperty">outputVar</span> - 用于保存结果的变量名称</p>
+                  <p data-id="p_bf_sqrt_vars" data-vn="1"><span class="appproperty">var</span> - 任意数字或数值型变量</p>
+                </div>
+              <p data-id="p_bf_sqrt_ex" data-vn="1"><b>示例</b>（值 5 将存入变量 sqrtVar）<b>：</b></p>
+              <pre data-id="pre_bf_sqrt_ex" data-vn="1">  $Declare( "sqrtVar", 0)
+  $Sqrt( "sqrtVar",  25)
+                </pre>
+            </div>            
+            
+            <p data-id="p_bf_abs" data-vn="1"><span class="appproperty">Abs</span> - 返回变量的绝对值。</p>
+            <div style="padding-left: 20px">
+              <p data-id="p_bf_abs_syn" data-vn="1"><b>语法：</b></p>
+              <pre data-id="pre_bf_abs_syn" data-vn="1">
+  $Abs( "outputVar", var )</pre>
+              <p data-id="p_bf_abs_par" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                  <p data-id="p_bf_abs_ovar" data-vn="1"><span class="appproperty">outputVar</span> - 用于保存结果的变量名称</p>
+                  <p data-id="p_bf_abs_vars" data-vn="1"><span class="appproperty">var</span> - 任意数字或数值型变量</p>
+                </div>
+              <p data-id="p_bf_abs_ex" data-vn="1"><b>示例</b>（值 12 将存入变量 absVar）<b>：</b></p>
+              <pre data-id="pre_bf_abs_ex" data-vn="1">
+  $Declare( "absVar", 0)
+  $Abs( "absVar",  -12)
+                </pre>
+            </div> 
+            
+            <p data-id="p_bf_floor" data-vn="1"><span class="appproperty">Floor</span> - 返回最大的下界整数（向下取整）。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_bf_floor_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_bf_floor_syn" data-vn="1">
+  $Floor( "outputVar", var )</pre>
+                <p data-id="p_bf_floor_par" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_floor_ovar" data-vn="1"><span class="appproperty">outputVar</span> - 用于保存结果的变量名称</p>
+                    <p data-id="p_bf_floor_vars" data-vn="1"><span class="appproperty">var</span> - 任意数字或数值型变量</p>
+                </div>
+                <p data-id="p_bf_floor_ex" data-vn="1"><b>示例</b>（值 2 将存入变量 floorVar）<b>：</b></p>
+                <pre data-id="pre_bf_floor_ex" data-vn="1">
+  $Declare( "floorVar", 0)
+  $Abs( "floorVar",  2.6)
+                </pre>
+            </div> 
+            
+          <p data-id="p_bf_ceil" data-vn="1"><span class="appproperty">Ceil</span> - 返回最小的上界整数（向上取整）。</p>
+            <div style="padding-left: 20px">
+              <p data-id="p_bf_ceil_syn" data-vn="1"><b>语法：</b></p>
+              <pre data-id="pre_bf_ceil_syn" data-vn="1">
+  $Ceil( "outputVar", var )</pre>
+              <p data-id="p_bf_ceil_par" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                  <p data-id="p_bf_ceil_ovar" data-vn="1"><span class="appproperty">outputVar</span> - 用于保存结果的变量名称</p>
+                  <p data-id="p_bf_ceil_vars" data-vn="1"><span class="appproperty">var</span> - 任意数字或数值型变量</p>
+                </div>
+              <p data-id="p_bf_ceil_ex" data-vn="1"><b>示例</b>（值 3 将存入变量 ceilVar）<b>：</b></p>
+              <pre data-id="pre_bf_ceil_ex" data-vn="1">
+  $Declare( "ceilVar", 0)
+  $Abs( "ceilVar",  2.6)
+                </pre>
+            </div> 
+            
+            <p data-id="p_bf_log" data-vn="1"><span class="appproperty">Log</span> - 返回变量的自然对数值。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_bf_log_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_bf_log_syn" data-vn="1">
+  $Log( "outputVar", var )</pre>
+                <p data-id="p_bf_log_par" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_log_ovar" data-vn="1"><span class="appproperty">outputVar</span> - 用于保存结果的变量名称</p>
+                    <p data-id="p_bf_log_vars" data-vn="1"><span class="appproperty">var</span> - 任意数字或数值型变量</p>
+                </div>
+                <p data-id="p_bf_log_ex" data-vn="1"><b>示例</b>（值 2.302585092994046 将存入变量 logVar）<b>：</b></p>
+                <pre data-id="pre_bf_log_ex" data-vn="1">
+  $Declare( "logVar", 0)
+  $Log( "logVar",  2.6)
+                </pre>
+            </div>
+            
+            <p data-id="p_bf_logt" data-vn="1"><span class="appproperty">Log10</span> - 返回变量以 10 为底的对数值。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_bf_logt_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_bf_logt_syn" data-vn="1">
+  $Logt( "outputVar", var )</pre>
+                <p data-id="p_bf_logt_par" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_logt_ovar" data-vn="1"><span class="appproperty">outputVar</span> - 用于保存结果的变量名称</p>
+                    <p data-id="p_bf_logt_vars" data-vn="1"><span class="appproperty">var</span> - 任意数字或数值型变量</p>
+                </div>
+                <p data-id="p_bf_logt_ex" data-vn="1"><b>示例</b>（值 2 将存入变量 logtVar）<b>：</b></p>
+                <pre data-id="pre_bf_logt_ex" data-vn="1">
+  $Declare( "logtVar", 0)
+  $Log10( "logtVar",  100)
+                </pre>
+            </div>
+            
+            <p data-id="p_bf_pow" data-vn="1"><span class="appproperty">Pow</span> - 返回数值的幂。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_bf_pow_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_bf_pow_syn" data-vn="1">
+  $Pow( "outputVar", base , exponent )</pre>
+                <p data-id="p_bf_pow_par" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_pow_ovar" data-vn="1"><span class="appproperty">outputVar</span> - 用于保存结果的变量名称</p>
+                    <p data-id="p_bf_pow_base" data-vn="1"><span class="appproperty">base</span> - 任意数字或数值型变量</p>
+                    <p data-id="p_bf_pow_comp" data-vn="1"><span class="appproperty">exponent</span> - 任意数字或数值型变量</p>
+                </div>
+                <p data-id="p_bf_pow_ex" data-vn="1"><b>示例</b>（值 64 将存入变量 powVar）<b>：</b></p>
+                <pre data-id="pre_bf_pow_ex" data-vn="1">
+  $Declare( "powVar", 0)
+  $Pow( "powVar",  4 , 3)
+                </pre>
+            </div>
+            
+            <p data-id="p_bf_mean" data-vn="1"><span class="appproperty">Mean</span> - 该函数计算给定数值的平均值并保存。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_bf_mean_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_bf_mean_syn" data-vn="1">
+  $Mean( "outputVar", var1, var2, ..., varN )</pre>
+              <p data-id="p_bf_mean_par" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_mean_ovar" data-vn="1"><span class="appproperty">outputVar</span> - 用于保存结果的变量名称</p>
+                    <p data-id="p_bf_mean_vars" data-vn="1"><span class="appproperty">var1, ..., varN</span> - 任意数量的变量或数值，以逗号分隔，用于计算平均值</p>
+                </div>
+                <p data-id="p_bf_mean_ex" data-vn="1"><b>示例</b>（值 2 将存入变量 mean）<b>：</b></p>
+                <pre data-id="pre_bf_mean_ex" data-vn="1">
+  $Declare( "mean", 0 )
+  $Mean( "mean", 1, 2, 3)
+                </pre>
+            </div>
+            
+          <p data-id="p_bf_stddevs" data-vn="1"><span class="appproperty">StdDevS</span> - 该函数计算样本标准偏差。当数值区间只是样本而非全部数据时使用此函数。</p>
+            <div style="padding-left: 20px">
+              <p data-id="p_bf_stddevs_syn" data-vn="1"><b>语法：</b></p>
+              <pre data-id="pre_bf_stddevs_syn" data-vn="1">$StdDevS( "outputVar", var1, var2, ..., varN )</pre>
+              <p data-id="p_bf_stddevs_par" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                  <p data-id="p_bf_stddevs_ovar" data-vn="1"><span class="appproperty">outputVar</span> - 用于保存结果的变量名称</p>
+                  <p data-id="p_bf_stddevs_vars" data-vn="1"><span class="appproperty">var1, ..., varN</span> - 任意数量的变量或数值，以逗号分隔，用于计算样本标准偏差</p>
+                </div>
+              <p data-id="p_bf_stddevs_ex" data-vn="1"><b>示例</b>（值 1.290994448735806 将存入变量 stddevs）<b>：</b></p>
+              <pre data-id="pre_bf_stddevs_ex" data-vn="1">
+  $Declare( "stddevs", 0 )
+  $StdDevS( "stddevs", 1, 2, 3 ,4)
+                </pre>
+            </div>
+            
+          <p data-id="p_bf_stddevp" data-vn="1"><span class="appproperty">StdDevP</span> - 该函数计算总体标准偏差。当数值区间代表全部数据时使用此函数。</p>
+          <div style="padding-left: 20px">
+            <p data-id="p_bf_stddevp_syn" data-vn="1"><b>语法：</b></p>
+            <pre data-id="pre_bf_stddevp_syn" data-vn="1">$StdDevP( "outputVar", var1, var2, ..., varN )</pre>
+            <p data-id="p_bf_stddevp_par" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                  <p data-id="p_bf_stddevp_ovar" data-vn="1"><span class="appproperty">outputVar</span> - 用于保存结果的变量名称</p>
+                  <p data-id="p_bf_stddevs_varp" data-vn="1"><span class="appproperty">var1, ..., varN</span> - 任意数量的变量或数值，以逗号分隔，用于计算总体标准偏差</p>
+                </div>
+            <p data-id="p_bf_stddevp_ex" data-vn="1"><b>示例</b>（值 1.118033988749895 将存入变量 stddevp）<b>：</b></p>
+            <pre data-id="pre_bf_stddevp_ex" data-vn="1">
+  $Declare( "stddevp", 0 )
+  $StdDevP( "stddevp", 1, 2, 3)
+                </pre>
+            </div>
+            
+            <p data-id="p_bf_map" data-vn="1"><span class="appproperty">Map</span> - 该函数把所有变量与表达式比较，只返回最符合比较结果的那一个。比较规则如下：<br/>若 t[i] &lt;= expression &lt; t[i+1]，返回 R[i]；若 expression &lt; t1，返回 R0；若 expression &gt; tn，返回 Rn</p>
+            <div style="padding-left: 20px">
+              <p data-id="p_bf_map_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_bf_map_syn" data-vn="1">$Map( expression, "R0", t1, "R1", t2, R2, ..., tn, "Rn" )</pre>
+                <p data-id="p_bf_map_par" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_map_expr" data-vn="1"><span class="appproperty">expression</span> - 用于保存结果的变量名称</p>
+                    <p data-id="p_bf_map_rvar" data-vn="1"><span class="appproperty">R1, ..., RN</span> - 比较后可能返回的任意值</p>
+                    <p data-id="p_bf_map_tvar" data-vn="1"><span class="appproperty">t1, ..., tN</span> - 与所定义 expression 参数进行比较的任意值（或表达式）</p>
+                </div>
+                <p data-id="p_bf_map_ex" data-vn="1"><b>示例</b>（将返回值 #ff1040）<b>：</b></p>
+                <pre data-id="pre_bf_map_ex" data-vn="1">$Declare( "lvl1", 1 )   $Declare( "lvl1Color", "#fff040" )
+$Declare( "lvl2", 1.5 ) $Declare( "lvl2Color", "#ff8040" )
+$Declare( "lvl3", 2 )   $Declare( "lvl3Color", "#ff1040" )
+$Declare("cpxStd", 3)
+$Declare("cpxMeanAcc", 1.5)
+"$Map(Abs(cpxStd),"",lvl1*cpxMeanAcc,"$(lvl1Color)",lvl2*cpxMeanAcc,"$(lvl2Color)",lvl3*cpxMeanAcc,"$(lvl3Color)")"
+                </pre>
+          </div>
+            
+          <p data-id="p_bf_repl" data-vn="1"><span class="appproperty">Replace</span> - 该函数用于在文本中执行替换。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_bf_repl_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_bf_repl_syn" data-vn="1">
+  $Replace( "search", "replace", subject )</pre>
+                <p data-id="p_bf_repl_par" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_repl_sea" data-vn="1"><span class="appproperty">search</span> - 待查找的字符串</p>
+                    <p data-id="p_bf_repl_rstr" data-vn="1"><span class="appproperty">replace</span> - 用于替换所找到的 <span class="appproperty">search</span> 字符串的替换文本</p>
+                    <p data-id="p_bf_repl_txt" data-vn="1"><span class="appproperty">subject</span> - 在其中执行查找与替换的文本</p>
+                </div>   
+                <p data-id="p_bf_repl_ex" data-vn="1"><b>示例</b>（将输出：Hello my friend!）<b>：</b></p>
+                <pre data-id="pre_bf_repl_ex" data-vn="1">
+  $Replace( "world", "my friend", Hello world! )
+                </pre>
+            </div>            
+
+            <p data-id="p_bf_esps" data-vn="1"><span class="appproperty">EscapeBackslashes</span> - 该函数把单个反斜杠替换为两个反斜杠。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_bf_esps_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_bf_esps_syn" data-vn="1">
+  $EscapeBackslashes( noParametersJustAnyText )</pre>
+                <p data-id="p_bf_esps_ex" data-vn="1"><b>示例</b>（将输出：test\\test）<b>：</b></p>
+                <pre>
+  $EscapeBackslashes( test\test )
+                </pre>
+            </div>
+
+            <p data-id="p_bf_essp" data-vn="1"><span class="appproperty">EscapeSpaces</span> - 该函数把空格替换为下划线。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_bf_essp_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_bf_essp_syn" data-vn="1">
+  $EscapeSpaces( noParametersJustAnyText )</pre>
+                <p data-id="p_bf_essp_ex" data-vn="1"><b>示例</b>（将输出：test_test）<b>：</b></p>
+                <pre>
+  $EscapeSpaces( test test )
+                </pre>
+            </div>
+
+            <p data-id="p_bf_tdms" data-vn="1"><span class="appproperty">ToDMS</span> - 该函数把以度表示的输入值转换为度、分、秒。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_bf_tdms_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_bf_tdms_syn" data-vn="1">
+  $ToDMS( inputDegrees, anyText )</pre>
+                <p data-id="p_bf_tdms_par" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_tdms_ind" data-vn="1"><span class="appproperty">inputDegrees</span> - 以度表示的值（整数或双精度浮点数）</p>
+                </div>
+                <p data-id="p_bf_tdms_avars" data-vn="1"><b>可用变量：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_tdms_degs" data-vn="1"><span class="appproperty">degrees</span> - 使用 $(degrees:.6) 输出度的整数部分</p>
+                    <p data-id="p_bf_tdms_mins" data-vn="1"><span class="appproperty">minutes</span> - 使用 $(minutes:.6) 输出分的整数部分</p>
+                    <p data-id="p_bf_tdms_secs" data-vn="1"><span class="appproperty">seconds</span> - 使用 $(seconds:.6) 输出秒</p>
+                    <p data-id="p_bf_tdms_phms" data-vn="1"><span class="appproperty">positiveHemisphere</span> - <span class="appproperty">inputDegrees</span> 为正值时为 true，否则为 false</p>
+                </div>
+                <p data-id="p_bf_tdms_ex" data-vn="1"><b>示例：</b></p>
+                <pre data-id="pre_bf_tdms_ex" data-vn="2">
+  $ExportControlPoints(
+    $If( "$(inputCSIsLatLon)" == "true",
+      lat: $ToDMS( actualLat, $(degrees:.6)&#176; $(minutes:.6)' $(seconds:.6)'' $If( positiveHemisphere, N ) $If( positiveHemisphere == false, S ) )
+      lon: $ToDMS( actualLon, $(degrees:.6)&#176; $(minutes:.6)' $(seconds:.6)'' $If( positiveHemisphere, E ) $If( positiveHemisphere == false, W ) )
+      alt: $(actualAlt) $(unitsShort)
+    )
+  )
+                </pre>
+            </div>
+            
+            <p data-id="p_bf_tgla" data-vn="1"><span class="appproperty">ToGpsLat</span> - 该函数把纬度坐标的度数值输出为度、分、秒。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_bf_tgla_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_bf_tgla_syn" data-vn="1">
+  $ToGpsLat( decimalDegrees )</pre>
+                <p data-id="p_bf_tgla_par" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_tgla_ind" data-vn="1"><span class="appproperty">decimalDegrees</span> - 以度表示的值（整数或双精度浮点数）</p>
+                </div>
+                <p data-id="p_bf_tgla_ex" data-vn="1"><b>示例：</b></p>
+                <pre data-id="pre_bf_tgla_ex" data-vn="2">
+  $ToGpsLat( 45.333333 )
+                </pre>
+            </div>
+            
+            <p data-id="p_bf_tglo" data-vn="1"><span class="appproperty">ToGpsLon</span> - 该函数把经度坐标的度数值输出为度、分、秒。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_bf_tglo_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_bf_tglo_syn" data-vn="1">
+  $ToGpsLon( decimalDegrees )</pre>
+                <p data-id="p_bf_tglo_par" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_tglo_ind" data-vn="1"><span class="appproperty">decimalDegrees</span> - 以度表示的值（整数或双精度浮点数）</p>
+                </div>
+                <p data-id="p_bf_tglo_ex" data-vn="1"><b>示例：</b></p>
+                <pre data-id="pre_bf_tglo_ex" data-vn="2">
+  $ToGpsLon( 45.333333 )
+                </pre>
+            </div>
+            
+            <p data-id="p_bf_foti" data-vn="1"><span class="appproperty">FormatTime</span> - 以 "dd hh:mm:ss" 格式输出时间。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_bf_foti_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_bf_foti_syn" data-vn="1">
+  $FormatTime( seconds )</pre>
+                <p data-id="p_bf_foti_par" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_foti_ind" data-vn="1"><span class="appproperty">seconds</span> - 以秒为单位的时间</p>
+                </div>
+                <p data-id="p_bf_foti_ex" data-vn="1"><b>示例：</b></p>
+                <pre data-id="pre_bf_foti_ex" data-vn="2">
+  $FormatTime( 50000 )
+                </pre>
+            </div>            
+
+            <p data-id="p_bf_pgs" data-vn="2"><span class="appproperty">ProgressSection</span> - 在模板中使用该函数时，RealityScan 可估算报告生成的完成时间。找出执行耗时最长的函数，把它们包进 ProgressSection 函数中；ProgressSection 也可以嵌套使用。同一嵌套层级中所有 ProgressSection 函数的 <span class="appproperty">fractionOfOne</span> 参数之和应为 1。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_bf_pgs_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_bf_pgs_syn" data-vn="1">
+  $ProgressSection( fractionOfOne, anyText )</pre>
+                <p data-id="p_bf_pgs_par" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_pgs_fone" data-vn="1"><span class="appproperty">fractionOfOne</span> - 0 到 1 之间的小数</p>
+                </div> 
+                <p data-id="p_bf_pgs_ex" data-vn="1"><b>示例：</b></p>
+                <pre data-id="pre_bf_pgs_ex" data-vn="1">
+  $ProgressSection( 0.3,
+    call some function that takes long time to execute, e.g. IterateOrthoMapTiles
+  )
+  $ProgressSection( 0.7,
+    $ProgressSection( 0.2,
+      call another function that takes long time to execute
+    )
+    $ProgressSection( 0.3,
+      call another function
+    )
+    $ProgressSection( 0.5,
+      call some function
+    )
+  )
+                </pre>
+            </div>
+            
+            <p data-id="p_bf_ifexist" data-vn="1"><span class="appproperty">IfFileExists</span> - 当指定文件存在时，输出文本或执行函数。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_bf_ifexist_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_bf_ifexist_syn" data-vn="1">$IfFileExists( "filePath", anyText)</pre>
+                <p data-id="p_bf_ifexist_par" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_ifexist_file" data-vn="1"><span class="appproperty">filePath</span> - 文件路径；将检测该文件是否存在。</p>
+                    <p data-id="p_bf_ifexist_anyt" data-vn="1"><span class="appproperty">anyText</span> - 任意文本、表达式或函数。</p>
+                </div> 
+                <p data-id="p_bf_ifexist_ex" data-vn="1"><b>示例</b>（若指定文件存在，将返回值 4）<b>：</b></p>
+                <pre data-id="pre_bf_ifexist_ex" data-vn="1">$Declare("Var", 0)
+$IfFileExists("D:\Test\file.xml", $Max("var", 1, 4, 3))
+                </pre>
+            </div>
+            
+            <p data-id="p_bf_ifnex" data-vn="1"><span class="appproperty">IfFileNotExists</span> - 当指定文件不存在时，输出文本或执行函数。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_bf_ifnex_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_bf_ifnex_syn" data-vn="1">$IfFileNotExists( "filePath", anyText)</pre>
+                <p data-id="p_bf_ifnex_par" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_ifnex_file" data-vn="1"><span class="appproperty">filePath</span> - 文件路径；将检测该文件是否存在。</p>
+                    <p data-id="p_bf_ifnex_anyt" data-vn="1"><span class="appproperty">anyText</span> - 任意文本、表达式或函数。</p>
+                </div> 
+                <p data-id="p_bf_ifnex_ex" data-vn="1"><b>示例</b>（若指定文件不存在，将返回值 4）<b>：</b></p>
+                <pre data-id="pre_bf_ifnex_ex" data-vn="1">$Declare("Var", 0)
+$IfFileNotExists("D:\Test\file.xml", $Max("var", 1, 4, 3))
+                </pre>
+            </div>
+            
+            <p data-id="p_bf_echo" data-vn="1"><span class="appproperty">Echo</span> - 该函数的参数会显示在报告中。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_bf_echo_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_bf_echo_syn" data-vn="1">
+  $Echo( anyDeclaration )</pre>
+                <p data-id="p_bf_echo_ex" data-vn="1"><b>示例：</b></p>
+                <pre data-id="pre_bf_echo_ex" data-vn="1">
+   $Echo( 
+    $Declare( "lvl1", 0.025 ) $Declare( "lvl1Color", "#fff040") 
+    $Declare( "lvl1ColorBright", "#fff0a0") 
+   )
+                </pre>
+            </div>
+
+            <p data-id="p_bf_echooff" data-vn="1"><span class="appproperty">EchoOff</span> - 该函数的参数不会显示在报告中。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_bf_echooff_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_bf_echooff_syn" data-vn="1">
+  $EchoOff( anyDeclaration )</pre>
+                <p data-id="p_bf_echooff_ex" data-vn="1"><b>示例：</b></p>
+                <pre data-id="pre_bf_echooff_ex" data-vn="1">
+   $EchoOff( 
+    $Declare( "lvl1", 0.025 ) $Declare( "lvl1Color", "#fff040")
+    $Declare( "lvl1ColorBright", "#fff0a0")
+   )
+                </pre>
+            </div>
+
+            <p data-id="p_bf_sleep" data-vn="1"><span class="appproperty">Sleep</span> - 用于产生暂停；参数为暂停时长，单位为毫秒。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_bf_sleep_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_bf_sleep_syn" data-vn="1">
+  $Sleep( timeMsec )
+                </pre>
+            </div>
+            
+            <p data-id="p_bf_strip" data-vn="1"><span class="appproperty">Strip</span> - 从输出末尾删除若干字符。</p>
+                <div style="padding-left: 20px">
+                <p data-id="p_bf_strip_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_bf_strip_syn" data-vn="1">  $Strip( Count )
+                </pre>
+                </div>
+            <p data-id="p_bf_strip_par" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_bf_strip_par_cnt" data-vn="1"><span class="appproperty">Count</span> - 要删除的字符数量。</p>
+            </div>
+
+            
+            <p data-id="p_bf_nop" data-vn="1"><span class="appproperty">Nop</span> - 将被忽略的内容。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_bf_nop_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_bf_nop_syn" data-vn="1">$Nop(anytext)
+                </pre>
+            </div>
+            
+            <p data-id="p_bf_wil" data-vn="1"><span class="appproperty">WriteInterleaved</span> - 按指定的步长交错写入展开块数据。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_bf_wil_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_bf_wil_syn" data-vn="1">$WriteInterleaved( stride, anyText)
+                </pre>
+            </div>
+             
+
+            <p data-id="p_bf_shexe" data-vn="1"><span class="appproperty">ShellExecute</span> - 用于启动外部软件的函数。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_bf_shexe_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_bf_shexe_syn" data-vn="1">
+  $ShellExecute( "filePath" )
+  or
+  $ShellExecute( "filePath", "arguments" )
+  or
+  $ShellExecute( "filePath", "arguments", "workDir" )
+                </pre>
+            </div>
+        
+            <p data-id="p_bf_parf" data-vn="1"><span class="appproperty">ParentFolder</span> - 返回父文件夹名称，即路径中倒数第二个与最后一个 \ 或 / 之间的字符串。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_bf_parf_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_bf_parf_syn" data-vn="1">$ParentFolder( path )
+                </pre>
+            </div>
+            
+            <p data-id="p_bf_filn" data-vn="1"><span class="appproperty">ParentFolder</span> - 返回给定路径中的文件名（若存在）。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_bf_filn_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_bf_filn_syn" data-vn="1">$FileName( path )
+                </pre>
+            </div>
+            
+            <p data-id="p_bf_fext" data-vn="1"><span class="appproperty">ParentFolder</span> - 返回给定路径中的文件格式扩展名（若存在）。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_bf_fext_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_bf_fext_syn" data-vn="1">$FileExt( path )
+                </pre>
+            </div>
+    
+            <h3 data-id="h3_aefu" data-vn="1">可用的表达式函数</h3>
+                
+                <p data-id="p_aefu_pmla" data-vn="1"><span class="appproperty">ToPseudoMercatorLat</span> - 结果为伪墨卡托投影中的欧几里得 y 坐标。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_aefu_pmla_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_aefu_pmla_syn" data-vn="1">ToPseudoMercatorLat(latitude_decimal_degrees) 
+                </pre>
+                <p data-id="p_aefu_pmla_par" data-vn="1"><b>参数：</b></p>
+                <p data-id="pre_aefu_pmla_decd" data-vn="1"><span class="appproperty">latitude_decimal_degrees</span> - 以十进制度表示的纬度坐标
+                </p>
+            </div>
+            
+                <p data-id="p_aefu_pmlo" data-vn="1"><span class="appproperty">ToPseudoMercatorLon</span> - 结果为伪墨卡托投影中的欧几里得 x 坐标。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_aefu_pmlo_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_aefu_pmlo_syn" data-vn="1">ToPseudoMercatorLon(latitude_decimal_degrees) 
+                </pre>
+                <p data-id="p_aefu_pmlo_par" data-vn="1"><b>参数：</b></p>
+                <p data-id="pre_aefu_pmlo_decd" data-vn="1"><span class="appproperty">latitude_decimal_degrees</span> - 以十进制度表示的经度坐标
+                </p>
+                
+            </div>
+
+        </div>
+       
+    <div class="clear splitSpacing">
+            <!-- clear -->
+    </div>
+        
+      <div data-id="div_sb_config" class="slideblock">
+            <h2 data-id="h2_config" data-vn="1">配置函数</h2>
+              <p data-id="p_config" data-vn="2">这些函数可用于输出或操作 RealityScan 的配置。
+              </p>      
+        </div>
+        
+        <div style="padding-left: 20px">
+            <p data-id="p_config_func" data-vn="1"><b>可用函数：</b></p>
+        <p data-id="p_config_get" data-vn="1"><span class="appproperty">GetProperty</span> - 输出配置中该变量的值；若变量不存在，则输出默认值。第二个参数为可选。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_config_get_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_config_get_syn" data-vn="1">  $GetProperty( "variable", "string_default"/numeral_default) 
+                </pre>
+            </div>
+
+        <p data-id="p_config_set" data-vn="1"><span class="appproperty">SetProperty</span> - 设置配置中该变量的值。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_config_set_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_config_set_syn" data-vn="1">  $SetProperty( "variable", "string_default"/numeral_default) 
+                </pre>
+            </div>
+            
+        <p data-id="p_config_reset" data-vn="1"><span class="appproperty">ResetProperty</span> - 从配置中删除该变量。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_config_reset_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_config_reset_syn" data-vn="1">  $ResetProperty( "variable" ) 
+                </pre>
+            </div>
+             
+        </div>
+
+ 
+    <div class="clear splitSpacing">
+            <!-- clear -->
+    </div>
+         
+        
+    <div data-id="div_sb_format" class="slideblock">
+        <h2 data-id="h2_format" data-vn="1">格式化</h2>
+            <p data-id="p_format" data-vn="1">格式化用于表达式，且始终以字符 &quot;<span class="appproperty">:</span>&quot; 开头。
+            </p>
+
+        <div style="padding-left: 20px">
+                <p data-id="p_format_syntax" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_format_syntax" data-vn="1">[FORM][FILLER][LENGTH].[PRECISION][FORMAT]
+                </pre>
+        </div>
+        
+        <div style="padding-left: 20px">
+            <p data-id="p_format_params" data-vn="1"><b>参数：</b></p>
+        <p data-id="p_def_form" data-vn="1">
+            <span class="appproperty">Form</span> 选项： 
+        </p>
+            <div style="padding-left: 20px">
+                <p data-id="p_form_optb" data-vn="1">
+            <span class="appproperty">b </span> - 启用二进制模式
+                </p>
+                <p data-id="p_form_optmin" data-vn="1">
+            <span class="appproperty">- </span> - 左对齐
+                </p>
+                <p data-id="p_form_optplus" data-vn="1">
+            <span class="appproperty">+ </span> - 输出正号（仅对数字有效）
+                </p>
+        </div>
+        <p data-id="p_def_filler" data-vn="1">
+            <span class="appproperty">Filler</span> 可以是 "<span class="appproperty">0</span>" 或 " "（空格），默认为空格。仅在非二进制形式下有效。
+        </p>
+        <p data-id="p_def_length" data-vn="1">
+            <span class="appproperty">Length</span> 用正数定义，决定被格式化值的总长度。仅在非二进制形式下有效。
+        </p>
+        <p data-id="p_def_precision" data-vn="1">
+            <span class="appproperty">Precision</span> 仅对浮点数（FLOAT 或 DOUBLE）有效，且所选 <span class="appproperty">format</span> 须为 <span class="appproperty">f</span>、<span class="appproperty">e</span> 或 <span class="appproperty">g</span>。若选择 <span class="appproperty">f</span>，精度为小数位数；若选择 <span class="appproperty">e</span> 或 <span class="appproperty">g</span>，则为显示的有效位数。 
+        </p>
+        <p data-id="p_def_format" data-vn="1">
+            <span class="appproperty">Format</span> 决定值的格式。可用格式为：
+        </p>
+        <div style="padding-left: 20px">
+            <p data-id="p_format_optc" data-vn="1">
+                <span class="appproperty">c </span> - 以二进制形式表示字节
+            </p>
+            <p data-id="p_format_optd" data-vn="1">
+                <span class="appproperty">d </span> - 以十进制形式表示整数
+            </p>
+            <p data-id="p_format_optx" data-vn="1">
+                <span class="appproperty">x </span> - 以十六进制形式表示整数
+            </p>
+            <p data-id="p_format_optf" data-vn="1">
+                <span class="appproperty">f </span> - 以常规十进制浮点数（32 位）表示
+            </p>
+            <p data-id="p_format_opte" data-vn="1">
+                <span class="appproperty">e </span> - 以指数形式表示浮点数
+            </p>
+            <p data-id="p_format_optg" data-vn="1">
+                <span class="appproperty">g </span> - 在浮点数的常规十进制形式与指数形式之间选择占用位数更少的一种。<br/>
+            </p>
+        </div>
+        </div>
+        
+        <div style="padding-left: 20px">
+                <p data-id="p_format_example" data-vn="1"><b>示例：</b></p>
+                <pre data-id="pre_format_example" data-vn="1">$(cpxMean/coordSystemUnit2Meter:.3f)
+                </pre>
+            </div>
+        
+        <p data-id="p_format_parts_opt" data-vn="1">
+            格式化字符串的所有部分均为可选。
+        </p>
+        
+    </div>
+        
+    <div class="clear splitSpacing">
+            <!-- clear -->
+    </div>  
+        
+    <div data-id="div_sb_modes" class="slideblock">
+      
+        <h2 data-id="h2_modes" data-vn="1">模式</h2>
+        <p data-id="p_modes" data-vn="1">模式用于格式化报告的输出内容。使用后，其后的内容将按该模式的作用进行组织。</p>
+        
+        <div style="padding-left: 20px">
+                <p data-id="p_modes_syntax" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_modes_syntax" data-vn="1">$[mode]
+                </pre>
+        </div>
+        
+        <div style="padding-left: 20px">
+            <p data-id="p_modes_parameters" data-vn="1"><b>可用模式：</b></p>
+            <div style="padding-left: 20px">
+                <p data-id="p_modes_a" data-vn="1"><span class="appproperty">a </span> - 启动输出空白字符（空行、空格、制表符）的模式。该模式为默认模式。</p>
+                <p data-id="p_modes_b" data-vn="1"><span class="appproperty">b </span> - 该模式会删除所有空白字符</p>
+                <p data-id="p_modes_n" data-vn="1"><span class="appproperty">n </span> - 移到下一行的行首</p>
+                <p data-id="p_modes_r" data-vn="1"><span class="appproperty">r </span> - 移到当前行的行首</p>
+                <p data-id="p_modes_s" data-vn="1"><span class="appproperty">s </span> - 生成一个空格字符</p>
+                <p data-id="p_modes_t" data-vn="1"><span class="appproperty">t </span> - 生成一个制表符</p>
+                <p data-id="p_modes_comm" data-vn="1"><span class="appproperty">#comment </span> - 生成在输出中被忽略的注释，必须以字符 <span class="appproperty">#</span> 开头。</p>
+            </div>
+        
+        </div>
+            
+    </div>
+    
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>    
+
+    <div data-id="div_sb_hist" class="slideblock">
+    
+        <h2 data-id="h2_hist" data-vn="1">直方图</h2>
+        <p data-id="p_local_crehist" data-vn="1">创建直方图并获取其相关信息。</p>
+
+            <p data-id="p_po_hist" data-vn="1"><span class="appproperty">CreateHistogram</span> - 该函数用于输出直方图，会创建若干步长（区间 / 箱）。每个箱都有大小为 "1/((maxValue-minValue)*steps)" 的区间，初始元素个数为 0。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_po_hist_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_po_hist_syn" data-vn="1">
+  $CreateHistogram(minValue, steps, maxValue, anyText)
+ </pre>
+                <p data-id="p_po_hist_pars" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_po_hist_minv" data-vn="1"><span class="appproperty">minValue</span> - 直方图的最小值</p>
+                    <p data-id="p_po_hist_step" data-vn="1"><span class="appproperty">steps</span> - 步长大小，即箱的宽度</p>
+                    <p data-id="p_po_hist_maxv" data-vn="1"><span class="appproperty">minValue</span> - 直方图的最大值</p>
+                </div>
+                <p data-id="p_po_hist_avfunc" data-vn="1"><b>可用函数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_po_hist_addd" data-vn="1"><span class="appproperty">AddData</span> - 该函数为每个数值找到所属区间并增加其中的元素计数。若数值小于 minValue，则计入第一个箱；同理，若数值大于 maxValue，则计入最后一个箱。 </p>
+                    <p data-id="p_po_addd_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_po_addd_syn" data-vn="1">
+  $AddData( num1, num2, ..., numN )
+ </pre>
+                    <p data-id="p_po_add_pars" data-vn="1"><b>参数：</b></p>
+                    <div style="padding-left: 20px">
+                        <p data-id="p_po_addd_numn" data-vn="1"><span class="appproperty">num</span> - 数值</p>
+                    </div>
+                    
+                    <p data-id="p_po_hist_ithb" data-vn="1"><span class="appproperty">IterateHistogramBins</span> - 遍历直方图的各个箱。</p>
+                    <p data-id="p_po_ithb_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_po_ithb_syn" data-vn="1">
+  $IterateHistogramBins( noParametersJustAnyText )
+ </pre>
+                    <p data-id="p_po_ithb_avars" data-vn="1"><b>可用变量：</b></p>
+                    <div style="padding-left: 20px">
+                        <p data-id="p_po_ithb_tosu" data-vn="1"><span class="appproperty">histTotalSum</span> - 所有箱中数值的总和</p>
+                        <p data-id="p_po_ithb_maco" data-vn="1"><span class="appproperty">histMaxCount</span> - 所有步长中 <span class="appproperty">histCount</span> 的最大值（各步长中该值相同）</p>
+                        <p data-id="p_po_ithb_miva" data-vn="1"><span class="appproperty">histMinValue</span> - 直方图的最小值（纵轴）</p>
+                        <p data-id="p_po_ithb_mava" data-vn="1"><span class="appproperty">histMaxValue</span> - 直方图的最大值（纵轴）</p>
+                        <p data-id="p_po_ithb_stco" data-vn="1"><span class="appproperty">histStepCount</span> - 所定义的步长数量</p>
+                        <p data-id="p_po_ithb_inde" data-vn="1"><span class="appproperty">histIndex</span> - 当前步长的索引</p>
+                        <p data-id="p_po_ithb_coun" data-vn="1"><span class="appproperty">histCount</span> - 区间 ( <span class="appproperty">histValue</span> - <span class="appproperty">steps size</span>, <span class="appproperty">histValue</span> ) 内的数值个数</p>
+                        <p data-id="p_po_ithb_valu" data-vn="1"><span class="appproperty">histValue</span> - 当前区间的上界</p>
+                        <p data-id="p_po_ithb_cums" data-vn="1"><span class="appproperty">histCumsum</span> - 当前及之前所有 <span class="appproperty">histCount</span> 的累计和，最迟在最后一步会等于 <span class="appproperty">histTotalSum</span></p>
+                    </div>
+                    
+                    <p data-id="p_po_hist_geth" data-vn="1"><span class="appproperty">GetHistogramStats</span> - 遍历直方图的各个箱。</p>
+                    <p data-id="p_po_geth_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_po_geth_syn" data-vn="1">
+  $GetHistogramStats( noParametersJustAnyText )
+ </pre>
+                    <p data-id="p_po_hist_avars" data-vn="1"><b>可用变量：</b></p>
+                    <div style="padding-left: 20px">
+                        <p data-id="p_po_hist_tosu" data-vn="1"><span class="appproperty">histTotalSum</span> - 所有箱中数值的总和</p>
+                        <p data-id="p_po_hist_maco" data-vn="1"><span class="appproperty">histMaxCount</span> - 所有步长中 <span class="appproperty">histCount</span> 的最大值（各步长中该值相同）</p>
+                        <p data-id="p_po_hist_miva" data-vn="1"><span class="appproperty">histMinValue</span> - 直方图的最小值（纵轴）</p>
+                        <p data-id="p_po_hist_mava" data-vn="1"><span class="appproperty">histMaxValue</span> - 直方图的最大值（纵轴）</p>
+                        <p data-id="p_po_hist_stco" data-vn="1"><span class="appproperty">histStepCount</span> - 所定义的步长数量</p>
+                    </div>                    
+            </div>
+        </div>
+
+    </div>
+   
+    <div data-id="div_sb_local" class="slideblock">
+      
+        <h2 data-id="h2_local" data-vn="1">本地化函数</h2>
+        <p data-id="p_local_func" data-vn="1">这些函数可用于文本的本地化。</p>
+
+        <p data-id="p_local_setl" data-vn="1"><span class="appproperty">SetLocalization</span> - 设置本地化字符串文件（语言文件）的路径。</p>   
+        <div style="padding-left: 20px">
+                <p data-id="p_local_setl_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_local_setl_syn" data-vn="1">
+  $SetLocalization( "filePath" )
+                </pre>
+                <p data-id="p_local_setl_par" data-vn="1"><b>参数：</b></p>
+                    <div style="padding-left: 20px">
+                        <p data-id="p_local_setl_file" data-vn="1"><span class="appproperty">filePath</span> - 全局路径，或相对于工作目录的路径</p>
+                    </div>    
+        </div>
+        
+        <p data-id="p_local_locl" data-vn="1"><span class="appproperty">Localize</span> - 在本地化文件中查找与字符串 ID 对应的文本；若找到则输出该文本，否则输出默认文本。</p>   
+        <div style="padding-left: 20px">
+                <p data-id="p_local_locl_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_local_locl_syn" data-vn="1">
+  $Localize( "STRING_ID", "defaultText" )
+                </pre>
+                <p data-id="p_local_locl_par" data-vn="1"><b>参数：</b></p>
+                    <div style="padding-left: 20px">
+                        <p data-id="p_local_locl_stid" data-vn="1"><span class="appproperty">STRING_ID</span> - 本地化文件中的字符串 ID</p>
+                        <p data-id="p_local_locl_deft" data-vn="1"><span class="appproperty">defaultText</span> - 默认文本</p>
+                    </div>    
+        </div>
+    
+    </div>    
+    
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_bc" class="blocksContainer">
+            
+            <a href="reports_functions_and_variables.htm">
+                <div class="block TileColor3">
+                    <h2 data-id="h2_bc_script" data-vn="1">脚本化报告基础</h2>
+                    <p data-id="p_h2_bc_script" data-vn="1">了解如何创建自定义报告模板</p>
+                </div>
+            </a>
+            
+            <a href="reports_fav_sets.htm">
+                <div class="block TileColor6">
+                    <h2 data-id="h2_bc_sets" data-vn="1">函数集</h2>
+                    <p data-id="p_h2_bc_sets" data-vn="1">函数集及其函数、表达式与变量</p>
+                </div>
+            </a>
+
+            <a href="reports_fav_images.htm">
+                <div class="block TileColor6">
+                    <h2 data-id="h2_bc_images" data-vn="1">影像作用域</h2>
+                    <p data-id="p_h2_bc_images" data-vn="1">了解如何导出项目影像信息</p>
+                </div>
+            </a>
+
+            <a href="reports_fav_components.htm">
+                <div class="block TileColor6">
+                    <h2 data-id="h2_bc_comp" data-vn="1">组件作用域</h2>
+                    <p data-id="p_h2_bc_comp" data-vn="1">组件导出函数与变量</p>
+                </div>
+            </a>
+
+            <a href="reports_fav_cameras.htm">
+                <div class="block TileColor6">
+                    <h2 data-id="h2_bc_cam" data-vn="1">相机作用域</h2>
+                    <p data-id="p_h2_bc_cam" data-vn="1">了解如何获取相机信息</p>
+                </div>
+            </a>
+
+            <a href="reports_fav_points.htm">
+                <div class="block TileColor6">
+                    <h2 data-id="h2_bc_scene" data-vn="1">场景结构作用域</h2>
+                    <p data-id="p_h2_bc_scene" data-vn="1">了解如何为报告添加自定义点统计</p>
+                </div>
+            </a>
+
+            <a href="reports_fav_controlPoints.htm">
+                <div class="block TileColor6">
+                    <h2 data-id="h2_bc_cp" data-vn="1">控制点与约束作用域</h2>
+                    <p data-id="p_h2_bc_cp" data-vn="1">查看控制点与约束功能列表</p>
+                </div>
+            </a>
+
+            <a href="reports_fav_models.htm">
+                <div class="block TileColor6">
+                    <h2 data-id="h2_bc_model" data-vn="1">模型作用域</h2>
+                    <p data-id="p_h2_bc_model" data-vn="1">了解如何生成模型报告</p>
+                </div>
+            </a>
+
+            <a href="reports_fav_ortho.htm">
+                <div class="block TileColor6">
+                    <h2 data-id="h2_bc_ort" data-vn="1">正射投影作用域</h2>
+                    <p data-id="p_h2_bc_ort" data-vn="1">查看正射投影导出函数列表</p>
+                </div>
+            </a>
+            
+            <a href="reports_fav_map.htm">
+                <div class="block TileColor6">
+                    <h2 data-id="h2_bc_map" data-vn="1">地图作用域</h2>
+                    <p data-id="p_h2_bc_map" data-vn="1">查看地图导出函数列表</p>
+                </div>
+            </a>
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+    
+    <script type="text/javascript">
+        InitializeTutorialMode();
+    </script>    
+
+</body>
+</html>
+<!-- signature:Ik5cl34SLWZfjK5+ssK64zuZnw5Bej/qYxkej3GyCPFfaz7ypjbyUOnvUL3wYORVGg7SodxO3KSNtI+KSjOjvlNp87wtat2tzxHQMxr4RnXrjgqOporDayi9upRLPyCP/jQtXvF48OFz4FrQFBd5u0vnf+HXsvNJlEMHjxlnj80= -->

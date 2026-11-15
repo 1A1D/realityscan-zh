@@ -1,0 +1,132 @@
+﻿<html>
+<head>
+    <title>RealityScan 帮助</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Epic Games Slovakia s.r.o." />
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <link type="text/css" rel="stylesheet" href="../../styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/colors.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css" />
+    <script src="../scripts/textVars.js" type="text/javascript"></script>
+    <script src="../../scripts/localization.js" type="text/javascript"></script>
+    <script src="../../scripts/main.js" type="text/javascript"></script>
+</head>
+<body ondragstart="return false;">
+
+    <div data-id="div_cs" class="content_slide">
+
+        <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head" class="head">
+        
+            <h1 data-id="h1_dmme" data-vn="2">地图与遮罩导出</h1>
+        
+
+            <p data-id="p_h1_dmme" data-vn="2">
+                用 <span class="appribbon">MESH &amp; COLOR</span> 或 <span class="appribbon">SCENE 3D</span>/<span class="appribbon">TOOLS</span> 选项卡 <span class="apppanel">Export</span> 区域的 <span class="appribbonbutton">Maps and Masks</span> 按钮导出深度图与遮罩图像。按下按钮后会弹出 Windows“另存为”窗口，可选择导出文件所在的文件夹；点击 <span class="appbutton">Select Folder</span> 按钮进入导出设置对话框。
+
+            </p>
+
+            <div style="padding: 10px 10px 20px 0px">
+                <img src="images/depthandmask-export.png" alt="depthandmask-export" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/depthandmask-export.png';"/>
+            </div>
+            
+            <ul>
+            
+                <li data-id="li_format" data-vn="2"><span class="appproperty">File format</span> 指定导出所用的格式。深度图导出为 EXR 格式，法线图与遮罩图像导出为 PNG 格式。</li>
+                <li data-id="li_location" data-vn="1"><span class="appproperty">Export location</span> 在 Windows“另存为”窗口中指定的文件夹路径。</li>
+                <li data-id="li_list" data-vn="1"><span class="appproperty">Export Image List</span> 启用此选项（设为 <span class="appproperty">Yes</span>）会导出一个图像清单，列出深度图与遮罩图像的文件名及其格式扩展名，并在对应输入（含完整路径）旁边列出。
+                </li>
+                <li data-id="li_listfile" data-vn="1"><span class="appproperty">Export Image List File Name</span> 选择一个已有的文本文件来保存图像清单。</li>
+                <li data-id="li_naming" data-vn="1"><span class="appproperty">Export File Naming</span> 选择深度图与遮罩图像的命名规则。</li>
+
+                <li data-id="li_madset" data-vn="1"><span class="appproperty">Mask and Depth Settings</span> 调整遮罩与深度图的导出设置。
+                    <ul>
+                        <li data-id="li_mask" data-vn="2" class="licircle"><span class="appproperty">Export masks</span> 启用此设置可导出由当前所选模型生成的遮罩图像。
+                        </li>
+                        <li data-id="li_depth" data-vn="2" class="licircle"><span class="appproperty">Export camera depths</span> 启用此项可导出由当前所选模型生成的深度图。
+                        </li>
+                        <li data-id="li_scale" data-vn="2" class="licircle"><span class="appproperty">Distance scale</span> 用于调整长度值以匹配不同单位的缩放系数。仅在启用相机深度导出时可用。
+                        </li>
+                        <li data-id="li_unit" data-vn="2" class="licircle"><span class="appproperty">Project Distance Unit</span> 指定输入距离所用的单位。此设置在导出对话框中固定，不可修改。
+                        </li>
+                        <li data-id="li_near" data-vn="2" class="licircle"><span class="appproperty">Near Plane Distance</span> 设置相机与模型之间允许的最小距离。比该距离更近的区域不会生成深度图。
+                        </li>
+                        <li data-id="li_far" data-vn="2" class="licircle"><span class="appproperty">Far Plance Distance</span> 设置相机与模型之间允许的最大距离。超出该距离的区域不会生成深度图。
+                        </li>
+                    </ul>
+                </li>
+
+                <li data-id="li_norset" data-vn="1"><span class="appproperty">Camera Normals Settings</span> 调整法线图的导出设置。
+                    <ul>
+                        <li data-id="li_normal" data-vn="1" class="licircle"><span class="appproperty">Export camera normals</span> 启用此设置可导出由当前所选模型生成的相机法线图。
+                        </li>
+                        <li data-id="li_nformat" data-vn="1" class="licircle"><span class="appproperty">Normals format</span> 选择导出法线图的格式，可选相机空间与世界空间格式。
+                        </li>
+                        <li data-id="li_csfor" data-vn="1" class="licircle"><span class="appproperty">Camera-space format</span> 依据将要使用法线图的引擎，选择相机空间法线图的格式。
+                        </li>
+                        <li data-id="li_wsfor" data-vn="1" class="licircle"><span class="appproperty">World-space format</span> 依据将要使用法线图的引擎，选择世界空间法线图的格式。
+                        </li>
+                    </ul>
+                </li>
+
+                <li data-id="li_unset" data-vn="2"><span class="appproperty">Undistortion settings</span> Adjust the undistortion settings.
+                    <ul>
+                        <li data-id="li_undistort" data-vn="2" class="licircle"><span class="appproperty">Undistort images</span> Enable (set to <span class="appproperty">Yes</span>) to undistort exported images.</li>
+                        <li data-id="li_unset_fit" data-vn="1" class="licircle"><span class="appproperty">Fit</span> 指定去畸变图像中参与输出的部分。
+                        </li>
+                        <li data-id="li_unset_res" data-vn="1" class="licircle"><span class="appproperty">Resolution</span> 设置图像分辨率。选 <span class="appproperty">Fit</span> 或 <span class="appproperty">Preserve</span> 会启用 <span class="appproperty">Downscale</span> 设置；选 <span class="appproperty">Custom</span> 则可设置 <span class="appproperty">Custom width</span> 与 <span class="appproperty">Custom height</span>。
+                        </li>
+                        <li data-id="li_unset_down" data-vn="1" class="licircle"><span class="appproperty">Downscale</span> 指定图像的降采样倍数。
+                        </li>
+                        <li data-id="li_unset_width" data-vn="1" class="licircle"><span class="appproperty">Custom width</span> 指定图像的自定义宽度。
+                        </li>
+                        <li data-id="li_unset_height" data-vn="1" class="licircle"><span class="appproperty">Custom height</span> 指定图像的自定义高度。
+                        </li>
+                        <li data-id="li_unset_pp" data-vn="1" class="licircle"><span class="appproperty">Undistort principal point</span> 调整去畸变图像中心的位置。设为 <span class="appproperty">Yes</span> 可让光心与导出图像的实际中心对齐。
+                        </li>
+                        <li data-id="li_unset_cut" data-vn="1" class="licircle"><span class="appproperty">Image cut-out</span> 指定用于去畸变的图像比例。
+                        </li>
+                        <li data-id="li_unset_pix" data-vn="1" class="licircle"><span class="appproperty">Max count of pixels</span> 设置图像的最大分辨率（像素）。填 0 表示不限制。
+                        </li>
+                    </ul>
+                
+                </li>
+            
+            </ul>        
+        </div>
+
+        
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_bc" class="blocksContainer">
+        
+            <a href="mask.htm">
+                <div class="block TileColor2">
+                    <h2 data-id="h2_bc_moim" data-vn="1">Alpha 通道遮罩</h2>
+                    <p data-id="p_h2_bc_moim" data-vn="1">了解遮罩图像及其用法的更多内容</p>
+                </div>
+            </a>
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+    <script type="text/javascript">
+        InitializeHelpSlide();
+    </script>
+
+</body>
+</html>
+<!-- signature:pphb5goGtpBlMQGo5w7fkLFRMO1aDDETzdyZV5b3RRYM2RU7X5l/vzmxwkd+bJbe7R4bAYyBoYfPS4HkX728s4PKfUy5FgFSjta4FsutMJqRmg/VbXXGBdkSHOBlOn5ob17dzp/OSe+c9xKkvNknRQGRlaXJHCacgVnYmAMFNJE= -->

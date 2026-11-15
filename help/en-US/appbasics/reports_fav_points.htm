@@ -1,0 +1,393 @@
+﻿<html>
+    <head>
+        <title>RealityScan 帮助</title>
+        <meta charset="UTF-8"/>
+        <meta name="author" content="Epic Games Slovakia s.r.o."/>
+        <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/style.css"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/colors.css"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css"/>
+        <script src="../scripts/textVars.js" type="text/javascript"></script>
+        <script src="../../scripts/localization.js" type="text/javascript"></script>
+        <script src="../../scripts/main.js" type="text/javascript"></script>
+    </head>
+<body ondragstart="return false;">
+
+    <div data-id="div_cs" class="content_slide">
+    
+        <!-- content slide -->
+
+        <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head" class="head">
+            <h1 data-id="h1" data-vn="1">点（报告中可用的函数与变量）</h1>
+        </div>
+
+        <div data-id="div_sb_po" class="slideblock">
+            <h2 data-id="h2_po" data-vn="1">点</h2>
+
+            <p data-id="p_po_expo" data-vn="1"><span class="appproperty">ExportPoints</span> —— 该函数用于输出每个已配准点的信息。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_po_expo_syn" data-vn="1"><b>语法：</b></p>
+                <p><pre data-id="pre_po_expo_syn" data-vn="1">
+  $ExportPoints( noParametersJustAnyText )</pre></p>
+                <p data-id="p_po_expo_avars" data-vn="1"><b>可用变量：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_po_expo_inde" data-vn="1"><span class="appproperty">index</span> —— 点的索引</p>
+                    <p data-id="p_po_expo_trle" data-vn="1"><span class="appproperty">trackLength</span> —— 该点被追踪到的图像数量</p>
+                    <p data-id="p_po_expo_x" data-vn="1"><span class="appproperty">x</span> —— 点在输出坐标系中的 x 坐标</p>
+                    <p data-id="p_po_expo_y" data-vn="1"><span class="appproperty">y</span> —— 点在输出坐标系中的 y 坐标</p>
+                    <p data-id="p_po_expo_z" data-vn="1"><span class="appproperty">z</span> —— 点在输出坐标系中的 z 坐标</p>
+                    <p data-id="p_po_expo_eux" data-vn="1"><span class="appproperty">euclidX</span> —— 点在欧氏坐标系中的 X 坐标</p>
+                    <p data-id="p_po_expo_euy" data-vn="1"><span class="appproperty">euclidY</span> —— 点在欧氏坐标系中的 Y 坐标</p>
+                    <p data-id="p_po_expo_euz" data-vn="1"><span class="appproperty">euclidXZ</span> —— 点在欧氏坐标系中的 Z 坐标</p>
+                    <p data-id="p_po_expo_ax" data-vn="1"><span class="appproperty">aX</span> —— 点在组件坐标系中的 X 坐标</p>
+                    <p data-id="p_po_expo_ay" data-vn="1"><span class="appproperty">aY</span> —— 点在组件坐标系中的 Y 坐标</p>
+                    <p data-id="p_po_expo_az" data-vn="1"><span class="appproperty">aZ</span> —— 点在组件坐标系中的 Z 坐标</p>                
+                    <p data-id="p_po_expo_r" data-vn="1"><span class="appproperty">r</span> —— 点 RGB 颜色的红色分量，取值范围 0 到 255</p>
+                    <p data-id="p_po_expo_g" data-vn="1"><span class="appproperty">g</span> —— 点 RGB 颜色的绿色分量，取值范围 0 到 255</p>
+                    <p data-id="p_po_expo_b" data-vn="1"><span class="appproperty">b</span> —— 点 RGB 颜色的蓝色分量，取值范围 0 到 255</p>                
+                </div>
+                <p data-id="p_po_expo_afun" data-vn="1"><b>可用函数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_po_extr" data-vn="1"><span class="appproperty">ExportTrack</span> —— 该函数遍历该点被追踪到的所有图像</p>
+                    <div style="padding-left: 20px">
+                        <p data-id="p_po_extr_syn" data-vn="1"><b>语法：</b></p>
+                        <p><pre data-id="pre_po_extr_syn" data-vn="1">
+  $ExportTrack( noParametersJustAnyText )</pre></p>
+                        <p data-id="p_po_extr_avars" data-vn="1"><b>可用变量：</b></p>
+                        <div style="padding-left: 20px">
+                            <p data-id="p_po_extr_fein" data-vn="1"><span class="appproperty">featureIndex</span> —— 点在图像中的索引</p>
+                            <p data-id="p_po_extr_imin" data-vn="1"><span class="appproperty">imageIndex</span> —— 图像索引</p>
+                            <p data-id="p_po_extr_x" data-vn="1"><span class="appproperty">x</span> —— 点在图像中的 x 坐标，归一化到 -0.5 到 0.5</p>
+                            <p data-id="p_po_extr_y" data-vn="1"><span class="appproperty">y</span> —— 点在图像中的 y 坐标，归一化到 -0.5 到 0.5</p>
+                            <p data-id="p_po_extr_scale" data-vn="1"><span class="appproperty">scale</span> —— 其值等于 <span class="appproperty">width</span> 与 <span class="appproperty">height</span> 变量中较大者</p>
+                            <p data-id="p_po_extr_widt" data-vn="1"><span class="appproperty">width</span> —— 图像宽度</p>
+                            <p data-id="p_po_extr_heig" data-vn="1"><span class="appproperty">height</span> —— 图像高度</p>
+                        </div>
+                    </div>
+                </div>
+                <p data-id="p_po_extr_ex" data-vn="1"><b>示例：</b></p>
+                <pre data-id="pre_po_extr_ex" data-vn="1">
+  $ExportPoints(
+    Point index: $(index)
+    Number of images: $(trackLength)
+    x: $(x)
+    y: $(y)
+    z: $(z)
+    r: $(r)
+    g: $(g)
+    b: $(b)
+    $ExportTrack(
+      Feature index: $(featureIndex)
+      Image index: $(imageIndex)
+      Projected x (normalized): $(x)
+      Projected y (normalized): $(y)
+      Image scale: $(scale)
+      Image width: $(width)
+      Image height: $(height) 
+      Projected x [pixels]: $(x * scale + width * 0.5)
+      Projected y [pixels]: $(y * scale + height * 0.5)
+    )
+  )
+                </pre>
+            </div>
+            
+            
+            <p data-id="p_po_expe" data-vn="1"><span class="appproperty">ExportPointsEx</span> —— 该函数用于输出指定已配准点的信息。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_po_expe_syn" data-vn="1"><b>语法：</b></p>
+                <p><pre data-id="pre_po_expe_syn" data-vn="1">
+  $ExportPointsEx( flags, minTrack, maxTrack, anyText ))</pre></p>
+                <p data-id="p_po_expe_par" data-vn="1"><b>参数：</b></p>
+                        <div style="padding-left: 20px">
+                            <p data-id="p_po_expe_flgs" data-vn="1"><span class="appproperty">flags</span> —— 可选值：</p>
+                            <div style="padding-left: 20px">
+                                <p data-id="p_po_expe_actv" data-vn="1"><span class="appproperty">active</span> —— 参与重建</p>
+                                <p data-id="p_po_expe_illf" data-vn="1"><span class="appproperty">ill</span> —— 顶端夹角小于最小要求</p>
+                                <p data-id="p_po_expe_outl" data-vn="1"><span class="appproperty">outlier</span> —— 无效投影</p>
+                                <p data-id="p_po_expe_weak" data-vn="1"><span class="appproperty">weak</span> —— 未经验证的两视图点</p>
+                                <p data-id="p_po_expe_fixd" data-vn="1"><span class="appproperty">fixed</span> —— 点坐标已固定，不可移动</p>
+                                <p data-id="p_po_expe_selc" data-vn="1"><span class="appproperty">selected</span> —— 已选中的点</p>
+                                <p data-id="p_po_expe_hidd" data-vn="1"><span class="appproperty">hidden</span> —— 隐藏的点</p>
+                            </div>
+                            <p data-id="p_po_expe_mint" data-vn="1"><span class="appproperty">minTrack</span> —— 该点被追踪到的最少图像数量</p>
+                            <p data-id="p_po_expe_maxt" data-vn="1"><span class="appproperty">maxTrack</span> —— 该点被追踪到的最多图像数量</p>
+                        </div>
+                <p data-id="p_po_expe_avars" data-vn="1"><b>可用变量：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_po_expe_inde" data-vn="1"><span class="appproperty">index</span> —— 点的索引</p>
+                    <p data-id="p_po_expe_trle" data-vn="1"><span class="appproperty">trackLength</span> —— 该点被追踪到的图像数量</p>
+                    <p data-id="p_po_expe_x" data-vn="1"><span class="appproperty">x</span> —— 点在输出坐标系中的 x 坐标</p>
+                    <p data-id="p_po_expe_y" data-vn="1"><span class="appproperty">y</span> —— 点在输出坐标系中的 y 坐标</p>
+                    <p data-id="p_po_expe_z" data-vn="1"><span class="appproperty">z</span> —— 点在输出坐标系中的 z 坐标</p>
+                    <p data-id="p_po_expe_eux" data-vn="1"><span class="appproperty">euclidX</span> —— 点在欧氏坐标系中的 X 坐标</p>
+                    <p data-id="p_po_expe_euy" data-vn="1"><span class="appproperty">euclidY</span> —— 点在欧氏坐标系中的 Y 坐标</p>
+                    <p data-id="p_po_expe_euz" data-vn="1"><span class="appproperty">euclidXZ</span> —— 点在欧氏坐标系中的 Z 坐标</p>
+                    <p data-id="p_po_expe_ax" data-vn="1"><span class="appproperty">aX</span> —— 点在组件坐标系中的 X 坐标</p>
+                    <p data-id="p_po_expe_ay" data-vn="1"><span class="appproperty">aY</span> —— 点在组件坐标系中的 Y 坐标</p>
+                    <p data-id="p_po_expe_az" data-vn="1"><span class="appproperty">aZ</span> —— 点在组件坐标系中的 Z 坐标</p>                
+                    <p data-id="p_po_expe_r" data-vn="1"><span class="appproperty">r</span> —— 点 RGB 颜色的红色分量，取值范围 0 到 255</p>
+                    <p data-id="p_po_expe_g" data-vn="1"><span class="appproperty">g</span> —— 点 RGB 颜色的绿色分量，取值范围 0 到 255</p>
+                    <p data-id="p_po_expe_b" data-vn="1"><span class="appproperty">b</span> —— 点 RGB 颜色的蓝色分量，取值范围 0 到 255</p>                
+                </div>
+                <p data-id="p_po_expe_afun" data-vn="1"><b>可用函数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_po_exte" data-vn="1"><span class="appproperty">ExportTrack</span> —— 该函数遍历该点被追踪到的所有图像</p>
+                    <div style="padding-left: 20px">
+                        <p data-id="p_po_exte_syn" data-vn="1"><b>语法：</b></p>
+                        <p><pre data-id="pre_po_exte_syn" data-vn="1">
+  $ExportTrack( noParametersJustAnyText )</pre></p>
+                        <p data-id="p_po_exte_avars" data-vn="1"><b>可用变量：</b></p>
+                        <div style="padding-left: 20px">
+                            <p data-id="p_po_exte_fein" data-vn="1"><span class="appproperty">featureIndex</span> —— 点在图像中的索引</p>
+                            <p data-id="p_po_exte_imin" data-vn="1"><span class="appproperty">imageIndex</span> —— 图像索引</p>
+                            <p data-id="p_po_exte_x" data-vn="1"><span class="appproperty">x</span> —— 点在图像中的 x 坐标，归一化到 -0.5 到 0.5</p>
+                            <p data-id="p_po_exte_y" data-vn="1"><span class="appproperty">y</span> —— 点在图像中的 y 坐标，归一化到 -0.5 到 0.5</p>
+                            <p data-id="p_po_exte_scale" data-vn="1"><span class="appproperty">scale</span> —— 其值等于 <span class="appproperty">width</span> 与 <span class="appproperty">height</span> 变量中较大者</p>
+                            <p data-id="p_po_exte_widt" data-vn="1"><span class="appproperty">width</span> —— 图像宽度</p>
+                            <p data-id="p_po_exte_heig" data-vn="1"><span class="appproperty">height</span> —— 图像高度</p>
+                        </div>
+                    </div>
+                </div>
+                <p data-id="p_po_exte_ex" data-vn="1"><b>示例：</b></p>
+                <pre data-id="pre_po_exte_ex" data-vn="1">
+  $ExportPointsEx("selected", 1, 5,
+    Point index: $(index)
+    Number of images: $(trackLength)
+    x: $(x)
+    y: $(y)
+    z: $(z)
+    r: $(r)
+    g: $(g)
+    b: $(b)
+    $ExportTrack(
+      Feature index: $(featureIndex)
+      Image index: $(imageIndex)
+      Projected x (normalized): $(x)
+      Projected y (normalized): $(y)
+      Image scale: $(scale)
+      Image width: $(width)
+      Image height: $(height) 
+      Projected x [pixels]: $(x * scale + width * 0.5)
+      Projected y [pixels]: $(y * scale + height * 0.5)
+    )
+  )
+                </pre>
+            </div>            
+  
+            <p data-id="p_po_exms" data-vn="1"><span class="appproperty">ExportMisalignmentPoints</span> —— 该函数用于导出点的索引及其失配量。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_po_exms_syn" data-vn="1"><b>语法：</b></p>
+                <p><pre data-id="pre_po_exms_syn" data-vn="1">
+  $ExportMisalignmentPoints( noParametersJustAnyText )</pre></p>
+                <p data-id="p_po_exms_avva" data-vn="1"><b>可用变量：</b></p>
+                    <div style="padding-left: 20px">
+                        <p data-id="p_po_exms_indx" data-vn="1"><span class="appproperty">index</span> —— 点的索引</p>
+                        <p data-id="p_po_exms_msal" data-vn="1"><span class="appproperty">misalignment</span> —— 点的失配量</p>
+                    </div>
+                <p data-id="p_po_exms_ex" data-vn="1"><b>示例：</b></p>
+                <p><pre data-id="pre_po_exms_ex" data-vn="1">
+  $ExportMisalignmentPoints(
+    Index: $(index)
+    Misalignment: $(misalignment)
+  )</pre></p>
+                
+  
+            </div>
+
+            <p data-id="p_po_tphi" data-vn="1"><span class="appproperty">TiePointsHistogram</span> —— 该函数用于输出连接点最大误差的直方图。每个连接点都有其最大投影误差（即投影到误差最大的那张图像上的误差），以像素计。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_po_tphi_syn" data-vn="1"><b>语法：</b></p>
+                <p><pre data-id="pre_po_tphi_syn" data-vn="1">
+  $TiePointsHistogram( componentGUID, stepSize, stepCount, anyText )</pre></p>
+                <p data-id="p_po_tphi_pars" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_po_tphi_guid" data-vn="1"><span class="appproperty">componentGUID</span> —— 组件的 GUID：可用 IterateComponents 函数获取所有组件的 GUID</p>
+                    <p data-id="p_po_tphi_stsi" data-vn="1"><span class="appproperty">stepSize</span> —— 步长，即分箱大小（正的双精度数）</p>
+                    <p data-id="p_po_tphi_stco" data-vn="1"><span class="appproperty">stepCount</span> —— 步数（分箱数）</p>
+                </div>
+                <p data-id="p_po_tphi_avars" data-vn="1"><b>可用变量：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_po_tphi_tosu" data-vn="1"><span class="appproperty">histTotalSum</span> —— 投影误差落在区间 [ 0, <span class="appproperty">stepSize</span> * <span class="appproperty">stepCount</span> ) 内的连接点数量</p>
+                    <p data-id="p_po_tphi_maco" data-vn="1"><span class="appproperty">histMaxCount</span> —— 所有步中最大的 <span class="appproperty">histCount</span>（各步相同）</p>
+                    <p data-id="p_po_tphi_miva" data-vn="1"><span class="appproperty">histMinValue</span> —— 直方图的最小值（纵轴）</p>
+                    <p data-id="p_po_tphi_mava" data-vn="1"><span class="appproperty">histMaxValue</span> —— 直方图的最大值（纵轴）</p>
+                    <p data-id="p_po_tphi_hstco" data-vn="1"><span class="appproperty">histStepCount</span> —— 所定义的步数</p>
+                    <p data-id="p_po_tphi_inde" data-vn="1"><span class="appproperty">histIndex</span> —— 当前步的索引（第一步索引为 0，最后一步索引为 <span class="appproperty">stepCount</span> - 1）</p>
+                    <p data-id="p_po_tphi_coun" data-vn="1"><span class="appproperty">histCount</span> —— 投影误差落在区间 [ <span class="appproperty">histValue</span> - <span class="appproperty">stepSize</span>, <span class="appproperty">histValue</span> ) 内的连接点数量</p>
+                    <p data-id="p_po_tphi_valu" data-vn="1"><span class="appproperty">histValue</span> —— 当前区间的上界，即本步中每个连接点的投影误差小于 <span class="appproperty">histValue</span>、且大于或等于 <span class="appproperty">histValue</span> - <span class="appproperty">stepSize</span></p>
+                    <p data-id="p_po_tphi_cums" data-vn="1"><span class="appproperty">histCumsum</span> —— 本步与之前所有 <span class="appproperty">histCount</span> 的累计和，最迟在最后一步会等于 <span class="appproperty">histTotalSum</span></p>
+
+                </div>
+                <p data-id="p_po_tphi_ex" data-vn="1"><b>示例：</b></p>
+                <pre data-id="pre_po_tphi_ex" data-vn="1">
+  $IterateComponents(
+    $TiePointsHistogram( "$(componentGUID)", 0.5, 5,
+      Total sum: $(histTotalSum)
+      Index: $(histIndex)
+      Count: $(histCount)
+      Upper bound value: $(histValue)
+      Cumulative sum: $(histCumsum)
+      Max count: $(histMaxCount)
+    )
+  )
+                </pre>
+            </div>
+
+            <p data-id="p_po_trst" data-vn="1"><span class="appproperty">TracksStats</span> —— 该函数用于输出连接点轨迹长度的直方图。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_po_trst_syn" data-vn="1"><b>语法：</b></p>
+                <p><pre data-id="pre_po_trst_syn" data-vn="1">
+  $TracksStats( componentGUID, stepSize, stepCount, anyText )</pre></p>
+                <p data-id="p_po_trst_pars" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_po_trst_cogu" data-vn="1"><span class="appproperty">componentGUID</span> —— 组件的 GUID：可用 IterateComponents 函数获取所有组件的 GUID</p>
+                    <p data-id="p_po_trst_stsi" data-vn="1"><span class="appproperty">stepSize</span> —— 步长，即分箱大小（正的双精度数）：可以用小数，但轨迹长度始终是整数，所以若设为等于或小于 0.5 的数，必然会出现某些分箱里没有连接点</p>
+                    <p data-id="p_po_trst_stco" data-vn="1"><span class="appproperty">stepCount</span> —— 步数（分箱数）</p>
+                </div>   
+                <p data-id="p_po_trst_avars" data-vn="1"><b>可用变量：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_po_trst_tosu" data-vn="1"><span class="appproperty">histTotalSum</span> —— 轨迹长度落在区间 [ 0, <span class="appproperty">stepSize</span> * <span class="appproperty">stepCount</span> ) 内的连接点数量</p>
+                    <p data-id="p_po_trst_maco" data-vn="1"><span class="appproperty">histMaxCount</span> —— 所有步中最大的 <span class="appproperty">histCount</span>（各步相同）</p>
+                    <p data-id="p_po_trst_miva" data-vn="1"><span class="appproperty">histMinValue</span> —— 直方图的最小值（纵轴）</p>
+                    <p data-id="p_po_trst_mava" data-vn="1"><span class="appproperty">histMaxValue</span> —— 直方图的最大值（纵轴）</p>
+                    <p data-id="p_po_trst_hstco" data-vn="1"><span class="appproperty">histStepCount</span> —— 所定义的步数</p>
+                    <p data-id="p_po_trst_inde" data-vn="1"><span class="appproperty">histIndex</span> —— 当前步的索引（第一步索引为 0，最后一步索引为 <span class="appproperty">stepCount</span> - 1）</p>
+                    <p data-id="p_po_trst_coun" data-vn="1"><span class="appproperty">histCount</span> —— 轨迹长度落在区间 [ <span class="appproperty">histValue</span> - <span class="appproperty">stepSize</span>, <span class="appproperty">histValue</span> ) 内的连接点数量</p>
+                    <p data-id="p_po_trst_valu" data-vn="1"><span class="appproperty">histValue</span> —— 当前区间的上界，即本步中每个连接点的轨迹长度小于 <span class="appproperty">histValue</span>、且大于或等于 <span class="appproperty">histValue</span> - <span class="appproperty">stepSize</span></p>
+                    <p data-id="p_po_trst_cums" data-vn="1"><span class="appproperty">histCumsum</span> —— 本步与之前所有 <span class="appproperty">histCount</span> 的累计和，最迟在最后一步会等于 <span class="appproperty">histTotalSum</span></p>
+                </div>
+                <p data-id="p_po_trst_ex" data-vn="1"><b>示例：</b></p>
+                <pre data-id="pre_po_trst_ex" data-vn="1">
+  $IterateComponents(
+    $TracksStats( "$(componentGUID)", 1, 17,
+      Total sum: $(histTotalSum)
+      Index: $(histIndex)
+      Count: $(histCount)
+      Upper bound value: $(histValue)
+      Cumulative sum: $(histCumsum)
+      Max count: $(histMaxCount)
+    )
+  )
+                </pre>
+            </div>
+            
+                <h3 data-id="h3_po_aefu" data-vn="1">可用的表达式函数</h3>
+                
+                    <p data-id="p_po_gepo" data-vn="1"><span class="appproperty">GetPointCount</span> —— 结果为满足以下条件的点数量：能被至少一台所选相机看到、符合指定 flags、且被追踪的视图数不少于 minTrack、不多于 maxTrack。</p>
+                    <p data-id="p_po_gepo_syn" data-vn="1"><b>语法：</b></p>
+                    <pre data-id="pre_po_gepo_syn" data-vn="1">
+  GetPointCount( flags, minTrack, maxTrack )
+ </pre>
+                    <p data-id="p_po_gepo_par" data-vn="1"><b>参数：</b></p>
+                        <div style="padding-left: 20px">
+                            <p data-id="p_po_gepo_flgs" data-vn="1"><span class="appproperty">flags</span> —— 可选值：</p>
+                            <div style="padding-left: 20px">
+                                <p data-id="p_po_gepo_actv" data-vn="1"><span class="appproperty">active</span> —— 参与重建</p>
+                                <p data-id="p_po_gepo_illf" data-vn="1"><span class="appproperty">ill</span> —— 顶端夹角小于最小要求</p>
+                                <p data-id="p_po_gepo_outl" data-vn="1"><span class="appproperty">outlier</span> —— 无效投影</p>
+                                <p data-id="p_po_gepo_weak" data-vn="1"><span class="appproperty">weak</span> —— 未经验证的两视图点</p>
+                                <p data-id="p_po_gepo_fixd" data-vn="1"><span class="appproperty">fixed</span> —— 点坐标已固定，不可移动</p>
+                                <p data-id="p_po_gepo_selc" data-vn="1"><span class="appproperty">selected</span> —— 已选中的点</p>
+                                <p data-id="p_po_gepo_hidd" data-vn="1"><span class="appproperty">hidden</span> —— 隐藏的点</p>
+                            </div>
+                            <p data-id="p_po_gepo_mint" data-vn="1"><span class="appproperty">minTrack</span> —— 该点被追踪到的最少图像数量</p>
+                            <p data-id="p_po_gepo_maxt" data-vn="1"><span class="appproperty">maxTrack</span> —— 该点被追踪到的最多图像数量</p>
+                        </div>         
+        </div>
+        
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_bc" class="blocksContainer">
+            
+            <a href="reports_functions_and_variables.htm">
+                <div class="block TileColor3">
+                    <h2 data-id="h2_bc_script" data-vn="1">报告脚本基础</h2>
+                    <p data-id="p_h2_bc_script" data-vn="1">了解如何创建自定义报告模板</p>
+                </div>
+            </a>
+            
+            <a href="reports_fav_sets.htm">
+                <div class="block TileColor6">
+                    <h2 data-id="h2_bc_sets" data-vn="1">函数集</h2>
+                    <p data-id="p_h2_bc_sets" data-vn="1">函数集及其函数、表达式与变量</p>
+                </div>
+            </a>
+
+            <a href="reports_fav_basic.htm">
+                <div class="block TileColor3">
+                    <h2 data-id="h2_bc_basic" data-vn="1">基础函数</h2>
+                    <p data-id="p_h2_bc_basic" data-vn="1">项目信息、导出器作用域与基础函数集</p>
+                </div>
+            </a>
+
+            <a href="reports_fav_images.htm">
+                <div class="block TileColor3">
+                    <h2 data-id="h2_bc_images" data-vn="1">图像作用域</h2>
+                    <p data-id="p_h2_bc_images" data-vn="1">了解如何导出项目图像的信息</p>
+                </div>
+            </a>
+
+            <a href="reports_fav_components.htm">
+                <div class="block TileColor3">
+                    <h2 data-id="h2_bc_comp" data-vn="1">组件作用域</h2>
+                    <p data-id="p_h2_bc_comp" data-vn="1">组件导出的函数与变量</p>
+                </div>
+            </a>
+
+            <a href="reports_fav_cameras.htm">
+                <div class="block TileColor3">
+                    <h2 data-id="h2_bc_camera" data-vn="1">相机作用域</h2>
+                    <p data-id="p_h2_bc_camera" data-vn="1">了解如何获取相机信息</p>
+                </div>
+            </a>
+
+            <a href="reports_fav_controlPoints.htm">
+                <div class="block TileColor6">
+                    <h2 data-id="h2_bc_cp" data-vn="1">控制点与约束作用域</h2>
+                    <p data-id="p_h2_bc_cp" data-vn="1">查看控制点与约束功能的清单</p>
+                </div>
+            </a>
+
+            <a href="reports_fav_models.htm">
+                <div class="block TileColor6">
+                    <h2 data-id="h2_bc_models" data-vn="1">模型作用域</h2>
+                    <p data-id="p_h2_bc_models" data-vn="1">了解如何生成模型报告</p>
+                </div>
+            </a>
+
+            <a href="reports_fav_ortho.htm">
+                <div class="block TileColor6">
+                    <h2 data-id="h2_bc_ortho" data-vn="1">正射投影作用域</h2>
+                    <p data-id="p_h2_bc_ortho" data-vn="1">查看正射投影导出函数的清单</p>
+                </div>
+            </a>
+            
+            <a href="reports_fav_map.htm">
+                <div class="block TileColor6">
+                    <h2 data-id="h2_bc_map" data-vn="1">地图作用域</h2>
+                    <p data-id="p_h2_bc_map" data-vn="1">查看地图导出函数的清单</p>
+                </div>
+            </a>
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+    
+    <script type="text/javascript">
+        InitializeTutorialMode();
+    </script>    
+
+</body>
+</html>
+<!-- signature:QvOaefJxzPFhp/wefldC2qqtmgUCH6THFpIKZmMCnuPKYdeot9zZRWvOsb+b/eTCye9WTeKYDGQxXNjk7qM1gv4m+EufK5c8bkMigoHNyWcQ9P/yZz6/qsnw9K/pkI2HdWVDvYpH+aqJEAo+5BP+LOK4ol8alKpkORCjanEs4zQ= -->

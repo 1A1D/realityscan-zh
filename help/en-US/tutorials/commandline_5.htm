@@ -1,0 +1,343 @@
+<html>
+<head>
+    <title>RealityScan 帮助</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Epic Games Slovakia s.r.o." />
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <link type="text/css" rel="stylesheet" href="../../styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/colors.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css" />
+    <script src="../scripts/textVars.js" type="text/javascript"></script>
+    <script src="../../scripts/localization.js" type="text/javascript"></script>
+    <script src="../../scripts/main.js" type="text/javascript"></script>
+</head>
+<body ondragstart="return false;">
+
+    <div data-id="div_cs" class="content_slide">
+
+    <!-- content slide -->
+    <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head" class="head">
+            <h1 data-id="h1" data-vn="1">错误处理命令</h1>
+            <p data-id="p_h1" data-vn="1">
+                用以下命令与设置可以处理应用命令行处理过程中可能出现的错误。
+            </p>
+
+            <table class="tableofcommands">
+                <thead data-id="thead_head_cona" data-vn="1">
+                <tr>
+                    <th>命令名称</th>
+                    <th>必需参数</th>
+                    <th>可选参数</th>
+                    <th>说明</th>
+                </tr>
+                </thead>
+                <tr data-id="tr_head_sile" data-vn="2">
+                    <td class="command">silent</td> 
+                    <td class="parameter">crashReportPath</td>
+                    <td class="parameter"></td> 
+                    <td>抑制警告对话框与崩溃报告上传。应用会把报告存到指定位置，而不再弹出上传向导。</td>
+                </tr>
+                <tr data-id="tr_head_set" data-vn="1">
+                    <td class="command">set</td> 
+                    <td class="parameter">"key=value"</td>  
+                    <td class="parameter"></td>
+                    <td>设置一个应用状态变量。</td> 
+                </tr>
+                <tr data-id="tr_head_preset" data-vn="1">
+                    <td class="command">preset</td>
+                    <td class="parameter">"key=value"</td>
+                    <td class="parameter"></td>
+                    <td>在初始化阶段修改应用设置，适合那些需要重启应用才能生效的改动。关于该命令的用法，<a href="../tutorials/setkeyvaluetable.htm">见此处</a>。</td> 
+                </tr>
+                <tr data-id="tr_head_reset" data-vn="2">
+                    <td class="command">reset</td>
+                    <td class="parameter">ui &#124; cfg &#124; cfgui &#124; all</td>  
+                    <td class="parameter"></td>
+                    <td>重置用户界面、设置，或两者都重置，也可以让 RealityScan 恢复到干净安装的状态。该命令只在批处理文件中使用才有效，且不支持委派命令。重置什么由所选参数决定：<span class="appproperty">ui</span> —— 重置用户界面，<span class="appproperty">cfg</span> —— 重置应用设置，<span class="appproperty">cfgui</span> —— 同时重置界面与设置，<span class="appproperty">all</span> —— 恢复为干净安装状态。</td>                         
+                </tr>
+                <tr data-id="tr_head_wrpr" data-vn="2">
+                    <td class="command">writeProgress</td>
+                    <td class="parameter">fileName</td>
+                    <td class="parameter">timeout</td>
+                    <td>在指定时长内（timeout 以秒计）把进度变化写入指定文件（fileName 含路径）。文件结构见下文示例，所有进程 ID 见<a href="../tutorials/processids.htm">此处</a>。</td> 
+                </tr>
+                <tr data-id="tr_head_printprogress" data-vn="1">
+                    <td class="command">printProgress</td> 
+                    <td class="parameter"></td>  
+                    <td class="parameter">timeout</td>
+                    <td data-id="td_head_printprogress" data-vn="1">把任何新的进度变化打印到 Windows 命令提示符中。可选的 timeout 参数还会在指定时长内持续输出（timeout 以秒计）。</td> 
+                </tr>
+                <tr data-id="tr_head_tag" data-vn="2">
+                    <td class="command">tag</td>
+                    <td class="parameter">string</td>
+                    <td class="parameter"></td>
+                    <td data-id="td_head_tag" data-vn="1">把字符串参数输出到 Windows 命令提示符。它遵循所用命令的顺序，也就是说只有在前一条命令所启动的进程结束后才会显示。</td>
+                </tr>   
+                <tr data-id="tr_head_stco" data-vn="1">
+                    <td class="command">stdConsole</td> 
+                    <td class="parameter"></td>  
+                    <td class="parameter"></td>
+                    <td>启用控制台重定向到应用的标准输出。启用后，应用控制台的内容会同时镜像到标准 Windows 控制台中，这也便于为 CLI 用途做进一步重定向。</td> 
+                </tr>
+            </table>
+
+            <br/>
+
+            <table class="tableofcommands">
+                <thead data-id="thead_head_sena" data-vn="1">
+                <tr>
+                    <th>设置名称</th> <th>键</th> <th>值</th> <th>默认值</th>
+                </tr>
+                </thead>
+                <tr data-id="tr_head_quer" data-vn="1">
+                    <td>出错时退出</td>
+                    <td class="command">appQuitOnError</td> 
+                    <td class="parameter">bool</td>  
+                    <td>false</td>
+                </tr>
+                <tr data-id="tr_head_qure" data-vn="1">
+                    <td>需要重启时退出</td>
+                    <td class="command">appQuitOnReset</td> 
+                    <td class="parameter">bool</td>  
+                    <td>false</td>
+                </tr>
+                <tr data-id="tr_head_supp" data-vn="1">
+                    <td>抑制错误消息</td>
+                    <td class="command">suppressErrors</td> 
+                    <td class="parameter">bool</td>  
+                    <td>false</td>
+                </tr>
+                <tr data-id="tr_head_mipd" data-vn="1">
+                    <td>最小进程时长</td>
+                    <td class="command">appProcessActionTime</td> 
+                    <td class="parameter">int</td>  
+                    <td>15</td>
+                </tr>
+                <tr data-id="tr_head_acti" data-vn="1">
+                    <td rowspan="3">动作</td>
+                    <td class="command" rowspan="3">appProcessAction</td> 
+                    <td class="parameter">None</td>  
+                    <td rowspan="3">None</td>
+                </tr>
+                <tr data-id="tr_head_plso" data-vn="1">
+                    <td class="parameter">PlaySound</td>
+                </tr>
+                <tr data-id="tr_head_expr" data-vn="1">
+                    <td class="parameter">ExecuteProgram</td>
+                </tr>
+                <tr data-id="tr_head_clpr" data-vn="1">
+                    <td>命令行进程*<br/><span class="note">*仅当 "appProcessAction=ExecuteProgram" 时相关</span></td>
+                    <td class="command">appProcessExecCmd</td> 
+                    <td class="parameter">string</td>  
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sb_exmi" data-vn="2" class="slideblock">
+            <h2 data-id="h2_exmi" data-vn="1">示例与更多信息</h2>
+
+            <h3 data-id="h3_exmi_sicr" data-vn="1">静默崩溃报告</h3>
+            <div class="codeSample">
+                RealityScan.exe -silent c:\\CrashReportFolder ^<br/>
+                <div style="padding-left: 20px">
+                -set "appQuitOnError=true" ^<br/>
+                -set "appProcessActionTime=0" ^<br/>
+                -set "appProcessAction=ExecuteProgram" ^<br/>
+                -set "appProcessExecCmd=c:\\MyScripts\\ErrorWriter.bat $(processResult) $(processId) $(processDuration:d) c:\\ErrorReportFolder\\ErrorReport.txt"
+                </div>
+            </div>
+
+            <p data-id="p_sicr_sico" data-vn="1">
+                带 <span class="appaspecttype">c:\\CrashReportFolder</span> 参数的 <span class="appaspecttype">-silent</span> 命令会把崩溃报告的 minidump 重定向到目标文件夹 <span class="appaspecttype">CrashReportFolder</span>。
+            </p>
+
+            <p data-id="p_sicr_aqoe" data-vn="1">
+                把 <span class="appaspecttype">appQuitOnError</span> 设为 True 会让应用在发生任何错误时退出。
+            </p>
+
+            <p data-id="p_sicr_appp" data-vn="1">
+                <span class="appaspecttype">appProcessActionTime</span> 设为 0 表示我们关注所有时长至少为 0 秒的进程——也就是关注每一个进程。<br/> 把 <span class="appaspecttype">appProcessAction</span> 设为 2 相当于把它设为 <span class="appaspecttype">Execute a program</span>。<br/> <span class="appaspecttype">appProcessExecCmd</span> 设为一个具体命令（批处理脚本）<span class="appaspecttype">ErrorWriter.bat</span>，其完整路径为 <span class="appaspecttype">c:\\MyScripts\\ErrorWriter.bat</span>，并带上必要的输入参数 <span class="appaspecttype">$(processResult) $(processId) $(processDuration:d) c:\\ErrorReportFolder\\ErrorReport.txt</span>。<br/> 这三项设置合起来可以这样理解：只要进程时长超过所指定的最小值（0 秒），应用就会执行 <span class="appaspecttype">ErrorWriter.bat</span> 程序。 
+            </p>
+
+            <p data-id="p_sicr_valu" data-vn="1">
+                可以把应用中的值作为被调用程序的输入参数，例如：<br/> <span class="appaspecttype">processResult</span> —— 表示进程结果的数字（processResult 为 0 表示进程正常结束），<br/> <span class="appaspecttype">processId</span> —— 进程 ID，<br/> <span class="appaspecttype">processDuration:d</span> —— 表示进程耗时多久的数字。<br/> 也可以使用自己的输入参数（例如 <span class="appaspecttype">c:\\ErrorReportFolder\\ErrorReport.txt</span>），把必要数据传进脚本，比如用于写出错误报告文本文件的名称与完整路径。
+            </p>
+
+            <p data-id="p_sicr_exam" data-vn="1">
+                下面是一个简短的批处理脚本示例 <span class="appaspecttype">ErrorWriter.bat</span>：
+            </p>
+
+            <pre data-id="pre_sicr_exam" data-vn="1" class="codeSample" style="white-space: pre-wrap;">if /i "%1" NEQ "0" ( 
+                if /i "%1" NEQ "1" ( 
+                    echo An error occured by process %2 which finished with result code %1 in %3 seconds. > %4 
+                ) 
+)</pre>
+            <p data-id="p_sicr_inpu" data-vn="1">
+                其中 <span class="appaspecttype">%1, %2, %3, %4</span> 是输入参数 <span class="appaspecttype">$(processResult), $(processId), $(processDuration:d), c:\\ErrorReportFolder\\ErrorReport.txt</span>。该脚本会检查输入参数 processResult 的值：若不为 0，说明进程以错误结束，脚本会向输出的 ErrorReport 文本文件写一份简短报告：
+            </p>
+            <div data-id="div_sicr_samp" data-vn="1" class="codeSample">
+                进程 20599 出错，在 0 秒内以结果代码 2181038335 结束。
+            </div>
+            
+            <h3 data-id="h3_exmi_exco" data-vn="1">退出码</h3>
+            <p data-id="p_exsu" data-vn="2">
+                RealityScan 进程成功结束时，应用返回的退出码为 0（可在 Windows 命令提示符中看到结果）。
+            </p>
+            <p data-id="p_exre" data-vn="2">
+                若 RealityScan 进程以错误结束，应用会返回该具体错误的十进制代码（在使用 <span class="appaspecttype">-set "appQuitOnError=true"</span> 命令的情况下）。
+            </p>
+            
+            <p data-id="p_excr" data-vn="2">
+                若 RealityScan 进程崩溃并生成 minidump，应用返回的退出码为 3。
+            </p>
+            
+            <p data-id="p_exmc" data-vn="1">
+                代码示例：
+            </p>
+            <div class="codeSample">
+                RealityScan.exe -silent c:\\CrashReportFolder ^<br/>
+                -set "appQuitOnError=true"<br/>
+                …<br/>
+                echo RealityScan.exe returned with %errorlevel%.
+            </div>
+            
+            <p data-id="p_exmr" data-vn="1">
+                红色错误情况下的结果示例：
+            </p>
+            <img src="images/commandline_5_red_error.png" alt="commandline_5_red_error" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/appbasics/images/commandline_5_red_error.png';"/>
+            
+            <p data-id="p_exmm" data-vn="1">
+                崩溃并生成 minidump 时的结果示例：
+            </p>
+            <img src="images/commandline_5_crash.png" alt="commandline_5_crash" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/appbasics/images/commandline_5_crash.png';"/>
+            
+            <h3 data-id="h3_exmi_quor" data-vn="1">重启后退出</h3>
+            <p data-id="p_quor" data-vn="1">
+                有些应用设置修改后需要重启应用。此时可以用 -set 命令配合键 appQuitOnReset=True 来抑制该对话框。请注意，使用该键并修改相应设置后应用会退出。下面是把缓存目录改到自定义位置、然后打开新场景的示例：
+            </p>
+            <div class="codeSample">
+                RealityScan.exe -set "appQuitOnReset=true" ^<br/>
+                -set "appCacheLocation=Custom"<br/>
+                RealityScan.exe -set "appQuitOnReset=true" ^<br/>
+                -set "appCacheCustomLocation=D:\cr-tmp"<br/>
+                RealityScan.exe -newScene
+            </div>
+
+            <h3 data-id="h3_exmi_prmo" data-vn="1">进度监控</h3>
+            <p data-id="p_prmo" data-vn="1">
+                用 -writeProgress 命令可以在指定时长（timeout）内把进度信息写入指定文件（fileName）。生成的文件包含 5 列：<br/> <br/> algId —— 进程 ID，<br/> progress —— 取值区间 &lt;0,1&gt; 的数字，表示进程所处阶段，<br/> duration —— 已用时间（秒），<br/> estimation —— 预计剩余时间（秒），<br/> eventType —— {started, progress, timeout, completed}，表示产生该条记录的事件。<br/> 
+            </p>
+            <div class="codeSample">
+                20561 0.00 0.04 404.08 #started<br/>
+                20561 0.45 0.10 0.22 #progress<br/>
+                20561 0.85 14.76 3.26 #progress<br/>
+                20561 0.90 15.04 1.70 #progress<br/>
+                20561 0.91 16.18 1.76 #progress<br/>
+                20561 0.94 16.72 1.82 #progress<br/>
+                20561 0.96 16.78 1.42 #progress<br/>
+                20561 0.97 17.06 0.55 #progress<br/>
+                20561 1.00 17.10 0.10 #progress<br/>
+                20561 1.00 17.13 0.00 #completed
+            </div>
+
+        </div> 
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_bc" data-vn="2" class="blocksContainer">
+
+            <a href="../tutorials/commandline.htm">
+                <div class="block TileColor1">
+                    <h2 data-id="h2_bc_pric" data-vn="1">工程与图像命令</h2>
+                    <p data-id="p_bc_pric" data-vn="1">通过 CLI 管理当前工程、应用本身，以及添加图像</p>
+                </div>
+            </a>
+
+            <a href="../tutorials/commandline_rscmd.htm">
+                <div class="block TileColor1">
+                    <h2 data-id="h2_bc_cocp" data-vn="1">命令行之外的命令执行方式</h2>
+                    <p data-id="p_bc_cocp" data-vn="2">用 .rscmd 文件执行 CLI</p>
+                </div>
+            </a>
+            
+            <a href="../tutorials/commandline_deleg.htm">
+                <div class="block TileColor1">
+                    <h2 data-id="h2_bc_del" data-vn="1">命令委派</h2>
+                    <p data-id="p_bc_del" data-vn="2">关于把命令委派给已打开的 RealityScan 实例</p>
+                </div>
+            </a>            
+
+            <a href="../tutorials/commandline_1.htm">
+                <div class="block TileColor1">
+                    <h2 data-id="h2_bc_alco" data-vn="1">对齐命令</h2>
+                    <p data-id="p_bc_alco" data-vn="1">对齐与组件处理命令</p>
+                </div>
+            </a>
+
+<a href="../tutorials/commandline_2.htm">
+                <div class="block TileColor1">
+                    <h2 data-id="h2_bc_reco" data-vn="1">重建命令</h2>
+                    <p data-id="p_bc_reco" data-vn="1">通过命令行计算模型</p>
+                </div>
+            </a>
+
+            <a href="../tutorials/commandline_3.htm">
+                <div class="block TileColor1">
+                    <h2 data-id="h2_bc_motc" data-vn="1">模型工具命令</h2>
+                    <p data-id="p_bc_motc" data-vn="1">通过命令行进一步处理模型</p>
+                </div>
+            </a>
+
+            <a href="../tutorials/commandline_4.htm">
+                <div class="block TileColor1">
+                    <h2 data-id="h2_bc_seco" data-vn="1">设置命令</h2>
+                    <p data-id="p_bc_seco" data-vn="1">应用设置与行为</p>
+                </div>
+            </a>
+            
+            <a href="../tutorials/processids.htm">
+                <div class="block TileColor2">
+                    <h2 data-id="h2_bc_prid" data-vn="1">进程 ID</h2>
+                    <p data-id="p_bc_prid" data-vn="1">进程 ID 清单</p>
+                </div>
+            </a>
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sa" class="rowblock">
+            <h3 data-id="h3_sa" data-vn="1">另见：</h3>
+            <ul class="intend">
+                <li data-id="li_sa_acli" data-vn="1">在一页中查看全部 CLI 命令 <a href="../appbasics/allcommands.htm">点击此处</a></li>
+                <li data-id="li_sa_keva" data-vn="1">查看应用设置的键与值 <a href="../tutorials/setkeyvaluetable.htm">点击此处</a></li>
+            </ul>
+        </div> 
+
+    
+    <!-- content slide end -->
+
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+    <script type="text/javascript">
+        InitializeTutorialMode();
+    </script>
+
+</body>
+</html>
+<!-- signature:Xnlw+NfThh9OeDJSuAdI6H76QcDWS8FN4p/h9rvkiJfwS7n5vvQh9A86J+/Kwf9RRVkiN9WMBIA+I/lON/9ITX3Z0wKKAxwGn8Ex5JkTOTngaSkET7Kpmx439zC+NLvSZ6G1LmhVgFl/YzZxv/JopibxwQexIXeNGsOkXT9t9og= -->

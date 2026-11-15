@@ -1,0 +1,1654 @@
+<html>
+    <head>
+        <title>RealityScan 帮助</title>
+        <meta charset="utf-8"/>
+        <meta name="author" content="Epic Games Slovakia s.r.o."/>
+        <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/style.css"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/colors.css"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css"/>
+        <script src="../scripts/textVars.js" type="text/javascript"></script>
+        <script src="../../scripts/localization.js" type="text/javascript"></script>
+        <script src="../../scripts/main.js" type="text/javascript"></script>
+        <script type="text/javascript">InitializeHelpSlide();</script>
+    </head>
+    <body ondragstart="return false;">
+
+        <div data-id="div_cs" class="content_slide">
+
+            <!-- content slide -->
+
+            <script type="text/javascript">RenderToolNavigation();</script>
+
+            <div data-id="div_head" class="head">
+                <h1 data-id="h1" data-vn="1">全部 CLI 命令列表</h1>
+                <p data-id="p_h1__v1" data-vn="1">
+                    使用 CLI 命令可自动化工作流程，让迭代处理更轻松。
+                </p>
+            </div>
+
+            <div data-id="div_sb_project" class="slideblock splitSpacing">
+                <h2 data-id="h2_project" data-vn="1">项目与影像</h2>
+                <p data-id="p_h2_project" data-vn="2" class="lod1">
+                    向项目添加影像，或更改项目 / 实例设置。
+                </p>
+
+                <table class="tableofcommands">
+                    <thead>
+                        <tr data-id="tr_project_head" data-vn="1">
+                            <th>命令名称</th>
+                            <th>必需参数</th>
+                            <th>可选参数</th>
+                            <th>说明</th>
+                        </tr>
+                    </thead>
+                    <tr data-id="tr_project_headless" data-vn="1">
+                        <td class="command">headless</td>
+                        <td class="parameter"></td>
+                        <td class="parameter"></td>
+                        <td>隐藏用户界面。关于该命令的更多信息请见 <a href="../tutorials/headless.htm">此处</a>。</td>
+                    </tr>
+                    <tr data-id="tr_project_hideui" data-vn="1">
+                        <td class="command">hideUI</td>
+                        <td class="parameter"></td>
+                        <td class="parameter"></td>
+                        <td>隐藏用户界面。与 <span class="command">headless</span> 不同，该命令不必在启动时运行，也不会屏蔽需要用户交互的操作。</td>
+                    </tr>
+                    <tr data-id="tr_project_showui" data-vn="1">
+                        <td class="command">showUI</td>
+                        <td class="parameter"></td>
+                        <td class="parameter"></td>
+                        <td>显示已隐藏的用户界面。与 <span class="command">headless</span> 不同，该命令不必在启动时运行。</td>
+                    </tr>                
+                    <tr data-id="tr_project_newscene" data-vn="1">
+                        <td class="command">newScene</td>
+                        <td class="parameter"></td>
+                        <td class="parameter"></td>
+                        <td>创建一个空的新场景。</td>
+                    </tr>
+                    <tr data-id="tr_project_load" data-vn="3">
+                        <td class="command">load</td>
+                        <td class="parameter">MyProject.rsproj</td>
+                        <td class="parameter">recoverAutosave&#124;deleteAutosave</td>
+                        <td>
+                            从 MyProject.rsproj 文件加载已有项目。若该项目存在自动保存文件，可用可选参数定义处理方式：使用 <span class="command">recoverAutosave</span> 会打开自动保存的项目，而 <span class="command">deleteAutosave</span> 会删除自动保存的项目并加载原始项目。有关自动保存功能的更多信息，请见 <a href="../appbasics/autosave.htm">此处</a>。<br /> 若要为所有项目统一设置该偏好，请使用带 <span class="command">appAutoSaveCliHandling</span> 键的 <span class="command">set</span> 命令。更多内容见 <a href="../tutorials/setkeyvaluetable.htm">CLI 设置键与值</a> 一节。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_project_saor" data-vn="2">
+                        <td class="command">save</td>
+                        <td class="parameter"></td>
+                        <td class="parameter">MyProject.rsproj</td>
+                        <td>把当前项目保存到原位置，或另存为 MyProject.rsproj。</td>
+                    </tr>
+                    <tr data-id="tr_project_start" data-vn="2">
+                        <td class="command">start</td>
+                        <td class="parameter"></td>
+                        <td class="parameter"></td>
+                        <td>运行为 <span class="appribbonbutton">Start</span> 按钮配置的各个进程。可在 <span class="appbutton">Start</span> 按钮下拉菜单中的 <span class="apppanel">Start button</span> 设置里调整这些设置。</td>
+                    </tr>
+                    <tr data-id="tr_project_unlock" data-vn="3">
+                        <td class="command">unlockPPIProject</td>
+                        <td class="parameter">myProject.rcproj</td>
+                        <td class="parameter"></td>
+                        <td>保存并解锁 PPI 项目，使其可兼容最新版本的 RealityScan。请填写欲存放解锁项目的完整路径，包含项目名称与扩展名。</td>
+                    </tr>
+                    <tr data-id="tr_project_add" data-vn="2">
+                        <td class="command">add</td>
+                        <td class="parameter">imageName</td>
+                        <td class="parameter"></td>
+                        <td>从指定文件路径或影像列表导入一幅或多幅影像。影像列表是扩展名为 .imagelist 的文本文件，每行写一个影像的完整路径。</td>
+                    </tr>
+                    <tr data-id="tr_project_addfolder" data-vn="2">
+                        <td class="command">addFolder</td>
+                        <td class="parameter">folderName</td>
+                        <td class="parameter"></td>
+                        <td>把指定文件夹中的所有影像添加进来。若要包含子目录，请使用带 <span class="command">appIncSubdirs</span> 键的 <span class="command">set</span> 命令，写法如下：<span class="command">-set "appIncSubdirs=true"</span>。更多内容见 <a href="../tutorials/setkeyvaluetable.htm">CLI 设置键与值</a> 一节。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_project_importvideo" data-vn="1">
+                        <td class="command">importVideo</td>
+                        <td class="parameter">videoFileName<br /> extractedVideoFramesLocation<br /> jumpsLength</td>
+                        <td class="parameter"></td>
+                        <td>
+                            导入从视频中抽取的帧（videoFileName 需含路径）。帧会按 jumpsLength 定义的间隔（单位：秒）抽取到文件夹 extractedVideoFramesLocation 中。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_project_ilblk" data-vn="1">
+                        <td class="command">importLeicaBlk3D</td>
+                        <td class="parameter">fileName</td>
+                        <td class="parameter"></td>
+                        <td>
+                            导入由 Leica BLK3D 采集、扩展名为 .cmi 的影像序列（fileName 需含路径）。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_project_importscan" data-vn="2">
+                        <td class="command">importLaserScan</td>
+                        <td class="parameter">laserscanName</td>
+                        <td class="parameter">params.xml</td>
+                        <td>
+                            使用当前设置或 params.xml 文件中的设置（可选参数）添加 LiDAR 扫描或 LiDAR 扫描列表。这些设置可从应用程序中的 <span class="apppanel">LiDAR Scan Import</span> 对话框导出。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_project_importscanfolder" data-vn="2">
+                        <td class="command">importLaserScanFolder</td>
+                        <td class="parameter">folderName</td>
+                        <td class="parameter">params.xml</td>
+                        <td>使用 params.xml 文件中的设置，添加指定文件夹中的所有 LiDAR 扫描。这些设置可从应用程序中的 <span class="apppanel">LiDAR Scan Import</span> 对话框导出。</td>
+                    </tr>
+                    <tr data-id="tr_project_ihdr" data-vn="1">
+                        <td class="command">importHDRimages</td>
+                        <td class="parameter">fileName&#124;folderName&#124;imageList</td>
+                        <td class="parameter">params.xml</td>
+                        <td>
+                            使用当前设置或 params.xml 中的设置，导入 HDR 影像（imageName）、影像列表（imageList）或文件夹（folderName）中的所有影像。这些设置可从应用程序中的 <span class="apppanel">16-bit/HDR Images Import</span> 对话框导出。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_project_imxmp" data-vn="1">
+                        <td class="command">addImageWithCalibration</td>
+                        <td class="parameter">fileName<br/> xmpFileName</td>
+                        <td class="parameter"></td>
+                        <td>
+                            导入影像及其对应的 XMP 文件，请使用文件的完整路径。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_selimages_importsel" data-vn="2">
+                        <td class="command">importImageSelection</td>
+                        <td class="parameter">fileName</td>
+                        <td class="parameter"></td>
+                        <td>选中文件（filename 需含路径）中列出的部分场景影像和 / 或 LiDAR 扫描。</td>
+                    </tr>
+                    <tr data-id="tr_selimages_selimgs" data-vn="2">
+                        <td class="command">selectImage</td>
+                        <td class="parameter">imagePath&#124;regexp</td>
+                        <td class="parameter">set<br /> union<br /> sub<br /> intersect<br /> toggle</td>
+                        <td>选中指定影像（imagePath）或由正则表达式（regexp）定义的影像，参见下文的 <a href="#exselectimgs">示例</a>。可使用其中一个可选参数，以更灵活地筛选影像。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_selimages_selall" data-vn="1">
+                        <td class="command">selectAllImages</td>
+                        <td class="parameter"></td>
+                        <td class="parameter"></td>
+                        <td>选中项目中的所有影像。</td>
+                    </tr>
+                    <tr data-id="tr_selimages_deselall" data-vn="1">
+                        <td class="command">deselectAllImages</td>
+                        <td class="parameter"></td>
+                        <td class="parameter"></td>
+                        <td>取消选中项目中的所有影像。</td>
+                    </tr>
+                    <tr data-id="tr_selimages_invsel" data-vn="1">
+                        <td class="command">invertImageSelection</td>
+                        <td class="parameter"></td>
+                        <td class="parameter"></td>
+                        <td>反选当前影像选区。</td>
+                    </tr>
+                    <tr data-id="tr_selimages_removecal" data-vn="1">
+                        <td class="command">removeCalibrationGroups</td>
+                        <td class="parameter"></td>
+                        <td class="parameter"></td>
+                        <td>清除所有输入所属的标定组。</td>
+                    </tr>
+                    <tr data-id="tr_selimages_aimask" data-vn="1">
+                        <td class="command">generateAIMasks</td>
+                        <td class="parameter"></td>
+                        <td class="parameter"></td>
+                        <td>使用 AI 蒙版功能，把影像中感兴趣的对象分离出来以生成蒙版。</td>
+                    </tr>                              
+                    <tr data-id="tr_selimages_exmas" data-vn="3">
+                        <td class="command" rowspan="2">exportMasks</td>
+                        <td class="parameter">folderPath params.xml</td>
+                        <td class="parameter"></td>
+                        <td>导出项目当前使用的蒙版影像。请指定输出文件夹与含导出参数的 XML 文件的完整路径（该文件可从 <span class="apppanel">Export Mask Images</span> 对话框导出）。</td>
+                    </tr>
+                    <tr data-id="tr_selimages_exmas2" data-vn="1">
+                        <td class="parameter">params.xml</td>
+                        <td class="parameter"></td>
+                        <td>把蒙版影像导出到原始影像所在文件夹。请指定含导出参数的 XML 文件的完整路径（该文件可从 <span class="apppanel">Export Mask Images</span> 对话框导出）。</td>
+                    </tr>
+                    <tr data-id="tr_images_setImageLayer" data-vn="2">
+                        <td class="command">setImageLayer</td>
+                        <td class="parameter">index pathImage layerType</td>
+                        <td class="parameter"></td>
+                        <td>把由 <span class="appproperty">pathImage</span> 参数指定的影像（图层影像的路径）中的图层，设置到由 <span class="appproperty">index</span> 参数指定的影像上。索引对应 <span class="appaspecttype">1Ds</span> 视图中的影像顺序，从 0 开始。<span class="appproperty">layerType</span> 参数定义要设置到所选影像上的图层类型（例如 mask、texture）。</td>
+                    </tr>
+                    <tr data-id="tr_selimages_setImagesLayer" data-vn="1">
+                        <td class="command">setImagesLayer</td>
+                        <td class="parameter">pathImage layerType</td>
+                        <td class="parameter"></td>
+                        <td>把由 <span class="appproperty">pathImage</span> 参数指定的影像（图层影像的路径）中的图层，设置到当前选中的影像上。<span class="appproperty">layerType</span> 参数定义要设置到所选影像上的图层类型（例如 mask、texture）。</td>
+                    </tr>
+                    <tr data-id="tr_selimages_remImageLayer" data-vn="1">
+                        <td class="command">removeImageLayer</td>
+                        <td class="parameter">layerType</td>
+                        <td class="parameter"></td>
+                        <td>从所选影像中移除与 <span class="appproperty">layerType</span> 参数对应的图层（例如 mask、texture）。</td>
+                    </tr>                    
+                    <tr data-id="tr_project_importcache" data-vn="1">
+                        <td class="command">importCache</td>
+                        <td class="parameter">folderName</td>
+                        <td class="parameter"></td>
+                        <td>从指定文件夹导入资源缓存数据。</td>
+                    </tr>
+                    <tr data-id="tr_project_clearcache" data-vn="1">
+                        <td class="command">clearCache</td>
+                        <td class="parameter"></td>
+                        <td class="parameter"></td>
+                        <td>清除应用程序缓存。清除前必须先保存项目。</td>
+                    </tr>
+                    <tr data-id="tr_project_rccmd" data-vn="3">
+                        <td class="command">execRSCMD</td>
+                        <td class="parameter">Commands.rscmd</td>
+                        <td class="parameter"></td>
+                        <td>执行 .rscmd（或 .rccmd）文件中的命令，可选用报告参数。文件格式与语法见 <a href="../tutorials/commandline_rscmd.htm">命令提示符之外执行命令</a> 一节。可在 .rscmd 文件路径之后列出最多九个参数作为变量，在文件内部用 $(arg1)–$(arg9) 引用这些变量。</td>
+                    </tr>
+                    <tr data-id="tr_project_quit" data-vn="1">
+                        <td class="command">quit</td>
+                        <td class="parameter"></td>
+                        <td class="parameter"></td>
+                        <td>退出应用程序。</td>
+                    </tr>
+                </table>
+
+                <h3 data-id="h3_selimages" data-vn="1">针对所选影像的命令</h3>
+                <p data-id="p_h3_selimages" data-vn="1">以下命令用于为影像的后续处理设置一些偏好。</p>
+                    
+                <table class="tableofcommands">
+                    <thead>
+                        <tr data-id="tr_selimages_head" data-vn="1">
+                            <th>命令名称</th>
+                            <th>必需参数</th>
+                            <th>可选参数</th>
+                            <th>说明</th>
+                        </tr>
+                    </thead>
+                    <tr data-id="tr_selimages_feso" data-vn="1">
+                        <td class="command">setFeatureSource</td>
+                        <td class="parameter">0&#124;1&#124;2</td>
+                        <td class="parameter"></td>
+                        <td>
+                            为所选影像定义特征来源模式：<br /> 0 – 按重叠区域合并，<br /> 1 – 使用组件特征，<br /> 2 – 使用全部影像特征。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_selimages_alignment" data-vn="1">
+                        <td class="command">enableAlignment</td>
+                        <td class="parameter">true&#124;false</td>
+                        <td class="parameter"></td>
+                        <td>启用 / 禁用所选影像参与配准过程。</td>
+                    </tr>
+                    <tr data-id="tr_selimages_meshing" data-vn="1">
+                        <td class="command">enableMeshing</td>
+                        <td class="parameter">true&#124;false</td>
+                        <td class="parameter"></td>
+                        <td>启用 / 禁用所选影像参与模型计算 / 网格生成。</td>
+                    </tr>
+                    <tr data-id="tr_selimages_texturing" data-vn="1">
+                        <td class="command">enableTexturingAndColoring</td>
+                        <td class="parameter">true&#124;false</td>
+                        <td class="parameter"></td>
+                        <td>启用 / 禁用所选影像参与着色与纹理计算。</td>
+                    </tr>
+                    <tr data-id="tr_selimages_weight" data-vn="1">
+                        <td class="command">setWeightInTexturing</td>
+                        <td class="parameter">&lt;0,1&gt;</td>
+                        <td class="parameter"></td>
+                        <td>设置所选影像在着色与纹理计算中的权重。</td>
+                    </tr>
+                    <tr data-id="tr_selimages_ecnr" data-vn="1">
+                        <td class="command">enableColorNormalizationReference</td>
+                        <td class="parameter">true&#124;false</td>
+                        <td class="parameter"></td>
+                        <td>把所选影像设为颜色归一化过程中的颜色参考，这些影像的颜色不会被改变。</td>
+                    </tr>
+                    <tr data-id="tr_selimages_ecno" data-vn="1">
+                        <td class="command">enableColorNormalization</td>
+                        <td class="parameter">true&#124;false</td>
+                        <td class="parameter"></td>
+                        <td>启用或禁用所选影像参与颜色归一化过程。</td>
+                    </tr>
+                    <tr data-id="tr_selimages_downscale" data-vn="1">
+                        <td class="command">setDownscaleForDepthMaps</td>
+                        <td class="parameter">integer</td>
+                        <td class="parameter"></td>
+                        <td>为所选影像设置深度图计算的降采样系数。</td>
+                    </tr>
+                    <tr data-id="tr_selimages_component" data-vn="1">
+                        <td class="command">enableInComponent</td>
+                        <td class="parameter">true&#124;false</td>
+                        <td class="parameter"></td>
+                        <td>启用所选影像参与网格生成并继续。仅适用于已配准的影像。</td>
+                    </tr>
+                    <tr data-id="tr_selimages_groupbyexif" data-vn="1">
+                        <td class="command">setCalibrationGroupByExif</td>
+                        <td class="parameter"></td>
+                        <td class="parameter"></td>
+                        <td>根据所有输入的 EXIF 信息设置其标定组。</td>
+                    </tr>
+                    <tr data-id="tr_selimages_groupbyselect" data-vn="1">
+                        <td class="command">setConstantCalibrationGroups</td>
+                        <td class="parameter"></td>
+                        <td class="parameter"></td>
+                        <td>把所有选中的输入归入同一个标定组。</td>
+                    </tr>
+                    <tr data-id="tr_selimages_pose" data-vn="1">
+                        <td class="command">lockPoseForContinue</td>
+                        <td class="parameter">true&#124;false</td>
+                        <td class="parameter"></td>
+                        <td>在下一次配准时保持所选影像的相对相机位姿不变。仅适用于已配准的影像。</td>
+                    </tr>
+                    <tr data-id="tr_selimages_prior" data-vn="1">
+                        <td class="command">setPriorCalibrationGroup</td>
+                        <td class="parameter">number</td>
+                        <td class="parameter"></td>
+                        <td>
+                            为所选影像设置先验标定组：<br /> -1 - 不分组，<br /> 其它数值 - 归入同一个标定组。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_selimages_lens" data-vn="1">
+                        <td class="command">setPriorLensGroup</td>
+                        <td class="parameter">number</td>
+                        <td class="parameter"></td>
+                        <td>为所选影像设置先验镜头组。取 -1 表示不分组；取其它数值表示把所选影像归入同一个畸变组。</td>
+                    </tr>
+                    <tr data-id="tr_selimages_editinputselect" data-vn="1">
+                        <td class="command">editInputSelection</td>
+                        <td class="parameter">"key=value"</td>
+                        <td class="parameter"></td>
+                        <td>
+                            根据 <span class="apppanel">Selected inputs</span> 面板中的值或其键，编辑所选输入的设置。更多信息请见 <a href="../tutorials/editselectioncommand.htm">此处</a>。
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="slideblock splitSpacing">
+                <h2 data-id="h2_delco" data-vn="1">委托命令</h2>
+                <p data-id="p_h2_delco" data-vn="2" class="lod1">
+                    可用这些命令把操作委托给某个指定的 RealityScan 实例。有关命令委托的更多信息请见 <a href="../tutorials/commandline_deleg.htm">此处</a>。
+                </p>
+
+                <table class="tableofcommands">
+                    <thead>
+                        <tr data-id="tr_delco_head" data-vn="1">
+                            <th>命令名称</th>
+                            <th>必需参数</th>
+                            <th>可选参数</th>
+                            <th>说明</th>
+                        </tr>
+                    </thead>
+                    <tr data-id="tr_delco_setins" data-vn="2">
+                        <td class="command">setInstanceName</td>
+                        <td class="parameter">instanceName</td>
+                        <td class="parameter"></td>
+                        <td>为 RealityScan 实例指定名称。</td>
+                    </tr>
+                    <tr data-id="tr_delco_delegto" data-vn="2">
+                        <td class="command">delegateTo</td>
+                        <td class="parameter">instanceName&#124;*</td>
+                        <td class="parameter"></td>
+                        <td>把一条命令或一组命令委托给指定的 RealityScan 实例（instanceName），或委托给第一个可用实例（以 * 符号作为参数）。</td>
+                    </tr>
+                    <tr data-id="tr_delco_waitcom" data-vn="2">
+                        <td class="command">waitCompleted</td>
+                        <td class="parameter">instanceName&#124;*</td>
+                        <td class="parameter"></td>
+                        <td>暂停执行其它命令，直到指定 RealityScan 实例（instanceName）或第一个可用实例（以 * 为参数）中的当前进程结束。</td>
+                    </tr>
+                    <tr data-id="tr_delco_getst" data-vn="2">
+                        <td class="command">getStatus</td>
+                        <td class="parameter">instanceName&#124;*</td>
+                        <td class="parameter"></td>
+                        <td>返回指定 RealityScan 实例（instanceName）或第一个可用实例（以 * 符号为参数）中正在运行进程的进度状态。</td>
+                    </tr>
+                    <tr data-id="tr_delco_pauseins" data-vn="2">
+                        <td class="command">pauseInstance</td>
+                        <td class="parameter">instanceName&#124;*</td>
+                        <td class="parameter"></td>
+                        <td>暂停指定 RealityScan 实例（instanceName）或第一个可用实例（以 * 符号为参数）中正在运行的进程。</td>
+                    </tr>
+                    <tr data-id="tr_delco_unpausins" data-vn="2">
+                        <td class="command">unpauseInstance</td>
+                        <td class="parameter">instanceName&#124;*</td>
+                        <td class="parameter"></td>
+                        <td>恢复指定 RealityScan 实例（instanceName）或第一个可用实例（以 * 符号为参数）中已暂停的进程。</td>
+                    </tr>
+                    <tr data-id="tr_delco_abortins" data-vn="3">
+                        <td class="command">abortInstance</td>
+                        <td class="parameter">instanceName&#124;*</td>
+                        <td class="parameter"></td>
+                        <td>中止指定 RealityScan 实例（instanceName）或第一个可用实例（以 * 符号为参数）中正在运行的进程。若处理由 CLI 命令执行，则该进程之后的所有进程也会被中止。</td>
+                    </tr>
+                    <tr data-id="tr_delco_exec" data-vn="2">
+                        <td class="command">execRSCMDIndirect</td>
+                        <td class="parameter">instanceName&#124;* commands.rscmd</td>
+                        <td class="parameter"></td>
+                        <td>在指定实例中执行 .rscmd（或 .rccmd）文件里列出的命令，可选用报告参数。文件格式与语法见 <a href="../tutorials/commandline_rscmd.htm">命令提示符之外执行命令</a> 一节。可在 .rscmd 文件路径之后列出最多九个参数作为变量，在文件内部用 $(arg1)–$(arg9) 引用这些变量。</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div data-id="div_sb_alignment" class="slideblock splitSpacing">
+                <h2 data-id="h2_alignment" data-vn="1">Alignment</h2>
+                <p data-id="p_h2_alignment" data-vn="1" class="lod1">
+                    以下命令可用于计算相机位姿与标定，以及处理组件和控制点。
+                </p>
+
+                <table class="tableofcommands">
+                    <thead>
+                        <tr data-id="tr_alignment_head" data-vn="1">
+                            <th>命令名称</th>
+                            <th>必需参数</th>
+                            <th>可选参数</th>
+                            <th>说明</th>
+                        </tr>
+                    </thead>
+                    <tr data-id="tr_alignment_align" data-vn="1">
+                        <td class="command">align</td>
+                        <td class="parameter"></td>
+                        <td class="parameter"></td>
+                        <td>使用当前设置对齐影像。</td>
+                    </tr>
+                    <tr data-id="tr_alignment_draft" data-vn="1">
+                        <td class="command">draft</td>
+                        <td class="parameter"></td>
+                        <td class="parameter"></td>
+                        <td>使用当前设置以草稿模式对齐影像。</td>
+                    </tr>
+                    <tr data-id="tr_alignment_update" data-vn="1">
+                        <td class="command">update</td>
+                        <td class="parameter"></td>
+                        <td class="parameter"></td>
+                        <td>通过刚性变换更新所有组件与模型，使其符合当前约束和控制点。</td>
+                    </tr>
+                    <tr data-id="tr_alignment_features" data-vn="1">
+                        <td class="command">detectFeatures</td>
+                        <td class="parameter"></td>
+                        <td class="parameter"></td>
+                        <td>按对齐设置执行特征检测，检测到的特征会保存到应用程序缓存中。</td>
+                    </tr>
+                    <tr data-id="tr_alignment_mrgcomp" data-vn="1">
+                        <td class="command">mergeComponents</td>
+                        <td class="parameter"></td>
+                        <td class="parameter"></td>
+                        <td>合并已创建的组件。使用该命令时，不会向现有组件添加新影像。</td>
+                    </tr>                    
+                    <tr data-id="tr_alignment_xmp" data-vn="1">
+                        <td class="command">exportXMP</td>
+                        <td class="parameter"></td>
+                        <td class="parameter">params.xml </td>
+                        <td>
+                            使用当前设置或 params.xml 文件中的设置（可选参数），把最后一次对齐生成的组件的相机元数据按 XMP 格式导出。该设置文件可从 <span class="apppanel">XMP 元数据导出</span> 对话框导出。组件必须满足 setMinComponentSize 命令所定义的条件。<br /> 注意：XMP 文件与对应影像存放在同一文件夹中。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_alignment_xmpcomp" data-vn="1">
+                        <td class="command">exportXMPForSelectedComponent</td>
+                        <td class="parameter"></td>
+                        <td class="parameter"></td>
+                        <td>
+                            使用当前设置，把所选组件的相机元数据按 XMP 格式导出。下文的「Metadata (XMP) Export Settings」段落提供了示例。<br /> 注意：XMP 文件与对应影像存放在同一文件夹中。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_alignment_importcomp" data-vn="2">
+                        <td class="command">importComponent</td>
+                        <td class="parameter">component.rsalign</td>
+                        <td class="parameter"></td>
+                        <td>从 component.rsalign 文件导入组件。</td>
+                    </tr>
+                    <tr data-id="tr_alignment_importbundler" data-vn="2">
+                        <td class="command">loadBundler</td>
+                        <td class="parameter">filePath</td>
+                        <td class="parameter">params.xml</td>
+                        <td>导入 Bundler 工程。该命令需要 Bundler 文件路径，还可选一个从导入对话框保存的场景变换设置配置文件。该配置文件可用于在导入时调整坐标系或应用自定义变换。</td>
+                    </tr>
+                    <tr data-id="tr_alignment_importcolmap" data-vn="2">
+                        <td class="command">loadColmap</td>
+                        <td class="parameter">filePath</td>
+                        <td class="parameter">params.xml</td>
+                        <td>导入 COLMAP 工程。该命令需要 COLMAP 文件路径（三个文本文件中的任意一个），还可选一个从导入对话框保存的场景变换设置配置文件。该配置文件可用于在导入时调整坐标系或应用自定义变换。</td>
+                    </tr>
+                    <tr data-id="tr_alignment_exportlatest" data-vn="2">
+                        <td class="command">exportLatestComponents</td>
+                        <td class="parameter">folderName</td>
+                        <td class="parameter"></td>
+                        <td>
+                            把最后一次对齐生成的组件以 RealityScan 对齐组件（.rsalign）形式导出到指定文件夹。组件必须满足 setMinComponentSize 命令所定义的条件。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_alignment_size" data-vn="1">
+                        <td class="command">setMinComponentSize</td>
+                        <td class="parameter">size</td>
+                        <td class="parameter"></td>
+                        <td>指定使用 exportLatestComponents 和 exportXMP 命令时导出组件的最小尺寸。默认值为 5。</td>
+                    </tr>
+                    <tr data-id="tr_alignment_exportselcompdir" data-vn="2">
+                        <td class="command">exportSelectedComponentDir</td>
+                        <td class="parameter">folderName</td>
+                        <td class="parameter"></td>
+                        <td>把所选组件以 RealityScan 对齐组件（.rsalign）形式导出到文件夹（folderName 需含路径）。</td>
+                    </tr>
+                    <tr data-id="tr_alignment_exportselcompfile" data-vn="2">
+                        <td class="command">exportSelectedComponentFile</td>
+                        <td class="parameter">fileName</td>
+                        <td class="parameter"></td>
+                        <td>把所选组件导出为 RealityScan 对齐组件文件。</td>
+                    </tr>
+                    <tr data-id="tr_alignment_exportreg" data-vn="1">
+                        <td class="command">exportRegistration</td>
+                        <td class="parameter">fileName</td>
+                        <td class="parameter">params.xml</td>
+                        <td>
+                            使用当前设置或 params.xml 文件中的设置（可选参数），把配准结果导出到指定文件。这些设置可从应用程序中的 <span class="apppanel">Export Registration</span> 对话框导出。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_alignment_exportunimages" data-vn="1">
+                        <td class="command">exportUndistortedImages</td>
+                        <td class="parameter">folderName</td>
+                        <td class="parameter">params.xml</td>
+                        <td>
+                            使用当前设置或 params.xml 文件中的设置（可选参数），把未畸变影像导出到指定文件夹。这些设置可从应用程序中的 <span class="apppanel">Export Registration</span> 对话框导出。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_alignment_exstmap" data-vn="1">
+                        <td class="command">exportSTMap</td>
+                        <td class="parameter"></td>
+                        <td class="parameter">folderName params.xml</td>
+                        <td>
+                            为所选影像导出 ST 贴图。若未指定 folderName 和 params.xml，结果将按当前设置保存在原影像旁边。设置文件可从应用程序中的 <span class="apppanel">Export Registration</span> 对话框导出。
+                        </td>
+                    </tr>                    
+                    <tr data-id="tr_alignment_exportspc" data-vn="1">
+                        <td class="command">exportSparsePointCloud</td>
+                        <td class="parameter">fileName</td>
+                        <td class="parameter">params.xml</td>
+                        <td>
+                            使用当前设置或 params.xml 文件中的设置（可选参数），把 3D 连接点（稀疏点云）导出到指定文件（fileName 需含路径与格式扩展名）。这些设置可从应用程序中的 <span class="apppanel">Export Point Cloud</span> 对话框导出。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_alignment_selcomp" data-vn="1">
+                        <td class="command">selectComponent</td>
+                        <td class="parameter">componentName</td>
+                        <td class="parameter"></td>
+                        <td>按指定名称（componentName）选中组件以便后续处理。</td>
+                    </tr>
+                    <tr data-id="tr_alignment_selmaxcomp" data-vn="1">
+                        <td class="command">selectMaximalComponent</td>
+                        <td class="parameter"></td>
+                        <td class="parameter"></td>
+                        <td>选中最大的组件以便后续处理。</td>
+                    </tr>
+                    <tr data-id="tr_alignment_leastrep" data-vn="1">
+                        <td class="command">selectComponentWithLeastReprojectionError</td>
+                        <td class="parameter"></td>
+                        <td class="parameter"></td>
+                        <td>根据计算出的平均误差 [像素] 选中重投影误差最小的组件，以便后续处理。</td>
+                    </tr>
+                    <tr data-id="tr_alignment_renameselcomp" data-vn="1">
+                        <td class="command">renameSelectedComponent</td>
+                        <td class="parameter">newComponentName</td>
+                        <td class="parameter"></td>
+                        <td>重命名当前选中的组件。</td>
+                    </tr>
+                    <tr data-id="tr_alignment_deleteselcomp" data-vn="1">
+                        <td class="command">deleteSelectedComponent</td>
+                        <td class="parameter"></td>
+                        <td class="parameter"></td>
+                        <td>删除当前选中的组件。</td>
+                    </tr>
+                    <tr data-id="tr_alignment_deletecompindex" data-vn="1">
+                        <td class="command">deleteComponent</td>
+                        <td class="parameter">index</td>
+                        <td class="parameter"></td>
+                        <td>按指定索引删除组件。注意索引从 0 开始。</td>
+                    </tr>
+                    <tr data-id="tr_alignment_deleteallcomp" data-vn="1">
+                        <td class="command">deleteAllComponents</td>
+                        <td class="parameter"></td>
+                        <td class="parameter"></td>
+                        <td>删除所有组件。</td>
+                    </tr>
+                    <tr data-id="tr_alignment_importfl" data-vn="3">
+                        <td class="command">importTrajectory</td>
+                        <td class="parameter">flFileName</td>
+                        <td class="parameter">params.xml</td>
+                        <td>
+                            使用当前设置或 params.xml 文件中的设置（可选参数）导入轨迹文件。这些设置可从应用程序中的 <span class="apppanel">Import Trajectory</span> 对话框导出。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_alignment_importgcp" data-vn="1">
+                        <td class="command">importGroundControlPoints</td>
+                        <td class="parameter">gcpFileName</td>
+                        <td class="parameter">params.xml</td>
+                        <td>
+                            使用当前设置或 params.xml 文件中的设置（可选参数）导入地面控制点。这些设置可从应用程序中的 <span class="apppanel">Export Ground Control Points</span> 对话框导出。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_alignment_importcp" data-vn="1">
+                        <td class="command">importControlPointsMeasurements</td>
+                        <td class="parameter">cpmFileName</td>
+                        <td class="parameter">params.xml</td>
+                        <td>
+                            使用当前设置或 params.xml 文件中的设置（可选参数）导入控制点（CP）测量值。这些设置可从应用程序中的 <span class="apppanel">Export Control Points Measurements</span> 对话框导出。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_alignment_editcpselection" data-vn="1">
+                        <td class="command">editControlPointSelection</td>
+                        <td class="parameter">"key=value"</td>
+                        <td class="parameter"></td>
+                        <td>
+                            根据 <span class="apppanel">Selected control point(s)</span> 面板中的值或其键，编辑所选控制点的设置 / 参数。更多信息请见 <a href="../tutorials/editselectioncommand.htm">此处</a>。
+                        </td>
+                    </tr>
+                    
+                    <tr data-id="tr_alignment_listcp" data-vn="1">
+                        <td class="command">listControlPoints</td>
+                        <td class="parameter">fileName</td>
+                        <td class="parameter"></td>
+                        <td>
+                            把控制点列表导出到指定文件路径（含文件名与扩展名，fileName 参数），每个控制点附带其索引一并列出。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_alignment_selectcp" data-vn="1">
+                        <td class="command">selectControlPoint</td>
+                        <td class="parameter">controlPointName</td>
+                        <td class="parameter"></td>
+                        <td>
+                            按名称选中控制点。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_alignment_invselcp" data-vn="1">
+                        <td class="command">invertControlPointSelection</td>
+                        <td class="parameter"></td>
+                        <td class="parameter"></td>
+                        <td>
+                            反选控制点。若当前未选中任何控制点，则会选中全部。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_alignment_renamecp" data-vn="1">
+                        <td class="command">renameControlPoint</td>
+                        <td class="parameter">controlPointName newName</td>
+                        <td class="parameter"></td>
+                        <td>
+                            重命名控制点。用当前名称（controlPointName）指定控制点，并给出要设置的新名称（newName）。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_alignment_renselcp" data-vn="1">
+                        <td class="command">renameSelectedControlPoint</td>
+                        <td class="parameter">newName</td>
+                        <td class="parameter"></td>
+                        <td>
+                            把选中的控制点重命名为指定的新名称（newName）。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_alignment_deletecp" data-vn="1">
+                        <td class="command">deleteControlPoint</td>
+                        <td class="parameter"></td>
+                        <td class="parameter">index</td>
+                        <td>
+                            删除选中的控制点。若使用可选参数 index，则删除对应索引的控制点。索引从 0 开始，顺序与 <span class="appaspecttype">1Ds</span> 视图中的控制点顺序一致。
+                        </td>
+                    </tr>     
+                    <tr data-id="tr_alignment_selcpmeserror" data-vn="1">
+                        <td class="command">selectMeasurementByError</td>
+                        <td class="parameter">errorValue</td>
+                        <td class="parameter">controlPointName</td>
+                        <td>
+                            选中位置误差（像素）大于或等于指定 errorValue（浮点值）的所有测量值。若未指定控制点（controlPointName），则选择范围涵盖所有测量值，不论其所属控制点。
+                        </td>
+                    </tr>  
+                    <tr data-id="tr_alignment_selcpmesind" data-vn="1">
+                        <td class="command">selectMeasurementByIndex</td>
+                        <td class="parameter">controlPointName index</td>
+                        <td class="parameter"></td>
+                        <td>
+                            按指定控制点内的索引选中该控制点的一个测量值。
+                        </td>
+                    </tr>   
+                    <tr data-id="tr_alignment_deletecpmeasurement" data-vn="1">
+                        <td class="command">deleteControlPointMeasurement</td>
+                        <td class="parameter"></td>
+                        <td class="parameter"></td>
+                        <td>
+                            移除所选的控制点测量值（分配给控制点的影像）。影像需在 <span class="appaspecttype">1Ds</span> 视图中对应控制点下被选中。
+                        </td>
+                    </tr>                                         
+                    <tr data-id="tr_alignment_exportgcp" data-vn="1">
+                        <td class="command">exportGroundControlPoints</td>
+                        <td class="parameter">gcpFileName</td>
+                        <td class="parameter">params.xml</td>
+                        <td>
+                            使用当前设置或 params.xml 文件中的设置（可选参数）导出地面控制点。这些设置可从应用程序中的 <span class="apppanel">Export Ground Control</span> 对话框导出。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_alignment_exportcp" data-vn="1">
+                        <td class="command">exportControlPointsMeasurements</td>
+                        <td class="parameter">cpmFileName</td>
+                        <td class="parameter">params.xml</td>
+                        <td>
+                            使用当前设置或 params.xml 文件中的设置（可选参数）导出控制点测量值。在 <span class="appribbon">Alignment</span> 选项卡的 Export 部分，按住 Shift 键点击 <span class="appribbonbutton">Control Points</span> 按钮，即可从应用程序中的 <span class="apppanel">Export Control Points Measurements</span> 对话框导出这些设置。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_alignment_defdis" data-vn="1">
+                        <td class="command">defineDistance</td>
+                        <td class="parameter">PointNameA PointNameB distance</td>
+                        <td class="parameter">constraintName</td>
+                        <td>
+                            定义两个控制点之间的距离约束。若未指定 constraintName，距离名称将自动生成。也可以从文件加载距离约束（见下文）。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_alignment_defdisf" data-vn="1">
+                        <td class="command">defineDistance</td>
+                        <td class="parameter">fileName</td>
+                        <td class="parameter">params.xml</td>
+                        <td>
+                            使用当前设置或 params.xml 文件中的设置（可选参数），从文件（filename 需含路径）导入距离约束。这些设置可从应用程序中的 <span class="apppanel">导入距离定义</span>对话框导出。安装文件夹中可找到所支持格式的列表 distancedefinitions.xml。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_alignment_editconselection" data-vn="1">
+                        <td class="command">editConstraintSelection</td>
+                        <td class="parameter">"key=value"</td>
+                        <td class="parameter"></td>
+                        <td data-id="td_alignment_editconselection" data-vn="1">
+                            根据 <span class="apppanel">Selected constraint(s)</span> 面板中的值或其键，编辑所选约束的设置 / 参数。更多信息请见 <a href="../tutorials/editselectioncommand.htm">此处</a>。
+                        </td>
+                    </tr>                   
+                    <tr data-id="tr_alignment_deleteconstraint" data-vn="2">
+                        <td class="command">deleteConstraint</td>
+                        <td class="parameter"></td>
+                        <td class="parameter">index</td>
+                        <td data-id="td_alignment_deleteconstraint" data-vn="2">
+                            移除所选的距离约束。约束必须先在 <span class="appaspecttype">1Ds</span> 视图中选中。可用可选参数 index 指定要移除的约束。索引从 0 开始，顺序与 <span class="appaspecttype">1Ds</span> 视图中的约束顺序一致。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_alignment_markers" data-vn="1">
+                        <td class="command">detectMarkers</td>
+                        <td class="parameter"></td>
+                        <td class="parameter">params.xml</td>
+                        <td>
+                            使用当前设置或 params.xml 文件中的设置（可选参数）在影像中检测标记点。这些设置可从应用程序中的 <span class="appribbonbutton">Detect Markers</span> 工具导出。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_alignment_gravity" data-vn="1">
+                        <td class="command">setCamerasGravityDirection</td>
+                        <td class="parameter"></td>
+                        <td class="parameter">componentID</td>
+                        <td>若影像的 XMP 文件包含重力信息（xcr:Gravity），组件将被旋转，使 -z 向量指向重力向量方向。该操作不适用于稠密点云（网格 / 模型），仅适用于稀疏点云（对齐结果）。作用于所选组件，或由可选参数（组件 ID）指定的组件。
+                        </td>
+                    </tr>
+                    
+                </table>
+            </div>
+
+            <div data-id="div_sb_recon" class="slideblock splitSpacing">
+                <h2 data-id="h2_recon" data-vn="1">Reconstruction</h2>
+                <p data-id="p_h2_recon" data-vn="1" class="lod1">
+                    以下命令可用于计算模型以及执行着色与纹理生成。
+                </p>
+
+                <table class="tableofcommands">
+                    <thead>
+                        <tr data-id="tr_recon_read" data-vn="1">
+                            <th>命令名称</th>
+                            <th>必需参数</th>
+                            <th>可选参数</th>
+                            <th>说明</th>
+                        </tr>
+                    </thead>
+                    <tr data-id="tr_recon_resetground" data-vn="1">
+                        <td class="command">resetGround</td> 
+                        <td class="parameter"></td>  
+                        <td class="parameter"></td> 
+                        <td>把地平面恢复到原始朝向和位置。</td> 
+                    </tr>
+                    <tr data-id="tr_recon_groundtorecon" data-vn="1">
+                        <td class="command">setGroundPlaneFromReconstructionRegion</td> 
+                        <td class="parameter"></td>
+                        <td class="parameter"></td>
+                        <td>使用重建区域自动把模型居中到网格中央，同时调整旋转与平移。</td>
+                    </tr>
+                    <tr data-id="tr_recon_setauto" data-vn="1">
+                        <td class="command">setReconstructionRegionAuto</td> 
+                        <td class="parameter"></td>  
+                        <td class="parameter"></td> 
+                        <td>自动设置重建区域。</td> 
+                    </tr>
+                    <tr data-id="tr_recon_setregion" data-vn="2">
+                        <td class="command">setReconstructionRegion</td> 
+                        <td class="parameter">box.rsbox</td>  
+                        <td class="parameter"></td> 
+                        <td>从 box.rsbox 文件导入重建区域。</td> 
+                    </tr>
+                    <tr data-id="tr_reco_setregionCP" data-vn="1">
+                        <td class="command">setReconstructionRegionOnCPs</td> 
+                        <td class="parameter">controlPoint<br/>controlPoint<br/>controlPoint<br/>controlPoint&#124;heightValue</td>  
+                        <td class="parameter"></td> 
+                        <td>在已有控制点上设置重建区域。三个控制点定义区域的底面，区域高度由第四个控制点或直接输入高度值定义。该命令的更多示例请见 <a href="../tutorials/commandline_2.htm">此处</a>。</td> 
+                    </tr>
+                    <tr data-id="tr_recon_regden" data-vn="2">
+                        <td class="command">setReconstructionRegionByDensity</td> 
+                        <td class="parameter"></td>  
+                        <td class="parameter"></td> 
+                        <td>把重建区域设置到稀疏点云密度最高的部分。</td> 
+                    </tr>
+                    <tr data-id="tr_reco_scale" data-vn="1">
+                        <td class="command">scaleReconstructionRegion</td> 
+                        <td class="parameter">scaleX<br/>scaleY<br/>scaleZ</td>
+                        <td class="parameter">origin&#124;center absolute&#124;factor</td>
+                        <td>沿各轴缩放重建区域（<span class="command">scaleX</span>、<span class="command">scaleY</span> 和 <span class="command">scaleZ</span>）。缩放参数既可视为绝对值（<span class="command">absolute</span>），也可视为缩放系数（<span class="command">factor</span>），以区域中心（<span class="command">center</span>）或原点（<span class="command">origin</span>）为基准；原点由使用 <span class="command">setReconstructionRegionOnCPs</span> 命令时的第一个控制点定义。默认值为 "absolute" 和 "center"。该命令的更多示例请见 <a href="../tutorials/commandline_2.htm">此处</a>。</td>
+                    </tr>
+                    <tr data-id="tr_recon_move" data-vn="1">
+                        <td class="command">moveReconstructionRegion</td> 
+                        <td class="parameter">moveX<br/>moveY<br/>moveZ</td>  
+                        <td class="parameter"></td> 
+                        <td>沿重建区域自身的各轴移动该区域，数值单位与坐标系一致。该命令的更多示例请见 <a href="../tutorials/commandline_2.htm">此处</a>。</td> 
+                    </tr>
+                    <tr data-id="tr_recon_rotate" data-vn="1">
+                        <td class="command">rotateReconstructionRegion</td> 
+                        <td class="parameter">rotateX<br/>rotateY<br/>rotateZ</td>  
+                        <td class="parameter"></td> 
+                        <td>绕重建区域自身的各轴旋转该区域，所有数值单位为度。该命令的更多示例请见 <a href="../tutorials/commandline_2.htm">此处</a>。</td> 
+                    </tr>
+                    <tr data-id="tr_recon_offset" data-vn="1">
+                        <td class="command">offsetReconstructionRegion</td> 
+                        <td class="parameter">offsetX<br/>offsetY<br/>offsetZ</td>  
+                        <td class="parameter"></td> 
+                        <td data-id="td_recon_offset" data-vn="1">按区域自身尺寸的数值，沿各轴偏移重建区域。该命令的更多示例请见 <a href="../tutorials/commandline_2.htm">此处</a>。</td> 
+                    </tr>
+                    
+                    <tr data-id="tr_recon_exportregion" data-vn="3">
+                        <td class="command">exportReconstructionRegion</td> 
+                        <td class="parameter">box.rsbox</td>  
+                        <td class="parameter"></td> 
+                        <td>把重建区域导出为 box.rsbox 文件。</td>
+                    </tr>
+                    <tr data-id="tr_recon_calcpreview" data-vn="1">
+                        <td class="command">calculatePreviewModel</td>
+                        <td class="parameter"></td>  
+                        <td class="parameter"></td> 
+                        <td>以预览质量计算 3D 网格。</td> 
+                    </tr>
+                    <tr data-id="tr_recon_calcnormal" data-vn="1">
+                        <td class="command">calculateNormalModel</td> 
+                        <td class="parameter"></td>  
+                        <td class="parameter"></td> 
+                        <td>以常规质量计算 3D 网格。</td> 
+                    </tr>
+                    <tr data-id="tr_recon_calchigh" data-vn="1">
+                        <td class="command">calculateHighModel</td>
+                        <td class="parameter"></td>  
+                        <td class="parameter"></td> 
+                        <td>以最高质量计算 3D 网格。</td> 
+                    </tr>
+                    <tr data-id="tr_recon_contcalc" data-vn="1">
+                        <td class="command">continueModelCalculation</td>
+                        <td class="parameter"></td>
+                        <td class="parameter"></td>
+                        <td>若模型计算曾暂停或发生过崩溃，可用该命令继续计算。该命令的更多信息请见 <a href="../tutorials/commandline_2.htm">此处</a>。
+                        </td> 
+                    </tr>
+                </table>
+            </div>
+
+            <div data-id="div_sb_model" class="slideblock splitSpacing">
+                <h2 data-id="h2_model" data-vn="1">模型工具</h2>
+                <p data-id="p_h2_model" data-vn="1" class="lod1">
+                    成功创建模型后，可用以下工具通过命令行对其做进一步处理。
+                </p>
+
+                <table class="tableofcommands">
+                    <thead>
+                        <tr data-id="tr_model_head" data-vn="1">
+                            <th>命令名称</th>
+                            <th>必需参数</th>
+                            <th>可选参数</th>
+                            <th>说明</th>
+                        </tr>
+                    </thead>
+                    <tr data-id="tr_model_selmodel" data-vn="1">
+                        <td class="command">selectModel</td>
+                        <td class="parameter">modelName</td>
+                        <td class="parameter"></td>
+                        <td>按指定名称（modelName）选中模型。</td>
+                    </tr>
+                    <tr data-id="tr_model_deleteselmodel" data-vn="1">
+                        <td class="command">deleteSelectedModel</td>
+                        <td class="parameter"></td>
+                        <td class="parameter"></td>
+                        <td>删除当前选中的模型。</td>
+                    </tr>
+                    <tr data-id="tr_model_duplicateselmodel" data-vn="1">
+                        <td class="command">duplicateSelectedModel</td>
+                        <td class="parameter"></td>
+                        <td class="parameter"></td>
+                        <td>复制选中的模型（含纹理）。</td>
+                    </tr>
+                    <tr data-id="tr_model_renameselmodel" data-vn="1">
+                        <td class="command">renameSelectedModel</td>
+                        <td class="parameter">newModelName</td>
+                        <td class="parameter"></td>
+                        <td>重命名当前选中的模型。</td>
+                    </tr>
+                    <tr data-id="tr_model_coco" data-vn="1">
+                        <td class="command">correctColors</td>
+                        <td class="parameter"></td>
+                        <td class="parameter">layerName</td>
+                        <td>对所选组件中的所有图层或指定图层（layerName）执行颜色校正。</td>
+                    </tr>
+                    <tr data-id="tr_model_unwrap" data-vn="1">
+                        <td class="command">unwrap</td>
+                        <td class="parameter"></td>
+                        <td class="parameter">params.xml</td>
+                        <td>
+                            使用当前设置或 params.xml 中的设置（可选参数）计算模型的 UV 展开。这些设置可从应用程序中的 <span class="appribbonbutton">Unwrap</span> 工具导出。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_calctexture" data-vn="2">
+                        <td class="command">calculateTexture</td>
+                        <td class="parameter"></td>
+                        <td class="parameter">params.xml </td>
+                        <td>使用当前设置或 params.xml 文件中的设置（可选参数）计算纹理。这些设置可从应用程序中的 <span class="apppanel">Color and Texture Settings</span> 面板导出。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_qualtext" data-vn="1">
+                        <td class="command">calculateQualityTexture</td>
+                        <td class="parameter"></td>
+                        <td class="parameter"></td>
+                        <td>使用网格质量数值计算纹理，这些数值可用 <span class="apptool">Quality Analysis</span> 工具算出。使用该命令前不必预先计算这些数值。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_reprojecttexture" data-vn="1">
+                        <td class="command">reprojectTexture</td>
+                        <td class="parameter">sourceModel resultModel</td>
+                        <td class="parameter">params.xml</td>
+                        <td>
+                            使用当前设置或 params.xml 文件中的设置（可选参数），把纹理从已贴纹理的模型（sourceModel）重投影到已完成 UV 展开的模型（resultModel）。sourceModel 与 resultModel 为应用程序中的模型名称。这些设置可从应用程序中的 <span class="appribbonbutton">Texture Reprojection</span> 工具导出。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_calcvcolors" data-vn="1">
+                        <td class="command">calculateVertexColors</td>
+                        <td class="parameter"></td>
+                        <td class="parameter"></td>
+                        <td>使用当前设置计算着色。</td>
+                    </tr>
+                    <tr data-id="tr_model_calcprevvcolors" data-vn="1">
+                        <td class="command">calculatePreviewVertexColors</td>
+                        <td class="parameter"></td>
+                        <td class="parameter"></td>
+                        <td>使用当前设置计算草稿着色。</td>
+                    </tr>
+                    <tr data-id="tr_model_qualcol" data-vn="1">
+                        <td class="command">calculateQualityColors</td>
+                        <td class="parameter"></td>
+                        <td class="parameter"></td>
+                        <td>使用网格质量数值计算顶点颜色，这些数值可用 <span class="apptool">Quality Analysis</span> 工具算出。使用该命令前不必预先计算这些数值。</td>
+                    </tr>
+                    
+                    
+                    <tr data-id="tr_model_simplify" data-vn="2">
+                        <td class="command">simplify</td>
+                        <td class="parameter"></td>
+                        <td class="parameter">targetTriangleCount or params.xml</td>
+                        <td>
+                            使用当前设置（不带任何参数即表示使用当前设置）把所选模型简化到指定三角形数量（targetTriangleCount），或使用 params.xml 文件中的设置。这些设置可从应用程序中的 <span class="appribbonbutton">Simplify</span> 工具导出。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_smooth" data-vn="2">
+                        <td class="command">smooth</td>
+                        <td class="parameter"></td>
+                        <td class="parameter">params.xml</td>
+                        <td>
+                            使用当前设置或 params.xml 文件中的设置平滑所选模型。这些设置可从应用程序中的 <span class="appribbonbutton">Smooth</span> 工具导出。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_holes" data-vn="1">
+                        <td class="command">closeHoles</td>
+                        <td class="parameter"></td>
+                        <td class="parameter">maxEdgesCount</td>
+                        <td>使用当前设置或指定的最大边数（maxEdgesCount）封闭模型孔洞。</td>
+                    </tr>
+                    <tr data-id="tr_model_cleanmodel" data-vn="1">
+                        <td class="command">cleanModel</td>
+                        <td class="parameter"></td>
+                        <td class="parameter"></td>
+                        <td>清理所选模型：移除非流形边与顶点、封闭小孔等。</td>
+                    </tr>
+                    <tr data-id="tr_model_trianglesinside" data-vn="1">
+                        <td class="command">selectTrianglesInsideReconReg</td>
+                        <td class="parameter"></td>
+                        <td class="parameter"></td>
+                        <td>选中重建区域内的三角形。</td>
+                    </tr>
+                    <tr data-id="tr_model_trianglesoutside" data-vn="1">
+                        <td class="command">selectTrianglesOutsideReconReg</td>
+                        <td class="parameter"></td>
+                        <td class="parameter"></td>
+                        <td>选中重建区域外的三角形。</td>
+                    </tr>
+                    <tr data-id="tr_model_margtriangles" data-vn="1">
+                        <td class="command">selectMarginalTriangles</td>
+                        <td class="parameter"></td>
+                        <td class="parameter"></td>
+                        <td>选中包围该体积但不属于当前重建结果的三角形。</td>
+                    </tr>
+                    <tr data-id="tr_model_trianglesabs" data-vn="1">
+                        <td class="command">selectLargeTrianglesAbs</td>
+                        <td class="parameter">edgeSizeThreshold</td>
+                        <td class="parameter"></td>
+                        <td>选中边长大于阈值（edgeSizeThreshold）的三角形。</td>
+                    </tr>
+                    <tr data-id="tr_model_trianglesres" data-vn="1">
+                        <td class="command">selectLargeTrianglesRel</td>
+                        <td class="parameter">edgeSizeThreshold</td>
+                        <td class="parameter"></td>
+                        <td>选中边长大于「阈值 edgeSizeThreshold × 平均边长」的三角形。</td>
+                    </tr>
+                    <tr data-id="tr_model_largestcomp" data-vn="1">
+                        <td class="command">selectLargestModelComponent</td>
+                        <td class="parameter"></td>
+                        <td class="parameter"></td>
+                        <td>选中属于模型最大连通部分的三角形。</td>
+                    </tr>
+                    <tr data-id="tr_model_inverttriangles" data-vn="1">
+                        <td class="command">invertTrianglesSelection</td>
+                        <td class="parameter"></td>
+                        <td class="parameter"></td>
+                        <td>反选三角形选区。</td>
+                    </tr>
+                    <tr data-id="tr_model_deseltriangles" data-vn="1">
+                        <td class="command">deselectModelTriangles</td>
+                        <td class="parameter"></td>
+                        <td class="parameter"></td>
+                        <td>取消选中所有模型三角形。</td>
+                    </tr>
+                    <tr data-id="tr_model_removetriangles" data-vn="1">
+                        <td class="command">removeSelectedTriangles</td>
+                        <td class="parameter"></td>
+                        <td class="parameter"></td>
+                        <td>创建一个剔除所选三角形的新模型（效果与 <span class="appribbonbutton">Filter Selection</span> 工具相同）。</td>
+                    </tr>
+                    <tr data-id="tr_model_cutbybox" data-vn="1">
+                        <td class="command">cutByBox</td>
+                        <td class="parameter">inner&#124;outer</td>
+                        <td class="parameter">fillHoles</td>
+                        <td>过滤掉重建区域内或区域外的三角形。必需参数决定要过滤掉哪些三角形，可选参数 <span class="appproperty">fillHoles</span> 决定是否填充切出的孔洞（可设为 <span class="appproperty">true</span> 或 <span class="appproperty">false</span>，分别对应 <span class="appproperty">Yes</span> 和 <span class="appproperty">No</span>）。若未指定该可选参数，则使用默认值（<span class="appproperty">Yes</span>）。该工具会创建一个新模型。</td>
+                    </tr>
+                    
+                    <!--            <tr>
+        <td class="command">undercut</td>
+        <td class="parameter"></td>
+        <td class="parameter"></td>
+        <td>对所选模型执行底切，使每个分块只包含其聚簇盒内的几何体。</td>
+    </tr>--> 
+                    <tr data-id="tr_model_export" data-vn="2">
+                        <td class="command">exportModel</td>
+                        <td class="parameter">modelName fileName</td>
+                        <td class="parameter">params.xml</td>
+                        <td>
+                            使用当前设置或 params.xml 中的设置（可选参数），把项目中的模型（modelName）导出为文件（fileName 需含路径与扩展名）。该文件可从 <span class="apppanel">Export model</span> 对话框导出。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_exportsel" data-vn="2">
+                        <td class="command">exportSelectedModel</td>
+                        <td class="parameter">fileName</td>
+                        <td class="parameter">params.xml</td>
+                        <td>
+                            使用当前设置或 params.xml 中的设置（可选参数），把所选模型导出为文件（fileName 需含路径与扩展名）。该文件可从 <span class="apppanel">Export model</span> 对话框导出。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_exportmzip" data-vn="1">
+                        <td class="command">exportModelToZip</td>
+                        <td class="parameter">filePath</td>
+                        <td class="parameter">modelFormat</td>
+                        <td>
+                            把所选模型导出为压缩归档。请指定归档保存路径与导出文件名，归档格式的扩展名可省略。此外可用可选参数指定模型格式（例如 .obj 或 .fbx）。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_import" data-vn="2">
+                        <td class="command">importModel</td>
+                        <td class="parameter">fileName</td>
+                        <td class="parameter">params.xml</td>
+                        <td>从文件导入模型。请指定模型的完整路径、名称与格式扩展名。还可使用从导入对话框导出的设置文件来调整导入设置。</td>
+                    </tr>
+                    <tr data-id="tr_model_calcortho" data-vn="2">
+                        <td class="command">calculateOrthoProjection</td>
+                        <td class="parameter"></td>
+                        <td class="parameter">rsorthoFile rsboxFile </td>
+                        <td>
+                            使用当前设置计算正射投影。可选用投影参数文件（.rsortho）定义计算设置，该文件可随正射投影一并导出，其结构说明见 <a href="../tools/xmlparamsfiles.htm">此处</a>。还可使用另一个可选参数 —— 导出的重建区域文件（.rsbox）—— 来指定正射投影所包含的区域。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_selortho" data-vn="1">
+                        <td class="command">selectOrthoProjection</td>
+                        <td class="parameter">orthoName</td>
+                        <td class="parameter"></td>
+                        <td>按指定名称（orthoName）选中正射投影。</td>
+                    </tr>
+                    <tr data-id="tr_model_editorthoselect" data-vn="1">
+                        <td class="command">editOrthoProjectionSelection</td>
+                        <td class="parameter">"key=value"</td>
+                        <td class="parameter"></td>
+                        <td>
+                            根据 <span class="apppanel">Selected ortho photo(s)</span> 面板中的值或其键，编辑所选正射投影的设置 / 参数。更多信息请见 <a href="../tutorials/editselectioncommand.htm">此处</a>。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_exportortho1" data-vn="1">
+                        <td class="command" rowspan="3">exportOrthoProjection</td>
+                        <td class="parameter">orthoName fullPath params.xml</td>
+                        <td class="parameter"></td>
+                        <td rowspan="3">
+                            使用从相应导出对话框导出的 <span class="appproperty">params.xml</span> 文件中的设置，导出正射投影（正射影像、DSM 或 DTM）。根据所用参数，该命令有三种写法。<span class="appproperty">params.xml</span> 文件定义导出设置；<span class="appproperty">orthoName</span> 是投影在项目中显示的名称；<span class="appproperty">fullPath</span> 指定导出文件的完整路径；<span class="appproperty">folderPath</span> 定义文件保存目录；<span class="appproperty">exportName</span> 设置导出文件名。对于 <span class="appproperty">fullPath</span> 和 <span class="appproperty">exportName</span>，格式扩展名可省略 —— 省略时将创建 TIFF 文件。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_exportortho2" data-vn="1">
+                        <td class="parameter">orthoName folderPath exportName params.xml</td>
+                        <td class="parameter"></td>
+                    </tr>
+                    <tr data-id="tr_model_exportortho3" data-vn="1">
+                        <td class="parameter">fullPath params.xml</td>
+                        <td class="parameter"></td>
+                    </tr>
+                    <tr data-id="tr_model_calculatecrosssections" data-vn="1">
+                        <td class="command">calculateCrossSections</td>
+                        <td class="parameter"> </td>
+                        <td class="parameter">step axis</td>
+                        <td>
+                            使用当前设置计算横截面，也可通过指定轴（重建区域的局部轴）与各横截面之间的步长来计算。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_exportcrosssections" data-vn="1">
+                        <td class="command">exportCrossSections</td>
+                        <td class="parameter">fileName </td>
+                        <td class="parameter">params.xml</td>
+                        <td>
+                            使用当前设置或 params.xml 中的设置（可选参数），把所选横截面导出为文件（fileName 需含路径与扩展名）。该文件可从 <span class="apppanel">Export Cross Sections</span> 对话框导出。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_renamecrosssections" data-vn="1">
+                        <td class="command">renameCrossSections</td>
+                         <td class="parameter">crossSectionsName</td>
+                        <td class="parameter"></td>
+                        <td>
+                            重命名所选横截面。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_selectcrosssectionss" data-vn="1">
+                        <td class="command">selectCrossSections</td>
+                         <td class="parameter">crossSectionsName </td>
+                        <td class="parameter"></td>
+                        <td>
+                            按名称选中横截面。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_computecontours" data-vn="1">
+                        <td class="command">computeContours</td>
+                        <td class="parameter"> </td>
+                        <td class="parameter">params.xml</td>
+                        <td>
+                            使用当前设置或 params.xml 文件中的设置（可选参数），为所选正射影像计算等高线。这些设置可从应用程序中的 <span class="apppanel">Contours Tool</span> 导出。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_exportcontours" data-vn="1">
+                        <td class="command">exportContours</td>
+                         <td class="parameter">fileName </td>
+                        <td class="parameter">params.xml</td>
+                        <td>
+                            使用当前设置或 params.xml 中的设置（可选参数），把所选等高线导出为文件（fileName 需含路径与扩展名）。该文件可从 <span class="apppanel">Export Contours</span> 对话框导出。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_renamecontours" data-vn="1">
+                        <td class="command">renameContours</td>
+                         <td class="parameter">contoursName</td>
+                        <td class="parameter"></td>
+                        <td>
+                            重命名所选等高线。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_selectcontours" data-vn="1">
+                        <td class="command">selectContours</td>
+                         <td class="parameter">contoursName </td>
+                        <td class="parameter"></td>
+                        <td>
+                            按名称选中等高线。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_exportshapes" data-vn="1">
+                        <td class="command">exportShapes</td>
+                        <td class="parameter">fileName </td>
+                        <td class="parameter">params.xml</td>
+                        <td>
+                            使用当前设置或 params.xml 中的设置（可选参数），把所选形状导出为文件（fileName 需含路径与 .json 扩展名）。该文件可从 <span class="apppanel">Export Shapes</span> 对话框导出。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_importshapesto selectedortho" data-vn="1">
+                        <td class="command">importShapesToSelectedOrtho</td>
+                        <td class="parameter">fileName mosaicing&#124;measurements </td>
+                        <td class="parameter"></td>
+                        <td>
+                            从文件（fileName 需含路径与扩展名）把形状导入到所选正射影像。形状类型由当前激活的形状创建工具决定：<span class="appribbonbutton">Measure</span> 或 <span class="appribbonbutton">Enhance Mosaic</span>。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_importshapesto_ortho" data-vn="1">
+                        <td class="command">importShapesToOrtho</td>
+                        <td class="parameter">fileName orthoProjectionName mosaicing&#124;measurements </td>
+                        <td class="parameter"></td>
+                        <td>
+                            从文件（fileName 需含路径与扩展名）把形状导入到正射影像（orthoProjectionName）。形状类型由当前激活的形状创建工具决定：<span class="appribbonbutton">Measure</span> 或 <span class="appribbonbutton">Enhance Mosaic</span>。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_selectshape" data-vn="1">
+                        <td class="command">selectShape</td>
+                        <td class="parameter">shapeName </td>
+                        <td class="parameter"></td>
+                        <td>
+                            按名称选中形状
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_addshape" data-vn="2">
+                        <td class="command">addShapeToSelection</td>
+                        <td class="parameter">shapeName </td>
+                        <td class="parameter"></td>
+                        <td>
+                            按名称把形状加入当前选区。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_exportrep" data-vn="2">
+                        <td class="command">exportReport</td>
+                        <td class="parameter">outputFileName templateFileName</td>
+                        <td class="parameter">true&#124;false</td>
+                        <td>
+                            使用模板（templateFileName 需含路径）把报告导出为文件（outputFileName 需含路径与 .html 扩展名）。默认模板存放在安装目录下的 Reports 文件夹。可用可选的布尔参数（true 或 false）导出该模板中包含的报告文件。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_printreport" data-vn="1">
+                        <td class="command">printReport</td>
+                        <td class="parameter">reportString</td>
+                        <td class="parameter"></td>
+                        <td data-id="td_printreport" data-vn="2">
+                            在命令提示符中输出报告文本。该命令可在通过批处理文件运行 RealityScan 时使用，不适用于委托命令。有关报告自定义的更多信息请见 <a href="../appbasics/reports_functions_and_variables.htm">此处</a>。
+                        </td>
+                    </tr>  
+                    <tr data-id="tr_model_maskmesh" data-vn="1">
+                        <td class="command">generateMaskFromMesh</td>
+                        <td class="parameter"></td>
+                        <td class="parameter"></td>
+                        <td data-id="td_maskmesh" data-vn="1">
+                            根据现有相机视角（影像）与所选模型生成蒙版影像，从相机视角看模型以外的部分都会被遮掉。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_exdm" data-vn="2">
+                        <td class="command">exportMapsAndMask</td>
+                        <td class="parameter"></td>
+                        <td class="parameter">folderName params.xml</td>
+                        <td>
+                            导出基于相机视角在模型上生成的蒙版，以及所选影像的深度图与法线图。若未指定 folderName 和 params.xml，结果将按当前设置保存在原影像旁边。参数文件可从贴图与蒙版的导出对话框导出。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_exlod" data-vn="1">
+                        <td class="command">exportLod</td>
+                        <td class="parameter">fileName</td>
+                        <td class="parameter">params.xml</td>
+                        <td>
+                            使用当前设置或 params.xml 中的设置（可选参数），把所选模型以线性 LoD（细节层次）模型导出为文件（fileName 需含路径与扩展名）。该文件可从 <span class="apppanel">Export LoD</span> 对话框导出。若要导出为 Cesium 3D Tiles (.json) 格式，请使用 <span class="command">export3dTiles</span> 命令。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_ex3dT" data-vn="1">
+                        <td class="command">export3dTiles</td>
+                        <td class="parameter">fileName</td>
+                        <td class="parameter">params.xml</td>
+                        <td>
+                            使用当前设置或 params.xml 中的设置（可选参数），把所选模型以分层 LoD（细节层次）模型导出为 .json 文件（fileName 需含路径与扩展名）。在 <span class="apppanel">Export LoD</span> 对话框中选择 Cesium 3D Tiles (.json) 格式后即可导出该文件。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_camsn" data-vn="1">
+                        <td class="command">exportCameraSnapshots</td>
+                        <td class="parameter">folderName</td>
+                        <td class="parameter">params.xml</td>
+                        <td>
+                            从相机位置渲染模型影像：若未选中影像或只选中一幅，则使用全部影像，否则只使用选中的影像。请指定影像保存文件夹路径，并可通过可选参数文件使用导出对话框中的设置。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_selcamsn" data-vn="1">
+                        <td class="command">exportSelectedCamerasSnapshots</td>
+                        <td class="parameter">folderName fileFormat</td>
+                        <td class="parameter">params.xml</td>
+                        <td>
+                            从所选相机位置渲染模型影像。请指定影像保存文件夹路径与导出影像的文件格式（例如 jpg 或 png）。可通过可选参数文件使用导出对话框中的设置。
+                        </td>
+                    </tr>
+					<tr data-id="tr_model_rYPR" data-vn="2">
+                        <td class="command">renderMeshFromCustomPositionYPR</td>
+                        <td class="parameter">fileName params.xml&#124;fileName width height focalLength x y z yaw pitch roll
+						</td>
+                        <td class="parameter"></td>
+                        <td>
+                            从相机位置导出模型渲染图，视角由偏航、俯仰和翻滚姿态定义。<br/> 以局部欧几里得空间中位于 0,0,0 的模型为例，从上方渲染的写法：<div class="codeSample"> RealityScan.exe -renderMeshFromCustomPositionYPR "D:/Project/render.png" 1280 720 100 0 0 150 0 0 0 </div>
+                        </td>
+                    </tr>
+					<tr data-id="tr_model_ratv" data-vn="3">
+                        <td class="command">renderMeshFromCustomPositionLookAt</td>
+                        <td class="parameter">fileName params.xml&#124;fileName width height focalLength x y z atX atY atZ
+                        </td>
+                        <td class="parameter">upX upY upZ</td>
+                        <td>
+                            从相机位置导出模型渲染图，使视角看向另一个指定位置，并可选择指定垂直轴。<br/> 以局部欧几里得空间中位于 0,0,0 的模型为例，从侧面渲染并指定沿 Z 轴向上的垂直轴：<div class="codeSample"> RealityScan.exe -renderMeshFromCustomPositionLookAt "D:/Project/render.png" 1280 720 50 0 -100 0 0 0 10 0 0 1</div>
+                      </td>
+                    </tr>           
+                    <tr data-id="tr_model_rgridypr" data-vn="1">
+                        <td class="command">renderMeshFromCustomGridPositionYPR</td>
+                        <td class="parameter">fileName params.xml&#124;fileName width height focalLength x y z yaw pitch roll
+						</td>
+                        <td class="parameter"></td>
+                        <td>
+                            从自定义网格位置导出模型渲染图，视角由偏航、俯仰与翻滚姿态定义。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_rgridla" data-vn="1">
+                        <td class="command">renderMeshFromCustomGridPositionLookAt</td>
+                        <td class="parameter">fileName params.xml&#124;fileName width height focalLength x y z atX atY atZ
+						</td>
+                        <td class="parameter">upX upY upZ</td>
+                        <td>
+                            从自定义网格位置导出模型渲染图，使视角指向指定目标，并可选择指定垂直轴。
+                        </td>
+                    </tr> 
+                    <tr data-id="tr_model_utsketch" data-vn="1">
+                        <td class="command">uploadToSketchfab</td>
+                        <td class="parameter">APIToken</td>
+                        <td class="parameter"></td>
+                        <td>
+                            把模型上传到 Sketchfab。必需参数为 Sketchfab API 令牌，可在 Sketchfab 账户的账户设置中找到。
+                        </td>
+                    </tr>	
+                </table>
+                
+                <h3 data-id="h3_classcomm" data-vn="1">分类命令</h3>
+                <p data-id="p_h3_classcomm" data-vn="1">使用这些命令创建并调整分类。</p>
+                    
+                <table class="tableofcommands">
+                    <thead>
+                        <tr data-id="tr_classcomm_head" data-vn="1">
+                            <th>命令名称</th>
+                            <th>必需参数</th>
+                            <th>可选参数</th>
+                            <th>说明</th>
+                        </tr>
+                    </thead>
+                    <tr data-id="tr_model_dtmclassify" data-vn="2">
+                        <td class="command">dtmClassify</td>
+                        <td class="parameter"></td>
+                        <td class="parameter">params.xml</td>
+                        <td>
+                            使用当前设置或 params.xml 文件中的设置（可选参数），把所选模型的顶点归入预定义类别。这些设置可从应用程序中的 <span class="apppanel">Classify</span> 工具导出。
+                        </td>
+                    </tr>   
+                    <tr data-id="tr_model_selectclassf" data-vn="1">
+                        <td class="command">selectClassification</td>
+                        <td class="parameter">classificationName</td>
+                        <td class="parameter"></td>
+                        <td>
+                            按指定名称（classificationName 参数）选中分类。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_renameclassf" data-vn="1">
+                        <td class="command">renameSelectedClassification</td>
+                        <td class="parameter">newClassificationName</td>
+                        <td class="parameter"></td>
+                        <td>
+                            把选中的分类重命名为指定的新名称（newClassificationName）。
+                        </td>
+                    </tr>
+                    <tr data-id="transferclassf" data-vn="1">
+                        <td class="command">transferClassification</td>
+                        <td class="parameter"></td>
+                        <td class="parameter">params.xml</td>
+                        <td>
+                            从标签图层影像迁移分类结果。可把从 <span class="apppanel">AI Classify tool</span> 面板导出的参数文件作为可选参数。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_expclassset" data-vn="1">
+                        <td class="command">exportClassificationSettings</td>
+                        <td class="parameter">XMLfilePath</td>
+                        <td class="parameter"></td>
+                        <td>
+                            导出 <span class="apppanel">AI Classify tool</span> 面板中的设置。必需参数（XMLfilePath）需指定导出的完整路径，包含文件名与格式扩展名（.xml）。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_impclassset" data-vn="1">
+                        <td class="command">importClassificationSettings</td>
+                        <td class="parameter">XMLfilePath</td>
+                        <td class="parameter"></td>
+                        <td>
+                            把设置导入到 <span class="apppanel">AI Classify tool</span> 面板。必需参数（XMLfilePath）需指定导入的完整路径，包含文件名与格式扩展名（.xml）。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_oververt" data-vn="1">
+                        <td class="command">overrideSelectedVertices</td>
+                        <td class="parameter"></td>
+                        <td class="parameter">className</td>
+                        <td>覆盖所选顶点，把其类别改为当前选中的类别，或改为由名称指定的类别（可选）。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_slctclass" data-vn="1">
+                        <td class="command">selectClass</td>
+                        <td class="parameter">className</td>
+                        <td class="parameter"></td>
+                        <td>按指定类别名称，从所选分类中选中该类别。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_dsltclass" data-vn="1">
+                        <td class="command">deselectClass</td>
+                        <td class="parameter"></td>
+                        <td class="parameter"></td>
+                        <td>取消选中所有已选类别。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_rnmselcl" data-vn="1">
+                        <td class="command">renameSelectedClass</td>
+                        <td class="parameter">newClassName</td>
+                        <td class="parameter"></td>
+                        <td>把所选类别的名称改为指定的新名称（newClassName）。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_sscldtm" data-vn="1">
+                        <td class="command">setSelectedClassAsGroundForDTM</td>
+                        <td class="parameter">true OR false</td>
+                        <td class="parameter"></td>
+                        <td>在 <span class="apppanel">Selected Class</span> 面板中修改所选类别的 <span class="appproperty">Use as ground for DTM</span> 设置：设为 <span class="appproperty">true</span> 表示将该类别用作 DTM 地面，设为 <span class="appproperty">false</span> 表示排除。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_ssclexp" data-vn="1">
+                        <td class="command">setSelectedClassAsGroundForExport</td>
+                        <td class="parameter"></td>
+                        <td class="parameter"></td>
+                        <td>把 <span class="apppanel">Selected Class</span> 面板中的 <span class="appproperty">Export class LAS</span> 设置改为 <span class="appproperty">Ground (2)</span>。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_ssclas" data-vn="1">
+                        <td class="command">setSelectedClassLasFormat</td>
+                        <td class="parameter">0 - 12</td>
+                        <td class="parameter"></td>
+                        <td>把 <span class="appproperty">Export class LAS</span> 设置改为 0 到 12 之间某个数字所对应的值。 
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_svrtsc" data-vn="2">
+                        <td class="command">selectVerticesOfSelectedClass</td>
+                        <td class="parameter"></td>
+                        <td class="parameter"></td>
+                        <td>按所选类别选中模型顶点。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_selclfr" data-vn="1">
+                        <td class="command">selectClassificationFormat</td>
+                        <td class="parameter">classificationFormatName</td>
+                        <td class="parameter"></td>
+                        <td>按指定的分类格式名称选中分类格式。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_rscfr" data-vn="1">
+                        <td class="command">renameSelectedClassificationFormat</td>
+                        <td class="parameter">newClassificationFormatName</td>
+                        <td class="parameter"></td>
+                        <td>把选中的分类格式重命名为指定的新名称。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_expscfr" data-vn="2">
+                        <td class="command">exportSelectedClassificationFormat</td>
+                        <td class="parameter">filePath</td>
+                        <td class="parameter"></td>
+                        <td>通过指定完整路径（含文件名与 .cfd 扩展名）导出所选分类格式。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_expcfr" data-vn="2">
+                        <td class="command">exportClassificationFormat</td>
+                        <td class="parameter">classificationFormatName filePath</td>
+                        <td class="parameter"></td>
+                        <td>通过指定分类格式名称与输出文件路径（含文件名与 .cfd 扩展名）导出该分类格式。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_impcfr" data-vn="1">
+                        <td class="command">importClassificationFormat</td>
+                        <td class="parameter">filePath</td>
+                        <td class="parameter"></td>
+                        <td>通过指定完整路径与名称（含 .cfd 扩展名）导入分类格式。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_colscl" data-vn="1">
+                        <td class="command">colorModelBySelectedClassification</td>
+                        <td class="parameter"></td>
+                        <td class="parameter"></td>
+                        <td>按所选分类中的类别为模型着色。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_delscl" data-vn="1">
+                        <td class="command">deleteSelectedClassification</td>
+                        <td class="parameter"></td>
+                        <td class="parameter"></td>
+                        <td>删除所选分类。
+                        </td>
+                    </tr>  
+                </table>
+            </div>
+
+            <div data-id="div_sb_error" class="slideblock splitSpacing">
+                <h2 data-id="h2_error" data-vn="1">设置与错误处理命令</h2>
+                <p data-id="p_h2_error" data-vn="1" class="lod1">
+                    可用这些命令更改应用程序的设置与行为。
+                </p>
+
+                <table class="tableofcommands">
+                    <thead>
+                        <tr data-id="tr_error_thead" data-vn="1">
+                            <th>命令名称</th>
+                            <th>必需参数</th>
+                            <th>可选参数</th>
+                            <th>说明</th>
+                        </tr>
+                    </thead>
+                    <tr data-id="tr_error_set" data-vn="2">
+                        <td class="command">set</td> 
+                        <td class="parameter">"key=value"</td>
+                        <td class="parameter"></td>
+                        <td>修改一项应用程序设置。该命令用法的更多信息请见 <a href="../tutorials/setkeyvaluetable.htm">此处</a>。</td> 
+                    </tr>
+                    <tr data-id="tr_error_preset" data-vn="1">
+                        <td class="command">preset</td> 
+                        <td class="parameter">"key=value"</td>
+                        <td class="parameter"></td>
+                        <td>在设置阶段修改应用程序设置，适合需要重启应用程序才能生效的更改。该命令用法的更多信息请见 <a href="../tutorials/setkeyvaluetable.htm">此处</a>。</td> 
+                    </tr>
+                    <tr data-id="tr_error_reset" data-vn="2">
+                        <td class="command">reset</td>
+                        <td class="parameter">ui &#124; cfg &#124; cfgui &#124; all</td>
+                        <td class="parameter"></td>
+                        <td>重置用户界面、设置或两者，也可让 RealityScan 恢复到全新安装的状态。该命令仅在批处理文件中使用时有效，不适用于委托命令。重置内容由所选参数决定：<span class="appproperty">ui</span> - 重置用户界面，<span class="appproperty">cfg</span> - 重置应用程序设置，<span class="appproperty">cfgui</span> - 同时重置界面与设置，<span class="appproperty">all</span> - 恢复为全新安装状态。</td>                         
+                    </tr>
+                    <tr data-id="tr_error_silent" data-vn="3">
+                        <td class="command">silent</td> 
+                        <td class="parameter">crashReportPath</td>  
+                        <td class="parameter"></td> 
+                        <td>屏蔽警告对话框并停止上传崩溃报告，应用程序会把报告存放到指定位置，而不再显示上传向导。该命令必须在启动时使用。</td>                         
+                    </tr>
+                    <tr data-id="tr_error_progress" data-vn="2">
+                        <td class="command">writeProgress</td> 
+                        <td class="parameter">fileName </td>  
+                        <td class="parameter">timeout</td> 
+                        <td>把所有新的进度变化写入指定文件（fileName 需含路径）。可选的 timeout 参数还可在指定时间段内持续输出（单位为秒）。文件结构的更多说明见 <a href="../tutorials/commandline_5.htm">错误处理命令</a> 一节。</td>
+                    </tr>
+					<tr data-id="tr_error_printprogress" data-vn="1">
+                        <td class="command">printProgress</td> 
+                        <td class="parameter"></td>  
+                        <td class="parameter">timeout</td>
+                        <td>每当进度发生变化时，把变化输出到 Windows 命令提示符。可选的 timeout 参数还可在指定时间段内持续输出（单位为秒）。</td> 
+                    </tr>
+					<tr data-id="tr_error_tag" data-vn="2">
+                        <td class="command">tag</td>
+                        <td class="parameter">string</td>
+                        <td class="parameter"></td>
+                        <td>把字符串参数写出到 Windows 命令提示符。它遵循所用命令的顺序，会在其前面的进程结束后、整体完成之前执行。</td>
+                    </tr>                    
+                    <tr data-id="tr_error_stdconsole" data-vn="1">
+                        <td class="command">stdConsole</td> 
+                        <td class="parameter"></td>  
+                        <td class="parameter"></td>
+                        <td>启用把控制台内容重定向到应用程序标准输出。使用后，应用程序控制台内容会同步显示在标准 Windows 控制台中，同时也支持为 CLI 用途做进一步重定向。</td> 
+                    </tr>
+                    <tr data-id="tr_error_disableonline__v1" data-vn="1">
+                        <td class="command">disableOnlineCommunication</td> 
+                        <td class="parameter"></td>  
+                        <td class="parameter"></td> 
+                        <td>禁用所有在线通信。</td> 
+                    </tr>
+                    <tr data-id="tr_error_importgs" data-vn="1">
+                        <td class="command">importGlobalSettings</td> 
+                        <td class="parameter">settings.rcconfig</td>  
+                        <td class="parameter"></td> 
+                        <td>从 settings.rcconfig 文件导入应用程序全局设置。</td>
+                    </tr>
+                    <tr data-id="tr_error_exportgs" data-vn="1">
+                        <td class="command">exportGlobalSettings</td> 
+                        <td class="parameter">settings.rcconfig</td>  
+                        <td class="parameter"></td> 
+                        <td>把应用程序全局设置导出到 settings.rcconfig 文件。</td>
+                    </tr>
+                    <tr data-id="tr_error_setpcs" data-vn="1">
+                        <td class="command">setProjectCoordinateSystem</td> 
+                        <td class="parameter">authority:id</td>  
+                        <td class="parameter"></td> 
+                        <td>设置由权威机构定义的项目坐标系及其 ID（可在特定数据库中查到，例如 epsg.xml 和 local.xml）。示例请见 <a href="../tutorials/commandline_4.htm">此处</a>。</td>
+                    </tr>
+                    <tr data-id="tr_error_setocs" data-vn="1">
+                        <td class="command">setOutputCoordinateSystem</td> 
+                        <td class="parameter">authority:id</td>  
+                        <td class="parameter"></td> 
+                        <td>设置由权威机构定义的输出坐标系及其 ID（可在特定数据库中查到，例如 epsg.xml 和 local.xml）。示例请见 <a href="../tutorials/commandline_4.htm">此处</a>。</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="clear splitSpacing">
+                <!-- clear -->
+            </div>
+
+            <div class="blocksContainer">
+
+                <a href="../tutorials/commandline.htm">
+                    <div class="block TileColor2">
+                        <h2 data-id="h2_bc_cli" data-vn="1">了解更多 CLI 内容</h2>
+                        <p data-id="p_h2_bc_cli" data-vn="1">查看命令行界面教程</p>
+                    </div>
+                </a>
+
+                <script type="text/javascript">RenderBackToStartTile();</script>
+            </div>
+
+            <div class="clear">
+                <!-- clear -->
+            </div>
+
+            <!-- content slide end -->
+
+        </div>
+
+        <script type="text/javascript">RenderCopyrightText();</script>
+
+    </body>
+</html>
+<!-- signature:uPJlfQxJTJW8DsgUR9qATMPo2a1LpPZ4ufvLJEK2cEih691q29Xsw1yBmbQhS7ho0yTOOMyzGA2c06GJSy+xOkn0CYUGZGqRqsMG676dDlrCynpm626kfv8IIPExtWCas8BMKldUGTnO7+cvJASfqa6ddeN29DVjbaPHpVAghJA= -->

@@ -1,0 +1,80 @@
+<html>
+<head>
+    <title>RealityScan 帮助</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Epic Games Slovakia s.r.o." />
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <link type="text/css" rel="stylesheet" href="../../styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/colors.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css" />
+    <script src="../scripts/textVars.js" type="text/javascript"></script>
+    <script src="../../scripts/localization.js" type="text/javascript"></script>
+    <script src="../../scripts/main.js" type="text/javascript"></script>
+</head>
+<body ondragstart="return false;">
+
+    <div data-id="div_cs" class="content_slide">
+
+        <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head_v1" class="head">
+
+            <h1 data-id="h1" data-vn="2">RealityScan Node</h1>
+            <p data-id="p_h1" data-vn="2">
+               Node 是一个系统服务，充作自定义应用与 RealityScan 之间的桥接。它提供类 REST 的 API，用于管理 RealityScan 会话、上传下载会话文件以及运行 CLI 命令。
+            </p>
+            
+            <p data-id="p_runnode" data-vn="3">
+               RealityScan Node 既可从 RealityScan 启动，也可直接从 RealityScan 安装目录启动。从 RealityScan 启动：进入 <span class="appribbon">WORKFLOW</span> 选项卡的 <span class="apppanel">Assistants</span> 区域，使用 <span class="apptool">Real-time Assistance</span> 工具，这会自动启动 RealityScan Node（可在 Windows 系统托盘中找到）。从安装目录启动：直接运行 RSNode.exe，或在命令提示符中调用它，例如：
+            </p>
+            
+            <div class="codeSample" data-id="div_cosa_1" data-vn="1">
+                "C:\Program Files\Epic Games\RealityScan\RSNode.exe" -hostAddress 192.168.0.74 -port 7878 -landingPage "\/static/MyApp.html"
+            </div>
+            
+            <p data-id="p_method" data-vn="1">
+               目前只有一种认证方式：使用带 GUID 令牌的 Bearer HTTP 授权头。该令牌在打开着陆页时作为 GET 参数发送，所有 API 调用都需要它（静态 HTTP 服务器除外）。若直接连接某个节点，请注意该连接并不加密，因此应依赖私有且受保护的局域网。
+            </p>
+
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_Bc" class="blocksContainer">
+
+            <a href="../tools/apinode.htm">
+                <div class="block TileColor6">
+                    <h2 data-id="h2_bc_an" data-vn="1">API 方法 —— 节点</h2>
+                    <p data-id="p_bc_an" data-vn="1">影响节点本身的 API 方法</p>
+                </div>
+            </a>
+            
+            <a href="../tools/apiproject.htm">
+                <div class="block TileColor6">
+                    <h2 data-id="h2_bc_ap" data-vn="1">API 方法 —— 工程</h2>
+                    <p data-id="p_bc_ap" data-vn="1">影响工程内容的 API 方法</p>
+                </div>
+            </a>
+            
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+        <!-- content slide end -->
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+    <script type="text/javascript">
+        InitializeHelpSlide();
+    </script>
+</body>
+</html>
+<!-- signature:Fimr7T3zhXEQycDrU7yTtZW9RxieIWCfrSKBmoy4VbOlgQRrdJZ9PqGaBKQ/p0bjonEn5ctfhLjTtcDxK73uKNZzNO0xPbxc2wpoA18Lu9MJM3tjgSk8RhlJQrvIYSJA0rZF8d8aMBeOLekAa2M3q31SfY5jf1+wJxijTkpnB3c= -->

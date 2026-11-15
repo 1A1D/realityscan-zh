@@ -1,0 +1,251 @@
+﻿<html>
+<head>
+    <title>RealityScan 帮助</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Epic Games Slovakia s.r.o." />
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <link type="text/css" rel="stylesheet" href="../../styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/colors.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css" />
+    <script src="../scripts/textVars.js" type="text/javascript"></script>
+    <script src="../../scripts/localization.js" type="text/javascript"></script>
+    <script src="../../scripts/main.js" type="text/javascript"></script>
+</head>
+<body ondragstart="return false;">
+
+    <div data-id="div_sb" class="content_slide">
+
+        <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head" class="head">
+
+            <h1 data-id="h1" data-vn="1">模型导出</h1>
+
+            <p data-id="p_h1" data-vn="2">
+                导出模型前，项目中至少要有一个已创建并选中的模型，否则导出按钮不可用。当然，模型也可以在导出前先着色和/或贴纹理，这样导出时就能一并导出纹理。
+            </p>
+
+            <div data-id="div_im_simo" data-vn="2" class="importantMessage">
+                注意：模型若经过简化，必须重新计算纹理，才能随模型导出纹理。
+            </div>
+
+        </div>
+
+        <div data-id="div_sb_exmo" class="slideblock">
+
+            <ul>
+
+                <li data-id="li_exmo_clmo" data-vn="3">
+                    要导出已准备好的模型，请点击 <span class="appribbon">MESH &amp; COLOR</span> 选项卡或 <span class="appribbon">SCENE 3D</span>/<span class="appribbon">TOOLS</span> 选项卡 <span class="apppanel">Export</span> 区域的 <span class="appribbonbutton">Model &amp; Point Cloud</span> 按钮。
+                </li>
+                
+                <li data-id="li_exmo_saas_v1" data-vn="2">
+                    点击导出按钮后会弹出 Windows 的「另存为」窗口。请注意文件名不能包含 Unicode 字符和/或空格，若包含会弹出提示。<br/> 可选择的输出格式有：Wavefront（.obj）、Polygon File Format（.ply）、XYZ 点云（.xyz）、Alembic（.abc）、Binary GL Transmission Format（.glb）、立体光刻格式（.stl）、3D Manufacturing Format（.3mf）、Universal Scene Descriptor（.usd）、Universal Scene Descriptor 压缩包（.usdz）、激光点云（.ptx）、LAS 点云（.las）、可见部件列表（.partList）、仅纹理、Autodesk 文件格式（.fbx）、AutoCAD DXF（.dxf），以及 Collada DAE（.dae）。<br/> <br/> <img src="images/Export-save-as.png" alt="Export-save-as" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/Export-Save-as.png';"> <br/><br/> <div data-id="div_im_las5" data-vn="1" class="importantMessage">注意：最近使用的 5 种格式会排在导出对话框最前面。</div> <br/> 
+                </li>
+
+                <li data-id="li_exmo_moop" data-vn="1">
+                    根据所选的另存类型，会出现相应的导出选项（「可见部件列表」除外，它不需要额外设置）。另请注意某些参数可能会隐藏 —— 例如导出未着色或未贴纹理的模型时，颜色/纹理相关的额外选项不会显示。     
+                </li>
+            </ul>
+
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sb_gese" class="slideblock">
+
+            <h2 data-id="h2_gese" data-vn="1">通用设置</h2>
+
+            <img src="images/Export-general-settings.png" alt="Export-general-settings" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/Export-general-settings.png';"/>
+            <br/>
+            <br/>
+
+            <p data-id="p_gese_exif" data-vn="3">
+                <span class="appproperty">Export an info file</span> 设为「是」会创建一个 XML 文件（.rsinfo），其中包含内部坐标系的重要信息、与模型坐标导出所用坐标系的关系，以及导出参数。该文件在两种情况下有用：<br/>
+            </p>
+
+            <ul>
+                <li>
+                    <p data-id="p_gese_cli" data-vn="3">
+                        可以把这些导出参数当作 CLI 命令“-exportModel”的定义来使用：只需把生成的 .rsinfo 文件中 ModelExport 标签内的文本复制出来，粘贴到一个空的 .xml 文件里，再用这个 .xml 文件配合该命令。 <a href="../tutorials/commandline_3.htm">here</a>这类 .xml 文件的示例可在 <a href="../tools/xmlparamsfiles.htm">本页找到。</a>.
+                    </p>
+                </li>
+
+                <li>
+                    <p data-id="p_gese_impo" data-vn="2">
+                        当你需要导出模型、做后期处理、再导回同一组件时，这个文件很重要——之后你就可以给处理过的模型重新贴图。
+                        <br/>
+                        应用会自动查找该信息文件；找到后会用其中的信息把模型正确放置到内部坐标系中。信息文件必须与被导入模型同名，并额外带“.rsInfo”扩展名，例如 myObject.obj.rsInfo。 
+                    </p>
+                </li>
+            </ul>
+
+            <div data-id="div_im_nuse" data-vn="1" class="importantMessage">
+                警告：若不使用 info 文件，导入的模型在场景中可能相对原模型和相机发生平移、旋转和缩放。
+            </div>
+            <br/>
+
+            <p data-id="p_gese_opti" data-vn="4">
+                <span class="appproperty">Save mesh by parts</span> 按创建时的部件拆分导出模型，或作为单体导出。<br/> <span class="appproperty">Format version</span> 虽然该设置对各种格式都会显示，但只有导出 .fbx 时才有意义。.fbx 的选项分 binary 和 ASCII：FBX201100、FBX201200、FBX201300、FBX201400、FBX201800、FBX201900 和 FBX202000。<br/> <span class="appproperty">File type</span> 以 .ply 格式导出时可选择 Binary（二进制格式）或 ASCII（文本格式）。二进制格式比 ASCII 占空间更小。<br/> <span class="appproperty">Export vertex normals</span> 法线是垂直于表面切平面的向量。例如之后按法线相对模型表面的朝向来打光时会很有用。<br/> <span class="appproperty">Export vertex colors</span> 启用后，模型顶点会连带颜色信息一起导出。<br/> <span class="appproperty">Grayscale quality values</span> 当模型使用网格质量值着色时可用。启用可保留质量信息的完整值域与精度。<br/> <span class="appproperty">Export materials</span> 启用后导出内容会包含材质信息，仅适用于 .fbx 格式。<br/> <span class="appproperty">Number format</span> 选择导出的数字格式，可选 Decimal、Scientific 和 General。Decimal 与 Scientific 最多 17 位有效数字并去掉末尾零，区别在于显示方式；General 会按哪个更短来选用 Decimal 或 Scientific。<br/> <span class="appproperty">Classification export</span> 若选择了 .ply、.xyz 或 .las 格式，可导出在待导出模型上创建的分类。<br/> <span class="appproperty">Generate multi-scan PTX</span> 以 .ptx 导出的模型可以导出为 multi-scan，即所有激光扫描会写入同一个文件。<br/> <span class="appproperty">Output Decimal Precision</span> 定义 .ptx 文件中所存数值的小数位数。          
+            </p>
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+        
+        <div data-id="div_sb_tese" class="slideblock">
+
+            <h2 data-id="h2_tese" data-vn="1">纹理设置</h2>
+            
+            <img src="images/Export-texture-settings.png" alt="Export-texture-settings" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/Export-texture-settings.png';"/>
+            <br/>
+            <br/>            
+            
+
+            <p data-id="p_h2_tese" data-vn="2">
+                <span class="appproperty">Export textures</span> 若要导出纹理请设为「是」，这会启用其他纹理相关设置。若模型有多张纹理，还可以选择导出其中哪些。<br/> <span class="appproperty">Embedded textures</span> 当模型文件格式支持内嵌时出现。选「是」会把纹理嵌入模型文件，这样整个场景就是一个文件。<br/> <span class="appproperty">Export texture alpha</span> Alpha 遮罩定义哪些像素包含纹理、哪些不包含。<br/> <span class="appproperty">导出为单个纹理文件</span> 设为「否」时会出现三个 Tile type 选项：_u1_v1、(u,v) 和 UDIM。把多张纹理导出为单张时，会把所有（方形）纹理拼接到一张图里，处理超大模型时特别有用。另见下图。
+            </p>
+            <br/>
+
+            <div data-id="div_nfit" data-vn="1" class="importantMessage">
+                 警告：若纹理超过最大分辨率，会被缩放到适配尺寸，从而降低细节质量。
+            </div>
+            <br/>
+
+            <p data-id="p_tese_opti" data-vn="1">
+                <span class="appproperty">Texture maximal side</span> 仅在 <span class="appproperty">Export to single texture file</span> 设为「是」时可用：512、1024、2048、4096、8192、16384、32768 或 65536 像素。<br/> <span class="appproperty">Use pow2 texture size</span> 仅在导出单张纹理时可用。设为「是」后，导出纹理由若干单张纹理拼成，尺寸对齐到所选最大纹理尺寸的 2 的整数倍或约数，同时保持最终纹理为方形、面积最小，且不降低分辨率（上一条警告的情况除外）。效果见下图：
+            </p>
+
+            <div style="padding: 10px 10px 10px 0px">
+                <img src="images/pow2-texture-size.png" alt="pow2-texture-size" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/pow2-texture-size.png';"/>
+            </div>
+ 
+            <p data-id="p_h2_textformats" data-vn="2">
+            <span class="appproperty">Texture file format</span> 选择纹理导出的格式。<br/> <span class="appproperty">Texture pixel format</span> 选择导出纹理的像素格式：24 位 BGR、32 位 BGRA 或 64 位 RGBA。<br/> <span class="appproperty">Grayscale quality values</span> 导出带质量纹理的模型时可用。启用可保留质量信息的完整值域与精度。
+            </p>
+            <br/>
+            <div data-id="div_im_hdr" data-vn="1" class="importantMessage">
+                 注意：对 16 位与 HDR 图像，“导出模型”对话框的贴图设置中还有一些其他参数。 <a href="../tools/importhdr.htm">点击此处</a> 了解更多详情。
+            </div>
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sb_excs" class="slideblock">
+
+            <h2 data-id="h2_excs" data-vn="1">导出相机设置</h2>
+            
+            <p data-id="p_h2_excs" data-vn="1">
+            这些设置大多只对 .fbx 和 .abc 格式可用。
+            </p>
+            
+            <img src="images/Export-cameras-settings.png" alt="Export-cameras-settings" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/Export-cameras-settings.png';"/>
+            <br/>
+            <br/>        
+
+            <p data-id="p_h2_excsset" data-vn="1">
+                <span class="appproperty">把相机作为模型部件导出</span> 若想把相机转换成网格，设为「是」。<br/> <span class="appproperty">Export cameras</span> 若想随模型一起导出相机的位置、朝向与焦距，设为「是」。<br/> <span class="appproperty">Undistort images</span> 设为「是」会启用去畸变相关设置，图像信息将参照无畸变图像导出。<br/> <span class="appproperty">Export images</span> 设为「是」会随模型导出生成该模型的组件中已配准的图像，同时启用导出图像设置。<br/>
+            </p>
+            
+            <h3 data-id="h3_excs_undistort" data-vn="1">去畸变设置</h3>
+            
+                <p data-id="p_h3_excs_undisimages" data-vn="1">
+                这些设置大多只对 .fbx 和 .abc 格式可用。
+                </p>
+            
+                <p data-id="p_h3_excs_undset" data-vn="1">
+                    <span class="appproperty">Fit</span> 定义无畸变图像中用于输出的部分。<br/> <span class="appproperty">Resolution</span> 指定图像分辨率。设为 Fit 或 Preserve 时会出现 <span class="appproperty">Downscale</span> 设置；设为 Custom 时则提供 <span class="appproperty">Custom width</span> 与 <span class="appproperty">Custom height</span>。<br/> <span class="appproperty">Undistort principal point</span> 控制无畸变图像中心的位置。设为「是」会把图像的光学中心移到导出图像的实际中心。<br/> <span class="appproperty">Image cut-out</span> 定义参与去畸变的图像比例。<br/> <span class="appproperty">Max count of pixels</span> 定义图像的最大分辨率（像素）。填 0 表示不限制。<br/>
+                </p>
+            
+                <p data-id="p_h3_excs_undislink" data-vn="1">
+                无畸变图像的更多信息见 <a href="../tools/undistort.htm">此处</a>。
+                </p>
+                        
+            <h3 data-id="h3_excs_imageset" data-vn="1">导出图像设置</h3>
+                    
+                    <p data-id="p_h3_excsset" data-vn="1">
+                    <span class="appproperty">Image format</span> 图像导出的格式。<br/> <span class="appproperty">Pixel format</span> 选择导出图像的像素格式：24 位 BGR、32 位 BGRA 或 64 位 RGBA。<br/> <span class="appproperty">Naming convention</span> 选择导出图像的命名规则。<br/> <span class="appproperty">Image path</span> 图像默认导出到模型所在文件夹，可在此改为其他路径。<br/> <span class="appproperty">Background color</span> 设置导出图像的背景色。<br/>
+                </p>
+  
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+        
+        <div data-id="div_sb_exts" class="slideblock">
+
+            <h2 data-id="h2_exts" data-vn="1">导出变换设置</h2>
+
+            <p data-id="p_h2_exts" data-vn="2">
+                RealityScan 允许对导出的模型进行平移和缩放，例如把单位从米换成厘米时很有用。把 Scale X/Y/Z 设为 10，模型就会放大 10 倍。
+            </p>
+
+            <img src="images/Export-scene-transformation.png" alt="Export-scene-transformation" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/Export-scene-transformation.png';"/>
+            <br/>
+            <br/>
+
+            <p data-id="p_exts_settings" data-vn="1">
+                <span class="appproperty">Coordinate system</span> 选择模型导出所用的坐标系。<br/> <span class="appproperty">Transformation preset</span> 应用预定义的场景变换与法线变换设置。<br/> <span class="appproperty">Scene transformation</span> 调整模型的位置、朝向与缩放。<br/> <span class="appproperty">Normal transformation</span> 调整所有导出的法线贴图。<br/>
+            </p>
+            
+
+            <h3 data-id="h3_exts_coordsystem" data-vn="1">坐标系</h3>
+
+                <p data-id="p_h3_exts_coordsystem" data-vn="1">
+                <span class="appaspecttype">Grid plane</span> - 与 <span class="appaspecttype">3Ds</span> 视图中看到的一致。<br/> <span class="appaspecttype">Project Output</span> - 仅在模型已完成地理参考时可用。输出坐标系可在 <span class="appribbon">WORKFLOW</span> 选项卡 / <span class="appribbonbutton">Settings</span> / <span class="appproperty">Coordinate systems</span> 中选择。<br/> <span class="appaspecttype">Shifted project output</span> - 与 Project Output 相同，只是平移到场景中心。<br/> <span class="appaspecttype">Same as XMP</span> – 使用与导出的元数据（XMP）相同的坐标系导出。此选项对未地理参考的模型同样可用。
+                </p>
+                
+            <h3 data-id="h3_exts_scenetrans" data-vn="1">场景变换</h3>    
+  
+                <p data-id="p_h3_exts_scenetrans" data-vn="1">
+                <span class="appproperty">Move X / Y / Z</span> 按坐标系定义的单位沿任意方向移动对象，默认单位为米。<br/> <span class="appproperty">Rotate X / Y / Z</span> 定义模型绕相应坐标轴的欧拉旋转（-180 到 180 度）。<br/> <span class="appproperty">Scale X / Y / Z</span> 通过改变默认缩放数值来缩放相应坐标轴的坐标。
+                </p>
+            
+            <h3 data-id="h3_exts_normaltrans" data-vn="1">法线变换</h3>   
+                       
+                <p data-id="p_h3_exts_normaltrans" data-vn="1">
+                    <span class="appproperty">Space</span> 法线向量所在的坐标系。选 World 时，法线与模型顶点处于同一坐标系。Object 与 World 基本相同，区别是场景变换中的旋转不会应用到法线上。Tangent（Mikktspace）选项兼容多种第三方渲染系统。导出切线空间法线贴图时，建议始终启用 Export vertex normals 以获得最佳效果。<br/> <span class="appproperty">Range</span> 决定用法线向量表示的浮点值范围。选择非浮点的 Texture pixel format 时无效。<br/> <span class="appproperty">Flip X / Y / Z coordinate</span> 镜像法线向量的方向。某些第三方渲染系统中需要翻转 Y 坐标才能正确使用导出的法线贴图。
+                </p>
+
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_bc" class="blocksContainer">
+
+            <a href="import.htm">
+                <div class="block TileColor2">
+                    <h2 data-id="h2_bc_moim" data-vn="1">模型导入</h2>
+                    <p data-id="p_h2_bc_moim" data-vn="1">了解如何把模型导入新项目</p>
+                </div>
+            </a>
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+        <!-- content slide end -->
+
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+    <script type="text/javascript">
+        InitializeHelpSlide();
+    </script>
+
+</body>
+</html>
+<!-- signature:yrOEPKS9+eYXlbl2Vhch837T0It18K5jy3hpZOyPn1qMGk903ppBBfyBPAXRuo0GV2ROlbbmRIHLKqbulvFlXsKT1zhSrvQqwz4Crnu7o5q9VuCPmp2qkYqxBn9FvwXcydNSUUH7htN9cbMw6iSJjQuhuHK4f1S3oMsePzbfq/4= -->

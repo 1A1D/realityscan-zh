@@ -1,0 +1,903 @@
+﻿<html>
+    <head>
+        <title>RealityScan 帮助</title>
+        <meta charset="UTF-8"/>
+        <meta name="author" content="Epic Games Slovakia s.r.o."/>
+        <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/style.css"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/colors.css"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css"/>
+        <script src="../scripts/textVars.js" type="text/javascript"></script>
+        <script src="../../scripts/localization.js" type="text/javascript"></script>
+        <script src="../../scripts/main.js" type="text/javascript"></script>
+    </head>
+<body ondragstart="return false;">
+
+    <div data-id="div_cs" class="content_slide">
+
+        <!-- content slide -->
+
+        <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head" class="head">
+            <h1 data-id="h1" data-vn="1">正射投影（报告中可用的函数与变量）</h1>
+        </div>
+
+        <div data-id="div_sb_op" class="slideblock">
+            <h2 data-id="h2_op" data-vn="1">正射投影</h2>
+
+            <p data-id="p_op_iter" data-vn="1"><span class="appproperty">IterateOrthoProjections</span> —— 该函数遍历所选的正射投影；若没有选中任何投影，则遍历全部正射投影。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_op_iter_syn" data-vn="1"><b>语法：</b></p>
+                <p><pre data-id="pre_op_iter_syn" data-vn="1">
+  $IterateOrthoProjections( noParametersJustAnyText )</pre></p>
+                <p data-id="p_op_iter_avars" data-vn="1"><b>可用变量：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_op_iter_inde" data-vn="1"><span class="appproperty">orthoIndex</span> —— 正射投影的索引</p>
+                    <p data-id="p_op_iter_guid" data-vn="1"><span class="appproperty">orthoGuid</span> —— 正射投影的 GUID</p>
+                    <p data-id="p_op_iter_name" data-vn="1"><span class="appproperty">orthoName</span> —— 正射投影的名称</p>
+                </div>
+                <p data-id="p_op_iter_ex" data-vn="1"><b>示例：</b></p>
+                <pre data-id="pre_op_iter_ex" data-vn="1">
+  $IterateOrthoProjections(
+    orthoIndex: $(orthoIndex), orthoGuid: $(orthoGuid), orthoName: $(orthoName)
+  )    
+                </pre>
+            </div>
+
+            <p data-id="p_op_expo" data-vn="1"><span class="appproperty">ExportOrthoProjection</span> —— 该函数用于输出正射投影的信息。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_op_expo_syn" data-vn="1"><b>语法：</b></p>
+                <p><pre data-id="pre_op_expo_syn" data-vn="1">
+  $ExportOrthoProjection( orthoGuid, anyText )</pre></p>
+                <p data-id="p_op_expo_pars" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_op_expo_guid" data-vn="1"><span class="appproperty">orthoGuid</span> —— 正射投影的 GUID：可用 IterateOrthoProjections 函数获取所选正射投影的 GUID（见下例）</p>
+                </div>
+                <p data-id="p_op_expo_avars" data-vn="1"><b>可用变量：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_op_expo_ogui" data-vn="1"><span class="appproperty">orthoGUID</span> —— 正射投影的 GUID</p>
+                    <p data-id="p_op_expo_cgui" data-vn="1"><span class="appproperty">componentGUID</span> —— 创建该正射投影时所在组件的 GUID</p>
+                    <p data-id="p_op_expo_name" data-vn="1"><span class="appproperty">orthoName</span> —— 正射投影的名称</p>
+                    <p data-id="p_op_expo_widt" data-vn="1"><span class="appproperty">orthoWidth</span> —— 宽度（像素）</p>
+                    <p data-id="p_op_expo_heig" data-vn="1"><span class="appproperty">orthoHeight</span> —— 高度（像素）</p>
+                    <p data-id="p_op_expo_uppx" data-vn="1"><span class="appproperty">orthoUppx</span> —— 每列像素对应的单位数</p>
+                    <p data-id="p_op_expo_uppy" data-vn="1"><span class="appproperty">orthoUppy</span> —— 每行像素对应的单位数</p>
+                    <p data-id="p_op_expo_docu" data-vn="1"><span class="appproperty">orthoDepthInOrthoCoordUnits</span> —— 包围盒深度（x 方向长度）</p>
+                    <p data-id="p_op_expo_wocu" data-vn="1"><span class="appproperty">orthoWidthInOrthoCoordUnits</span> —— 包围盒宽度（y 方向长度）</p>
+                    <p data-id="p_op_expo_hocu" data-vn="1"><span class="appproperty">orthoHeightInOrthoCoordUnits</span> —— 包围盒高度（z 方向长度）</p>
+                    <p data-id="p_op_expo_type" data-vn="1"><span class="appproperty">orthoType</span> —— 正射投影的类型</p>
+                    <p data-id="p_op_expo_cosy" data-vn="1"><span class="appproperty">orthoCoordSystem</span> —— 坐标系</p>
+                    <p data-id="p_op_expo_copr" data-vn="1"><span class="appproperty">orthoCoordProjection</span> —— 投影</p>
+                    <p data-id="p_op_expo_copm" data-vn="1"><span class="appproperty">orthoCoordPrimeMeridian</span> —— 本初子午线</p>
+                    <p data-id="p_op_expo_coun" data-vn="1"><span class="appproperty">orthoCoordUnits</span> —— 单位</p>
+                    <p data-id="p_op_expo_cous" data-vn="1"><span class="appproperty">orthoCoordUnitsShort</span> —— 单位的短名</p>
+                    <p data-id="p_op_expo_cela" data-vn="1"><span class="appproperty">orthoCentreLat</span> —— 包围盒中心的纬度（该变量及随后 10 个变量仅当正射投影类型为 "Map (GPS)"、即 orthoType 值为 "Map (GPS)" 时有效，且以 epsg:4326 - GPS（WGS 84）坐标系导出）</p>
+                    <p data-id="p_op_expo_celo" data-vn="1"><span class="appproperty">orthoCentreLon</span> —— 包围盒中心的经度</p>
+                    <p data-id="p_op_expo_ceal" data-vn="1"><span class="appproperty">orthoCentreAlt</span> —— 包围盒中心的高程</p>
+                    <p data-id="p_op_expo_nwla" data-vn="1"><span class="appproperty">orthoCornerNWLat</span> —— 正射投影西北角的纬度</p>
+                    <p data-id="p_op_expo_nwlo" data-vn="1"><span class="appproperty">orthoCornerNWLon</span> —— 正射投影西北角的经度</p>
+                    <p data-id="p_op_expo_nela" data-vn="1"><span class="appproperty">orthoCornerNELat</span> —— 正射投影东北角的纬度</p>
+                    <p data-id="p_op_expo_nelo" data-vn="1"><span class="appproperty">orthoCornerNELon</span> —— 正射投影东北角的经度</p>
+                    <p data-id="p_op_expo_sela" data-vn="1"><span class="appproperty">orthoCornerSELat</span> —— 正射投影东南角的纬度</p>
+                    <p data-id="p_op_expo_selo" data-vn="1"><span class="appproperty">orthoCornerSELon</span> —— 正射投影东南角的经度</p>
+                    <p data-id="p_op_expo_swla" data-vn="1"><span class="appproperty">orthoCornerSWLat</span> —— 正射投影西南角的纬度</p>
+                    <p data-id="p_op_expo_swlo" data-vn="1"><span class="appproperty">orthoCornerSWLon</span> —— 正射投影西南角的经度</p>
+                </div>
+                <p data-id="p_op_expo_ex" data-vn="1"><b>示例：</b></p>
+                <pre data-id="pre_op_expo_ex" data-vn="1">
+  $IterateOrthoProjections(
+    $ExportOrthoProjection( "$(orthoGuid)",
+      GUID: $(orthoGUID)
+      Component GUID: $(componentGUID)
+      Ortho projection name: $(orthoName)
+      Width [pixels]: $(orthoWidth)
+      Height [pixels]: $(orthoHeight)
+      Units per column pixel: $(orthoUppx)
+      Units per row pixel: $(orthoUppy)
+      Bounding box depth: $(orthoDepthInOrthoCoordUnits)
+      Bounding box width: $(orthoWidthInOrthoCoordUnits)
+      Bounding box height: $(orthoHeightInOrthoCoordUnits)
+      Ortho projection type: $(orthoType)
+      Coordinate system: $(orthoCoordSystem)
+      Projection: $(orthoCoordProjection)
+      Prime meridian: $(orthoCoordPrimeMeridian)
+      Units: $(orthoCoordUnits)
+      Units short name: $(orthoCoordUnitsShort)
+      Bounding box centre: lat: $(orthoCentreLat), lon: $(orthoCentreLon), alt: $(orthoCentreAlt)
+      NW corner: lat: $(orthoCornerNWLat), lon: $(orthoCornerNWLon)
+      NE corner: lat: $(orthoCornerNELat), lon: $(orthoCornerNELon)
+      SE corner: lat: $(orthoCornerSELat), lon: $(orthoCornerSELon)
+      SW corner: lat: $(orthoCornerSWLat), lon: $(orthoCornerSWLon)
+    )
+  )
+                </pre>
+            </div>
+
+            <p data-id="p_op_save" data-vn="1"><span class="appproperty">SaveOrtho</span> —— 该函数把正射影像保存到所选文件夹。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_op_save_syn" data-vn="1"><b>语法：</b></p>
+                <p><pre data-id="pre_op_save_syn" data-vn="1">
+  $SaveOrtho( orthoGuid, inputLayer, filePath, width, height )</pre></p>
+                <p data-id="p_op_save_pars" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_op_save_guid" data-vn="1"><span class="appproperty">orthoGuid</span> —— 正射投影的 GUID：可用 IterateOrthoProjections 函数获取所选正射投影的 GUID（见下例）</p>
+                    <p data-id="p_op_save_inla" data-vn="1"><span class="appproperty">inputLayer</span> —— 可选值：DSM 图层用 "color"、"altitude" 或 "depth"；DTM 图层（若存在）用 "color@1"、"altitude@1" 或 "depth@1"</p>
+                    <p data-id="p_op_save_fipa" data-vn="1"><span class="appproperty">filePath</span> —— 相对于附件文件夹的路径，或形如 global://globalPathToFile 的路径</p>
+                    <p data-id="p_op_save_widt" data-vn="1"><span class="appproperty">width</span> —— 宽度（像素）</p>
+                    <p data-id="p_op_save_heig" data-vn="1"><span class="appproperty">height</span> —— 高度（像素）</p>
+                </div>
+                <p data-id="p_op_save_ex" data-vn="1"><b>示例：</b></p>
+                <pre data-id="pre_op_save_ex" data-vn="1">
+  $IterateOrthoProjections(
+    $SaveOrtho( "$(orthoGuid)", "color", "ortho_$(orthoIndex)_color.jpg", 800, 800 )
+  )    
+                </pre>
+            </div>
+            
+            <p data-id="p_op_savr" data-vn="1"><span class="appproperty">SaveOrthoWithRegions</span> —— 该函数把带区域的正射影像保存到所选文件夹。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_op_savr_syn" data-vn="1"><b>语法：</b></p>
+                <p><pre data-id="pre_op_savr_syn" data-vn="1">
+  $SaveOrthoWithRegions( orthoGuid, inputLayer, filepath, width, height )</pre></p>
+                <p data-id="p_op_savr_pars" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_op_savr_guid" data-vn="1"><span class="appproperty">orthoGuid</span> —— 正射投影的 GUID：可用 IterateOrthoProjections 函数获取所选正射投影的 GUID（见下例）</p>
+                    <p data-id="p_op_savr_inla" data-vn="1"><span class="appproperty">inputLayer</span> —— 可选值：DSM 图层用 "color"、"altitude" 或 "depth"；DTM 图层（若存在）用 "color@1"、"altitude@1" 或 "depth@1"</p>
+                    <p data-id="p_op_savr_fipa" data-vn="1"><span class="appproperty">filePath</span> —— 相对于附件文件夹的路径，或形如 global://globalPathToFile 的路径</p>
+                    <p data-id="p_op_savr_widt" data-vn="1"><span class="appproperty">width</span> —— 宽度（像素）</p>
+                    <p data-id="p_op_savr_heig" data-vn="1"><span class="appproperty">height</span> —— 高度（像素）</p>
+                </div>
+                <p data-id="p_op_savr_ex" data-vn="1"><b>示例：</b></p>
+                <pre data-id="pre_op_savr_ex" data-vn="1">
+  $IterateOrthoProjections(
+    $SaveOrthoWithRegions( "$(orthoGuid)", "color", "ortho_$(orthoIndex)_color.jpg", 800, 800 )
+  )    
+                </pre>
+            </div>                  
+
+            <p data-id="p_op_begi" data-vn="1"><span class="appproperty">BeginOrthoProjections</span> —— 该函数内含 <span class="appproperty">Project</span> 函数，用于把三维点投影到正射影像中。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_op_begi_syn" data-vn="1"><b>语法：</b></p>
+                <p><pre data-id="pre_op_begi_syn" data-vn="1">
+  $BeginOrthoProjections( orthoGuid, width, height, anyText )</pre></p>
+                <p data-id="p_op_begi_pars" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_op_begi_guid" data-vn="1"><span class="appproperty">orthoGuid</span> —— 正射投影的 GUID：可用 IterateOrthoProjections 函数获取所选正射投影的 GUID（见下例）</p>
+                    <p data-id="p_op_begi_widt" data-vn="1"><span class="appproperty">width</span> —— 宽度（像素）</p>
+                    <p data-id="p_op_begi_heig" data-vn="1"><span class="appproperty">height</span> —— 高度（像素）</p>
+                </div>
+                <p data-id="p_op_begi_afun" data-vn="1"><b>可用函数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_op_proj" data-vn="1"><span class="appproperty">Project</span></p>
+                    <div style="padding-left: 20px">
+                        <p data-id="p_op_proj_syn" data-vn="1"><b>语法：</b></p>
+                        <p><pre data-id="pre_op_proj_syn" data-vn="1">
+  $Project( x, y, z, anyText )</pre></p>
+                        <p data-id="p_op_proj_pars" data-vn="1"><b>参数：</b></p>
+                        <div style="padding-left: 20px">
+                            <p data-id="p_op_proj_x" data-vn="1"><span class="appproperty">x</span> —— 三维点的 x 坐标</p>
+                            <p data-id="p_op_proj_y" data-vn="1"><span class="appproperty">y</span> —— 三维点的 y 坐标</p>
+                            <p data-id="p_op_proj_z" data-vn="1"><span class="appproperty">z</span> —— 三维点的 z 坐标</p>
+                        </div>  
+                        <p data-id="p_op_proj_avars" data-vn="1"><b>可用变量：</b></p>
+                        <div style="padding-left: 20px">
+                            <p data-id="p_op_proj_oxpx" data-vn="1"><span class="appproperty">oxpx</span> —— 投影点的 x 坐标</p>
+                            <p data-id="p_op_proj_oypx" data-vn="1"><span class="appproperty">oypx</span> —— 投影点的 y 坐标</p>
+                        </div>
+                    </div>
+                </div>
+                <p data-id="p_op_proj_ex" data-vn="1"><b>示例：</b></p>
+                <pre data-id="pre_op_proj_ex" data-vn="1">
+  $IterateOrthoProjections(
+    $BeginOrthoProjections( "$(orthoGuid)", 100, 100,
+      $ExportControlPoints(
+        $Project( euclidx, euclidy, euclidz,
+          oxpx: $(oxpx)
+          oypx: $(oypx)
+        )
+      )
+    )
+  )    
+                </pre>
+            </div>
+
+            <p data-id="p_op_volu" data-vn="1"><span class="appproperty">OrthoProjectionVolume</span> —— 该函数用于输出正射投影的体积与表面积。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_op_volu_syn" data-vn="1"><b>语法：</b></p>
+                <p><pre data-id="pre_op_volu_syn" data-vn="1">
+  $OrthoProjectionVolume( orthoGuid, anyText )</pre></p>
+                <p data-id="p_op_volu_par" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_op_volu_guid" data-vn="1"><span class="appproperty">orthoGuid</span> —— 正射投影的 GUID：可用 IterateOrthoProjections 函数获取所选正射投影的 GUID（见下例）</p>
+                </div>
+                <p data-id="p_op_volu_avars" data-vn="1"><b>可用变量：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_op_volu_cuvo" data-vn="1"><span class="appproperty">orthoCutVolume</span> —— 可见表面与重建区域底面之间的体积</p>
+                    <p data-id="p_op_volu_fivo" data-vn="1"><span class="appproperty">orthoFillVolume</span> —— 可见表面与重建区域顶面之间的体积</p>
+                    <p data-id="p_op_volu_ar2d" data-vn="1"><span class="appproperty">orthoArea2d</span> —— 可见表面投影到重建区域底面上的面积</p>
+                    <p data-id="p_op_volu_ar3d" data-vn="1"><span class="appproperty">orthoArea3d</span> —— 可见表面的面积</p>                    
+                </div>
+                <p data-id="p_op_volu_ex" data-vn="1"><b>示例：</b></p>
+                <pre data-id="pre_op_volu_ex" data-vn="1">
+  $IterateOrthoProjections(
+    $OrthoProjectionVolume( "$(orthoGuid)",
+      Cut Volume: $(orthoCutVolume)
+      Fill Volume: $(orthoFillVolume)
+      Area 2D: $(orthoArea2d)
+      Area 3D: $(orthoArea3d)      
+    )
+  )
+                </pre>
+            </div>
+
+
+            <p data-id="p_op_tile" data-vn="1"><span class="appproperty">IterateOrthoMapTiles</span> —— 该函数仅对已做地理配准的组件可用。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_op_tile_syn" data-vn="1"><b>语法：</b></p>
+                <p><pre data-id="pre_op_tile_syn" data-vn="1">
+  $IterateOrthoMapTiles( orthoGuid, inputLayer, anyText )</pre></p>
+                <p data-id="p_op_tile_pars" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_op_tile_guid" data-vn="1"><span class="appproperty">orthoGuid</span> —— 正射投影的 GUID：可用 IterateOrthoProjections 函数获取所选正射投影的 GUID（见下例）</p>
+                    <p data-id="p_op_tile_laye" data-vn="1"><span class="appproperty">inputLayer</span> —— 可选值：DSM 图层用 "color"、"altitude" 或 "depth"；DTM 图层（若存在）用 "color@1"、"altitude@1" 或 "depth@1"</p>
+                </div>
+                <p data-id="p_op_tile_afun" data-vn="1"><b>可用函数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_op_sati" data-vn="1"><span class="appproperty">SaveOrthoMapTile</span> —— 用于保存正射影像的瓦片。导出的瓦片可用于展示正射影像，例如在 Google Maps 中。每块瓦片为 256 x 256 像素。</p>
+                    <div style="padding-left: 20px">
+                        <p data-id="p_op_sati_syn" data-vn="1"><b>语法：</b></p>
+                        <p><pre data-id="pre_op_sati_syn" data-vn="1">
+  $SaveOrthoMapTile( "filePath" )</pre></p>
+                        <p data-id="p_op_sati_par" data-vn="1"><b>参数：</b></p>
+                        <div style="padding-left: 20px">
+                            <p data-id="p_op_sati_fipa" data-vn="1"><span class="appproperty">filePath</span> —— 相对于附件文件夹的路径，或形如 global://globalPathToFile 的路径。支持的格式：png、bmp、dib 与 tiff。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                
+            <p data-id="p_op_satm" data-vn="1"><span class="appproperty">SaveOrthoMapTileMask</span> —— 用于保存带遮罩的正射影像瓦片。导出的瓦片可用于展示正射影像，例如在 Google Maps 中。每块瓦片为 256 x 256 像素。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_op_satm_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_op_satm_syn" data-vn="1">
+  $SaveOrthoMapTileMask( "filePath" )</pre>
+                <p data-id="p_op_satm_par" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_op_satm_fipa" data-vn="1"><span class="appproperty">filePath</span> —— 相对于附件文件夹的路径，或形如 global://globalPathToFile 的路径。支持的格式：png、bmp、dib 与 tiff。</p>   
+                </div>
+                <p data-id="p_op_sati_avars" data-vn="1"><b>可用变量：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_op_sati_tilx" data-vn="1"><span class="appproperty">tileX</span> —— 瓦片索引的第一部分：自西向东递增</p>
+                    <p data-id="p_op_sati_tily" data-vn="1"><span class="appproperty">tileY</span> —— 瓦片索引的第二部分：自北向南递增</p>
+                    <p data-id="p_op_sati_tilz" data-vn="1"><span class="appproperty">tileZ</span> —— 瓦片索引的第三部分：缩放级别</p>
+                </div>
+                <p data-id="p_op_sati_ex" data-vn="1"><b>示例：</b></p>
+                <pre data-id="pre_op_sati_ex" data-vn="1">
+  $IterateOrthoProjections(
+    $IterateOrthoMapTiles( "$(orthoGuid)", "color",
+      $SaveOrthoMapTile("$(orthoIndex)-color_$(tileZ)_$(tileX)_$(tileY).png")
+    )
+  )
+ </pre>
+            </div>
+
+
+
+            <p data-id="p_op_pale" data-vn="1"><span class="appproperty">IterateOrthoMapPalette</span> —— 该函数遍历正射投影高程或深度图层调色板的颜色与数值。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_op_pale_syn" data-vn="1"><b>语法：</b></p>
+                <p><pre data-id="pre_op_pale_syn" data-vn="1">
+  $IterateOrthoMapPalette( orthoGuid, inputLayer, anyText )</pre></p>
+                <p data-id="p_op_pale_pars" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_op_pale_guid" data-vn="1"><span class="appproperty">orthoGuid</span> —— 正射投影的 GUID：可用 IterateOrthoProjections 函数获取所选正射投影的 GUID（见下例）</p>
+                    <p data-id="p_op_pale_laye" data-vn="1"><span class="appproperty">inputLayer</span> —— 可选值："altitude" 或 "depth"</p>
+                </div>
+                <p data-id="p_op_pale_avars" data-vn="1"><b>可用变量：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_op_pale_inde" data-vn="1"><span class="appproperty">orthoMapPalIndex</span> —— 索引范围为 0 到 255</p>
+                    <p data-id="p_op_pale_red" data-vn="1"><span class="appproperty">orthoMapPalRed</span> —— RGB 颜色的红色分量，取值范围 0 到 255</p>
+                    <p data-id="p_op_pale_gre" data-vn="1"><span class="appproperty">orthoMapPalGreen</span> —— RGB 颜色的绿色分量，取值范围 0 到 255</p>
+                    <p data-id="p_op_pale_blu" data-vn="1"><span class="appproperty">orthoMapPalBlue</span> —— RGB 颜色的蓝色分量，取值范围 0 到 255</p>
+                    <p data-id="p_op_pale_val" data-vn="1"><span class="appproperty">orthoMapPalValue</span> —— 高程或深度值</p>
+                </div>
+                <p data-id="p_op_pale_ex" data-vn="1"><b>示例：</b></p>
+                <pre data-id="pre_op_pale_ex" data-vn="1">
+  $IterateOrthoProjections(
+    $ExportOrthoProjection( "$(orthoGuid)",
+      $IterateOrthoMapPalette( "$(orthoGuid)", "altitude",
+        Index: $(orthoMapPalIndex)
+        Red: $(orthoMapPalRed)
+        Green: $(orthoMapPalGreen)
+        Blue: $(orthoMapPalBlue)
+        Altitude: $(orthoMapPalValue:.2f) $(orthoCoordUnitsShort)
+      )
+    )
+  )
+                </pre>
+            </div>
+            
+            
+            <p data-id="p_op_orpt" data-vn="1"><span class="appproperty">OrthoProjectionTiming</span> —— 返回计算正射投影各部分所花的时间。</p>
+                <div style="padding-left: 20px">
+                <p data-id="p_op_orpt_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_op_orpt_syn" data-vn="1">
+  $OrthoProjectionTiming( orthoGuid, anyText )</pre>
+                <p data-id="p_op_orpt_par" data-vn="1"><b>参数：</b></p>
+                    <div style="padding-left: 20px">
+                        <p data-id="p_cont_gnom_orid" data-vn="1"><span class="appproperty">orthoGuid</span> —— 正射投影的 GUID</p>
+                    </div>
+                <p data-id="p_op_orpt_avalvars" data-vn="1"><b>可用变量：</b></p>
+                    <div style="padding-left: 20px">
+                        <p data-id="p_cont_gnom_orrt" data-vn="1"><span class="appproperty">orthoRasterizeTime</span> —— 正射投影栅格化耗时（秒）</p>
+                        <p data-id="p_cont_gnom_ordt" data-vn="1"><span class="appproperty">orthoDtmTime</span> —— 创建 DTM 耗时（秒）</p>
+                        <p data-id="p_cont_gnom_orim" data-vn="1"><span class="appproperty">orthoMosaicTime</span> —— 创建图像镶嵌耗时（秒）</p>
+                        <p data-id="p_cont_gnom_ortt" data-vn="1"><span class="appproperty">orthoTotalTime</span> —— 创建正射投影的总耗时（秒）</p>
+                    </div>   
+                <p data-id="p_op_orpt_ex" data-vn="1"><b>示例：</b></p>
+                <pre data-id="pre_op_orpt_ex" data-vn="1">
+  $IterateOrthoProjections(
+    $OrthoProjectionTiming( "$(orthoGuid)",
+      Ortho Mosaic Time: $(orthoMosaicTime)
+    )
+  )
+ </pre>    
+                    
+
+                </div>
+
+            <p data-id="p_op_itom" data-vn="1"><span class="appproperty">IterateOrthoMeasurements</span> —— 该函数遍历正射测量值。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_op_itom_syn" data-vn="1"><b>语法：</b></p>
+                <p><pre data-id="pre_op_itom_syn" data-vn="1">
+  $IterateOrthoMeasurements( orthoGuid, anyText )
+ </pre></p>
+                <p data-id="p_op_itom_pars" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_op_itom_guid" data-vn="1"><span class="appproperty">orthoGuid</span> —— 正射投影的 GUID</p>
+                </div>
+                <p data-id="p_op_itom_avars" data-vn="1"><b>可用变量：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_op_itom_reid" data-vn="1"><span class="appproperty">regionIndex</span> —— 区域的索引</p>
+                    <p data-id="p_op_itom_alph" data-vn="1"><span class="appproperty">regionColor_A</span> —— alpha 通道值</p>
+                    <p data-id="p_op_itom_rgbr" data-vn="1"><span class="appproperty">regionColor_R</span> —— 红色值（RGB）</p>
+                    <p data-id="p_op_itom_rgbg" data-vn="1"><span class="appproperty">regionColor_G</span> —— 绿色值（RGB）</p>
+                    <p data-id="p_op_itom_rgbb" data-vn="1"><span class="appproperty">regionColor_B</span> —— 蓝色值（RGB）</p>
+                    <p data-id="p_op_itom_dims" data-vn="1"><span class="appproperty">dimensionality</span> —— 区域的维度（1D/2D）</p>
+                    <p data-id="p_op_itom_rgid" data-vn="1"><span class="appproperty">regionGuid</span> —— 区域的 GUID</p>
+                    <p data-id="p_op_itom_rgnm" data-vn="1"><span class="appproperty">regionName</span> —— 区域名称</p>
+                    <p data-id="p_op_itom_hovo" data-vn="1"><span class="appproperty">hasOrthoVolume</span> —— 是否含体积信息（true/false）</p>
+                    <p data-id="p_op_itom_hoar" data-vn="1"><span class="appproperty">hasOrthoArea</span> —— 是否含面积信息（true/false）</p>
+                    <p data-id="p_op_itom_hobo" data-vn="1"><span class="appproperty">hasOrthoBoundary</span> —— 是否不含孔洞（true/false）</p>
+                    <p data-id="p_op_itom_cuvo" data-vn="1"><span class="appproperty">cutVolume</span> —— 挖方体积</p>
+                    <p data-id="p_op_itom_fivo" data-vn="1"><span class="appproperty">fillVolume</span> —— 填方体积</p>
+                    <p data-id="p_op_itom_artw" data-vn="1"><span class="appproperty">area2d</span> —— 区域的面积（2D）</p>
+                    <p data-id="p_op_itom_arth" data-vn="1"><span class="appproperty">area3d</span> —— 区域的面积（3D）</p>
+                    <p data-id="p_op_itom_iscl" data-vn="1"><span class="appproperty">isClosed</span> —— 是否不含孔洞（true/false）</p>
+                    <p data-id="p_op_itom_iaho" data-vn="1"><span class="appproperty">isAllHoles</span> —— 是否落在正射投影之外（true/false）</p>
+                    <p data-id="p_op_itom_orpe" data-vn="1"><span class="appproperty">orthoPerimeter</span> —— 区域的周长</p>
+                    <p data-id="p_op_itom_bmin" data-vn="1"><span class="appproperty">boundaryMinBoxHeight</span> —— 重建区域的最小高度</p>
+                    <p data-id="p_op_itom_bmax" data-vn="1"><span class="appproperty">boundaryMaxBoxHeight</span> —— 重建区域的最大高度</p>
+                    <p data-id="p_op_itom_omin" data-vn="1"><span class="appproperty">boundaryMinOrthoCSHeight</span> —— 正射投影坐标系中的最小高度</p>
+                    <p data-id="p_op_itom_omax" data-vn="1"><span class="appproperty">boundaryMaxOrthoCSHeight</span> —— 正射投影坐标系中的最大高度</p>
+                    <p data-id="p_op_itom_npve" data-vn="1"><span class="appproperty">numPolygonVertices</span> —— 多边形中的顶点数量</p>
+                    <p data-id="p_op_itom_nbsa" data-vn="1"><span class="appproperty">numBoundarySamples</span> —— 边界采样点数量</p>
+                    <p data-id="p_op_itom_bmia" data-vn="1"><span class="appproperty">boundaryMinAltitude</span> —— 若正射投影已做地理配准，则为区域的最小高程</p>
+                    <p data-id="p_op_itom_bmaa" data-vn="1"><span class="appproperty">boundaryMaxAltitude</span> —— 若正射投影已做地理配准，则为区域的最大高程</p>
+                    <p data-id="p_op_itom_gpsp" data-vn="1"><span class="appproperty">gpsPerimeter</span> —— 若正射投影已做地理配准，则为区域的周长</p>
+                </div>
+                <p data-id="p_op_itom_ex" data-vn="1"><b>示例：</b></p>
+                <pre data-id="pre_op_itom_ex" data-vn="1">
+  $IterateOrthoProjections(
+    $IterateOrthoMeasurements( "$(orthoGuid)",
+      Region index: $(regionIndex )
+      Alpha channel value: $(regionColor_A)
+      Red value (RGB): $(regionColor_R)
+      Green value (RGB): $(regionColor_G)
+      Blue valuere: $(regionColor_B )
+      Dimensionality: $(dimensionality)
+      RegionGuid: $(regionGuid)
+      Region name: $(regionName)
+      Has volume: $(hasOrthoVolume)
+      Has area: $(hasOrthoArea)
+      Has boundary: $(hasOrthoBoundary)
+      Cut volume: $(cutVolume)
+      Fill volume: $(fillVolume)
+      Area of the region (2D): $(area2d)
+      Area of the region (3D): $(area3d)
+      Is closed: $(isClosed)
+      Off ortho: $(isAllHoles)
+      Perimeter: $(orthoPerimeter)
+      Minimal box height: $(boundaryMinBoxHeight)
+      Maximal box height: $(boundaryMaxBoxHeight)
+      Minimal box height in ortho CS: $(boundaryMinOrthoCSHeight)
+      Maximal box height in ortho CS: $(boundaryMaxOrthoCSHeight)
+      Polygon vertices: $(numPolygonVertices)
+      Boundary samples: $(numBoundarySamples)
+      Minimal altitude (georeferenced): $(boundaryMinAltitude )
+      Maximal altitude (georeferenced): $(boundaryMaxAltitude )
+      Perimeter (georeferenced): $(gpsPerimeter )
+      )
+    )
+  )
+                </pre>
+            </div>
+
+            <p data-id="p_op_itbs" data-vn="1"><span class="appproperty">IterateOrthoBoundarySamples</span> —— 该函数遍历区域的边界点（2D）。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_op_itbs_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_op_itbs_syn" data-vn="1">
+  $IterateOrthoBoundarySamples( regionGuid, start, step, end, anyText )
+ </pre>
+                <p data-id="p_op_itbs_pars" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_op_itbs_guid_reg" data-vn="1"><span class="appproperty">regionGuid</span> —— 区域的 GUID</p>
+                    <p data-id="p_op_itbs_guid_strt" data-vn="1"><span class="appproperty">start</span> —— 第一个点的索引</p>
+                    <p data-id="p_op_itbs_guid_stp" data-vn="1"><span class="appproperty">step</span> —— 沿边界的点数步长</p>
+                    <p data-id="p_op_itbs_guid_end" data-vn="1"><span class="appproperty">end</span> —— 若步长为正，最后一个点的索引是小于 end 的最大数；若步长为负，则是大于 end 的最小数</p>
+                </div>
+                <p data-id="p_op_itbs_avars" data-vn="1"><b>可用变量：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_op_itbs_poid" data-vn="1"><span class="appproperty">pointIndex</span> —— 点的索引</p>
+                    <p data-id="p_op_itbs_isho" data-vn="1"><span class="appproperty">isHole</span> —— 是否落在正射投影之外（true/false）</p>
+                    <p data-id="p_op_itbs_boxx" data-vn="1"><span class="appproperty">boxX</span> —— 点在重建区域中的 X 坐标</p>
+                    <p data-id="p_op_itbs_boxy" data-vn="1"><span class="appproperty">boxY</span> —— 点在重建区域中的 Y 坐标</p>
+                    <p data-id="p_op_itbs_boxz" data-vn="1"><span class="appproperty">boxZ</span> —— 点在重建区域中的 Z 坐标</p>
+                    <p data-id="p_op_itbs_ortx" data-vn="1"><span class="appproperty">orthoX</span> —— 点在正射投影坐标系中的 X 坐标</p>
+                    <p data-id="p_op_itbs_orty" data-vn="1"><span class="appproperty">orthoY</span> —— 点在正射投影坐标系中的 y 坐标</p>
+                    <p data-id="p_op_itbs_ortz" data-vn="1"><span class="appproperty">orthoZ</span> —— 点在正射投影坐标系中的 z 坐标</p>
+                    <p data-id="p_op_itbs_odfs" data-vn="1"><span class="appproperty">orthoDistanceFromStart</span> —— 在正射投影坐标系中距起始点的距离</p>
+                    <p data-id="p_op_itbs_eucx" data-vn="1"><span class="appproperty">euclidx</span> —— 欧氏坐标系中的 x 坐标</p>
+                    <p data-id="p_op_itbs_eucy" data-vn="1"><span class="appproperty">euclidy</span> —— 欧氏坐标系中的 y 坐标</p>
+                    <p data-id="p_op_itbs_eucz" data-vn="1"><span class="appproperty">euclidz</span> —— 欧氏坐标系中的 z 坐标</p>
+                    <p data-id="p_op_itbs_longt" data-vn="1"><span class="appproperty">longitude</span> —— 经度（GPS）</p>
+                    <p data-id="p_op_itbs_latt" data-vn="1"><span class="appproperty">latitude</span> —— 纬度（GPS）</p>
+                    <p data-id="p_op_itbs_altt" data-vn="1"><span class="appproperty">altitude</span> —— 高程（GPS）</p>
+                    <p data-id="p_op_itbs_gpsd" data-vn="1"><span class="appproperty">gpsDistanceFromStart</span> —— 在 GPS 系统中距起始点的距离</p>
+
+                </div>
+                <p data-id="p_op_itbs_ex" data-vn="1"><b>示例：</b></p>
+                <pre data-id="pre_op_itbs_ex" data-vn="1">
+  $IterateOrthoProjections(
+    $IterateOrthoMeasurements( "$(orthoGuid)", 
+      $IterateOrthoBoundarySamples( "$(regionGuid)", 1, 50, 1000,
+        Point index: $(pointIndex)
+        Is hole: $(isHole)
+        Box X: $(boxX)
+        Box Y: $(boxY)
+        Box Z: $(boxZ)
+        Ortho X: $(orthoX)
+        Ortho Y: $(orthoY)
+        Ortho Z: $(orthoZ)
+        Distance from start: $(orthoDistanceFromStart)
+        Euclidean x: $(euclidx)
+        Euclidean y: $(euclidy)
+        Euclidean z: $(euclidz)
+        GPS longitude: $(longitude)
+        GPS latitude: $(latitude)
+        GPS altitude: $(altitude)
+        GPS distance from start: $(gpsDistanceFromStart)
+      )
+    )
+  )
+ </pre>
+            </div>
+
+            <p data-id="p_op_itbv" data-vn="1"><span class="appproperty">IterateOrthoBoundaryVertices</span> —— 该函数遍历区域的边界点（3D）。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_op_itbv_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_op_itbv_syn" data-vn="1">
+  $IterateOrthoBoundaryVertices( regionGuid, start, step, end, anyText )
+ </pre>
+                <p data-id="p_op_itbv_pars" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_op_itbv_guid_reg" data-vn="1"><span class="appproperty">regionGuid</span> —— 区域的 GUID</p>
+                    <p data-id="p_op_itbv_guid_strt" data-vn="1"><span class="appproperty">start</span> —— 第一个顶点的索引</p>
+                    <p data-id="p_op_itbv_guid_stp" data-vn="1"><span class="appproperty">step</span> —— 沿边界的顶点数步长</p>
+                    <p data-id="p_op_itbv_guid_end" data-vn="1"><span class="appproperty">end</span> —— 若步长为正，最后一个顶点的索引是小于 end 的最大数；若步长为负，则是大于 end 的最小数</p>
+                </div>
+                <p data-id="p_op_itbv_avars" data-vn="1"><b>可用变量：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_op_itbv_poid" data-vn="1"><span class="appproperty">pointIndex</span> —— 顶点的索引</p>
+                    <p data-id="p_op_itbv_isho" data-vn="1"><span class="appproperty">isHole</span> —— 是否落在正射投影之外（true/false）</p>
+                    <p data-id="p_op_itbv_boxx" data-vn="1"><span class="appproperty">boxX</span> —— 顶点在重建区域中的 X 坐标</p>
+                    <p data-id="p_op_itbv_boxy" data-vn="1"><span class="appproperty">boxY</span> —— 顶点在重建区域中的 Y 坐标</p>
+                    <p data-id="p_op_itbv_boxz" data-vn="1"><span class="appproperty">boxZ</span> —— 顶点在重建区域中的 Z 坐标</p>
+                    <p data-id="p_op_itbv_ortx" data-vn="1"><span class="appproperty">orthoX</span> —— 顶点在正射投影坐标系中的 X 坐标</p>
+                    <p data-id="p_op_itbv_orty" data-vn="1"><span class="appproperty">orthoY</span> —— 顶点在正射投影坐标系中的 y 坐标</p>
+                    <p data-id="p_op_itbv_ortz" data-vn="1"><span class="appproperty">orthoZ</span> —— 顶点在正射投影坐标系中的 z 坐标</p>
+                    <p data-id="p_op_itbv_odfs" data-vn="1"><span class="appproperty">orthoDistanceFromStart</span> —— 在正射投影坐标系中距起始顶点的距离</p>
+                    <p data-id="p_op_itbv_eucx" data-vn="1"><span class="appproperty">euclidx</span> —— 欧氏坐标系中的 x 坐标</p>
+                    <p data-id="p_op_itbv_eucy" data-vn="1"><span class="appproperty">euclidy</span> —— 欧氏坐标系中的 y 坐标</p>
+                    <p data-id="p_op_itbv_eucz" data-vn="1"><span class="appproperty">euclidz</span> —— 欧氏坐标系中的 z 坐标</p>
+                    <p data-id="p_op_itbv_longt" data-vn="1"><span class="appproperty">longitude</span> —— 经度（GPS）</p>
+                    <p data-id="p_op_itbv_latt" data-vn="1"><span class="appproperty">latitude</span> —— 纬度（GPS）</p>
+                    <p data-id="p_op_itbv_altt" data-vn="1"><span class="appproperty">altitude</span> —— 高程（GPS）</p>
+                    <p data-id="p_op_itbv_gpsd" data-vn="1"><span class="appproperty">gpsDistanceFromStart</span> —— 在 GPS 系统中距起始顶点的距离</p>
+
+                </div>
+                <p data-id="p_op_itbv_ex" data-vn="1"><b>示例：</b></p>
+                <pre data-id="pre_op_itbv_ex" data-vn="1">
+  $IterateOrthoProjections(
+    $IterateOrthoMeasurements( "$(orthoGuid)", 
+      $IterateOrthoBoundaryVertices( "$(regionGuid)", 1, 50, 1000,
+        Point index: $(pointIndex)
+        Is hole: $(isHole)
+        Box X: $(boxX)
+        Box Y: $(boxY)
+        Box Z: $(boxZ)
+        Ortho X: $(orthoX)
+        Ortho Y: $(orthoY)
+        Ortho Z: $(orthoZ)
+        Distance from start: $(orthoDistanceFromStart)
+        Euclidean x: $(euclidx)
+        Euclidean y: $(euclidy)
+        Euclidean z: $(euclidz)
+        GPS longitude: $(longitude)
+        GPS latitude: $(latitude)
+        GPS altitude: $(altitude)
+        GPS distance from start: $(gpsDistanceFromStart)
+      )
+    )
+  )
+ </pre>
+            </div>
+
+            <h3 data-id="h3_ort_avef" data-vn="1">可用的表达式函数 </h3>
+            
+            <p data-id="p_op_gnom" data-vn="1"><span class="appproperty">GetNumberOfOrthoMeasurements</span> —— 返回正射投影上的区域数量。</p>
+                <div style="padding-left: 20px">
+                <p data-id="p_op_gnom_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_op_gnom_syn" data-vn="1">
+  GetNumberOfOrthoMeasurements( orthoGuid )</pre>
+                <p data-id="p_op_gnom_par" data-vn="1"><b>参数：</b></p>
+                    <div style="padding-left: 20px">
+                        <p data-id="p_op_gnom_orid" data-vn="1"><span class="appproperty">orthoGuid</span> —— 正射投影的 GUID</p>
+                    </div>
+
+                </div>
+            
+        </div>
+        
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+        
+        <div data-id="div_sb_cont" class="slideblock">
+            <h2 data-id="h2_cont" data-vn="1">等高线</h2>       
+
+            <p data-id="p_op_itconset" data-vn="1"><span class="appproperty">IterateContourSets</span> —— 该函数遍历所选正射投影的等高线集合。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_op_itconset_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_op_itconset_syn" data-vn="1">
+  $IterateContourSets( orthoGuid, anyText )</pre>
+                <p data-id="p_op_itconset_par" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_op_itconset_guid" data-vn="1"><span class="appproperty">orthoGuid</span> —— 正射投影的 GUID</p>
+                </div>
+                <p data-id="p_op_itconset_avars" data-vn="1"><b>可用变量：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_op_itconset_csid" data-vn="1"><span class="appproperty">ContourSetIndex</span> —— 等高线集合的索引</p>
+                </div>
+                <p data-id="p_op_itconset_ex" data-vn="1"><b>示例：</b></p>
+                <pre data-id="pre_op_itconset_ex" data-vn="1">
+  $IterateOrthoProjections( 
+    $IterateContourSets ( "$(orthoGuid)", $(ContourSetIndex))
+  )
+                </pre>
+            </div>     
+
+            <p data-id="p_op_exco" data-vn="1"><span class="appproperty">ExportContourSet</span> —— 该函数用于输出等高线集合的信息。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_cont_exco_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_cont_exco_syn" data-vn="1">
+  $ExportContourSet( orthoGuid, setId, epsilon, anyText )
+</pre>
+                <p data-id="p_cont_exco_par" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_cont_exco_guid" data-vn="1"><span class="appproperty">orthoGuid</span> —— 正射投影的 GUID</p>
+                    <p data-id="p_cont_exco_setid" data-vn="1"><span class="appproperty">setId</span> —— 等高线集合的标识符</p>
+                    <p data-id="p_cont_exco_eps" data-vn="1"><span class="appproperty">epsilon</span> —— 折线简化算法中使用的一个实数</p>
+                </div>
+                <p data-id="p_cont_exco_avars" data-vn="1"><b>可用变量：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_cont_exco_conm" data-vn="1"><span class="appproperty">contoursName</span> —— 等高线集合的名称</p>
+                    <p data-id="p_cont_exco_cpxt" data-vn="1"><span class="appproperty">contoursPixelType</span> —— 指明等高线是在深度图层还是高程图层上生成的</p>
+                    <p data-id="p_cont_exco_coly" data-vn="1"><span class="appproperty">contoursLayer</span> —— 指明等高线是在 DSM 还是 DTM 上生成的</p>
+                    <p data-id="p_cont_exco_cmin" data-vn="1"><span class="appproperty">contoursMin</span> —— 最小深度/高程值（取决于像素类型）</p>
+                    <p data-id="p_cont_exco_cmax" data-vn="1"><span class="appproperty">contoursMax</span> —— 最大深度/高程值（取决于像素类型）</p>
+                    <p data-id="p_cont_exco_cint" data-vn="1"><span class="appproperty">contoursInterval</span> —— 相邻两条等高线之间的深度/高程差</p>
+                    <p data-id="p_cont_exco_coco" data-vn="1"><span class="appproperty">contoursCount</span> —— 集合中的等高线数量</p>
+                </div>
+                
+                <p data-id="p_cont_exco_avfu" data-vn="1"><b>可用函数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_cont_exco_grpa" data-vn="1"><span class="appproperty">GetRenderParameters</span> —— 该函数给出渲染等高线的建议参数。</p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_cont_grpa_syn" data-vn="1"><b>语法：</b></p>
+                    <pre data-id="pre_cont_grpa_syn" data-vn="1">
+  $GetRenderParameters( pixelSize, anyText )
+</pre>
+                    <p data-id="p_cont_grpa_par" data-vn="1"><b>参数：</b></p>
+                        <div style="padding-left: 20px">
+                            <p data-id="p_cont_grpa_pxsz" data-vn="1"><span class="appproperty">pixelSize</span> —— 请求的边长除以原始边长</p>
+                        </div>
+
+                    <p data-id="p_cont_grpa_avvar" data-vn="1"><b>可用变量：</b></p>
+                        <div style="padding-left: 20px">
+                            <p data-id="p_cont_grpa_cors" data-vn="1"><span class="appproperty">contoursRenderStep</span> —— 所渲染等高线之间的步长（按索引计），取值为 1 或 5 的倍数。</p>
+                            <p data-id="p_cont_grpa_crfi" data-vn="1"><span class="appproperty">contoursRenderFirstIndex</span> —— 第一条要渲染的等高线索引 </p>
+                            <p data-id="p_cont_grpa_crmi" data-vn="1"><span class="appproperty">contoursRenderMajorIndex</span> —— 第一条被高亮的等高线索引。按“每第五条渲染线高亮”计算。</p>
+                        </div>
+
+                </div>
+                </div>
+
+                <div style="padding-left: 20px">
+                    <p data-id="p_cont_exco_twpo" data-vn="1"><span class="appproperty">ToWorldPoint</span> —— 确定给定点的世界坐标。</p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_cont_twpo_syn" data-vn="1"><b>语法：</b></p>
+                    <pre data-id="pre_cont_twpo_syn" data-vn="1">
+  $ToWorldPoint( imageX, imageY, Z, anyText )</pre>
+                    <p data-id="p_cont_twpo_par" data-vn="1"><b>参数：</b></p>
+                        <div style="padding-left: 20px">
+                            <p data-id="p_cont_twpo_imgx" data-vn="1"><span class="appproperty">imageX</span> —— 图像 X 坐标</p>
+                            <p data-id="p_cont_twpo_imgy" data-vn="1"><span class="appproperty">imageY</span> —— 图像 Y 坐标</p>
+                            <p data-id="p_cont_twpo_crdz" data-vn="1"><span class="appproperty">Z</span> —— 高程/深度已处于世界坐标系中，例如海拔米数。其值应与 worldZ 变量相同。</p>
+                        </div>
+
+                    <p data-id="p_cont_twpo_avva" data-vn="1"><b>可用变量：</b></p>
+                        <div style="padding-left: 20px">
+                            <p data-id="p_cont_twpo_worx" data-vn="1"><span class="appproperty">worldX</span> —— 世界 X 坐标</p>
+                            <p data-id="p_cont_twpo_wory" data-vn="1"><span class="appproperty">worldY</span> —— 世界 Y 坐标</p>
+                            <p data-id="p_cont_twpo_worz" data-vn="1"><span class="appproperty">worldZ</span> —— 世界 Z 坐标</p>
+                        </div>
+
+                </div>
+                </div>
+                
+                <div style="padding-left: 20px">
+                    <p data-id="p_cont_exco_itco" data-vn="1"><span class="appproperty">IterateContours</span> —— 遍历等高线集合中的等高线。</p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_cont_itco_syn" data-vn="1"><b>语法：</b></p>
+                    <pre data-id="pre_cont_itco_syn" data-vn="1">
+  $IterateContours( startIndex, endIndex, step, anyText )
+</pre>
+                    <p data-id="p_cont_itco_par" data-vn="1"><b>参数：</b></p>
+                        <div style="padding-left: 20px">
+                            <p data-id="p_cont_itco_stid" data-vn="1"><span class="appproperty">startIndex</span> —— 开始迭代的等高线索引</p>
+                            <p data-id="p_cont_itco_enid" data-vn="1"><span class="appproperty">endIndex</span> —— 结束迭代的等高线索引</p>
+                            <p data-id="p_cont_itco_crdz" data-vn="1"><span class="appproperty">step</span> —— 迭代步长</p>
+                        </div>
+
+                    <p data-id="p_cont_itco_avva" data-vn="1"><b>可用变量：</b></p>
+                        <div style="padding-left: 20px">
+                            <p data-id="p_cont_itco_coal" data-vn="1"><span class="appproperty">contourAltitude</span> —— 该等高线的高程/深度值</p>
+                            <p data-id="p_cont_itco_cplc" data-vn="1"><span class="appproperty">contourPolylineCount</span> —— 组成该等高线的折线数量</p>
+                            <p data-id="p_cont_itco_coid" data-vn="1"><span class="appproperty">contourIndex</span> —— 等高线的索引</p>
+                        </div>
+                        
+                    <p data-id="p_cont_itco_avfu" data-vn="1"><b>可用函数：</b></p>
+                        <div style="padding-left: 20px">
+                            <p data-id="p_cont_itco_itla" data-vn="1"><span class="appproperty">IterateLabels</span> —— 沿折线每隔 interval 个像素寻找标注位置。</p>
+                            <div style="padding-left: 20px">
+                                <p data-id="p_cont_itla_syn" data-vn="1"><b>语法：</b></p>
+                                <pre data-id="pre_cont_itla_syn" data-vn="1">
+  $IterateLabels( interval, anyText )
+</pre>            
+                                <p data-id="p_cont_itla_par" data-vn="1"><b>参数：</b></p>
+                                <div style="padding-left: 20px">
+                                <p data-id="p_cont_itla_intr" data-vn="1"><span class="appproperty">interval</span> —— 以原图像的像素为单位</p>
+                                </div>
+                                <p data-id="p_cont_itla_avva" data-vn="1"><b>可用变量：</b></p>
+                                <div style="padding-left: 20px">
+                                <p data-id="p_cont_itla_labx" data-vn="1"><span class="appproperty">labelX</span> —— 标注中心的图像 X 坐标</p>
+                                <p data-id="p_cont_itla_laby" data-vn="1"><span class="appproperty">labelY</span> —— 标注中心的图像 Y 坐标</p>
+                                <p data-id="p_cont_itla_laar" data-vn="1"><span class="appproperty">labelAngleRad</span> —— 标注角度（弧度）。值 0 表示正水平文字，顺时针方向递增。</p>
+                                <p data-id="p_cont_itla_laad" data-vn="1"><span class="appproperty">labelAngleDeg</span> —— 标注角度（度）。值 0 表示正水平文字，顺时针方向递增。</p>
+                                </div>
+                            </div>
+                            
+                            <p data-id="p_cont_itco_itpo" data-vn="1"><span class="appproperty">IteratePolylines</span> —— 遍历某条等高线的折线。</p>
+                            <div style="padding-left: 20px">
+                                <p data-id="p_cont_itpo_syn" data-vn="1"><b>语法：</b></p>
+                                <pre data-id="pre_cont_itpo_syn" data-vn="1">
+  $IteratePolylines( noParametersJustAnyText )
+</pre>            
+                                <p data-id="p_cont_itpo_avva" data-vn="1"><b>可用变量：</b></p>
+                                <div style="padding-left: 20px">
+                                <p data-id="p_cont_itpo_plpx" data-vn="1"><span class="appproperty">polylineLastPointX</span> —— 折线中最后一个点的图像 X 坐标</p>
+                                <p data-id="p_cont_itpo_plpy" data-vn="1"><span class="appproperty">polylineLastPointY</span> —— 折线中最后一个点的图像 Y 坐标</p>
+                                <p data-id="p_cont_itpo_plpz" data-vn="1"><span class="appproperty">polylineLastPointZ</span> —— 折线中最后一个点的图像 Z 坐标</p>
+                                <p data-id="p_cont_itpo_plfx" data-vn="1"><span class="appproperty">polylineFirstPointX</span> —— 折线中第一个点的图像 X 坐标</p>
+                                <p data-id="p_cont_itpo_plfy" data-vn="1"><span class="appproperty">polylineFirstPointY</span> —— 折线中第一个点的图像 Y 坐标</p>
+                                <p data-id="p_cont_itpo_plfz" data-vn="1"><span class="appproperty">polylineFirstPointZ</span> —— 折线中第一个点的图像 Z 坐标</p>
+                                <p data-id="p_cont_itpo_plrl" data-vn="1"><span class="appproperty">polylineRealLength</span> —— 折线在世界度量下的长度</p>
+                                <p data-id="p_cont_itpo_plri" data-vn="1"><span class="appproperty">polylineRealLengthImg</span> —— 折线的长度（像素）</p>
+                                <p data-id="p_cont_itpo_plid" data-vn="1"><span class="appproperty">polylineIndex</span> —— 折线的索引值</p>
+                                <p data-id="p_cont_itpo_plcl" data-vn="1"><span class="appproperty">polylineIsClosed</span> —— 该变量表示折线是否闭合（即首尾点是否不同）</p>
+                                <p data-id="p_cont_itpo_plpc" data-vn="1"><span class="appproperty">polylinePointCount</span> —— 折线中的点数</p>
+                                </div>
+                                
+                                <p data-id="p_cont_itpo_avfu" data-vn="1"><b>可用函数：</b></p>
+                                <div style="padding-left: 20px">
+                                <p data-id="p_cont_itpo_itps" data-vn="1"><span class="appproperty">IteratePoints</span> —— 遍历构成折线的各个点。</p>
+                                    <div style="padding-left: 20px">
+                                        <p data-id="p_cont_itps_syn" data-vn="1"><b>语法：</b></p>
+                                        <pre data-id="pre_cont_itps_syn" data-vn="1">
+  $IteratePolylines( noParametersJustAnyText )
+</pre>                               
+                                        <p data-id="p_cont_itps_avva" data-vn="1"><b>可用变量：</b></p>
+                                            <div style="padding-left: 20px">
+                                                <p data-id="p_cont_itps_pntx" data-vn="1"><span class="appproperty">pointX</span> —— 点的图像 X 坐标</p>
+                                                <p data-id="p_cont_itps_pnty" data-vn="1"><span class="appproperty">pointY</span> —— 点的图像 Y 坐标</p>
+                                                <p data-id="p_cont_itps_pntz" data-vn="1"><span class="appproperty">pointZ</span> —— 点的图像 Z 坐标</p>
+                                                <p data-id="p_cont_itps_pnti" data-vn="1"><span class="appproperty">pointIndex</span> —— 折线中的点数</p>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>
+                </div>
+                </div>   
+
+                <p data-id="p_cont_exco_ex" data-vn="1"><b>示例：</b></p>
+                <pre data-id="pre_cont_exco_ex" data-vn="1">
+  $IterateOrthoProjections( 
+    $Declare("setID", GetSelectedContourSetId("$(orthoGuid)"))
+    $ExportOrthoProjection( "$(orthoGuid)", 
+      $Declare("pixelSize" , GetSimplifyingFactor(orthoUppx))
+      $ExportContourSet( "$(orthoGuid)", setID, pixelSize,
+        Contour Set Name: $(contoursName)
+        Pixel type: $(contoursPixelType)
+        Layer: $(contoursLayer)
+        Minimal value: $(contoursMin)
+        Maximal value: $(contoursMax)
+        Interval: $(contoursInterval)
+        Contour count: $(contoursCount)
+        $IterateContours(1, contoursCount, 2,
+          Altitude: $(contourAltitude)
+          $IteratePolylines( 
+            Real length: $(polylineRealLength)
+            Point count in polyline: $(polylinePointCount)
+          )
+        )
+      )
+    )
+  )
+                </pre>
+            </div>
+
+            <h3 data-id="h3_exfu" data-vn="1">可用的表达式函数：</h3>       
+
+            <p data-id="p_exfu_gncs" data-vn="1"><span class="appproperty">GetNumberOfContourSets</span> —— 返回所选正射投影的等高线集合数量。</p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_exfu_gncs_syn" data-vn="1"><b>语法：</b></p>
+                    <pre data-id="pre_exfu_gncs_syn" data-vn="1">
+  GetNumberOfContourSets( orthoGUID )</pre>                
+                <p data-id="p_exfu_gncs_par" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_exfu_gncs_guid" data-vn="1"><span class="appproperty">orthoGuid</span> —— 正射投影的 GUID</p>
+                </div>
+                </div>
+                
+            <p data-id="p_exfu_gscs" data-vn="1"><span class="appproperty">GetSelectedContourSetId</span> —— 返回所选正射投影中已选中等高线集合的 ID 值。</p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_exfu_gscs_syn" data-vn="1"><b>语法：</b></p>
+                    <pre data-id="pre_exfu_gscs_syn" data-vn="1">
+  GetSelectedContourSetId( orthoGUID )</pre>                
+                <p data-id="p_exfu_gscs_par" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_exfu_gscs_guid" data-vn="1"><span class="appproperty">orthoGuid</span> —— 正射投影的 GUID</p>
+                </div>            
+                </div>
+            
+            <p data-id="p_exfu_gsfa" data-vn="1"><span class="appproperty">GetSimplifyingFactor</span> —— 请求的边长除以原始边长。</p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_exfu_gsfa_syn" data-vn="1"><b>语法：</b></p>
+                    <pre data-id="pre_exfu_gsfa_syn" data-vn="1">
+  GetSimplifyingFactor( pixelSize )</pre>                
+                <p data-id="p_exfu_gsfa_par" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_exfu_gsfa_pixs" data-vn="1"><span class="appproperty">pixelSize</span> —— 请求的边长除以原始边长</p>
+                </div>   
+                </div>
+        </div>
+        
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_bc" class="blocksContainer">
+
+            
+            <a href="reports_functions_and_variables.htm">
+                <div class="block TileColor3">
+                    <h2 data-id="h2_bc_script" data-vn="1">报告脚本基础</h2>
+                    <p data-id="p_h2_bc_script" data-vn="1">了解如何创建自定义报告模板</p>
+                </div>
+            </a>
+            
+            <a href="reports_fav_sets.htm">
+                <div class="block TileColor6">
+                    <h2 data-id="h2_bc_sets" data-vn="1">函数集</h2>
+                    <p data-id="p_h2_bc_sets" data-vn="1">函数集及其函数、表达式与变量</p>
+                </div>
+            </a>
+
+            <a href="reports_fav_basic.htm">
+                <div class="block TileColor3">
+                    <h2 data-id="h2_bc_basic" data-vn="1">基础函数</h2>
+                    <p data-id="p_h2_bc_basic" data-vn="1">项目信息、导出器作用域与基础函数集</p>
+                </div>
+            </a>
+
+            <a href="reports_fav_images.htm">
+                <div class="block TileColor3">
+                    <h2 data-id="h2_bc_images" data-vn="1">图像作用域</h2>
+                    <p data-id="p_h2_bc_images" data-vn="1">了解如何导出项目图像的信息</p>
+                </div>
+            </a>
+
+            <a href="reports_fav_components.htm">
+                <div class="block TileColor3">
+                    <h2 data-id="h2_bc_comp" data-vn="1">组件作用域</h2>
+                    <p data-id="p_h2_bc_comp" data-vn="1">组件导出的函数与变量</p>
+                </div>
+            </a>
+
+            <a href="reports_fav_cameras.htm">
+                <div class="block TileColor3">
+                    <h2 data-id="h2_bc_camera" data-vn="1">相机作用域</h2>
+                    <p data-id="p_h2_bc_camera" data-vn="1">了解如何获取相机信息</p>
+                </div>
+            </a>
+
+            <a href="reports_fav_points.htm">
+                <div class="block TileColor3">
+                    <h2 data-id="h2_bc_scene" data-vn="1">场景结构作用域</h2>
+                    <p data-id="p_h2_bc_scene" data-vn="1">了解如何向报告添加自定义点统计</p>
+                </div>
+            </a>
+
+            <a href="reports_fav_controlPoints.htm">
+                <div class="block TileColor3">
+                    <h2 data-id="h2_bc_cp" data-vn="1">控制点与约束作用域</h2>
+                    <p data-id="p_h2_bc_cp" data-vn="1">查看控制点与约束功能的清单</p>
+                </div>
+            </a>
+
+            <a href="reports_fav_models.htm">
+                <div class="block TileColor3">
+                    <h2 data-id="h2_bc_models" data-vn="1">模型作用域</h2>
+                    <p data-id="p_h2_bc_models" data-vn="1">了解如何生成模型报告</p>
+                </div>
+            </a>
+            
+            <a href="reports_fav_map.htm">
+                <div class="block TileColor6">
+                    <h2 data-id="h2_bc_map" data-vn="1">地图作用域</h2>
+                    <p data-id="p_h2_bc_map" data-vn="1">查看地图导出函数的清单</p>
+                </div>
+            </a>
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+    
+    <script type="text/javascript">
+        InitializeTutorialMode();
+    </script>    
+
+</body>
+</html>
+<!-- signature:H59YvpCisXZQfXSpvK7JGbwqLQaQ6JO+NhqAOv6uth29pFgujc709IpX5YQVmd1hyLoU8MlkSQ3wPFxBJaW8eyMBZ9zgSH0n1ss+RZMb6ZyXeo1KdgB+hl3SZEXVK1Q6Jpa5b4kZDy6VbIVf0VAApV+kP5KfbkMtxTMkrlk4ZFI= -->

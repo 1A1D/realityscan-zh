@@ -1,0 +1,281 @@
+<html>
+<head>
+    <title>RealityScan 帮助</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Epic Games Slovakia s.r.o." />
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <link type="text/css" rel="stylesheet" href="../../styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/colors.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css" />
+    <script src="../scripts/textVars.js" type="text/javascript"></script>
+    <script src="../../scripts/localization.js" type="text/javascript"></script>
+    <script src="../../scripts/main.js" type="text/javascript"></script>
+</head>
+<body ondragstart="return false;">
+
+    <div class="content_slide">
+
+        <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head" class="head">
+            <h1 data-id="h1" data-vn="1">选中的输入</h1>
+            <p data-id="p_h1" data-vn="2">
+                导入图像或 LiDAR 扫描后，可以在设置为 1Ds 或 2Ds 的视图左侧的输入列表中选择它们。选中后，输入的属性会显示在 <span class="apppanel">Selected Input(s)</span> 面板中。如果在配准（对齐）之后选择输入，输入属性中会多出几项设置：<span class="appproperty">Enable in component</span> 和 <span class="appproperty">Lock pose for continue</span>。
+            </p>
+        
+            <div style="padding: 10px 10px 10px 0px">
+                <img src="images/selected_input-1.png" alt="selected-input-1" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/appbasics/images/selected_input-1.png';"/>
+            </div>
+
+            <ul class="apppanelitems">
+                <li class="apppanelitem" data-id="li_sel_input_fn" data-vn="1"><span class="appproperty">File name</span> 所选输入文件的名称和位置。</li>
+                <li class="apppanelitem" data-id="li_sel_input_mo" data-vn="1"><span class="appproperty">Model</span> 生成输入文件所用相机的厂商与型号。</li>
+                <li class="apppanelitem" data-id="li_sel_input_wi" data-vn="1"><span class="appproperty">Width</span> 图像宽度（像素）。</li>
+                <li class="apppanelitem" data-id="li_sel_input_he" data-vn="1"><span class="appproperty">Height</span> 图像高度（像素）。</li>
+                <li class="apppanelitem" data-id="li_sel_input_pf" data-vn="1"><span class="appproperty">Pixel format</span> 每像素位数及颜色通道规格。</li>
+                <li class="apppanelitem" data-id="li_sel_input_fe" data-vn="1"><span class="appproperty">Features</span> 上次对齐时在该图像中检测到的特征数量。</li>
+                <li class="apppanelitem" data-id="li_sel_input_fs" data-vn="1"><span class="appproperty">Features source</span> 通过选择希望纳入组件新对齐的特征（按每个组件中的每张图像分别设置），可以选用更多组件整合策略。选对策略能显著降低对齐时所需的 RAM。<br /> <div style="padding-left: 20px"> <span class="appproperty">Merge using overlaps</span> 只使用各组件共有的图像/点，即相互重叠的图像；该策略可减少计算时间和内存占用。<br/> <span class="appproperty">Use component features</span> 只使用导入组件对齐时用到的点，速度最快，内存紧张时最合适。<br/> <span class="appproperty">Use all image features</span> 会使用全部图像/点，速度最慢、内存需求最高。 </div>
+                </li>
+                <li class="apppanelitem" data-id="li_sel_input_vi" data-vn="1"><span class="appproperty">Visible</span> 在三维视图中显示或隐藏所选输入的相机锥体。</li>
+                <li class="apppanelitem" data-id="li_sel_input_ea" data-vn="1"><span class="appproperty">Enable alignment</span> 若要让所选输入参与配准及后续处理，请设为 <span class="appproperty">Enable</span>；否则选择 <span class="appproperty">Disable</span>。</li>
+                <li class="apppanelitem" data-id="li_sel_input_em" data-vn="1"><span class="appproperty">Enable meshing</span> 若要让所选输入参与模型计算/网格化，请设为 <span class="appproperty">Enable</span>；否则选择 <span class="appproperty">Disable</span>。此功能对所有组件生效。</li>
+                <li class="apppanelitem" data-id="li_sel_input_etc" data-vn="1"><span class="appproperty">Enable texturing and coloring</span> 若要让所选输入参与模型的纹理或着色计算，请设为 <span class="appproperty">Enable</span>；否则选择 <span class="appproperty">Disable</span>。</li>
+                <li class="apppanelitem" data-id="li_sel_input_wt" data-vn="1"><span class="appproperty">Weight in texturing</span> 设置所选输入在纹理或着色过程中所计的权重。设为小于 1 的值可降低所选输入在着色/纹理过程中的影响。</li>
+                <li class="apppanelitem" data-id="li_sel_input_crr" data-vn="1"><span class="appproperty">Color correction reference</span> 若要将此输入作为颜色校正计算的基准，请设为 <span class="appproperty">Enable</span>；否则选择 <span class="appproperty">Disable</span>。启用后该输入的颜色不会被改变。</li> 
+                <li class="apppanelitem" data-id="li_sel_input_cc" data-vn="1"><span class="appproperty">Color correction</span> 若要将此输入纳入颜色校正计算，请设为 <span class="appproperty">Enable</span>；否则选择 <span class="appproperty">Disable</span> 跳过该图像（例如仅用于几何的结构光（投影图案）图像）。</li>
+                <li class="apppanelitem" data-id="li_sel_input_ddm" data-vn="1"><span class="appproperty">Downscale for depth maps </span> 设置深度图计算的图像降采样系数。整数越大计算越快，但细节越少。取 1 表示不缩放（100% 分辨率），取 2 表示图像每边缩小一半（原分辨率的 25%），以此类推。请注意，深度图计算的最终降采样按以下方式相乘得出：<span class="appproperty">Downscale for depth maps</span>（在 1Ds <span class="apppanel">Selected input(s)</span> 面板中为所选图片设置）× <span class="appproperty">Image downscale</span>（在 <span class="apppanel">Reconstruction settings</span> 中设置）</li>
+                <li class="apppanelitem" data-id="li_sel_input_re" data-vn="1"><span class="appproperty">Registered</span> 指示该输入是否已在所选组件中完成配准。</li>
+                <li class="apppanelitem" data-id="li_sel_input_ec" data-vn="3"><span class="appproperty">Enable in component</span> 启用后，会用所选组件中的相机配准数据来优化后续对齐。禁用不会影响其他组件的配准数据或相机图像先验，但会限制该组件内配准数据的使用，包括网格化和纹理等流程。与 <span class="appproperty">Enable alignment</span> 不同，此选项只作用于所选组件，而非整个输入。当组件中已知有部分相机未对齐（其数据可能拖累后续对齐）时，这个设置很有用。</li>
+                <li class="apppanelitem" data-id="li_sel_input_lpc" data-vn="1"><span class="appproperty">Lock pose for continue</span> 锁定所选组件中已选相机的相对位置，以便后续处理。分批处理图像时这个选项很有用：先对齐第一批图像、微调组件、锁定组件中相机的位置，再加入另一批图像重新对齐。这样相机位置不会被改动（例如组件不会被拆分）。</li>
+            </ul>
+        </div>  
+        
+        <div data-id="div_sb_layer" class="slideblock">
+            <h2 data-id="h2_layer" data-vn="1">图像图层</h2>
+            <p data-id="p_h2_layer" data-vn="1">
+                图像可以按不同处理步骤组织成图层，例如遮罩不需要的部分，或为纹理指定特定图像。命名规范的图像会一起加载，图层按图像名或文件夹名自动分配。
+            </p>
+            
+            <div style="padding: 10px 10px 10px 0px">
+                <img src="images/selectedinputs-imagelayers.png" alt="selected_input-imagelayers" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/appbasics/images/selectedinputs-imagelayers.png';"/>
+            </div>
+            
+            <ul class="apppanelitems">
+                <li class="apppanelitem" data-id="li_layer_type" data-vn="1"><span class="appproperty">[Type] layer</span> 分配给该输入的图像图层。[Type] 标签会随图层类型变化，因此一个输入可以有多个图层条目。</li>
+                <li class="apppanelitem" data-id="li_layer_align" data-vn="1"><span class="appproperty">Enable masks for alignment</span> 使遮罩图像图层可用于对齐过程。</li>
+                <li class="apppanelitem" data-id="li_layer_mesh" data-vn="1"><span class="appproperty">Enable masks for meshing</span> 使遮罩图像图层可用于网格化过程。 </li>
+                <li class="apppanelitem" data-id="li_layer_text" data-vn="1"><span class="appproperty">启用蒙版用于纹理生成与着色</span> 使遮罩图像图层可用于着色和纹理过程。</li>
+            </ul>
+                   
+        </div>
+        
+        <br/>
+        
+        <div data-id="div_sb_campr" class="slideblock">
+            <h2 data-id="h2_campr" data-vn="1">相机先验</h2>
+            <p data-id="p_h2_campr" data-vn="2">
+                先验是在对齐之前已知的属性（相机/场景信息），可用于影响对齐质量。它们可以是固定的、近似的，或完全未知的。<br /> 选中一张或多张图像时，位姿、标定和镜头畸变先验都可以在选择面板中设置。选中 LiDAR 扫描输入（其内部格式为 .lsp）时，面板中只显示位姿先验。  
+            </p>
+        </div>
+        
+        <br/>
+
+        <div data-id="div_sb_prpose" class="slideblock">
+            <h3 data-id="h3_prpose" data-vn="1">位姿先验</h3>
+            <p data-id="p_h2_prpose" data-vn="1">
+                以下参数定义我们对某个相机位置的已知信息：<br />
+            </p>
+        
+            <div style="padding: 10px 10px 10px 0px">
+                <img src="images/selected_input-prpose.png" alt="selected_input-prpose" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/appbasics/images/selected_input-prpose.png';"/>
+            </div>
+
+            <ul class="apppanelitems">
+                <li class="apppanelitem" data-id="li_prpose_lpg" data-vn="1"><span class="appproperty">Locked pose group</span> 输入正整数即可设为一个组。留空或输入负整数可取消位姿分组。 </li>
+                <li class="apppanelitem" data-id="li_prpose_relpose" data-vn="1"><span class="appproperty">Relative pose</span> - 输入的先验位置类型，定义相机之间的相对位置，可设为：<br /> <div style="padding-left: 20px"> <span class="appproperty">Unknown</span> - 未定义相机间的相对位置 <br /> <span class="appproperty">Draft</span> - 相机间的相对位置已知到一定精度，可在对齐过程中优化 <br /> <span class="appproperty">Exact</span> - 相机间的相对位置已知，对齐过程中不会被改动 <br /> </div>
+                </li>
+                <li class="apppanelitem" data-id="li_prpose_rc" data-vn="2"><span class="appproperty">Relative coordinates</span> 为预标定组件中各相机之间的相对位置定义坐标系。此选项仅对装置内相连的输入可见（例如同一 LiDAR 扫描站位下的各个 .lsp 文件，或带有精确/锁定 XMP 文件的图像）。</li>
+                <li class="apppanelitem" data-id="li_prpose_ap" data-vn="2"><span class="appproperty">Absolute pose</span> - 输入的先验位置类型，定义全局相机位置（相对于相机所在的系统，而非相机之间），可设为：<br /> <div style="padding-left: 20px"> <span class="appproperty">Unknown</span> - 未定义输入的先验位置 <br /> <span class="appproperty">Position</span> - 相机位置已知到一定精度，可在对齐过程中优化 <br /> <span class="appproperty">Position and orientation</span> - 相机的近似位置与朝向均已知，但可在对齐过程中优化 <br /> <span class="appproperty">Locked</span> - 对齐过程中不允许改动相机位置与朝向 </div>
+                </li>
+                <li class="apppanelitem" data-id="li_prpose_ac" data-vn="1"><span class="appproperty">Absolute coordinate</span> 定义先验坐标所用的坐标系。此设置下的坐标类型取决于所选坐标系。 </li>
+                <li class="apppanelitem" data-id="li_prpose_lxyz" data-vn="1"><span class="appproperty">Latitude/X,Y,Z...</span> 视所选坐标系而定，可以用角度坐标或笛卡尔坐标定义地面控制点的物理坐标。</li>
+                <li class="apppanelitem" data-id="li_prpose_ypr" data-vn="1"><span class="appproperty">偏航 / 航向，俯仰 / 仰角，翻滚 / 倾斜</span> 相机分别绕 Y、X、Z 轴的旋转角。</li>
+                <li class="apppanelitem" data-id="li_prpose_pa" data-vn="1"><span class="appproperty">Pose accuracy</span> 定义相机位置的精度，可使用全局设置或自定义值。若 <span class="appproperty">Accuracy settings source</span> 设为 Global camera prior settings，则采用 <span class="apppanel">Alignment settings</span> 中设定的值；若 <span class="appproperty">Accuracy settings source</span> 设为 Edit custom values，则可手动修改所选输入的精度。</li>
+            </ul>
+        </div>
+
+        <br/>
+
+        <div data-id="div_sb_prcal" class="slideblock">
+            <h3 data-id="h3_prcal" data-vn="1">标定先验</h3>
+            <p data-id="p_h2_prcal" data-vn="1">
+                以下参数给出相机内参标定先验的信息（焦点、投影中心等）：<br />
+            </p>
+
+            <div style="padding: 10px 10px 10px 0px">
+                <img src="images/selected_input-prcal.png" alt="selected_input-prcal" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/appbasics/images/selected_input-prcal.png';"/>
+            </div>
+              
+            <ul class="apppanelitems">
+                <li class="apppanelitem" data-id="li_prcal_calgr" data-vn="1"><span class="appproperty">Calibration group</span> 对齐后，整数相同（且不为 -1）的图像将共享同一套标定参数。可以自动或手动把图像归入相同的标定组。详情参见 <a href="camerasettings.htm">此处</a>。</li>
+                <li class="apppanelitem" data-id="li_prcal_prior" data-vn="1"><span class="appproperty">Prior</span> 定义标定先验参数的精度。<br /> <div style="padding-left: 20px"> <span class="appproperty">Unknown</span> 先验值缺失，或处理时不予采用。<br /> <span class="appproperty">Approximate</span> 先验值已知，处理过程中会被调整。<br /> <span class="appproperty">Fixed</span> 先验值已知，处理过程中不会被改动。<br /> </div>
+                </li>
+                <li class="apppanelitem" data-id="li_prcal_focal" data-vn="1"><span class="appproperty">Focal length (35mm)</span> 相机焦距的 35mm 等效值（毫米）。</li>
+                <li class="apppanelitem" data-id="li_prcal_ppx" data-vn="1"><span class="appproperty">Principal point x [mm]</span> 投影中心在 x 轴上的位置（毫米）。</li>
+                <li class="apppanelitem" data-id="li_prcal_ppy" data-vn="1"><span class="appproperty">Principal point y [mm]</span> 投影中心在 y 轴上的位置（毫米）。</li>
+                <li class="apppanelitem" data-id="li_prcal_skew" data-vn="1"><span class="appproperty">Skew</span> 图像平面的偏斜。 </li>
+                <li class="apppanelitem" data-id="li_prcal_aspect" data-vn="1"><span class="appproperty">Aspect ratio</span> 像素的宽高比。</li>
+            </ul>
+
+        </div>
+
+        <br/>
+        
+        <div data-id="div_sb_prldis" class="slideblock">
+            <h3 data-id="h3_prldis" data-vn="1">镜头畸变先验</h3>
+            <p data-id="p_h2_prldis" data-vn="1">
+                定义镜头的光学信息：<br />
+            </p>
+
+            <div style="padding: 10px 10px 10px 0px">
+                <img src="images/selected_input-prldis.png" alt="selected_input-prldis" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/appbasics/images/selected_input-prldis.png';"/>
+            </div>
+                 
+            <ul class="apppanelitems">
+                <li class="apppanelitem" data-id="li_prldis_lensgr" data-vn="1"><span class="appproperty">Lens Group</span> 对齐后，整数相同（且不为 -1）的图像将共享同一套镜头参数。可以自动或手动把图像归入相同的镜头组。详情参见 <a href="camerasettings.htm">此处</a>。</li>
+                <li class="apppanelitem" data-id="li_prldis_prior" data-vn="1"><span class="appproperty">Prior</span> 定义镜头畸变先验参数的精度<br /> <div style="padding-left: 20px"> <span class="appproperty">Unknown</span> 适用于镜头畸变明显、广角镜头，以及镜头先验未知的情况。<br /> <span class="appproperty">Approximate</span> 起始值已知，会被调整。<br /> <span class="appproperty">Fixed</span> 先验值已知，处理过程中不会被改动。<br /> </div>
+                </li>
+                <li class="apppanelitem" data-id="li_prldis_model" data-vn="1"><span class="appproperty">Model</span> 指定用于建模镜头畸变的畸变模型。更多信息见 <a href="settings_distortion_models.htm">此处</a>。 </li>
+                <li class="apppanelitem" data-id="li_prldis_rad" data-vn="1"><span class="appproperty">Radial 1/2/3/4</span> 所选畸变模型的径向畸变系数。</li>
+                <li class="apppanelitem" data-id="li_prldis_tang" data-vn="1"><span class="appproperty">Tangential 1/2</span> 所选畸变模型的切向畸变系数。</li>
+
+            </ul>
+            
+            <br />
+
+            <p data-id="p_prldis_def" data-vn="2">
+                默认情况下，镜头畸变模型设为 <span class="appproperty">No lens distortion</span>、先验设为 <span class="appproperty">Approximate</span>，即 RealityScan 会尽量求出镜头畸变接近零的解。若图像存在可见的镜头像差，这个假设并不现实；此时应设置合适的畸变系数，或把镜头先验改为 <span class="appproperty">Unknown</span>。
+            </p>
+                
+        </div>
+    
+        <br/>
+
+        <div data-id="div_sb_rig" class="slideblock">
+            <h3 data-id="h3_rig" data-vn="1">装置</h3>
+            <p data-id="p_h2_rig" data-vn="2">
+                装置参数仅适用于在同一装置内相连的输入（例如同一 LiDAR 扫描站位下的各个 .lsp 文件）。<br />
+            </p>
+
+            <div style="padding: 10px 10px 10px 0px">
+                <img src="images/selected_input-rig.png" alt="selected_input-rig" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/appbasics/images/selected_input-rig.png';"/>
+            </div>
+
+            <p data-id="p_rig" data-vn="2">
+                <span class="appproperty">Rig ID</span> 装置类型，例如 LiDAR 扫描点云。<br /> <span class="appproperty">Prior</span> 某一位置上装置实例的标识。同一 LiDAR 扫描站位的全部 6 个 .lsp 文件共享同一编号。<br /> <span class="appproperty">Model</span> 装置内的相机索引（例如同一 LiDAR 扫描站位中 .lsp 文件的序号（0-5））。<br /> 
+            </p>
+
+        </div>
+        
+        <br/>
+
+        <div data-id="div_sb_camar" class="slideblock">
+            <h2 data-id="h2_camar" data-vn="1">配准后的相机</h2>
+            <p data-id="p_h2_camar" data-vn="1">
+                这些是对齐之后已知的属性（相机/场景信息），反映对齐的质量与最终参数：<br /> 
+            </p>
+        </div>
+        
+        <br/>
+
+        <div data-id="div_sb_relunc" class="slideblock">
+            <h3 data-id="h3_relunc" data-vn="1">相对位置不确定度</h3>
+            <p data-id="p_h2_relunc" data-vn="1"> 关于某相机相对于组件内其他已配准相机的位置不确定度的信息。<br />
+            </p>
+        
+            <div style="padding: 10px 10px 10px 0px">
+                <img src="images/selected_input-reluncert.png" alt="selected_input-reluncert" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/appbasics/images/selected_input-reluncert.png';"/>
+            </div>
+
+        </div>
+        
+        <br/>
+        
+        <div data-id="div_sb_regcal" class="slideblock">
+            <h3 data-id="h3_regcal" data-vn="1">配准标定</h3>
+            <p data-id="p_h2_regcal" data-vn="1">
+                这里显示对齐过程中计算出的最终标定参数（仅对该输入在所选组件中有效）。<br />
+            </p>
+        
+            <div style="padding: 10px 10px 10px 0px">
+                <img src="images/selected_input-regcal.png" alt="selected_input-regcal" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/appbasics/images/selected_input-regcal.png';"/>
+            </div>
+
+        </div>
+        
+        <br/>
+
+        <div data-id="div_sb_regldis" class="slideblock">
+            <h3 data-id="h3_regldis" data-vn="1">配准镜头畸变</h3>
+            <p data-id="p_h2_regldis" data-vn="1">
+                这里显示对齐过程中计算出的镜头畸变参数（仅对该输入在所选组件中有效）。<br />
+            </p>
+        
+            <div style="padding: 10px 10px 10px 0px">
+                <img src="images/selected_input-regldis.png" alt="selected_input-regldis" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/appbasics/images/selected_input-regldis.png';"/>
+            </div>
+
+        </div>
+        
+        <br/>
+        
+        <div data-id="div_sb_subselecr" class="slideblock">
+            <h2 data-id="h2_subselect" data-vn="1">子选图像</h2>
+            <p data-id="p_h2_subselect" data-vn="1">
+                可以只选已配准图像或只选未配准图像。操作前请先确保已选中全部图像。<br />
+            </p>
+        
+            <div style="padding: 10px 10px 10px 0px">
+                <img src="images/selected_input_subselect.png" alt="selected_input_subselect" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/appbasics/images/selected_input_subselect.png';"/>
+            </div>
+
+        </div>
+        
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_bc" class="blocksContainer">
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sa" class="rowblock">
+            <h3 data-id="h3_sa" data-vn="1">另见：</h3>
+            <ul class="intend">
+                <li data-id="li_sa_hsmi" data-vn="1">如何选择多张图像 <a href="../appbasics/multiselect.htm">点击此处</a></li>
+            </ul>
+            <div class="clear">
+                <!-- clear -->
+            </div>
+        </div>
+
+        <!-- content slide end -->
+
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+    <script type="text/javascript">
+        InitializeHelpSlide();
+    </script>
+
+
+</body>
+</html>
+<!-- signature:IMEz48evW9nRS+Pw/0jL/pPz6dW6M4kDeLoYTv7IHkrk/rCwJ+36L01NE816tXqGbf2aAdD5Cyn0WFyZsdbOi+4N+oCqeNHGrGeafs9a1Xe9IkNL5OQFq6ZJaiFf07KES7WA/fc+Jt/DTjWuxKPw4YYIw/G0j/v5kIX51tdg45w= -->

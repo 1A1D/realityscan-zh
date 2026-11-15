@@ -1,0 +1,178 @@
+<html>
+<head>
+    <title>RealityScan 帮助</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Epic Games Slovakia s.r.o." />
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <link type="text/css" rel="stylesheet" href="../../styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/colors.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css" />
+    <script src="../scripts/textVars.js" type="text/javascript"></script>
+    <script src="../../scripts/localization.js" type="text/javascript"></script>
+    <script src="../../scripts/main.js" type="text/javascript"></script>
+</head>
+
+<body ondragstart="return false;">
+
+    <div data-id="div_cs" class="content_slide">
+
+    <!-- content slide -->
+    <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head" class="head">
+            <h1 data-id="h1" data-vn="1">自定义导出格式</h1>
+            <p data-id="p_h1" data-vn="1">    
+                如果你需要导出额外信息，或想改动现有导出格式，部分导出格式可以按你的具体需求和偏好进行自定义。这些导出包括：配准、地面控制点、控制点、点云、正射影像、横断面、等高线、深度与遮罩图像、重建区域、报告，以及地图向导报告。
+            </p>
+            
+            <p data-id="p_h1_destination" data-vn="1">
+               要自定义这些导出，需要编辑安装目录下对应的文件。若安装时未更改安装位置，可在以下路径找到：
+            </p>    
+            
+            <pre data-id="h1_instaldest_v1" data-vn="2">
+C:\Program Files\Epic Games\RealityScan
+            </pre>
+            
+        </div>
+        
+        <div class="slideblock">    
+            <h2 data-id="h2_fileformat" data-vn="1">导出文件结构</h2>
+            
+            <p data-id="p_fileformat" data-vn="1">
+                每个导出文件都有一定结构，所用的元素与属性取决于你的需求以及 <span class="appproperty">writer</span> 属性。
+            </p>  
+              
+            <div class="codeSample">
+                <pre>
+&lt;format id&equals;&quot;&quot; mask&equals;&quot;&quot; descID&equals;&quot;&quot; desc&equals;&quot;&quot; writer&equals;&quot;&quot; requiresGeoref&equals;&quot;&quot; requiresEqualResolution&equals;&quot;&quot; undistortImages&equals;&quot;&quot; exportImages&equals;&quot;&quot; supportsGeoref&equals;&quot;&quot; specificCoordSystem&equals;&quot;&quot; requires&equals;&quot;&quot;&gt;
+    &lt;parameter name&equals;&quot;&quot; type&equals;&quot;&quot; default&equals;&quot;&quot; variable&equals;&quot;&quot; hint&equals;&quot;&quot;&sol;&gt;
+    &lt;&sol;parameter&gt;
+    &lt;body&gt;
+    &lt;&sol;body&gt;
+&lt;&sol;format&gt;</pre>
+            </div>
+       
+            <ul>
+            <li data-id="li_ff_frmt" data-vn="1"><span class="appproperty">&lt;format&gt;</span> 定义导出的参数与属性。
+                <ul>
+                    <li data-id="li_ff_id" data-vn="1" class="licircle"><span class="appproperty">id</span> <span class="note">(optional)</span> 唯一标识号（GUID）。</li>
+                    <li data-id="li_ff_mask" data-vn="1" class="licircle"><span class="appproperty">mask</span> 导出文件的格式扩展名。例如写 <span class="appproperty">*.xyz</span> 就会导出 XYZ 文件。</li>
+                    <li data-id="li_ff_descid" data-vn="1" class="licircle"><span class="appproperty">descID</span> <span class="note">（可选）</span> 用于语言本地化的唯一内部标识号。</li>
+                    <li data-id="li_ff_desc" data-vn="1" class="licircle"><span class="appproperty">desc</span> 在导出对话框中显示的文件格式名称。</li>
+                    <li data-id="li_ff_writer" data-vn="1" class="licircle"><span class="appproperty">writer</span> 导出格式的结构取决于所选 writer。某些 writer 无法完全自定义。</li>
+                    <li data-id="li_ff_reqgeo" data-vn="1" class="licircle"><span class="appproperty">requiresGeoref</span> <span class="note">（可选）</span> 若要求组件已做地理配准才显示此导出格式，就使用该属性并设为 <span class="appproperty">1</span>；设为 <span class="appproperty">0</span> 则组件未做地理配准时也显示此选项。</li>
+                    <li data-id="li_ff_eqresol" data-vn="1" class="licircle"><span class="appproperty">requiresEqualResolution</span> <span class="note">（可选）</span> 使用并设为 <span class="appproperty">1</span> 可启用导出对话框中的 <span class="apppanel">Undistortion settings</span>，并允许自定义图像宽高。它是 <span class="appproperty">undistortImages</span> 属性的补充属性。设为 <span class="appproperty">0</span> 可去掉自定义宽高选项。</li>
+                    <li data-id="li_ff_undistort" data-vn="1" class="licircle"><span class="appproperty">undistortImages</span> <span class="note">（可选）</span> 使用并设为 <span class="appproperty">always</span> 可在导出对话框中显示 <span class="apppanel">Undistortion settings</span>。它是 <span class="appproperty">exportImages</span> 属性的补充属性。设为 <span class="appproperty">never</span> 可去掉自定义宽高选项。</li>
+                    <li data-id="li_ff_eximgs" data-vn="1" class="licircle"><span class="appproperty">exportImages</span> <span class="note">（可选）</span> 使用并设为 <span class="appproperty">1</span> 可在导出对话框中启用图像导出选项。</li>
+                    <li data-id="li_ff_suppgeo" data-vn="1" class="licircle"><span class="appproperty">supportsGeoref</span> <span class="note">（可选）</span> 使用并设为 <span class="appproperty">1</span> 可在导出对话框中显示变换设置；设为 <span class="appproperty">0</span> 则去掉变换设置。</li>
+                    <li data-id="li_ff_speccs" data-vn="1" class="licircle"><span class="appproperty">specificCoordSystem</span> <span class="note">（可选）</span> 使用并设为 <span class="appproperty">1</span> 可让导出对话框的项目输出选项中能够设置 <span class="appproperty">Coordinate system</span>。</li>
+                    <li data-id="li_ff_req" data-vn="1" class="licircle"><span class="appproperty">requires</span> <span class="note">（可选）</span> 指定项目里必须存在并被选中什么，才会看到此导出选项。可设为：<span class="appproperty">component</span>、<span class="appproperty">model</span>、<span class="appproperty">GCP</span>（地面控制点）、<span class="appproperty">cpm</span>（控制点测量）、<span class="appproperty">projection</span>（正射投影）、<span class="appproperty">dtm</span>（数字地形模型）、<span class="appproperty">crosssections</span>、<span class="appproperty">isolines</span>（等高线）或 <span class="appproperty">georeferenced</span>。</li>
+                </ul>
+            </li>
+            <li data-id="li_ff_param" data-vn="1"><span class="appproperty">&lt;parameter&gt;</span> <span class="note">(optional)</span> 编辑已有的导出参数，或创建自己的参数。
+                <ul>
+                    <li data-id="li_ff_name" data-vn="1" class="licircle"><span class="appproperty">name</span> 参数名称会显示在导出对话框中。</li>
+                    <li data-id="li_ff_type" data-vn="1" class="licircle"><span class="appproperty">type</span> 设置数据类型。可选 bool、integer、float 和 value。</li>
+                    <li data-id="li_ff_default" data-vn="1" class="licircle"><span class="appproperty">default</span> 导出对话框中显示的默认值。</li>  
+                    <li data-id="li_ff_var" data-vn="1" class="licircle"><span class="appproperty">variable</span> 参数名称，可在 body 元素中作为变量使用，并会显示在参数文件（params.xml）中。</li>
+                    <li data-id="li_ff_hint" data-vn="1" class="licircle"><span class="appproperty">hint</span> 为该参数创建提示文本。把鼠标悬停在导出对话框中的该参数上即可看到提示。</li>
+                </ul>
+             </li>       
+             <li data-id="li_ff_body" data-vn="2"><span class="appproperty">&lt;body&gt;</span> 导出文件的内容。该元素使用模板系统的函数与变量，并非所有 <span class="appproperty">writer</span> 选项都支持。
+
+            </li>
+            </ul>
+         
+        </div> 
+        
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+        
+        <div class="slideblock">
+            <h2 data-id="h2_writer" data-vn="1">Writer 属性</h2>
+        
+            <p data-id="p_h2_wrt" data-vn="1">
+                <span class="appproperty">writer</span> 属性指定可用的参数以及导出文件的整体内容。部分 writer 选项使用内置文件格式，无法完全自定义。 
+            </p>
+        
+            <p data-id="p_custom" data-vn="1">
+                只有带 <span class="appproperty">&lt;body&gt;</span> 元素的格式才能自定义内容，但并非所有 <span class="appproperty">writer</span> 选项都支持该元素：有些使用内置文件格式，内容不可更改。不支持 <span class="appproperty">&lt;body&gt;</span> 元素的 <span class="appproperty">writer</span> 选项包括：
+            </p>
+        
+            <ul style="margin-bottom: 20px;">
+                <li data-id="ul_wrtr_rca" data-vn="2"><span class="appproperty">rca</span> 用于导出 RealityScan 对齐组件（.rsalign）的 writer。
+                </li>
+                <li data-id="ul_wrtr_stmaps" data-vn="2"><span class="appproperty">RealityScan.Export.STMaps</span> 仅用于导出 ST Maps。 
+                </li>
+                <li data-id="ul_wrtr_ortho" data-vn="2"><span class="appproperty">RealityScan.Export.OrthoExport</span> 用于正射投影、数字表面模型和数字地形模型导出。
+                </li>
+                <li data-id="ul_wrtr_cross" data-vn="2"><span class="appproperty">RealityScan.Export.ModelCrossSections</span> 用于导出横断面。
+                </li>
+                <li data-id="dami" data-vn="2"><span class="appproperty">RealityScan.Export.DepthAndMaskImages</span> 用于导出深度与遮罩图像。
+                </li>
+                <li data-id="iso" data-vn="2"><span class="appproperty">RealityScan.Export.Isolines</span> 专用于导出等高线。
+                </li>
+                <li data-id="recr" data-vn="2"><span class="appproperty">RealityScan.Export.ReconstructionRegion</span> 用于导出重建区域。
+                </li>
+            </ul>
+            
+            <p data-id="p_wrtrbody" data-vn="2">
+                使用带 <span class="appproperty">&lt;body&gt;</span> 元素的 <span class="appproperty">writer</span> 选项，就能用模板系统的函数与变量生成导出文件内容。可用的模板函数集取决于所选 <span class="appproperty">writer</span> 选项。
+            </p>
+            
+            <ul>
+                <li data-id="ul_wrtr_csv" data-vn="1"><span class="appproperty">csv</span> 用于一般文本导出。可用的函数集为 <span class="appproperty">BasicExportFunctionSet</span>、<span class="appproperty">ConfigExportFunctionSet</span> 和 <span class="appproperty">SfmExportFunctionSet</span>。
+                </li>
+                <li data-id="ul_wrtr_cp" data-vn="2"><span class="appproperty">RealityScan.Export.ControlPoints</span> 用于导出控制点与地面控制点。可用函数集与 <span class="appproperty">csv</span> writer 相同，另增加 <span class="appproperty">ControlPointsExportFunctionSet</span>。
+                </li>
+                <li data-id="ul_wrtr_report" data-vn="2"><span class="appproperty">RealityScan.Export.ReportWriter</span> 用于导出报告或地图向导报告。此 writer 支持所有函数集。
+                </li>
+            </ul>
+            
+        </div>    
+           
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_bc" class="blocksContainer">
+
+            <a href="../appbasics/reports_fav_sets.htm">
+                <div class="block TileColor2">
+                    <h2 data-id="h2_bc_scas" data-vn="1">函数集</h2>
+                    <p data-id="p_bc_scas" data-vn="1">报告中可用的函数集清单</p>
+                </div>
+            </a>
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+        
+        <div data-id="div_sa" class="rowblock">
+            <h3 data-id="h3_sa" data-vn="1">另见：</h3>
+            <ul class="intend">
+                <li data-id="li_sa_import" data-vn="1"><a href="../tools/defineimportformat.htm">Customize Import Formats</a> —— 了解哪些导入可以自定义以及如何自定义</li>
+            </ul>
+            <div class="clear">
+                <!-- clear -->
+            </div>
+        </div>
+
+    <!-- content slide end -->
+
+    </div>  
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+    <script type="text/javascript">
+        InitializeTutorialMode();
+    </script>
+
+</body>
+</html>
+<!-- signature:TqskhxQwcdVwuh4Y+iQ3nnfsQGvLCQK+XcqmQBSBhC7VOlwBCVWgK+bK9wOzJl/DwGMox99Hcoka6bk6p0GIwVWhTyrcPIg+kpYJYJISekKqbCKAQt5OA3nKzCniUQE//HytYaIyy6WMRYg01HVVmBt8lwFHzrsrObDQjYZSRVY= -->

@@ -1,0 +1,261 @@
+<html>
+<head>
+    <title>RealityScan 帮助</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Epic Games Slovakia s.r.o." />
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <link type="text/css" rel="stylesheet" href="../../styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/colors.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css" />
+    <script src="../scripts/textVars.js" type="text/javascript"></script>
+    <script src="../../scripts/localization.js" type="text/javascript"></script>
+    <script src="../../scripts/main.js" type="text/javascript"></script>
+    <script src="../../scripts/rc.js" type="text/javascript"></script>
+</head>
+<body ondragstart="return false;">
+
+    <div data-id="div_cs" class="content_slide">
+
+        <!-- content slide -->
+
+        <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head" class="head">
+            <h1 data-id="h1" data-vn="2">LiDAR 扫描</h1>
+            <p data-id="p_h1" data-vn="2">
+                RealityScan 可对 LiDAR 数据自动完成配准、滤波、着色、纹理和网格化。扫描数量与项目规模都没有限制，超大数据集也能处理。
+            </p>
+        </div>
+
+        <div id="idStartPage" class="warningBox" style="margin-bottom: 20px">
+            <p data-id="p_h1_star" data-vn="2">
+                你已经把 LiDAR 数据导入项目了，恭喜！现在可以跳过导入步骤，直接创建三维模型。也可以按 <span class="appshortcut">Ctrl+N</span> 新建场景，重新导入 LiDAR 数据。
+            </p>
+        </div>
+        
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sb_lsim" class="slideblock">
+
+            <h2 data-id="h2_lsim" data-vn="2">LiDAR 导入</h2>
+            <p data-id="p_h2_lsim" data-vn="4">
+               可以导入有序的地面 LiDAR 数据（点按扫描仪原始采集模式排列），也可以导入易与摄影测量数据对齐的移动 LiDAR 数据。导入时 LiDAR 数据会被转换为 LSP 文件 —— 一种类似图像的应用内部格式。
+            </p>
+            
+            <p data-id="p_h2_lspf" data-vn="1">
+               LSP 文件存于本地，可与原始 LiDAR 数据放在一起，也可指定自定义位置。导入之后，新建项目时无需也不建议重新导入同一批 LiDAR 扫描 —— 那会覆盖已有的 LSP 文件。应直接使用之前生成的 LSP 文件，避免重复处理。
+            </p>
+            
+            <p data-id="p_h2_htim" data-vn="2">
+               导入 LiDAR 扫描，直接把文件<span class="appgesture">拖放</span>到项目中即可。也可以<span class="appgesture">点击</span> <span class="appribbon">WORKFLOW</span> 选项卡中的 <span class="appribbonbutton">LiDAR Scan</span> 按钮，再选择导入选项并指定源文件夹。
+            </p>
+            
+            <h3 data-id="h3_terr" data-vn="1">地面 LiDAR</h3>
+            
+            <p data-id="p_h2_terr" data-vn="1">
+               地面 LiDAR 数据的点按结构化的、反映扫描仪采集方式排列，可导入的格式为 PTX、E57、PLY 和 ZFS/ZFPRJ。
+            </p>
+            
+            <div style="padding: 10px 10px 10px 0px">
+                <img src="images/lidar-terrestrial.png" alt="lidar-terrestrial" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tutorials/images/lidar-terrestrial.png';"/>
+            </div>
+            
+            <h3 data-id="h3_aeri" data-vn="2">移动 LiDAR</h3>
+            
+            <p data-id="p_h3_aeri" data-vn="1">
+               支持的格式包括 LAS/LAZ、E57、PLY、CSV、XYZ 和 ASCII PTS。导入后，LSP 文件的相机位姿或取自已有位姿（先验或已配准），或按所选选项自动生成。
+            </p>
+            
+            <div style="padding: 10px 10px 10px 0px">
+                <img src="images/lidar-aerial.png" alt="lidar-aerial" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tutorials/images/lidar-aerial.png';"/>
+            </div>
+            
+            <h3 data-id="h3_imps" data-vn="1">导入设置</h3>
+            
+                <p data-id="p_h3_imps" data-vn="2">
+                    地面与移动 LiDAR 数据的导入设置大体相同，但有些差异。以下是全部可用导入设置：
+                </p>
+            
+                <ul style="padding: 0px 0px 20px 0px">
+                    <li data-id="li_imps_type" data-vn="2"><span class="appproperty">LiDAR type</span> 类型会依据文件格式自动检测，但仍可手动修改，可选 <span class="appproperty">Terrestrial LiDAR</span> 与 <span class="appproperty">Mobile LiDAR</span>。不过不建议改动默认选择。
+                    </li>   
+                    <li data-id="li_imps_regi" data-vn="1"><span class="appproperty">Registration</span> 定义导入前扫描的配准精度：
+                    </li>
+                    <li class="apppanelitem">
+                        <ul>
+                            <li data-id="li_regi_exct" data-vn="1" class="licircle"><span class="appproperty">Exact</span> 导入的位姿会被保留。导入的模型决定场景的坐标系。
+                            </li>
+                            <li data-id="li_regi_drft" data-vn="1" class="licircle"><span class="appproperty">Draft</span> 扫描站点已粗略配准，但需要微调。
+                            </li>
+                            <li data-id="li_regi_unrg" data-vn="1" class="licircle"><span class="appproperty">Unregistered</span> 站点尚未配准，配准引擎会为所有扫描计算位姿。
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li data-id="li_imps_geor" data-vn="1"><span class="appproperty">Georeferenced</span> 若 LiDAR 扫描已地理参考、且希望这类数据进入项目，请设为「是」。
+                    </li>
+                    <li data-id="li_imps_coor" data-vn="1"><span class="appproperty">Coordinate system</span> 当 <span class="appproperty">Georeferenced</span> 设为「是」时，需指定 <a href="../appbasics/coordinatesystem.htm">coordinate system</a>。
+                    </li>
+                    <li data-id="li_imps_feso" data-vn="1"><span class="appproperty">Features source</span> 选择用颜色还是强度通道把照片与 LiDAR 扫描配准起来，默认是 Color。对 Z+F 扫描，若源文件旁有对应的 .jpg，请用 Color。
+                    </li>
+                    <li data-id="li_imps_nois" data-vn="1"><span class="appproperty">Noise profile</span> 定义点云精度如何随「到扫描站的距离」和「强度值」变化。可选 Noise free profile、ScanStationP20，或依据扫描仪技术文档自定义。要新增配置，请编辑 noiseprofiles.xml（位于应用安装目录）。
+                    </li>
+                    <li data-id="li_imps_class" data-vn="1"><span class="appproperty">Import classification</span> 导入含分类数据的 LAS 或 LAZ 文件时可用。导入的类别会列在 <span class="appaspecttype">1Ds</span> 视图的 <span class="apppanel">LiDAR Classification</span> 下。
+                    </li>
+                    <li data-id="li_imps_outp" data-vn="1"><span class="appproperty">Output path</span> LSP 文件可与原始数据放在同一目录，也可指定自定义位置。
+                    </li>
+                    <li data-id="li_imps_cust" data-vn="1"><span class="appproperty">Custom path</span> 若 <span class="appproperty">Output path</span> 设为 Custom，请指定 LSP 文件的保存目录。
+                    </li>      
+                </ul>    
+                    
+                <p data-id="p_h3_virt" data-vn="2">
+                    导入移动 LiDAR 扫描还有虚拟相机的设置，地面 LiDAR 不使用这些设置。列表如下：
+                </p>    
+  
+                <ul>    
+                    <li data-id="li_virt_camp" data-vn="1"><span class="appproperty">Use camera poses</span> 选择虚拟相机位姿的计算方式：可取自先验相机位姿、取自已有的已配准组件，或自动生成。
+                    </li>
+                    <li data-id="li_virt_comp" data-vn="1"><span class="appproperty">Extract from component</span> 若选择从已有组件生成相机位姿，请指定使用哪个组件。
+                    </li>
+                    <li data-id="li_virt_href" data-vn="2"><span class="appproperty">Height reference</span> 选择自动生成移动位姿时，设置相对于扫描的高度基准。
+                    </li>
+                    <li data-id="li_virt_camh" data-vn="1"><span class="appproperty">Camera height</span> 设置相对所选基准的高度。建议与扫描时传感器离地高度一致。
+                    </li>
+                    <li data-id="li_virt_ovpc" data-vn="1"><span class="appproperty">Camera overlap percentage</span> 设置生成相机位姿之间的重叠度。值越大相机越密。
+                    </li>
+                    <li data-id="li_virt_camc" data-vn="1"><span class="appproperty">Camera cluster</span> 选择如何从扫描生成相机组：单个相机、一个相机加四个指定非天底角的附加相机，或地面 LiDAR 扫描所用的六相机。
+                    </li>
+                    <li data-id="li_virt_offn" data-vn="1"><span class="appproperty">Off-nadir camera angle</span> 设为非零值时，会在天底相机周围以该角度生成四个附加相机。
+                    </li>
+                </ul>
+            
+        </div>
+       
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+        
+        <div data-id="div_sb_class" class="slideblock">
+        
+            <h2 data-id="h2_class" data-vn="1">LiDAR 分类</h2>
+        
+            <p data-id="p_h2_class" data-vn="1">
+                LiDAR 分类依据 ASPRS（美国摄影测量与遥感学会）标准，把点云数据归入地面、植被、建筑物等类别。每个类别代表扫描捕获的一类特定表面或物体，便于识别和分离场景中的不同要素。用户可以显示或隐藏选定的点类别，只让相关的类别参与重建，从而得到更干净、更有针对性的模型，并去除最终结果中的噪声或多余特征。
+            </p>
+        
+            <p data-id="p_class_import" data-vn="1">
+                导入 LAS 或 LAZ 文件时会自动检测是否含分类。要让分类生效，请在 <span class="apppanel">Import LiDAR</span> 对话框中启用 <span class="appproperty">Import classification</span>。导入后，所有 LiDAR 类别会列在 <span class="appaspecttype">1Ds</span> 视图的 <span class="apppanel">LiDAR Classification</span> 下。
+            </p>
+        
+            <p data-id="p_class_use" data-vn="1">
+                分类可以叠加在 <span class="appaspecttype">3Ds</span> 视图的稀疏点云（连接点）上显示，总开关在 <span class="appribbon">SCENE 3D</span>/<span class="appribbon">VIEW</span> 选项卡 <span class="apppanel">Alignment Points</span> 区域的 <span class="apptool">LiDAR Classes</span> 复选框。要显示或隐藏某个类别，用 <span class="appaspecttype">1Ds</span> 视图中各分类名旁的可见性开关。也可以在 <span class="apppanel">Reconstruction Settings</span> 中选择哪些类别参与或排除在网格创建之外。
+            </p>
+        
+        </div>
+       
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sb_zfsim" class="slideblock">
+
+            <h2 data-id="h2_zfsim" data-vn="2">导入 .ZFS 与 .ZFPRJ 格式</h2>
+            <p data-id="p_h2_zfsim" data-vn="2">
+               导入 Z+F 扫描格式时，可以选中全部 .zfs 文件，也可以选 .zfprj 工程。若扫描构成文件链，只需选中链中一个文件，其余会自动一并导入。请注意：不支持 Z+F Profiler 扫描仪或其他处于 profiler 模式的扫描仪生成的扫描。 
+            </p>
+
+            <p data-id="p_prefim" data-vn="2">
+               RealityScan 可以导入 .zfprj 镶嵌图像，并在对齐过程中把它们作为特征来源。这有助于配准未配准的扫描，或在把扫描与图像合并时自动找到相同特征。该功能默认启用（设为 "Yes"），可在 <span class="appribbonbutton">Alignment settings</span> 中以 <span class="appproperty">Prefer images as feature source</span> 找到。 
+            </p>
+            
+            <p data-id="p_mosaic" data-vn="1">
+               导入带镶嵌图像的 .zfprj（Z+F 工程）： 
+            </p>
+
+            <ul>
+                <li data-id="li_zfsim_dndp" data-vn="2">把 .zprj 文件<span class="appgesture">拖放</span>到 RealityScan，或<span class="appgesture">点击</span> <span class="appribbon">WORKFLOW</span> 选项卡中的 <span class="apptool">LiDAR Scan</span> 按钮并选择要导入的 .zfprj 文件</li>
+                <li data-id="li_zfsim_color" data-vn="1">把 <span class="appproperty">Select Feature</span> source 设为 Color（选 Intensity 不会从 .zfprj 文件导入镶嵌图像）</li>
+                <li data-id="li_zfsim_imcnv" data-vn="1">按 <span class="appbutton">OK</span> 导入文件并转换为 .lsp。</li>
+            </ul>
+            <br/>
+            
+            <div data-id="div_note_pano" data-vn="2" class="importantMessage">注意：不支持导入 .zfs 数据（扫描站位）附近的全景图像。</div>
+
+        </div>
+        <br/>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sb_zero" class="slideblock">
+            <div class="RCZeroLasers warningBox">
+                <p data-id="p_zero" data-vn="2">
+                    要继续，请向项目添加一个或多个 LiDAR 扫描。<br/> 可以从我们的网页下载并解压测试数据集 —— <a href="https://downloads.realityscan.com/testset2.zip">点击下载</a>。导入 scan 文件夹中的 .ptx 扫描文件。
+                </p>
+            </div>
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_bc" class="blocksContainer">
+
+            <div class="RCZeroLasers leadBlock block TileColor5">
+                <h2 data-id="h2_bc_zero" data-vn="1">继续</h2>
+                <p data-id="p_h2_bc_zero" data-vn="2">配准 LiDAR 扫描并创建组件</p>
+            </div>
+
+            <div class="RCHasLaser">
+                <a href="importlaser_2.htm">
+                    <div class="leadBlock block TileColor6">
+                        <h2 data-id="h2_bc_regi" data-vn="1">继续</h2>
+                        <p data-id="p_h2_bc_regi" data-vn="2">配准 LiDAR 扫描并创建组件</p>
+                    </div>
+                </a>
+            </div>
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+        <div class="rowblock">
+            <h3 data-id="h3_sa" data-vn="1">另见：</h3>
+            <ul class="intend">
+                <li data-id="li_sa_spcs" data-vn="1">设置项目坐标系 <a href="../appbasics/coordinatesystem.htm">点击此处</a>
+                </li>                                          
+            </ul>
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+
+        <!-- content slide end -->
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+    <script type="text/javascript">
+        function CustomHandler(id, param, hr) {
+            RCLaserHandler(id, param, hr);
+            if (gLasersCount == 0) {
+                idStartPage.style.display = "none";
+            }
+        }
+        InitializeTutorialMode(CustomHandler);
+        idStartPage.style.display = (gLasersCount > 0) ? "block" : "none";
+    </script>
+
+
+</body>
+</html>
+<!-- signature:rcvfYdo/mx5F3yURRXyxKgTQfwVP6DqSZpQ1xSMBfcjtoJUE/7WZm/EvJx3IxS2XcUNMThPoSzc6+YrmB2KTvQRV9saaE9WoQ/ZbdCz0ww15SPoDN0ca98uSV09V+v9WSA9ubaoz2eM8ZmhoFr5l06PJxxLa7E3stw6Vs+dkR1E= -->

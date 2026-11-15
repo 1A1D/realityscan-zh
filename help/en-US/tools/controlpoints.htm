@@ -1,0 +1,135 @@
+<html>
+<head>
+    <title>RealityScan 帮助</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Epic Games Slovakia s.r.o." />
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <link type="text/css" rel="stylesheet" href="../../styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/colors.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css" />
+    <script src="../scripts/textVars.js" type="text/javascript"></script>
+    <script src="../../scripts/localization.js" type="text/javascript"></script>
+    <script src="../../scripts/main.js" type="text/javascript"></script>
+</head>
+<body ondragstart="return false;">
+
+    <div data-id="div_cs" class="content_slide">
+
+        <!-- content slide -->
+        <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head" class="head">
+
+            <h1 data-id="h1" data-vn="1">控制点</h1>
+
+            <p data-id="p_h1" data-vn="2">控制点（CP）用于校正相机位姿估计（空三注册）、地理配准或设定模型尺度。</p>
+
+            <p data-id="p_h1_3typ" data-vn="1">控制点有 3 种类型：</p>
+            <ul>
+                <li data-id="li_h1_tie" data-vn="2"><span class="appproperty">Tie Point</span> 用于把图像彼此连接起来。它表达的是一种图像间的关系：两张或多张图像中的哪个点，对应现实世界中的同一物理位置。RealityScan 会尝试自动找出这类点，但有时（例如图像之间的视角差过大）找不到。此时手动添加这样的点，能帮助这些图像更精确、更正确地完成对齐。
+                </li>
+                <li data-id="li_h1_gc" data-vn="2"><span class="appproperty">Ground Control</span> 是连接点的扩展，可以为现实世界中的点指定物理坐标，例如使用 GPS 坐标。RealityScan 允许同时使用多个坐标系，系统会自动把它们换算成所选的项目坐标系。用 1、2 或 3 个点，可以分别确定场景原点、尺度，或补全场景朝向；点越多精度越高。
+                </li>
+                <li data-id="li_h1_gt" data-vn="1"><span class="appproperty">Ground Test</span> 用于校验地理配准场景的精度。测试点本质上也是地面控制点，但不参与场景优化，只用于报告与给定位置的偏差。<br/> <br/> <img src="images/CP-types-4.png" alt="CP-types-4" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/CP-types-4.png';"/> <br/> <br/> 有时，尤其当地面控制点只在 2–3 张图像中定义时，会出现这种情况：系统并没有真正校正场景，而是把那 2–3 张图像稍微挪一下，让误差看起来更小。这样场景并没有被校正，典型的“香蕉效应”依然存在。加入测试点就能很容易发现这种问题，因为它们的误差会变大；此时应补充更多连接点来修正。最佳实践是把测试点均匀分布在整个场景中。测试点在应用视图中以红色显示。
+                </li>
+            </ul>
+            <br/>
+            <p data-id="p_h1_reco" data-vn="1">建议至少在 2–5 张图像中定义 2 个 CP。点加得越多，精度越高。</p>
+        </div> <!-- head end -->
+        
+        <div class="clear">
+            <!-- clear -->
+        </div>  
+        
+        <div data-id="div_sb_seti" class="slideblock">
+
+            <h2 data-id="h2_seti" data-vn="1">相关设置与图标</h2>
+ 
+            <p data-id="p_h2_after" data-vn="1">在至少两张图像上标出控制点后，就能看到该 GCP 出现在哪些图像中，以及每幅图像测量值的偏差（以像素计，即下图中的绿色方框）。</p>
+
+            <img src="images/Projection-Error.png" alt="Projection-Error" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/Projection-Error.png';"/>
+            <br/>
+            
+            <p data-id="p_h2_seti" data-vn="1">每个控制点、地面控制点或任意约束都可以“启用”或“禁用”，由你决定系统应如何处理该点。应用界面还会显示其他重要信息，例如坐标系、坐标转换、放置或定位误差。</p>
+
+            <img src="images/CP-types-3.png" alt="CP-types-3" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/CP-types-3.png';"/>
+            <br/>
+
+            <p data-id="p_seti_pane" data-vn="1">在 Selected control point(s) 面板中，可以定义或<span class="appproperty">启用</span>控制点的影响。</p>
+
+            <ul>
+                <li data-id="li_seti_name" data-vn="1"><span class="appproperty">Name</span> 定义控制点的名称。</li>
+                <li data-id="li_seti_enab" data-vn="1"><span class="appproperty">Enable</span> 指定该点是否参与计算。</li>
+                <li data-id="li_seti_type" data-vn="1"><span class="appproperty">Type</span> 选择点的类型。根据所选类型，可以设置下列属性：</li>
+                <li data-id="li_seti_weig" data-vn="2"><span class="appproperty">Weight</span> 决定该点在计算中的影响权重。RealityScan 会同时使用自然特征点与控制点。一般而言，自然特征点远多于用户定义的控制点；如果其中部分点匹配错误，图像就很难正确对齐。权重就是用来表达“以这个点为准，丢掉所有与它不一致的自然点”。另一方面，提高点权重也会让对齐对“点在图像中的定位误差”更敏感。即便再小心，人手动放点也很难精确到 3–4 像素以内，而自然点可达到亚像素精度。因此建议保留默认权重值。</li>
+                <li data-id="li_seti_cosy" data-vn="2"><span class="appproperty">Coordinate system</span> 选择测量该点所用的坐标系。如有需要，RealityScan 允许每个控制点使用不同的 <span class="appproperty"><a href="../appbasics/coordinatesystem.htm">Coordinate system</a></span>。不过为保持正确的朝向与尺寸，建议所有控制点使用同一坐标系。若选择了不同的坐标系，应用会把坐标换算到项目坐标系，并在 <span class="appproperty">Converted positions</span> 中显示结果，同时给出转换误差。请注意，这类误差源于各坐标系数学模型的差异，通常无法做到零误差转换；实际上这些误差非常小，也远小于 GPS 等测量设备本身的误差/不确定度。
+                </li>
+                <li data-id="li_seti_latx" data-vn="1"><span class="appproperty">Latitude/X...</span> 根据所选坐标系，可以用角度坐标或直角坐标定义地面控制点的物理坐标。</li>
+                <li data-id="li_seti_posacc" data-vn="1"><span class="appproperty">Position accuracy</span> 可以按项目坐标系的单位，为每个控制点设置位置精度。此处沿用 <span class="appribbonbutton">Alignment settings</span> 中的全局设置。新建控制点时，或使用导入地面控制点的文件中所写的值。</li>
+                <li data-id="li_seti_convpos" data-vn="1"><span class="appproperty">Converted position</span> 显示控制点在项目坐标系（在 <span class="appribbonbutton">Alignment settings</span> 中设定）中算出的三维位置。仅当控制点坐标系与项目坐标系不一致时该字段才可见。</li>
+                <li data-id="li_seti_acpo" data-vn="1"><span class="appproperty">Actual position</span> 显示通过三角化（即利用图像信息与已知相机位姿）算出的控制点三维位置。</li>
+                <li data-id="li_seti_alre" data-vn="1"><span class="appproperty">Alignment report</span> 汇总给定三维位置与计算三维位置之间的偏差，以及图像中的误差。也可在控制点树中直接查看每幅图像的测量偏差。<br/> <br/> <img src="images/Projection-Error.png" alt="Projection-Error" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/Projection-Error.png';"/>
+                </li>
+            </ul>           
+
+        </div> <!-- slideblock end -->
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <br/>
+
+        <div data-id="div_bc" class="blocksContainer">
+
+            <a href="../tools/createcontrolpoints.htm">
+                <div class="block TileColor6">
+                    <h2 data-id="h2_bc_crcp" data-vn="1">创建控制点</h2>
+                    <p data-id="p_h2_bc_crcp" data-vn="1">如何创建并使用控制点</p>
+                </div>
+            </a>
+            
+            <a href="../tools/cpmeasurementsimport.htm">
+                <div class="block TileColor3">
+                    <h2 data-id="h2_bc_cpmi" data-vn="1">控制点测量导入</h2>
+                    <p data-id="p_h2_bc_cpmi" data-vn="1">如何把控制点位置导入项目</p>
+                </div>
+            </a>
+
+            <a href="../tools/gcpimport.htm">
+                <div class="block TileColor3">
+                    <h2 data-id="h2_bc_gcpi" data-vn="1">地面控制点导入</h2>
+                    <p data-id="p_h2_bc_gcpi" data-vn="1">如何把地面控制点加入项目</p>
+                </div>
+            </a>
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+
+        </div> <!-- blockContainer end -->
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sa" class="rowblock">
+            <h3 data-id="h3_sa" data-vn="1">另见：</h3>
+            <ul class="intend">
+                <li data-id="li_sa_scsc" data-vn="1">了解如何缩放场景，<a href="../tutorials/scaling.htm">点击此处</a>。</li>
+                <li data-id="li_sa_geos" data-vn="1">了解如何对场景做地理配准，<a href="../tutorials/georeferencing.htm">点击此处</a>。</li>
+                <li data-id="li_sa_cosy" data-vn="1">了解坐标系的更多内容，<a href="../appbasics/coordinatesystem.htm">点击此处</a>。</li>
+            </ul>
+        </div>
+
+        <!-- content slide end -->
+
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+    <script type="text/javascript">
+        InitializeHelpSlide();
+    </script>
+
+</body>
+</html>
+<!-- signature:lrw+QMn7b00d+Qnkp7u/nw43g9shfaM+qbXBLrFkMfHIio07T5xzMCU2gg6/VgnNxn0X2YH/Aw2LQGKsgs7gVQuk7GsZmc5NwCc/RS0LIB8Ak2FQMpyYt3NmOq1E4d+jnf3Om55615QrYqf7t3dj6KCNXfnQxXM9RAi8iy3SFUw= -->

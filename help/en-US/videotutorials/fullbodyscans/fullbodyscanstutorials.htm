@@ -1,0 +1,166 @@
+﻿<html>
+<head>
+    <title>RealityScan 帮助</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Epic Games Slovakia s.r.o." />
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <link type="text/css" rel="stylesheet" href="../../../styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../../styles/colors.css" />
+    <link type="text/css" rel="stylesheet" href="../../../styles/flagStyles.css" />
+    <script src="../../scripts/textVars.js" type="text/javascript"></script>
+    <script src="../../../scripts/localization.js" type="text/javascript"></script>
+    <script src="../../../scripts/main.js" type="text/javascript"></script>
+</head>
+<body ondragstart="return false;">
+
+    <div data-id="div_cs" class="content_slide">
+
+    <!-- content slide -->
+    <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head" class="head">
+            <h1 data-id="h1" data-vn="1">全身扫描</h1>
+            <p data-id="p_h1" data-vn="2">
+                RealityScan 配合各类全身扫描仪有多种用法，具体取决于用户需求与扫描仪参数。
+            </p>
+        </div>
+
+        <div data-id="div_sb_scop" class="slideblock splitSpacing">
+            <h2 data-id="h2_scop" data-vn="1">扫描选项</h2>
+
+            <p data-id="p_scop_requ" data-vn="1">
+                扫描需求：
+            </p>
+            <ul class="intend">
+                <li data-id="li_scop_fixd" data-vn="1">
+                    （1）<span class="appaspecttype">固定坐标系的扫描：</span> 三维扫描中量得的距离必须代表现实世界的距离
+                </li>
+                <li data-id="h2_scop_arbi" data-vn="1">
+                    （2）<span class="appaspecttype">任意坐标系的扫描：</span> 三维扫描中量得的距离不必代表现实世界的距离
+                </li>
+            </ul>
+            <br/>
+
+            <p data-id="p_scop_type" data-vn="1">
+                扫描仪类型：
+            </p>
+            <ul class="intend">
+                <li data-id="li_scop_fica" data-vn="1">
+                    （a.）<span class="appaspecttype">固定相机配置：</span> 相机不移动、不旋转，也不改变焦距，各相机参数在多次扫描之间保持不变，即完全固定的相机配置（哪怕 1 毫米的相机位移或 1/10 度的旋转，在图像中都能看出来，所以相机配置必须固定得非常牢靠。） 
+                </li>
+                <li data-id="li_scop_beca" data-vn="1">
+                    （b.）<span class="appaspecttype">可弯折相机配置：</span> 相机可以有轻微移动，不属于完全固定的相机配置                     
+                </li>
+            </ul>
+            <br/>
+
+            <p data-id="p_scop_usag" data-vn="1">
+                扫描的用法：
+            </p>
+            <ul class="intend">
+                <li data-id="li_scop_opba" data-vn="1">
+                    （i.）<span class="appaspecttype">人工操作：</span> 每次扫描都由操作员单独处理
+                </li>
+                <li data-id="li_scop_auto" data-vn="1">
+                    （ii.）<span class="appaspecttype">自动处理：</span> 每次扫描自动处理，之后可能再做后期 
+                </li>
+            </ul>
+
+        </div>
+            
+        <div data-id="div_sb_poap" class="slideblock splitSpacing">
+            <h2 data-id="h2_poap" data-vn="1">可行方案</h2>
+
+            <p data-id="p_poap" data-vn="2">
+                把上述选项合理组合，用 RealityScan 处理全身扫描共有 8 种不同方案：
+            </p>                
+
+            <ul class="intend">
+                <li data-id="li_fica" data-vn="1">
+                    ( 1.a.i  ) <span class="appaspecttype">使用固定坐标系的扫描</span> created using <span class="appaspecttype">Fixed-camera setup</span> with <span class="appaspecttype">Operator-based</span> processing:  
+                    <ul class="intend">
+                        <li data-id="li_fica_pres" data-vn="1">要求扫描中保持模型的位置与距离不变</li>
+                        <li data-id="li_fica_xmp" data-vn="2">使用带 XMP 元数据的 RealityScan 工作流</li>
+                        <li data-id="li_fica_ui" data-vn="1">扫描在用户界面（UI）中处理</li>
+                    </ul>
+                </li>
+                <li data-id="li_poap_auto" data-vn="1">
+                    ( 1.a.ii ) <span class="appaspecttype">使用固定坐标系的扫描</span> created using <span class="appaspecttype">Fixed-camera setup</span> with <span class="appaspecttype">Automatic</span> processing:  
+                    <ul class="intend">
+                        <li data-id="li_ficaa_pres" data-vn="1">要求扫描中保持模型的位置与距离不变</li>
+                        <li data-id="li_ficaa_xmp" data-vn="2">使用带 XMP 元数据的 RealityScan 工作流</li>
+                        <li data-id="li_ficaa_cli" data-vn="1">扫描在命令行界面（CLI）中处理</li>
+                    </ul>
+                </li>
+            </ul>
+            <br/>
+
+            <ul class="intend">
+                <li data-id="li_beca" data-vn="1">
+                    ( 1.b.i  ) <span class="appaspecttype">使用固定坐标系的扫描</span> created using <span class="appaspecttype">Bending-camera setup</span> with <span class="appaspecttype">Operator-based</span> processing:             
+                    <ul class="intend">
+                        <li data-id="li_beca_pres" data-vn="1">要求扫描中保持模型的位置与距离不变</li>
+                        <li data-id="li_beca_flog" data-vn="2">使用带飞行日志数据的 RealityScan 工作流</li>
+                        <li data-id="li_beca_ui" data-vn="1">扫描在用户界面（UI）中处理</li>
+                    </ul>
+                </li>
+                <li data-id="li_becaa" data-vn="1">
+                    ( 1.b.ii ) <span class="appaspecttype">使用固定坐标系的扫描</span> created using <span class="appaspecttype">Bending-camera setup</span> with <span class="appaspecttype">Automatic</span> processing:
+                    <ul class="intend">
+                        <li data-id="li_becaa_pres" data-vn="1">要求扫描中保持模型的位置与距离不变</li>
+                        <li data-id="li_becaa_flog" data-vn="2">使用带飞行日志数据的 RealityScan 工作流</li>
+                        <li data-id="li_becaa_cli" data-vn="1">扫描在命令行界面（CLI）中处理</li>
+                    </ul>
+                </li>
+            </ul>
+            <br/>
+
+            <ul class="intend">
+                <li data-id="li_poap_fiop" data-vn="1">
+                    （2.a.i）用<span class="appaspecttype">Fixed-camera setup</span>创建、以<span class="appaspecttype">Operator-based</span>方式处理的<span class="appaspecttype">任意坐标系扫描</span>：  
+                </li>
+                <li data-id="li_poap_fiau" data-vn="1">
+                    （2.a.ii）用<span class="appaspecttype">Fixed-camera setup</span>创建、以<span class="appaspecttype">Automatic</span>方式处理的<span class="appaspecttype">任意坐标系扫描</span>：
+                </li>
+                <li data-id="li_poap_beop" data-vn="1">
+                    （2.b.i）用<span class="appaspecttype">Bending-camera setup</span>创建、以<span class="appaspecttype">Operator-based</span>方式处理的<span class="appaspecttype">任意坐标系扫描</span>：
+                </li>
+                <li data-id="li_poap_beau" data-vn="1">
+                    （2.b.ii）用<span class="appaspecttype">Bending-camera setup</span>创建、以<span class="appaspecttype">Automatic</span>方式处理的<span class="appaspecttype">任意坐标系扫描</span>：
+                </li>
+            </ul>
+            <br/>
+            <p data-id="p_poap_case" data-vn="1" class="intend">
+                这 4 种情况只能用用户界面（UI）手动处理扫描，即方案（2.a.i）与（2.b.i），详见 <a href="../../tutorials/quickstart.htm">快速入门教程</a>。方案（2.a.ii）与（2.b.ii）中命令行界面（CLI）的自动处理不会被采用，因为现有数据与元数据都无法被合理复用。
+            </p>
+
+        </div> 
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+            
+        <div data-id="div_bc" class="blocksContainer">
+            
+            <script type="text/javascript">RenderBackToStartTile('../../');</script>
+
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+      
+    <!-- content slide end -->
+
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+    <script type="text/javascript">
+        InitializeTutorialMode();
+    </script>
+
+
+</body>
+</html>
+<!-- signature:L0EsJwATCryB4U64s0ULVPaiQZGbV4kLjN81DmR64YLi+KJwvohomyHoHI9pvJQJqJeCWY5n+DLGooOvPvNHFPBcjIAtXkk+gCWEtzefyNT37oklIQbU38RHnkcxS8DieYoID3Zjw2vEFcUzoKoCLFoKzXnrvWSkZXjMw8ZeAQQ= -->

@@ -1,0 +1,117 @@
+<html>
+<head>
+    <title>RealityScan 帮助</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Epic Games Slovakia s.r.o." />
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <link type="text/css" rel="stylesheet" href="../../styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/colors.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css" />
+    <script src="../scripts/textVars.js" type="text/javascript"></script>
+    <script src="../../scripts/localization.js" type="text/javascript"></script>
+    <script src="../../scripts/main.js" type="text/javascript"></script>
+</head>
+<body ondragstart="return false;">
+
+    <div data-id="div_cs" class="content_slide">
+
+        <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head" class="head">
+            <h1 data-id="h1" data-vn="1">模型导入</h1>
+            <p data-id="p_h1_1" data-vn="2">可以导入 Wavefront OBJ（.obj）、Polygon File Format（.ply）、Autodesk 文件格式（.fbx）、AutoCAD DXF（.dxf）和 Collada DAE（.dae）格式的模型。最常见的用法是把从 RealityScan 导出、经外部精修后的模型再导回来烘焙纹理，但不仅限于此。你还可以继续做后期处理、重新生成 UV、平滑或简化模型等等。模型导入数量不限，当你想在一个项目中处理多个模型时很有用。</p>
+        </div>
+        
+        <div data-id="div_im_rest" data-vn="1" class="importantMessage">
+                注意：模型导入有若干限制。只有项目中已存在组件（对齐成功运行过）时才能导入模型；此外有些格式（.ply 与 .dxf）无法连 UV 贴图或纹理一起导入。
+        </div>
+        
+        <br/>
+
+        <div data-id="div_sb_htim" class="slideblock">
+
+            <h2 data-id="h2_htim" data-vn="1">如何导入</h2>
+
+            <p data-id="p_htim_intu" data-vn="1">把模型导入应用的整个过程非常直接、直观，只需注意以下几点：</p>
+
+            <ul>
+                <li data-id="li_htim_impo" data-vn="3"><span class="appribbonbutton">Model</span> 按钮位于 <span class="appribbon">MESH &amp; COLOR</span> 选项卡的 <span class="apppanel">Import</span> 区域。</li>
+                <li data-id="li_htim_lomo" data-vn="3"><span class="appgesture">点击</span> <span class="appribbonbutton">Model</span> 按钮后，需要指定要导入模型的位置。请确认选对了格式，否则在 Windows 资源管理器里看不到模型文件。<span class="appgesture">点击</span> <span class="appbutton">Open</span> 按钮确认选择。</li>
+                <li data-id="li_htim_impd" data-vn="2">会出现 <span class="apppanel">Import Model</span> 对话框。若原模型导出时带了 .rsinfo 文件，其中的数值会用来预填所有设置。若模型的尺度、位置或朝向不同，可以调整设置后重新导入，使导入模型与源模型及相机对齐结果相匹配。</li>
+            </ul>
+
+            <br/>
+
+            <div style="padding: 10px 10px 10px 0px"><img src="images/importmodel_dialogue.png" alt="Import Model Dialogue" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/importmodel_dialogue.png';"></div>
+            
+            <br/>
+            
+            <p data-id="p_htim_rcinfo" data-vn="2">从 RealityScan 导出任何模型之前，建议同时导出一个信息文件（*.rsinfo，默认已启用）。当你把后期处理过的模型重新导回 RealityScan 做贴图或纹理重投影等后续处理时，该信息文件很有用。</p>
+            
+            <p data-id="p_htim_pfll" data-vn="2">RealityScan 会自动查找该信息文件；找到后用其中的信息预填新导入对话框的设置。信息文件必须与被导入模型同名，并额外带“.rsInfo”扩展名，例如 myObject.obj.rsInfo。 </p>
+
+        </div>
+        
+        <br/>
+
+        <div data-id="div_sb_csat" class="slideblock">
+
+            <h2 data-id="h2_csat" data-vn="1">坐标系与贴图</h2>
+
+            <ul>
+                <li data-id="li_csat_uvs" data-vn="2">若导入的模型带 UV，则直接使用这些 UV。若不想用这些 UV 贴图，可用 <span class="apptool">Unwrap</span> 工具替换。UV 坐标必须为所有三角面定义，否则文件不会被导入，并会弹出错误提示。</li>
+                <li data-id="li_csat_objt" data-vn="2">若模型带一个或多个纹理文件，则会改用纹理文件的图像分辨率。纹理文件必须通过材质 .mtl 文件与模型关联。</li>
+                <li data-id="li_csat_objnt" data-vn="4">若模型没有纹理文件，则模型分辨率取自 <span class="appribbon">MESH &amp; COLOR</span> / <span class="apppanel">Color &amp; Texture</span> / <span class="appribbonbutton">Settings</span> / <span class="appproperty">Imported model default texture resolution</span>。导入 FBX 格式模型时该设置被忽略。</li>
+            </ul>
+            <br/>
+            <div data-id="div_im_reto" data-vn="2" class="importantMessage">
+                提示：你可以导出模型、做重拓扑、创建 UV，再导入回来。之后对导入模型执行贴图时，会自动使用你的 UV 并计算各纹素的颜色，也就是不会再做一次展开。
+            </div>
+
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_bc" class="blocksContainer">
+
+            <a href="export.htm">
+                <div class="block TileColor2">
+                    <h2 data-id="h2_bc_moex" data-vn="1">模型导出</h2>
+                    <p data-id="p_h2_bc_moex" data-vn="1">了解如何导出模型</p>
+                </div>
+            </a>
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sa" class="rowblock">
+            <h3 data-id="h3_sa" data-vn="1">另见：</h3>
+            <ul class="intend">
+                <li data-id="li_sa_unwr" data-vn="1">了解展开工具的更多内容，<a href="../tools/unwrap.htm">点击此处</a></li>
+            </ul>
+            <div class="clear">
+                <!-- clear -->
+            </div>
+        </div>
+
+        <!-- content slide end -->
+
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+    <script type="text/javascript">
+        InitializeHelpSlide();
+    </script>
+
+
+</body>
+</html>
+<!-- signature:tTNLri03HmMEr+6F2ToddwOZAi77pF723NpizZEGmOybM2Vr7ZTvA+QOzoVuzSQBMMIOmtnE1gGCBsCX6rCN0KBpqmiVjeWzkQkovK8OB9XLfaSA48B3Tk9HdxX/LfaB26B5ytF0C7VeSFCEPtzurEVYaeu7NTN572/ObhX6Mtw= -->

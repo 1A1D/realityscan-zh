@@ -1,0 +1,134 @@
+<html>
+<head>
+    <title>RealityScan 帮助</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Epic Games Slovakia s.r.o." />
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <link type="text/css" rel="stylesheet" href="../../styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/colors.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css" />
+    <script src="../scripts/textVars.js" type="text/javascript"></script>
+    <script src="../../scripts/localization.js" type="text/javascript"></script>
+    <script src="../../scripts/main.js" type="text/javascript"></script>
+    <script src="../../scripts/rc.js" type="text/javascript"></script>
+    <style type="text/css" id="myStyles">
+        .singleComponent {
+            display: none;
+        }
+
+        .completeComponent {
+            display: none;
+        }
+
+        .notCompleteComponent {
+            display: none;
+        }
+
+        .moreUnregistred {
+            display: none;
+        }
+    </style>
+</head>
+<body ondragstart="return false;">
+
+    <div data-id="div_cs" class="content_slide">
+
+        <!-- content slide -->
+
+        <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head" class="head">
+            <h1 data-id="h1" data-vn="1">用图像合并组件</h1>
+            <p data-id="p_h1" data-vn="3">
+                只需向项目中添加更多图像，然后在 <span class="appribbon">ALIGNMENT</span> 选项卡中<span class="appgesture">点击</span> <span class="appribbonbutton">Align Images</span> 或按键盘上的 <span class="appshortcut">F6</span> 键。要找出配准中的薄弱环节，可以借助 <span class="appribbon">ALIGNMENT</span> 选项卡中的 <span class="apptool">Quality Analysis</span> 工具（<a href="../tools/qualityanalysis.htm">在此阅读更多</a>）。
+            </p>
+        </div>
+
+        <div data-id="div_noco" class="RCNoComponents warningBox" style="margin-bottom: 20px">
+            <p data-id="p_noco" data-vn="1">
+                当前项目里没有任何组件。你可以继续，但最好先创建一些组件，这样才能跟着这些教程步骤学习如何合并本应属于同一组的组件。
+            </p>
+        </div>
+
+        <div data-id="div_sico" class="singleComponent notCompleteComponent warningBox" style="margin-bottom: 20px">
+            <p data-id="p_sico" data-vn="2">
+                当前项目里只有一个不完整的组件。请再添加一组图像，用 <span class="appribbon">ALIGNMENT</span> 选项卡中的 <span class="apptool">Inspect Quality (I)</span> 工具目视检查图像（或按键盘上的 <span class="appshortcut">I</span> 键），在覆盖不足的位置补充图像，然后点击 <span class="appribbon">ALIGNMENT</span> 选项卡中的 <span class="appribbon">Align Images</span>，或按键盘上的 <span class="appshortcut">F6</span> 键。
+            </p>
+        </div>
+
+        <div data-id="div_coco" class="completeComponent warningBox" style="margin-bottom: 20px">
+            <p data-id="p_coco" data-vn="1">你已经有一个包含全部图像的组件了，恭喜！</p>
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sb_reui" class="slideblock">
+            <h2 data-id="h2_reui" data-vn="1">配准未对齐的图像</h2>
+            <p data-id="p_h2_reui" data-vn="2">
+                无法对齐的图像可以用与组件相同的方式来配准：添加控制点、地面控制点，或补充更多图像。也可以再运行一次对齐——RealityScan 会从上次的状态继续，并尝试用不同策略来配准这些图像。
+            </p>
+
+            <div class="clear">
+                <!-- clear -->
+            </div>
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_bc" class="blocksContainer">
+
+            <a href="mergecomponents_cp.htm">
+                <div class="block TileColor6">
+                    <h2 data-id="h2_bc_mucp" data-vn="1">用控制点与地面控制点合并</h2>
+                    <p data-id="p_h2_bc_mucp" data-vn="1">分步教程</p>
+                </div>
+            </a>
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sa" class="rowblock">
+            <h3 data-id="h3_sa" data-vn="1">另见：</h3>
+            <ul class="intend">
+                <li data-id="li_sa_tapi" data-vn="1">想学习如何正确拍照 <a href="takingpictures.htm">点击此处</a></li>
+                <li data-id="li_sa_depe" data-vn="1">检查估算相机之间的依赖关系 <a href="../tools/inspection.htm">点击此处</a></li>
+            </ul>
+            <div class="clear">
+                <!-- clear -->
+            </div>
+        </div>
+
+        <!-- content slide end -->
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+    <script type="text/javascript">
+        var myStyleSheetRules = myStyles.sheet.rules;
+        function CustomHandler(id, param, hr) {
+            RCComponentsHandler(id, param, hr);
+
+            if (gForceUpdate || (id == 0x5013) || (id == 0x5015)) {
+
+                var alignInfo = TestAllCamerasAligned();
+                ChangeStyle(myStyleSheetRules, ".singleComponent", (gComponentsCount == 1) ? "block" : "none");
+                ChangeStyle(myStyleSheetRules, ".completeComponent", alignInfo.bAligned ? "block" : "none");
+                ChangeStyle(myStyleSheetRules, ".notCompleteComponent", ((gComponentsCount > 0) && !alignInfo.bAligned) ? "block" : "none");
+                ChangeStyle(myStyleSheetRules, ".moreUnregistred", (alignInfo.totalImagesCount - alignInfo.alignedCount >= 5) ? "block" : "none");
+            }
+        }
+        InitializeTutorialMode(CustomHandler);
+    </script>
+
+
+</body>
+</html>
+<!-- signature:sEKPMtxMr6Kk0bVAObqcQFbUjihhopOBwXFBuQHiDmfliHnxxW0Et8RNteiM9hDZeWvZnAFSCixUuuMcIbpZ+EMmZeXifTEK+xhU5XjxwldavCyz+Fid96tVHW/kImtV7uELV85pLQEyRUvvhnSUDItk3aCuIR9Rd/B3BFe0N2o= -->

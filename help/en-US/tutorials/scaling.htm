@@ -1,0 +1,297 @@
+<html>
+<head>
+    <title>RealityScan 帮助</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Epic Games Slovakia s.r.o." />
+    <meta http-equiv="X-UA-Compatible" content="IE=12"/>
+    <link type="text/css" rel="stylesheet" href="../../styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/colors.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css" />
+    <script src="../scripts/textVars.js" type="text/javascript"></script>
+    <script src="../../scripts/localization.js" type="text/javascript"></script>
+    <script src="../../scripts/main.js" type="text/javascript"></script>
+</head>
+<body ondragstart="return false;">
+
+    <div data-id="div_cs" class="content_slide">
+
+        <!-- content slide -->
+
+        <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head" class="head">
+
+            <h1 data-id="h1" data-vn="1">缩放场景</h1>
+
+            <p data-id="p_h1" data-vn="3">一般而言，用摄影测量方法无法直接确定场景的尺度，必须额外提供一些先验信息。事实上，要正确缩放场景，只需要一个数值就够了。在 RealityScan 中，你可以让三维模型在三个方向上同时等比缩放；不支持各轴单独设定系数的非等比缩放。缩放场景有几种做法。
+            </p>
+        </div>
+
+
+        <div data-id="div_sb_dico" class="slideblock">
+
+            <h2 data-id="h2_dico" data-vn="1">距离约束</h2>
+
+            <p data-id="p_h2_dico" data-vn="3">最简单的缩放方式是用距离约束工具。该工具位于 <span class="appribbon">IMAGE 2D</span>/<span class="appribbon">TOOLS</span> 选项卡，也可在 <span class="appribbon">SCENE 3D</span>/<span class="appribbon">TOOLS</span> 选项卡的 <span class="apppanel">Registration &amp; Sparse Point Cloud</span> 区域以 <span class="apptool">Define Distance</span> 按钮的形式找到；它还出现在 <span class="appribbon">ORTHO 2D</span>/<span class="appribbon">TOOLS</span> 选项卡的 <span class="apppanel">Constraints</span> 区域。为方便起见，也可以直接按键盘上的 <span class="appshortcut">F4</span> 键。该工具以交互方式定义两个控制点之间的距离。请注意，这两个控制点各自必须已分配到两张或更多图像上。
+            </p>
+            <br/>
+            
+            <div class="slideblock">
+                
+                <div class="autoimg" style="float: left; margin: 0px 20px 0px 0px;">
+                    <img src="images/scale-distance.jpg" alt="scale-distance" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tutorials/images/scale-distance.jpg';"/>
+                </div>
+
+                <div class="slide_left_text">
+                    <ul>
+                        <li data-id="li_dico_pla2" data-vn="1">添加距离约束之前，请先放置至少两个控制点。</li>
+                        <li data-id="li_dico_acto" data-vn="1">启用该工具。</li>
+                        <li data-id="li_dico_seim" data-vn="1">在 <span class="appaspecttype">2D</span> 图像视图中选一张图像，其中要包含你想定义距离的那两个控制点。也可以切换到含两个或更多 <span class="appaspecttype">2D</span> 图像视图的布局，并多选几张图像，以便同时看到两个端点。</li>
+                        <li data-id="li_dico_chlm" data-vn="1">在任意一个端点上<span class="appgesture">点击</span>并<span class="appgesture">按住鼠标左键</span>。</li>
+                        <li data-id="li_dico_momo" data-vn="1">把<span class="appgesture">鼠标</span>光标移到第二个控制点（任意视图均可）。你会看到一条从第一个点出发、跟随光标到鼠标指针位置的虚线。虚线末端会自动吸附到控制点附近，应用也会自动高亮这些点。
+                        </li>
+                        <li data-id="li_dico_remo" data-vn="1"><span class="appgesture">松开鼠标按键</span>确认创建。</li>
+                    </ul>
+                </div>
+            </div>
+ 
+            <div class="clear splitSpacing">
+                <!-- clear -->
+            </div>
+ 
+            <div class="slideblock">
+            
+                <div class="importantMessage" data-vn="1">注意：也可以在正射投影上交互式定义距离，位于 <span class="appaspecttype">2D</span> 视图；控制点也可以直接放到点云或模型上，在 <span class="appaspecttype">3Ds</span> view.
+                </div>
+
+                <br/>
+
+                <p data-id="p_dico_crea" data-vn="2">这一步会在两点之间创建一个距离约束，但两个端点之间的实际物理距离还没有定义。要定义距离，需在创建约束后自动打开的 <span class="apppanel">Selected constraint(s)</span> 面板中设置：只有给 <span class="appproperty">Distance</span> 属性填一个非零值，该约束才会参与空三对齐。多加几条距离约束可以提高精度。约束即便被禁用，仍可作为标尺使用。 
+                </p>            
+                
+            </div>
+
+            <div class="clear splitSpacing">
+                <!-- clear -->
+            </div>
+
+            <div class="slide">
+
+                <div class="autoimg" style="float: left; margin: 0px 20px 0px 0px;width: 349px">
+                    <img src="images/scale-distance-1ds.png" alt="scale-distance-1ds" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tutorials/images/scale-distance-1ds.png';"/>
+                    <br/>
+                    <p data-id="p_edit" data-vn="1">可在 <span class="appaspecttype">1Ds</span> 视图中 <span class="apptree">Control points</span> 节点下编辑约束属性。</p>
+                </div>
+
+                <div class="slide_left_text">
+                    <h3 data-id="h3_ddcd" data-vn="1">直接定义距离约束</h3>
+                    <p data-id="p_h3_ddcd" data-vn="1">除交互方式外，也可在 <span class="appaspecttype">1Ds</span> 视图中 <span class="apptree">Control points</span> 树下直接创建距离约束。
+                    </p>
+                    <ul>
+                        <li data-id="li_ddcd_pla2" data-vn="1">添加距离约束之前，请先放置至少两个控制点。</li>
+                        <li data-id="li_ddcd_extn" data-vn="1">在 <span class="appaspecttype">1Ds</span> 视图中展开 <span class="apptree">Control points</span> 节点。</li>
+                        <li data-id="li_ddcd_crdi" data-vn="1">点击 <span class="appbutton">Create distance</span> 创建一个空约束。</li>
+                        <li data-id="li_ddcd_pane" data-vn="1">约束属性面板会自动打开。</li>
+                        <li data-id="li_ddcd_defi" data-vn="1">定义距离。</li>
+                        <li data-id="li_ddcd_name" data-vn="1">在 <span class="appproperty">A</span> 和 <span class="appproperty">B</span> 字段中填入两个端点的名称。</li>
+                    </ul>
+
+                </div>
+            </div>
+            
+            <div class="clear splitSpacing">
+                <!-- clear -->
+            </div>            
+            
+            <div class="slide">            
+
+                <div class="autoimg" style="float: left; margin: 0px 20px 0px 0px;width: 590px">
+                    <img src="images/Import-dialog-Dist-Def.png" alt="import-distance-dialog" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tutorials/images/Import-dialog-Dist-Def.png';"/>
+                </div>
+                
+                <div class="slide_left_text" style="width: 750px">
+                    
+                    <h3 data-id="h3_idc" data-vn="1">导入距离约束</h3>
+                    <p data-id="p_h3_idc" data-vn="3">也可以在 <span class="appribbon">WORKFLOW</span> 选项卡的 <span class="apppanel">Import Metadata</span> 区域导入 <span class="apptool">Distance Constraints</span>，随即弹出导入对话框：
+                    </p>
+                    <ul class="apppanelitems">
+                        <li class="apppanelitem" data-id="li_idc_fn" data-vn="1"><span class="appproperty">File name</span> 包含距离定义的文件名。</li>
+                        <li class="apppanelitem" data-id="li_idc_ff" data-vn="1"><span class="appproperty">File format</span> 定义距离定义文件中各值的顺序与类型。</li>
+                        <li class="apppanelitem" data-id="li_idc_vs" data-vn="1"><span class="appproperty">Values separator</span> 用于分隔距离定义文件中各值的分隔符。也支持限定符，即可以把每个字段放在双引号（&quot;&quot;）里，表示它们是同一个字段。</li>
+                        <li class="apppanelitem" data-id="li_idc_ifl" data-vn="2"><span class="appproperty">Ignore first line</span> 若文件带表头，可让 RealityScan 忽略第一行。以 <span class="parameter">&num;</span> 符号开头的行会被自动跳过。</li>
+                        <li class="apppanelitem" data-id="li_idc_cs" data-vn="1"><span class="appproperty">Coordinate system</span> 导入的距离约束所处的坐标系。</li>
+                        <li class="apppanelitem" data-id="li_idc_ida" data-vn="2"><span class="appproperty">Imported data accuracy</span> 若距离定义文件不含精度信息，可在此以 <span class="appproperty">Measurements accuracy</span> 指定精度。还可指定 <span class="appproperty">Units</span>，即导入的距离约束及其精度值所用的单位。</li>
+                    </ul>
+
+                </div>   
+            </div>
+
+            <div class="clear splitSpacing">
+                <!-- clear -->
+            </div>
+
+            <div class="slide">
+
+                <ul>
+                    <li data-id="li_imdi_xml" data-vn="1">
+                        你可以在应用安装目录下的 distancedefinitions.xml 中自定义文件格式、其他值分隔符、注释符号或限定符。关于如何编辑 distancedefinitions.xml 的说明，以及导入支持的值列表，<a href="../tools/defineimportformat.htm">请见此处</a>。
+                    </li>
+                    <li data-id="li_imdi_samp" data-vn="1">以空格分隔值的“Name, Point A, Point B, Distance”距离定义文件示例：<br /><br/> <div class="autoimg" style="margin: 0px 20px 0px 0px;"> <img src="images/Dist-Def-File.png" alt="import-distance-file" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tutorials/images/Dist-Def-File.png';"/> </div>
+                    </li>
+
+                    <li data-id="li_imdi_imp" data-vn="1">在本页顶部所示对话框中<span class="appgesture">点击</span> <span class="appbutton">OK</span>后，距离定义就会导入到项目中。</li>
+                </ul>
+
+                <br/>
+
+                <div data-id="div_im_stsf" data-vn="1" class="importantMessage">对新定义的距离满意后，点击 <span class="appribbonbutton">Update</span> 
+                    or the <span class="appribbonbutton">Align Images</span> <span class="appshortcut">(F6)</span> button in the <span class="appribbon">Alignment</span> tab. 
+                    The <span class="appribbonbutton">Update</span> 只改变当前所选组件的坐标系，同时更新其所有子模型的尺度；而 <span class="appribbonbutton">Align Images</span> button creates a new component.
+                </div>
+
+                <br/>
+
+                <p data-id="p_dico_impo" data-vn="2">
+                    也可以通过 <span class="appribbon">Workflow</span> 选项卡导入 <span class="appribbonbutton">Distance Constraints</span>。该文本文件所需的格式定义在应用安装目录下的 distancedefinitions.xml 中。
+                </p>
+
+            </div>
+
+        </div>  <!-- slideblock -->
+
+        <br/>
+
+        <div data-id="div_sb_gcps" class="slideblock">
+
+            <h2 data-id="h2_gcps" data-vn="1">地面控制点</h2>
+
+            <p data-id="p_h2_gcps" data-vn="2">
+                另一种缩放方式是给场景建立正确的坐标系，这可以通过添加地面控制点并定义其三维位置来实现。<br/><br/> 通常需要 1 到 3 个点，且每个点至少在两幅不同图像中可见，也就是说实际需要 2 到 6 条约束。不过 RealityScan 内置了先进的解算器：只要建立任意 5 个独立观测（例如从 5 个互不重叠的位置观测到的 5 幅图像），就能解出场景的尺度与朝向。更多信息见地理配准章节（<a href="../tutorials/georeferencing.htm">阅读更多</a>）。
+            </p>
+            <ul>
+                <li data-id="li_gcps_decp" data-vn="1">定义一个地面控制点可确定场景原点：创建一个地面控制点并赋予 X/Y/Z 坐标。</li>
+                <li data-id="li_gcps_d2gp" data-vn="1">定义两个地面控制点（GCP）可确定尺度：把一个 GCP 放在原点，另一个放在 <span class="numeral">(distance,0,0)</span> 即可。</li>
+                <li data-id="li_gcps_d3gp" data-vn="1">定义三个地面控制点可建立完整坐标系，前提是场景中能找到一处相互正交的角落。</li>
+            </ul>
+        </div>
+
+        <br/>
+
+        <div data-id="div_sb_sucp" class="slideblock">
+
+            <h2 data-id="h2_sucp" data-vn="1">用相机先验缩放</h2>
+
+            <p data-id="p_h2_sucp" data-vn="1">如果已知两台或多台相机之间的距离，这个信息同样可以用来缩放场景。另一种情况是相机中心可由 GPS 或飞行日志获得，此时场景会自动得到正确的尺度。更多信息见相机先验帮助章节（<a href="../appbasics/camerasettings_priors.htm">阅读更多</a>）。若只知道两台相机之间的距离：
+            </p>
+            <ul>
+                <li data-id="li_sucp_adpp" data-vn="1">添加位置先验，并把第一台相机设到原点。</li>
+                <li data-id="li_sucp_ppsc" data-vn="1">给第二台相机添加位置先验并设为 <span class="numeral">(distance,0,0)</span>。</li>
+            </ul>
+            <br/>
+            <p data-id="p_sucp_fixc" data-vn="1">另一种做法是完全固定某台相机的位置与朝向，最简单的方式是使用 XMP 文件（<a href="../tools/xmpalign.htm">阅读更多</a>）。 </p>
+        </div>
+        
+        <div data-id="div_sb_ways" class="slideblock">
+
+            <p data-id="p_ways" data-vn="2">缩放场景有几种方法，其中部分配有视频教程，可提供更多信息：</p>
+
+            <ul>
+                <li data-id="li_ways_c2cp" data-vn="1">创建两个能三角化出三维位置的控制点，并定义距离约束。</li>
+            </ul>
+            
+            <script type="text/javascript">RenderYouTubeVideoOnClick( 640, 480, "https://www.youtube.com/embed/Agmw1FmHZL0?enablejsapi=1", "(scaling with control points)" )</script>
+
+            <ul>
+                <li data-id="li_ways_dide" data-vn="1">用地面控制点直接定义坐标系。</li>
+            </ul>
+
+            <script type="text/javascript">RenderYouTubeVideoOnClick( 640, 480, "https://www.youtube.com/embed/3i2yK9RXbws?enablejsapi=1", "(scaling using GCPs)" )</script>
+            
+            <ul>
+                <li data-id="li_ways_adcp" data-vn="1">给相机中心添加相机先验。</li>
+            </ul>
+            
+            <script type="text/javascript">RenderYouTubeVideoOnClick( 640, 480, "https://www.youtube.com/embed/Vl3R0NMdwqY?enablejsapi=1", "(scaling with camera priors)" )</script>
+
+            <ul>
+                <li data-id="li_ways_uxmp" data-vn="1">用 XMP 文件固定一台或多台相机的位置，或定义相机先验。</li>
+            </ul>
+            
+            <script type="text/javascript">RenderYouTubeVideoOnClick( 640, 480, "https://www.youtube.com/embed/Y3MAN7uF3BI?enablejsapi=1", "(scaling with XMPs)" )</script>
+
+            <ul>
+                <li data-id="li_ways_atls" data-vn="2">添加地面 LiDAR 扫描。</li>
+            </ul>
+            
+            <script type="text/javascript">RenderYouTubeVideoOnClick( 640, 480, "https://www.youtube.com/embed/SpVPW91Rau4?enablejsapi=1", "(scaling adding LiDAR scans)" )</script>
+
+            <ul>
+                <li data-id="li_ways_imma" data-vn="1">导入带元数据的标记点，本质上等同于定义地面控制点。</li>
+            </ul>
+
+            <ul>
+                <li data-id="li_ways_scsc" data-vn="1">导出时缩放场景。</li>
+            </ul>
+            
+            <script type="text/javascript">RenderYouTubeVideoOnClick( 640, 480, "https://www.youtube.com/embed/gfC9Rlah-gE?enablejsapi=1", "(scaling on export)" )</script>
+
+        </div>  <!-- slideblock -->
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_bc" class="blocksContainer">
+
+            <a href="../tutorials/georeferencing.htm">
+                <div class="block TileColor2">
+                    <h2 data-id="h2_bc_geo" data-vn="2">通过地理配准缩放</h2>
+                    <p data-id="p_h2_bc_geo" data-vn="2">了解如何对场景做地理配准</p>
+                </div>
+            </a>
+
+            <a href="../appbasics/camerasettings_priors.htm">
+                <div class="block TileColor1">
+                    <h2 data-id="h2_bc_prio" data-vn="1">用相机先验缩放</h2>
+                    <p data-id="p_h2_bc_prio" data-vn="1">了解如何正确缩放并导出三维重建结果</p>
+                </div>
+            </a>
+
+            <a href="../tools/export.htm">
+                <div class="block TileColor1">
+                    <h2 data-id="h2_bc_onex" data-vn="1">导出时缩放</h2>
+                    <p data-id="p_h2_bc_onex" data-vn="1">了解如何正确缩放并导出三维重建结果</p>
+                </div>
+            </a>
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sa" class="rowblock">
+            <h3 data-id="h3_sa" data-vn="1">另见：</h3>
+            <ul class="intend">
+                <li data-id="li_sa_plcp" data-vn="1">了解如何放置控制点，<a href="../tools/controlpoints.htm">点击此处</a>。</li>
+                <li data-id="li_sa_imcp" data-vn="1">导入控制点，<a href="../tools/gcpimport.htm">点击此处</a>。</li>
+                <li data-id="li_sa_capt" data-vn="1">导出与导入相机位姿模板，<a href="../tools/xmpalign.htm">点击此处</a>。</li>
+            </ul>
+        </div>
+
+        <!-- content slide end -->
+
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+    <script type="text/javascript">
+        InitializeHelpSlide();
+    </script>
+
+
+</body>
+</html>
+<!-- signature:MpFXgDeFCHaIRx680fRf7SMNmBQfZlpUyqA9yHSKmL6JH6EtpDOrV8+lpMElRb+5p9KD3VbRW/7Y8LeasSrBCeFzJK0HwZwkFufPXln/2aZMg2omjZC2HawAxSYJjzBqW7OyC/+xgESUPrzCg8MkX+vggiQXn2oJ3c8buSaZ1Nk= -->

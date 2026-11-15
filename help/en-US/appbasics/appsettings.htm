@@ -1,0 +1,280 @@
+<html>
+    <head>
+        <title>RealityScan 帮助</title>
+        <meta charset="UTF-8"/>
+        <meta name="author" content="Epic Games Slovakia s.r.o."/>
+        <meta http-equiv="X-UA-Compatible" content="IE=12"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/style.css"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/colors.css"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css"/>
+        <script src="../scripts/textVars.js" type="text/javascript"></script>
+        <script src="../../scripts/localization.js" type="text/javascript"></script>
+        <script src="../../scripts/main.js" type="text/javascript"></script>
+    </head>
+    <body ondragstart="return false;">
+
+        <div data-id="div_cs" class="content_slide">
+        
+            <!-- content slide -->
+
+            <script type="text/javascript">RenderToolNavigation();</script>
+
+            <div data-id="div_head" class="head">
+
+                <h1 data-id="h1" data-vn="1">应用设置</h1>
+                <p data-id="p_h1__v1" data-vn="1">在 <span class="appribbon">Workflow</span> 选项卡的 <span class="appribbonbutton">Application</span> 区域打开应用设置。</p>
+
+                <img src="images/appsettings-1.png" alt="appsettings-1" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/appbasics/images/appsettings-1.png';">
+            </div>
+
+            <div data-id="div_sb_settings" class="slideblock">
+
+                <ul class="apppanelitems">
+                    <li class="apppanelitem" data-id="li_appset_logf" data-vn="2"><span class="appproperty">Log file</span> 启用后会在 Windows 临时文件夹中写入并保存日志文件。</li>
+                    <li class="apppanelitem" data-id="li_appset_oplo" data-vn="1"><span class="appproperty">Operation log data</span> 启用后会把所用功能、设置和处理过程的数据上传到我们的服务器。这些数据可用于改善使用体验，或在出错、崩溃时作为复现步骤。请注意不会发送其他任何数据，我们也无法访问你的输入数据或项目文件。不会转发或存储任何敏感数据。</li>
+                    <li class="apppanelitem" data-id="li_appset_tuto" data-vn="2"><span class="appproperty">Tutorial mode</span> 启用后，会根据当前使用的工具显示帮助中的相应内容。</li>
+                    <li class="apppanelitem" data-id="li_appset_asav" data-vn="1"><span class="appproperty">Auto save mode</span> 启用或关闭项目自动保存。项目会保存在原项目旁边，扩展名为 .autosave。新项目的改动则保存在缓存文件夹中。自动保存详情见 <a href="autosave.htm">此处</a>。</li>
+                    <li class="apppanelitem" data-id="li_appset_navi" data-vn="2"><span class="appproperty">Navigation style</span> 更改 <span class="appaspecttype">3Ds</span> 视图的浏览方式，可选默认、Autodesk 或 Leica。</li>
+                    <li class="apppanelitem" data-id="li_appset_calo_1" data-vn="1"><span class="appproperty">Cache location</span> 选择缓存文件的存放位置。选好自定义位置后会询问是否移动旧缓存文件：选择移动则全部文件迁到新位置；选择不移动则旧文件留在原处，新缓存位置为空。缓存文件详情见 <a href="https://forums.unrealengine.com/t/cache-temp-folder/766674" target="_blank">此处</a>。</li>
+                    <li class="apppanelitem" data-id="li_appset_ccex" data-vn="2"><span class="appproperty">Clear cache on exit</span> 选择应用清理缓存的周期。请注意，保留 RealityScan 的临时（缓存）文件有助于复用已检测的点与已重建的深度图。</li>
+                    <li class="apppanelitem" data-id="li_appset_clca" data-vn="1"><span class="appproperty">Clear cache</span> <span class="appgesture">点击</span>按钮清空缓存文件夹。</li>
+                    <li class="apppanelitem" data-id="li_appset_ccmd" data-vn="1"><span class="appproperty">Cache image metadata</span> 启用后会为输入图像保存一个隐藏的系统文件（crmeta.db），内含 EXIF 元数据（如分辨率），以加快图像访问速度。</li>
+                    <li class="apppanelitem" data-id="li_appset_gpu" data-vn="1"><span class="appproperty">GPUs to use</span> 若电脑有多块 GPU，可在此选择使用哪一块。</li>
+                </ul>
+
+            </div>
+            
+            <br/>
+
+            <div data-id="div_sb_rendering" class="slideblock">
+
+                <h2 data-id="h2_rendering" data-vn="1">渲染设置</h2>
+                <p data-id="p_h2_rendering" data-vn="2">调整 <span class="appaspecttype">3Ds</span> 视图中可显示的点（网格顶点）和模型三角面数量。</p>
+
+                <img src="images/appsettings-1_3.png" alt="appsettings-1_3" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/appbasics/images/appsettings-1_3.png';">
+                
+                <ul class="apppanelitems" style="padding-top:20px;">
+                    <li class="apppanelitem" data-id="li_rend_points" data-vn="1"><span class="appproperty">Max points to display</span> <span class="appaspecttype">3Ds</span> 视图中可渲染的最大点数。设置越大渲染越密，但速度越慢。</li>
+                    <li class="apppanelitem" data-id="li_rend_triangles" data-vn="2"><span class="appproperty">最大显示三角形数（最大 GPU 显存）</span> 选择渲染可使用的显存比例，它决定了能显示多少三角面。共有三档：20%、40%（默认）或 80% 显存。每档旁边会根据你机器的显存标注可显示的三角面数。</li>
+                </ul>
+               
+            </div>
+            <br/>
+
+            <div data-id="div_sb_visual" class="slideblock">
+
+                <h2 data-id="h2_visual" data-vn="1">视觉与语言设置</h2>
+                <p data-id="p_h2_visual" data-vn="1">用这些设置更改应用的视觉风格和界面语言。</p>
+
+                <img src="images/appsettings-1_2.png" alt="appsettings-1_2" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/appbasics/images/appsettings-1_2.png';">
+                
+                <ul class="apppanelitems" style="padding-top:20px;">
+                    <li class="apppanelitem" data-id="li_vilang_zoom" data-vn="1"><span class="appproperty">Zoom</span> 更改所有界面元素（文本、面板、窗口）的大小，功能区除外。</li>
+                    <li class="apppanelitem" data-id="li_vilang_anim" data-vn="2"><span class="appproperty">Animated UI</span> 启用或关闭应用窗口显示/隐藏时的淡入淡出效果。</li>
+                    <li class="apppanelitem" data-id="li_vilang_lang" data-vn="2"><span class="appproperty">UI language</span> 切换整个应用（含帮助）使用的语言。</li>
+                    <li class="apppanelitem" data-id="li_vilang_resl" data-vn="1"><span class="appproperty">Reset layout and dialogs</span> <span class="appgesture">点击</span>按钮把界面恢复为默认状态。</li>
+                </ul>
+                <br/>
+                
+                <h3 data-id="h3_cpenhance" data-vn="1">控制点编辑器亮度增强</h3>
+                
+                <p data-id="p_h3_vcpenhance" data-vn="1">更改放置控制点时用于增强图像亮度与对比度的设置。</p>
+                
+                <ul class="apppanelitems">
+                    <li class="apppanelitem" data-id="li_cpe_brightenh" data-vn="1"><span class="appproperty">Brightness enhancement</span> 放置控制点时启用亮度与对比度增强。</li>
+                    <li class="apppanelitem" data-id="li_cpe_autoadj" data-vn="1"><span class="appproperty">Automatic adjustment</span> 基于图像可见区域启用自动调整。</li>
+                    <li class="apppanelitem" data-id="li_cpe_autodet" data-vn="1"><span class="appproperty">Autodetection focus</span> 选择用于自动调整的区域。</li>
+                    <li class="apppanelitem" data-id="li_cpe_maxbright" data-vn="1"><span class="appproperty">Maximal brightness change</span> 定义亮度可变化的幅度。启用 <span class="appproperty">Automatic adjustment</span> 时显示。</li>
+                    <li class="apppanelitem" data-id="li_cpe_maxcontr" data-vn="1"><span class="appproperty">Maximal contrast</span> 设置可显示的最大对比度。启用 <span class="appproperty">Automatic adjustment</span> 时显示。</li>
+                    <li class="apppanelitem" data-id="li_cpe_bright" data-vn="1"><span class="appproperty">Brightness</span> 将亮度设为固定值。关闭 <span class="appproperty">Automatic adjustment</span> 时显示。</li>
+                    <li class="apppanelitem" data-id="li_cpe_contr" data-vn="1"><span class="appproperty">Contrast</span> 将对比度设为固定值。关闭 <span class="appproperty">Automatic adjustment</span> 时显示。</li>
+                </ul>
+                
+            </div>
+            <br/>
+
+            <div data-id="div_sb_import" class="slideblock">
+
+                <h2 data-id="h2_import" data-vn="2">导入与导出设置</h2>
+                <p data-id="p_h2_import" data-vn="2">这些设置在导入输入或保存项目时生效。</p>
+
+                <img src="images/appsettings-2.png" alt="appsettings-2" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/appbasics/images/appsettings-2.png';">
+
+                <p data-id="p_h2_import_settings" data-vn="2" style="padding-top:20px;">
+                    <span class="appproperty">Use relative image paths</span> 启用（设为 <span class="appproperty">Yes</span>）后，项目文件（.rsproj）中的输入路径将以相对路径保存。<br/> <span class="appproperty">Group calibration by exif</span> 若要根据 EXIF 数据自动对相机参数分组，在把图像加入项目时把此参数设为 <span class="appproperty">Yes</span>。分组详情见 <a href="camerasettings.htm">此处</a>。<br/> <span class="appproperty">Copy imported components to cache</span> 若缓存位于 SSD、且希望加快组件访问速度，可设为 <span class="appproperty">Yes</span>。<br/> <span class="appproperty">Ignore exif GPS</span> 若图像的 EXIF 中含 GPS 坐标，可在此全局开启/关闭其使用。也可以在 <a href="cameradb.htm">sensorsdb.xml</a> 中按相机单独设置。<br/> <span class="appproperty">Prefer Exif over XMP</span> 启用后，导入新文件时 Exif 元数据优先于 XMP 元数据。
+                </p>
+
+            </div>
+            <br/>
+
+            <div data-id="div_sb_cs" class="slideblock">
+
+                <h2 data-id="h2_cs" data-vn="1" id="idCoordSystems">坐标系</h2>
+                <p data-id="p_h2_cs" data-vn="3">RealityScan 可同时使用多个坐标系，例如每个控制点都可以相对于不同的坐标系测量。在这里可以更改项目坐标系和输出坐标系。</p>
+
+                <img src="images/appsettings-3.png" alt="appsettings-3" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/appbasics/images/appsettings-3.png';">
+
+                <p data-id="h2_cs_settings" data-vn="1" style="padding-top:20px;">
+                <span class="appproperty">Project coordinate system</span> 参考坐标系，<a href="coordinatesystem.htm">点击此处</a>。<br/> <span class="appproperty">Output coordinate system</span> 用于以其他坐标系导出。更多信息见 <a href="coordinatesystem.htm">此处</a>。
+                </p>
+
+            </div>
+            <br/>
+
+            <div data-id="div_sb_progress" class="slideblock">
+
+                <h2 data-id="h2_progress" data-vn="1">处理结束通知</h2>
+                <p data-id="p_h2_progress" data-vn="2">处理结束后，可用这些设置定义一个立即执行的后续动作。</p>
+
+                <img src="images/appsettings-5.png" alt="appsettings-5" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/appbasics/images/appsettings-5.png';">
+
+                <p data-id="p_h2_progress_settings" data-vn="3" style="padding-top:20px;">
+                <span class="appproperty">Minimal process duration</span> 设置最短处理时长，超过后 RealityScan 才执行通知任务。单位为秒，实际使用建议大于 60。<br/> <span class="appproperty">Action</span> 选择上述时间到达后要执行的动作：无 / 播放声音 / 执行程序。选择「执行程序」时，还可定义命令行参数（例如错误信息、时长、处理类型、RealityScan 设置、场景名称），用于调用外部程序。
+                </p>
+
+                <h3 data-id="h3_progress" data-vn="1">例如：</h3>
+                <p data-id="p_seqc" data-vn="1"> 
+                    在设置面板的 <span class="appproperty">Command-line process</span> 字段中写入以下命令序列：
+                </p>
+                <div data-id="div_progress_code" data-vn="1" class="codeSample">
+                    "C:\Users\user\Desktop\post-op.bat" "处理 $(processId) 已在场景 $(sceneName) 上完成，结果码 $(processResult)，耗时 $(processDuration:d) 秒"
+                </div>
+                <div data-id="div_note_spaces" data-vn="1" class="importantMessage">注意：若文件路径含空格，必须用双引号（""）括起来，如示例 "C:\Users\user\Desktop\post-op.bat"。</div>
+                
+                <br/>
+
+                <p data-id="p_postop" data-vn="1"> 
+                    创建一个 "post-op.bat" 文件，内含把处理结果写入「以当前日期和时间命名」的文件的命令：
+                </p>
+                <div class="codeSample">
+                    @echo off<br/>
+                    cd %~dp0<br/>
+                    echo %1>"RS_%date:~-4,4%%date:~-8,2%%date:~-12,2%_%time:~0,2%%time:~3,2%%time:~6,2%.log"
+                </div>
+
+                <p data-id="p_date" data-vn="1"> 
+                    <span class="command">%date:~-4,4%</span> 是当前日期的最后四个字符（年）。<br/> <span class="command">%date:~-8,2%</span> 是从右数第 8、7 个字符（月）。<br/> <span class="command">%date:~-12,2%</span> 是从右数第 12、11 个字符（日）。
+                </p>
+                <p data-id="p_princ" data-vn="1">
+                    时间的处理方式相同。<br/> 日期和时间格式取决于 Windows 的区域与语言设置。要查看实际格式，请在命令提示符窗口中执行以下命令：
+                </p>
+                <p data-id="p_cmdp" data-vn="1">
+                    <span class="command">echo %DATE%</span><br/> <span class="command">echo %TIME%</span>
+                </p>
+                <p data-id="p_log" data-vn="2">处理完成（且满足 <span class="appproperty">Minimal process duration</span>）后，会生成一个 RS_date_time.log 文件，内容形如：</p>
+                <div data-id="div_progress_code_result" data-vn="1" class="codeSample">
+                    "处理 020735 已在场景 New scene 上完成，结果码 00，耗时 120 秒"
+                </div>
+            </div>
+            <br/>
+
+            <div data-id="div_sb_grabber" class="slideblock">
+
+                <h2 data-id="h2_grabber" data-vn="1">屏幕录制</h2>
+                <p data-id="p_h2_grabber" data-vn="2">
+                    RealityScan 集成了文档记录系统，可在工作流中录制视频。屏幕录制会抓取窗口区域，按下面设定的质量、分辨率和帧率存到磁盘。系统会自动识别是否有耗时处理正在运行；若有，则自动降低抓取频率并加速播放，使每个处理在最终视频中最多占 8 秒，无论实际耗时多久。这样你就不必担心出现几小时毫无变化的视频。
+                </p>
+                        
+                <img src="images/appsettings-6.png" alt="appsettings-6" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/appbasics/images/appsettings-6.png';">
+
+                <ul class="apppanelitems" style="padding-top:20px;">
+                    <li class="apppanelitem" data-id="li_grabset_oufo" data-vn="1"><span class="appproperty">Output folder</span> 屏幕录制工具生成的文档存放位置。另见这个简短教程：<a href="../tools/screengrabber.htm">Video Screen Grabber</a>。</li>
+                    <li class="apppanelitem" data-id="li_grabset_fipr" data-vn="1"><span class="appproperty">File prefix</span> 屏幕录制生成的视频的文件前缀。</li>
+                    <li class="apppanelitem" data-id="li_grabset_frps" data-vn="1"><span class="appproperty">Frames per second</span> 设置帧率。</li>
+                    <li class="apppanelitem" data-id="li_grabset_stfi" data-vn="1"><span class="appproperty">Stop when process finished</span> 设为「是」时，处理完成后屏幕录制会自动停止。</li>
+                    <li class="apppanelitem" data-id="li_grabset_plso" data-vn="1"><span class="appproperty">Play sound on start/stop</span> 若希望在录制开始/结束时收到提示音，设为「是」。</li>
+                    <li class="apppanelitem" data-id="li_grabset_outy" data-vn="1"><span class="appproperty">Output type</span> 可选输出类型：JPG/PNG 序列帧、Windows Media Video，或 mp4 视频。</li>
+                    <li class="apppanelitem" data-id="li_grabset_resl" data-vn="1"><span class="appproperty">Resolution</span> SVGA 800x600 / 720p HD ready / 1080p Full HD / 4k / 窗口大小。</li>
+                    <li class="apppanelitem" data-id="li_grabset_bira" data-vn="1"><span class="appproperty">Bit rate</span> 256/400/700/1500/2500/4000 kbps 或 40/80 mbps。详情可展开应用设置面板该行的下拉菜单。</li>
+                    <li class="apppanelitem" data-id="li_grabset_aure" data-vn="1"><span class="appproperty">Audio recording</span> 在视频中同时录制默认音源的音频。可选：无音频 / 普通质量（96 kbps）/ YouTube 质量（128 kbps）/ 明星质量（160 kbps）。</li>
+                </ul>
+
+            </div>
+            <br/>
+
+            <div data-id="div_sb_rta" class="slideblock">
+
+                <h2 data-id="h2_rta" data-vn="1">实时辅助</h2>
+                <p data-id="p_h2_rta" data-vn="1">设置 <span class="apptool">Real-time Assistance</span> 工具的连接可用性，并开关处理通知</p>
+
+                <img src="images/appsettings-9.png" alt="appsettings-9" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/appbasics/images/appsettings-9.png';">
+
+                <ul class="apppanelitems" style="padding-top:20px;">
+                    <li class="apppanelitem" data-id="li_rta_proxy" data-vn="1"><span class="appproperty">Enable Internet proxy</span> 本地连接不可用时，允许通过互联网发送数据。</li>
+                    <li class="apppanelitem" data-id="li_rta_notf" data-vn="1"><span class="appproperty">Process start and end notification</span> 处理开始或结束时在通知区域显示通知。</li>
+                </ul>
+
+            </div>
+            <br/>
+
+            <div data-id="div_sb_lic" class="slideblock">
+
+                <h2 data-id="h2_egacc" data-vn="1">Epic Games 账户</h2>
+                <p data-id="p_h2_egacc" data-vn="2">在 RealityScan 中退出账户；若之前跳过了登录，也可在此登录。</p>
+
+                <img src="images/appsettings-7.png" alt="appsettings-7" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/appbasics/images/appsettings-7.png';">
+
+                <ul class="apppanelitems" style="padding-top:20px;">
+                    <li class="apppanelitem" data-id="li_egacc_user" data-vn="1"><span class="appproperty">Signed in as</span> 当前登录的 Epic Games 账户。若跳过了登录，则不显示具体用户。</li>
+                    <li class="apppanelitem" data-id="li_egacc_sout" data-vn="2"><span class="appproperty">Sign out</span> 退出 RealityScan。</li>
+                    <li class="apppanelitem" data-id="li_egacc_sieg" data-vn="1"><span class="appproperty">Sign in with Epic Games</span> 若你之前跳过了登录，会显示此选项，方便之后登录 Epic Games 账户。</li>
+                </ul>                
+
+            </div>
+            <br/>
+
+            <div data-id="div_sb_gs" class="slideblock">
+
+                <h2 data-id="h2_gs" data-vn="1">全局设置</h2>
+                <p data-id="p_h2_gs" data-vn="1">可在此导出和导入应用的全局设置。</p>
+
+                <img src="images/appsettings-8.png" alt="appsettings-8" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/appbasics/images/appsettings-8.png';">
+
+                <p data-id="p_h2_gs_settings" data-vn="1" style="padding-top:20px;">
+                <span class="appproperty">Export global settings</span> <span class="appgesture">点击</span>按钮把应用全局设置导出为 .rcconfig 文件。<br/> <span class="appproperty">Import global settings</span> <span class="appgesture">点击</span>按钮从 .rcconfig 文件导入应用全局设置。
+                </p>
+
+            </div>
+
+            <div class="clear splitSpacing">
+                <!-- clear -->
+            </div>
+
+            <div data-id="div_bc" class="blocksContainer">
+
+                <script type="text/javascript">RenderBackToStartTile();</script>
+
+            </div>
+
+            <div class="clear">
+            <!-- clear -->
+            </div>
+
+            <div data-id="div_sa" class="rowblock">
+                <h3 data-id="h3_sa" data-vn="1">另见：</h3>
+                <ul class="intend">
+                    <li data-id="li_sa_ausm" data-vn="1">了解自动保存模式 <a href="autosave.htm">点击此处</a></li>
+                    <li data-id="li_sa_cache" data-vn="1">了解应用缓存 <a href="https://forums.unrealengine.com/t/cache-temp-folder/766674" target="_blank">点击此处</a></li>
+                    <li data-id="li_sa_group" data-vn="1">了解相机参数分组 <a href="camerasettings.htm">点击此处</a></li>
+                    <li data-id="li_sa_cs" data-vn="1">了解坐标系 <a href="coordinatesystem.htm">点击此处</a></li>
+                    <li data-id="li_sa_grab" data-vn="1">了解如何使用屏幕录制 <a href="../tools/screengrabber.htm">点击此处</a></li>
+                </ul>
+
+                <div class="clear">
+                    <!-- clear -->
+                </div>
+            </div>
+
+            <!-- content slide end -->
+
+        </div>
+
+        <script type="text/javascript">RenderCopyrightText();</script>
+
+        <script type="text/javascript">
+            InitializeHelpSlide();
+        </script>
+
+    </body>
+</html>
+<!-- signature:TDbnnT52pAiQ4kwG4F9WNMDdTbJgSd3D5Foqm+XI9gS9QxWlEi5ZeNeXIjvC0E9n2njPkEaSfY4y3wbam7jqk77Oaj33wyZQIhVhUD8N2vqsD9fc+i1q5RadMT3wzcTqJfOy+NhHE4Byq6Ct654ZdQQsS3xIv9pOVfOkXUOzljA= -->

@@ -1,0 +1,123 @@
+<html>
+<head>
+    <title>RealityScan 帮助</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Epic Games Slovakia s.r.o." />
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <link type="text/css" rel="stylesheet" href="../../styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/colors.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css" />
+    <script src="../scripts/textVars.js" type="text/javascript"></script>
+    <script src="../../scripts/localization.js" type="text/javascript"></script>
+    <script src="../../scripts/main.js" type="text/javascript"></script>
+</head>
+<body ondragstart="return false;">
+
+    <div data-id="div_cs" class="content_slide">
+
+        <!-- content slide -->
+
+        <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head" class="head">
+            
+            <h1 data-id="h1__v1" data-vn="1">为模型着色</h1>
+            
+            <p data-id="p_h1__v1" data-vn="2">
+                模型目前是无色的平面着色网格，这样便于发现网格中的裂缝和问题。要给模型上色，进入 <span class="appribbon">MESH &amp; COLOR</span> 选项卡，在 <span class="apppanel">Color &amp; Texture</span> 区域使用 <span class="apptool">Colorize</span> 或 <span class="apptool">Texture</span> 按钮。用哪种取决于你的需求。
+            </p>
+
+            <div style="padding: 10px 10px 30px 10px">
+                <img src="./images/fig_layout_colorize_texture_recon.png" alt="fig_layout_colorize_texture_recon" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tutorials/images/fig_layout_colorize_texture_recon.png';"/>
+            </div>
+        
+        </div>
+
+        <div data-id="div_nomo__v1" data-vn="1" class="RCNoModels redWarningBox" style="margin-bottom:20px">
+            选中的组件没有任何模型。请选择含有模型的组件；若都还没有模型，请返回上一步创建。
+        </div>
+
+        <div data-id="div_sb_colm" class="slideblock">
+            
+            <h3 data-id="h2_colm__v1" data-vn="1">着色模型</h3>
+            
+            <p data-id="p_h2_colm__v1" data-vn="1">
+                这个选项非常适合极密的模型——这类模型再贴纹理对画面质量提升不大。它把颜色赋给网格顶点，再由带色顶点在多边形上插值。细节质量不如纹理，因此适合预览带颜色的模型，或颜色并不重要的场合。
+            </p>
+            
+        </div>
+        
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sb_temo" class="slideblock">
+            
+            <h3 data-id="h2_temo__v1" data-vn="1">带纹理模型</h3>
+            
+            <p data-id="p_h2_temo__v1" data-vn="1">
+                纹理更常用，因为它适用于众多行业，细节质量也更高。它会计算出覆盖模型全部多边形及其颜色信息的一张或多张图像，这些图像被贴到 UV 贴图上&mdash;&mdash;即三维物体的二维表示。你可以在计算纹理之前先展开模型生成 UV，也可以用 <span class="apptool">Texture</span> 工具一次性完成。注意：模型一旦展开过，之后就需要用 <span class="apptool">Unwrap</span> 工具重新生成新的 UV。
+            </p>
+
+            <div class="clear splitSpacing">
+                <!-- clear -->
+            </div>
+            
+            
+            <div style="padding: 10px 10px 10px 0px">
+                <img src="./images/colored-vs-textured.jpg" alt="fig_layouts_texture_model" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tutorials/images/colored-vs-textured.jpg';"/>
+            </div>
+            
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_bc" class="blocksContainer">
+
+            <a href="quickstart.htm" class="RCNoModels">
+                <div class="leadBlock block TileColor6">
+                    <h2 data-id="h2_bc_stov" data-vn="1">重新开始</h2>
+                </div>
+            </a>
+
+            <a href="quickstart_9_exportModel.htm" class="RCHasModel">
+                <div class="leadBlock block TileColor6">
+                    <h2 data-id="h2_bc_exmo" data-vn="1">继续</h2>
+                    <p data-id="p_h2_bc_exmo__v1" data-vn="1">导出模型</p>
+                </div>
+            </a>
+
+            <script type="text/javascript">RenderOpenHelpTile();</script>
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sa" class="rowblock">
+            <h3 data-id="h3_sa" data-vn="1">另见：</h3>
+            <ul class="intend">
+                <li data-id="li_sa_tacs__v1" data-vn="1"><a href="../tools/texturing.htm">纹理与着色设置</a> - 了解如何微调着色与纹理</li>
+                <li data-id="li_sa_extm__v1" data-vn="1"><a href="../tools/unwrap.htm">展开UV工具</a> - 进一步了解 UV 映射</li>
+            </ul>
+            <div class="clear">
+                <!-- clear -->
+            </div>
+        </div>
+
+        <!-- content slide end -->
+
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+    <script type="text/javascript">
+        InitializeTutorialMode(RCModelsHandler);
+    </script>
+
+
+</body>
+</html>
+<!-- signature:paMZxLGevv7Hbz89iDfG0Tk4Sl7KxhkHqLymqEq2baO9t2PKexOJHNYE2ngwVKF+ZJe2rjIPBm7+6kL4EEsiuto+aJoMUP20LjEttl1fuUWr5ea9/ooUc4qsp2Q0mP8JrrO2A1gYo88JEnFFUnedM3Ah6Nu/Jd3enqkUzP69yJw= -->

@@ -1,0 +1,780 @@
+<html>
+<head>
+    <title>RealityScan 帮助</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Epic Games Slovakia s.r.o." />
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <link type="text/css" rel="stylesheet" href="../../styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/colors.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css" />
+    <script src="../scripts/textVars.js" type="text/javascript"></script>
+    <script src="../../scripts/localization.js" type="text/javascript"></script>
+    <script src="../../scripts/main.js" type="text/javascript"></script>
+</head>
+<body ondragstart="return false;">
+
+    <div data-id="div_cs" class="content_slide">
+
+    <!-- content slide -->
+    <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head" class="head">
+
+            <h1 data-id="h1" data-vn="1">模型工具</h1>
+            <p data-id="p_h1_1" data-vn="2">
+                模型成功创建后，可以用这些工具给模型上色、创建纹理，并对模型做些后期处理。
+            </p>
+            <table class="tableofcommands">
+                <thead>
+                    <tr data-id="tr_moto_name" data-vn="1">
+                        <th>命令名称</th>
+                        <th>必需参数</th>
+                        <th>可选参数</th>
+                        <th>说明</th>
+                    </tr>
+                </thead>
+                <tr data-id="tr_moto_semo" data-vn="1">
+                    <td class="command">selectModel</td>
+                    <td class="parameter">modelName</td>
+                    <td class="parameter"></td>
+                    <td>选择指定名称（modelName）的模型。</td>
+                </tr>
+                <tr data-id="tr_moto_desm" data-vn="1">
+                    <td class="command">deleteSelectedModel</td>
+                    <td class="parameter"></td>
+                    <td class="parameter"></td>
+                    <td>删除当前所选模型。</td>
+                </tr>
+                <tr data-id="tr_moto_dusm" data-vn="1">
+                    <td class="command">duplicateSelectedModel</td>
+                    <td class="parameter"></td>
+                    <td class="parameter"></td>
+                    <td>复制所选模型（含纹理）。</td>
+                </tr>
+                <tr data-id="tr_moto_resm" data-vn="1">
+                    <td class="command">renameSelectedModel</td>
+                    <td class="parameter">newModelName</td>
+                    <td class="parameter"></td>
+                    <td>重命名当前所选模型。</td>
+                </tr>
+                <tr data-id="tr_moto_coco" data-vn="1">
+                    <td class="command">correctColors</td>
+                    <td class="parameter"></td>
+                    <td class="parameter">layerName</td>
+                    <td>对所选组件中的所有图层或指定图层（layerName）运行色彩校正。</td>
+                </tr>
+                <tr data-id="tr_moto_unwr" data-vn="1">
+                    <td class="command">unwrap</td>
+                    <td class="parameter"></td>
+                    <td class="parameter">params.xml</td>
+                    <td>
+                        用当前设置或 params.xml 中的设置（可选参数）计算模型展开。这些设置可用应用中的 <span class="appribbonbutton">Unwrap</span> 工具导出。
+                    </td>
+                </tr>
+                <tr data-id="tr_moto_cate" data-vn="1">
+                    <td class="command">calculateTexture</td>
+                    <td class="parameter"></td>
+                    <td class="parameter"></td>
+                    <td>用当前设置计算纹理。</td>
+                </tr>
+                <tr data-id="tr_moto_qtex" data-vn="2">
+                    <td class="command">calculateQualityTexture</td>
+                    <td class="parameter"></td>
+                    <td class="parameter"></td>
+                    <td>用网格质量值计算纹理，该值可由 <span class="apptool">Quality Analysis</span> 工具算出。使用本命令前不必先计算质量值。</td>
+                </tr>
+                
+                
+                <tr data-id="tr_moto_rete" data-vn="1">
+                    <td class="command">reprojectTexture</td>
+                    <td class="parameter">sourceModel resultModel</td>
+                    <td class="parameter">params.xml</td>
+                    <td>
+                        用当前设置或 params.xml 中的设置（可选参数），把纹理从带纹理的模型（sourceModel）重投影到已展开的模型（resultModel）上。sourceModel 与 resultModel 均为应用中的模型名称。这些设置可从应用中的 <span class="appribbonbutton">Texture Reprojection</span> 工具导出。
+                    </td>
+                </tr>
+                <tr data-id="tr_moto_cavc" data-vn="1">
+                    <td class="command">calculateVertexColors</td>
+                    <td class="parameter"></td>
+                    <td class="parameter"></td>
+                    <td>用当前设置计算上色。</td>
+                </tr>
+                <tr data-id="tr_moto_cpvc" data-vn="1">
+                    <td class="command">calculatePreviewVertexColors</td>
+                    <td class="parameter"></td>
+                    <td class="parameter"></td>
+                    <td>用当前设置计算草稿上色。</td>
+                </tr>
+                <tr data-id="tr_moto_qvcl" data-vn="2">
+                    <td class="command">calculateQualityColors</td>
+                    <td class="parameter"></td>
+                    <td class="parameter"></td>
+                    <td>用网格质量值计算顶点颜色，该值可由 <span class="apptool">Quality Analysis</span> 工具算出。使用本命令前不必先计算质量值。</td>
+                </tr>
+                <tr data-id="tr_moto_simp" data-vn="1">
+                    <td class="command">simplify</td>
+                    <td class="parameter"></td>
+                    <td class="parameter">targetTriangleCount or params.xml</td>
+                    <td>
+                        用当前设置（不带任何参数时）把所选模型简化到指定三角面数（targetTriangleCount），或使用 params.xml 中的设置。这些设置可用应用中的 <span class="appribbonbutton">Simplify Tool</span> 导出。
+                    </td>
+                </tr>
+                <tr data-id="tr_moto_smoo" data-vn="1">
+                    <td class="command">smooth</td>
+                    <td class="parameter"></td>
+                    <td class="parameter">params.xml</td>
+                    <td>
+                        用当前设置或 params.xml 中的设置平滑所选模型。这些设置可从应用中的 <span class="appribbonbutton">Smoothing Tool</span> 导出。
+                    </td>
+                </tr>
+                <tr data-id="tr_moto_clho" data-vn="1">
+                    <td class="command">closeHoles</td>
+                    <td class="parameter"></td>
+                    <td class="parameter">maxEdgesCount</td>
+                    <td>用当前设置或指定的最大边数（maxEdgesCount）封闭模型孔洞。</td>
+                </tr>
+                <tr data-id="tr_moto_clem" data-vn="1">
+                    <td class="command">cleanModel</td>
+                    <td class="parameter"></td>
+                    <td class="parameter"></td>
+                    <td>清理所选模型：移除非流形边与顶点、封闭小孔洞等。</td>
+                </tr>
+                <tr data-id="tr_moto_stin" data-vn="1">
+                    <td class="command">selectTrianglesInsideReconReg</td>
+                    <td class="parameter"></td>
+                    <td class="parameter"></td>
+                    <td>选中重建区域内部的三角面。</td>
+                </tr>
+                <tr data-id="tr_moto_stou" data-vn="1">
+                    <td class="command">selectTrianglesOutsideReconReg</td>
+                    <td class="parameter"></td>
+                    <td class="parameter"></td>
+                    <td>选中重建区域外部的三角面。</td>
+                </tr>
+                <tr data-id="tr_moto_semt" data-vn="1">
+                    <td class="command">selectMarginalTriangles</td>
+                    <td class="parameter"></td>
+                    <td class="parameter"></td>
+                    <td>选中那些包围体积、但不属于当前重建结果的三角面。</td>
+                </tr>
+                <tr data-id="tr_moto_slta" data-vn="1">
+                    <td class="command">selectLargeTrianglesAbs</td>
+                    <td class="parameter">edgeSizeThreshold</td>
+                    <td class="parameter"></td>
+                    <td>选中边长大于阈值（edgeSizeThreshold）的三角面。</td>
+                </tr>
+                <tr data-id="tr_moto_sltr" data-vn="1">
+                    <td class="command">selectLargeTrianglesRel</td>
+                    <td class="parameter">edgeSizeThreshold</td>
+                    <td class="parameter"></td>
+                    <td>选中边长大于阈值（edgeSizeThreshold）乘以平均边长后的三角面。</td>
+                </tr>
+                <tr data-id="tr_moto_sltc" data-vn="1">
+                    <td class="command">selectLargestModelComponent</td>
+                    <td class="parameter"></td>
+                    <td class="parameter"></td>
+                    <td>选中属于模型最大连通分量的三角面。</td>
+                </tr>
+                <tr data-id="tr_moto_itse" data-vn="1">
+                    <td class="command">invertTrianglesSelection</td>
+                    <td class="parameter"></td>
+                    <td class="parameter"></td>
+                    <td>反选三角形选区。</td>
+                </tr>
+                <tr data-id="tr_moto_demt" data-vn="1">
+                    <td class="command">deselectModelTriangles</td>
+                    <td class="parameter"></td>
+                    <td class="parameter"></td>
+                    <td>Deselect all model triangles.</td>
+                </tr>
+                <tr data-id="tr_moto_rest" data-vn="1">
+                    <td class="command">removeSelectedTriangles</td>
+                    <td class="parameter"></td>
+                    <td class="parameter"></td>
+                    <td>新建一个模型，把所选三角面剔除（行为与 <span class="appribbonbutton">Filter Selection</span> 工具相同）。</td>
+                </tr>
+                <tr data-id="tr_moto_cbbox" data-vn="1">
+                    <td class="command">cutByBox</td>
+                    <td class="parameter">inner&#124;outer</td>
+                    <td class="parameter">fillHoles</td>
+                    <td>滤掉重建区域内部或外部的三角面。必需参数决定滤掉哪些三角面，可选参数 <span class="appproperty">fillHoles</span> 决定是否填补切割产生的孔洞（可设为 <span class="appproperty">true</span> 或 <span class="appproperty">false</span>，对应 <span class="appproperty">Yes</span> 与 <span class="appproperty">No</span>）。若未指定该可选参数则使用默认值（<span class="appproperty">Yes</span>）。该工具会新建一个模型。</td>
+                </tr>
+                <tr data-id="tr_moto_exmo" data-vn="2">
+                    <td class="command">exportModel</td>
+                    <td class="parameter">modelName fileName</td>
+                    <td class="parameter">params.xml</td>
+                    <td>
+                        用当前设置或 params.xml 中的设置（可选参数），把模型（工程中的 modelName）导出为文件（fileName 含路径与文件扩展名）。该文件可从 <span class="apppanel">Export model</span> 对话框导出。
+                    </td>
+                </tr>
+                <tr data-id="tr_moto_exsm" data-vn="2">
+                    <td class="command">exportSelectedModel</td>
+                    <td class="parameter">fileName</td>
+                    <td class="parameter">params.xml</td>
+                    <td>
+                        用当前设置或 params.xml 中的设置（可选参数），把所选模型导出为文件（fileName 含路径与文件扩展名）。该文件可从 <span class="apppanel">Export model</span> 对话框导出。
+                    </td>
+                </tr>
+                <tr data-id="tr_moto_exportmzip" data-vn="1">
+                    <td class="command">exportModelToZip</td>
+                    <td class="parameter">filePath</td>
+                    <td class="parameter">modelFormat</td>
+                    <td>
+                            把所选模型导出为压缩包。需指定压缩包的保存路径与导出文件名，压缩格式的扩展名可省略。此外还可用可选参数指定模型格式（例如 .obj 或 .fbx）。
+                    </td>
+                </tr>
+                <tr data-id="tr_moto_immo" data-vn="1">
+                    <td class="command">importModel</td>
+                    <td class="parameter">fileName</td>
+                    <td class="parameter"></td>
+                    <td>从文件导入模型（fileName 含路径与文件扩展名）。</td>
+                </tr>
+                <tr data-id="tr_moto_caop" data-vn="2">
+                    <td class="command">calculateOrthoProjection</td>
+                    <td class="parameter"></td>
+                    <td class="parameter">rsorthoFile rsboxFile</td>
+                    <td>用当前设置计算正射投影。可选地使用投影参数文件（.rsortho）来定义计算设置，该文件可随正射投影一起导出，其结构<a href="../tools/xmlparamsfiles.htm">见此处</a>。还有一个可选参数是导出的重建区域文件（.rsbox），用于指定纳入正射投影的范围。</td>
+                </tr>
+                <tr data-id="tr_moto_seop" data-vn="1">
+                    <td class="command">selectOrthoProjection</td>
+                    <td class="parameter">orthoName</td>
+                    <td class="parameter"></td>
+                    <td>选择指定名称（orthoName）的正射投影。</td>
+                </tr>
+                <tr data-id="tr_moto_editorthoselect" data-vn="1">
+                    <td class="command">editOrthoProjectionSelection</td>
+                    <td class="parameter">"key=value"</td>
+                    <td class="parameter"></td>
+                    <td data-id="td_moto_editorthoselect" data-vn="1">
+                        依据 <span class="apppanel">Selected ortho photo(s)</span> 面板中的值或其键名，编辑所选正射投影的设置/参数。更多信息<a href="../tutorials/editselectioncommand.htm">见此处</a>。
+                     </td>
+                </tr>
+                <tr data-id="tr_moto_exportortho1" data-vn="1">
+                    <td class="command" rowspan="3">exportOrthoProjection</td>
+                    <td class="parameter">orthoName fullPath params.xml</td>
+                    <td class="parameter"></td>
+                    <td rowspan="3">
+                        用 <span class="appproperty">params.xml</span> 文件中的设置导出正射投影（正射影像、DSM 或 DTM），该文件可从对应导出对话框导出。本命令有三种写法，取决于所用参数：<span class="appproperty">params.xml</span> 定义导出设置；<span class="appproperty">orthoName</span> 是投影在工程中的名称；<span class="appproperty">fullPath</span> 指定导出文件的完整路径；<span class="appproperty">folderPath</span> 指定保存目录；<span class="appproperty">exportName</span> 设置导出文件名。对 <span class="appproperty">fullPath</span> 与 <span class="appproperty">exportName</span> 而言格式扩展名可选——若省略则生成 TIFF 文件。
+                    </td>
+                </tr>     
+                <tr data-id="tr_moto_exportortho2" data-vn="1">
+                    <td class="parameter">orthoName folderPath exportName params.xml</td>
+                    <td class="parameter"></td>
+                </tr> 
+                <tr data-id="tr_moto_exportortho3" data-vn="1">
+                    <td class="parameter">fullPath params.xml</td>
+                    <td class="parameter"></td>
+                </tr>
+                <tr data-id="tr_moto_calculatecrosssections" data-vn="1">
+                    <td class="command">calculateCrossSections</td>
+                    <td class="parameter"> </td>
+                    <td class="parameter">step axis</td>
+                    <td>
+                        用当前设置计算横断面，或通过指定轴向（重建区域的局部轴）与断面间距来计算。
+                    </td>
+                </tr>
+                <tr data-id="tr_moto_exportcrosssections" data-vn="1">
+                    <td class="command">exportCrossSections</td>
+                    <td class="parameter">fileName </td>
+                    <td class="parameter">params.xml</td>
+                    <td>
+                        用当前设置或 params.xml 中的设置（可选参数），把所选横断面导出为文件（fileName 含路径与文件扩展名）。该文件可从 <span class="apppanel">Export Cross Sections</span> 对话框导出。
+                    </td>
+                </tr>
+                <tr data-id="tr_moto_renamecrosssections" data-vn="1">
+                    <td class="command">renameCrossSections</td>
+                    <td class="parameter">crossSectionsName</td>
+                    <td class="parameter"></td>
+                    <td>
+                        Rename selected cross sections.
+                    </td>
+                </tr>
+                <tr data-id="tr_moto_selectcrosssectionss" data-vn="1">
+                    <td class="command">selectCrossSections</td>
+                    <td class="parameter">crossSectionsName </td>
+                    <td class="parameter"></td>
+                    <td>
+                        按名称选中横截面。
+                    </td>
+                </tr>
+                <tr data-id="tr_moto_computecontours" data-vn="1">
+                    <td class="command">computeContours</td>
+                    <td class="parameter"> </td>
+                    <td class="parameter">params.xml</td>
+                    <td>
+                        用当前设置或 params.xml 中的设置（可选参数）为所选正射投影计算等高线。这些设置可用应用中的 <span class="apppanel">Contours Tool</span> 导出。
+                    </td>
+                </tr>
+                <tr data-id="tr_moto_exportcontours" data-vn="1">
+                    <td class="command">exportContours</td>
+                    <td class="parameter">fileName </td>
+                    <td class="parameter">params.xml</td>
+                    <td>
+                        用当前设置或 params.xml 中的设置（可选参数），把所选等高线导出为文件（fileName 含路径与文件扩展名）。该文件可从 <span class="apppanel">Export Contours</span> 对话框导出。
+                    </td>
+                </tr>
+                <tr data-id="tr_moto_renamecontours" data-vn="1">
+                    <td class="command">renameContours</td>
+                    <td class="parameter">contoursName</td>
+                    <td class="parameter"></td>
+                    <td>
+                        Rename selected contours.
+                    </td>
+                </tr>
+                <tr data-id="tr_moto_selectcontours" data-vn="1">
+                    <td class="command">selectContours</td>
+                    <td class="parameter">contoursName </td>
+                    <td class="parameter"></td>
+                    <td>
+                        Select contours by name.
+                    </td>
+                </tr>
+                <tr data-id="tr_moto_exportshapes" data-vn="1">
+                    <td class="command">exportShapes</td>
+                    <td class="parameter">fileName </td>
+                    <td class="parameter">params.xml</td>
+                    <td>
+                        用当前设置或 params.xml 中的设置（可选参数），把所选形状导出为文件（fileName 含路径与扩展名 .json）。该文件可从 <span class="apppanel">Export Shapes</span> 对话框导出。
+                    </td>
+                </tr>
+                <tr data-id="tr_moto_importshapesto selectedortho" data-vn="1">
+                    <td class="command">importShapesToSelectedOrtho</td>
+                    <td class="parameter">fileName mosaicing&#124;measurements </td>
+                    <td class="parameter"></td>
+                    <td>
+                        把文件中的形状（fileName 含路径与文件扩展名）导入所选正射投影。其类型取决于当前启用的形状创建工具：<span class="appribbonbutton">Measure</span> 或 <span class="appribbonbutton">Enhance Mosaic</span>。
+                    </td>
+                </tr>
+                <tr data-id="tr_moto_importshapesto_ortho" data-vn="1">
+                    <td class="command">importShapesToOrtho</td>
+                    <td class="parameter">fileName orthoProjectionName mosaicing&#124;measurements </td>
+                    <td class="parameter"></td>
+                    <td>
+                        把文件中的形状（fileName 含路径与文件扩展名）导入正射投影（orthoProjectionName）。其类型取决于当前启用的形状创建工具：<span class="appribbonbutton">Measure</span> 或 <span class="appribbonbutton">Enhance Mosaic</span>。
+                    </td>
+                </tr>
+                <tr data-id="tr_moto_selectshape" data-vn="1">
+                    <td class="command">selectShape</td>
+                    <td class="parameter">shapeName </td>
+                    <td class="parameter"></td>
+                    <td>
+                        Select shape by name
+                    </td>
+                </tr>
+                <tr data-id="tr_moto_addshape" data-vn="1">
+                    <td class="command">addShapeToSelection</td>
+                    <td class="parameter">shapeName </td>
+                    <td class="parameter"></td>
+                    <td>
+                        按名称把某个形状加入当前选择。
+                    </td>
+                </tr>
+                <tr data-id="tr_moto_exre" data-vn="2">
+                    <td class="command">exportReport</td>
+                    <td class="parameter">outputFileName templateFileName</td>
+                    <td class="parameter">true|false</td>
+                    <td>
+                        用模板（templateFileName 含路径）把报告导出为文件（outputFileName 含路径与 .html 扩展名）。默认模板存放在安装目录\Reports 下。可用可选的布尔参数（true 或 false）导出包含指定模板中所找到报告的文件。
+                    </td>
+                </tr>
+                <tr data-id="tr_moto_printreport" data-vn="2">
+                        <td class="command">printReport</td>
+                        <td class="parameter">reportString</td>
+                        <td class="parameter"></td>
+                        <td>
+                            把报告文本输出到命令提示符。该命令可用于以批处理文件运行 RealityScan 的场景，不支持委派。关于报告自定义的更多内容<a href="../appbasics/reports_functions_and_variables.htm">见此处</a>。
+                        </td>
+                </tr>
+                <tr data-id="tr_moto_mame" data-vn="2">
+                        <td class="command">generateMaskFromMesh</td>
+                        <td class="parameter"></td>
+                        <td class="parameter"></td>
+                        <td>
+                            依据现有相机视图（图像）与所选模型生成遮罩图像：从相机看模型周围的一切都会被遮掉。
+                        </td>
+                </tr>
+                <tr data-id="tr_moto_exdm" data-vn="1">
+                    <td class="command">exportDepthAndMask</td>
+                    <td class="parameter"></td>
+                    <td class="parameter">folderName params.xml</td>
+                    <td>
+                        为所选图像导出深度图和/或遮罩。若未指定 folderName 与 params.xml，则按当前设置把结果存放在原图旁边。设置文件可在应用的 <span class="apppanel">Export Depth Maps and Masks</span> 对话框中导出。
+                    </td>
+                </tr>
+                <tr data-id="tr_moto_exlod" data-vn="1">
+                    <td class="command">exportLod</td>
+                    <td class="parameter">fileName</td>
+                    <td class="parameter">params.xml</td>
+                    <td>
+                        用当前设置或 params.xml 中的设置（可选参数），把所选模型导出为线性 LOD 模型文件（fileName 含路径与文件扩展名）。该文件可从 <span class="apppanel">Export LoD</span> 对话框导出。要导出为 Cesium 3D Tiles（.json）格式，请使用 <span class="command">export3dTiles</span> 命令。
+                    </td>
+                </tr>
+                <tr data-id="tr_moto_ex3dT" data-vn="1">
+                    <td class="command">export3dTiles</td>
+                    <td class="parameter">fileName</td>
+                    <td class="parameter">params.xml</td>
+                    <td>
+                        用当前设置或 params.xml 中的设置（可选参数），把所选模型导出为层级 LOD 的 .json 文件（fileName 含路径与文件扩展名）。在 <span class="apppanel">Export LoD</span> 对话框中选中 Cesium 3D Tiles（.json）格式后即可导出该文件。
+                    </td>
+                </tr>
+                <tr data-id="tr_moto_camsn" data-vn="1">
+                    <td class="command">exportCameraSnapshots</td>
+                    <td class="parameter">folderName</td>
+                    <td class="parameter">params.xml</td>
+                    <td>
+                        从相机位置渲染模型图像：若未选或只选了一张图像则使用全部图像，否则只用所选图像。需指定图像存放的文件夹路径，并可用可选参数文件套用导出对话框中的设置。
+                    </td>
+                </tr>
+				<tr data-id="tr_moto_rypr" data-vn="2">
+                        <td class="command">renderMeshFromCustomPositionYPR</td>
+                        <td class="parameter">fileName params.xml&#124;width height focalLength x y z yaw pitch roll
+						</td>
+                        <td class="parameter"></td>
+                        <td>
+                            用 yaw、pitch、roll 朝向从某个相机位置导出模型渲染图。<br/> 示例：从局部欧氏空间 (0,0,0) 处模型的俯视图：<div class="codeSample"> RealityScan.exe -renderMeshFromCustomPositionYPR "C:/images/image.png" 1280 720 100 0 0 150 0 0 0 </div>
+                      </td>
+                    </tr>
+					<tr data-id="tr_moto_rlat" data-vn="2">
+                        <td class="command">renderMeshFromCustomPositionLookAt</td>
+                        <td class="parameter">fileName params.xml&#124;width height focalLength x y z atX atY atZ
+					</td>
+                        <td class="parameter">upX upY upZ</td>
+                        <td>
+                            从某个相机位置导出模型渲染图，视线看向另一个 XYZ 坐标，并可再指定一个 XYZ 坐标来确定竖直轴的上升方向。<br/> 示例：局部欧氏空间 (0,0,0) 处模型的侧视图（使用 up 参数）：<div class="codeSample"> RealityScan.exe -renderMeshFromCustomPositionLookAt "C:/images/image.png" 1280 720 50 0 -100 0 0 0 10 0 0 1 </div>
+                     </td>
+                </tr>
+                <tr data-id="tr_model_rgridypr" data-vn="1">
+                        <td class="command">renderMeshFromCustomGridPositionYPR</td>
+                        <td class="parameter">fileName params.xml&#124;fileName width height focalLength x y z yaw pitch roll
+						</td>
+                        <td class="parameter"></td>
+                        <td>
+                            从自定义网格位置导出模型渲染图，视点由 yaw、pitch、roll 朝向定义。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_rgridla" data-vn="1">
+                        <td class="command">renderMeshFromCustomGridPositionLookAt</td>
+                        <td class="parameter">fileName params.xml&#124;fileName width height focalLength x y z atX atY atZ
+						</td>
+                        <td class="parameter">upX upY upZ</td>
+                        <td>
+                            从自定义网格位置导出模型渲染图，视线朝向指定目标，并可指定竖直轴。
+                        </td>
+                    </tr> 
+				<tr data-id="tr_moto_utsketch" data-vn="1">
+                    <td class="command">uploadToSketchfab</td>
+                    <td class="parameter">APIToken</td>
+                    <td class="parameter"></td>
+                    <td>
+                        把模型上传到 Sketchfab。必需参数是 Sketchfab API 令牌，可在你 Sketchfab 账号的账号设置中找到。
+                        </td>
+                </tr>	
+            </table>
+            
+            <h3 data-id="h3_classcomm" data-vn="1">Classification Commands</h3>
+                <p data-id="p_h3_classcomm" data-vn="1">用这些设置创建并调整分类。</p>
+                    
+                <table class="tableofcommands">
+                    <thead>
+                        <tr data-id="tr_classcomm_head" data-vn="1">
+                            <th>命令名称</th>
+                            <th>必需参数</th>
+                            <th>可选参数</th>
+                            <th>说明</th>
+                        </tr>
+                    </thead>
+                    <tr data-id="tr_model_dtmclassify" data-vn="1">
+                        <td class="command">dtmClassify</td>
+                        <td class="parameter"></td>
+                        <td class="parameter">params.xml</td>
+                        <td>
+                            用当前设置或 params.xml 中的设置（可选参数）把所选模型的顶点分到预定义类别中。这些设置可用应用中的 <span class="apppanel">AI Classify tool</span> 导出。
+                        </td>
+                    </tr>   
+                    <tr data-id="tr_model_selectclassf" data-vn="1">
+                        <td class="command">selectClassification</td>
+                        <td class="parameter">classificationName</td>
+                        <td class="parameter"></td>
+                        <td>
+                            按指定名称（classificationName 参数）选择分类。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_renameclassf" data-vn="1">
+                        <td class="command">renameSelectedClassification</td>
+                        <td class="parameter">newClassificationName</td>
+                        <td class="parameter"></td>
+                        <td>
+                            把所选分类重命名为指定的新名称（newClassificationName）。
+                        </td>
+                    </tr>
+                    <tr data-id="transferclassf" data-vn="1">
+                        <td class="command">transferClassification</td>
+                        <td class="parameter"></td>
+                        <td class="parameter">params.xml</td>
+                        <td>
+                            从标签层图像转移分类。可用从 <span class="apppanel">AI Classify tool</span> 面板导出的参数文件作为可选参数。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_expclassset" data-vn="1">
+                        <td class="command">exportClassificationSettings</td>
+                        <td class="parameter">XMLfilePath</td>
+                        <td class="parameter"></td>
+                        <td>
+                            从 <span class="apppanel">AI Classify tool</span> 面板导出设置。必需参数（XMLfilePath）请给出导出用的完整路径，含文件名与格式扩展名（.xml）。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_impclassset" data-vn="1">
+                        <td class="command">importClassificationSettings</td>
+                        <td class="parameter">XMLfilePath</td>
+                        <td class="parameter"></td>
+                        <td>
+                            把设置导入 <span class="apppanel">AI Classify tool</span> 面板。必需参数（XMLfilePath）请给出导入用的完整路径，含文件名与格式扩展名（.xml）。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_oververt" data-vn="1">
+                        <td class="command">overrideSelectedVertices</td>
+                        <td class="parameter"></td>
+                        <td class="parameter">className</td>
+                        <td>覆盖所选顶点，把它们的类别改为当前所选类别，或改为按名称指定的类别（可选）。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_slctclass" data-vn="1">
+                        <td class="command">selectClass</td>
+                        <td class="parameter">className</td>
+                        <td class="parameter"></td>
+                        <td>用指定的类名从所选分类中选择一个类。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_dsltclass" data-vn="1">
+                        <td class="command">deselectClass</td>
+                        <td class="parameter"></td>
+                        <td class="parameter"></td>
+                        <td>Deselect all selected classes.
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_rnmselcl" data-vn="1">
+                        <td class="command">renameSelectedClass</td>
+                        <td class="parameter">newClassName</td>
+                        <td class="parameter"></td>
+                        <td>把所选类的名称改为指定的新类名（newClassName）。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_sscldtm" data-vn="1">
+                        <td class="command">setSelectedClassAsGroundForDTM</td>
+                        <td class="parameter">true OR false</td>
+                        <td class="parameter"></td>
+                        <td>在 <span class="apppanel">Selected Class</span> 面板中修改所选类的 <span class="appproperty">Use as ground for DTM</span> 设置：设为 <span class="appproperty">true</span> 则用作 DTM 的地面，设为 <span class="appproperty">false</span> 则排除。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_ssclexp" data-vn="1">
+                        <td class="command">setSelectedClassAsGroundForExport</td>
+                        <td class="parameter"></td>
+                        <td class="parameter"></td>
+                        <td>在 <span class="apppanel">Selected Class</span> 面板中把 <span class="appproperty">Export class LAS</span> 设置改为 <span class="appproperty">Ground (2)</span>。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_ssclas" data-vn="1">
+                        <td class="command">setSelectedClassLasFormat</td>
+                        <td class="parameter">0 - 12</td>
+                        <td class="parameter"></td>
+                        <td>把 <span class="appproperty">Export class LAS</span> 设置改为 0 到 12 之间的某个数值。 
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_svrtsc" data-vn="2">
+                        <td class="command">selectVerticesOfSelectedClass</td>
+                        <td class="parameter"></td>
+                        <td class="parameter"></td>
+                        <td>依据所选类选择模型顶点。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_selclfr" data-vn="1">
+                        <td class="command">selectClassificationFormat</td>
+                        <td class="parameter">classificationFormatName</td>
+                        <td class="parameter"></td>
+                        <td>按指定的分类格式名称选择分类格式。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_rscfr" data-vn="1">
+                        <td class="command">renameSelectedClassificationFormat</td>
+                        <td class="parameter">newClassificationFormatName</td>
+                        <td class="parameter"></td>
+                        <td>把所选分类格式重命名为指定的新名称。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_expscfr" data-vn="2">
+                        <td class="command">exportSelectedClassificationFormat</td>
+                        <td class="parameter">filePath</td>
+                        <td class="parameter"></td>
+                        <td>通过指定完整路径（含文件名与 .cfd 扩展名）导出所选分类格式。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_expcfr" data-vn="1">
+                        <td class="command">exportClassificationFormat</td>
+                        <td class="parameter">classificationFormatName filePath</td>
+                        <td class="parameter"></td>
+                        <td>通过指定名称与输出文件路径（含文件名与 .cfd 扩展名）导出分类格式。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_impcfr" data-vn="1">
+                        <td class="command">importClassificationFormat</td>
+                        <td class="parameter">filePath</td>
+                        <td class="parameter"></td>
+                        <td>通过指定完整路径与名称（含 .cfd 扩展名）导入分类格式。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_colscl" data-vn="1">
+                        <td class="command">colorModelBySelectedClassification</td>
+                        <td class="parameter"></td>
+                        <td class="parameter"></td>
+                        <td>按所选分类中的类别给模型上色。
+                        </td>
+                    </tr>
+                    <tr data-id="tr_model_delscl" data-vn="1">
+                        <td class="command">deleteSelectedClassification</td>
+                        <td class="parameter"></td>
+                        <td class="parameter"></td>
+                        <td>删除所选分类。
+                        </td>
+                    </tr>  
+                </table>
+
+        </div>
+        
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sb_mtex" data-vn="2" class="slideblock">
+
+            <h2 data-id="h2_mtex" data-vn="1">模型工具示例</h2>
+            <p data-id="p_h2_mtex" data-vn="1">以下是一些模型工具、导入与导出的用法示例。</p>
+
+            <h3 data-id="h3_mtex_sste" data-vn="1">简化、平滑、贴图并导出模型</h3>
+            <p data-id="p_h3_sste" data-vn="1">
+                这段代码会以正常细节计算模型，简化到 10 万三角面，再平滑、贴图，然后导出结果。
+            </p>
+            <div class="codeSample">
+                RealityScan.exe .... -calculateNormalModel -simplify 100000 -smooth -calculateTexture -exportModel "Model 3" %MyPath%\Object.obj %MyPath%\objParams.xml -save %Mypath%\NewProject.rsproj -quit
+            </div>
+            <p data-id="p_sste_parf" data-vn="1">
+                注意：参数文件可从 <span class="apppanel">Export Model</span> 对话框获取。<br /><br /> 现在工程里有三个模型：第一个是正常模型，第二个是简化后的，第三个是简化并同时平滑、贴图的。默认会选中最后创建的模型用于下一步处理。<br /> 现在可以用 <span class="command">-selectModel</span> 命令按名称选择模型，再用 <span class="command">-exportSelectedModel</span> 导出该模型。下面这段代码会以正常细节计算模型，简化到 10 万三角面，再平滑、贴图，但导出的是第二个模型：
+            </p>
+            <div class="codeSample">
+                RealityScan.exe .... -calculateNormalModel -simplify 100000 -smooth -calculateTexture -selectModel “Model 2” -exportSelectedModel %MyPath%\Object.obj %MyPath%\objParams.xml -save %Mypath%\NewProject.rsproj -quit 
+            </div>
+
+            <h3 data-id="h3_mtex_imtc" data-vn="1">把模型导入组件</h3>
+            <p data-id="p_h3_imtc" data-vn="1">
+                假设你有一个名为 Models 的文件夹，想把其中所有模型导入一个已对齐的工程（并存为新工程）。
+            </p>
+            <div class="codeSample">
+                RealityScan.exe -load %MyPath%\AlignedProject.rsproj -save %MyPath%\NewProject.rsproj -quit<br />
+                for %%s in (%MyPath%\Models\*.obj) do (<br />
+                <div style="padding-left: 20px">
+                RealityScan.exe -load %MyPath%\NewProject.rsproj -selectMaximalComponent -importModel "%%s" -save %MyPath%\NewProject.rsproj -quit
+                </div>
+                )
+            </div>
+            <p data-id="p_imtc_for" data-vn="1">
+                For 循环会遍历所有 .obj 扩展名的文件并把它们加入工程。
+            </p>
+
+            <h3 data-id="h3_mtex_caop" data-vn="1">计算正射投影</h3>
+            <p data-id="p_h3_caop" data-vn="2">
+                用命令创建并导出正射投影时，必须附上包含所有必需参数的文件。
+            </p>
+            <div class="codeSample">
+                RealityScan.exe .... -calculateNormalModel -calculateOrthoProjection %MyPath%\params.rsortho -exportOrthoProjection %MyPath%\ortho.tiff exportOrthoParams.xml -save %MyPath%\MyProject.rsproj -quit
+            </div>
+            <p data-id="p_h3_obfi" data-vn="2">
+                在图形界面导出正射投影时，把 <span class="appproperty">Export projection parameters file</span> 设为 <span class="appproperty">True</span>，即可获得 <span class="command">params.rsortho</span> 文件。想了解更多导出与导入参数文件的内容，请访问 <a href="../tools/xmlparamsfiles.htm">this page</a>。
+            </p>
+            
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_bc" class="blocksContainer">
+
+            <a href="../tutorials/commandline.htm">
+                <div class="block TileColor1">
+                    <h2 data-id="h2_bc_pric" data-vn="1">工程与图像命令</h2>
+                    <p data-id="p_h2_bc_pric" data-vn="1">通过 CLI 管理当前工程、应用本身，以及添加图像</p>
+                </div>
+            </a>
+
+            <a href="../tutorials/commandline_rscmd.htm">
+                <div class="block TileColor1">
+                    <h2 data-id="h2_bc_out" data-vn="1">命令行之外的命令执行方式</h2>
+                    <p data-id="p_h2_bc_out" data-vn="2">用 .rscmd 文件执行 CLI</p>
+                </div>
+            </a>
+            
+            <a href="../tutorials/commandline_deleg.htm">
+                <div class="block TileColor1">
+                    <h2 data-id="h2_bc_del" data-vn="1">命令委派</h2>
+                    <p data-id="p_bc_del" data-vn="2">关于把命令委派给已打开的 RealityScan 实例</p>
+                </div>
+            </a>            
+
+            <a href="../tutorials/commandline_1.htm">
+                <div class="block TileColor1">
+                    <h2 data-id="h2_bc_alco" data-vn="1">对齐命令</h2>
+                    <p data-id="p_h2_bc_alco" data-vn="1">对齐与组件处理命令</p>
+                </div>
+            </a>
+
+            <a href="../tutorials/commandline_2.htm">
+                <div class="block TileColor1">
+                    <h2 data-id="h2_bc_reco" data-vn="1">重建命令</h2>
+                    <p data-id="p_h2_bc_reco" data-vn="1">通过命令行计算模型</p>
+                </div>
+            </a>
+
+            <a href="../tutorials/commandline_4.htm">
+                <div class="block TileColor2">
+                    <h2 data-id="h2_bc_apse" data-vn="1">继续</h2>
+                    <p data-id="p_h2_bc_apse" data-vn="1">应用设置与行为</p>
+                </div>
+            </a>
+
+            <a href="../tutorials/commandline_5.htm">
+                <div class="block TileColor1">
+                    <h2 data-id="h2_bc_erha" data-vn="1">错误处理命令</h2>
+                    <p data-id="p_h2_bc_erha" data-vn="1">用于处理潜在错误的命令</p>
+                </div>
+            </a>
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sa" class="rowblock">
+            <h3 data-id="h3_sa" data-vn="1">另见：</h3>
+            <ul class="intend">
+                <li data-id="li_sa_moex" data-vn="1">了解模型导出 <a href="../tools/export.htm">点击此处</a></li>
+                <li data-id="li_sa_moim" data-vn="1">了解模型导入 <a href="../tools/import.htm">点击此处</a></li>
+                <li data-id="li_sa_optu" data-vn="1">查看正射投影教程 <a href="../tutorials/orthophoto.htm">点击此处</a></li>
+                <li data-id="li_sa_allc" data-vn="1">在一页中查看全部 CLI 命令 <a href="../appbasics/allcommands.htm">点击此处</a></li>
+            </ul>
+        </div>
+    <!-- content slide end -->
+
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+    <script type="text/javascript">
+        InitializeTutorialMode();
+    </script>
+
+
+</body>
+</html>
+<!-- signature:3jK9MOSkYundnfNaib2ixmHsZPUqFUGxGazuLkO1jzCoMlNaxAlwo+tOIlQvKNINkcon3S9HZfq6aNHh0crhil2LhGIK3q3EyVulwdDMWLrYEHnq8I1JSUPMz1FFhMcEFlGb43mkJSbrp30+P2LnhDTIHqKhw+/rZ1idVG2TDi0= -->

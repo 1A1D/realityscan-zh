@@ -1,0 +1,151 @@
+<html>
+<head>
+    <title>RealityScan 帮助</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Epic Games Slovakia s.r.o." />
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <link type="text/css" rel="stylesheet" href="../../styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/colors.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css" />
+    <script src="../scripts/textVars.js" type="text/javascript"></script>
+    <script src="../../scripts/localization.js" type="text/javascript"></script>
+    <script src="../../scripts/main.js" type="text/javascript"></script>
+</head>
+<body ondragstart="return false;">
+
+    <div data-id="div_cs" class="content_slide">
+
+        <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head" class="head">
+
+            <h1 data-id="h1" data-vn="1">简化</h1>
+            <p data-id="p_h1" data-vn="3">
+               再来看一个能让工作事半功倍的强力工具。请注意，只有在完成重建并选中模型后，<span class="apptool">Simplify</span> 工具才会激活。它位于应用功能区的 <span class="appribbon">SCENE 3D</span>/<span class="appribbon">TOOLS</span> 选项卡中。
+            </p>
+
+            <div style="padding: 10px 10px 10px 0px"><img src="images/Before-and-After-Simplify.jpg" alt="Before-and-After-Simplify" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/Before-and-After-Simplify.jpg';"/></div>
+        </div>
+
+        <div data-id="div_sb_sito" class="slideblock">
+
+            <h2 data-id="h2_sito" data-vn="1">简化工具</h2>
+
+            <p data-id="p_h2_sito" data-vn="1">该工具可减少模型三角面数量，把近似平坦的表面连通起来——例如一面由 1,000 个三角面组成的墙会被替换成等效的 2 个三角面。</p>
+
+            <ul>
+                <li data-id="li_sito_redu" data-vn="1">用这个工具减少模型三角面数，可以让模型体积更小。</li>
+                <li data-id="li_sito_nmdf" data-vn="1">请注意，该工具不会修改已有的模型，而是生成一个精简后的新模型，新模型会丢失纹理、只保留颜色。可在 <span class="appaspecttype">1D</span> 场景视图中切换模型。</li>
+                <li data-id="li_sito_menu" data-vn="2"><span class="appgesture">点击</span> <span class="apptool">Simplify</span> 工具后，其菜单会在 <span class="appaspecttype">1Ds</span> 窗口中出现。</li>
+            </ul>
+
+            <br />
+
+            <div style="padding: 10px 10px 10px 0px"><img src="images/Simplify-Tool-menu.png" alt="Simplify-Tool-menu" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/Simplify-Tool-menu.png';"/></div>
+
+            <br />
+
+            <ul class="apppanelitems">
+                <li data-id="li_sito_type" data-vn="2" class="apppanelitem">
+                    <span class="appproperty">Type</span> 可从四种简化模式中选择：
+                </li>
+                <li data-id="li_sito_abs" data-vn="2" class="apppanelitem">
+                    &emsp;<span class="appproperty">Absolute</span> 按 <span class="appproperty">Target triangle count</span> 执行，把模型简化到指定的三角面数——推荐做法。
+                </li>
+                <li data-id="li_sito_rel" data-vn="2" class="apppanelitem">
+                    &emsp;<span class="appproperty">Relative</span> 依据 <span class="appproperty">Target triangles percentage</span> 执行，把模型简化到原模型三角面数的指定百分比。
+                </li>
+                <li data-id="li_sito_max" data-vn="2" class="apppanelitem">
+                    &emsp;<span class="appproperty">Maximum of absolute and relative</span> 取 <span class="appproperty">Absolute</span> 与 <span class="appproperty">Relative</span> 两种方式中较大的三角面数。
+                </li>
+                <li data-id="li_sito_min" data-vn="2" class="apppanelitem">
+                    &emsp;<span class="appproperty">Minimum of absolute and relative</span> 取 <span class="appproperty">Absolute</span> 与 <span class="appproperty">Relative</span> 两种方式中较小的三角面数。
+                </li>
+                <li data-id="li_sito_minel" data-vn="3" class="apppanelitem">
+                    <span class="appproperty">Minimal edge length</span> 受影响的边不会短于此阈值。达到目标边长时简化就停止。
+                </li>
+                <li data-id="li_sito_coos" data-vn="2" class="apppanelitem">
+                    <span class="appproperty">Coordinate system</span> 与 <span class="appproperty">Unit type</span> 按所设坐标系显示单位。此处仅供查看，数值不能修改。
+                </li>
+                <li data-id="li_sito_pame" data-vn="2" class="apppanelitem">
+                    <span class="appproperty">Part merging</span> 设为“Disable”时保留原有模型分块；设为“Enable”时，模型分块会尽可能合并成适合后续处理的较大分块（分块数量减少）；选“Create a singleton”会强制模型只有一个分块。建议仅对三角面数小于数百万的模型使用该选项。
+                </li>
+                <li data-id="li_sito_boce" data-vn="1" class="apppanelitem">
+                    <span class="appproperty">Border Decimation</span> 可选“Simplify the border”，边界也会被简化；或选“Keep border intact”，沿边界保留原模型的所有顶点。做非常极端的简化时不建议选后者。 
+                </li>
+                </ul>
+
+                <div class="slideShow" style="padding: 10px 0px 10px 0px">
+                    <ul class="slideShowSlidesContainer">
+                        <li><figure> <img src="images/simplify_border_original.jpg" alt="simplify_border_original" onerror="this.onerror=null;this.src='../../en-US/tools/images/simplify_border_original.jpg';"/> <figcaption>原模型</figcaption> </figure></li>
+                        <li><figure> <img src="images/simplify_border_intact.jpg" alt="simplify_border_intact" onerror="this.onerror=null;this.src='../../en-US/tools/images/simplify_border_intact.jpg';"/> <figcaption>保持完整边界</figcaption> </figure></li>
+                        <li><figure> <img src="images/simplify_border_simplified.jpg" alt="simplify_border_simplified" onerror="this.onerror=null;this.src='../../en-US/tools/images/simplify_border_simplified.jpg';"/> <figcaption>简化边界</figcaption> </figure></li>
+                    </ul>
+                </div>
+                <ul class="apppanelitems">
+                <li data-id="li_sito_deeq" data-vn="2" class="apppanelitem">
+                    <span class="appproperty">Density Equalization</span> 确保多分块模型中所有已简化分块的顶点密度一致。禁用时，各分块顶点密度可能不同，导致分块之间出现可见接缝，在 <span class="appribbonbutton">Vertices</span> 渲染模式下最明显。启用后计算时间会变长，因此对特别大的模型可以考虑禁用。
+                </li>
+                </ul>
+                    <div style="padding: 10px 10px 10px 0px"><img src="images/simplify-density_enabled.png" alt="simplify-density_enabled" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/simplify-density_enabled.png';"/></div>
+                    <div style="padding: 10px 10px 10px 0px"><img src="images/simplify-density_disabled.png" alt="simplify-density_disabled" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/simplify-density_disabled.png';"/></div>
+                
+                <ul class="apppanelitems">
+                <li data-id="li_sito_core" data-vn="2" class="apppanelitem">
+                    <span class="appproperty">Color reprojection</span> 启用/禁用把源模型的颜色图层重投影到简化模型上。
+                </li>
+                <li data-id="li_sito_nore" data-vn="2" class="apppanelitem">
+                    <span class="appproperty">Normal reprojection</span> 启用/禁用把源模型的法线图层重投影到简化模型上。第三个选项 Automatic 表示仅在合理时才重投影法线图层。
+                </li>
+            </ul>
+            <br/>
+            
+            <h3 data-id="h3_uvpar" data-vn="1">展开参数</h3>
+            <p data-id="p_sito_unwpars" data-vn="2">
+                <span class="appproperty">Maximal texture count</span> 选择用于定义简化模型最多纹理数量的选项。可与源模型相同，也可设为自定义值。<br /> <span class="appproperty">Custom maximal count</span> 当 <span class="appproperty">Maximal texture count</span> 选了自定义值时显示此设置。<br /> <span class="appproperty">Texture resolution</span> 选择用于定义投影到简化模型上每张纹理分辨率的选项。可与源模型相同，也可自定义最小值与最大值。<br /> <span class="appproperty">Custom minimal resolution</span> 当 <span class="appproperty">Texture resolution</span> 选了自定义值时显示此设置，可从预定义分辨率列表中选择纹理的最小分辨率。<span class="appproperty">Custom maximal resolution</span> 当 <span class="appproperty">Texture resolution</span> 选了自定义值时显示此设置，可从预定义分辨率列表中选择纹理的最大分辨率。
+            </p>
+
+            <ul>
+                <li data-id="li_sito_clbu" data-vn="1">
+                    设置完成后，<span class="appgesture">点击</span>面板底部的 <span class="appbutton">simplify</span> 按钮。
+                </li>
+            </ul>
+
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_Bc" class="blocksContainer">
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sa" class="rowblock">
+            <h3 data-id="h3_sa" data-vn="1">另见：</h3>
+            <ul class="intend">
+                <li data-id="li_sa_trrm" data-vn="1">如何选择重建模型中的三角面，<a href="../appbasics/reconselection.htm">点击此处</a></li>
+            </ul>
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+        <!-- content slide end -->
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+    <script type="text/javascript">
+        InitializeHelpSlide();
+    </script>
+</body>
+</html>
+<!-- signature:bvwxrWrt/ePvc/CAiQABLO1jqAp5tId1U+3xRLeoWRowWHdNTItFSqiKs9ur9iMx3j6dBd8HxegG0eZO4JGqxXTPUQr8fU9FI7LaitUWibrMVS6kpJaQ386GGxE2w3VnNtioNI5RKQXNLpSLQlqV3VSejXbDQVJanwzgEU5bTD0= -->

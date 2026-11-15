@@ -1,0 +1,265 @@
+<html>
+<head>
+    <title>RealityScan 帮助</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Epic Games Slovakia s.r.o." />
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <link type="text/css" rel="stylesheet" href="../../styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/colors.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css" />
+    <script src="../scripts/textVars.js" type="text/javascript"></script>
+    <script src="../../scripts/localization.js" type="text/javascript"></script>
+    <script src="../../scripts/main.js" type="text/javascript"></script>
+</head>
+<body ondragstart="return false;">
+
+    <div data-id="div_cs" class="content_slide">
+
+        <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head" class="head">
+
+            <h1 data-id="h1" data-vn="1">调整着色与纹理设置</h1>
+
+            <p data-id="p_h1" data-vn="3">
+                若要调整模型着色/纹理的任何参数，可在 <span class="appribbon">MESH &amp; COLOR</span> 选项卡的 <span class="apppanel">Color &amp; Texture</span> 区域找到两者的 <span class="appribbonbutton">Settings</span>。
+            </p>
+
+        </div>
+
+        <div data-id="div_sb_info" class="slideblock">
+            <p data-id="p_info" data-vn="2">
+                纹理及其质量在很大程度上取决于 UV 的生成方式。RealityScan 提供的方式是按坐标系单位定义所需纹素大小（例如纹素为 5mm），也可以设定最大纹理分辨率和可用于给模型贴图的纹理数量。此外，也可以随模型导入 UV 坐标（<a href="import.htm">了解更多</a>）。
+            </p>
+        </div>
+
+        <br/>
+
+        <div data-id="div_sb_deup" class="slideblock">
+
+            <h2 data-id="h2_deup" data-vn="1">默认展开UV参数</h2>
+            <p data-id="p_h2_deup_1" data-vn="1">
+                可以修改纹理工序前默认使用的展开UV参数（用于模型尚未展开UV的情况）。目前有两种方法：<span class="appproperty">Geometric</span> 与 <span class="appproperty">Mosaicing based</span>。Geometric 是传统的快速展开法；Mosaicing based（实验性）是新方法，产生的 UV 岛更少，但比几何法慢。                                                                
+            </p>
+
+            <img src="images/Color-and-Texture-Options-1.png" alt="Color-and-Texture-Options-1" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/Color-and-Texture-Options-1.png';">
+
+            <br/>
+            <br/>
+
+            <ul>
+                <li data-id="li_mtcs_gutt" data-vn="1">
+                    <span class="appproperty">Gutter</span> 表示纹理图中每个图表边框的像素数。Gutter 对于避免渲染时模型上出现可见瑕疵很重要。许多渲染引擎使用 mipmap 等技术，把纹理逐级缩小形成图像金字塔；当引擎从较高层级渲染纹理时，插值过程中一个图表的颜色可能渗到另一个图表里 —— 只要图表之间的 gutter 不够大就会发生。默认值 2 在多数渲染引擎中足以避免此类瑕疵。
+                </li>
+                <li data-id="li_mtcs_mitr" data-vn="1"><span class="appproperty">Minimal texture resolution</span> 设置展开UV的最小分辨率，可选 512x512、1024x1024、2048x2048、4096x4096、8192x8192 或 16384x16384。该值不能高于 <span class="appproperty">Maximal texture resolution</span>。</li>
+                <li data-id="li_mtcs_mxtr" data-vn="2"><span class="appproperty">Maximal texture resolution</span> 设置展开UV的最大分辨率，可选 512x512、1024x1024、2048x2048、4096x4096、8192x8192 或 16384x16384。该值不能低于 <span class="appproperty">Minimal texture resolution</span>。</li>
+                <li data-id="li_mtcs_ltrt" data-vn="2"><span class="appproperty">Large triangle removal threshold</span> 指定控制大三角面如何展开的阈值。若某三角面的边长乘以该值后仍超过模型的平均边长，该三角面就会被映射到单个纹素。例如设为 400，意味着边长超过模型平均边长 400 倍的三角面会被映射为一个纹素。</li>
+                <li data-id="li_mtcs_meth" data-vn="1"><span class="appproperty">Unwrap method</span> 定义展开模型UV所用的方法，可在 <span class="appproperty">Geometric</span> 与 <span class="appproperty">Mosaicing based</span> 之间选择。</li>
+                <li data-id="li_mtcs_styl" data-vn="2"><span class="appproperty">Style</span> 定义基于所选 <span class="appproperty">Unwrap method</span> 构建 UV 的策略。</li>
+                <li data-id="li_mtcs_defrg" data-vn="2"><span class="appproperty">Defragment charts</span> 启用后会在展开过程中使用 Maggiordomo、Cignoni 与 Tarini 的方法生成更大的 UV 岛（<a href="https://vcg.isti.cnr.it/publication/2021/MCT21/" target="_blank">了解更多</a>）。</li>
+            </ul>            
+            
+            <br/>
+            
+            <div data-id="div_im_nuvm" data-vn="1" class="importantMessage">
+                警告：仅当对象不含 UV 贴图、且你按下 
+                <span class="appribbonbutton">Texture</span> <span class="appshortcut">(F9)</span> 按钮时，才会使用默认展开参数。若模型已有贴图而要重新计算展开，请使用 <span class="apptool">Unwrap</span> tool.
+            </div>
+
+        </div>    
+        
+            <br/>
+
+        <div data-id="div_sb_geo" class="slideblock">
+        
+            <h2 data-id="h2_geo" data-vn="1">几何展开法</h2>
+                <p data-id="h2_geo_p" data-vn="1">使用几何法时，可以设置最大纹理数量，或控制纹素大小。</p>
+
+                <h3 data-id="h3_deup_mtcs" data-vn="1">最大纹理数量模式</h3>
+                <p data-id="p_mtcs_rcot" data-vn="2">
+                    当你需要把模型限制在特定纹理数量时，这个模式很有用。把 <span class="appproperty">Style</span> 设为 <span class="appproperty">Maximal texture count</span>，就会出现 <span class="appproperty">Maximal texture count</span> 设置。纹素细节会自动调整，使纹理在所选最大分辨率下刚好放进指定的最大纹理数量。
+                </p>
+               
+                <h3 data-id="li_deup_cots" data-vn="1">控制纹素大小</h3>
+                <p data-id="p_cots_pvip" data-vn="2">
+                    若目标是交付具有预定视觉精度的模型（例如为生成真正的正射影像而采用 1cm 分辨率），请使用 <span class="appproperty">Fixed texel size</span> 或 <span class="appproperty">Adaptive texel size</span> 模式。纹理数量会按所选纹素大小所需的量自动生成。
+                </p>
+
+                <p data-id="p_cots_cose" data-vn="1">两种展开模式有部分共用设置，以下是与此相关的设置：</p>
+                <ul>
+                    <li data-id="li_cots_cosy" data-vn="1"><span class="appproperty">Coordinate system</span> 定义作为测量单位依据的参考坐标系。要更改此值，请修改项目坐标系（<a href="../appbasics/coordinatesystem.htm">了解更多</a>）。 </li>
+                    <li data-id="li_cots_unty" data-vn="1"><span class="appproperty">Unit type</span> 显示所选坐标系的单位，例如 meter、inch；若单位类型未知则显示 "units"。</li>
+                    <li data-id="li_cots_txls" data-vn="1">
+                        <span class="appproperty">Texel size</span> 在此设置纹理像素的尺寸。使用自定义选项时，若坐标系单位是米，把该值设为 0.01 即得到 1cm 的纹素。模型计算完成后，可用 <span class="apptool">Unwrap</span> 工具估算合理的最小分辨率。
+                    </li>
+                </ul>
+
+                <br/>
+                                                                                                                                                                             
+                <p data-id="p_cots_scst" data-vn="2">
+                    实际应用中，例如扫描广场上的雕像时，你可能希望雕像附近细节更细、其他地方保持 1cm 细节。这时可选 <span class="appproperty">Adaptive texel size</span> 模式，在其中定义纹理必须落入的范围。RealityScan 的展开算法会结合三维模型、相机位姿和输入分辨率计算最优纹素大小，并把估算值限制在以下范围：
+                </p>
+                <ul>
+                    <li data-id="li_cots_mnts" data-vn="1"><span class="appproperty">Minimal required texel size</span> 纹素的最小尺寸。使用高分辨率相机在不同物体间拍摄时，用它可避免浪费纹理像素。</li>
+                    <li data-id="li_cots_mxts" data-vn="1"><span class="appproperty">Maximal required texel size</span> 定义纹素的最大尺寸，即不会出现更大的纹素。若之后要在纹理上绘制，这个设置很实用。</li>
+                </ul>
+
+            <br/>
+
+        </div>
+
+        <br/>
+        
+        <div data-id="div_sb_mosaic" class="slideblock">
+        
+            <h2 data-id="h2_mosc" data-vn="1">基于镶嵌的展开法</h2>
+        
+                <p data-id="h2_mosc_p" data-vn="1">基于镶嵌的展开有另一套 <span class="appproperty">Style</span> 选项，可在 <span class="appproperty">Maximal texture count</span> 与 <span class="appproperty">Quality</span> 之间选择。</p>
+        
+                <ul>
+                    <li data-id="li_mosc_mtcn" data-vn="1"><span class="appproperty">Maximal texture count</span> 当你需要把模型限制在特定纹理数量时，这个模式很有用。 </li>
+                    <li data-id="li_mosc_qlty" data-vn="1"><span class="appproperty">Quality</span> 从预定义质量档中选择，或自定义数值。</li>
+                </ul>
+            
+        </div>
+
+        <br/>
+
+        <div data-id="div_sb_iuvm" class="slideblock">
+        
+        <h2 data-id="h2_cats" data-vn="1">颜色与纹理设置</h2>
+        
+            <p data-id="p_h2_cats" data-vn="1">
+                在着色与纹理设置中，可以设定导入纹理的分辨率，以及影响纹理与着色过程的各种参数。
+            </p>
+        
+            <img src="images/Color-and-Texture-Options-2.png" alt="Color-and-Texture-Options-2" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/Color-and-Texture-Options-2.png';">
+        
+            <br/>
+            <br/>
+        
+
+            <h3 data-id="h2_iuvm" data-vn="1">导入的 UV 贴图</h3>
+            <p data-id="p_h2_iuvm" data-vn="1">
+                导入的模型（<a href="import.htm">了解更多</a>）可能已带 UV 坐标，此时不必也不建议重新计算。不过导入时纹理分辨率可能无法确定，例如缺少占位纹理文件时。
+            </p>
+
+            <ul>
+                <li data-id="li_iuvm_imdr" data-vn="2"><span class="appproperty">Imported-model default texture resolution</span> 导入纹理分辨率未知的模型时使用的默认值，可选 512x512、1024x1024、2048x2048、4096x4096、8192x8192 或 16384x16384。以 FBX 格式导入模型时此设置会被忽略。</li>
+            </ul>
+
+            <br/>
+
+
+            <h3 data-id="h3_teal" data-vn="1">纹理算法</h3>
+            <p data-id="p_h2_teal" data-vn="1">
+                用以下设置配置额外的纹理与着色选项。
+            </p>
+
+            <ul>
+                <li data-id="li_teal_come" data-vn="1"><span class="appproperty">Coloring method</span> Linear 取平均值。Multi-band（默认）使用多个通道，把图像分解为多个频率分量后再合并：低频分量承载颜色与亮度，可在大范围内线性合并；高频分量承载细节（例如纹理颗粒尺度），用另一种优化方式合并。</li>
+                <li data-id="li_teal_txst" data-vn="3"><span class="appproperty">Coloring style</span> Visibility-based 模式快速且锐利；Photo-consistency based 模式较慢，但结果更复杂精细。</li>
+                <li data-id="li_teal_coil" data-vn="3"><span class="appproperty">Coloring image layer</span> 选择用于着色的图像图层，默认使用几何图层。 </li>
+                <li data-id="li_teal_texs" data-vn="1"><span class="appproperty">Texturing style</span> Visibility-based 模式快速且锐利；Photo-consistency based 模式较慢，结果更复杂。Mosaicing based（实验性）把模型表面划分为若干区域，每个区域用单一图像源贴图，再在接缝处融合 —— 这与「对多个图像源取平均来生成纹理」的融合方式不同。它生成的纹理比 Visibility-based 更锐利，但更慢，也不建议用于较大的数据集。Maximal、Minimal 和 Average intensity 会根据能看到该点的所有相机，为点赋予强度值（单色）。 </li>
+                <li data-id="li_teal_tlay" data-vn="1"><span class="appproperty">Texturing image layer</span> 选择用于纹理的图像图层，默认使用几何图层。</li>
+                <li data-id="li_teal_dibt" data-vn="1"><span class="appproperty">Downscale images before texturing</span> 此处填写的数字是纹理计算前自动缩小图像的倍数。填 1 表示不缩放（100% 分辨率），填 2 表示图像每边缩小一半（原分辨率的 25%），以此类推。</li>
+                <li data-id="li_teal_dibc" data-vn="1"><span class="appproperty">Downscale images before coloring</span> 该数字用于在着色前缩小原图，作用同上。推荐值与默认值均为 2。</li>
+                <li data-id="li_teal_fiup" data-vn="1"><span class="appproperty">Fill in uncolored / untextured parts</span> 该功能特别适合检查覆盖情况 —— 当模型中有些部分未被相机或激光扫描覆盖时。设为 True 后，应用会智能填补输入图像未覆盖的模型区域。</li>
+                <li data-id="li_teal_rmat" data-vn="1"><span class="appproperty">Recolor model after texturing</span> 启用后会从纹理计算顶点色 —— <b>只需点击一次 </b><span class="appribbonbutton">Texture</span> <span class="appshortcut">(F9)</span> 即可同时得到着色与纹理。</li>
+                <li data-id="li_teal_corc" data-vn="1"><span class="appproperty">Correct colors</span> 自动补偿所选组件中所有图像之间的颜色、亮度和对比度差异。</li>
+                <li data-id="li_teal_igcc" data-vn="1"><span class="appproperty">Ignore color correction</span> 在着色/纹理计算时忽略图像的颜色校正。</li>
+                <li data-id="li_teal_pr16" data-vn="1"><span class="appproperty">Prefer 16-bit/HDR textures generation</span> 详情参见 <a href="importhdr.htm">16 位与 HDR 图像</a>。</li>
+            </ul>
+        </div>
+
+        <br/>
+
+        <div data-id="div_im_outp" data-vn="1" class="importantMessage">
+            提示：模型着色和/或贴图完成后，就可以通过渲染截图查看效果、创建正射投影和/或导出了。
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sb_tpat" class="slideblock">
+
+            <h2 data-id="h2_tpat" data-vn="1">已贴图模型的纹理属性</h2>
+            <p data-id="p_h2_tpat" data-vn="1">
+                模型展开UV、贴图或导入后，可以查看以下纹理属性：在 <span class="appaspecttype">1Ds</span> 视图中选中模型，会出现该模型的面板，展开其中的 <span class="appproperty">Texturing</span> 分组即可。 
+            </p>
+
+            <ul>
+                <li data-id="li_tpat_cost" data-vn="1"><span class="appproperty">Coloring style</span> 着色/纹理采用的风格或执行方式。</li>
+                <li data-id="li_tpat_uwst" data-vn="1"><span class="appproperty">Unwrapping style</span> 所使用的展开UV模式。</li>                 
+                <li data-id="li_tpat_uwmt" data-vn="1"><span class="appproperty">Unwrap method</span> 所使用的展开UV方法。</li>       
+                <li data-id="li_tpat_coot" data-vn="1"><span class="appproperty">Count of textures</span> 纹理数量。</li>
+                <li data-id="li_tpat_tere" data-vn="1"><span class="appproperty">Texture resolution</span> 纹理分辨率。所有纹理的分辨率必须相同。</li>
+                <li data-id="li_tpat_chgs" data-vn="1"><span class="appproperty">Chart gutter size</span> 纹理图中每个图表边框的像素数。</li>
+                <li data-id="li_tpat_tuwg" data-vn="1"><span class="appproperty">Texture utilization (with gutter)</span> 已使用纹素的百分比。</li>
+                <li data-id="li_tpat_opts" data-vn="1"><span class="appproperty">Optimal texel size</span> 与图像可捕获的最小细节相对应的三维纹素尺寸。</li>
+                <li data-id="li_tpat_tequ" data-vn="1"><span class="appproperty">Texture quality</span> 等于纹素尺寸相对最优纹素尺寸的百分比，反映纹理细节相对图像可提供的最大细节的水平。</li>
+                <li data-id="li_tpat_tesi" data-vn="1"><span class="appproperty">Texel size</span> 三维纹素的尺寸（实际单位）。</li>
+            </ul>
+        </div>
+
+        <br/>
+
+        <div class="slideblock">
+
+            <h2 data-id="h2_txly" data-vn="1">纹理图层</h2>
+            <p data-id="p_h2_txly" data-vn="2">
+                完成展开UV或纹理后，可在 <span class="appaspecttype">1Ds</span> 视图中模型下方的 <span class="apptree">Model Textures</span> 里选择纹理图层。 
+            </p>
+
+            <img src="images/Color-and-Texture-Options-3.png" alt="Color-and-Texture-Options-3" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/Color-and-Texture-Options-3.png';">
+
+            <br/><br/>
+
+            <p data-id="p_txly_info" data-vn="1">
+                <span class="apppanel">Selected Texture Layer</span> 面板显示创建该纹理图层时所用的设置。点击图层的 <span class="appproperty">Name</span> 并输入新名称即可改名。
+            </p>
+
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <br/>
+
+        <div data-id="div_bc" class="blocksContainer">
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sa" class="rowblock">
+            <h3 data-id="h3_sa" data-vn="1">另见：</h3>
+            <ul class="intend">
+                <li data-id="li_sa_imuv" data-vn="1">了解如何导入 UV 贴图 <a href="import.htm">点击此处</a></li>
+                <li data-id="li_sa_chuv" data-vn="1">了解如何为已贴图模型更换 UV <a href="../tools/unwrap.htm">点击此处</a></li>
+            </ul>
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+        <!-- content slide end -->
+
+    </div>
+
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+    <script type="text/javascript">
+        InitializeTutorialMode();
+    </script>
+
+</body>
+</html>
+<!-- signature:u01o+iAkopOLfKEuRgroLf82pCCYwrGSQEcrKScS8kyLqS8lGdlbv9mtFXkoPIPt8dte+s1CzCaoj1NmxapciluuVGdyld85aZ54jumoL4feRV8ks31EY7bPvYsqcfiM64k+UDaUCgC1eaurpB4JiiF5LGmQL+o+u+hyq/Gjirw= -->

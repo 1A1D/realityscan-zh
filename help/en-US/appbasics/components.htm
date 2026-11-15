@@ -1,0 +1,147 @@
+<html>
+    <head>
+        <title>RealityScan 帮助</title>
+        <meta charset="UTF-8"/>
+        <meta name="author" content="Epic Games Slovakia s.r.o."/>
+        <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/style.css"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/colors.css"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css"/>
+        <script src="../scripts/textVars.js" type="text/javascript"></script>
+        <script src="../../scripts/localization.js" type="text/javascript"></script>
+        <script src="../../scripts/main.js" type="text/javascript"></script>
+    </head>
+    <body>
+
+
+        <div data-id="div_cs" class="content_slide">
+
+            <!-- content slide -->
+            <script type="text/javascript">RenderToolNavigation();</script>
+
+            <div data-id="div_head" class="head">
+
+                <h1 data-id="h1" data-vn="2">组件工作流</h1>
+
+                <p data-id="p_h1" data-vn="1">组件是模型的一部分 —— 一组对齐到一起的图像。有时对齐后会得到多个组件，原因可能是照片集中含有多个互不相连的物体、物体纹理太弱、图像数量不足，或视角变化过大。</p>
+            </div>
+
+            <div data-id="div_sb_merge" class="slideblock">
+
+                <h2 data-id="h2_merge" data-vn="1">合并或修复场景</h2>
+
+                <p data-id="p_h2_merge" data-vn="1">组件有多种用途，其中最重要的几项是：</p>
+                <ul>
+                    <li data-id="li_merge_create" data-vn="1">把场景拆成小块来创建、逐块检查，之后再合并成一个整体。
+                        <p data-id="p_li_merge_create" data-vn="1">
+                           有时把任务先拆小再合并会更方便，尤其是在做大型重建时。比如你在扫描一座城堡：可以先分别对齐每个房间的照片，再把房间合并成楼层，把楼层合并成完整内部，最后把内部与外部合并。需要多台电脑并行处理时，使用组件格外有用。组件框架只保留与组件连接相关的信息、而不是全部输入数据，因此在计算资源有限的情况下也能高效地创建超大型重建。</p>
+                    </li>
+                    <li data-id="li_merge_correct" data-vn="2">To correct an existing scene, e.g. cracks on walls.
+                        <p data-id="p_li_merge_correct" data-vn="3">场景里有时会出现一些不需要的瑕疵，原因可能是反光、图像缺失、对齐错误等等。借助组件框架，可以把场景中有问题的部分选中并导出为一个组件，再把这个组件导入一个空场景，通过添加控制点、补充图像或添加约束的方式单独修复，最后把修好的组件导回原场景并按下 <span class="appbutton">Align Images</span> 按钮。RealityScan 引擎会把修正后的组件中的修复应用过来。</p>
+                    </li>
+                </ul>
+            </div>
+
+            <br/>
+
+            <div data-id="div_sb_export" class="slideblock">
+                <h2 data-id="h2_export" data-vn="1" id="ExportComponent">导出组件</h2>
+                <p data-id="p_h2_export" data-vn="1">任意一组已对齐的相机都可以导出为组件。</p>
+                <ul>
+                    <li data-id="li_export_select" data-vn="1">选择要导出的模型部分（图像 / 相机 / 点）。若要导出全部组件，保持选择为空。</li>
+                    <li data-id="li_export_export" data-vn="2">要导出组件，请<span class="appgesture">点击</span> <span class="appribbon">ALIGNMENT</span> 选项卡 <span class="apppanel">Export</span> 区域中的 <span class="appribbonbutton">Registration</span> 按钮。</li>
+                    <li data-id="li_export_save" data-vn="2">弹出的是几种另存格式。<b>导出组件时务必选第一个（RealityScan alignment component —— 只有它保留应用的全部特性）</b>，输入名称、选择目标文件夹，然后<span class="appgesture">点击</span> <span class="appmenuitem">Save</span>：</li>
+                </ul>
+
+                <div style="padding: 20px 10px 10px 25px"><img src="images/Save-Component-As.png" alt="Save-Component-As" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/appbasics/images/Save-Component-As.png';"/></div>
+
+                <ul>
+                    <li data-id="li_export_complete" data-vn="1">当前选择为空、或只选中一台相机时，会导出完整组件。</li>
+                </ul>
+                <ul>
+                    <li data-id="li_export_cpoints" data-vn="1">若组件上放置了控制点，它们也会随组件一起导出。</li>
+                </ul>
+                
+            </div>
+
+            <br/>
+
+            <div data-id="div_sb_import" class="slideblock">
+
+                <h2 data-id="h2_import" data-vn="1" id="ImportComponent">导入组件</h2>
+                <p data-id="p_h2_import" data-vn="2">RealityScan 对齐组件实际上是一个小型场景文件，内含图像列表、图像属性、相机位姿等。你可以向项目添加任意多个组件。组件中也可能包含重复的图像或点。 </p>
+                <ul>
+                    <li data-id="li_import_find" data-vn="2">要导入组件，找到 <span class="appribbon">WORKFLOW</span> 选项卡的 <span class="apppanel">Import Metadata</span> 区域，<span class="appgesture">点击</span> <span class="appribbonbutton">Component</span>。另一种方式是直接把组件文件（保存在磁盘上）<span class="appgesture">拖放</span>到项目的 <span class="appaspecttype">1Ds</span> 视图中。</li>
+                  <li data-id="li_import_note" data-vn="1">注意：导入的组件在 <span class="appaspecttype">1Ds</span> 视图中会带一个小星标。</li>
+                  <li data-id="li_import_cpimport" data-vn="1">若导入组件中的控制点与项目中已有控制点同名但位置不同，导入时会以「导入组件名」为后缀重命名该控制点。</li>
+                </ul>
+            </div>
+
+            <br/>
+
+            <div data-id="div_sb_set" class="slideblock">
+
+                <h2 data-id="h2_set" data-vn="1">与组件相关的实用设置</h2>
+
+                <p data-id="p_h2_set" data-vn="1">根据组件类型，可以选择希望纳入组件新对齐的特征（按每个组件分别设置），从而采用更多组件整合策略。操作位置在选中输入面板的 <span class="appproperty">Features source</span>：</p>
+
+                <img src="images/Features-Source.png" alt="Features-Source" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/appbasics/images/Features-Source.png';"/>
+
+                <br/>
+
+                <ul>
+                    <li data-id="li_set_overlap" data-vn="1">
+                        <span class="appproperty">Merge using overlaps</span> 软件只使用各组件共有的图像/点（在所有组件中都相同）= 两个组件中相同图像的重叠部分，见下方插图。按重叠合并组件能极大加快重建速度，同时降低内存占用。<br/> <br/> <img src="images/Component-Overlap.jpg" alt="Component-Overlap" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/appbasics/images/Component-Overlap.jpg';"/>
+                    </li>
+                    <li data-id="li_set_features" data-vn="1">
+                        <span class="appproperty">Use component features</span> 最常用、最快的一种，内存紧张时尤其有用。选中后，应用只使用导入组件对齐时用到的点，因此创建组件时应尽量让它们有更多共同点。
+                    </li>
+                    <li data-id="li_set_all" data-vn="1">
+                        <span class="appproperty">Use all image features</span> 三种方式中最慢，适合相机位姿数量不多的情况。程序会使用全部图像/点。
+                    </li>
+                </ul>
+            </div>
+
+            <br/>
+
+            <div class="clear splitSpacing">
+                <!-- clear -->
+            </div>
+
+            <div data-id="div_bc" class="blocksContainer">
+
+                <a href="../tutorials/mergecomponents.htm">
+                    <div class="block TileColor3">
+                        <h2 data-id="h2_bc" data-vn="1">合并组件</h2>
+                        <p data-id="p_h2_bc" data-vn="1">了解如何用补充照片或控制点合并组件</p>
+                    </div>
+                </a>
+
+                <script type="text/javascript">RenderBackToStartTile();</script>
+
+            </div>
+
+            <div class="clear">
+                <!-- clear -->
+            </div>
+
+            <div data-id="div_sa" class="rowblock">
+                <h3 data-id="h3_sa" data-vn="1">另见：</h3>
+                <ul class="intend">
+                    <li data-id="li_sa_relset" data-vn="1">相关对齐设置 <a href="alignsettings.htm">点击此处</a>。</li>
+                    <li data-id="li_sa_undit" data-vn="1">为导出创建无畸变图像的流程 <a href="../tools/undistort.htm">点击此处</a>。</li>
+                </ul>
+            </div>
+
+            <!-- content slide end -->
+        </div>
+
+        <script type="text/javascript">RenderCopyrightText();</script>
+
+        <script type="text/javascript">
+            InitializeHelpSlide();
+        </script>
+
+    </body>
+</html>
+<!-- signature:t21GZVAYIUZRuJkKZOMbZ5MfZmwAtaWYviWLC1sm1FzdBDkVyuBZ5azPFldVmv49VQ3uujObbLEqGR5Sf4D+qIrvX8GrTecpXZpm6DLcmURKZO/dP9gqXbZMIeNJ2/wN4LOIpZ6Q37LPMQ0NEsWPL2MoUDYkEZTObVPKdlUCnnc= -->

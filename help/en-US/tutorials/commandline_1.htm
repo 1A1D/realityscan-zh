@@ -1,0 +1,525 @@
+<html>
+<head>
+    <title>RealityScan 帮助</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Epic Games Slovakia s.r.o." />
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <link type="text/css" rel="stylesheet" href="../../styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/colors.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css" />
+    <script src="../scripts/textVars.js" type="text/javascript"></script>
+    <script src="../../scripts/localization.js" type="text/javascript"></script>
+    <script src="../../scripts/main.js" type="text/javascript"></script>
+</head>
+<body ondragstart="return false;">
+
+    <div class="content_slide">
+
+    <!-- content slide -->
+    <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head" class="head">
+
+            <h1 data-id="h1" data-vn="1">对齐命令</h1>
+            <p data-id="p_h1" data-vn="1">
+                以下命令可用于计算相机位姿与标定，以及处理组件与控制点。
+            </p>
+            <table class="tableofcommands">
+                <thead>
+                    <tr data-id="tr_alco_cona" data-vn="1">
+                        <th>命令名称</th>
+                        <th>必需参数</th>
+                        <th>可选参数</th>
+                        <th>说明</th>
+                    </tr>
+                </thead>
+                <tr data-id="tr_alco_alig" data-vn="1">
+                    <td class="command">align</td>
+                    <td class="parameter"></td>
+                    <td class="parameter"></td>
+                    <td>按当前设置对齐图像。</td>
+                </tr>
+                <tr data-id="tr_alco_draf" data-vn="1">
+                    <td class="command">draft</td>
+                    <td class="parameter"></td>
+                    <td class="parameter"></td>
+                    <td>按当前设置以草稿模式对齐图像。</td>
+                </tr>
+                <tr data-id="tr_alco_upda" data-vn="1">
+                    <td class="command">update</td>
+                    <td class="parameter"></td>
+                    <td class="parameter"></td>
+                    <td>用刚性变换更新所有组件与模型，使其符合实际约束与控制点。</td>
+                </tr>
+                <tr data-id="tr_alco_features" data-vn="1">
+                        <td class="command">detectFeatures</td>
+                        <td class="parameter"></td>
+                        <td class="parameter"></td>
+                        <td>按对齐设置执行特征检测。检出的特征会保存到应用缓存中。</td>
+                </tr>
+                <tr data-id="tr_alco_mrgcomp" data-vn="1">
+                    <td class="command">mergeComponents</td>
+                    <td class="parameter"></td>
+                    <td class="parameter"></td>
+                    <td>合并已创建的组件。使用该命令时不会向现有组件添加新图像。</td>
+                </tr>                
+                <tr data-id="tr_alco_exmp" data-vn="1">
+                    <td class="command">exportXMP</td>
+                    <td class="parameter"></td>
+                    <td class="parameter">params.xml</td>
+                    <td>
+                        用当前设置或 params.xml 中的设置（可选参数），以 XMP 格式导出上一次对齐所创建组件的相机元数据。该文件可从 <span class="apppanel">XMP metadata export</span> 对话框导出。组件必须满足 setMinComponentSize 命令定义的条件。<br /> 注意：XMP 文件与对应图像存放在同一文件夹中。
+                    </td>
+                </tr>
+                <tr data-id="tr_alco_exmpsc" data-vn="1">
+                    <td class="command">exportXMPForSelectedComponent</td>
+                    <td class="parameter"></td>
+                    <td class="parameter"></td>
+                    <td>
+                        用当前设置以 XMP 格式导出所选组件的相机元数据。示例见下文“元数据（XMP）导出设置”一节。<br /> 注意：XMP 文件与对应图像存放在同一文件夹中。
+                    </td>
+                </tr>
+                <tr data-id="tr_alco_imco" data-vn="2">
+                    <td class="command">importComponent</td>
+                    <td class="parameter">component.rsalign</td>
+                    <td class="parameter"></td>
+                    <td>从 component.rsalign 文件导入组件。</td>
+                </tr>
+                <tr data-id="tr_alco_importbundler" data-vn="2">
+                    <td class="command">loadBundler</td>
+                    <td class="parameter">filePath</td>
+                    <td class="parameter">params.xml</td>
+                    <td>导入 Bundler 工程。该命令需要 Bundler 文件路径，以及可选的配置文件——该文件保存导入对话框中的场景变换设置，可用于在导入时调整坐标系或应用自定义变换。</td>
+                </tr>
+                <tr data-id="tr_alco_importcolmap" data-vn="2">
+                    <td class="command">loadColmap</td>
+                    <td class="parameter">filePath</td>
+                    <td class="parameter">params.xml</td>
+                    <td>导入 COLMAP 工程。该命令需要 COLMAP 文件路径（三个文本文件中的任意一个），以及可选的配置文件——该文件保存导入对话框中的场景变换设置，可用于在导入时调整坐标系或应用自定义变换。</td>
+                </tr>  
+                
+                
+                <tr data-id="tr_alco_exlc" data-vn="2">
+                    <td class="command">exportLatestComponents</td>
+                    <td class="parameter">folderName</td>
+                    <td class="parameter"></td>
+                    <td>
+                        把上一次对齐创建的组件以 RealityScan 对齐组件（.rsalign）形式导出到指定文件夹。组件必须满足 setMinComponentSize 命令定义的条件。
+                    </td>
+                </tr>
+                <tr data-id="tr_alco_smcs" data-vn="1">
+                    <td class="command">setMinComponentSize</td>
+                    <td class="parameter">size</td>
+                    <td class="parameter"></td>
+                    <td>指定 exportLatestComponents 与 exportXMP 命令导出时的最小组件尺寸，默认值为 5。</td>
+                </tr>
+                <tr data-id="tr_alco_exportselcompdir" data-vn="2">
+                        <td class="command">exportSelectedComponentDir</td>
+                        <td class="parameter">folderName</td>
+                        <td class="parameter"></td>
+                        <td>把所选组件以 RealityScan 对齐组件（.rsalign）形式导出到文件夹（folderName 含路径）。</td>
+                    </tr>
+                    <tr data-id="tr_alco_exportselcompfile" data-vn="2">
+                        <td class="command">exportSelectedComponentFile</td>
+                        <td class="parameter">fileName</td>
+                        <td class="parameter"></td>
+                        <td>把所选组件导出为 RealityScan 对齐组件文件。</td>
+                    </tr>
+                <tr data-id="tr_alco_exreg" data-vn="1">
+                    <td class="command">exportRegistration</td>
+                    <td class="parameter">fileName</td>
+                    <td class="parameter">params.xml</td>
+                    <td>
+                        用当前设置或 params.xml 中的设置（可选参数）把配准结果导出到指定文件。这些设置可在应用的 <span class="apppanel">Export Registration</span> 对话框中导出。
+                    </td>
+                </tr>
+                <tr data-id="tr_alco_exui" data-vn="1">
+                    <td class="command">exportUndistoredImages</td>
+                    <td class="parameter">folderName</td>
+                    <td class="parameter">params.xml</td>
+                    <td>
+                        用当前设置或 params.xml 中的设置（可选参数）把去畸变图像导出到指定文件夹。这些设置可在应用的 <span class="apppanel">Export Registration</span> 对话框中导出。
+                    </td>
+                </tr>
+                <tr data-id="tr_alco_exstmap" data-vn="1">
+                    <td class="command">exportSTMap</td>
+                    <td class="parameter"></td>
+                    <td class="parameter">folderName params.xml</td>
+                    <td>
+                        为所选图像导出 ST maps。若未指定 folderName 与 params.xml，则按当前设置把结果存放在原图旁边。设置文件可在应用的 <span class="apppanel">Export Registration</span> 对话框中导出。
+                    </td>
+                </tr>                
+                <tr data-id="tr_alco_espc" data-vn="1">
+                    <td class="command">exportSparsePointCloud</td>
+                    <td class="parameter">fileName</td>
+                    <td class="parameter">params.xml</td>
+                    <td>
+                        用当前设置或 params.xml 中的设置（可选参数）把三维连接点（稀疏点云）导出到指定文件（fileName 含路径与格式扩展名）。这些设置可在应用的 <span class="apppanel">Export Point Cloud</span> 对话框中导出。
+                    </td>
+                </tr>
+                <tr data-id="tr_alco_seco" data-vn="1">
+                    <td class="command">selectComponent</td>
+                    <td class="parameter">componentName</td>
+                    <td class="parameter"></td>
+                    <td>选择指定名称（componentName）的组件供后续处理。</td>
+                </tr>
+                <tr data-id="tr_alco_semc" data-vn="1">
+                    <td class="command">selectMaximalComponent</td>
+                    <td class="parameter"></td>
+                    <td class="parameter"></td>
+                    <td>选择最大的组件供后续处理。</td>
+                </tr>
+                <tr data-id="tr_alco_clre" data-vn="1">
+                    <td class="command">selectComponentWithLeastReprojectionError</td>
+                    <td class="parameter"></td>
+                    <td class="parameter"></td>
+                    <td>依据计算出的 Mean error [pixels]，选择重投影误差最小的组件供后续处理。</td>
+                </tr>
+                <tr data-id="tr_alco_resc" data-vn="1">
+                    <td class="command">renameSelectedComponent</td>
+                    <td class="parameter">newComponentName</td>
+                    <td class="parameter"></td>
+                    <td>重命名当前所选组件。</td>
+                </tr>
+                <tr data-id="tr_alco_desc" data-vn="1">
+                    <td class="command">deleteSelectedComponent</td>
+                    <td class="parameter"></td>
+                    <td class="parameter"></td>
+                    <td>删除当前所选组件。</td>
+                </tr>
+                <tr data-id="tr_alo_delind" data-vn="1">
+                    <td class="command">deleteComponent</td>
+                    <td class="parameter">index</td>
+                    <td class="parameter"></td>
+                    <td>按所选索引删除组件。注意索引从 0 开始。</td>
+                </tr>
+                <tr data-id="tr_alco_delall" data-vn="1">
+                    <td class="command">deleteAllComponents</td>
+                    <td class="parameter"></td>
+                    <td class="parameter"></td>
+                    <td>删除所有组件。</td>
+                </tr>
+                <tr data-id="tr_alco_imfl" data-vn="3">
+                    <td class="command">importTrajectory</td>
+                    <td class="parameter">flFileName</td>
+                    <td class="parameter">params.xml</td>
+                    <td>
+                        用当前设置或 params.xml 中的设置（可选参数）导入航迹文件。这些设置可在应用的 <span class="apppanel">Import Trajectory</span> 对话框中导出。
+                    </td>
+                </tr>
+                <tr data-id="tr_alco_igcp" data-vn="1">
+                    <td class="command">importGroundControlPoints</td>
+                    <td class="parameter">gcpFileName</td>
+                    <td class="parameter">params.xml</td>
+                    <td>
+                        用 params.xml 中的设置导入地面控制点。这些设置可在应用的 <span class="apppanel">Import Ground Control Points</span> 对话框中导出。
+                    </td>
+                </tr>
+                <tr data-id="tr_alco_icpm" data-vn="1">
+                    <td class="command">importControlPointsMeasurements</td>
+                    <td class="parameter">cpmFileName</td>
+                    <td class="parameter">params.xml</td>
+                    <td>
+                        用当前设置或 params.xml 中的设置（可选参数）导入控制点（CP）测量值。这些设置可在应用的 <span class="apppanel">Import Control Points Measurements</span> 对话框中导出。
+                    </td>
+                </tr>
+                <tr data-id="tr_alco_editcpselection" data-vn="1">
+                    <td class="command">editControlPointSelection</td>
+                    <td class="parameter">"key=value"</td>
+                    <td class="parameter"></td>
+                    <td data-id="td_alco_editcpselection" data-vn="1">
+                        依据 <span class="apppanel">Selected control point(s)</span> 面板中的值或其键名，编辑所选控制点的设置/参数。更多信息<a href="../tutorials/editselectioncommand.htm">见此处</a>。
+                    </td>
+                </tr>   
+                
+                
+                <tr data-id="tr_alco_list" data-vn="1">
+                    <td class="command">listControlPoints</td>
+                    <td class="parameter">fileName</td>
+                    <td class="parameter"></td>
+                    <td data-id="td_alco_list" data-vn="1">
+                        把控制点清单导出到指定文件路径（fileName 参数，含文件名与扩展名）。每个控制点会连同其索引一起列出。
+                    </td>
+                </tr>
+                <tr data-id="tr_alco_selcp" data-vn="1">
+                    <td class="command">selectControlPoint</td>
+                    <td class="parameter">controlPointName</td>
+                    <td class="parameter"></td>
+                    <td data-id="td_alco_selcp" data-vn="1">
+                        按名称选中控制点。
+                    </td>
+                </tr>
+                <tr data-id="tr_alco_invsl" data-vn="1">
+                    <td class="command">invertControlPointSelection	</td>
+                    <td class="parameter">controlPointName</td>
+                    <td class="parameter"></td>
+                    <td data-id="td_alco_invsl" data-vn="1">
+                        反转控制点的选中状态。若当前没有选中的控制点，则全选。
+                    </td>
+                </tr>
+                <tr data-id="tr_alco_renc" data-vn="1">
+                    <td class="command">renameControlPoint</td>
+                    <td class="parameter">controlPointName newName</td>
+                    <td class="parameter"></td>
+                    <td data-id="td_alco_renc" data-vn="1">
+                        重命名控制点。用当前名称（controlPointName）指定控制点，并给出新名称（newName）。
+                    </td>
+                </tr>
+                <tr data-id="tr_alco_rensc" data-vn="1">
+                    <td class="command">renameSelectedControlPoint</td>
+                    <td class="parameter">newName</td>
+                    <td class="parameter"></td>
+                    <td data-id="td_alco_rensc" data-vn="1">
+                        把所选控制点重命名为指定名称（newName）。
+                    </td>
+                </tr>
+                <tr data-id="tr_alco_deletecp" data-vn="1">
+                    <td class="command">deleteControlPoint</td>
+                    <td class="parameter"></td>
+                    <td class="parameter">index</td>
+                    <td data-id="td_alco_deletecp" data-vn="1">
+                        删除所选控制点。若使用可选的 index 参数，则删除对应索引的控制点。索引从 0 开始，顺序与 <span class="appaspecttype">1Ds</span> 视图中的控制点顺序一致。
+                    </td>
+                  </tr> 
+                <tr data-id="tr_alco_serr" data-vn="1">
+                    <td class="command">selectMeasurementByError</td>
+                    <td class="parameter">errorValue</td>
+                    <td class="parameter">controlPointName</td>
+                    <td data-id="td_alco_serr" data-vn="1">
+                        	选中位置误差（像素）大于或等于指定 errorValue（浮点值）的所有测量值。若未指定控制点（controlPointName），则对全部测量值生效，不论属于哪个控制点。
+                    </td>
+                </tr>
+                <tr data-id="tr_alco_sein" data-vn="1">
+                    <td class="command">selectMeasurementByIndex</td>
+                    <td class="parameter">controlPointName index</td>
+                    <td class="parameter"></td>
+                    <td data-id="td_alco_sein" data-vn="1">
+                        	按指定控制点内部的索引选中该控制点的测量值。
+                    </td>
+                </tr>      
+                <tr data-id="tr_alco_deletecpmeasurement" data-vn="1">
+                     <td class="command">deleteControlPointMeasurement</td>
+                     <td class="parameter"></td>
+                      <td class="parameter"></td>
+                      <td data-id="td_alco_deletecpmeasurement" data-vn="1">
+                        移除所选控制点的测量值（即分配给某个控制点的图像）。需先在 <span class="appaspecttype">1Ds</span> 视图中对应控制点下选中这些图像。
+                      </td>
+                  </tr>                  
+                <tr data-id="tr_alco_egcp" data-vn="1">
+                    <td class="command">exportGroundControlPoints</td>
+                    <td class="parameter">gcpFileName</td>
+                    <td class="parameter">params.xml</td>
+                    <td>
+                        用当前设置或 params.xml 中的设置（可选参数）导出地面控制点。这些设置可在应用的 <span class="apppanel">Export Ground Control</span> 对话框中导出。
+                    </td>
+                </tr>
+                <tr data-id="tr_alco_ecpm" data-vn="2">
+                    <td class="command">exportControlPointsMeasurements</td>
+                    <td class="parameter">cpmFileName</td>
+                    <td class="parameter">params.xml</td>
+                    <td>
+                        用当前设置或 params.xml 中的设置（可选参数）导出控制点测量值。这些设置可在应用的 <span class="apppanel">Export Control Points Measurements</span> 对话框中导出。
+                    </td>
+                </tr>
+                <tr data-id="tr_alco_defdis" data-vn="1">
+                    <td class="command">defineDistance</td>
+                    <td class="parameter">PointNameA PointNameB distance</td>
+                    <td class="parameter">constraintName</td>
+                    <td>
+                        在两个控制点之间定义距离约束。若未给定 constraintName，会自动生成距离名称。也可以从文件加载距离约束（见下文）。
+                    </td>
+                </tr>
+                <tr data-id="tr_alco_defdisf" data-vn="1">
+                    <td class="command">defineDistance</td>
+                    <td class="parameter">fileName</td>
+                    <td class="parameter">params.xml</td>
+                    <td>
+                        用当前设置或 params.xml 中的设置（可选参数）从文件（filename 含路径）导入距离约束。这些设置可在应用的 <span class="apppanel">Import Distance Definitions</span> 对话框中导出。支持的格式清单见安装目录下的 distancedefinitions.xml。
+                    </td>
+                </tr>
+                <tr data-id="tr_alco_editconselection" data-vn="1">
+                    <td class="command">editConstraintSelection</td>
+                    <td class="parameter">"key=value"</td>
+                    <td class="parameter"></td>
+                    <td data-id="td_alignment_editconselection" data-vn="1">
+                        依据 <span class="apppanel">Selected constraint(s)</span> 面板中的值或其键名，编辑所选约束的设置/参数。更多信息<a href="../tutorials/editselectioncommand.htm">见此处</a>。
+                    </td>
+                </tr>                   
+                 <tr data-id="tr_alco_deleteconstraint" data-vn="2">
+                    <td class="command">deleteConstraint</td>
+                    <td class="parameter"></td>
+                    <td class="parameter">index</td>
+                    <td data-id="td_alco_deleteconstraint" data-vn="2">
+                        移除所选距离约束。约束需在 <span class="appaspecttype">1Ds</span> 视图中选中。可用 index 作为可选参数指定要移除哪一条；索引从 0 开始，顺序与 <span class="appaspecttype">1Ds</span> 视图中的约束顺序一致。
+                    </td>
+                </tr>                
+                <tr data-id="tr_alco_dema" data-vn="1">
+                    <td class="command">detectMarkers</td>
+                    <td class="parameter"></td>
+                    <td class="parameter">params.xml</td>
+                    <td>
+                        用当前设置或 params.xml 中的设置（可选参数）在图像中检测标记。这些设置可用应用中的 <span class="appribbonbutton">Detect Markers</span> 工具导出。
+                    </td>
+                </tr>
+                <tr data-id="tr_alco_gravity" data-vn="1">
+                        <td class="command">setCamerasGravityDirection</td>
+                        <td class="parameter"></td>
+                        <td class="parameter">componentID</td>
+                        <td>若图像的 XMP 文件含重力信息（xcr:Gravity），则组件会被旋转，使 -z 向量指向重力方向。该操作不影响稠密点云（网格/模型），只作用于稀疏点云（对齐结果）。作用于所选组件，或由可选参数（组件 ID）指定的组件。
+                        </td>
+                </tr>
+            </table>
+
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sb_alex_v1" data-vn="2" class="slideblock">
+
+            <h2 data-id="h2_alex" data-vn="1">对齐示例</h2>
+            <p data-id="p_h2_alex" data-vn="1">跟着这些示例学习如何用命令行对齐图像。</p>
+
+            <h3 data-id="h3_alex_aldr" data-vn="1">对齐与草稿</h3>
+            <p data-id="p_aldr_fdal" data-vn="1">
+                假设你要添加图像、做快速草稿对齐、查看效果，然后继续正常对齐与其他计算。
+            </p>
+            <div class="codeSample">
+                RealityScan.exe -addFolder %MyPath%\Images\ -save %MyPath%\MyProject.rsproj -draft<br />
+                RealityScan.exe -load %MyPath%\MyProject.rsproj -align .... -quit
+            </div>
+            <p data-id="p_aldr_wait" data-vn="1">第一行没有以 quit 结尾，因此该命令会等待应用关闭，然后紧接着继续执行。</p>
+
+            <h3 data-id="h3_alex_exmp" data-vn="1">导出 XMP 以复用对齐结果</h3>
+            <p data-id="p_exmp_ruse" data-vn="2">
+                现在来复用对齐结果。假设我们有一个已正确对齐的工程 <span class="command">Project1.rsproj</span>，其图像来自 <span class="command">Images1</span> 文件夹；我们想用 <span class="command">Images2</span> 中的图像创建工程 <span class="command">Project2.rsproj</span>，并复用同一套对齐。假定 <span class="command">Images1</span> 与 <span class="command">Images2</span> 中对应的图像名称相同，但扩展名可能不同。
+            </p>
+            <div class="codeSample">
+                RealityScan.exe -load %MyPath%\Project1.rsproj -exportXMP -quit<br />
+                copy Images1/*.xmp Images2/<br />
+                RealityScan.exe -addFolder %MyPath%\Images2\ -align -save %MyPath%\Project2.rsproj -quit
+            </div>
+            <p data-id="p_exmp_expo" data-vn="1">
+                该脚本把 Project1 的 .xmp 文件导出到图像旁边（即 <span class="command">Images1</span> 文件夹），再复制到 <span class="command">Images2</span>。之后的 align 命令会依据这些 .xmp 文件与应用设置中保存的相机位置与标定进行对齐。
+            </p>
+
+            <h3 data-id="h3_alex_selc" data-vn="1">选择并导出最大的组件</h3>
+            <p data-id="p_selc_laco" data-vn="1">
+                下一个示例取最大组件，并把它加载到一个空场景中。
+            </p>
+            <div class="codeSample">
+                RealityScan.exe -load %MyPath%\AlignedProject.rsproj -selectMaximalComponent -exportComponent %MyPath%\max -quit<br /> <!-- bug, quits before export finishes -->
+                for %%s in ("maxComponent *.rsalign") do (<br />
+                <div style="padding-left: 20px">
+                RealityScan.exe -importComponent "%MyPath%\%%s" -save %MyPath%\NewProject.rsproj -quit
+                </div>
+                )
+            </div>
+            <p data-id="p_selc_name" data-vn="2">
+                组件名称事先未知，因此需要在应用之外查找。由于组件默认命名为 Component 0、Component 1 等，最大组件会被保存为 <span class="command">maxComponent 1.rsalign</span> 之类。
+            </p>
+
+            <h3 data-id="h3_alex_ecas" data-vn="1">导出超过最小尺寸的组件</h3>
+            <p data-id="p_ecas_exam" data-vn="1">
+                最后一个示例导出所有相机数超过 5 的组件，再逐个导入到新工程。
+            </p>
+            <div class="codeSample">
+                RealityScan.exe -load %MyPath%\AlignedProject.rsproj -minComponentSize 5 -exportComponent %MyPath%\ -newScene -save %MyPath%\NewProject.rsproj -quit<br />
+                for %%s in (*.rsalign) do (<br />
+                <div style="padding-left: 20px">
+                RealityScan.exe -load %MyPath%\NewProject.rsproj -importComponent "%MyPath%\%%s" -save %MyPath%\NewProject.rsproj -quit
+                </div>
+                )
+            </div>
+            <p data-id="p_ecas_own" data-vn="1">
+                也可以把每个组件导入各自的工程，分别处理。
+            </p>
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_bc" class="blocksContainer">
+
+            <a href="../tutorials/commandline.htm">
+                <div class="block TileColor1">
+                    <h2 data-id="h2_bc_pric" data-vn="1">工程与图像命令</h2>
+                    <p data-id="p_h2_bc_pric" data-vn="1">通过 CLI 管理当前工程、应用本身，以及添加图像</p>
+                </div>
+            </a>
+
+            <a href="../tutorials/commandline_rscmd.htm">
+                <div class="block TileColor1">
+                    <h2 data-id="h2_bc_cocp" data-vn="1">命令行之外的命令执行方式</h2>
+                    <p data-id="p_h2_bc_cocp" data-vn="2">用 .rscmd 文件执行 CLI</p>
+                </div>
+            </a>
+            
+            <a href="../tutorials/commandline_deleg.htm">
+                <div class="block TileColor1">
+                    <h2 data-id="h2_bc_del" data-vn="1">命令委派</h2>
+                    <p data-id="p_bc_del" data-vn="2">关于把命令委派给已打开的 RealityScan 实例</p>
+                </div>
+            </a>            
+
+            <a href="../tutorials/commandline_2.htm">
+                <div class="block TileColor2">
+                    <h2 data-id="h2_bc_cont" data-vn="1">继续</h2>
+                    <p data-id="p_h2_bc_cont" data-vn="1">通过命令行计算模型</p>
+                </div>
+            </a>
+
+            <a href="../tutorials/commandline_3.htm">
+                <div class="block TileColor1">
+                    <h2 data-id="h2_bc_mtco" data-vn="1">模型工具命令</h2>
+                    <p data-id="p_h2_bc_mtco" data-vn="1">通过命令行进一步处理模型</p>
+                </div>
+            </a>
+
+            <a href="../tutorials/commandline_4.htm">
+                <div class="block TileColor1">
+                    <h2 data-id="h2_bc_seco" data-vn="1">设置命令</h2>
+                    <p data-id="p_h2_bc_seco" data-vn="1">应用设置与行为</p>
+                </div>
+            </a>
+
+            <a href="../tutorials/commandline_5.htm">
+                <div class="block TileColor1">
+                    <h2 data-id="h2_bc_ehco" data-vn="1">错误处理命令</h2>
+                    <p data-id="p_h2_bc_ehco" data-vn="1">用于处理潜在错误的命令</p>
+                </div>
+            </a>
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sa" class="rowblock">
+            <h3 data-id="h3_sa" data-vn="1">另见：</h3>
+            <ul class="intend">
+                <li data-id="li_sa_real" data-vn="1">了解如何复用对齐 <a href="../tools/xmpalign.htm">点击此处</a></li>
+                <li data-id="li_sa_alse" data-vn="1">了解对齐设置 <a href="../appbasics/alignsettings.htm">点击此处</a></li>
+                <li data-id="li_sa_igcp" data-vn="1">了解如何导入地面控制点 <a href="../tools/gcpimport.htm">点击此处</a></li>
+                <li data-id="li_sa_ejco" data-vn="1">了解组件的导出与合并 <a href="../appbasics/components.htm">点击此处</a></li>
+                <li data-id="li_sa_cli" data-vn="1">在一页中查看全部 CLI 命令 <a href="../appbasics/allcommands.htm">点击此处</a></li>
+            </ul>
+        </div>
+    <!-- content slide end -->
+
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+    <script type="text/javascript">
+        InitializeTutorialMode();
+    </script>
+
+</body>
+</html>
+<!-- signature:YUyuADLnFgyRo4/Ipf+GNYW3IdYK841gp3TQCli+izXsObgtudSnFB4/oiXRjrMCGFG1jH9l4AkbbzDqJgSZPjLt8Kv8QGXBx7O2fbhoZWRQax5kJKb49hwkMYXTdKyQJxXxIQpKwAUUUd2oP+ExSIBbgbOIDo8QVUTkdRMwnz0= -->

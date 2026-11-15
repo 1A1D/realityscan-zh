@@ -1,0 +1,555 @@
+<html>
+<head>
+    <title>RealityScan 帮助</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Epic Games Slovakia s.r.o." />
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <link type="text/css" rel="stylesheet" href="../../styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/colors.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css" />
+    <script src="../scripts/textVars.js" type="text/javascript"></script>
+    <script src="../../scripts/localization.js" type="text/javascript"></script>
+    <script src="../../scripts/main.js" type="text/javascript"></script>
+</head>
+<body ondragstart="return false;">
+
+    <div data-id="div_cs" class="content_slide">
+
+        <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head" class="head">
+
+            <h1 data-id="h1" data-vn="1">API 方法 —— 节点</h1>
+          
+                <p data-id="p_h1" data-vn="2">
+                    可与 RSNode 配合使用、作用于节点自身的 API 方法。
+                </p>
+        </div>
+        
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+        
+        <div data-id="div_sb_conuser" class="slideblock">  
+            
+            <h2 data-id="h2_conuser" data-vn="1">getNodeConnectUser</h2>
+                <p data-id="p_conuser" data-vn="1">
+                    把用户连接到节点。这会为当前用户预留一个剩余会话名额（直到使用 <span class="appproperty">/project/create</span>、<span class="appproperty">/project/open</span> 或 <span class="appproperty">/node/disonnectuser</span> 为止）。
+                </p>
+                
+                <div class="codeSample">
+                    <span class="api">GET</span>
+                    <br/>
+                    /node/connectuser
+                </div>
+                <h3 data-id="h3_cu_par" data-vn="1">参数</h3>
+                    
+                    <p data-id="p_cu_hpar" data-vn="1">请求头参数</p>
+                    <div data-id="sb_cu_hpar" class="slideblock splitSpacing">
+                        <table class="tableofcommands"> 
+                            <thead data-id="thead_cu_hpar" data-vn="1">
+                                <tr>
+                                    <th>名称</th> <th>说明</th> <th>是否必需</th>
+                                </tr>
+                            </thead>
+                            <tr data-id="tr_cuhp_clid" data-vn="1">
+                                <td class="command">clientId*</td>
+                                <td><span class="dataType">UUID</span>（uuid）<br/><span class="note">客户端标识</span></td> 
+                                <td>必需</td>  
+                            </tr>      
+                            <tr data-id="tr_cuhp_appt" data-vn="1">
+                                <td class="command">appToken*</td>
+                                <td><span class="dataType">String</span><br/><span class="note">调用方应用标识</span></td> 
+                                <td>必需</td>  
+                            </tr>      
+                        </table>
+                    </div>
+                <h3 data-id="h3_cu_resp" data-vn="1">响应</h3>
+                    <ul>
+                        <li data-id="li_cures_200" data-vn="1">
+                            状态：<span class="parameter">200</span> —— OK
+                        </li>
+                        <li data-id="li_cures_400" data-vn="1">
+                            状态：<span class="parameter">400</span> —— 请求无效
+                        </li>
+                    </ul>
+                            <p data-id="p_cu400_sch" data-vn="1" class="note">结构：</p>
+                            <div class="codeSample">
+                                <span class="schema">apiError {</span><br/>
+                                    &nbsp;code: <span class="dataType">integer</span><br/>
+                                    &nbsp;message: <span class="dataType">string</span><br/>
+                                    <span class="schema">}</span>
+                            </div>
+                    <ul>
+                        <li data-id="li_cures_401" data-vn="1">
+                            状态：<span class="parameter">401</span> —— 未授权
+                        </li>
+                    </ul>
+                            <p data-id="p_cu401_sch" data-vn="1" class="note">结构：</p>
+                            <div class="codeSample">
+                                <span class="schema">apiError {</span><br/>
+                                    &nbsp;code: <span class="dataType">integer</span><br/>
+                                    &nbsp;message: <span class="dataType">string</span><br/>
+                                    <span class="schema">}</span>
+                            </div>
+                    <ul>        
+                        <li data-id="li_cures_404" data-vn="1">
+                            状态：<span class="parameter">404</span> —— 未找到
+                        </li>
+                    </ul>
+                        <p data-id="p_cu404_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                    <ul>     
+                        <li data-id="li_cures_500" data-vn="1">
+                            状态：<span class="parameter">500</span> —— 服务器内部错误 apiError
+                        </li>
+                    </ul>
+                        <p data-id="p_cu500_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                            <span class="schema">}</span>
+                    </div>
+        </div>
+            
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+        <div data-id="div_sb_connion" class="slideblock">  
+            
+            <h2 data-id="h2_connion" data-vn="1">getNodeConnection</h2>
+                <p data-id="p_connion" data-vn="2">
+                    查询 RSNode 的连接信息（仅在 localhost 上可用）。返回 RSNode 的连接信息。
+                </p>
+                
+                <div class="codeSample">
+                    <span class="api">GET</span>
+                    <br/>
+                    /node/connection
+                </div>
+                <h3 data-id="h3_co_par" data-vn="1">参数</h3>
+                
+                    <p data-id="p_co_hpar" data-vn="1">请求头参数</p>
+                    <div data-id="sb_co_hpar" class="slideblock splitSpacing">
+                        <table class="tableofcommands"> 
+                            <thead data-id="thead_co_hpar" data-vn="1">
+                                <tr>
+                                    <th>名称</th> <th>说明</th> <th>是否必需</th>
+                                </tr>
+                            </thead>
+                            <tr data-id="tr_cohp_clid" data-vn="1">
+                                <td class="command">clientId*</td>
+                                <td><span class="dataType">UUID</span>（uuid）<br/><span class="note">客户端标识</span></td> 
+                                <td>必需</td>  
+                            </tr>      
+                            <tr data-id="tr_cohp_appt" data-vn="1">
+                                <td class="command">appToken*</td>
+                                <td><span class="dataType">String</span><br/><span class="note">调用方应用标识</span></td> 
+                                <td>必需</td>  
+                            </tr>      
+                        </table>
+                    </div>
+                <h3 data-id="h3_co_resp" data-vn="1">响应</h3>
+                <ul>
+                    <li data-id="li_cores_200" data-vn="1">
+                        状态：<span class="parameter">200</span> —— OK
+                    </li>
+                </ul>
+                        <p data-id="p_co200_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample" data-id="div_cosa_2" data-vn="1">
+                            <span class="schema">RS Node Connection Information {</span><br/>
+                                &nbsp;protocol: <span class="dataType">string</span> <br/>
+                                &nbsp;&nbsp;&nbsp;&nbsp;<span class="note">Connection protocol (http or https)</span><br/>
+                                &nbsp;hostAddress: <span class="dataType">string</span> <br/>
+                                &nbsp;&nbsp;&nbsp;&nbsp;<span class="note">RSNode 监听的本地 IPv4 地址</span><br/>
+                                &nbsp;port: <span class="dataType">string</span> <br/>
+                                &nbsp;&nbsp;&nbsp;&nbsp;<span class="note">Port on which RSNode listens</span><br/>
+                                &nbsp;authToken: <span class="dataType">string</span> <br/>
+                                &nbsp;&nbsp;&nbsp;&nbsp;<span class="note">Token to authorize with RSNode</span><br/>
+                                &nbsp;pairingPage: <span class="dataType">string</span> <br/>
+                                &nbsp;&nbsp;&nbsp;&nbsp;<span class="note">URL path to pairing page</span><br/>
+                                &nbsp;landingPage: <span class="dataType">string</span> <br/>
+                                &nbsp;&nbsp;&nbsp;&nbsp;<span class="note">URL path to landing page</span><br/>
+                                &nbsp;allAddresses: <span class="dataType">[string]</span> <br/>
+                                &nbsp;&nbsp;&nbsp;&nbsp;<span class="note">所有本地网络适配器的 IPv4 地址</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>    
+                    <li data-id="li_cores_400" data-vn="1">
+                        状态：<span class="parameter">400</span> —— 请求无效
+                    </li>
+                </ul>
+                        <p data-id="p_co400_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>     
+                    <li data-id="li_cores_401" data-vn="1">
+                        状态：<span class="parameter">401</span> —— 未授权
+                    </li>
+                </ul>    
+                        <p data-id="p_co401_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>         
+                    <li data-id="li_cores_403" data-vn="1">
+                        状态：<span class="parameter">403</span> —— 禁止访问
+                    </li>
+                </ul>    
+                        <p data-id="p_co403_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>    
+                <ul>     
+                    <li data-id="li_cores_404" data-vn="1">
+                        状态：<span class="parameter">404</span> —— 未找到
+                    </li>
+                </ul>     
+                        <p data-id="p_co404_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>         
+                    <li data-id="li_cores_500" data-vn="1">
+                        状态：<span class="parameter">500</span> —— 服务器内部错误 apiError
+                    </li>
+                </ul>    
+                        <p data-id="p_co500_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+        </div>
+
+        <div class="clear splitSpacing">
+        <!-- clear -->
+        </div>
+
+        <div data-id="div_sb_diuser" class="slideblock">  
+            
+            <h2 data-id="h2_diuser" data-vn="1">getNodeDisconnectUser</h2>
+                <p data-id="p_diuser" data-vn="1">
+                    断开用户与节点的连接。这会释放由 <span class="appproperty">/node/connectuser</span> 分配的会话名额。
+                </p>
+                
+                <div class="codeSample">
+                    <span class="api">GET</span>
+                    <br/>
+                    /node/disconnectuser
+                </div>
+                <h3 data-id="h3_du_par" data-vn="1">参数</h3>
+                
+                    <p data-id="p_du_hpar" data-vn="1">请求头参数</p>
+                    <div data-id="sb_du_hpar" class="slideblock splitSpacing">
+                        <table class="tableofcommands"> 
+                            <thead data-id="thead_du_hpar" data-vn="1">
+                                <tr>
+                                    <th>名称</th> <th>说明</th> <th>是否必需</th>
+                                </tr>
+                            </thead>
+                            <tr data-id="tr_duhp_clid" data-vn="1">
+                                <td class="command">clientId*</td>
+                                <td><span class="dataType">UUID</span>（uuid）<br/><span class="note">客户端标识</span></td> 
+                                <td>必需</td>  
+                            </tr>      
+                            <tr data-id="tr_duhp_appt" data-vn="1">
+                                <td class="command">appToken*</td>
+                                <td><span class="dataType">String</span><br/><span class="note">调用方应用标识</span></td> 
+                                <td>必需</td>  
+                            </tr>      
+                        </table>
+                    </div>
+                <h3 data-id="h3_du_resp" data-vn="1">响应</h3>
+                <ul>
+                    <li data-id="li_dures_200" data-vn="1">
+                        状态：<span class="parameter">200</span> —— OK
+                    </li>
+                    <li data-id="li_dures_400" data-vn="1">
+                        状态：<span class="parameter">400</span> —— 请求无效
+                    </li>
+                </ul>
+                        <p data-id="p_du400_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>
+                    <li data-id="li_dures_401" data-vn="1">
+                        状态：<span class="parameter">401</span> —— 未授权
+                    </li>
+                </ul>
+                        <p data-id="p_du401_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>
+                    <li data-id="li_dures_404" data-vn="1">
+                        状态：<span class="parameter">404</span> —— 未找到
+                    </li>
+                </ul>
+                        <p data-id="p_du404_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>
+                    <li data-id="li_dures_500" data-vn="1">
+                        状态：<span class="parameter">500</span> —— 服务器内部错误 apiError
+                    </li>
+                </ul>
+                        <p data-id="p_du500_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+        </div>
+        
+        <div class="clear splitSpacing">
+        <!-- clear -->
+        </div>
+        <div data-id="div_sb_nopr" class="slideblock">  
+            
+            <h2 data-id="h2_nopr" data-vn="1">getNodeProjects</h2>
+                <p data-id="p_nopr" data-vn="2">
+                    列出 RSNode 的工程。返回本地存储的工程清单。
+                </p>
+                
+                <div class="codeSample">
+                    <span class="api">GET</span>
+                    <br/>
+                    /node/projects
+                </div>
+        
+                <h3 data-id="h3_np_par" data-vn="1">参数</h3>
+                
+                    <p data-id="p_np_hpar" data-vn="1">请求头参数</p>
+        
+                    <div data-id="sb_np_hpar" class="slideblock splitSpacing">
+                        <table class="tableofcommands"> 
+                            <thead data-id="thead_np_hpar" data-vn="1">
+                                <tr>
+                                    <th>名称</th> <th>说明</th> <th>是否必需</th>
+                                </tr>
+                            </thead>
+                            <tr data-id="tr_nphp_clid" data-vn="1">
+                                <td class="command">clientId*</td>
+                                <td><span class="dataType">UUID</span>（uuid）<br/><span class="note">客户端标识</span></td> 
+                                <td>必需</td>  
+                            </tr>      
+                            <tr data-id="tr_nphp_appt" data-vn="1">
+                                <td class="command">appToken*</td>
+                                <td><span class="dataType">String</span><br/><span class="note">调用方应用标识</span></td> 
+                                <td>必需</td>  
+                            </tr>      
+                        </table>
+                    </div>
+                <h3 data-id="h3_np_resp" data-vn="1">响应</h3>
+                <ul>
+                    <li data-id="li_npres_200" data-vn="1">
+                        状态：<span class="parameter">200</span> —— OK
+                    </li>
+                </ul>    
+                        <p data-id="p_np200_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample" data-id="div_cosa_3" data-vn="1"> 
+                            <span class="schema">[<br/>
+                            &nbsp;RS Project Information {</span><br/>
+                                &nbsp;&nbsp;name: <span class="dataType">string</span><br/>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="note">Project name</span><br/>
+                                &nbsp;&nbsp;guid: <span class="dataType">string</span><br/>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="note">Project guid</span><br/>
+                                &nbsp;&nbsp;timeStamp: <span class="dataType">integer</span><br/>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="note">Last access time stamp</span><br/>
+                            &nbsp;<span class="schema">}<br/>
+                            ]</span>
+                        </div>
+                <ul>    
+                    <li data-id="li_npres_400" data-vn="1">
+                        状态：<span class="parameter">400</span> —— 请求无效
+                    </li>
+                </ul>    
+                        <p data-id="p_np400_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>    
+                    <li data-id="li_npres_401" data-vn="1">
+                        状态：<span class="parameter">401</span> —— 未授权
+                    </li>
+                </ul>    
+                        <p data-id="p_np401_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>    
+                    <li data-id="li_npres_500" data-vn="1">
+                        状态：<span class="parameter">500</span> —— 服务器内部错误 apiError
+                    </li>
+                </ul>    
+                        <p data-id="p_np500_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                
+        </div>
+        
+        <div class="clear splitSpacing">
+        <!-- clear -->
+        </div>
+        <div data-id="div_sb_nost" class="slideblock">  
+            
+            <h2 data-id="h2_nost" data-vn="1">getNodeStatus</h2>
+                <p data-id="p_nost" data-vn="2">
+                    查询并返回 RSNode 的状态。
+                </p>
+                
+                <div class="codeSample">
+                    <span class="api">GET</span>
+                    <br/>
+                    /node/status
+                </div>
+                <h3 data-id="h3_ns_par" data-vn="1">参数</h3>
+                
+                    <p data-id="p_ns_hpar" data-vn="1">请求头参数</p>
+                    <div data-id="sb_ns_hpar" class="slideblock splitSpacing">
+                        <table class="tableofcommands"> 
+                            <thead data-id="thead_ns_hpar" data-vn="1">
+                                <tr>
+                                    <th>名称</th> <th>说明</th> <th>是否必需</th>
+                                </tr>
+                            </thead>
+                            <tr data-id="tr_nshp_clid" data-vn="1">
+                                <td class="command">clientId*</td>
+                                <td><span class="dataType">UUID</span>（uuid）<br/><span class="note">客户端标识</span></td> 
+                                <td>必需</td>  
+                            </tr>      
+                            <tr data-id="tr_nshp_appt" data-vn="1">
+                                <td class="command">appToken*</td>
+                                <td><span class="dataType">String</span><br/><span class="note">调用方应用标识</span></td> 
+                                <td>必需</td>  
+                            </tr>      
+                        </table>
+                    </div>
+                <h3 data-id="h3_ns_resp" data-vn="1">响应</h3>
+                <ul>
+                    <li data-id="li_nsres_200" data-vn="1">
+                        状态：<span class="parameter">200</span> —— OK
+                    </li>
+                </ul>    
+                        <p data-id="p_ns200_sch" data-vn="2" class="note">结构：</p>
+                        <div class="codeSample" > 
+                            <span class="schema">RS Node Status {</span><br/>
+                                &nbsp;status: <span class="dataType">string</span><br/>
+                                &nbsp;&nbsp;&nbsp;&nbsp;<span class="note">RS Node status</span><br/>
+                                &nbsp;apiVersion: <span class="dataType">string</span><br/>
+                                &nbsp;&nbsp;&nbsp;&nbsp;<span class="note">API 版本字符串（格式为 'major.minor'</span><br/>
+                                &nbsp;activeSessions: <span class="dataType">integer</span><br/>
+                                &nbsp;&nbsp;&nbsp;&nbsp;<span class="note">Currently active sessions</span><br/>
+                                &nbsp;maxSessions: <span class="dataType">integer</span><br/>
+                                &nbsp;&nbsp;&nbsp;&nbsp;<span class="note">Maximum concurrent sessions</span><br/>
+                                &nbsp;sessionIds: <span class="dataType">[string]</span><br/>
+                                &nbsp;&nbsp;&nbsp;&nbsp;<span class="note">Array of active session ids</span><br/>
+                            <span class="schema">}<br/></span>
+                        </div>
+                <ul>        
+                    <li data-id="li_nsres_400" data-vn="1">
+                        状态：<span class="parameter">400</span> —— 请求无效
+                    </li>
+                </ul>    
+                        <p data-id="p_ns400_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>        
+                    <li data-id="li_nsres_401" data-vn="1">
+                        状态：<span class="parameter">401</span> —— 未授权
+                    </li>
+                </ul>    
+                        <p data-id="p_ns401_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                <ul>        
+                    <li data-id="li_nsres_500" data-vn="1">
+                        状态：<span class="parameter">500</span> —— 服务器内部错误 apiError
+                    </li>
+                </ul>    
+                        <p data-id="p_ns500_sch" data-vn="1" class="note">结构：</p>
+                        <div class="codeSample">
+                            <span class="schema">apiError {</span><br/>
+                                &nbsp;code: <span class="dataType">integer</span><br/>
+                                &nbsp;message: <span class="dataType">string</span><br/>
+                                <span class="schema">}</span>
+                        </div>
+                
+        </div>
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+        <div data-id="div_Bc" class="blocksContainer">
+            
+            <a href="../tools/apiproject.htm">
+                <div class="block TileColor6">
+                    <h2 data-id="h2_bc_ss" data-vn="1">API 方法 —— 工程</h2>
+                    <p data-id="p_bc_ss" data-vn="1">影响工程内容的 API 方法</p>
+                </div>
+            </a>
+            
+            <script type="text/javascript">RenderBackToStartTile();</script>
+        </div>
+        <div class="clear">
+            <!-- clear -->
+        </div>
+        <!-- content slide end -->
+    </div>
+    <script type="text/javascript">RenderCopyrightText();</script>
+    <script type="text/javascript">
+        InitializeHelpSlide();
+    </script>
+</body>
+</html>
+<!-- signature:OQZygNCaQC2fVAh2LheKpOzS58eEP2GsgjJ8hQvv8aWdZ7knlqlhdqdd2wk9WG2pHFVLwM2F/HDykTDvo6Gyr5jFtIj5CU/AzVa0/W+9EUsXt8XAscwZH6+VgNdVAKRPOJM5zVZuax/RARlcgKHLwQHFBZkapeW/H5aHwPXhE1k= -->

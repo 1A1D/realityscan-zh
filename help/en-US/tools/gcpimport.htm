@@ -1,0 +1,129 @@
+<html>
+<head>
+    <title>RealityScan 帮助</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Epic Games Slovakia s.r.o." />
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <link type="text/css" rel="stylesheet" href="../../styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/colors.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css" />
+    <script src="../scripts/textVars.js" type="text/javascript"></script>
+    <script src="../../scripts/localization.js" type="text/javascript"></script>
+    <script src="../../scripts/main.js" type="text/javascript"></script>
+</head>
+<body ondragstart="return false;">
+
+    <div data-id="div_cs" class="content_slide">
+
+        <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head" class="head">
+
+            <h1 data-id="h1" data-vn="1">地面控制点导入</h1>
+            <p data-id="p_h1" data-vn="1">地面控制点是三类控制点之一，与某个三维位置（例如 GPS 坐标）关联。若你已有控制点的坐标，可以导入这些数值并把它们放到对应照片上，从而对模型做地理配准和/或缩放。</p>
+            <ul>
+                <li data-id="li_h1_icon" data-vn="2">地面控制点的图标如下所示：<br/><br/> <img src="images/Import-GC-point-type.png" alt="Import-GC-point-type" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/Import-GC-point-type.png';"/>                
+                </li>
+                <li data-id="li_h1_cosy" data-vn="1">首先，确认已把项目坐标系设为待导入地面控制点所在的坐标系。应用<span class="appribbonbutton">Settings</span>位于 <span class="appribbon">WORKFLOW</span> 选项卡的 Application 区域下 <span class="appproperty">Coordinate systems / Project coordinate system</span> 处。</li> 
+                <li data-id="li_h1_gtgc" data-vn="1">现在进入 <span class="appribbon">WORKFLOW</span> / <span class="appribbonbutton">Ground Control</span>，浏览选择含地面控制点的文件。</li>
+            </ul>
+
+        </div>
+
+        <div data-id="div_sb_imdi" class="slideblock">
+
+            <h2 data-id="h2_imdi" data-vn="1">导入对话框</h2>
+
+            <p data-id="p_h2_imdi" data-vn="1">会立即弹出导入对话框，下面看看其中的各项选项：</p>
+
+            <img src="images/Import-Ground-Control.png" alt="Import-Ground-Control" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/Import-Ground-Control.png';"/>
+
+            <br/><br/>
+
+             <ul class="apppanelitems">
+                <li class ="apppanelitem" data-id="li_imdi_set_fn" data-vn="1"><span class="appproperty">File name</span> 含地面控制点信息的文件名。</li>
+                <li class ="apppanelitem" data-id="li_imdi_set_ff" data-vn="1"><span class="appproperty">File format</span> 定义用于描述地面控制点的数值的顺序与类型。</li>
+                <li class ="apppanelitem" data-id="li_imdi_set_vs" data-vn="1"><span class="appproperty">Values separator</span> 用于分隔地面控制点文件中各值的分隔符。也支持限定符，即可把每个字段放在双引号（&quot;&quot;）里表示它们是同一个字段。</li>
+                <li class ="apppanelitem" data-id="li_imdi_set_" data-vn="2"><span class="appproperty">Ignore first line</span> 若文件带表头，可让 RealityScan 忽略第一行。以 <span class="parameter">&num;</span> 符号开头的行会被自动跳过。</li>
+                <li class ="apppanelitem" data-id="li_imdi_set_ifs" data-vn="1"><span class="appproperty">Coordinate system</span> 定义地面控制点所在的坐标系。</li>
+                <li class ="apppanelitem" data-id="li_imdi_set_pa" data-vn="1"><span class="appproperty">Position accuracy</span> 地面控制点坐标的精度。选择相应的 <span class="appproperty">File format</span> 也可以从文件中加载精度。</li>
+            </ul>                
+                
+                
+             <ul>
+                <li>
+                    <p data-id="p_imdi_inf" data-vn="1">
+                        You can define your own file format, different values separator, comment symbol or qualifiers in the groundcontrol.xml which can be found in the application installation folder. 
+                        You can find the instructions on how to edit the groundcontrol.xml, as well as the list of supported values for import <a href="defineimportformat.htm">here</a>.
+                    </p>
+                    
+                    <div data-id="div_im_hilo" data-vn="1" class="importantMessage">提示：Lon —— 经度，Lat —— 纬度，Alt —— 高程</div>
+                    <br/>
+                    <p data-id="p_imdi_samp" data-vn="2">A sample of the <span class="appproperty">Name, Y/Lat, X/Lon, Z/Alt（以字符分隔）</span> file format with tab-separated values:</p>                    
+                    <img src="../../images/Tab-separated-Name-Y-X-Alt.png" alt="Import-GCP-file" class="autoimg" onerror="this.onerror=null;this.src='../../images/Tab-separated-Name-Y-X-Alt.png';"/>
+                </li> 
+                <li data-id="li_imdi_degr" data-vn="1">系统支持以度为单位输入，也支持绝对值的 X、Y 与 Alt，具体取决于所选<a href="../appbasics/coordinatesystem.htm">coordinate system</a>。</li>
+                <li data-id="li_imdi_gcpv" data-vn="1">在本页顶部所示对话框中<span class="appgesture">点击</span> OK 后，GCP 数值就会导入项目。</li>
+                <li data-id="li_imdi_chic" data-vn="1">此时建议至少核对 2 个 GCP 的导入坐标与源文件中所给的是否一致。若有不对，先修正再继续下一步。</li>
+                <li data-id="li_imdi_gcpm" data-vn="1">接下来只需把 GCP 手动放到正确位置。最简单的方式是从 <span class="appaspecttype">1Ds</span> 视图的列表中<span class="appgesture">拖放</span> GCP。</li>           
+           </ul>
+
+        </div>   
+            
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+                
+        <div data-id="div_sb_ftip" class="slideblock">
+            <h2 data-id="h2_ftip" data-vn="1">最后几点提示</h2>
+            <ul>
+                <li data-id="li_ftip_1in3" data-vn="1">建议一个 GCP 至少用在三张图像中。</li>
+                <li data-id="li_ftip_shor" data-vn="1">手动添加控制点的快捷键是 <span class="appribbonbutton">F3</span>。</li>
+                <li data-id="li_ftip_disc" data-vn="1">坐标偏差在 5 厘米以内可以接受。</li>
+                <li data-id="li_ftip_impo" data-vn="1">也可以用<a href="../tutorials/commandline_1.htm">命令行</a>导入 GCP。</li>
+            </ul>
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_bc" class="blocksContainer">
+
+            <a href="gcpexport.htm">
+                <div class="block TileColor2">
+                    <h2 data-id="h2_bc_gcpe" data-vn="1">地面控制点导出</h2>
+                    <p data-id="p_h2_bc_gcpe" data-vn="1">如何把地面控制点导出为文本文件</p>
+                </div>
+            </a>
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sa" class="rowblock">
+            <h3 data-id="h3_sa" data-vn="1">另见：</h3>
+            <ul class="intend">
+                <li data-id="li_sa_cosy" data-vn="1">了解坐标系的更多内容，<a href="../appbasics/coordinatesystem.htm">点击此处</a>。</li>
+            </ul>
+        </div>
+
+        <!-- content slide end -->
+
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+    <script type="text/javascript">
+        InitializeHelpSlide();
+    </script>
+
+
+</body>
+</html>
+<!-- signature:DZplzkhFYb6RVW4rkf/G5aS+68N3Iip3XIXCFA0PFRYd9xK5zZMhEv++808rUyKLYiMp/kC3w4DcuwMppoPV7y+7qfVnp6QTLe78y5IgpsoxwUnBh0rObSm42kOTHNFPU+VIeOnrByUYGQlIxrvsNxeKlOBM/9Kmqv5eo42CmHg= -->

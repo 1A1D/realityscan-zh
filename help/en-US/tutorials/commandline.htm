@@ -1,0 +1,630 @@
+<html>
+<head>
+    <title>RealityScan 帮助</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Epic Games Slovakia s.r.o." />
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <link type="text/css" rel="stylesheet" href="../../styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/colors.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css" />
+    <script src="../scripts/textVars.js" type="text/javascript"></script>
+    <script src="../../scripts/localization.js" type="text/javascript"></script>
+    <script src="../../scripts/main.js" type="text/javascript"></script>
+</head>
+<body ondragstart="return false;">
+
+    <div data-id="div_cs" class="content_slide">
+
+    <!-- content slide -->
+    <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head_v1" class="head">
+            <h1 data-id="h1" data-vn="1">命令行界面</h1>
+            <p data-id="p_h1_many" data-vn="3">
+                RealityScan 的许多功能可以直接通过命令行或批处理文件调用。它们作为 RealityScan.exe 的参数传入并按顺序执行，行为与在图形界面中调用基本相同。应用会启动，计算过程中你依然可以照常与它交互。
+            </p>
+            <p data-id="p_h1_bat" data-vn="2">
+                你可以在 Windows 命令提示符中运行命令序列，也可以运行 .bat 文件。下面是一个命令序列示例：先用完整路径启动应用，之后每条命令以连字符开头，后面可跟参数。
+            </p>
+            <div class="codeSample" style="margin-bottom:15px;">
+                "C:\Program Files\Epic Games\RealityScan\RealityScan.exe" -load C:\MyFolder\MyProject.rsproj -selectMaximalComponent -calculateNormalModel -simplify 1000000 -save C:\MyFolder\MyProject.rsproj -quit
+            </div>
+            <p data-id="p_h1_sysp__v1" data-vn="2">
+                要把完整的应用路径换成简单的 <span class="command">RealityScan.exe</span> 命令，可把该路径存进系统变量 path。
+            </p>
+            
+            <p data-id="p_tip_path" data-vn="2" >在脚本开头加入下面这一行，可临时把 RealityScan 文件夹加入 path（直到本次命令行会话结束）。</p> 
+            
+            <div class="codeSample">
+                set PATH=%PATH%;C:\Program Files\Epic Games\RealityScan\<br />
+                RealityScan.exe -load ... -quit
+            </div>
+
+
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sb_bpic" class="slideblock">
+            <h2 data-id="h2_bpic" data-vn="1">基础工程与图像命令</h2>
+            <p data-id="p_h2_bpic" data-vn="1">
+                以下是最基础的命令，用于控制当前工程、应用本身以及添加图像。
+            </p>
+
+            <table class="tableofcommands">
+                <thead data-id="thead_bpic_cona" data-vn="1">
+                <tr>
+                <th>命令名称</th>
+                <th>必需参数</th>
+                <th>可选参数</th>
+                <th>说明</th>
+                </tr>
+                </thead>
+                <tr data-id="tr_bpic_hdls" data-vn="1">
+                    <td class="command">headless</td>
+                    <td class="parameter"></td>
+                    <td class="parameter"></td>
+                    <td>隐藏用户界面。关于该命令的更多内容<a href="../tutorials/headless.htm">见此处</a>。</td>
+                </tr>
+                <tr data-id="tr_bpic_hidu" data-vn="1">
+                    <td class="command">hideUI</td>
+                    <td class="parameter"></td>
+                    <td class="parameter"></td>
+                    <td>隐藏用户界面。与 <span class="command">headless</span> 不同，该命令无需在启动时执行，也不会抑制需要用户交互的操作。</td>
+                </tr>
+                <tr data-id="tr_bpic_shui" data-vn="1">
+                    <td class="command">showUI</td>
+                    <td class="parameter"></td>
+                    <td class="parameter"></td>
+                    <td>显示被隐藏的用户界面。与 <span class="command">headless</span> 不同，该命令无需在启动时执行。</td>
+                </tr>
+                <tr data-id="tr_bpic_nesc" data-vn="1">
+                    <td class="command">newScene</td>
+                    <td class="parameter"></td>
+                    <td class="parameter"></td>
+                    <td>创建一个新的空场景。</td>
+                </tr>
+                <tr data-id="tr_bpic_load" data-vn="2">
+                    <td class="command">load</td>
+                    <td class="parameter">MyProject.rsproj</td>
+                    <td class="parameter">recoverAutosave|deleteAutosave</td>
+                    <td>从 MyProject.rsproj 文件加载已有工程。若该项目存在自动保存文件，可用可选参数指定处理方式：<span class="command">recoverAutosave</span> 会打开自动保存的工程，<span class="command">deleteAutosave</span> 会删除自动保存文件并加载原工程。关于自动保存功能的更多信息<a href="../appbasics/autosave.htm">见此处</a>。<br/> 要为所有工程全局设定该偏好，可用 <span class="command">set</span> 命令加 <span class="command">appAutoSaveCliHandling</span> 键，详见<a href="../tutorials/setkeyvaluetable.htm">CLI 设置键与值</a>一节。
+                    </td>
+                </tr>
+                <tr data-id="tr_bpic_saor" data-vn="2">
+                    <td class="command">save</td>
+                    <td class="parameter"></td>
+                    <td class="parameter">MyProject.rsproj</td>
+                    <td>把当前工程保存到原位置，或另存为 MyProject.rsproj。</td>
+                </tr>
+                <tr data-id="tr_bpic_start" data-vn="2">
+                        <td class="command">start</td>
+                        <td class="parameter"></td>
+                        <td class="parameter"></td>
+                        <td>运行 <span class="appribbonbutton">Start</span> 按钮所配置的流程。这些设置可在 <span class="appbutton">Start</span> 按钮下拉菜单中的 <span class="apppanel">Start button</span> 设置里调整。</td>
+                    </tr>
+                <tr data-id="tr_bpic_unppi" data-vn="2">
+                    <td class="command">unlockPPIProject</td>
+                    <td class="parameter">myProject.rcproj</td>
+                    <td class="parameter"></td>
+                    <td>保存并解锁 PPI 工程，使其与最新版 RealityScan 兼容。请给出解锁后工程的完整目标路径（含工程名与扩展名）。</td>
+                </tr>
+                <tr data-id="tr_bpic_add" data-vn="2">
+                    <td class="command">add</td>
+                    <td class="parameter">imageName</td>
+                    <td class="parameter"></td>
+                    <td>从指定文件路径或图像清单导入一张或多张图像。图像清单是扩展名为 .imagelist 的文本文件，每行一个图像的完整路径。</td>
+                </tr>
+                <tr data-id="tr_bpic_addf" data-vn="3">
+                    <td class="command">addFolder</td>
+                    <td class="parameter">folderName</td>
+                    <td class="parameter"></td>
+                    <td>添加指定文件夹中的所有图像。若还要包含子目录，用 <span class="command">set</span> 命令加 <span class="command">appIncSubdirs</span> 键：<span class="command">-set "appIncSubdirs=true"</span>。详见<a href="../tutorials/setkeyvaluetable.htm">CLI 设置键与值</a>一节。
+                    </td>
+                </tr>
+                <tr data-id="tr_bpic_imvi" data-vn="1">
+                    <td class="command">importVideo</td>
+                    <td class="parameter">videoFileName<br/> extractedVideoFramesLocation<br/> jumpsLength</td>
+                    <td class="parameter"></td>
+                    <td>
+                        导入从视频中抽取的帧（videoFileName 含路径）。帧会按 jumpsLength（秒）定义的间隔抽取到 extractedVideoFramesLocation 文件夹中。
+                    </td>
+                </tr>
+                <tr data-id="tr_bpic_ilblk" data-vn="1">
+                    <td class="command">importLeicaBlk3D</td>
+                    <td class="parameter">fileName</td>
+                    <td class="parameter"></td>
+                    <td>
+                        导入 Leica BLK3D 采集的 .cmi 扩展名图像序列（fileName 含路径）。
+                    </td>
+                </tr>                
+                <tr data-id="tr_bpic_imls" data-vn="3">
+                    <td class="command">importLaserScan</td>
+                    <td class="parameter">laserScanName</td>
+                    <td class="parameter">params.xml</td>
+                    <td>
+                        用当前设置或 params.xml 中的设置（可选参数）添加一个 LiDAR 扫描或 LiDAR 扫描清单。这些设置可在应用的 <span class="apppanel">LiDAR Scan Import</span> 对话框中导出。
+                    </td>
+                </tr>
+                <tr data-id="tr_bpic_ilsf" data-vn="2">
+                    <td class="command">importLaserScanFolder</td>
+                    <td class="parameter">folderName</td>
+                    <td class="parameter">params.xml</td>
+                    <td>
+                        用 params.xml 中的设置添加指定文件夹中的所有 LiDAR 扫描。这些设置可在应用的 <span class="apppanel">LiDAR Scan Import</span> 对话框中导出。
+                    </td>
+                </tr>
+                <tr data-id="tr_bpic_ihdr" data-vn="1">
+                    <td class="command">importHDRimages</td>
+                    <td class="parameter">fileName|folderName|imageList</td>
+                    <td class="parameter">params.xml</td>
+                    <td>
+                        用当前设置或 params.xml 中的设置导入 HDR 图像（imageName）、图像清单（imageList）或某文件夹中的全部图像（folderName）。这些设置可在应用的 <span class="apppanel">16-bit/HDR Images Import</span> 对话框中导出。
+                    </td>
+                </tr>
+                <tr data-id="tr_bpic_imxmp" data-vn="1">
+                    <td class="command">addImageWithCalibration</td>
+                    <td class="parameter">fileName<br/> xmpFileName</td>
+                    <td class="parameter"></td>
+                    <td>
+                        导入图像及其对应的 XMP 文件，请使用完整路径。
+                    </td>
+                </tr>
+                <tr data-id="tr_bpic_imis" data-vn="2">
+                    <td class="command">importImageSelection</td>
+                    <td class="parameter">fileName</td>
+                    <td class="parameter"></td>
+                    <td>选中文件中列出的场景图像和/或 LiDAR 扫描（fileName 含路径）。</td>
+                </tr>
+                <tr data-id="tr_selimages_selimgs" data-vn="2">
+                    <td class="command">selectImage</td>
+                    <td class="parameter">imagePath|regexp</td>
+                    <td class="parameter">set<br /> union<br /> sub<br /> intersect<br /> toggle</td>
+                    <td>选中指定图像（imagePath）或由正则表达式（regexp）定义的图像。<a href="#exselectimgs">示例</a>见下文。可用可选参数之一来更灵活地选择图像。
+                    </td>
+                </tr>
+                <tr data-id="tr_selimages_selall" data-vn="1">
+                    <td class="command">selectAllImages</td>
+                    <td class="parameter"></td>
+                    <td class="parameter"></td>
+                    <td>选中项目中的所有图像。</td>
+                </tr>
+                <tr data-id="tr_selimages_deselall" data-vn="1">
+                    <td class="command">deselectAllImages</td>
+                    <td class="parameter"></td>
+                    <td class="parameter"></td>
+                    <td>取消选中项目中的所有图像。</td>
+                    </tr>
+                <tr data-id="tr_selimages_invsel" data-vn="1">
+                    <td class="command">invertImageSelection</td>
+                    <td class="parameter"></td>
+                    <td class="parameter"></td>
+                    <td>反转当前的图像选择。</td>
+                </tr>
+                <tr data-id="tr_selimages_remcal" data-vn="1">
+                    <td class="command">removeCalibrationGroups</td>
+                    <td class="parameter"></td>
+                    <td class="parameter"></td>
+                    <td>清除所有输入的标定组。</td>
+                </tr>
+                <tr data-id="tr_bpic_genai" data-vn="1">
+                    <td class="command">generateAIMasks</td>
+                    <td class="parameter"></td>
+                    <td class="parameter"></td>
+                    <td>用 AI Masking 分离图像中的目标物体来生成遮罩。</td>
+                </tr> 
+                <tr data-id="tr_bpic_exmas" data-vn="2">
+                    <td class="command" rowspan="2">exportMasks</td>
+                    <td class="parameter">folderPath params.xml</td>
+                    <td class="parameter"></td>
+                    <td>导出项目中当前使用的遮罩图像。需指定输出文件夹与导出参数 XML 文件的完整路径（该文件可从 <span class="apppanel">Export Mask Images</span> 对话框导出）。</td>
+                </tr>
+                <tr data-id="tr_bpic_exmas2" data-vn="1">
+                    <td class="parameter">params.xml</td>
+                    <td class="parameter"></td>
+                    <td>把遮罩图像导出到原图所在文件夹。需指定导出参数 XML 文件的完整路径（该文件可从 <span class="apppanel">Export Mask Images</span> 对话框导出）。</td>
+                </tr>
+                <tr data-id="tr_selimages_imgl" data-vn="1">
+                    <td class="command">setImageLayer</td>
+                    <td class="parameter">index pathImage layerType</td>
+                    <td class="parameter"></td>
+                    <td>把 <span class="appproperty">pathImage</span> 参数指定的图像（图层图像的路径）中的图层设置到 <span class="appproperty">index</span> 参数指定的图像上。索引对应 <span class="appaspecttype">1Ds</span> 视图中的图像顺序，从 0 开始。<span class="appproperty">layerType</span> 参数定义要设置到该图像上的图层类型（例如 mask、texture）。</td>
+                </tr>
+                <tr data-id="tr_selimages_imgsl" data-vn="1">
+                    <td class="command">setImagesLayer</td>
+                    <td class="parameter">pathImage layerType</td>
+                    <td class="parameter"></td>
+                    <td>把 <span class="appproperty">pathImage</span> 参数指定的图像（图层图像的路径）中的图层设置到所选图像上。<span class="appproperty">layerType</span> 参数定义要设置到所选图像上的图层类型（例如 mask、texture）。</td>
+                </tr>
+                <tr data-id="tr_selimages_rimgl" data-vn="1">
+                    <td class="command">removeImageLayer</td>
+                    <td class="parameter">layerType</td>
+                    <td class="parameter"></td>
+                    <td>从所选图像中移除 <span class="appproperty">layerType</span> 参数对应的图层（例如 mask、texture）。</td>
+                </tr>
+                <tr data-id="tr_bpic_imca" data-vn="1">
+                    <td class="command">importCache</td>
+                    <td class="parameter">folderName</td>
+                    <td class="parameter"></td>
+                    <td>从指定文件夹导入资源缓存数据。</td>
+                </tr>
+                <tr data-id="tr_bpic_clca" data-vn="1">
+                    <td class="command">clearCache</td>
+                    <td class="parameter"></td>
+                    <td class="parameter"></td>
+                    <td>清除应用缓存。清除前必须先保存工程。</td>
+                </tr>
+                <tr data-id="tr_bpic_exrc" data-vn="3">
+                    <td class="command">execRSCMD</td>
+                    <td class="parameter">Commands.rscmd</td>
+                    <td class="parameter"></td>
+                    <td>执行 .rscmd（或 .rccmd）文件中的命令，可选地带上报告参数。文件格式与语法见<a href="../tutorials/commandline_rscmd.htm">命令行之外的命令执行方式</a>一节。在 .rscmd 文件路径后最多可列出九个参数作为变量；在文件内用 $(arg1)–$(arg9) 引用这些变量。</td>
+                </tr>
+                <tr data-id="tr_bpic_quit" data-vn="1">
+                    <td class="command">quit</td>
+                    <td class="parameter"></td>
+                    <td class="parameter"></td>
+                    <td>退出应用。</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+        
+        <div class="slideblock">
+        
+            <h3 id="exselectimgs" data-id="h3_bpic_exam_imgs" data-vn="2">图像选择示例</h3>
+
+            <p data-id="p_exam_dirp" data-vn="1">按直接路径选中一张图像：</p>
+            <div class="codeSample">
+            -selectImage D:\sample\Images\IMG_0018.JPG
+            </div>
+            <p data-id="p_exam_name" data-vn="1">选中名称中含 "DSC" 的图像：</p>
+            <div class="codeSample">
+            -selectImage g/DSC/
+            </div>
+            <p data-id="p_exam_21" data-vn="1">选中同时含 "2" 与 "1"、且两者之间有其他字符的图像（例如 image_1251.jpg）：</p>
+            <div class="codeSample">
+            -selectImage g/2.1/
+            </div>
+            <p data-id="p_exam_jpg" data-vn="1">选中所有以偶数结尾、且扩展名为 .jpg 的图像（例如 222.jpg 或 img_0018.jpg）：</p>
+            <div class="codeSample">
+            -selectImage g/[02468]\.jpg/
+            </div>
+            <p data-id="p_exam_dsc" data-vn="1">选中所有含 "DSC"、以偶数结尾、且扩展名为 .jpg 的图像（例如 img_DSC_222.jpg 或 DSC_14.jpg）：</p>
+            <div class="codeSample">
+            -selectImage g/DSC.*[02468]\.jpg/
+            </div>
+            
+            <br />
+        
+            <p data-id="p_exam_selopt" data-vn="1">用于选择图像的命令可以带以下几种可选参数之一：</p>
+
+            <ul>
+            <li><span data-id="p_exam_selopt_set" class="command">set</span> —— 只选中符合条件的图像并取消选中其他所有图像。即使不使用任何可选参数，这也是默认行为。
+            </li>
+            <li><span data-id="p_exam_selopt_union" class="command">union</span> —— 与已选中的图像取并集。不会取消已选中的图像，只把符合条件的新图像加入选择。
+            </li> 
+            <li><span data-id="p_exam_selopt_sub" class="command">sub</span> —— 取消选中那些已选中且符合条件的图像。
+            </li> 
+            <li><span data-id="p_exam_selopt_intersect" class="command">intersect</span> —— 只保留既已选中、又符合条件的图像，其余都从选择中移除。
+            </li> 
+            <li><span data-id="p_exam_selopt_toggle" class="command">toggle</span> —— 反转符合条件图像的选中状态：已选中的被取消，未选中的被选中。
+            </li>
+            </ul>
+            
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div class="slideblock splitSpacing">
+                <h2 data-id="h2_delco" data-vn="1">委派命令</h2>
+                <p data-id="p_h2_delco" data-vn="2" class="lod1">
+                    这些命令可把操作委派给某个 RealityScan 实例。关于命令委派的更多内容<a href="../tutorials/commandline_deleg.htm">见此处</a>。
+                </p>
+
+                <table class="tableofcommands">
+                    <thead>
+                        <tr data-id="tr_delco_head" data-vn="1">
+                            <th>命令名称</th>
+                            <th>必需参数</th>
+                            <th>可选参数</th>
+                            <th>说明</th>
+                        </tr>
+                    </thead>
+                    <tr data-id="tr_delco_setins" data-vn="2">
+                        <td class="command">setInstanceName</td>
+                        <td class="parameter">instanceName</td>
+                        <td class="parameter"></td>
+                        <td>为 RealityScan 实例指定名称。</td>
+                    </tr>
+                    <tr data-id="tr_delco_delegto" data-vn="2">
+                        <td class="command">delegateTo</td>
+                        <td class="parameter">instanceName|*</td>
+                        <td class="parameter"></td>
+                        <td>把一条命令或一串命令委派给指定的 RealityScan 实例（instanceName），或委派给第一个可用实例（参数写 * 符号）。</td>
+                    </tr>
+                    <tr data-id="tr_delco_waitcom" data-vn="2">
+                        <td class="command">waitCompleted</td>
+                        <td class="parameter">instanceName|*</td>
+                        <td class="parameter"></td>
+                        <td>暂停执行后续命令，直到指定的 RealityScan 实例（instanceName）或第一个可用实例（参数写 *）中的当前进程结束。</td>
+                    </tr>
+                    <tr data-id="tr_delco_getst" data-vn="2">
+                        <td class="command">getStatus</td>
+                        <td class="parameter">instanceName|*</td>
+                        <td class="parameter"></td>
+                        <td>返回指定 RealityScan 实例（instanceName）或第一个可用实例（参数写 * 符号）中运行进程的进度状态。</td>
+                    </tr>
+                    <tr data-id="tr_delco_pauseins" data-vn="2">
+                        <td class="command">pauseInstance</td>
+                        <td class="parameter">instanceName|*</td>
+                        <td class="parameter"></td>
+                        <td>暂停指定 RealityScan 实例（instanceName）或第一个可用实例（参数写 * 符号）中正在运行的进程。</td>
+                    </tr>
+                    <tr data-id="tr_delco_unpausins" data-vn="2">
+                        <td class="command">unpauseInstance</td>
+                        <td class="parameter">instanceName|*</td>
+                        <td class="parameter"></td>
+                        <td>恢复指定 RealityScan 实例（instanceName）或第一个可用实例（参数写 * 符号）中已暂停的进程。</td>
+                    </tr>
+                    <tr data-id="tr_delco_abortins" data-vn="3">
+                        <td class="command">abortInstance</td>
+                        <td class="parameter">instanceName|*</td>
+                        <td class="parameter"></td>
+                        <td>中止指定 RealityScan 实例（instanceName）或第一个可用实例（参数写 * 符号）中正在运行的进程。若处理是通过 CLI 命令完成的，该进程之后的所有进程也会被中止。</td>
+                    </tr>
+                    <tr data-id="tr_delco_execrs" data-vn="1">
+                        <td class="command">execRSCMDIndirect</td>
+                        <td class="parameter">instanceName|* commands.rscmd</td>
+                        <td class="parameter"></td>
+                        <td>在指定实例中执行 .rscmd（或 .rccmd）文件中列出的命令。</td>
+                    </tr>
+                </table>
+            </div>
+
+        <div data-id="div_sb_cosi" class="slideblock">
+            <h2 data-id="h2_cosi" data-vn="1">针对所选图像的命令</h2>
+            <p data-id="p_h2_cosi" data-vn="1">
+                以下命令可为后续图像处理设置一些偏好。
+            </p>
+            <table class="tableofcommands">
+                <thead data-id="thead_cosi_cona" data-vn="1">
+                <tr>
+                    <th>命令名称</th> 
+                    <th>必需参数</th> 
+                    <th>可选参数</th> 
+                    <th>说明</th>
+                </tr>
+                </thead>
+                <tr data-id="tr_cosi_sefs" data-vn="1"> 
+                    <td class="command">setFeatureSource</td> 
+                    <td class="parameter">0|1|2</td>  
+                    <td class="parameter"></td>
+                    <td>
+                        为所选图像定义特征来源模式：<br /> 0 —— Merge using overlaps，<br /> 1 —— Use component features，<br /> 2 —— Use all image features。
+                    </td> 
+                </tr>
+                <tr data-id="tr_cosi_enal" data-vn="1"> 
+                    <td class="command">enableAlignment</td> 
+                    <td class="parameter">true|false</td>  
+                    <td class="parameter"></td>
+                    <td>在配准过程中启用/禁用所选图像。</td> 
+                </tr>
+                <tr data-id="tr_cosi_enme" data-vn="1"> 
+                    <td class="command">enableMeshing</td> 
+                    <td class="parameter">true|false</td>  
+                    <td class="parameter"></td>
+                    <td>在模型计算/网格重建中启用/禁用所选图像。</td> 
+                </tr>
+                <tr data-id="tr_cosi_entc" data-vn="1"> 
+                    <td class="command">enableTexturingAndColoring</td> 
+                    <td class="parameter">true|false</td>  
+                    <td class="parameter"></td>
+                    <td>在着色与纹理计算中启用/禁用所选图像。</td> 
+                </tr>
+                <tr data-id="tr_cosi_wit" data-vn="2"> 
+                    <td class="command">setWeightInTexturing</td> 
+                    <td class="parameter">&lt;0,1&gt;</td>  
+                    <td class="parameter"></td>
+                    <td>设置所选图像在着色与纹理计算中的权重。</td> 
+                </tr>
+                <tr data-id="tr_cosi_ecnr" data-vn="1">
+                    <td class="command">enableColorNormalizationReference</td>
+                    <td class="parameter">true&#124;false</td>
+                    <td class="parameter"></td>
+                    <td>把所选图像设为色彩归一化过程中的颜色参照，这些图像自身的颜色不会被改变。</td>
+                </tr>
+                <tr data-id="tr_cosi_ecno" data-vn="1">
+                    <td class="command">enableColorNormalization</td>
+                    <td class="parameter">true&#124;false</td>
+                    <td class="parameter"></td>
+                    <td>在色彩归一化过程中启用或禁用所选图像。</td>
+                </tr>
+                <tr data-id="tr_cosi_sddm" data-vn="1"> 
+                    <td class="command">setDownscaleForDepthMaps</td> 
+                    <td class="parameter">integer</td>  
+                    <td class="parameter"></td>
+                    <td>设置所选图像计算深度图的降采样系数。</td> 
+                </tr>
+                <tr data-id="tr_cosi_inco" data-vn="1"> 
+                    <td class="command">enableInComponent</td> 
+                    <td class="parameter">true|false</td>  
+                    <td class="parameter"></td>
+                    <td>在网格重建中启用所选图像并继续。仅适用于已配准的图像。</td> 
+                </tr>
+                <tr data-id="tr_cosi_groupbyexif" data-vn="1">
+                    <td class="command">setCalibrationGroupByExif</td>
+                    <td class="parameter"></td>
+                    <td class="parameter"></td>
+                    <td data-id="td_cosi_groupbyexif" data-vn="1">依据 Exif 设置所有输入的标定组。</td>
+                </tr>
+                <tr data-id="tr_cosi_groupbyselct" data-vn="1">
+                    <td class="command">setConstantCalibrationGroups</td>
+                    <td class="parameter"></td>
+                    <td class="parameter"></td>
+                    <td data-id="td_cosi_groupbysel" data-vn="1">把所有所选输入归入同一个标定组。</td>
+                </tr>
+                <tr data-id="tr_cosi_lopc" data-vn="1"> 
+                    <td class="command">lockPoseForContinue</td> 
+                    <td class="parameter">true|false</td>  
+                    <td class="parameter"></td>
+                    <td>在下次配准时保持所选图像的相对相机位姿不变。仅适用于已配准的图像。</td> 
+                </tr>
+                <tr data-id="tr_cosi_spcg" data-vn="1"> 
+                    <td class="command">setPriorCalibrationGroup</td> 
+                    <td class="parameter">number</td>  
+                    <td class="parameter"></td>
+                    <td>为所选图像设置先验标定组：<br /> -1 —— 不分组，<br /> 其他数字 —— 归入同一标定组。
+                    </td> 
+                </tr>
+                <tr data-id="tr_cosi_splg" data-vn="1"> 
+                    <td class="command">setPriorLensGroup</td> 
+                    <td class="parameter">number</td>  
+                    <td class="parameter"></td>
+                    <td>为所选图像设置先验镜头组。-1 表示不分组，其他数字表示把所选图像归入同一畸变组。</td>
+                </tr>
+                <tr data-id="tr_cosi_editinputselect" data-vn="1">
+                     <td class="command">editInputSelection</td>
+                    <td class="parameter">"key=value"</td>
+                    <td class="parameter"></td>
+                    <td data-id="td_cosi_editinputselect" data-vn="1">依据 <span class="apppanel">Selected inputs</span> 面板中的值或其键名，编辑所选输入的设置。更多信息<a href="../tutorials/editselectioncommand.htm">见此处</a>。
+                    </td>
+                  </tr>
+            </table>
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sb_coex_v1" class="slideblock">
+
+            <h2 data-id="h2_coex" data-vn="1">代码示例</h2>
+            <p data-id="p_h2_coex" data-vn="2">
+                所有脚本都用 Windows 命令行语法编写。假设你把批处理脚本放在 <span class="command">C:\MyFolder</span>，要加载工程 <span class="command">C:\MyFolder\PlainProject.rsproj</span>、加入 <span class="command">C:\MyFolder\Images</span> 文件夹中的图像、把进度保存为 <span class="command">MyProject.rsproj</span> 然后退出。
+            </p>
+            <div class="codeSample">
+                set PATH=%PATH%;C:\Program Files\Epic Games\RealityScan\<br />
+                RealityScan.exe -load C:\MyFolder\PlainProject.rsproj -addFolder C:\MyFolder\Images\ -save C:\MyFolder\MyProject.rsproj -quit
+            </div>
+
+            <p data-id="p_coex_legi" data-vn="2">
+                为提升可读性（路径较长时）与代码灵活性，建议把工作文件夹存进环境变量。
+            </p>
+            <div class="codeSample">
+                set PATH=%PATH%;C:\Program Files\Epic Games\RealityScan\<br />
+                set MyPath=C:\MyFolder<br />
+                RealityScan.exe -load %MyPath%\PlainProject.rsproj -addFolder %MyPath%\Images\ -save %MyPath%\MyProject.rsproj -quit <br />
+            </div>
+
+            <br/>
+
+            <p data-id="p_coex_imgl" data-vn="2">
+                添加图像清单与添加单张图像的方式相同。
+            </p>
+            <div class="codeSample">
+                set PATH=%PATH%;C:\Program Files\Epic Games\RealityScan\<br />
+                set MyPath=C:\MyFolder<br />
+                RealityScan.exe -load %MyPath%\PlainProject.rsproj -add %MyPath%\images.imagelist -add %MyPath%\Images\image_123.jpg -save %MyPath%\MyProject.rsproj -quit <br />
+            </div>
+
+            <p data-id="p_coex_nwsc" data-vn="1">
+                通常不必使用 <span class="command">-newScene</span> 命令，因为应用启动时本身就是新场景；但若想不重启应用就开一个新工程，它很有用。
+            </p>
+
+            <p data-id="p_im_batc" data-vn="3">
+                在批处理脚本中，若想让 RealityScan 命令序列延续到下一行并作为一条处理，必须用 <span class="command">^</span> 断行。<br/> 以 <span class="command">#</span>、<span class="command">//</span>、<span class="command">REM</span> 或 <span class="command">rem</span> 开头的行会被跳过。可以用这些符号把一段文本标记为代码注释，例如：<span class="command">// I am a comment</span>。
+            </p>
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_bc" class="blocksContainer">
+
+            <a href="../tutorials/commandline_rscmd.htm">
+                <div class="block TileColor2">
+                    <h2 data-id="h2_bc_cont" data-vn="1">继续</h2>
+                    <p data-id="p_h2_bc_cont" data-vn="2">用 .rscmd 执行 CLI</p>
+                </div>
+            </a>
+
+            <a href="../tutorials/commandline_deleg.htm">
+                <div class="block TileColor1">
+                    <h2 data-id="h2_bc_del" data-vn="1">命令委派</h2>
+                    <p data-id="p_bc_del" data-vn="2">关于把命令委派给已打开的 RealityScan 实例</p>
+                </div>
+            </a>
+
+            <a href="../tutorials/commandline_1.htm">
+                <div class="block TileColor1">
+                    <h2 data-id="h2_bc_alco" data-vn="1">对齐命令</h2>
+                    <p data-id="p_h2_bc_alco" data-vn="1">对齐与组件处理命令</p>
+                </div>
+            </a>
+
+            <a href="../tutorials/commandline_2.htm">
+                <div class="block TileColor1">
+                    <h2 data-id="h2_bc_reco" data-vn="1">重建命令</h2>
+                    <p data-id="p_h2_bc_reco" data-vn="1">通过命令行计算模型</p>
+                </div>
+            </a>
+
+            <a href="../tutorials/commandline_3.htm">
+                <div class="block TileColor1">
+                    <h2 data-id="h2_bc_moto" data-vn="1">模型工具命令</h2>
+                    <p data-id="p_h2_bc_moto" data-vn="1">通过命令行进一步处理模型</p>
+                </div>
+            </a>
+            
+            <a href="../tutorials/commandline_4.htm">
+                <div class="block TileColor1">
+                    <h2 data-id="h2_bc_seco" data-vn="1">设置命令</h2>
+                    <p data-id="p_h2_bc_seco" data-vn="1">应用设置与行为</p>
+                </div>
+            </a>
+
+            <a href="../tutorials/commandline_5.htm">
+                <div class="block TileColor1">
+                    <h2 data-id="h2_bc_ehco" data-vn="1">错误处理命令</h2>
+                    <p data-id="p_h2_bc_ehco" data-vn="1">用于处理潜在错误的命令</p>
+                </div>
+            </a>
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sa" class="rowblock">
+            <h3 data-id="h3_sa" data-vn="1">另见：</h3>
+            <ul class="intend">
+                <li data-id="li_sa_all" data-vn="1">在一页中查看全部 CLI 命令 <a href="../appbasics/allcommands.htm">点击此处</a></li>
+            </ul>
+        </div>
+
+    <!-- content slide end -->
+
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+    <script type="text/javascript">
+        InitializeTutorialMode();
+    </script>
+
+
+</body>
+</html>
+<!-- signature:LKDezD/Y89vouO9wb7jY33NAAOQTMpd3raqxh1rBrp0nq/qxvMwMgWQilTEAQugVZU4H8a9UYVTKDQszsYwuTuEW0LtgMVErGyjMvg5L5pWIgSMU3qAsUZSFZCIbeQlEgVvzlThkHuwvjimyuTT7R0Dk8b1OpcEJvEwR3j6uDjk= -->

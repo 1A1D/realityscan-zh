@@ -1,0 +1,205 @@
+﻿<html>
+<head>
+    <title>RealityScan 帮助</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Epic Games Slovakia s.r.o." />
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <link type="text/css" rel="stylesheet" href="../../styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/colors.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css" />
+    <script src="../scripts/textVars.js" type="text/javascript"></script>
+    <script src="../../scripts/localization.js" type="text/javascript"></script>
+    <script src="../../scripts/main.js" type="text/javascript"></script>
+    <style>
+        .importBlock {
+            position: relative;
+            display: inline-block;
+            color: #ccc;
+            float:left;
+            cursor: pointer;
+            width: 210px;
+            height: 90px;
+            margin: 5px 5px 5px 5px;
+            padding-top: 8px;
+            font-size: 14px;
+            line-height: 1.2em !important;
+            border:1px solid #ffa155;
+        }
+        .importBlock img {
+            padding-left: 5px;
+            position: relative;
+            display: inline-block;
+            float:left;
+        }
+        .importBlock p {
+            position: relative;
+            padding: 10px;
+            display: inline-block;
+            color: #ccc;
+            float:left;
+            width: 110px;
+            margin-left:10px;
+        }
+    </style>
+</head>
+<body ondragstart="return false;">
+
+    <div data-id="div_cs" class="content_slide">
+
+        <!-- content slide -->
+
+        <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head" class="head">
+
+            <h1 data-id="h1__v1" data-vn="1">添加图像</h1>
+            <p data-id="p_h1__v1" data-vn="2">
+                先向项目中添加输入。你可以使用自己的图像或 LiDAR 扫描，也可以直接用下面的选项上传我们提供的示例数据集。
+            </p>
+            
+            <div id="idStartPage">
+                <div class="RCHasImage warningBox">
+                    <p data-id="p_adim__v1" data-vn="1">
+                        项目中已有部分图像。你可以进入下一步、继续添加图像，或用其他图像新建场景。要新建场景，点击左上角的应用图标打开菜单，选择 <span class="appmenuitem">New</span>，或按 <span class="appshortcut">CTRL+N</span>。
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <div data-id="div_sb_adim" class="slideblock">
+
+            <div>
+                <p data-id="p_adim_opti" data-vn="2">向项目中添加输入有多种方式。</p>
+
+                <div style="float: left; width: 380px">
+                    <ul>
+                        <li data-id="li_adim_wota__v1" data-vn="2">
+                            在 <span class="appribbon">Workflow</span> 选项卡的 <span class="apppanel">Inputs</span> 区域中，用 <span class="appribbonbutton">Images</span> 按钮添加同一文件夹内的一张或多张图像。也可以用 <span class="appshortcut">ctrl+enter</span> 快捷键。
+                        </li>
+                        <li data-id="li_adim_fold__v1" data-vn="1">
+                            要添加整个文件夹的图像，用 <span class="appribbonbutton">Folder</span> 按钮或 <span class="appshortcut">ctrl+shift+enter</span> 快捷键。
+                        </li>
+                    </ul>
+                </div>
+                <div style="float: left; width: 205px; padding-left:20px; padding-top:15px">
+                    <img src="./images/imageWorkAdd.png" alt="imageWorkAdd" onerror="this.onerror=null;this.src='../../en-US/tutorials/images/imageWorkAdd.png';"/>
+                </div>
+
+                <div class="clear splitSpacing">
+                    <!-- clear -->
+                </div>
+
+                <div style="float: left; width: 380px">
+                    <ul>
+                        <li data-id="li_adim_dad__v1" data-vn="2">
+                            图像和输入也可以<span class="appgesture">拖放</span>到 RealityScan 中。当拖入的内容可被接受时，会出现加号标记 <img src="../../images/plus.png" alt="plus"/>。
+                        </li>
+                    </ul>
+                </div>
+                <div style="float: left; width: 47px; padding:20px 20px 20px 20px">
+                    <img src="../../images/dadcursor.png" alt="dadcursor"/>
+                </div>
+
+            </div>
+
+            <div class="clear">
+                <!-- clear -->
+            </div>
+
+            <div data-id="div_zero__v1" class="RCZeroImages">
+                <p data-id="p_adim_zero" data-vn="2">要继续，请用上述任一方法向项目添加一张或多张图像，或直接用下面的选项导入小型示例数据集。</p>
+
+                <div data-id="div_bc_zero" class="blocksContainer">
+                    <a href="#" onclick="OnAddImgsFromUrl('https://downloads.realityscan.com/SmallPlastic.zip'); return false;">
+                        <div class="importBlock">
+                            <img src="../../images/icn_ga.png" alt="icn_ga"/>
+                            <p data-id="p_bc_phot" data-vn="2">导入小型示例数据集</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="clear">
+                    <!-- clear -->
+                </div>
+
+                <p data-id="p_adim_down" data-vn="3" style="margin-top:10px">我们提供的其他示例数据集可<a href="https://dev.epicgames.com/community/learning/sample-projects/j20e/realityscan-sample-datasets" target="_blank">在此</a>查找并下载。</p>
+            </div>
+
+            <div data-id="div_sing" data-vn="1" id="idSingleImage" class="RCZeroLasers redWarningBox">
+                继续之前至少需要添加两张图像。
+            </div>
+
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_bc" class="blocksContainer">
+
+            <div id="idDoNotContinue" class="leadBlock block TileColor5">
+                <h2 data-id="h2_bc_caca" data-vn="1">继续</h2>
+                <p data-id="p_h2_bc_caca" data-vn="1">为已添加的输入计算相机位姿</p>
+            </div>
+
+            <a id="idContinue" href="quickstart_1.htm">
+                <div class="leadBlock block TileColor6">
+                    <h2 data-id="h2_bc_mypr" data-vn="1">继续</h2>
+                    <p data-id="p_h2_bc_mypr" data-vn="2">图像及其存放位置</p>
+                </div>
+            </a>
+
+            <script type="text/javascript">RenderOpenHelpTile();</script>
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sa" class="rowblock">
+            <h3 data-id="h3_sa" data-vn="1">另见：</h3>
+            <ul class="intend">
+                <li data-id="li_sa_imla" data-vn="3"><a href="../tutorials/importlaser.htm">导入 LiDAR 扫描</a> - 了解 LiDAR 扫描是如何导入的</li>
+                <li data-id="li_sa_vid" data-vn="2"><a href="../tools/videoimport.htm">将视频作为输入</a> - 了解如何使用视频作为输入</li>
+                <li data-id="li_sa_aer" data-vn="2"><a href="../tutorials/aerialimport.htm">导入航空数据</a> - 如何使用航空数据及其用途</li>
+            </ul>
+            <div class="clear">
+                <!-- clear -->
+            </div>
+        </div>
+
+        <!-- content slide end -->
+
+    </div>
+
+
+    <script type="text/javascript">
+        function OnAddImgsFromUrl(zipUrl) {
+            RCInvoke(0x54, zipUrl);
+        }
+    </script>
+    
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+    <script type="text/javascript">
+        function CustomHandler(id, param, hr) {
+            RCImageHandler(id, param, hr);
+            idContinue.style.display = (gImagesCount >= 2) ? "block" : "none";
+            idDoNotContinue.style.display = (gImagesCount >= 2) ? "none" : "block";
+            idSingleImage.style.display = (gImagesCount == 1) ? "block" : "none";
+            if (gImagesCount == 0) {
+                idStartPage.style.display = "none";
+            }
+        }
+        idDoNotContinue.style.display = "block";
+        idContinue.style.display = "none";
+        InitializeTutorialMode(CustomHandler);
+        idStartPage.style.display = (gImagesCount > 0) ? "block" : "none";
+    </script>
+
+
+</body>
+</html>
+<!-- signature:rYEHmzOY6gan0EHHPreRN4+rsSmKxyxWIxEkxslJsf2JKeOIWD75wZXfaZFskq8nUu++2FXBUG714xwPNbnF1QUmjZeFmWrzuothknl8o7rqqQgZxEsvv4py7WtPGTbxLoovfr474BrsumPiz5yYY3cB0/z4YQaE2xiF8WM3tvs= -->

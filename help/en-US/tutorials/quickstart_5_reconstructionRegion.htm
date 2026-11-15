@@ -1,0 +1,119 @@
+<html>
+<head>
+    <title>RealityScan 帮助</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Epic Games Slovakia s.r.o." />
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <link type="text/css" rel="stylesheet" href="../../styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/colors.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css" />
+    <script src="../scripts/textVars.js" type="text/javascript"></script>
+    <script src="../../scripts/localization.js" type="text/javascript"></script>
+    <script src="../../scripts/main.js" type="text/javascript"></script>
+</head>
+<body ondragstart="return false;">
+
+    <div data-id="div_cs" class="content_slide">
+
+        <!-- content slide -->
+
+        <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head" class="head">
+            <h1 data-id="h1" data-vn="2">调整重建区域</h1>
+            <p data-id="p_h1" data-vn="3">
+                重建区域在对齐后自动设置，大小取决于稀疏点云的范围。它限定了模型重建的区域，你可以移动和旋转它，只重建场景中的特定部分；也可以移除重建区域，对整个场景重建。不过建议保留设置，以加快模型计算，因为它会排除场景中不需要的部分。
+            </p>
+        </div>
+
+        <div data-id="div_noco" data-vn="2" class="RCNoComponents redWarningBox" style="margin-bottom:20px">
+            你的项目还没有任何组件。请返回前面的步骤对齐图像。
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sb_options" class="slideblock">
+
+            <p data-id="p_opt_ways" data-vn="1">
+                这是<span class="appproperty">快速入门指南</span>，因此不展开讲设置重建区域的所有方法，只说明如何移动和旋转区域。
+            </p>
+            
+            <p data-id="p_opt_button" data-vn="2">
+                重建区域按钮位于 <span class="appribbon">MESH &amp; COLOR</span> 选项卡的 <span class="apppanel">Reconstruction Region</span> 区域，或 <span class="appribbon">SCENE 3D</span> / <span class="appribbon">TOOLS</span> 选项卡的 <span class="apppanel">Scene Alignment</span> 区域。点击其中任一按钮即可启用重建区域控件，其用法与地平面控件类似。你也可以在 <span class="appaspecttype">3Ds</span> 视图中点击区域边缘来启用该控件。
+            </p>
+            
+            <div style="padding: 20px 10px 30px 10px">
+                <img src="images/qs_recon-region-button.png" alt="qs_recon-region-button" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tutorials/images/qs_recon-region-button.png';"/>
+            </div>
+        
+        </div>
+        
+        <div class="clear">
+            <!-- clear -->
+        </div>
+        
+        <div data-id="div_sb_adjust" class="slideblock">
+
+            <p data-id="p_opt_grid" data-vn="1">
+                用重建区域控件可以移动、旋转和缩放区域：
+            </p>
+            
+            <ul style="margin-bottom:20px">
+                <li data-id="li_widg_rota" data-vn="1"><span class="appgesture">按住并拖动</span>四分之一圆弧控件可旋转重建区域。</li>
+                <li data-id="li_widg_tran" data-vn="1"><span class="appgesture">按住左键拖动</span>箭头控件，可沿箭头方向所定义的轴移动区域。</li>
+                <li data-id="li_widg_trpp" data-vn="1"><span class="appgesture">按住右键拖动</span>箭头控件，可在与箭头轴垂直的平面上移动区域。</li>
+                <li data-id="li_widg_repi" data-vn="1"><span class="appgesture">按住并拖动</span>区域外侧的圆形控件可调整区域大小。</li>
+            </ul>
+            
+            <div style="padding: 0px 10px 30px 10px">
+                <img src="images/qs_recon-region-widget.png" alt="qs_recon-region-widget" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tutorials/images/qs_recon-region-widget.png';"/>
+            </div>
+            
+        </div>    
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_bc" class="blocksContainer">
+
+            <a href="quickstart_6_computeModel.htm" class="RCHasComponent">
+                <div class="leadBlock block TileColor6">
+                    <h2 data-id="h2_bc_como" data-vn="1">继续</h2>
+                    <p data-id="p_h2_bc_como" data-vn="2">重建模型</p>
+                </div>
+            </a>
+
+            <script type="text/javascript">RenderOpenHelpTile();</script>
+        </div>
+        
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sa" class="rowblock">
+            <h3 data-id="h3_sa" data-vn="1">另见：</h3>
+            <ul class="intend">
+                <li data-id="li_sa_region" data-vn="1"><a href="../tools/reconbox.htm">重建区域</a> - 进一步了解如何设置重建区域</li>
+            </ul>
+            <div class="clear">
+                <!-- clear -->
+            </div>
+        </div>
+
+        <!-- content slide end -->
+
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+    <script type="text/javascript">
+        InitializeTutorialMode(RCComponentsHandler);
+    </script>
+
+
+</body>
+</html>
+<!-- signature:w55m0i9fb9GgKvHA17aGtPicx/afq5ivedTHh56HK7J4OYJ2iAXcTAnN54bXmkrNIPVTl2Xo/qcgkmgvOo/y34buOY3dvfVsxLFLLvrZP73pnya7y/g/OuhOMLZRb+Lg7sX6OXZab3xels548tKEvLZAEuzWKMNPwZf5jLDmGJ0= -->

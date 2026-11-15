@@ -1,0 +1,608 @@
+﻿<html>
+    <head>
+        <title>RealityScan 帮助</title>
+        <meta charset="UTF-8"/>
+        <meta name="author" content="Epic Games Slovakia s.r.o."/>
+        <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/style.css"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/colors.css"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css"/>
+        <script src="../scripts/textVars.js" type="text/javascript"></script>
+        <script src="../../scripts/localization.js" type="text/javascript"></script>
+        <script src="../../scripts/main.js" type="text/javascript"></script>
+    </head>
+<body ondragstart="return false;">
+
+    <div data-id="div_cs" class="content_slide">
+    
+        <!-- content slide -->
+
+        <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head" class="head">
+            <h1 data-id="h1" data-vn="1">相机（报告中可用的函数与变量）</h1>
+        </div>
+
+        <div data-id="div_sb_cams" class="slideblock">
+            <h2 data-id="h2_cams" data-vn="1">相机</h2>
+
+            <p data-id="p_cams_iter" data-vn="1"><span class="appproperty">IterateCameras</span> —— 该函数可获取所选组件中所有相机的索引及对应图像的索引。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_cams_iter_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_cams_iter_syn" data-vn="1">
+  $IterateCameras( noParametersJustAnyText )</pre>
+                <p data-id="p_cams_iter_vars" data-vn="1"><b>可用变量：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_cams_iter_cami" data-vn="1"><span class="appproperty">cameraIndex</span> —— 相机的索引</p>
+                    <p data-id="p_cams_iter_camii" data-vn="1"><span class="appproperty">cameraImageIndex</span> —— 图像的索引</p>
+                </div>
+                <p data-id="p_cams_iter_ex" data-vn="1"><b>示例：</b></p>
+                <pre data-id="pre_cams_iter_ex" data-vn="1">
+  $IterateCameras(
+    Camera index: $(cameraIndex)
+    Image index: $(cameraImageIndex)
+  )
+                </pre>
+            </div>
+
+            <p data-id="p_cams_expo" data-vn="1"><span class="appproperty">ExportCameras</span> —— 该函数用于输出所选相机的信息，或所选组件中所有已配准相机的信息。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_cams_expo_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_cams_expo_syn" data-vn="1">
+  $ExportCameras( noParametersJustAnyText )</pre>
+            </div>
+
+            <p data-id="p_cam_expo" data-vn="1"><span class="appproperty">ExportCamera</span> —— 该函数可依据相机索引输出单台相机的信息。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_cam_expo_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_cam_expo_syn" data-vn="1">
+  $ExportCamera( cameraIndex )</pre>
+
+                <p data-id="p_cams_expo_vars" data-vn="1"><b>可用变量：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_cams_expo_cmic" data-vn="1"><span class="appproperty">cameraIndex</span> —— 组件中的相机索引</p>
+                    <p data-id="p_cams_expo_cami" data-vn="1"><span class="appproperty">index</span> —— 相机索引</p>
+                    <p data-id="p_cams_expo_imw" data-vn="1"><span class="appproperty">width</span> —— 图像宽度（像素）</p>
+                    <p data-id="p_cams_expo_imh" data-vn="1"><span class="appproperty">height</span> —— 图像高度（像素）</p>
+                    <p data-id="p_cams_expo_sca" data-vn="1"><span class="appproperty">scale</span> —— 其值等于 <span class="appproperty">width</span> 与 <span class="appproperty">height</span> 变量中较大者，应用以下操作后其值保持不变：</p> <pre>   $Max( "scale", width, height )</pre>
+                    <p data-id="p_cams_expo_imp" data-vn="1"><span class="appproperty">imagePath</span> —— 图像路径</p>
+                    <p data-id="p_cams_expo_imn" data-vn="1"><span class="appproperty">imageName</span> —— 图像名称</p>
+                    <p data-id="p_cams_expo_ime" data-vn="1"><span class="appproperty">imageExt</span> —— 图像扩展名</p>
+                    <p data-id="p_cams_expo_orf" data-vn="1"><span class="appproperty">originalFile</span> —— 图像文件路径</p>
+                    <p data-id="p_cams_expo_orid" data-vn="1"><span class="appproperty">originalImageIndex</span> —— 按导入顺序计算的图像索引</p>               
+                    <p data-id="p_cams_expo_xcc" data-vn="1"><span class="appproperty">x</span> —— 输出坐标系中的相机 x 坐标（在对齐时计算得出）</p>
+                    <p data-id="p_cams_expo_ycc" data-vn="1"><span class="appproperty">y</span> —— 输出坐标系中的相机 y 坐标（在对齐时计算得出）</p>
+                    <p data-id="p_cams_expo_zcc" data-vn="1"><span class="appproperty">z</span> —— 输出坐标系中的相机 z 坐标（在对齐时计算得出）</p>
+                    <p data-id="p_cams_expo_xic" data-vn="1"><span class="appproperty">xInpCS</span> —— 对齐后相机在输入坐标系中的 x 坐标</p>
+                    <p data-id="p_cams_expo_yic" data-vn="1"><span class="appproperty">yInpCS</span> —— 对齐后相机在输入坐标系中的 y 坐标</p>
+                    <p data-id="p_cams_expo_zic" data-vn="1"><span class="appproperty">zInpCS</span> —— 对齐后相机在输入坐标系中的 z 坐标</p>
+                    <p data-id="p_cams_expo_tx" data-vn="1"><span class="appproperty">tX</span> —— 相机坐标系中相对于输出坐标系的 x 坐标</p>
+                    <p data-id="p_cams_expo_ty" data-vn="1"><span class="appproperty">tY</span> —— 相机坐标系中相对于输出坐标系的 y 坐标</p>
+                    <p data-id="p_cams_expo_tz" data-vn="1"><span class="appproperty">tZ</span> —— 相机坐标系中相对于输出坐标系的 z 坐标</p>
+                    <p data-id="p_cams_expo_lat" data-vn="1"><span class="appproperty">lat</span> —— 相机在 epsg:4326 - GPS（WGS 84）坐标系中的纬度坐标</p>
+                    <p data-id="p_cams_expo_lon" data-vn="1"><span class="appproperty">lon</span> —— 相机在 epsg:4326 - GPS（WGS 84）坐标系中的经度坐标</p>
+                    <p data-id="p_cams_expo_alt" data-vn="1"><span class="appproperty">alt</span> —— 相机在 epsg:4326 - GPS（WGS 84）坐标系中的高程坐标</p>
+                    <p data-id="p_cams_expo_yaw" data-vn="1"><span class="appproperty">yaw</span> —— 偏航旋转角：绕偏航（竖直）轴的旋转</p>
+                    <p data-id="p_cams_expo_pit" data-vn="1"><span class="appproperty">pitch</span> —— 俯仰旋转角：绕俯仰（横向）轴的旋转</p>
+                    <p data-id="p_cams_expo_rol" data-vn="1"><span class="appproperty">roll</span> —— 翻滚旋转角：绕翻滚（纵轴）轴的旋转</p>
+                    <p data-id="p_cams_expo_ang" data-vn="1"><span class="appproperty">omega</span>、<span class="appproperty">phi</span> 与 <span class="appproperty">kappa</span> —— 相机旋转角：这三个旋转是图像参考系与平面投影映射面（例如 UTM）之间的变换。三者按以下顺序应用：</p>
+                    <div style="padding-left: 20px">
+                        <p data-id="p_cams_expo_ome" data-vn="1"><span class="appproperty">omega</span> —— 相机绕 x 轴的旋转角</p>
+                        <p data-id="p_cams_expo_phi" data-vn="1"><span class="appproperty">phi</span> —— 相机绕 y 轴的旋转角</p>
+                        <p data-id="p_cams_expo_kap" data-vn="1"><span class="appproperty">kappa</span> —— 相机绕 z 轴的旋转角</p>
+                    </div>
+                    <p data-id="p_cams_expo_f" data-vn="1"><span class="appproperty">f</span> —— 焦距（已配准标定值），已修正为无畸变</p>
+                    <p data-id="p_cams_expo_px" data-vn="1"><span class="appproperty">px</span> —— 图像中心在 x 轴上的相对偏移。主点 x 与主点 y 是图像中心相对于 35 mm 胶片格式的偏移量，单位为 [mm]。</p>
+                    <p data-id="p_cams_expo_py" data-vn="1"><span class="appproperty">py</span> —— 图像中心在 y 轴上的相对偏移，已修正为无畸变（已配准标定值）</p>
+                    <p data-id="p_cams_expo_asp" data-vn="1"><span class="appproperty">aspect</span> —— 相机宽高比校正系数，已修正为无畸变（已配准标定值）</p>
+                    <p data-id="p_cams_expo_skew" data-vn="1"><span class="appproperty">skew</span> —— 相机斜切值，已修正为无畸变（已配准标定值）</p>
+                    <p data-id="p_cams_expo_k1" data-vn="1"><span class="appproperty">k1</span> —— 畸变模型的径向系数，已修正为无畸变（已配准标定值）</p>
+                    <p data-id="p_cams_expo_k2" data-vn="1"><span class="appproperty">k2</span> —— 畸变模型的径向系数，已修正为无畸变（已配准标定值）</p>
+                    <p data-id="p_cams_expo_k3" data-vn="1"><span class="appproperty">k3</span> —— 畸变模型的径向系数，已修正为无畸变（已配准标定值）</p>
+                    <p data-id="p_cams_expo_k4" data-vn="1"><span class="appproperty">k4</span> —— 畸变模型的径向系数（已配准标定值），已修正为无畸变</p>
+                    <p data-id="p_cams_expo_t1" data-vn="1"><span class="appproperty">t1</span> —— 畸变模型的切向系数，已修正为无畸变（已配准标定值）</p>
+                    <p data-id="p_cams_expo_t2" data-vn="1"><span class="appproperty">t2</span> —— 畸变模型的切向系数（已配准标定值），已修正为无畸变</p>
+          
+                    <p data-id="p_cams_expo_ttwo" data-vn="1"><span class="appproperty">fd</span> —— 焦距</p>
+                    <p data-id="p_cams_expo_pxd" data-vn="1"><span class="appproperty">pxd</span> —— 图像中心在 x 轴上的相对偏移。主点 x 与主点 y 是图像中心相对于 35 mm 胶片格式的偏移量，单位为 [mm]。</p>
+                    <p data-id="p_cams_expo_pyd" data-vn="1"><span class="appproperty">pyd</span> —— 图像中心在 y 轴上的相对偏移（含畸变）</p>
+                    <p data-id="p_cams_expo_aspd" data-vn="1"><span class="appproperty">aspectd</span> —— 相机宽高比校正系数（含畸变）</p>
+                    <p data-id="p_cams_expo_sked" data-vn="1"><span class="appproperty">skewd</span> —— 相机斜切值（含畸变）</p>
+                    <p data-id="p_cams_expo_kond" data-vn="1"><span class="appproperty">k1d</span> —— 畸变模型的径向系数（无畸变）</p>
+                    <p data-id="p_cams_expo_ktwd" data-vn="1"><span class="appproperty">k2d</span> —— 畸变模型的径向系数（含畸变）</p>
+                    <p data-id="p_cams_expo_kthd" data-vn="1"><span class="appproperty">k3d</span> —— 畸变模型的径向系数（含畸变）</p>
+                    <p data-id="p_cams_expo_kfod" data-vn="1"><span class="appproperty">k4d</span> —— 畸变模型的径向系数（含畸变）</p>
+                    <p data-id="p_cams_expo_tond" data-vn="1"><span class="appproperty">t1d</span> —— 畸变模型的切向系数（含畸变）</p>
+                    <p data-id="p_cams_expo_ttwd" data-vn="1"><span class="appproperty">t2d</span> —— 畸变模型的切向系数（含畸变）</p>
+                    
+                    <p data-id="p_cams_expo_r00" data-vn="1"><span class="appproperty">R00</span> —— 旋转矩阵的一个元素 </p>
+                    <p data-id="p_cams_expo_r01" data-vn="1"><span class="appproperty">R01</span> —— 旋转矩阵的一个元素 </p>
+                    <p data-id="p_cams_expo_r02" data-vn="1"><span class="appproperty">R02</span> —— 旋转矩阵的一个元素 </p>
+                    <p data-id="p_cams_expo_r10" data-vn="1"><span class="appproperty">R10</span> —— 旋转矩阵的一个元素 </p>
+                    <p data-id="p_cams_expo_r11" data-vn="1"><span class="appproperty">R11</span> —— 旋转矩阵的一个元素 </p>
+                    <p data-id="p_cams_expo_r12" data-vn="1"><span class="appproperty">R12</span> —— 旋转矩阵的一个元素 </p>
+                    <p data-id="p_cams_expo_r20" data-vn="1"><span class="appproperty">R20</span> —— 旋转矩阵的一个元素 </p>
+                    <p data-id="p_cams_expo_r21" data-vn="1"><span class="appproperty">R21</span> —— 旋转矩阵的一个元素 </p>
+                    <p data-id="p_cams_expo_r22" data-vn="1"><span class="appproperty">R22</span> —— 旋转矩阵的一个元素 </p>
+                    
+                    <p data-id="p_cams_expo_eux" data-vn="1"><span class="appproperty">euclidX</span> —— 欧氏坐标系中的相机 x 坐标</p>
+                    <p data-id="p_cams_expo_euy" data-vn="1"><span class="appproperty">euclidY</span> —— 欧氏坐标系中的相机 y 坐标</p>
+                    <p data-id="p_cams_expo_euz" data-vn="1"><span class="appproperty">euclidZ</span> —— 欧氏坐标系中的相机 z 坐标</p>
+                    
+                    <p data-id="p_cams_expo_etx" data-vn="1"><span class="appproperty">euclidTX</span> —— 欧氏坐标系中沿 X 轴的平移分量</p>
+                    <p data-id="p_cams_expo_ety" data-vn="1"><span class="appproperty">euclidTY</span> —— 欧氏坐标系中沿 Y 轴的平移分量</p>
+                    <p data-id="p_cams_expo_etz" data-vn="1"><span class="appproperty">euclidTZ</span> —— 欧氏坐标系中沿 Z 轴的平移分量</p>
+
+                    <p data-id="p_cams_expo_erzz" data-vn="2"><span class="appproperty">euclidR00</span> —— 旋转矩阵的一个元素 </p>
+                    <p data-id="p_cams_expo_erzo" data-vn="2"><span class="appproperty">euclidR01</span> —— 旋转矩阵的一个元素 </p>
+                    <p data-id="p_cams_expo_erzt" data-vn="2"><span class="appproperty">euclidR02</span> —— 旋转矩阵的一个元素 </p>
+                    <p data-id="p_cams_expo_eroz" data-vn="2"><span class="appproperty">euclidR10</span> —— 旋转矩阵的一个元素 </p>
+                    <p data-id="p_cams_expo_eroo" data-vn="2"><span class="appproperty">euclidR11</span> —— 旋转矩阵的一个元素 </p>
+                    <p data-id="p_cams_expo_erot" data-vn="2"><span class="appproperty">euclidR12</span> —— 旋转矩阵的一个元素 </p>
+                    <p data-id="p_cams_expo_ertz" data-vn="2"><span class="appproperty">euclidR20</span> —— 旋转矩阵的一个元素 </p>
+                    <p data-id="p_cams_expo_erto" data-vn="2"><span class="appproperty">euclidR21</span> —— 旋转矩阵的一个元素 </p>
+                    <p data-id="p_cams_expo_ertt" data-vn="2"><span class="appproperty">euclidR22</span> —— 旋转矩阵的一个元素 </p>
+                    
+                    <p data-id="p_cams_expo_comx" data-vn="1"><span class="appproperty">aX</span> —— 组件坐标系中的相机 x 坐标</p>
+                    <p data-id="p_cams_expo_comy" data-vn="1"><span class="appproperty">aY</span> —— 组件坐标系中的相机 y 坐标</p>
+                    <p data-id="p_cams_expo_comz" data-vn="1"><span class="appproperty">aZ</span> —— 组件坐标系中的相机 z 坐标</p>
+                    
+                    <p data-id="p_cams_expo_comtx" data-vn="1"><span class="appproperty">aTX</span> —— 组件坐标系中沿 X 轴的平移分量</p>
+                    <p data-id="p_cams_expo_comty" data-vn="1"><span class="appproperty">aTY</span> —— 组件坐标系中沿 Y 轴的平移分量</p>
+                    <p data-id="p_cams_expo_comtz" data-vn="1"><span class="appproperty">aTZ</span> —— 组件坐标系中沿 Z 轴的平移分量</p>
+                     
+                    <p data-id="p_cams_expo_crzz" data-vn="1"><span class="appproperty">aR00</span> —— 旋转矩阵的一个元素 </p>
+                    <p data-id="p_cams_expo_crzo" data-vn="1"><span class="appproperty">aR01</span> —— 旋转矩阵的一个元素 </p>
+                    <p data-id="p_cams_expo_crzt" data-vn="1"><span class="appproperty">aR02</span> —— 旋转矩阵的一个元素 </p>
+                    <p data-id="p_cams_expo_croz" data-vn="1"><span class="appproperty">aR10</span> —— 旋转矩阵的一个元素 </p>
+                    <p data-id="p_cams_expo_croo" data-vn="1"><span class="appproperty">aR11</span> —— 旋转矩阵的一个元素 </p>
+                    <p data-id="p_cams_expo_crot" data-vn="1"><span class="appproperty">aR12</span> —— 旋转矩阵的一个元素 </p>
+                    <p data-id="p_cams_expo_crtz" data-vn="1"><span class="appproperty">aR20</span> —— 旋转矩阵的一个元素 </p>
+                    <p data-id="p_cams_expo_crto" data-vn="1"><span class="appproperty">aR21</span> —— 旋转矩阵的一个元素 </p>
+                    <p data-id="p_cams_expo_crtt" data-vn="1"><span class="appproperty">aR22</span> —— 旋转矩阵的一个元素 </p>
+                    <p data-id="p_cams_expo_prex" data-vn="1"><span class="appproperty">priorErrorX</span> —— 先验位置 X 精度</p>
+                    <p data-id="p_cams_expo_prey" data-vn="1"><span class="appproperty">priorErrorY</span> —— 先验位置 Y 精度</p>
+                    <p data-id="p_cams_expo_prez" data-vn="1"><span class="appproperty">priorErrorZ</span> —— 先验位置 Z 精度</p>
+                    <p data-id="p_cams_expo_pret" data-vn="1"><span class="appproperty">priorError3D</span> —— 先验位置精度</p>    
+                </div>
+                <p data-id="p_cams_expo_ex" data-vn="1"><b>示例：</b></p>
+                <pre data-id="pre_cams_expo_ex" data-vn="1">
+  $ExportCameras(
+    Index: $(index)
+    Image width [pixels]: $(width)
+    Image height [pixels]: $(height)
+    Scale: $(scale)
+    Image path: $(imagePath)
+    Image name: $(imageName)
+    Image extension: $(imageExt)
+    Image file path with filename: $(originalFile)
+    x: $(x)
+    y: $(y)
+    z: $(z)
+    tx: $(tX)
+    ty: $(tY)
+    tz: $(tZ)
+    lat: $(lat)
+    lon: $(lon)
+    alt: $(alt)
+    yaw: $(yaw)
+    pitch: $(pitch)
+    roll: $(roll)
+    omega: $(omega)
+    phi: $(phi)
+    kappa: $(kappa)
+    Focal length: $(f)
+    px: $(px)
+    py: $(py)
+    Radial 1: $(k1)
+    Radial 2: $(k2)
+    Radial 3: $(k3)
+    Radial 4: $(k4)
+    Tangential 1: $(t1)
+    Tangential 2: $(t2)
+    Aspect ratio: $(aspect)
+    R00: $(R00)
+    R01: $(R01)
+    R02: $(R02)
+    R10: $(R10)
+    R11: $(R11)
+    R12: $(R12)
+    R20: $(R20)
+    R21: $(R21)
+    R22: $(R22)
+    Euclid x: $(euclidX)
+    Euclid y: $(euclidY)
+    Euclid z: $(euclidZ)
+  )
+                </pre>
+            </div>
+
+            <p data-id="p_cams_came" data-vn="1"><span class="appproperty">CameraErrors</span> —— 该函数用于输出相机误差与轨迹长度的信息。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_cams_came_syn" data-vn="1"><b>语法：</b></p>
+               <pre data-id="pre_cams_came_syn" data-vn="1">
+$CameraErrors( cameraIndex, anyText )</pre>
+                <p data-id="p_cams_came_par" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_cams_came_cami" data-vn="1"><span class="appproperty">cameraIndex</span> —— 所选组件中的相机索引：可用 IterateCameras 函数获取该组件中所有已配准相机的索引（见下例）</p>
+                </div>
+                <p data-id="p_cams_came_avf" data-vn="1"><b>可用函数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_cams_came_ree" data-vn="1"><span class="appproperty">ReprojectionError</span> —— 投影误差指照片上的某个点与对应三维点在同一张照片中的投影位置之差，以像素计。</p>
+                    <div style="padding-left: 20px">
+                        <p data-id="p_cams_ree_syn" data-vn="1"><b>语法：</b></p>
+                       <pre data-id="pre_cams_ree_syn" data-vn="1">
+$ReprojectionError( noParametersJustAnyText )</pre>
+                        <p data-id="p_cams_ree_avf" data-vn="1"><b>可用函数：</b></p>
+                        <div style="padding-left: 20px">
+                            <p data-id="p_cams_ree_dis" data-vn="1"><span class="appproperty">Distribution</span></p>
+                            <div style="padding-left: 20px">
+                                <p data-id="p_cams_ree_dis_syn" data-vn="1"><b>语法：</b></p>
+                               <pre data-id="pre_cams_ree_dis_syn" data-vn="1">
+$Distribution( i, anyText )</pre>
+                                <p data-id="p_cams_ree_dis_par" data-vn="1"><b>参数：</b></p>
+                                <div style="padding-left: 20px">
+                                    <p><span class="appproperty">i</span></p>
+                                </div>
+                                <p data-id="p_cams_ree_dis_avar" data-vn="1"><b>可用变量：</b></p>
+                                <div style="padding-left: 20px">
+                                    <p data-id="p_cams_ree_dis_ithv" data-vn="1"><span class="appproperty">ithValue</span> —— 投影误差等于 <span class="appproperty">i</span> 或更大、且小于 <span class="appproperty">i</span> + 1 的连接点数量（注意一个连接点可能有不同投影误差的部分，因此 <span class="appproperty">ithValue</span> 可以是小数）</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p data-id="p_cams_came_ree_avars" data-vn="1"><b>可用变量：</b></p>
+                        <div style="padding-left: 20px">
+                            <p data-id="p_cams_came_ree_min" data-vn="1"><span class="appproperty">min</span> —— 最小误差，即点投影误差的最小值</p>
+                            <p data-id="p_cams_came_ree_max" data-vn="1"><span class="appproperty">max</span> —— 最大误差，即点投影误差的最大值</p>
+                            <p data-id="p_cams_came_ree_mean" data-vn="1"><span class="appproperty">mean</span> —— 平均误差，即投影误差的平均值</p>
+                            <p data-id="p_cams_came_ree_dev" data-vn="1"><span class="appproperty">stdev</span> —— 投影误差的标准差</p>
+                            <p data-id="p_cams_came_ree_med" data-vn="1"><span class="appproperty">median</span> —— 中位误差，即所有投影误差的中间值，表示一半投影误差小于该值、另一半大于该值（统计学意义上的中位数）</p>
+                            <p data-id="p_cams_came_ree_mod" data-vn="1"><span class="appproperty">mode</span> —— 出现次数最多的投影误差</p>
+                            <p data-id="p_cams_came_ree_mindb" data-vn="1"><span class="appproperty">minDistBin</span> —— 应始终为 0，因为不应存在负的投影误差</p>
+                            <p data-id="p_cams_came_ree_maxdb" data-vn="1"><span class="appproperty">maxDistBin</span> —— 投影误差等于 16 或更大的连接点数量</p>
+                            <p data-id="p_cams_came_ree_dis" data-vn="1"><span class="appproperty">distributionSize</span> —— 一个常量，固定为 16</p>
+                        </div>
+                    </div>
+                    <p data-id="p_cams_came_tre" data-vn="1"><span class="appproperty">TrackingError</span> —— 统计相机的连接点分别能被另外 0、1、2 … 15 台相机看到的数量</p>
+                    <div style="padding-left: 20px">
+                        <p data-id="p_cams_tre_syn" data-vn="1"><b>语法：</b></p>
+                       <pre data-id="pre_cams_tre_syn" data-vn="1">
+$TrackingError( noParametersJustAnyText )</pre>
+                        <p data-id="p_cams_tre_avf" data-vn="1"><b>可用函数：</b></p>
+                        <div style="padding-left: 20px">
+                            <p data-id="p_cams_tre_dis" data-vn="1"><span class="appproperty">Distribution</span></p>
+                            <div style="padding-left: 20px">
+                                <p data-id="p_cams_tre_dis_syn" data-vn="1"><b>语法：</b></p>
+                               <pre data-id="pre_cams_tre_dis_syn" data-vn="1">
+$Distribution( i, anyText )</pre>
+                                <p data-id="p_cams_tre_dis_par" data-vn="1"><b>参数：</b></p>
+                                <div style="padding-left: 20px">
+                                    <p><span class="appproperty">i</span></p>
+                                </div>
+                                <p data-id="p_cams_tre_dis_avar" data-vn="1"><b>可用变量：</b></p>
+                                <div style="padding-left: 20px">
+                                    <p data-id="p_cams_tre_dis_ithv" data-vn="1"><span class="appproperty">ithValue</span> —— 能被 <span class="appproperty">i</span> + 1 台相机看到的连接点数量</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p data-id="p_cams_came_tre_avars" data-vn="1"><b>可用变量：</b></p>
+                        <div style="padding-left: 20px">
+                            <p data-id="p_cams_came_tre_min" data-vn="1"><span class="appproperty">min</span> —— 应始终为 1 或更大，因为每个连接点至少应被 2 台相机看到</p>
+                            <p data-id="p_cams_came_tre_max" data-vn="1"><span class="appproperty">max</span> —— 能看到某个连接点的最大相机数为 <span class="appproperty">max</span> + 1</p>
+                            <p data-id="p_cams_came_tre_mea" data-vn="1"><span class="appproperty">mean</span> —— 能看到某个连接点的相机数的平均值</p>
+                            <p data-id="p_cams_came_tre_dev" data-vn="1"><span class="appproperty">stdev</span> —— 能看到某个连接点的相机数的标准差</p>
+                            <p data-id="p_cams_came_tre_med" data-vn="1"><span class="appproperty">median</span> —— 能看到某个连接点的相机数的中位数</p>
+                            <p data-id="p_cams_came_tre_mod" data-vn="1"><span class="appproperty">mode</span> —— 能看到某个连接点的相机数的众数</p>
+                            <p data-id="p_cams_came_tre_mindb" data-vn="1"><span class="appproperty">minDistBin</span> —— 应始终为 0，因为不应存在被零台相机看到的连接点</p>
+                            <p data-id="p_cams_came_tre_maxdb" data-vn="1"><span class="appproperty">maxDistBin</span> —— 能被 17 台或更多相机看到的连接点数量</p>
+                            <p data-id="p_cams_came_tre_dis" data-vn="1"><span class="appproperty">distributionSize</span> —— 一个常量，固定为 16</p>
+                        </div>
+                    </div>
+                </div>
+                <p data-id="p_cams_came_avars" data-vn="1"><b>可用变量：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_cams_came_nump" data-vn="1"><span class="appproperty">numPoints</span> —— 图像中的连接点数量</p>
+                    <p data-id="p_cams_came_imgc" data-vn="1"><span class="appproperty">imageCoverage</span> —— 图像被连接点覆盖的百分比</p>
+                </div>
+                <p data-id="p_cams_came_ex" data-vn="1"><b>示例：</b></p>
+                <pre data-id="pre_cams_came_ex" data-vn="1">
+  $IterateCameras(
+    $CameraErrors( cameraIndex,
+
+      Number of tie points in image: $(numPoints)
+      Percentage of image covered with tie points: $(imageCoverage)%
+
+      ReprojectionError:
+      $ReprojectionError(
+        min: $(min), max: $(max), mean: $(mean), stdev: $(stdev), median: $(median), mode: $(mode), minDistBin: $(minDistBin), maxDistBin: $(maxDistBin)
+        distribution: [
+          $For( "i", 0, 1, distributionSize,
+            $Distribution(i, $(ithValue))
+          )
+        ]
+      )
+
+      TrackingError:
+      $TrackingError(
+        min: $(min), max: $(max), mean: $(mean), stdev: $(stdev), median: $(median), mode: $(mode), minDistBin: $(minDistBin), maxDistBin: $(maxDistBin)
+        distribution: [
+          $For( "i", 0, 1, distributionSize,
+            $Distribution(i, $(ithValue))
+          )
+        ]
+      )
+    )
+  )
+                </pre>
+            </div>
+
+            <p data-id="p_cams_excm" data-vn="2"><span class="appproperty">ExportCameraModels</span> —— 该函数导出拍照与 LiDAR 扫描所用的所有相机型号。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_cams_excm_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_cams_excm_syn" data-vn="1">
+  $ExportCameraModels( noParametersJustAnyText )</pre>
+                <p data-id="p_cams_excm_avar" data-vn="1"><b>可用变量：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_cams_excm_camm" data-vn="1"><span class="appproperty">cameraModel</span> —— 相机型号</p>
+                </div>
+                <p data-id="p_cams_excm_ex" data-vn="1"><b>示例：</b></p>
+                <pre data-id="pre_cams_excm_ex" data-vn="1">
+  $ExportCameraModels(
+    Camera model: $(cameraModel)
+  )
+                </pre>
+            </div>
+            
+            <p data-id="p_cams_exig" data-vn="1"><span class="appproperty">ExportInputsGrouping</span> —— 导出输入分组的信息。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_cams_exig_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_cams_exig_syn" data-vn="1">
+  $ExportInputsGrouping( noParametersJustAnyText )</pre>
+                <p data-id="p_cams_exig_avva" data-vn="1"><b>可用变量：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_cams_exig_grco" data-vn="1"><span class="appproperty">groupCount</span> —— 分组数量</p>
+                    <p data-id="p_cams_exig_gico" data-vn="1"><span class="appproperty">groupedInputCount</span> —— 已分组输入的数量</p>
+                    <p data-id="p_cams_exig_uico" data-vn="1"><span class="appproperty">ungroupedInputCount</span> —— 未分组输入的数量</p>
+                </div>
+                <p data-id="p_cams_exig_avfu" data-vn="1"><b>可用函数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_cams_exig_itgr" data-vn="1"><span class="appproperty">IterateGroups</span> —— 遍历输入分组。</p>
+                    <div style="padding-left: 20px">
+                            <pre data-id="pre_cams_itgr_syn" data-vn="1">
+  $IterateGroups( noParametersJustAnyText )</pre>
+                        <p data-id="p_cams_itgr_avva" data-vn="1"><b>可用变量：</b></p>
+                        <div style="padding-left: 20px">
+                            <p data-id="p_cams_itgr_grid" data-vn="1"><span class="appproperty">groupIndex</span> —— 分组索引值</p>
+                            <p data-id="p_cams_itgr_calg" data-vn="1"><span class="appproperty">calibrationGroup</span> —— 标定组值</p>
+                            <p data-id="p_cams_itgr_disg" data-vn="1"><span class="appproperty">distortionGroup</span> —— 畸变组值</p>
+                            <p data-id="p_cams_itgr_refw" data-vn="1"><span class="appproperty">refWidth</span> —— 图像宽度</p>
+                            <p data-id="p_cams_itgr_refh" data-vn="1"><span class="appproperty">refHeight</span> —— 图像高度</p>
+                            <p data-id="p_cams_itgr_riid" data-vn="1"><span class="appproperty">refImageIndex</span> —— 图像索引</p>
+                            <p data-id="p_cams_itgr_cont" data-vn="1"><span class="appproperty">count</span> —— 图像数量</p>
+                            <p data-id="p_cams_itgr_camo" data-vn="1"><span class="appproperty">cameraModel</span> —— 相机型号</p>
+                            <p data-id="p_cams_itgr_lemo" data-vn="1"><span class="appproperty">lensModel</span> —— 镜头型号</p>
+                        </div>
+                    </div>
+
+                </div>
+        
+                <p data-id="p_cams_exig_ex" data-vn="1"><b>示例：</b></p>
+                <pre data-id="pre_cams_exig_ex" data-vn="1">
+  $ExportInputsGrouping( 
+    Group count: $(groupCount)
+    Grouped Input Count: $(groupedInputCount)
+    Ungrouped Input Count: $(ungroupedInputCount)
+    $IterateGroups(
+      Group index: $(groupIndex)
+      Calibration Group: $(calibrationGroup)
+      Distortion Group: $(distortionGroup)
+      Width: $(refWidth)
+      Height: $(refHeight)
+      Image Index: $(refImageIndex)
+      Count: $(count)
+      Camera Model: $(cameraModel)
+      Lens Model: $(lensModel)
+    )
+  )
+                </pre>
+            </div> 
+            
+            <p data-id="p_cams_erel" data-vn="1"><span class="appproperty">ExportRelativeCameraPositionUncertainty</span> —— 该函数给出相对相机位置不确定度的信息。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_cams_erel_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_cams_erel_syn" data-vn="1">
+  $ExportRelativeCameraPositionUncertainty( cameraImageIndex, anyText )</pre>
+                <p data-id="p_cams_erel_par" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_cams_erel_imid" data-vn="1"><span class="appproperty">cameraImageIndex</span> —— 图像索引</p>
+                <p data-id="p_cams_erel_vars" data-vn="1"><b>可用变量：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_cams_erel_coxx" data-vn="1"><span class="appproperty">posUncertCovXX</span> —— X 坐标值相对 X 坐标的协方差</p>
+                    <p data-id="p_cams_erel_coxy" data-vn="1"><span class="appproperty">posUncertCovXY</span> —— X 坐标值相对 Y 坐标的协方差</p>
+                    <p data-id="p_cams_erel_coxz" data-vn="1"><span class="appproperty">posUncertCovXZ</span> —— X 坐标值相对 Z 坐标的协方差</p>
+                    <p data-id="p_cams_erel_coyy" data-vn="1"><span class="appproperty">posUncertCovYY</span> —— Y 坐标值相对 Y 坐标的协方差</p>
+                    <p data-id="p_cams_erel_coyz" data-vn="1"><span class="appproperty">posUncertCovYZ</span> —— Y 坐标值相对 Y 坐标的协方差</p>
+                    <p data-id="p_cams_erel_cozz" data-vn="1"><span class="appproperty">posUncertCovZZ</span> —— Z 坐标值相对 Z 坐标的协方差</p>
+                </div>
+                <p data-id="p_cams_erel_ex" data-vn="1"><b>示例：</b></p>
+                <pre data-id="pre_cams_erel_ex" data-vn="1">
+  $IterateCameras(
+    Image index: $(cameraImageIndex)
+      $ExportRelativeCameraPositionUncertainty( "$(cameraImageIndex)",
+        Var XX: $(posUncertCovXX)
+        Var XY:
+      )
+    )
+  )
+            </pre>
+            </div> 
+        </div>
+
+            <p data-id="p_cams_cove" data-vn="1"><span class="appproperty">CovToEllipse2D</span> —— 该函数由协方差值计算不确定度椭圆。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_cams_cove_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_cams_cove_syn" data-vn="1">
+  $CovToEllipse2D( Qxx, Qxy, Qyy, anyText )</pre>
+                <p data-id="p_cams_cove_par" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_cams_cove_qxx" data-vn="1"><span class="appproperty">Qxx</span> —— 协方差值 Qxx</p>
+                    <p data-id="p_cams_cove_qxy" data-vn="1"><span class="appproperty">Qxy</span> —— 协方差值 Qxy</p>
+                    <p data-id="p_cams_cove_qyy" data-vn="1"><span class="appproperty">Qyy</span> —— 协方差值 Qyy</p>
+                </div> 
+                <p data-id="p_cams_cove_vars" data-vn="1"><b>可用变量：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_cams_cove_erma" data-vn="1"><span class="appproperty">ellipseRadiusMax</span> —— 椭圆的最大半径</p>
+                    <p data-id="p_cams_cove_ermi" data-vn="1"><span class="appproperty">ellipseRadiusMin</span> —— 椭圆的最小半径</p>
+                    <p data-id="p_cams_cove_erro" data-vn="1"><span class="appproperty">ellipseRot</span> —— 椭圆的旋转</p>
+                </div>
+            </div>
+
+            
+            <p data-id="p_cams_exmc" data-vn="1"><span class="appproperty">ExportMisalignmentCameras</span> —— 该函数用于获取相机的失配信息。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_cams_exmc_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_cams_exmc_syn" data-vn="1">
+  $ExportMisalignmentCameras( noParametersJustAnyText )</pre>
+                <p data-id="p_cams_exmc_vars" data-vn="1"><b>可用变量：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_cams_exmc_ciid" data-vn="1"><span class="appproperty">cameraSfmImage</span> —— 图像索引</p>
+                    <p data-id="p_cams_exmc_coco" data-vn="1"><span class="appproperty">connectionCount</span> —— 连接数量</p>
+                </div>
+                <p data-id="p_cams_exmc_avfu" data-vn="1"><b>可用函数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_cams_exmc_emcc" data-vn="1"><span class="appproperty">ExportMisalignmentCameraConnections</span> —— 该函数导出相机连接失配的相关信息。</p>
+                    <div style="padding-left: 20px">
+                        <p data-id="p_cams_emcc_syn" data-vn="1"><b>语法：</b></p>
+                        <pre data-id="pre_cams_emmc_syn" data-vn="1">
+  $ExportMisalignmentCameraConnections( cameraSfmImage, anyText </pre>
+                        <p data-id="p_cams_emcc_par" data-vn="1"><b>参数：</b></p>
+                            <div style="padding-left: 20px">
+                                <p data-id="p_cams_emmc_ciid" data-vn="1"><span class="appproperty">cameraSfmImage</span> —— 图像索引</p>
+                            </div>
+                        <p data-id="p_cams_emcc_params" data-vn="1"><b>参数：</b></p>
+                        <div style="padding-left: 20px">
+                                <p data-id="p_cams_emmc_niid" data-vn="1"><span class="appproperty">neighborSfmImage</span> —— 相邻图像的索引</p>
+                                <p data-id="p_cams_emmc_cost" data-vn="1"><span class="appproperty">connectionStrength</span> —— 与相邻图像的连接强度</p>
+                            </div>
+                    </div>              
+                </div>
+
+                <p data-id="p_cams_exmc_ex" data-vn="1"><b>示例：</b></p>
+                <pre data-id="pre_cams_exmc_ex" data-vn="1">
+  $ExportMisalignmentCameras(
+    Image index: $(cameraSfmImage)
+    Connection count: $(connectionCount)
+    $ExportMisalignmentCameraConnections( 1,
+       Neighbor Image Index: $(neighborSfmImage)
+       Connection strength: $(connectionStrength)
+  )
+            </pre>
+            </div>
+            
+                <h3 data-id="h3_po_aefu" data-vn="1">可用的表达式函数</h3>
+                
+                    <p data-id="p_cams_icid" data-vn="1"><span class="appproperty">ImageToCameraIndex</span> —— 结果为指定图像的相机索引。</p>
+                    <p data-id="p_po_icid_syn" data-vn="1"><b>语法：</b></p>
+                    <pre data-id="pre_po_icid_syn" data-vn="1">
+  ImageToCameraIndex( imageIndex )
+ </pre>
+                    <p data-id="p_po_icid_par" data-vn="1"><b>参数：</b></p>
+                        <div style="padding-left: 20px">
+                            <p data-id="p_po_icid_flgs" data-vn="1"><span class="appproperty">imageIndex</span> —— 图像索引</p>
+                        </div>                
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_bc" class="blocksContainer">            
+            
+            <a href="reports_functions_and_variables.htm">
+                <div class="block TileColor3">
+                    <h2 data-id="h2_bc_script" data-vn="1">报告脚本基础</h2>
+                    <p data-id="p_h2_bc_script" data-vn="1">了解如何创建自定义报告模板</p>
+                </div>
+            </a>
+            
+            <a href="reports_fav_sets.htm">
+                <div class="block TileColor6">
+                    <h2 data-id="h2_bc_sets" data-vn="1">函数集</h2>
+                    <p data-id="p_h2_bc_sets" data-vn="1">函数集及其函数、表达式与变量</p>
+                </div>
+            </a>
+
+            <a href="reports_fav_basic.htm">
+                <div class="block TileColor3">
+                    <h2 data-id="h2_bc_basf" data-vn="1">基础函数</h2>
+                    <p data-id="p_h2_bc_basf" data-vn="1">项目信息、导出器作用域与基础函数集</p>
+                </div>
+            </a>
+
+            <a href="reports_fav_images.htm">
+                <div class="block TileColor3">
+                    <h2 data-id="h2_bc_img" data-vn="1">图像作用域</h2>
+                    <p data-id="p_h2_bc_img" data-vn="1">了解如何导出项目图像的信息</p>
+                </div>
+            </a>
+
+            <a href="reports_fav_components.htm">
+                <div class="block TileColor3">
+                    <h2 data-id="h2_bc_com" data-vn="1">组件作用域</h2>
+                    <p data-id="p_h2_bc_com" data-vn="1">组件导出的函数与变量</p>
+                </div>
+            </a>
+
+            <a href="reports_fav_points.htm">
+                <div class="block TileColor6">
+                    <h2 data-id="h2_bc_scene" data-vn="1">场景结构作用域</h2>
+                    <p data-id="p_h2_bc_scene" data-vn="1">了解如何向报告添加自定义点统计</p>
+                </div>
+            </a>
+
+            <a href="reports_fav_controlPoints.htm">
+                <div class="block TileColor6">
+                    <h2 data-id="h2_bc_cp" data-vn="1">控制点与约束作用域</h2>
+                    <p data-id="p_h2_bc_cp" data-vn="1">查看控制点与约束功能的清单</p>
+                </div>
+            </a>
+
+            <a href="reports_fav_models.htm">
+                <div class="block TileColor6">
+                    <h2 data-id="h2_bc_model" data-vn="1">模型作用域</h2>
+                    <p data-id="p_h2_bc_model" data-vn="1">了解如何生成模型报告</p>
+                </div>
+            </a>
+
+            <a href="reports_fav_ortho.htm">
+                <div class="block TileColor6">
+                    <h2 data-id="h2_bc_ort" data-vn="1">正射投影作用域</h2>
+                    <p data-id="p_h2_bc_ort" data-vn="1">查看正射投影导出函数的清单</p>
+                </div>
+            </a>
+            
+            <a href="reports_fav_map.htm">
+                <div class="block TileColor6">
+                    <h2 data-id="h2_bc_map" data-vn="1">地图作用域</h2>
+                    <p data-id="p_h2_bc_map" data-vn="1">查看地图导出函数的清单</p>
+                </div>
+            </a>
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+    
+    <script type="text/javascript">
+        InitializeTutorialMode();
+    </script>    
+
+</body>
+</html>
+<!-- signature:ZeXztPXKodUSVCqQO3gnNXTgKE5c+s+HFcHhLB7M47OY2o+zM6kEJRvmM1OHB9n5RNNybFsMpBSUBvhZhA5tEe4aoKld5FBlg9oSo7cslLxLg489E8tCq1uYALtEufXs5qwgr/SfYrlSTrymWqdHaAT7bIBZd01p6hSFFWmcCQE= -->

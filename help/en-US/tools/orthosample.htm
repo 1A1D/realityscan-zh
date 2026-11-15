@@ -1,0 +1,68 @@
+<html>
+<head>
+    <title>RealityScan 帮助</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Epic Games Slovakia s.r.o." />
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <link type="text/css" rel="stylesheet" href="../../styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/colors.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css" />
+    <script src="../scripts/textVars.js" type="text/javascript"></script>
+    <script src="../../scripts/localization.js" type="text/javascript"></script>
+    <script src="../../scripts/main.js" type="text/javascript"></script>
+</head>
+<body ondragstart="return false;">
+
+    <div class="content_slide">
+
+        <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div class="head">
+
+            <h1 data-id="h1" data-vn="1">正射采样工具</h1>
+            <p data-id="p_h1" data-vn="3">
+                该工具会按你的需求（采样间距、点数、原始大小）对正射投影采样并导出三维点。点击 <span class="appribbon">ORTHO 2D</span>/<span class="appribbon">TOOLS</span> 选项卡 <span class="apppanel">Tools</span> 区域的 <span class="apptool">Sample Points</span> 按钮即可启用。它会取像素颜色、赋予高度，并转换到所选坐标系。<br/> 要导出采样后的正射投影，只需在 <span class="appribbon">ORTHO 2D</span>/<span class="appribbon">TOOLS</span> 选项卡的 <span class="apppanel">Export</span> 区域<span class="appgesture">点击</span> <span class="appribbonbutton">Sample Points</span> 按钮。导出格式与网格导出的相同。
+            </p>
+        </div>
+
+        <div class="slideblock">
+
+            <div style="padding: 10px 10px 10px 0px">
+                <img src="images/OrthoSamplingTool.png" alt="OrthoSamplingTool" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/OrthoSamplingTool.png';"/>
+            </div>
+
+            <ul class="apppanelitems">
+                <li class="apppanelitem" data-id="li_set_dist" data-vn="1"><span class="appproperty">Distance between samples</span> —— 投影平面内点与点之间的距离，以创建正射投影所用坐标系的单位表示。<span class="appproperty">Number of points</span> 的数值会随之重新计算。</li>
+                <li class="apppanelitem" data-id="li_set_nump" data-vn="1"><span class="appproperty">Number of points</span> —— 定义导出的采样投影中最终的采样点数。<span class="appproperty">Distance between samples</span> 的数值会随之重新计算。</li>
+                <li class="apppanelitem" data-id="li_set_raws" data-vn="1"><span class="appproperty">Raw size</span> —— 导出文件的估计大小。</li>
+                <li class="apppanelitem" data-id="li_set_coos" data-vn="1"><span class="appproperty">Coordinate system</span> —— 生成的采样投影所用的坐标系，与创建正射投影时的坐标系一致。</li>
+                <li class="apppanelitem" data-id="li_set_lays" data-vn="1"><span class="appproperty">Layer to Sample</span> —— 用于给采样点赋高度的图层。仅当所选正射投影已创建 DTM 图层时可用。</li>
+            </ul>
+
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_bc" class="blocksContainer">
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+    <script type="text/javascript">
+        InitializeHelpSlide();
+    </script>
+
+</body>
+</html>
+<!-- signature:i0aHsPwDWq5/j2thtmGz6XPdjj6Ac8AZ0XTAG5YugnBVbwFfxl+NaVdgCAMWmCt5Rtr/z1eCdaNuSFpvVc6kfXe6gux0pAp61pKrYboREfpvxChZagP6ntqYmJynP54CDKmGnAHhmCO1yUE1lWRUsxq4rCp2eRLUuKTQ33Yl50o= -->

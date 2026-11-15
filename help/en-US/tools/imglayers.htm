@@ -1,0 +1,220 @@
+﻿<html>
+<head>
+    <title>RealityScan 帮助</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Epic Games Slovakia s.r.o." />
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <link type="text/css" rel="stylesheet" href="../../styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/colors.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css" />
+    <script src="../scripts/textVars.js" type="text/javascript"></script>
+    <script src="../../scripts/localization.js" type="text/javascript"></script>
+    <script src="../../scripts/main.js" type="text/javascript"></script>
+</head>
+<body ondragstart="return false;">
+
+    <div data-id="div_cs" class="content_slide">
+
+        <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head" class="head">
+
+            <h1 data-id="h1" data-vn="1">图像图层</h1>
+
+            <p data-id="p_h1" data-vn="2">
+                在 RealityScan 中，可以把图像分到不同图层，再在不同处理步骤中使用。例如，可以用一组图像做空三对齐与网格重建（如带投射图案的图像），用另一组图像做纹理。你不需要为每组图像分别加载项目，只需正确命名图像并一次性加载；RealityScan 会依据图像名（或文件夹名）自动识别并归入相应图层。
+            </p>
+        </div>
+
+        <div data-id="div_im_alll" data-vn="1" class="importantMessage">
+            注意：同一张图像的所有图层必须共享相同的相机与物体位置。相机位置有差异或物体有轻微移动，都可能导致纹理模糊。
+        </div>
+
+        <br/>
+
+        <div data-id="div_sb_naim" class="slideblock">
+            <h2 data-id="h2_naim" data-vn="1">图像命名</h2>
+
+            <p data-id="p_h2_naim" data-vn="1">
+                有两种做法：重命名单个文件，或重命名整个文件夹：
+            </p>
+
+            <ol>
+                <li data-id="li_naim_refi" data-vn="1">
+                    重命名单个文件时，新名称由两部分构成：原本用于几何图层的文件名（含格式扩展名），加上各图层对应的扩展名。要正确分配图层，必须保持图像名一致，只额外添加正确的图层名及其格式扩展名。见下例：
+                    <br />
+                    <ul>
+                        <li data-id="li_refi_alig" data-vn="1">
+                            用于对齐与网格重建的图像：<br />
+                            DSC_0001.jpg<br />
+                            DSC_0002.jpg.geometry.jpg —— 这时整个文件名（含 geometry 一词）都会出现在应用的图像列表中
+                        </li>
+                        <li data-id="li_refi_mask" data-vn="1">
+                            含遮罩的图像：<br /> DSC_0001.jpg.mask.png
+                        </li>
+                        <li data-id="li_refi_text" data-vn="1">
+                            用于纹理的图像：<br /> DSC_0001.jpg.texture.jpg<br /> DSC_0001.jpg.texture02.jpg<br /> DSC_0001.jpg.texture3.jpg 
+                        </li>
+                    </ul>
+                </li>
+
+                <li data-id="li_naim_refo" data-vn="1">
+                    重命名整个文件夹时，所有图像必须使用相同的图像名（文件格式可以不同）。此时文件夹名由“点 + 图层名”构成，例如：
+                    <br />
+                    <ul>
+                        <li data-id="li_refo_alig" data-vn="1">
+                            用于对齐与网格重建的图像：<br />
+                            …\layers\.geometry\DSC_0001.jpg
+                        </li>
+                        <li data-id="li_refo_mask" data-vn="1">
+                            含遮罩的图像：<br /> …\layers\.mask\DSC_0001.png
+                        </li>
+                        <li data-id="li_refo_text" data-vn="1">
+                            用于纹理的图像：<br /> …\layers\.texture\DSC_0001.jpg<br /> …\layers\.texture02\DSC_0001.jpg<br /> …\layers\.texture3\DSC_0001.jpg
+                        </li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+
+        <div data-id="div_im_fona" data-vn="1" class="importantMessage">
+            注意：文件夹名中的点（.）也可以换成下列符号之一：&lowbar; &commat; &num; 和 !。例如：&lowbar;texture、&commat;texture、&num;texture 或 !texture。.
+        </div>
+
+        <br/>
+
+        <div class="slideblock">
+            <h2 data-id="h2_namla" data-vn="1">图层命名</h2>
+
+            <p data-id="p_h2_namla" data-vn="1">
+                为便于区分各图像图层，每个图层都可以有自己的名称。命名可通过给单个文件命名，或给整个图像文件夹命名来实现。
+            </p>
+
+            <h3 data-id="h3_dlif" data-vn="1">通过给单个文件命名来定义自定义图层名</h3>
+ 
+            <div class="codeSample">ImageName.($imgExt)($sep)($LayerDef)($optNum)($sep OR ‘’)($LayerName).($imgExt)</div>
+ 
+            <p data-id="p_namla_exs" data-vn="1">示例：</p>
+            <ul>
+                <li>Image01.png.texture03@Third.Texture.png（名为“Third.Texture”的第三个纹理图层）
+                </li>
+                <li>Image02.jpg!geometry_My Geometry.jpg（名为“My Geometry”的几何图层）</li>                        
+            </ul>
+            <br/>
+
+            <h3 data-id="h3_dlnf" data-vn="1">通过给整个图像文件夹命名来定义自定义图层名</h3>
+ 
+            <div class="codeSample">($sep)($LayerDef)($optNum)($sep OR ' ')($LayerName)//Images</div>
+ 
+            <p data-id="p_dlnf_exs" data-vn="1">示例：</p>
+            <ul>
+                <li>_texture02@Light texture（名为 Light texture 的第二个纹理图层）</li>
+                <li>.geometry!Shapes（名为 Shapes 的几何图层）</li>                        
+            </ul>
+            <br/>
+
+            <p data-id="p_dlnf_meaning" data-vn="1">
+                命名参数的含义：
+            </p>
+            <ul class="listitems">
+                <li data-id="li_dlnf_sep" data-vn="1" class="listitem"><span class="appproperty">($sep)</span> 分隔符，可为：. _ @ # !</li>
+                <li data-id="li_dlnf_lad" data-vn="1" class="listitem"><span class="appproperty">($LayerDef)</span> 图层定义。见下文“支持的图层类型”一节。</li>
+                <li data-id="li_dlnf_lan" data-vn="1" class="listitem"><span class="appproperty">($LayerName)</span> 将赋予相应图层的名称。</li>
+                <li data-id="li_dlnf_ime" data-vn="1" class="listitem"><span class="appproperty">($imgExt)</span> 图像扩展名。</li>
+                <li data-id="li_dlnf_opn" data-vn="1" class="listitem"><span class="appproperty">($optNum)</span> 可选编号。在同类型图层被导入多个时使用。</li>
+            </ul>
+
+        </div>
+        <br/>
+
+        <div data-id="div_sb_adim" class="slideblock">
+            <h2 data-id="h2_adim" data-vn="1">添加图像</h2>
+
+            <p data-id="p_h2_adim" data-vn="1">顺便说明：</p>
+            <ul>
+                <li data-id="li_adim_indi" data-vn="3">
+                    对逐个命名的图像，只需把所有图像一次性加入应用（可通过 <span class="appribbon">WORKFLOW</span> 选项卡的 <span class="appribbonbutton">Images</span>/<span class="appribbonbutton">Folder</span> 导入，或把它们<span class="appgesture">拖放</span>进应用）。 
+                </li>
+                <li data-id="li_adim_whol" data-vn="2">
+                    对整个重命名的文件夹，同样可用 <span class="appribbon">WORKFLOW</span> 选项卡 / <span class="appribbonbutton">Folder</span> 导入，或把整个文件夹（及其子文件夹）<span class="appgesture">拖放</span>进应用。 
+                </li>
+                <li data-id="li_adim_sela" data-vn="2">所有图像图层都能在“Selected input table”中看到，也可在选中某张图像后的 <span class="appaspecttype">1Ds</span> 视图中看到。要在 <span class="appaspecttype">2D</span> 视图中显示某个图层，可在 <span class="appribbon">IMAGE 2D</span>/<span class="appribbon">VIEW</span> 上下文选项卡的 <span class="apppanel">Source</span> 区域选择。
+                </li>
+            </ul>
+
+            <br/>
+            <img src="./images/img_geometry_1.png" alt="img_geometry_1" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/img_geometry_1.png';">
+        </div>
+
+        <br />
+        <div data-id="div_im_swit" data-vn="1" class="importantMessage">
+            提示：可以用以下键盘键在已显示的图层之间切换： <span class="appshortcut">Tab</span> (for next layer) or <span class="appshortcut">Shift + Tab</span> (for previous layer).
+        </div>
+
+        <br/>
+
+        <div data-id="div_sb_sult" class="slideblock">
+            <h2 data-id="h2_sult" data-vn="1">支持的图层类型</h2>
+
+            <p data-id="p_h2_sult" data-vn="2">RealityScan 可自动识别以下图层类型：<br /><br /> .geometry（等同于没有图层扩展名的图像/文件夹）<br /> .mask<br /> .labels<br /> .depth<br /> .textureXX<br /> .texture（等同于 .texture1 和 .texture01）
+            </p>
+
+            <div data-id="div_im_sult" data-vn="1" class="importantMessage">
+                注意：文件夹名中的点（.）也可以换成下列符号之一：_ @ # 和 !。例如：_texture、@texture、#texture 或 !texture。
+            </div>
+
+            <br/>
+
+            <p data-id="p_sult_seve" data-vn="2">
+                如果项目中存在多个纹理图层，贴图时每一层都会被使用，并分别生成对应的纹理层。在具体模型下展开 <span class="apptree">Model Textures</span> 后，可在 <span class="appaspecttype">1Ds</span> 树中显示各个颜色图层。<br /> 若项目中的图像没有加载纹理图层，贴图时将使用 Geometry 图层，并会把它与 Texture 图层关联。此外，所有图层都会做色彩校正，颜色按图层分别校正。
+            </p>
+
+        </div>
+
+        <br/>
+
+        <div data-id="div_sb_ril" class="slideblock">
+            <h2 data-id="h2_ril" data-vn="1">移除图像图层</h2>
+
+            <p data-id="p_h2_ril" data-vn="1">
+                要移除图像图层，需先打开 <span class="appproperty">Inputs</span> 面板。在 <span class="appaspecttype">1Ds</span> 视图中<span class="appgesture">点击</span> <span class="appproperty">Images</span>（或 <span class="appproperty">Inputs</span>）。展开 <span class="appproperty">Remove image layer</span> 并选择要移除的图层。移除可撤销，也可重做。<br/> <br/> <span class="appproperty">Selected layer</span> 选择要移除的图层。唯一不可移除的是 Geometry 图层，它不会出现在选择项中。<br/> <span class="appproperty">Remove selected layer</span> 点击此按钮会从全部图像或仅从选中图像中移除图像图层。将要移除该图层的图像数量显示在 <span class="appproperty">Remove</span> 按钮后的圆括号内。 
+             </p>
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_bc" class="blocksContainer">
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sa" class="rowblock">
+            <h3 data-id="h3_sa" data-vn="1">另见：</h3>
+            <ul class="intend">
+                <li data-id="li_sa_alcm" data-vn="1">Alpha 通道遮罩 <a href="../tools/mask.htm">点击此处</a></li>
+            </ul>
+            <div class="clear">
+                <!-- clear -->
+            </div>
+        </div>
+
+        <!-- content slide end -->
+
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+    <script type="text/javascript">
+        InitializeHelpSlide();
+    </script>
+
+</body>
+</html>
+<!-- signature:ZHSi9HuGJG80R01i+PbAwtM1jPADX6S38IXxz1ltEEUvH4bVjL9Q0npo+eA79YgGdcqfhN8xfavEYQX8k/EASl7FAGQHKgueXmrzUTJbbAXfYKtmqLnspW5Ne2c7K0h8WQ8fhxeXFp3t678Sh4MnvABTPA7ugIc/FiEARnomVOo= -->

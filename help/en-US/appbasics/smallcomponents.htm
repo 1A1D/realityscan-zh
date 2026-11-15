@@ -1,0 +1,86 @@
+﻿<html>
+<head>
+    <title>RealityScan 帮助</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Epic Games Slovakia s.r.o." />
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <link type="text/css" rel="stylesheet" href="../../styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/colors.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css" />
+    <script src="../scripts/textVars.js" type="text/javascript"></script>
+    <script src="../../scripts/localization.js" type="text/javascript"></script>
+    <script src="../../scripts/main.js" type="text/javascript"></script>
+</head>
+<body ondragstart="return false;">
+
+    <div class="content_slide">
+
+        <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head" class="head">
+            <h1 data-id="h1" data-vn="1">小组件</h1>
+            <p data-id="p_h1" data-vn="3">
+                对齐后，若图像之间重叠不足，可能会生成若干较小的组件。当这些组件的相机数小于「组件最少图像数」阈值时，它们会在 <span class="appaspecttype">1Ds</span> 视图中合并成一个可展开的条目。点击 <span class="appribbon">SCENE 1D</span>/<span class="appribbon">VIEW</span> 选项卡 <span class="apppanel">Settings</span> 区域的 <span class="apptool">Small Components</span> 按钮，可定义哪些组件算作小组件。 
+            </p>
+        
+            <div style="padding: 10px 10px 10px 0px">
+                <img src="images/small_components_2.png" alt="small_components_2" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/appbasics/images/small_components_2.png';"/>
+				<br/><br/>
+				<img src="images/small_components_1.png" alt="small_components_1" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/appbasics/images/small_components_1.png';"/>
+            </div>
+
+                <ul class="apppanelitems">
+                    <li class="apppanelitem" data-id="li_scp_smth" data-vn="1"><span class="appproperty">Include smaller than</span> 相机数少于该值的组件一律视为小组件，默认值为 3。</li>
+                    <li class="apppanelitem" data-id="li_scp_exbt" data-vn="1"><span class="appproperty">Exclude bigger than</span> 相机数多于该值的组件不视为小组件。</li>
+                    <li class="apppanelitem" data-id="li_scp_perc" data-vn="1"><span class="appproperty">As small as a percentage of inputs</span> 相机数低于「输入总数 × 该百分比」的组件也归入小组件。</li>
+                </ul>
+
+        </div>  
+        
+        <br/>
+
+        <div class="slideblock">
+            <h2 data-id="h2_delsmall" data-vn="1">删除所有小组件</h2>
+            <p data-id="p_h2_delsmall" data-vn="1">                
+                 当组件数量较多时，把小组件合并成一个条目便于在 <span class="appaspecttype">1Ds</span> 视图中浏览，同时也便于删除它们。在 <span class="appaspecttype">1Ds</span> 视图中把鼠标移到 <span class="apptree"> Small components </span> 上，会出现 <span class="appbutton">Delete all small components</span> 按钮，点击即从应用中移除所有小组件。<br/><br/> 此操作可以撤销，也可以重做。
+            </p>
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_bc" class="blocksContainer">
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sa" class="rowblock">
+            <h3 data-id="h3_sa" data-vn="1">另见：</h3>
+            <ul class="intend">
+                <li data-id="li_sa_hsmi" data-vn="1">组件体系 <a href="../appbasics/components.htm">点击此处</a></li>
+            </ul>
+            <div class="clear">
+                <!-- clear -->
+            </div>
+        </div>
+
+        <!-- content slide end -->
+
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+    <script type="text/javascript">
+        InitializeHelpSlide();
+    </script>
+
+
+</body>
+</html>
+<!-- signature:5zCaqkoYggWo0tinNqVoU4HugQztQExzHsTtQVWluIalWoJ863HbPB/Y9m+xwPiXRLALxlq75fQq1319b6T9CHYdD1oZ44ceM0oBvtbtXkpB48b175Kqqu2aMVz4aADM6NNHtc7Lp1z6damQPEaT4JsBbTbUloEUdgq9bZjHqyA= -->

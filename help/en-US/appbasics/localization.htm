@@ -1,0 +1,192 @@
+﻿<html>
+    <head>
+        <title>RealityScan 帮助</title>
+        <meta charset="UTF-8"/>
+        <meta name="author" content="Epic Games Slovakia s.r.o."/>
+        <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/style.css"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/colors.css"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css"/>
+        <script src="../scripts/textVars.js" type="text/javascript"></script>
+        <script src="../../scripts/localization.js" type="text/javascript"></script>
+        <script src="../../scripts/main.js" type="text/javascript"></script>
+    </head>
+    <body ondragstart="return false;">
+
+        <div data-id="div_cs" class="content_slide">
+        
+            <!-- content slide -->
+
+            <script type="text/javascript">RenderToolNavigation();</script>
+
+            <div data-id="div_head" class="head">
+                <h1 data-id="h1" data-vn="1">本地化</h1>
+                <p data-id="p_h1" data-vn="2">
+                    本节说明如何把本应用（界面、帮助系统及部分可导出内容）本地化为另一种语言，并列出对译者的要求。<br /> 完成之后，即可在 <span class="appproperty">Application Settings</span> / <span class="appproperty">Visual and language settings</span> / <span class="appproperty">UI Language</span> 中切换到新语言。
+                </p>
+                <div data-id="div_im_orignames" data-vn="1" class="importantMessage">
+                    要求：请勿更改原有文件夹名称、结构（位置）或文件扩展名。如有疑问，请联系指定人员确认。
+                </div>
+            </div>
+
+            <br />
+
+            <div data-id="div_sb_stepone" class="slideblock">
+                <h2 data-id="h2_stepone" data-vn="1">第 1 步 - 应用的 XML</h2>
+                <p data-id="p_h2_stepone" data-vn="1">翻译界面有 2 种方式：</p>
+
+                <h3 data-id="h3_stepone_altone" data-vn="1">方式一 - 手动</h3>
+                <ol>
+                    <li data-id="li_stepone_altone_copy_v1" data-vn="3">
+                        需要从 ProgramData 文件夹（通常为 <span class="command">C:\ProgramData\Epic\RealityScan\LanguagePack\languages</span>）复制 en-US\ui.xml 文档。建议新建一个 languages 文件夹（例如 languagesMY），在其中新建子文件夹并按 en-US 的方式命名（参见 <a href="https://www.w3schools.com/Tags/ref_language_codes.asp" target="_blank">语言代码</a>），把复制的 ui.xml 放进去，用文本编辑器打开，从上到下逐条翻译后保存。<br />（注意：重新安装、修复或卸载应用时，若文件时间戳较旧，受支持语言的 xml 文件及 languages.xml 会被覆盖或删除。因此建议把成果存放在单独的 languages 文件夹中。）
+                    </li>
+                    <li data-id="li_stepone_altone_fin" data-vn="2">
+                        xml 翻译完成后，把语言描述加入 languages.xml，位置在：<span class="command">ProgramData\Epic\RealityScan</span>。只需复制文件中的一行，修改语言 <a href="https://www.w3schools.com/Tags/ref_language_codes.asp" target="_blank">代码</a>、<a href="https://docs.microsoft.com/en-us/windows/desktop/intl/language-identifier-constants-and-strings" target="_blank">ID</a>（区域设置标识符）、名称（见上一步）和源文件路径。
+                    </li>
+                </ol>
+
+                <h3 data-id="h3_stepone_alttwo" data-vn="2">方式二 - 使用 RS 翻译工具（推荐）</h3>
+                <ol>
+                    <li data-id="li_stepone_alttwo_contact__v1" data-vn="1">请联系我们获取该工具。</li>
+                    <li data-id="li_stepone_alttwo_follow" data-vn="1">按工具帮助中的说明操作。查看帮助文件的方法：选择一种语言，然后按 F1 或点击工具图标中的问号。</li>
+                </ol>
+
+                <div data-id="div_im_stepone_autosave_v1" data-vn="2" class="importantMessage">
+                    注意：译文会自动保存到 ProgramData（ProgramData\Epic\RealityScan\languagesMY）。若要把最新译文另存到其他文件夹，点击工具菜单中的向下箭头图标。最新译文始终保存在 ProgramData 中。
+                </div>
+
+                <h3 data-id="h3_stepone_further" data-vn="1">补充说明</h3>
+
+                <p data-id="p_h3_stepone_further" data-vn="1">
+                    不要翻译（也不要删除）：<br /> <span class="textEmp">&amp;#10;</span>（文本中用于换行的符号），<br /> <span class="textEmp">&amp;amp;</span>（和号；当它出现在词首或词中时，如 &amp;Exit 或 Co&amp;ntinue，符号后紧跟的字母会加下划线，表示该操作有快捷键），<br /> <span class="textEmp">&amp;quot;</span>（单引号的替代符号），<br /> <span class="textEmp">&amp;lt;</span>（小于号的替代符号），<br /> <span class="textEmp">&amp;gt;</span>（大于号的替代符号），<br /> <span class="textEmp">&amp;lt;br/&amp;gt;</span>（换行的替代符号，也可能不带斜杠，或斜杠放在 br 前，或 br 元素后带空格），<br /> <span class="textEmp">&lt;li&gt;</span>（缩进行的替代符号，是起始标签，配套的结束标签为 <span class="textEmp">&lt;/li&gt;</span>），<br /> <span class="textEmp">&lt;span&gt;</span>（用于给特定文本设置样式的 span 标签替代符号，<span class="textEmp">&lt;span</span> 与 <span class="textEmp">&lt;/span&gt;</span> 之间的内容一律不得翻译），<br /> <span class="textEmp">%s, %d</span>（用于在界面上格式化并显示特定内容的符号），<br /> <span class="textEmp">$(stat), $Get(key), $(minutes:02d)</span>（以美元符号开头的词是变量或函数名，在所有语言版本中必须保持不变，包括美元符号词后面括号内的内容），<br /> <span class="textEmp">postprocess.exe</span>（可执行文件名，以 .exe 结尾的词不得翻译），<br /> <span class="textEmp">name="..."</span>（字符串标识符）。
+                </p>
+
+                <h3 data-id="h3_stepone_plural" data-vn="1">复数相关结构</h3>
+                <p data-id="p_stepone_plural_commands" data-vn="1">
+                    xml 文档中有一些命令会自动为词加上指定的复数词尾，或根据表达式关联的实时读数把单数表达替换为对应的复数形式。下面用几个例子说明：
+                </p>
+                <p data-id="p_stepone_plural_line" data-vn="1">
+                    以下是待翻译的 xml 文档中的一行：<br /> <span class="textEmp">命令 '$(cmdName)' 还需要更多参数。请再添加 $(maxParamCount-paramCount) 个参数$if(maxParamCount-paramCount&gt;1,s)。</span>
+                </p>
+                <ul>
+                    <li data-id="li_stepone_plural_name" data-vn="1">'$(cmdName)' 代表命令名，不要翻译。</li>
+                    <li data-id="li_stepone_plural_number" data-vn="1">$(maxParamCount-paramCount) 表示所用命令缺少的参数个数，不要翻译。</li>
+                    <li data-id="li_stepone_plural_combi" data-vn="1">
+                        argument$if(maxParamCount-paramCount&gt;1,s) 是待翻译的词（argument）与一条命令的组合：当它判断参数个数大于 1 时，会自动为该词的复数形式加上指定词尾（此处为 -s，也需翻译）。若你的语言中该规则不同，可能需要对译文中的其他词增删类似结构。
+                    </li>
+                    <li data-id="li_stepone_plural_other" data-vn="1">上面这行中的其他文本都需要翻译。</li>
+                </ul>
+                <br />
+                <p data-id="p_stepone_plural_another" data-vn="1">
+                    再看一个例子：<br /> <span class="textEmp">正在执行命令 '$(cmdName)'$if(paramCount==1, 参数为 '$(params)')$if(paramCount&gt;1, 参数为 '$(params)')</span><br /> 应用中的输出为：
+                </p>
+                <ul>
+                    <li data-id="li_stepone_plural_outputeither" data-vn="1">要么显示：<span class="textEmp">正在执行命令 '$(cmdName)'，参数为 '$(params)'</span>（找到 1 个参数），</li>
+                    <li data-id="li_stepone_plural_outputor" data-vn="1">要么显示：<span class="textEmp">正在执行命令 '$(cmdName)'，参数为 '$(params)'</span>（找到多个参数）。</li>
+                </ul>
+
+                <br />
+
+                <div data-id="div_im_trmode" data-vn="2" class="importantMessage">
+                    提示：可以用下面这条命令通过命令行启动 RealityScan： <span class="command">-translatorMode</span> 并利用面板与窗口中各文本（字符串）的视觉辅助标识（数字即字符串 ID），这样能帮你准确把握语义。
+                    <br /><br />
+                    要以这种“译者模式”运行应用：
+                    <ol>
+                        <li data-id="li_im_trmode_open" data-vn="1">打开（Windows）命令提示符，</li>
+                        <li data-id="li_im_trmode_type" data-vn="2">在其中输入或粘贴 RealityScan 可执行文件的完整路径，</li>
+                        <li data-id="li_im_trmode_followed" data-vn="1">后面跟 <span class="command">-translatorMode</span> 命令，</li>
+                        <li data-id="li_im_trmode_enter" data-vn="1">然后按回车键。</li>
+                    </ol>
+                    <p data-id="p_im_trmode_v1" data-vn="1">
+                        通常形如：<span class="command">"C:\Program Files\Epic Games\RealityScan\RealityScan.exe" -translatorMode</span>。
+                    </p>
+                </div>
+            </div>
+
+            <br />
+
+            <div data-id="div_sb_steptwo" class="slideblock">
+                <h2 data-id="h2_steptwo_v1" data-vn="1">第 2 步 - 帮助</h2>
+                <ol>
+                    <li data-id="li_steptwo_copy" data-vn="2">把整个 Help 文件夹从 <span class="command">C:\Program Files\Epic Games\RealityScan\help\en-US</span> 复制到 <span class="command">C:\Program Files\Epic Games\RealityScan\help。</span></li>
+                    <li data-id="li_steptwo_rename" data-vn="1">按 en-US 的方式重命名。语言代码见 <a href="https://www.w3schools.com/Tags/ref_language_codes.asp" target="_blank">此处</a>。</li>
+                    <li data-id="li_steptwo_open" data-vn="2">
+                        用文本编辑器逐个打开 Help 文件夹下的每个 .htm 文件，以及 <span class="command">C:\Program Files\Epic Games\RealityScan\Help\en-US\scripts</span> 中的 textVars.js，翻译后保存到相同位置（文件夹结构必须保持不变）。
+                    </li>
+                </ol>
+
+                <div data-id="div_im_helpbackup" data-vn="1" class="importantMessage">
+                    警告：当你修改应用中已有的帮助译文时，务必随时备份已翻译的文档。这一步必须在改动应用安装之前完成。
+                </div>
+
+                <br />
+
+                <p data-id="li_steptwo_makesure" data-vn="1">
+                    确保按钮、面板、设置和窗口的名称（帮助中通常显示为<span class="textEmp">蓝色</span>）与第 1 步 xml 文档中的译文完全一致，帮助正文中提到的教程名称也要与帮助首页一致。<br /> 若遇到维基百科链接，请在浏览器中打开，并把左侧菜单的语言切到你正在翻译的语言；若该语言版本不存在，跳过此步。<br /> 不要翻译 html 标签、代码示例（帮助教程中通常为<span class="command">黑底蓝字</span>）和命令名称，也不要删掉任何看不懂的部分。
+                </p>
+
+                <div data-id="div_im_helpsearch" data-vn="1" class="importantMessage">
+                    提示：可用帮助的全文搜索功能快速定位帮助文件中的某段文字；也可以使用快捷键 <span class="appshortcut">CTRL+F</span> to browse contents of individual Help pages.
+                </div>
+            </div>
+
+            <br />
+
+            <div data-id="div_sb_stepthree" class="slideblock">
+                <h2 data-id="h2_stepthree" data-vn="1">第 3 步 - 报告</h2>
+
+                <p data-id="p_h2_stepthree" data-vn="1">报告同样有 2 种翻译方式：</p>
+
+                <h3 data-id="h3_stepthree_altone_v1" data-vn="1">方式一 - 手动</h3>
+                <ol>
+                    <li data-id="li_stepthree_altone_create" data-vn="2">在此处新建文件夹（若已存在则跳过，见第 2 步）：<span class="command">C:\Program Files\Epic Games\RealityScan\Reports</span>。</li>
+                    <li data-id="li_stepthree_altone_rename" data-vn="1">按 en-US 的方式重命名。语言代码见 <a href="https://www.w3schools.com/Tags/ref_language_codes.asp" target="_blank">此处</a>。</li>
+                    <li data-id="li_stepthree_altone_copy" data-vn="3">
+                        把 <span class="command">C:\Program Files\Epic Games\RealityScan\Reports\en-US</span> 中的所有 xml 文件复制到第 1 步创建的文件夹并翻译。
+                    </li>
+                </ol>
+
+                <h3 data-id="h3_stepthree_alttwo" data-vn="2">方式二 - 使用 RS 翻译工具（推荐）</h3>
+                <p data-id="p_h3_stepthree_alttwo" data-vn="1">参见上文第 1 步 / 方式二。</p>
+
+                <div data-id="div_im_stepthree_autosave_v1" data-vn="1" class="importantMessage">
+                    注意：译文会自动保存到 ProgramData（ProgramData\Epic\RealityScan\Reports）。若要把最新译文另存到其他文件夹，点击工具菜单中的向下箭头图标。最新译文始终保存在 ProgramData 中。
+                </div>
+            </div>
+
+            <br />
+
+            <div data-id="div_sb_fnotes" class="slideblock">
+                <h2 data-id="h2_fnotes" data-vn="1">最后说明</h2>
+
+                <div data-id="div_im_fnotes" data-vn="2" class="importantMessage">
+                    警告：务必随时备份你的翻译文档。
+                    <br /><br />
+                    最后一步是把所有翻译文件（保持相同的文件夹结构）发送给我们，以便验证并整合。
+                </div>
+
+            </div>
+
+            <div class="clear splitSpacing">
+                <!-- clear -->
+            </div>
+
+            <div data-id="div_bc" class="blocksContainer">
+                <script type="text/javascript">RenderBackToStartTile();</script>
+            </div>
+
+            <div class="clear">
+                <!-- clear -->
+            </div>
+
+        </div> <!-- content slide end -->
+
+        <script type="text/javascript">RenderCopyrightText();</script>
+
+        <script type="text/javascript">
+            InitializeHelpSlide();
+        </script>
+
+    </body>
+</html>
+<!-- signature:armokxnT/Z+VfCieR3ZzRb6AcpSOhkMkWqqJL81ilSa0V1vEJ+wxIfpO3U5vJKcZbkDBcuV2Df/u/I5RMsOlQziUZy3IIr8R21P9QviFECYaRVGooyu4gtouwwz7xary6mZ+lmPniaNSP29oucq9tqU6vHbQuDxanl7IMJEAQt4= -->

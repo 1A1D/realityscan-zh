@@ -1,0 +1,98 @@
+<html>
+<head>
+    <title>RealityScan 帮助</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Epic Games Slovakia s.r.o."/>
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <link type="text/css" rel="stylesheet" href="../../styles/style.css"/>
+    <link type="text/css" rel="stylesheet" href="../../styles/colors.css"/>
+    <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css"/>
+    <script src="../scripts/textVars.js" type="text/javascript"></script>
+    <script src="../../scripts/localization.js" type="text/javascript"></script>
+    <script src="../../scripts/main.js" type="text/javascript"></script>
+</head>
+<body ondragstart="return false;">
+
+    <div data-id="div_cs" class="content_slide">
+
+        <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head" class="head">
+            <h1 data-id="h1" data-vn="1">裁剪盒</h1>
+            <p data-id="p_h1" data-vn="3">
+                裁剪盒是一个可调整的方块，用于定义已重建模型中指定部分的三维显示范围，而不丢失模型的任何部分。在 <span class="appaspecttype">3Ds</span> 视图中调整其尺寸时，显示内容会自动更新。<br/> 当内存或显存不足以显示整个模型时，裁剪盒非常有用，例如在 <span class="appribbonbutton">solid</span> 或 <span class="appribbonbutton">color/texture</span> 渲染模式下（见 <a href="../appbasics/renderingrt.htm">Real-time Scene Renderer</a>）。
+            </p>
+        </div>
+
+        <div data-id="div_sb_avai" class="slideblock">
+            <ul>
+                <li data-id="li_avai_tool" data-vn="2">只有在模型已重建、且某个视图设为 <span class="appaspecttype">3Ds</span> 时，该工具才可用。这时才能在 <span class="appribbon">SCENE 3D</span>/<span class="appribbon">VIEW</span> 选项卡中看到并点击该按钮。</li>
+                <li data-id="li_avai_liar" data-vn="2"><span class="appgesture">点击</span> <span class="appribbonbutton">Clipping Box</span> 按钮旁边的小箭头可查看其全部选项。在 <span class="appaspecttype">3Ds</span> 视图中<span class="appgesture">点击三次</span>即可定义盒体，之后还可以调整大小或删除。打开 <span class="appribbonbutton">Clipping Box</span> 下拉菜单，还能找到从<a href="reconbox.htm">重建区域</a>自动创建盒体的选项。见下文：</li>
+            </ul>
+
+            <div style="padding: 20px 10px 10px 10px">
+                <img src="images/fig_layouts_define_clipping_box.png" alt="fig_layouts_define_clipping_box" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/fig_layouts_define_clipping_box.png';">
+            </div>
+
+            <p data-id="p_avai_manu" data-vn="2">若选择手动创建裁剪盒，把鼠标<span class="appgesture">移入</span> <span class="appaspecttype">3Ds</span> 视图并：</p>
+            <ol>
+                <li data-id="li_avai_dtlc" data-vn="1"><span class="appgesture">点击鼠标左键</span>确定区域底面左上角。</li>
+                <li data-id="li_avai_dbrb" data-vn="1"><span class="appgesture">移动鼠标</span>确定重建盒的底面。</li>
+                <li data-id="li_avai_cbsi" data-vn="1"><span class="appgesture">点击鼠标左键</span>确认区域底面。</li>
+                <li data-id="li_avai_adhr" data-vn="1"><span class="appgesture">移动鼠标</span>调整区域高度。</li>
+                <li data-id="li_avai_core" data-vn="1"><span class="appgesture">点击鼠标左键</span>确认区域。</li>
+            </ol>
+
+            <br/>
+
+            <p data-id="li_avai_edit" data-vn="1">
+                定义好裁剪盒后，<span class="appgesture">点击</span> <span class="appribbonbutton">Edit Clipping Box</span>，用 <span class="view3dTool">box widget</span> 移动、旋转或调整方块尺寸，用法与 <a href="reconbox.htm">reconstruction region</a> 类似。
+            </p>
+            <p data-id="li_avai_remo" data-vn="1">
+                要移除裁剪盒，选择 <span class="appribbonbutton">Clear Clipping Box</span>。
+            </p>
+
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_bc" class="blocksContainer">
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sa" class="rowblock">
+            <h3 data-id="h3_sa" data-vn="1">另见：</h3>
+            <ul class="intend">
+                <li data-id="li_sa_rtre" data-vn="1">了解实时渲染 <a href="../appbasics/renderingrt.htm">点击此处</a></li>
+                <li data-id="li_sa_recr" data-vn="1">了解重建区域的更多内容 <a href="reconbox.htm">点击此处</a></li>
+                <li data-id="li_sa_sema" data-vn="1">了解如何手动设置盒体位置与朝向 <a href="infopanel.htm">点击此处</a></li>
+                <li data-id="li_sa_rotr" data-vn="1">了解如何旋转与平移场景 <a href="alignground.htm">点击此处</a></li>
+            </ul>
+            <div class="clear">
+                <!-- clear -->
+            </div>
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+    <script type="text/javascript">
+        InitializeHelpSlide();
+    </script>
+
+</body>
+</html>
+<!-- signature:1G200mqFA598jBAXbTv3FbeiFgVgI/IxoYv3r5WjDI1P2XppydZARDJeANvvJlRFozLocWPD98Vxd9mkl8Oj0zUq+vwGicEPkz707pBJUugWvt3KxBMZZXn2ZAnTFx3NXLrgC/bb36hyr+lRm5OCg6N78b+CQfMYE/DtXvCdEQE= -->

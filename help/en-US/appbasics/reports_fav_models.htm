@@ -1,0 +1,439 @@
+﻿<html>
+    <head>
+        <title>RealityScan 帮助</title>
+        <meta charset="UTF-8"/>
+        <meta name="author" content="Epic Games Slovakia s.r.o."/>
+        <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/style.css"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/colors.css"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css"/>
+        <script src="../scripts/textVars.js" type="text/javascript"></script>
+        <script src="../../scripts/localization.js" type="text/javascript"></script>
+        <script src="../../scripts/main.js" type="text/javascript"></script>
+    </head>
+<body ondragstart="return false;">
+
+    <div data-id="div_cs" class="content_slide">
+    
+        <!-- content slide -->
+
+        <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head" class="head">
+            <h1 data-id="h1" data-vn="1">模型（报告中可用的函数与变量）</h1>
+        </div>
+
+        <div data-id="div_sb_mo" class="slideblock">
+            <h2 data-id="h2_mo" data-vn="1">模型</h2>
+
+            <p data-id="p_mo_iter" data-vn="1"><span class="appproperty">IterateModels</span> —— 该函数用于输出某个组件内所有模型的基本信息。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_mo_iter_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_mo_iter_syn" data-vn="1">
+  $IterateModels( componentGUID, anyText )
+ </pre>
+                <p data-id="p_mo_iter_syn_par" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_mo_iter_syn_guid" data-vn="1"><span class="appproperty">componentGUID</span> —— 组件的 GUID：可用 IterateComponents 函数获取所有组件的 GUID</p>
+                </div>
+                <p data-id="p_mo_iter_avars" data-vn="1"><b>可用变量：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_mo_iter_guid" data-vn="1"><span class="appproperty">modelGUID</span> —— 模型的 GUID</p>
+                    <p data-id="p_mo_iter_name" data-vn="1"><span class="appproperty">modelName</span> —— 模型名称</p>
+                    <p data-id="p_mo_iter_trco" data-vn="1"><span class="appproperty">modelTrianglesCount</span> —— 模型的三角面数量</p>
+                    <p data-id="p_mo_iter_veco" data-vn="1"><span class="appproperty">modelVerticesCount</span> —— 模型的顶点数量</p>
+                </div>
+                <p data-id="p_mo_iter_ex" data-vn="1"><b>示例：</b></p>
+                <pre data-id="pre_mo_iter_ex" data-vn="1">
+  $IterateComponents(
+    $IterateModels( "$(componentGUID)",
+      Model GUID: $(modelGUID)
+      Model name: $(modelName)
+      Triangles count: $(modelTrianglesCount)
+      Vertices count: $(modelVerticesCount)
+    )
+  )
+                </pre>
+            </div>
+
+            <p data-id="p_mo_expo" data-vn="1"><span class="appproperty">ExportModels</span> —— 该函数用于输出所选组件内所有模型的详细信息。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_mo_expo_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_mo_expo_syn" data-vn="1">
+  $ExportModels( noParametersJustAnyText )
+ </pre>
+                <p data-id="p_mo_expo_avars" data-vn="1"><b>可用变量：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_mo_expo_name" data-vn="1"><span class="appproperty">modelName</span> —— 模型名称</p>
+                    <p data-id="p_mo_expo_guid" data-vn="1"><span class="appproperty">modelGuid</span> —— 模型的 GUID</p>
+                    <p data-id="p_mo_expo_trco" data-vn="1"><span class="appproperty">modelTriangleCount</span> —— 模型的三角面数量</p>
+                    <p data-id="p_mo_expo_veco" data-vn="1"><span class="appproperty">modelVertexCount</span> —— 模型的顶点数量</p>
+                    <p data-id="p_mo_expo_paco" data-vn="1"><span class="appproperty">modelPartCount</span> —— 模型的分块数量</p>
+                    <p data-id="p_mo_expo_unsi" data-vn="1"><span class="appproperty">modelUnitSize</span> —— 单位尺寸</p>
+                    <p data-id="p_mo_expo_unit" data-vn="1"><span class="appproperty">modelUnits</span> —— 单位名称</p>
+                    <p data-id="p_mo_expo_isco" data-vn="1"><span class="appproperty">modelIsColored</span> —— 模型已上色则为 true，否则 false</p>
+                    <p data-id="p_mo_expo_iste" data-vn="1"><span class="appproperty">modelIsTextured</span> —— 模型已贴图则为 true，否则 false</p>
+                </div>
+                <p data-id="p_mo_expo_afuns" data-vn="1"><b>可用函数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_mo_exti" data-vn="1"><span class="appproperty">ExportTextureInfo</span> —— 模型纹理图层的信息。</p>
+                    <div style="padding-left: 20px">
+                        <p data-id="p_mo_exti_syn" data-vn="1"><b>语法：</b></p>
+                        <pre data-id="pre_mo_exti_syn" data-vn="1">
+  $ExportTextureInfo( noParametersJustAnyText )
+ </pre>
+                        <p data-id="p_mo_exti_avars" data-vn="1"><b>可用变量：</b></p>
+                        <div style="padding-left: 20px">
+                            <p data-id="p_mo_exti_txid" data-vn="1"><span class="appproperty">selectedTextureLayerGuid</span> —— 所选纹理图层的索引值</p>
+                            <p data-id="p_mo_exti_tlyc" data-vn="1"><span class="appproperty">modelTextureLayerCount</span> —— 模型拥有的纹理图层数量</p>
+                            <p data-id="p_mo_exti_unst" data-vn="1"><span class="appproperty">modelUnwrapStyle</span> —— 展开风格</p>
+                            <p data-id="p_mo_exti_teco" data-vn="1"><span class="appproperty">modelTextureCount</span> —— 纹理数量</p>
+                            <p data-id="p_mo_exti_resx" data-vn="1"><span class="appproperty">modelTextureResolutionX</span> —— 纹理宽度</p>
+                            <p data-id="p_mo_exti_resy" data-vn="1"><span class="appproperty">modelTextureResolutionY</span> —— 纹理高度</p>
+                            <p data-id="p_mo_exti_gusi" data-vn="1"><span class="appproperty">modelGutterSize</span> —— 各图表的留白尺寸</p>
+                            <p data-id="p_mo_exti_util" data-vn="1"><span class="appproperty">modelTextureUtilization</span> —— 纹理利用率（含留白）</p>
+                            <p data-id="p_mo_exti_opts" data-vn="1"><span class="appproperty">modelOptimalTexelSize</span> —— 最佳纹素尺寸</p>
+                            <p data-id="p_mo_exti_tequ" data-vn="1"><span class="appproperty">modelTextureQuality</span> —— 纹理质量</p>
+                            <p data-id="p_mo_exti_tesi" data-vn="1"><span class="appproperty">modelTexelSize</span> —— 纹素尺寸</p>
+                        </div>
+                        
+                        <p data-id="p_mo_exti_avfu" data-vn="1"><b>可用函数：</b></p>
+                        <div style="padding-left: 20px">
+                            <p data-id="p_mo_exti_ittl" data-vn="1"><span class="appproperty">IterateTextureLayers</span> —— 遍历纹理图层。</p>
+                            <div style="padding-left: 20px">
+                                <p data-id="p_mo_ittl_syn" data-vn="1"><b>语法：</b></p>
+                                <pre data-id="pre_mo_ittl_syn" data-vn="1">
+  $IterateTextureLayers( noParametersJustAnyText )
+ </pre>
+                                <p data-id="p_mo_ittl_avars" data-vn="1"><b>可用变量：</b></p>
+                                <div style="padding-left: 20px">
+                                    <p data-id="p_mo_ittl_tlid" data-vn="1"><span class="appproperty">textureLayerGuid</span> —— 纹理图层的索引值</p>
+                                </div>
+                            </div>
+                            
+                            <p data-id="p_mo_exti_etli" data-vn="1"><span class="appproperty">ExportTextureLayerInfo</span> —— 导出纹理图层的信息。</p>
+                            <div style="padding-left: 20px">
+                                <p data-id="p_mo_etli_syn" data-vn="1"><b>语法：</b></p>
+                                <pre data-id="pre_mo_etli_syn" data-vn="1">
+  $ExportTextureLayerInfo( textureLayerGuid, anyText )
+ </pre>
+                                <p data-id="p_mo_etli_par" data-vn="1"><b>参数：</b></p>
+                                <div style="padding-left: 20px">
+                                    <p data-id="p_mo_etli_tlidp" data-vn="1"><span class="appproperty">textureLayerGuid</span> —— 纹理图层的索引值</p>
+                                </div>
+ 
+                                <p data-id="p_mo_etli_avars" data-vn="1"><b>可用变量：</b></p>
+                                <div style="padding-left: 20px">
+                                    <p data-id="p_mo_etli_tlid" data-vn="1"><span class="appproperty">textureLayerGuid</span> —— 纹理图层的索引值</p>
+                                    <p data-id="p_mo_etli_tlst" data-vn="1"><span class="appproperty">textureLayerStyle</span> —— 创建该纹理图层所用的贴图风格</p>
+                                    <p data-id="p_mo_etli_tlty" data-vn="1"><span class="appproperty">textureLayerType</span> —— 纹理图层的类型</p>
+                                    <p data-id="p_mo_etli_tlna" data-vn="1"><span class="appproperty">textureLayerName</span> —— 纹理图层的名称</p>
+                                    <p data-id="p_mo_etli_tlpf" data-vn="1"><span class="appproperty">textureLayerPixelFormat</span> —— 纹理图层的像素格式</p>
+                                    <p data-id="p_mo_etli_tlil" data-vn="1"><span class="appproperty">textureLayerHasInputLayer</span> —— 若使用了纹理图层则返回 "true"（否则 "false"）</p>
+                                    <p data-id="p_mo_etli_tlin" data-vn="1"><span class="appproperty">textureLayerInputLayer</span> —— 用于创建该纹理图层的图像图层</p>
+                                    <p data-id="p_mo_etli_tlsm" data-vn="1"><span class="appproperty">textureLayerHasSourceModel</span> —— 若纹理图层是用 <span class="apptool">Texture reprojection</span> 工具创建的、且带有源模型信息，则返回 "true"（否则 "false"）</p>
+                                    <p data-id="p_mo_etli_tlsi" data-vn="1"><span class="appproperty">textureLayerSourceModelGuid</span> —— 源模型的索引</p>
+                                    <p data-id="p_mo_etli_tlsl" data-vn="1"><span class="appproperty">textureLayerHasSourceLayer</span> —— 若纹理图层是用 <span class="apptool">Texture reprojection</span> 工具创建的、且带有源图层信息，则返回 "true"（否则 "false"）</p>
+                                    <p data-id="p_mo_etli_tlsd" data-vn="1"><span class="appproperty">textureLayerSourceLayerGuid</span> —— 源图层的索引</p>
+                                    <p data-id="p_mo_etli_tllt" data-vn="1"><span class="appproperty">textureLayerTime</span> —— 计算该纹理图层所花的时间</p>
+                                </div>
+                            </div>                                  
+                      
+                        </div>
+                    </div>
+
+                    <p data-id="p_mo_stat" data-vn="1"><span class="appproperty">ModelStats</span></p>
+                    <div style="padding-left: 20px">
+                        <p data-id="p_mo_stat_syn" data-vn="1"><b>语法：</b></p>
+                        <pre data-id="pre_mo_stat_syn" data-vn="1">
+  $ModelStats( modelGuid, anyText )</pre>
+                        <p data-id="p_mo_stat_par" data-vn="1"><b>参数：</b></p>
+                        <div style="padding-left: 20px">
+                            <p data-id="p_mo_stat_guid" data-vn="1"><span class="appproperty">modelGuid</span></p>
+                        </div>
+                        <p data-id="p_mo_stat_avars" data-vn="1"><b>可用变量：</b></p>
+                        <div style="padding-left: 20px">
+                            <p data-id="p_mo_stat_demt" data-vn="1"><span class="appproperty">modelDepthMapsTime</span> —— 深度图计算耗时（秒）</p>
+                            <p data-id="p_mo_stat_meti" data-vn="1"><span class="appproperty">modelMeshingTime</span> —— 网格重建耗时（秒）</p>
+                            <p data-id="p_mo_stat_ppti" data-vn="1"><span class="appproperty">modelPostprocessTime</span> —— 后处理耗时（秒）</p>
+                            <p data-id="p_mo_stat_coti" data-vn="1"><span class="appproperty">modelColoringTime</span> —— 上色耗时（秒）</p>
+                            <p data-id="p_mo_stat_unti" data-vn="1"><span class="appproperty">modelUnwrapTime</span> —— 展开耗时（秒）</p>
+                        </div>
+                    </div>
+
+                    <p data-id="p_mo_sett" data-vn="1"><span class="appproperty">ModelSettings</span></p>
+                    <div style="padding-left: 20px">
+                        <p data-id="p_mo_sett_syn" data-vn="1"><b>语法：</b></p>
+                        <pre data-id="pre_mo_sett_syn" data-vn="1">
+  $ModelSettings( modelGuid, anyText )</pre>
+                        <p data-id="p_mo_sett_par" data-vn="1"><b>参数：</b></p>
+                        <div style="padding-left: 20px">
+                            <p data-id="p_mo_sett_guid" data-vn="1"><span class="appproperty">modelGuid</span></p>
+                        </div>
+                        <p data-id="p_mo_sett_avars" data-vn="1"><b>可用变量：</b></p>
+                        <div style="padding-left: 20px">
+                            <p data-id="p_mo_sett_moqu" data-vn="1"><span class="appproperty">modelQuality</span> —— 质量等级</p>
+                            <p data-id="p_mo_sett_midf" data-vn="1"><span class="appproperty">modelImageDownscaleFactor</span> —— 深度图的图像降采样系数</p>
+                        </div>
+                    </div>
+                </div>
+                <p data-id="p_mo_expo_ex" data-vn="1"><b>Example</b>（注意 ":.xf" 用于把小数四舍五入到 x 位）<b>：</b></p>
+                <pre data-id="pre_mo_expo_ex" data-vn="1">
+  $ExportModels(
+
+    Model name: $(modelName)
+    Model GUID: $(modelGuid)
+    Triangles count: $(modelTriangleCount)
+    Vertices count: $(modelVertexCount)
+    Parts count: $(modelPartCount)
+    Unit size: $(modelUnitSize)
+    Units: $(modelUnits)
+    Colored: $(modelIsColored)
+    Textured: $(modelIsTextured)
+
+    $ExportTextureInfo(
+      Texturing style: $(modelTextureStyle)
+      Unwrapping style: $(modelUnwrapStyle)
+      Textures count: $(modelTextureCount)
+      Texture resolution: $(modelTextureResolutionX) x $(modelTextureResolutionY)
+      Charts gutter size: $(modelGutterSize) texels
+      Texture utilization: $(modelTextureUtilization * 100 :.0f)%
+      Optimal texel size: $(modelOptimalTexelSize:.6f) units per texel
+      Texture quality: $(modelTextureQuality * 100 :.0f)%
+      Texel size: $(modelTexelSize:.6f) units per texel
+    )
+
+    $ModelStats( "$(modelGuid)",
+      Depth-map computation time: $(modelDepthMapsTimeStr) ($(modelDepthMapsTime)s)
+      Meshing time: $(modelMeshingTimeStr) ($(modelMeshingTime)s)
+      Post-processing time: $(modelPostprocessTimeStr) ($(modelPostprocessTime)s)
+      Coloring time: $(modelColoringTimeStr) ($(modelColoringTime)s)
+      Unwrapping time: $(modelUnwrapTimeStr) ($(modelUnwrapTime)s)
+      Texturing time: $(modelTexturingTimeStr) ($(modelTexturingTime)s)
+      Overall processing time: $(modelTotalTimeStr) ($(modelTotalTime)s)
+    )
+
+    $ModelSettings( "$(modelGuid)",
+      Quality level: $(modelQuality)
+      Image downscale factor: $(modelImageDownscaleFactor)
+    )
+
+  )
+                </pre>
+            </div>
+    
+            <p data-id="p_mo_reme" data-vn="1"><span class="appproperty">RenderMesh</span> —— 把模型的图像导出为单独文件。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_mo_reme_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_mo_reme_syn" data-vn="1">
+  $RenderMesh( modelGuid, “filepath”, width, height, cameraIndex )
+  or
+  $RenderMesh( modelGuid, “filepath”, width, height, cameraIndex, textureLayerGuid )
+ </pre>
+                <p data-id="p_mo_reme_par" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_mo_reme_moid" data-vn="1"><span class="appproperty">modelGuid</span> —— 模型的索引</p>
+                    <p data-id="p_mo_reme_fipa" data-vn="1"><span class="appproperty">filePath</span> —— 相对于附件文件夹的路径，或形如 global://globalPathToFile 的路径</p>
+                    <p data-id="p_mo_reme_widt" data-vn="1"><span class="appproperty">width</span> —— 渲染图像的宽度</p>
+                    <p data-id="p_mo_reme_high" data-vn="1"><span class="appproperty">height</span> —— 渲染图像的高度</p>
+                    <p data-id="p_mo_reme_caid" data-vn="1"><span class="appproperty">cameraIndex</span> —— 用于渲染图像的相机索引（填 -1 则自动从能较好俯瞰模型的相机渲染）</p>
+                    <p data-id="p_mo_reme_tlid" data-vn="1"><span class="appproperty">textureLayerGuid</span> —— 纹理图层的索引。这是可选参数；若不指定且模型已贴图，则使用当前选中的纹理图层。</p>
+                </div>
+            </div>
+            
+            <br/>
+
+            <p data-id="p_mo_rcus" data-vn="1"><span class="appproperty">RenderMeshFromCustomPositionYPR</span> —— 从自定义位置与相机旋转渲染模型图像。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_mo_rcus_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_mo_rcus_syn" data-vn="1">
+   $RenderMeshFromCustomPositionYPR( modelGUID, "outputFile", width, height, focalLength, x, y, z, yaw, pitch, roll )
+   or
+   $RenderMeshFromCustomPositionYPR( modelGUID, "outputFile", width, height, focalLength, x, y, z, yaw, pitch, roll, textureLayerGUID )
+ </pre>
+                <p data-id="p_mo_rcus_par" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_mo_rcus_moid" data-vn="1"><span class="appproperty">modelGuid</span> —— 模型的索引</p>
+                    <p data-id="p_mo_rcus_outf" data-vn="1"><span class="appproperty">outputFile</span> —— 渲染图像的完整路径（含格式扩展名）</p>
+                    <p data-id="p_mo_rcus_widt" data-vn="1"><span class="appproperty">width</span> —— 渲染图像的宽度（像素）</p>
+                    <p data-id="p_mo_rcus_heig" data-vn="1"><span class="appproperty">height</span> —— 渲染图像的高度（像素）</p>
+                    <p data-id="p_mo_rcus_fcll" data-vn="1"><span class="appproperty">focalLength</span> —— 渲染图像的焦距</p>
+                    <p data-id="p_mo_rcus_xcor" data-vn="1"><span class="appproperty">x</span> —— 相机的 X 坐标</p>
+                    <p data-id="p_mo_rcus_ycor" data-vn="1"><span class="appproperty">y</span> —— 相机的 Y 坐标</p>
+                    <p data-id="p_mo_rcus_zcor" data-vn="1"><span class="appproperty">z</span> —— 相机的 Z 坐标</p>
+                    <p data-id="p_mo_rcus_yawr" data-vn="1"><span class="appproperty">yaw</span> —— 相机的偏航旋转</p>
+                    <p data-id="p_mo_rcus_pitc" data-vn="1"><span class="appproperty">pitch</span> —— 相机的俯仰旋转</p>
+                    <p data-id="p_mo_rcus_roll" data-vn="1"><span class="appproperty">roll</span> —— 相机的翻滚旋转</p>
+                    <p data-id="p_mo_rcus_tlid" data-vn="1"><span class="appproperty">textureLayerGUID</span> —— 渲染图像中要使用的纹理图层索引</p>
+                </div>
+            
+            
+                <p data-id="p_mo_rcus_ex" data-vn="1"><b>示例：</b></p>         
+                    <pre data-id="pre_mo_rcus_ex" data-vn="1">
+   $IterateComponents(
+      $IterateModels( "$(componentGUID)",
+         $RenderMeshFromCustomPositionYPR( "$(modelGUID)", 
+            "renderMesh.png", 6000, 4000, 24, -21, 19, 17, 0, 90, 0
+         )
+      )
+   )
+</pre>                 
+            </div>      
+
+            <br/>
+
+            <p data-id="p_mo_rcat" data-vn="1"><span class="appproperty">RenderMeshFromCustomPositionLookAt</span> —— 从自定义位置朝自定义目标点渲染模型图像。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_mo_rcat_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_mo_rcat_syn" data-vn="1">
+   $RenderMeshFromCustomPositionLookAt( modelGUID, "outputFile", width, height, focalLength, x, y, z, atX, atY, atZ )
+   or
+   $RenderMeshFromCustomPositionLookAt( modelGUID, "outputFile", width, height, focalLength, x, y, z, atX, atY, atZ, upX, upY, upZ )
+   or
+   $RenderMeshFromCustomPositionLookAt( modelGUID, "outputFile", width, height, focalLength, x, y, z, atX, atY, atZ, upX, upY, upZ, textureLayerGUID )
+ </pre>
+                <p data-id="p_mo_rcat_par" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_mo_rcat_moid" data-vn="1"><span class="appproperty">modelGuid</span> —— 模型的索引</p>
+                    <p data-id="p_mo_rcat_outf" data-vn="1"><span class="appproperty">outputFile</span> —— 渲染图像的完整路径（含格式扩展名）</p>
+                    <p data-id="p_mo_rcat_widt" data-vn="1"><span class="appproperty">width</span> —— 渲染图像的宽度（像素）</p>
+                    <p data-id="p_mo_rcat_heig" data-vn="1"><span class="appproperty">height</span> —— 渲染图像的高度（像素）</p>
+                    <p data-id="p_mo_rcat_fcll" data-vn="1"><span class="appproperty">focalLength</span> —— 渲染图像的焦距</p>
+                    <p data-id="p_mo_rcat_xcor" data-vn="1"><span class="appproperty">x</span> —— 相机的 X 坐标</p>
+                    <p data-id="p_mo_rcat_ycor" data-vn="1"><span class="appproperty">y</span> —— 相机的 Y 坐标</p>
+                    <p data-id="p_mo_rcat_zcor" data-vn="1"><span class="appproperty">z</span> —— 相机的 Z 坐标</p>
+                    <p data-id="p_mo_rcat_atx" data-vn="1"><span class="appproperty">atX</span> —— 相机所看目标位置的 X 坐标</p>
+                    <p data-id="p_mo_rcat_aty" data-vn="1"><span class="appproperty">atY</span> —— 相机所看目标位置的 Y 坐标</p>
+                    <p data-id="p_mo_rcat_atz" data-vn="1"><span class="appproperty">atZ</span> —— 相机所看目标位置的 Z 坐标</p>
+                    <p data-id="p_mo_rcat_upx" data-vn="1"><span class="appproperty">upX</span> —— 定义上向量的 X 坐标</p>
+                    <p data-id="p_mo_rcat_upy" data-vn="1"><span class="appproperty">upY</span> —— 定义上向量的 Y 坐标</p>
+                    <p data-id="p_mo_rcat_upz" data-vn="1"><span class="appproperty">upZ</span> —— 定义上向量的 Z 坐标</p>
+                    <p data-id="p_mo_rcat_tlid" data-vn="1"><span class="appproperty">textureLayerGUID</span> —— 渲染图像中要使用的纹理图层索引</p>
+                </div>
+            
+            
+                <p data-id="p_mo_rcat_ex" data-vn="1"><b>示例：</b></p>         
+                    <pre data-id="pre_mo_rcat_ex" data-vn="1">
+   $IterateComponents(
+      $IterateModels( "$(componentGUID)",
+         $RenderMeshFromCustomPositionLookAt( "$(modelGUID)", 
+            "global://D:\\Project\\Render\\renderMesh.jpg", 6000, 4000, 24, 120, 95, 25, 0, 10, 15, 0, 0, 1)
+         )
+      )
+   )
+</pre>            
+
+            </div> 
+
+        <br/>
+        
+        <h3 data-id="p_mo_aefu" data-vn="1">可用的表达式函数</h3>  
+            
+            <p data-id="p_mo_gnom" data-vn="1"><span class="appproperty">GetNumberOfModels</span> —— 返回某个组件下创建的模型数量。</p>
+            <div style="padding-left: 20px">
+                <p data-id="p_mo_gnom_syn" data-vn="1"><b>语法：</b></p>
+                <pre data-id="pre_mo_gnom_syn" data-vn="1">
+  GetNumberOfModels( componentGuid )
+ </pre>
+                <p data-id="p_mo_gnom_par" data-vn="1"><b>参数：</b></p>
+                <div style="padding-left: 20px">
+                    <p data-id="p_mo_gnom_moid" data-vn="1"><span class="appproperty">componentGuid</span> —— 组件的 GUID</p>
+                </div>
+            </div>           
+            
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_bc" class="blocksContainer">
+
+            <a href="reports_functions_and_variables.htm">
+                <div class="block TileColor3">
+                    <h2 data-id="h2_bc_script" data-vn="1">报告脚本基础</h2>
+                    <p data-id="p_h2_bc_script" data-vn="1">了解如何创建自定义报告模板</p>
+                </div>
+            </a>
+            
+            <a href="reports_fav_sets.htm">
+                <div class="block TileColor6">
+                    <h2 data-id="h2_bc_sets" data-vn="1">函数集</h2>
+                    <p data-id="p_h2_bc_sets" data-vn="1">函数集及其函数、表达式与变量</p>
+                </div>
+            </a>
+
+            <a href="reports_fav_basic.htm">
+                <div class="block TileColor3">
+                    <h2 data-id="h2_bc_basic" data-vn="1">基础函数</h2>
+                    <p data-id="p_h2_bc_basic" data-vn="1">项目信息、导出器作用域与基础函数集</p>
+                </div>
+            </a>
+
+            <a href="reports_fav_images.htm">
+                <div class="block TileColor3">
+                    <h2 data-id="h2_bc_images" data-vn="1">图像作用域</h2>
+                    <p data-id="p_h2_bc_images" data-vn="1">了解如何导出项目图像的信息</p>
+                </div>
+            </a>
+
+            <a href="reports_fav_components.htm">
+                <div class="block TileColor3">
+                    <h2 data-id="h2_bc_comp" data-vn="1">组件作用域</h2>
+                    <p data-id="p_h2_bc_comp" data-vn="1">组件导出的函数与变量</p>
+                </div>
+            </a>
+
+            <a href="reports_fav_cameras.htm">
+                <div class="block TileColor3">
+                    <h2 data-id="h2_bc_camera" data-vn="1">相机作用域</h2>
+                    <p data-id="p_h2_bc_camera" data-vn="1">了解如何获取相机信息</p>
+                </div>
+            </a>
+
+            <a href="reports_fav_points.htm">
+                <div class="block TileColor3">
+                    <h2 data-id="h2_bc_scene" data-vn="1">场景结构作用域</h2>
+                    <p data-id="p_h2_bc_scene" data-vn="1">了解如何向报告添加自定义点统计</p>
+                </div>
+            </a>
+
+            <a href="reports_fav_controlPoints.htm">
+                <div class="block TileColor3">
+                    <h2 data-id="h2_bc_cp" data-vn="1">控制点与约束作用域</h2>
+                    <p data-id="p_h2_bc_cp" data-vn="1">查看控制点与约束功能的清单</p>
+                </div>
+            </a>
+
+            <a href="reports_fav_ortho.htm">
+                <div class="block TileColor6">
+                    <h2 data-id="h2_bc_ortho" data-vn="1">正射投影作用域</h2>
+                    <p data-id="p_h2_bc_ortho" data-vn="1">查看正射投影导出函数的清单</p>
+                </div>
+            </a>
+            
+            <a href="reports_fav_map.htm">
+                <div class="block TileColor6">
+                    <h2 data-id="h2_bc_map" data-vn="1">地图作用域</h2>
+                    <p data-id="p_h2_bc_map" data-vn="1">查看地图导出函数的清单</p>
+                </div>
+            </a>
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+    
+    <script type="text/javascript">
+        InitializeTutorialMode();
+    </script>    
+
+</body>
+</html>
+<!-- signature:WcVmlO+6v0oNGKgyIlk1ZA0cO8PHxP9BRIu89Lv+7EklIYshd3rjP+mTSFTw0o1jwyaMoEoRGakbazqBpwNMx33pwnlxfPPkUiFVoujAcoerNKHshGPGvtKaW8Z4mxpW/LSS1Qs6DIm+l+wOUxpsQ7AJscRVPjRtbtgg08EdQlo= -->

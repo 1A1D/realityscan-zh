@@ -1,0 +1,209 @@
+﻿<html>
+<head>
+    <title>RealityScan 帮助</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Epic Games Slovakia s.r.o." />
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <link type="text/css" rel="stylesheet" href="../../styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/colors.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css" />
+    <script src="../scripts/textVars.js" type="text/javascript"></script>
+    <script src="../../scripts/localization.js" type="text/javascript"></script>
+    <script src="../../scripts/main.js" type="text/javascript"></script>
+</head>
+<body ondragstart="return false;">
+
+    <div class="content_slide">
+
+        <!-- content slide -->
+        <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div class="head">
+
+            <h1 data-id="h1" data-vn="2">网格分类</h1>
+            <p data-id="p_h1" data-vn="4">
+                分类就是把模型的顶点划分到不同类别中。这一步是生成数字地形模型（DTM）的必要前提，而 DTM 可在生成正射投影时一并创建。分类工具位于 <span class="appribbon">SCENE 3D</span>/<span class="appribbon">TOOLS</span> 选项卡的 <span class="apppanel">Tools</span> 区域。选择 <span class="apptool">Classification</span> 工具后，会出现 <span class="apppanel">Classification Tool</span> 面板：
+            </p>
+
+            <div style="padding: 10px 10px 10px 0px">
+                <img src="images/classification-1.png" alt="classification-1" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/classification-1.png';"/>
+            </div>
+
+            <ul class="apppanelitems">
+                <li class="apppanelitem" data-id="li_aitool_toc" data-vn="1"><span class="appproperty">Type of classificator</span> 依据待分类场景的性质选择分类器类型。<br /></li>
+                <li class="apppanelitem" data-id="li_aitool_top" data-vn="1"><span class="appproperty">Type of postprocessor</span> 设置分类完成后用于清理模型的后期处理器类型。多数情况下选 Soft edges 就足够。<br /></li>
+                <li class="apppanelitem" data-id="li_aitool_pps" data-vn="1"><span class="appproperty">Postprocessor sensitivity</span> 该值仅在后期处理器类型不是“None”时可设，取值范围 0 到 1。设为 0 时全部归为“Artificial object”，设为 1 时全部归为 Ground 类。<br /></li>
+                <li class="apppanelitem" data-id="li_aitool_classify" data-vn="1"><span class="appproperty">Classify model</span> 按上述设置执行分类。<br /></li>
+                <li class="apppanelitem" data-id="li_aitool_transfer" data-vn="1"><span class="appproperty">Transfer labels from images</span> 也可以把标签层图像直接转移到网格顶点上来完成分类。<br /></li>
+            </ul>
+
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div class="slideblock">
+
+            <h2 data-id="h2_selclass" data-vn="2">选中的分类</h2>
+
+            <p data-id="p_h2_selclass" data-vn="2">
+                创建好的分类可在 <span class="appaspecttype">1Ds</span> 视图中被分类的模型下、<span class="apptree">Model Classes</span> 内找到。选中创建的分类和/或其下的类之后，可在 <span class="apppanel">Selected Classification</span> 表格中看到更多细节。
+            </p>
+
+            <div style="padding: 10px 10px 10px 0px">
+                <img src="images/classification-2.png" alt="classification-2" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/classification-2.png';"/>
+            </div>
+
+            <ul class="apppanelitems">
+                <li class="apppanelitem" data-id="li_selclass_clsfn" data-vn="1"><span class="appproperty">Classification name</span> 所创建分类的名称，可在此重命名。</li>
+                <li class="apppanelitem" data-id="li_selclass_fn" data-vn="1"><span class="appproperty">Format name</span> 所创建类的类型。使用 AI 工具时，格式名为 DTM，含预定义类别——<span class="appproperty">Ground</span>、<span class="appproperty">Artificial Object</span>、<span class="appproperty">None</span> 和 <span class="appproperty">Ignored</span>。从图像转移标签时，可以自定义格式与自己的类别。</li>    
+                <li class="apppanelitem" data-id="li_selclass_cn" data-vn="1"><span class="appproperty">Class Name</span> 所选分类中该类的名称。</li>
+                <li class="apppanelitem" data-id="li_selclass_cc" data-vn="1"><span class="appproperty">Classification Color</span> 用于表示该类的颜色示例，以及对应的十六进制色码。</li>
+                <li class="apppanelitem" data-id="li_selclass_sc" data-vn="1"><span class="appproperty">Select Classification</span> 选中模型中归属于所选类的全部部分。</li>
+            </ul>
+
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div> 
+
+       <div class="slideblock">
+
+            <h2 data-id="h2_edclass" data-vn="1">编辑分类</h2>
+            <p data-id="p_h2_edclass" data-vn="3">
+                分类可以手动编辑：在 <span class="appaspecttype">1Ds</span> 视图里目标分类下点击想编辑的类，再选择要重新分配到其他图层的模型部分（例如用 <span class="appribbon">SCENE 3D</span>/<span class="appribbon">TOOLS</span> 选项卡 <span class="apppanel">Model &amp; Texture</span> 区域的 <span class="apptool">Lasso</span> 工具）。选择完成后会出现 <span class="apptool">Override classification</span> 按钮；覆盖所选部分后，它就会被重新分配到该分类的目标图层。
+            </p>
+
+            <div style="padding: 10px 10px 10px 0px">
+                <img src="images/classification-3.png" alt="classification-3" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/classification-3.png';"/>
+            </div> 
+
+            <div class="clear splitSpacing">
+            <!-- clear -->
+            </div>
+
+            <p data-id="p_edclassman" data-vn="3">
+                分类也可以自动重做：选中要编辑的模型部分，用不同设置重新运行分类。当模型中存在不同类型的地形时，这种方法很好用。<br/> 分类完成并确认某些部分可用不同设置改善后，打开 <span class="apptool">Classification</span> 工具，修改设置，然后选择 <span class="appbutton">Classify selection according to settings</span>，RealityScan 会重新分类所选部分。   
+            </p>
+
+            <div style="padding: 10px 10px 10px 0px">
+                <img src="images/classification-4.png" alt="classification-4" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/classification-4.png';"/>
+            </div> 
+
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div class="slideblock">
+
+            <h2 data-id="h2_ilc" data-vn="2">转移分类</h2>
+            <p data-id="p_h2_ilc" data-vn="2">
+                可以用此前标注的标签层图像或 LiDAR 类别来给模型分类。你可以把图像中的对象按颜色划分为不同类别，也可以把已有的 ASPRS LiDAR 类别（如地面、植被、建筑）转移过来，生成新的模型分类。每个数据集最多可使用 250 个类别。   
+            </p>
+
+            <p data-id="p_h2_tclb" data-vn="1">
+                用标签层图像创建新分类并不要求每张图像都已标注，只要覆盖了所有需要区分和分类的区域，少量已标注图像就足够。关于图像图层的更多内容，<a href="../tools/imglayers.htm">请见此处</a>。
+            </p>
+
+            <div style="padding: 10px 10px 10px 0px">
+                <img src="images/classification-5.png" alt="classification-5" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/classification-5.png';"/>
+            </div>
+
+            <p data-id="p_ilc_tool" data-vn="1">
+                导入标签层图像或自带分类的 LiDAR 扫描后，先创建模型，<span class="appribbon">SCENE 3D</span>/<span class="appribbon">TOOLS</span> 选项卡中的 <span class="apppanel">Classification</span> 工具才可用。点击该按钮打开 <span class="apppanel">Classification Tool</span> 面板，其中提供 <span class="apppanel">Transfer labels from images</span> 子面板。
+            </p>
+
+            <div style="padding: 10px 10px 10px 0px">
+                <img src="images/classification-6.png" alt="classification-6" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/classification-6.png';"/>
+            </div>
+
+            <ul class="apppanelitems">
+                <li class="apppanelitem" data-id="li_ilc_cf" data-vn="2">
+                    <span class="appproperty">Classification format</span> 定义新转移分类的格式，其中每个类由一种颜色和一个指定名称表示。若选择已有格式，该格式中的名称会按颜色匹配应用到新分类。要把 LiDAR 分类转移到模型上，请把此选项设为 <span class="appproperty">LAS ASPRS Classification</span>。
+                </li>
+                <li class="apppanelitem" data-id="li_transfer_valid" data-vn="2"><span class="appproperty">Label layer validator</span> 检查标签层图像的有效性。仅在标签层图像已正确导入时可用。</li>
+                <li class="apppanelitem" data-id="li_ilc_orc" data-vn="2"><span class="appproperty">Optimize resulting classes</span> 使用内置优化算法，依据模型结构对生成的分类做微调。
+                </li>
+                <li class="apppanelitem" data-id="li_ilc_tra" data-vn="1"><span class="appproperty">Transfer labels from images</span> 从标签层图像转移标签；若选择了 <span class="appproperty">LAS ASPRS Classification</span> 分类格式，则从 LiDAR 分类转移。
+                </li>
+                <li class="apppanelitem" data-id="li_ilc_imp" data-vn="1"><span class="appproperty">Import classification format</span> 导入此前导出的分类格式。
+                </li>
+                <li class="apppanelitem" data-id="li_ilc_exp" data-vn="1"><span class="appproperty">Export classification format</span> 导出当前选中的分类格式。
+                </li>
+            </ul>
+            <br/>
+
+            <p data-id="p_ilc_pointc" data-vn="3">
+                创建好的分类会出现在 <span class="appaspecttype">1Ds</span> 视图中所分类的模型下、<span class="apptree">Model Classes</span> 内。选中某个具体的类后，可在 <span class="apppanel">Selected Class</span> 面板中查看更多细节。
+            </p>
+
+             <div style="padding: 10px 10px 10px 0px">
+                <img src="images/classification-7.png" alt="classification-7" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/classification-7.png';"/>
+            </div>
+
+            <ul class="apppanelitems">
+                <li class="apppanelitem" data-id="li_ilc_cn" data-vn="1"><span class="appproperty">Class name</span> 所选分类中该类的名称，可在此重命名。</li>
+                <li class="apppanelitem" data-id="li_ilc_cc" data-vn="1"><span class="appproperty">Classification Color</span> 用于表示该类的颜色示例，以及对应的十六进制色码。</li>
+                <li class="apppanelitem" data-id="li_ilc_sc" data-vn="1"><span class="appproperty">Select Classification</span> 选中模型中归属于所选类的全部部分。</li>
+                <li class="apppanelitem" data-id="li_ilc_dtm" data-vn="1"><span class="appproperty">Use as ground for DTM</span> 计算数字地形模型时把该类视为“Ground”。</li>
+                <li class="apppanelitem" data-id="li_ilc_las" data-vn="1"><span class="appproperty">Export class LAS</span> 设置导出为 LAS 格式时使用的分类代码。分类代码由美国摄影测量与遥感学会（ASPRS）为 LAS 1.3 格式定义（更多信息<a href="https://www.asprs.org/wp-content/uploads/2010/12/LAS_1_3_r11.pdf" target="_blank">见此处</a>）。</li>
+            </ul>
+            <br/>
+            
+             <p data-id="p_ilc_editc" data-vn="2">
+                可以像编辑 RealityScan 中创建的任何其他分类那样编辑这些类，请参考上文“编辑分类”一节。
+            </p>
+
+
+        </div>
+        <br/>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div class="blocksContainer">
+
+            <a href="../tutorials/orthophoto.htm">
+                <div class="block TileColor1">
+                    <h2 data-id="h2_bc_orpr" data-vn="1">正射投影</h2>
+                    <p data-id="p_h2_bc_orpr" data-vn="1">了解如何创建正射投影</p>
+                </div>
+            </a>
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+        <div class="rowblock">
+            <h3 data-id="h3_sa" data-vn="1">另见：</h3>
+            <ul class="intend">
+                <li data-id="li_sa_setr" data-vn="1">如何选择重建模型中的三角面，<a href="../appbasics/reconselection.htm">点击此处</a></li>
+            </ul>
+            <div class="clear">
+                <!-- clear -->
+            </div>
+        </div>
+
+        <!-- content slide end -->
+
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+    <script type="text/javascript">
+        InitializeTutorialMode(RCModelsHandler, RCReconBoxHandler, RCOrthoHandler);
+    </script>
+
+
+</body>
+</html>
+<!-- signature:1O4hLfIzonrZz+Puepb5n7fpWUP7hDxRtY95oePzzm7KavtzrOJEKqa9oNZeTlyopqbsPwsebGacDCi2H089lnDJnqEEWCwwB30AU/8JEfAic+Modb9lOOIVdkcHRUj4GmqpCpwwHov012AyyCap9T2aQdMzdby2DOk61UMqX/E= -->

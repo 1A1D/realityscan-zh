@@ -1,0 +1,106 @@
+<html>
+<head>
+    <title>RealityScan 帮助</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Epic Games Slovakia s.r.o." />
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <link type="text/css" rel="stylesheet" href="../../styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/colors.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css" />
+    <script src="../scripts/textVars.js" type="text/javascript"></script>
+    <script src="../../scripts/localization.js" type="text/javascript"></script>
+    <script src="../../scripts/main.js" type="text/javascript"></script>
+</head>
+<body ondragstart="return false;">
+
+    <div data-id="div_cs" class="content_slide">
+
+        <!-- content slide -->
+
+        <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head" class="head">
+            <h1 data-id="h1" data-vn="2">设置地平面</h1>
+            <p data-id="p_h1" data-vn="2">
+               地平面决定了点云的朝向，对齐后会自动检测。某些情况下它可能倾斜，此时可以手动调整位置。这一步并非必需，平时也很少用到，但知道场景可以调整是有好处的。
+            </p>
+        </div>
+
+        <div data-id="div_noco" data-vn="2" class="RCNoComponents redWarningBox" style="margin-bottom:20px">
+            你的项目还没有任何组件。请返回前面的步骤对齐图像。
+        </div>
+
+        <div data-id="div_sb_sele" class="slideblock">
+            
+            <p data-id="p_sele_setgr" data-vn="1">
+                要调整地平面，先用视图右上角的视图类型按钮把某个视图切到 <span class="appaspecttype">3Ds</span>，以调出 <span class="appribbon">SCENE 3D</span>/<span class="appribbon">TOOLS</span> 选项卡。打开该选项卡，<span class="appgesture">点击</span> <span class="appribbonbutton">Set Ground Plane</span> 按钮，<span class="appaspecttype">3Ds</span> 视图中就会出现地平面控件。
+            </p>
+
+        </div>
+
+        <div style="padding: 30px 10px 10px 10px">
+            <img src="images/fig_layouts_define_ground.png" alt="fig_layouts_define_ground" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tutorials/images/fig_layouts_define_ground.png';"/>
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sb_widg" class="slideblock">
+            
+            <p data-id="p_sele_widg" data-vn="1">
+                用这个控件可以移动或旋转场景：
+            </p>
+            
+            <ul style="margin-bottom:20px">
+                <li data-id="li_widg_rota" data-vn="1"><span class="appgesture">按住并拖动</span>圆形控件可旋转场景。</li>
+                <li data-id="li_widg_tran" data-vn="1"><span class="appgesture">按住左键拖动</span>箭头控件，可沿箭头方向所定义的轴移动场景。</li>
+                <li data-id="li_widg_trpp" data-vn="1"><span class="appgesture">按住右键拖动</span>箭头控件，可在与箭头轴垂直的平面上移动场景。</li>
+                <li data-id="li_widg_repi" data-vn="1"><span class="appgesture">双击</span>场景任意位置可重新放置控件。</li>
+            </ul>
+            
+            <p data-id="p_reset_region" data-vn="2">
+               要把地平面恢复到初始位置，打开 <span class="appribbonbutton">Set Ground Plane</span> 下拉菜单并<span class="appgesture">点击</span> <span class="appribbonbutton">Reset Ground</span>。也可以在同一菜单中使用 <span class="appribbonbutton">Set Ground by Reconstruction Region</span>，按现有重建区域来设置地平面。
+
+            </p>
+            
+        </div>
+
+        <div style="padding: 10px 10px 10px 10px">
+            <img src="images/qs_groundplane-widget.png" alt="ground-plane-widget" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tutorials/images/qs_groundplane-widget';"/>
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_bc" class="blocksContainer">
+
+            <a href="quickstart_5_reconstructionRegion.htm" class="RCHasComponent">
+                <div class="leadBlock block TileColor6">
+                    <h2 data-id="h2_bc_serr" data-vn="1">继续</h2>
+                    <p data-id="p_h2_bc_serr" data-vn="2">调整重建区域</p>
+                </div>
+            </a>
+
+            <script type="text/javascript">RenderOpenHelpTile();</script>
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+        <!-- content slide end -->
+
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+    <script type="text/javascript">
+        InitializeTutorialMode(RCComponentsHandler);
+    </script>
+
+
+</body>
+</html>
+<!-- signature:Awmh8oY583YazJo6OBblh+870Hq2OLELjvg/JoTq2Z9XZEJxMSXN35aJJuhXapFjyDaE+MdksihWYqa8fq6WXtCA3uGvFxU5dyXEg2Ifc9lGAhQnzeGTEChh+v7CP3875j1+iYKjzkRv++LaINPD0mNbCYQxbolGvlFfl8RUz0c= -->

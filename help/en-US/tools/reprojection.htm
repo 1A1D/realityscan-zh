@@ -1,0 +1,110 @@
+﻿<html>
+<head>
+    <title>RealityScan 帮助</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Epic Games Slovakia s.r.o." />
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <link type="text/css" rel="stylesheet" href="../../styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/colors.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css" />
+    <script src="../scripts/textVars.js" type="text/javascript"></script>
+    <script src="../../scripts/localization.js" type="text/javascript"></script>
+    <script src="../../scripts/main.js" type="text/javascript"></script>
+</head>
+<body ondragstart="return false;">
+
+    <div data-id="div_cs" class="content_slide">
+
+        <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head" class="head">
+
+            <h1 data-id="h1" data-vn="1">纹理重投影</h1>
+
+            <p data-id="p_h1" data-vn="2">
+                该工具可把已在 RealityScan 中创建并带纹理的模型的纹理，投影到同一<a href="../appbasics/components.htm">component</a>内的另一个模型上。你可以把高精度模型上生成的纹理投影到高度<a href="../tools/simplify.htm">simplified</a>的模型上，相比用 <span class="appribbonbutton">Texture</span> <span class="appshortcut">(F9)</span> 按钮给简化模型重新贴图，耗时大幅缩短，从而得到尽可能锐利的纹理。<br/><br/> 当需要给大幅简化或重拓扑后的模型贴图时，这个工具尤其有用：简化后的模型会失去粗糙度、变得更平滑，尤其是在起伏不平的区域；在这些地方用原始图像重新贴图会发虚，原因是两个表面差异太大。纹理重投影工具正好解决这个问题。
+            </p>
+
+        </div>
+
+        <div data-id="div_sb_work" class="slideblock">
+
+            <h2 data-id="h2_work" data-vn="1">操作流程</h2>
+
+            <p data-id="p_h2_work" data-vn="3">
+                点击 <span class="appribbon">SCENE 3D</span>/<span class="appribbon">TOOLS</span> 选项卡 <span class="apppanel">Model &amp; Texture</span> 区域的 <span class="appribbonbutton">Reproject Texture</span> 按钮后，<span class="appaspecttype">1Ds</span> 面板中会出现以下菜单：
+            </p>
+
+            <img src="images/reproject-model-panel.png" alt="reproject-model-panel" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/reproject-model-panel.png';"/>
+
+            <ol>
+                <li data-id="li_work_somo" data-vn="1">
+                    在 <span class="appproperty">Source model</span> 中选择源模型——点击面板中对应行会展开滚动菜单。该模型用于提供颜色和/或表面信息。
+                </li>
+                <li data-id="li_work_remo" data-vn="1">选择 <span class="appproperty">Result model</span>，其纹理将被写入。要求结果模型已完成展开（见 <a href="../tools/unwrap.htm">unwrap tool</a>）。</li>
+                <li data-id="li_work_sett" data-vn="1">
+                    Adjust the Reprojection settings:
+                    <br />
+                    
+                    <h3 data-id="h3_work_repa" data-vn="1">Reprojection parameters</h3>
+                    <p data-id="p_repa" data-vn="2">
+                        <span class="appproperty">Supersampling</span> This option allows you to sample each quantity (i.e. color, normal or depth) multiple times, improving the quality of the result. 
+                        Use it to reduce the amount of aliasing in the resulting textures. Select Off to sample each quantity once and get faster reprojection.
+                    </p>
+
+                    <h3 data-id="h3_work_core" data-vn="1">Color reprojection</h3>
+                    <p data-id="p_core" data-vn="2">
+                        该部分仅在源模型具有颜色纹理时可用。<br />
+                        <span class="appproperty">Source layer</span> 用于取色的颜色纹理图层。<br />
+                        <span class="appproperty">Texture sampling method</span> 选择要使用的采样方法。"Nearest sampling" 速度较快，但若未启用足够的 "Supersampling" 可能产生锯齿伪影。"Trilinear sampling"（推荐）可消除所有锯齿伪影。
+                    </p>
+
+                    <h3 data-id="h3_dire" data-vn="1">Displacement reprojection</h3>
+                    <p data-id="p_dire" data-vn="1">This option creates a special texture layer that stores the distance between the models. The resulting texture is used to create tesselation effects in external rendering software.</p>
+
+                    <h3 data-id="h3_nore" data-vn="1">Normal reprojection</h3>
+                    <p data-id="p_nore" data-vn="1">This one creates a special texture layer that stores surface direction of the source model. The resulting texture is used to create detailed lighting effects in external rendering software.</p>
+                </li>
+                <li data-id="li_work_preb" data-vn="2"><span class="appgesture">按下</span> <span class="appbutton">Reproject</span> 按钮，剩下的交给 RealityScan。</li>
+            </ol>
+
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_bc" class="blocksContainer">
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+        
+        <div data-id="div_sa" class="rowblock">
+            <h3 data-id="h3_sa" data-vn="1">另见：</h3>
+            <ul class="intend">
+                <li data-id="li_sa_temo" data-vn="1">模型贴图的更多内容 <a href="../tools/texturing.htm">点击此处</a></li>
+            </ul>
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+        <!-- content slide end -->
+
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+    <script type="text/javascript">
+        InitializeHelpSlide();
+    </script>
+
+
+</body>
+</html>
+<!-- signature:iPJHw1GVio05hS+GV6k1OrRTbyxs6auljc8AZdpWMD9P/G5PYNwqNUxxXDBJDDM2h9grJNhMSuIeyk8I8k+QNi6x2sNaYzcM9rml+tQfj6mT4PY0eR3GRw2TL6WJyg1GnBtGzAvUK07IiZ4MF3mzWZfxkbJgc7e5+i4ZYn1oqnI= -->

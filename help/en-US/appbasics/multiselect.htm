@@ -1,0 +1,97 @@
+<html>
+    <head>
+        <title>RealityScan 帮助</title>
+        <meta charset="UTF-8"/>
+        <meta name="author" content="Epic Games Slovakia s.r.o."/>
+        <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/style.css"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/colors.css"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css"/>
+        <script src="../scripts/textVars.js" type="text/javascript"></script>
+        <script src="../../scripts/localization.js" type="text/javascript"></script>
+        <script src="../../scripts/main.js" type="text/javascript"></script>
+    </head>
+    <body ondragstart="return false;">
+
+        <div data-id="div_cs" class="content_slide">
+
+            <!-- content slide -->
+            <script type="text/javascript">RenderToolNavigation();</script>
+
+            <div data-id="div_head" class="head">
+
+                <h1 data-id="h1" data-vn="1">图像多选</h1>
+                <p data-id="p_h1" data-vn="4">本节介绍高效使用 RealityScan 的基础知识 —— 如何一次选中多张图像。<br/> 可以在 <span class="appaspecttype">1Ds</span>、<span class="appaspecttype">2Ds</span>、<span class="appaspecttype">3D</span> 以及 <span class="appaspecttype">MAP</span> 视图中多选图像。所有选择会同时显示在所有已打开的视图中。</p>
+
+            </div>
+
+            <div data-id="div_sb_select" class="slideblock">
+
+                <h3 data-id="h3_12" data-vn="2">适用于 <span class="appaspecttype">1Ds</span>/<span class="appaspecttype">2Ds</span> 视图</h3>
+                <ul>
+                    <li data-id="li_select_atonce" data-vn="1">要同时选择/取消选择多张照片，请<span class="appgesture">按住</span> <span class="appshortcut">ctrl</span> 键，<span class="appgesture">并点击</span>要加入或移出选择的图像。</li>
+                    <li data-id="li_select_succ" data-vn="1">要连续选择多张图像，先<span class="appgesture">点击</span>第一张，再<span class="appgesture">按住</span> <span class="appshortcut">shift</span> 键<span class="appgesture">点击</span>最后一张。</li>
+                    
+                </ul>
+
+                <br/>
+                <h3 data-id="h3_123m" data-vn="2">适用于 <span class="appaspecttype">1Ds</span>、<span class="appaspecttype">2Ds</span>、<span class="appaspecttype">3Ds</span> 和 <span class="appaspecttype">MAP</span> 视图</h3>
+                <ul>
+                    <li data-id="li_select_allpic" data-vn="1">也可以用快捷键 <span class="appshortcut">ctrl+a</span> 一次选中全部图像。要取消选中所有对象，用 <span class="appshortcut">ctrl+d</span>，或直接在选区外任意位置<span class="appgesture">点击</span>。也可<span class="appgesture">点击</span> <span class="appribbon">SCENE 3D</span>/<span class="appribbon">TOOLS</span> 选项卡 <span class="apppanel">Registration &amp; Sparse Point Cloud</span> 区域中的 <span class="appribbonbutton">Select All</span>/<span class="appribbonbutton">Deselect</span> 按钮。</li>
+                    <li data-id="li_select_invert" data-vn="2"><span class="appshortcut">ctrl+i</span> 可反选 —— 此前未选中的图像都会变成选中状态。也可<span class="appgesture">点击</span> <span class="appribbon">SCENE 3D</span>/<span class="appribbon">TOOLS</span> 选项卡 <span class="apppanel">Registration &amp; Sparse Point Cloud</span> 区域中的 <span class="appribbonbutton">Invert</span> 按钮。</li>
+                </ul>
+                <br />
+
+                <h3 data-id="h3_m" data-vn="1">适用于 <span class="appaspecttype">3Ds</span> 和/或 <span class="appaspecttype">MAP</span> 视图</h3>
+
+                <ul>
+                    <li data-id="li_select_cams" data-vn="2">在 <span class="appaspecttype">3Ds</span> 和 <span class="appaspecttype">MAP</span> 视图中，也可以用 <span class="apptool">Camera Lasso</span> 工具（<span class="appshortcut">c</span> 键）选择相机 —— <span class="appgesture">按住</span> <span class="appgesture">鼠标左键</span>，<span class="appgesture">并向所需方向和范围拖动</span>。该工具也可在 <span class="appribbon">SCENE 3D</span>/<span class="appribbon">TOOLS</span> 选项卡的 <span class="apppanel">Registration &amp; Sparse Point Cloud</span> 区域找到，或直接按 <span class="appshortcut">c</span> 键。</li>
+                    <li data-id="li_select_camrect" data-vn="2">另一种方式是用 <span class="apptool">Camera Rect</span> 工具选择相机 —— 按住 <span class="appgesture">鼠标左键</span>，一边移动一边确定矩形大小。该工具也可在 <span class="appribbon">SCENE 3D</span>/<span class="appribbon">TOOLS</span> 选项卡的 <span class="apppanel">Registration &amp; Sparse Point Cloud</span> 区域找到，或使用快捷键（<span class="appshortcut">shift+c</span>）。 </li>
+                    <li data-id="li_select_add" data-vn="1">选择项目时按住 <span class="appshortcut">CTRL</span> 键可将其加入当前选择。</li>
+                    <li data-id="li_select_rem" data-vn="1">选择项目时按住 <span class="appshortcut">SHIFT</span> 键可将其从当前选择中移除（对 <span class="apptool">Camera Lasso</span> 与 <span class="apptool">Camera Rect</span> 工具同样适用）。</li>
+                    <li data-id="li_select_hidecam" data-vn="3">在 <span class="appaspecttype">3Ds</span> 视图中可以隐藏和显示选中的相机，或一次性取消隐藏全部相机 —— 只需点击 <span class="appribbon">SCENE 3D</span>/<span class="appribbon">VIEW</span> 选项卡 <span class="apppanel">Alignment Cameras</span> 区域中的相应按钮。 </li>
+                </ul>
+                <br />
+                <p data-id="p_select_shown" data-vn="3">
+                    已选图像数量显示在 <span class="appaspecttype">1Ds</span>/<span class="appaspecttype">2Ds</span> 视图的 <span class="appaspecttype">Selected Inputs</span> 表格中。
+                </p>
+
+            </div>
+
+            <br />
+                
+            <div data-id="div_sb_export" class="slideblock">
+
+                <h2 data-id="h2_export" data-vn="1" id="ExportImport">导出与导入图像列表</h2>
+                <ul>
+                    <li data-id="li_export_export" data-vn="5">用 <span class="appribbon">ALIGNMENT</span> 选项卡 <span class="apppanel">Export</span> 区域的 <span class="appribbonbutton">Registration</span> 按钮可以导出图像列表，在文件资源管理器窗口中把导出类型设为 <span class="appproperty">Image list</span>。图像列表包含项目中所有已启用或已选中的图像和/或 LiDAR 扫描。利用上面讲的图像多选方法，可以只导出特定的图像集合。导出会生成一个文本文件，按字母顺序列出图像和/或 LiDAR 扫描的名称，并带上它们在磁盘上的位置。
+                    </li>
+                    <li data-id="h2_export_import" data-vn="4">要导入图像列表（其中也可以包含 LiDAR 扫描），请用 <span class="appribbon">WORKFLOW</span> 选项卡 <span class="apppanel">Import Metadata</span> 区域的 <span class="appribbonbutton">Image Selection</span> 按钮。</li>
+                    <li data-id="li_export_sellist" data-vn="2">也可以借助图像列表来选择图像。</li>
+                </ul>
+            </div>
+
+            <br />
+            
+            <div data-id="div_bc" class="blocksContainer">
+
+                <script type="text/javascript">RenderBackToStartTile();</script>
+
+            </div>
+
+            <div class="clear">
+                <!-- clear -->
+            </div>
+
+        </div>  <!-- content slide end -->
+
+
+        <script type="text/javascript">RenderCopyrightText();</script>
+
+        <script type="text/javascript">
+            InitializeHelpSlide();
+        </script>
+
+    </body>
+</html>
+<!-- signature:KAGEKa4tLwspMbNFXh8erGmtpk37jal8lNaS2Ino935r7qaGkv9YJPhUfJXDK7noeTtM98Z4sR83ZVIs5WT3Rr9bg7Tcfkd6d3o/OiW1ND9RquIuKrDIMWmG+cPiQ38jlcTXGHvyq700SIcFanJ6CbifGDenPIM0fIO/3oMF41k= -->

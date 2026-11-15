@@ -1,0 +1,197 @@
+﻿
+<html>
+    <head>
+        <title>RealityScan 帮助</title>
+        <meta charset="UTF-8"/>
+        <meta name="author" content="Epic Games Slovakia s.r.o."/>
+        <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/style.css"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/colors.css"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css"/>
+        <script src="../scripts/textVars.js" type="text/javascript"></script>
+        <script src="../../scripts/localization.js" type="text/javascript"></script>
+        <script src="../../scripts/main.js" type="text/javascript"></script>
+    </head>
+    <body ondragstart="return false;">
+
+        <div data-id="div_cs" class="content_slide">
+
+            <script type="text/javascript">RenderToolNavigation();</script>
+
+            <div data-id="div_head" class="head">
+
+                <h1 data-id="h1" data-vn="1">对齐设置</h1>
+
+                <p data-id="p_h1_1" data-vn="2">
+                    对齐是通过匹配图像的共同特征与位姿来配准相机的过程。已配准的相机会被归入组件。可以在 <span class="appribbon">ALIGNMENT</span> 选项卡 <span class="apppanel">Registration</span> 区域的 <span class="apppanel">Alignment Settings</span> 中调整对齐过程。
+                </p>
+
+                <img src="images/alignsettings.png" alt="alignsettings" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/appbasics/images/alignsettings.png';">
+            </div>
+
+            <div data-id="div_sb_settings" class="slideblock">
+
+                <p data-id="p_div_sb_settings_1" data-vn="2">
+                    <span class="appproperty">Feature detection quality</span> 选择图像特征检测的质量等级。设为 <span class="appproperty">High</span> 会提升特征检测效果、对齐更精确，但会增加处理时间与内存占用。<br/> <span class="appproperty">Max features per mpx</span> 设置对齐时特征检测器每百万像素最多提取的特征数。特征用得越多处理越慢，但可能减少产生的组件数量。<br/> <span class="appproperty">Max features per image</span> 设置每张图像的最大特征数，作用类似 <span class="appproperty">Max features per mpx</span>。<br/> <span class="appproperty">Image overlap</span> 定义相邻图像中同一部分物体所占画面空间的比例。下图中红色区域表示投影到图像上的共同物理空间。共同区域越大，相机位姿越容易计算。图像重叠低于 20% 时选 Low。要获得最佳质量，相邻图像重叠应大于 60%。重叠越大速度越快；重叠太小且照片不足时，可能出现互不连通的组件。<br/>
+                </p>
+                <img src="../../images/img-overlap.jpg" alt="img-overlap" class="autoimg"/>
+                <br/>
+                <p data-id="p_div_sb_settings_2" data-vn="2">
+                    <span class="appproperty">Image downscale factor</span> 特征检测前图像缩小的倍数。要获得最佳精度，请使用完整图像分辨率（降采样系数 1）。<br/> <span class="appproperty">Max feature reprojection error</span> 对齐时使用的内部精度等级。建议最大设为 3px，并尽量把误差控制在此范围内。<br/>
+                </p>
+
+                <br/>
+
+            </div>
+
+            <div data-id="div_sb_priors" class="slideblock">
+
+                <h2 data-id="h2_priors" data-vn="1">相机先验</h2>
+
+                <p data-id="p_prio" data-vn="2">定义初始相机位置与旋转的精度，以及它们的硬度（即对对齐的影响强度）。</p>
+
+                <img src="images/alignsettings-4.png" alt="alignsettings-4" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/appbasics/images/alignsettings-4.png';"/>
+                <br/><br/>
+
+                <ul class="apppanelitems">
+                    <li class="apppanelitem" data-id="li_prio_settings_use" data-vn="2"><span class="appproperty">Use camera priors for georeferencing</span> 设为「是」时，图像的先验位置会用于对齐过程和场景地理参考。</li>
+                    <li class="apppanelitem" data-id="li_prio_settings_posacc" data-vn="1"><span class="appproperty">Position accuracy</span> 指定相机先验位置的精度，即计算位置被视为与先验值相等的范围。</li>
+                    <li class="apppanelitem" data-id="li_prio_settings_units" data-vn="1"><span class="appproperty">Units</span> 显示相机先验及其精度所用坐标系的单位。</li>
+                    <li class="apppanelitem" data-id="li_prio_settings_poprha" data-vn="1"><span class="appproperty">Position prior hardness</span> 定义计算位置与先验位置的接近程度。值越大，计算位置越接近先验位置。这可能改变相机之间的视觉连接。</li>
+                    <li class="apppanelitem" data-id="li_prio_settings_ypr" data-vn="1"><span class="appproperty">Yaw/Pitch/Roll accuracy </span> 指定相机先验朝向的精度，即计算朝向被视为与先验值相等的范围。</li>
+                    <li class="apppanelitem" data-id="li_prio_settings_orprha" data-vn="1"><span class="appproperty">Orientation prior hardness</span> 定义计算朝向与先验朝向的接近程度。值越大，计算朝向越接近先验朝向。这可能改变相机之间的视觉连接。</li>
+                </ul>
+
+            </div>
+            
+            <div class="clear splitSpacing">
+                <!-- clear -->
+            </div>
+
+            <div class="slideblock">
+
+                <h2 data-id="h2_cppriors" data-vn="1">控制点先验设置</h2>
+
+                <p data-id="p_cp_priors" data-vn="1">定义控制点与地面控制点位置的精度。</p>
+
+                <img src="images/alignsettings-5.png" alt="alignsettings-5" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/appbasics/images/alignsettings-5.png';"/>
+                <br/><br/>
+
+                <ul class="apppanelitems">
+                    <li class="apppanelitem" data-id="li_cpprio_settings_immeac" data-vn="1"><span class="appproperty">Image measurements accuracy [px]</span> 定义图像中手动放置控制点的偏差范围。</li>
+                    <li class="apppanelitem" data-id="li_cpprio_settings_posacc" data-vn="1"><span class="appproperty">Position accuracy</span> 按各坐标分别指定地面控制点位置的精度。</li>
+                    <li class="apppanelitem" data-id="li_cpprio_settings_dediac" data-vn="1"><span class="appproperty">Defined distance accuracy</span> 设置距离约束的常规精度值。</li>
+                    <li class="apppanelitem" data-id="li_cpprio_settings_units" data-vn="1"><span class="appproperty">Units</span> 显示控制点先验及其精度所用坐标系的单位。</li>
+                </ul>
+
+            </div>            
+
+            <div class="clear splitSpacing">
+                <!-- clear -->
+            </div>
+
+            <div data-id="div_sb_draft" class="slideblock">
+
+                <h2 data-id="h2_draft" data-vn="1">草稿</h2>
+
+                <p data-id="p_draft" data-vn="2">这些设置在执行 <span class="apptool">Draft</span> 对齐时生效。</p>
+
+                <img src="images/alignsettings-3.png" alt="alignsettings-3" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/appbasics/images/alignsettings-3.png';"/>
+                <br/><br/>
+
+                <p data-id="p_draft_settings" data-vn="2">
+                    <span class="appproperty">Image overlap</span> 定义图像之间预期的共同特征量。可选 Low、Medium 或 High：Low 表示重叠最少，High 表示重叠最多。<br/> <span class="appproperty">Image downscale factor</span> <span class="apptool">Draft</span> 对齐时用于缩小图像尺寸的倍数。<br/> <span class="appproperty">Final model optimization</span> 设为「是」时，会执行最后一次光束法平差以优化相机配准。<br/>
+                </p>
+
+            </div>
+
+            <br/>
+
+            <div data-id="div_sb_advanced" class="slideblock">
+
+                <h2 data-id="h2_advanced" data-vn="1">高级设置</h2>
+                <p data-id="p_advanced" data-vn="2">高级设置面向熟悉运动恢复结构（SfM）处理的用户。除非你清楚其影响，否则不要改动这些设置。</p>
+
+                <img src="images/alignsettings-2.png" alt="alignsettings-2" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/appbasics/images/alignsettings-2.png';"/>
+                <br/><br/>
+
+                <ul class="apppanelitems">
+                    <li data-id="li_advset_gpuac" data-vn="1" class="apppanelitem">
+                        <span class="appproperty">GPU acceleration</span> 启用 GPU 以加快对齐过程。
+                    </li>
+                    <li data-id="li_advset_adrr" data-vn="1" class="apppanelitem">
+                        <span class="appproperty">对齐后添加重建区域</span> 设为「是」后，对齐一结束就会自动创建重建区域。
+                    </li>
+                    <li data-id="li_advset_enms" data-vn="2" class="apppanelitem"><span class="appproperty"> Enable measurement suggestions</span> 可在此启用放置控制点时在 <span class="appaspecttype">3Ds</span> 视图中给出的图像测量建议。
+                    </li>
+                    <li data-id="li_advset_focr" data-vn="2" class="apppanelitem">
+                        <span class="appproperty">Force component rematch</span> 设为「是」时，应用会重新对齐图像与相机以寻找更好的连接。它利用现有相机位姿搜索新匹配，可能提升最终对齐质量。
+                    </li>
+                    <li data-id="li_advset_bfdt" data-vn="1" class="apppanelitem">
+                        <span class="appproperty">Background feature detection</span> 选择是否让系统以较低的处理器优先级在后台自动检测特征点。例如在需要放置控制点时很有用：电脑会预先处理图像，从而节省你的时间。
+                    </li>
+                    <li data-id="li_advset_bthp" data-vn="2" class="apppanelitem">
+                        <span class="appproperty">Background thread priority</span> 后台检测的优先级，可选低或普通。
+                    </li>
+                    <li data-id="li_advset_prft" data-vn="1" class="apppanelitem">
+                        <span class="appproperty">Preselector features</span> 检测到的特征中实际用于对齐的数量。建议设为已检测特征的 1/4 到 1/2。
+                    </li>
+                    <li data-id="li_advset_dese" data-vn="2" class="apppanelitem">
+                        <span class="appproperty">Detector sensitivity</span> 控制特征检测器如何评估图像中的点在视角或光照变化等条件下的稳定性。较高灵敏度（如 Ultra）能在纹理较弱的区域也检测出更多特征，但也可能引入由图像噪声导致的不可靠点。较低灵敏度（如 Low）更具选择性，会忽略较弱的特征，可减少噪声，但可能丢弃对配准有用的数据。
+                    </li>
+                    <li data-id="li_advset_megc" data-vn="2" class="apppanelitem">
+                        <span class="appproperty">Merge georeferenced components</span> 当生成多个组件且各自都已地理参考时，启用此设置可在没有视觉重叠的情况下也把它们合并。
+                    </li>
+                    <li data-id="li_advset_dimo" data-vn="1" class="apppanelitem">
+                        <span class="appproperty">Distortion model</span> 指定要使用的畸变模型 —— 详见下一节。
+                    </li>
+                    <li data-id="li_advset_prfr" data-vn="2" class="apppanelitem">
+                        <span class="appproperty">导入时优先使用影像作为特征来源</span> 设为「是」会导入 .zfprj 镶嵌图像，并在对齐过程中把它们作为特征来源。这有助于配准尚未配准的扫描，或在把 LiDAR 扫描与图像合并时自动找到相同特征。仅对 Z+F 扫描有效。
+                    </li>
+                </ul>
+
+            </div>
+
+            <br/>
+
+            <div data-id="div_bc" class="blocksContainer">
+
+                <a href="settings_distortion_models.htm">
+                    <div class="block TileColor2">
+                        <h2 data-id="h2_bc_lens" data-vn="1">镜头畸变模型</h2>
+                        <p data-id="p2_bc_lens" data-vn="1">进一步了解镜头畸变模型</p>
+                    </div>
+                </a>
+
+                <script type="text/javascript">RenderBackToStartTile();</script>
+
+            </div>
+
+            <div class="clear">
+                <!-- clear -->
+            </div>
+
+            <div data-id="div_sa" class="rowblock">
+                <h3 data-id="h3_div_sa" data-vn="1">另见：</h3>
+                <ul class="intend">
+                    <li data-id="li_div_sa_appsettings" data-vn="1">应用设置 <a href="appsettings.htm">点击此处</a></li>
+                    <li data-id="li_div_sa_modelsettings" data-vn="1">模型与重建设置 <a href="modelsettings.htm">点击此处</a></li>
+                </ul>
+                <div class="clear">
+                    <!-- clear -->
+                </div>
+            </div>
+
+            <!-- content slide end -->
+
+        </div>
+
+        <script type="text/javascript">RenderCopyrightText();</script>
+
+        <script type="text/javascript">
+            InitializeHelpSlide();
+        </script>
+
+    </body>
+</html>
+<!-- signature:Dq7Oka+s4sxunyLLaPIp0wAHfqcmIsanqEuVFDzIazmWPqBYy/yv5K7+hUKXc74moWYXqoOD0l/9Q/miNh2NMWyX6jsMSA0sl8a9Ikq7HzR8a853+I2YXqXgvgkiMo8w7kqcPhXrIAvJvuGBVLFqpyjb+zWDBjnO9jtBTs70NWw= -->

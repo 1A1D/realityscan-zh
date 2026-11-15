@@ -1,0 +1,106 @@
+<html>
+    <head>
+        <title>RealityScan 帮助</title>
+        <meta charset="UTF-8"/>
+        <meta name="author" content="Epic Games Slovakia s.r.o."/>
+        <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/style.css"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/colors.css"/>
+        <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css"/>
+        <script src="../scripts/textVars.js" type="text/javascript"></script>
+        <script src="../../scripts/localization.js" type="text/javascript"></script>
+        <script src="../../scripts/main.js" type="text/javascript"></script>
+    </head>
+<body ondragstart="return false;">
+
+    <div data-id="div_cs" class="content_slide">
+
+        <!-- content slide -->
+        <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head" class="head">
+
+            <h1 data-id="h1" data-vn="1">对齐质量</h1>
+            <p data-id="p_h1" data-vn="2">评估图像对齐质量最粗略的基本方法，是看生成的相机数与点数，以及 <span class="appproperty">Alignment report</span> 中的数值（见下图）。<br/> 此外还可以显示图像之间的匹配点：只要找到的关联是正确的，这种方式更准确。也可以在 <span class="appaspecttype">2D</span> 图像视图的上下文功能区显示 <span class="apptool">Lens Distortion</span>，检查畸变网格的弯曲是否合理。还有一种更直观、更全面（或许也是最好的）检查方式：使用 <span class="apptool">Quality Analysis</span> 工具。
+               </p>
+        </div>
+
+        <div data-id="div_sb_core" class="slideblock">
+
+            <h2 data-id="h2_core" data-vn="1">组件报告</h2>
+
+            <p data-id="p_h2_core" data-vn="1">在 <span class="appaspecttype">1Ds</span> 视图中<span class="appgesture">点击</span>某个<span class="apptree">component</span>后会出现此面板：</p>
+
+            <img src="images/Alignment-Report.png" alt="Alignment-Report" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/Alignment-Report.png';"/>
+
+            <ul>
+                <li data-id="li_core_usef" data-vn="1">关于这一主题，另一个有用的指标是一个组件中对齐了多少台相机。理想情况是全部相机都在同一个模型里完成对齐。</li>
+                <li data-id="li_core_high" data-vn="1">模型生成的点数越多越好。</li>
+            </ul>
+
+        </div>
+
+        <br/>
+
+        <div data-id="div_sb_alre" class="slideblock">
+
+            <h2 data-id="h2_alre" data-vn="1">对齐报告</h2>
+
+            <p data-id="p_h2_alre" data-vn="1">对齐过程产生的统计值保存在 <span class="appproperty">Alignment report</span> 中。这些数值也能反映对齐质量：</p>
+            <p data-id="p_alre_vals" data-vn="2">
+            <span class="appproperty">Total projections</span> 该值表示三维点在图像中被看到的次数。例如一个三维点在三张图像中可见，就会产生 3 个投影。Total projections 等于 Average track length 乘以 Points count。<br/> <span class="appproperty">Average track length</span> 指投影数。用总投影数除以点数，就得到 Average track length 行中的数值。它表示一个点平均出现在多少张图像中，数值越大，场景内部的关联性越好。<br/> <span class="appproperty">Maximal error (pixels)</span> 点投影的最大误差。<br/> <span class="appproperty">Median error (pixels)</span> 所有点误差的中位数，越小越好，理想情况低于 0.5px。在本文顶部的示例中，全部投影误差的中位数优于 0.478360 像素。<br/> <span class="appproperty">Mean error (pixels)</span> 平均误差，越小越好，理想情况低于 0.5px。<br/> <span class="appproperty">Geo-referenced</span> 该字段表示场景是否已做地理配准，并说明是哪个过程完成的配准（对齐或更新）。<br/> <span class="appproperty">Metric</span> 该字段表示场景是否使用正确的度量单位，并说明是在哪个过程中设为度量单位（对齐或更新）。<br/> <span class="appproperty">Alignment time</span> 到对齐完成所经过的时间。
+            </p>
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_bc" class="blocksContainer">
+
+            <a href="../tools/inspection.htm">
+                <div class="block TileColor2">
+                    <h2 data-id="h2_bc_into" data-vn="1">检查工具</h2>
+                    <p data-id="p_h2_bc_into" data-vn="1">检查相机之间的依赖关系</p>
+                </div>
+            </a>
+
+            <a href="../tools/showmatches.htm">
+                <div class="block TileColor3">
+                    <h2 data-id="h2_bc_madi" data-vn="1">匹配点显示</h2>
+                    <p data-id="p_h2_bc_madi" data-vn="1">显示图像之间的匹配点</p>
+                </div>
+            </a>
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sa" class="rowblock">
+            <h3 data-id="h3_sa" data-vn="1">另见：</h3>
+            <ul class="intend">
+                <li data-id="li_sa_poin" data-vn="1">要分析三维点，<a href="../appbasics/pointsselection.htm">点击此处</a></li>
+            </ul>
+            <div class="clear">
+                <!-- clear -->
+            </div>
+        </div>
+
+        <!-- content slide end -->
+
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+    <script type="text/javascript">
+        InitializeHelpSlide();
+    </script>
+
+
+</body>
+</html>
+<!-- signature:cuAjnO1/JiizJ/AzUYpc2ztXdy3wFLP9P3ZjutStwFQ9el0mIKHHo0DsP5qYseS2aYVAmUSllpvIyVZg7IysuFT0xjWyPc6liEFrswh6cVxsk/4ivWrimJcgHqY75ls/Sol0uAZBr8QzX+Haq/L/fglDeFZFMrPKe1sBkUli/RA= -->

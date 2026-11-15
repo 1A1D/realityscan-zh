@@ -1,0 +1,174 @@
+<html>
+<head>
+    <title>RealityScan 帮助</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Epic Games Slovakia s.r.o." />
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <link type="text/css" rel="stylesheet" href="../../styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/colors.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css" />
+    <script src="../scripts/textVars.js" type="text/javascript"></script>
+    <script src="../../scripts/localization.js" type="text/javascript"></script>
+    <script src="../../scripts/main.js" type="text/javascript"></script>
+</head>
+<body ondragstart="return false;">
+
+    <div data-id="div_cs" class="content_slide">
+
+        <!-- content slide -->
+        <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head" class="head">
+
+            <h1 data-id="h1__v1" data-vn="1">地理配准场景</h1>
+
+            <p data-id="p_h1" data-vn="3">地理配准是把现实世界坐标赋给虚拟三维场景、并把它放进所需坐标系的过程。这些坐标通常由全球导航卫星系统（GNSS）设备获取，可以有几种不同方式导入 RealityScan 使用。既可以用地面控制点把坐标赋给场景中某个可辨识的位置，也可以通过相机先验、飞行日志或 XMP 文件把坐标直接赋给相机。
+            </p>
+            
+            <p data-id="p_georef" data-vn="1">在 <span class="appaspecttype">1Ds</span> 视图中选中组件后会出现的 <span class="apppanel">Selected component(s)</span> 面板里，可以看到场景（组件）是否已做地理配准。组件名称旁的标记图标也是提示。
+            </p>
+            
+            <div class="autoimg" style="margin: 20px 0px 20px 0px;">
+            <img src="images/Alignment-Report-Georef-Info.png" alt="Alignment-Report-Georef-Info" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tutorials/images/Alignment-Report-Georef-Info.png';"/>
+            </div>
+            
+        </div>
+
+        <div class="clear splitSpacing">
+                <!-- clear -->
+        </div>
+
+        <div data-id="div_sb_gcpo" class="slideblock">
+
+            <h2 data-id="h2_gcpo" data-vn="1">地面控制点</h2>
+
+            <p data-id="p_h2_gcpo" data-vn="2">地面控制点（GCP）可以把任意坐标系下的三维坐标赋给任意一个二维图像点。一个地面控制点可确定场景原点；两个可确定原点与尺度；三个或更多则可确定整个场景及其朝向。每个点至少要分配到两幅图像（测量值），建议至少三幅。不必把系统建议的每幅图像都确认分配。
+            </p>
+            
+            <div data-id="div_im_points" data-vn="1" class="importantMessage">    
+                    注意：增加点数以及分配给它们的图像数能提高精度，但数量过多也可能反而让对齐效果变差。
+            </div>
+            
+        <div class="slide">
+                <div class="autoimg" style="float: left; margin: 20px 20px 0px 0px;width: 366px">
+                    <img src="images/gcp-panel.png" alt="gcp-panel" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tutorials/images/gcp-panel.png';"/>
+                </div>
+
+                <div class="slide_left_text" style="margin: 20px 0px 0px 0px;">
+                    <ul>
+                        <li data-id="li_gcpo_mark" data-vn="2">在图像中目视找出一个你掌握其现实世界坐标的点。</li>
+                        <li data-id="li_gcpo_cp" data-vn="1">在该处放一个控制点。</li>
+                        <li data-id="li_gcpo_type" data-vn="1">把该控制点的类型改为 <span class="appproperty">Ground control</span> 点。</li>
+                        <li data-id="li_gcpo_secs" data-vn="1">设置坐标系。</li>
+                        <li data-id="li_gcpo_3dco" data-vn="1">输入三维坐标。</li>
+                        <li data-id="li_gcpo_weig" data-vn="1">也可以定义权重，反映该点放置的准确程度以及它对对齐的影响大小。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="clear splitSpacing">
+                <!-- clear -->
+            </div>
+
+            <p data-id="p_gcpo_beal" data-vn="2">
+            建议在对齐之前添加控制点与地面控制点，尽管已有的点云有助于在图像中寻找对应点。
+            </p>
+
+            <p data-id="p_gcpo_visi__v1" data-vn="2">
+               若在对齐前添加了地面控制点，那么相机位姿确定后（即对齐完成后）、且至少有两幅图像（测量值）分配给它们时，这些地面控制点就会在 <span class="appaspecttype">3Ds</span> 视图中显示，从地面控制点引出的橙色线也会出现。这些线表示残差——初始（先验）位置与配准位置之间的差值。线越短，越接近初始位置。请注意，零误差几乎不可能，因为真实测量总带有一定系统性偏差。残差线在 <span class="appaspecttype">2D</span> 视图中也能看到。可在 <span class="appaspecttype">2D</span> 与 <span class="appaspecttype">3Ds</span> 视图的上下文功能区（<span class="appribbon">IMAGE 2D</span> / <span class="appribbon">VIEW</span> 或 <span class="appribbon">SCENE 3D</span> / <span class="appribbon">VIEW</span>）里勾选或取消 <span class="appribbonbutton">Residuals</span> 复选框，以开关残差显示。
+            </p>
+
+            <p data-id="p_gcpo_map__v1" data-vn="1">
+                也可以在 <span class="appaspecttype">map</span> 视图中放置地面控制点。首先需要有设为 <span class="appproperty">Tie point</span> 类型的控制点。然后启用 <span class="apptool">Control Points</span> 工具，选中想作为 <span class="appproperty">Ground control</span> 使用的控制点。在 <span class="appaspecttype">map</span> 视图中<span class="appgesture">点击</span>想要放置该地面控制点的位置，所选控制点会立即变为 <span class="appproperty">Ground control</span> 点，坐标取自地图。不过所有高度都会被设为默认值 1。若想在 <span class="appaspecttype">map</span> 视图中更改地面控制点的位置，把它改回 <span class="appproperty">Tie point</span> 类型并重复上述过程。
+            </p>
+
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sb_capp" class="slideblock">
+
+            <h2 data-id="h2_capp" data-vn="1">相机位姿先验</h2>
+
+            <p data-id="p_capp" data-vn="3">场景也可以通过赋给相机的现实世界坐标来完成地理配准。许多相机、智能手机或无人机相机都配有 GNSS 单元，会把现实世界坐标存进图像元数据（EXIF），或另外生成一个可导入 RealityScan 的外部文件。 </p> 
+            <ul>
+                <li data-id="li_capp_add" data-vn="2">在 <span class="appaspecttype">1Ds</span> 视图中手动添加相机位姿约束（<a href="../appbasics/camerasettings_priors.htm">阅读更多</a>）。</li>
+                <li data-id="li_capp_flog" data-vn="2">导入飞行日志，一次性为多台相机提供坐标与朝向值（<a href="../tools/flightlogimport.htm">阅读更多</a>）。</li>
+                <li data-id="li_capp_meta" data-vn="2">使用内嵌于图像元数据（EXIF）中的坐标。要让 EXIF 数据被使用，需在对齐设置中启用用于地理配准的相机先验（<a href="../appbasics/alignsettings.htm">阅读更多</a>）。</li>
+                <li data-id="li_capp_xmlf" data-vn="1">含坐标值的 XMP 文件也可用于对场景做地理配准。</li>
+            </ul>
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sb_xmpf" class="slideblock">
+
+            <h2 data-id="h2_xmpf" data-vn="1">XMP 文件</h2>
+            <p data-id="p_h2_xmpf" data-vn="3">RealityScan 定义了一系列携带各类相机信息的 XML 标签，并以可扩展元数据平台格式（XMP）导出。每个导出的 XMP 文件与对应相机（图像）同名，且应放在同一文件夹中。<br/> 如果 XMP 文件与图像在同一文件夹，导入时图像就会使用其中存储的数据，现实世界坐标也可以是这些数据的一部分。 
+            </p>
+            <p data-id="p_xmpf_decs" data-vn="2">XMP 文件可包含相机位姿信息，可用于：</p>
+            <ul>
+                <li data-id="li_xmpf_capo" data-vn="2">定义相机位置</li>
+                <li data-id="li_xmpf_cpor" data-vn="2">定义相机位置与朝向</li>
+                <li data-id="li_xmpf_reab" data-vn="2">定义相对或绝对相机位置</li>
+            </ul>
+            <br/>
+            <p data-id="p_xmpf_indu" data-vn="2">这为工业级应用场景提供了可能：同一套相机配置被反复使用，而你希望每次扫描结果都保持完全一致的位置与尺度。
+            </p>
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_bc" class="blocksContainer">
+
+            <a href="../tools/controlpoints.htm">
+                <div class="block TileColor2">
+                    <h2 data-id="h2_bc_cp" data-vn="1">控制点</h2>
+                    <p data-id="p_h2_bc_cp" data-vn="1">如何把地面控制点加入项目</p>
+                </div>
+            </a>
+
+            <a href="../tools/xmpalign.htm">
+                <div class="block TileColor1">
+                    <h2 data-id="h2_bc_cpt" data-vn="1">相机位姿模板</h2>
+                    <p data-id="p_h2_bc_cpt" data-vn="1">如何导出与导入相机位姿模板</p>
+                </div>
+            </a>
+
+            <script type="text/javascript">RenderBackToStartTile();</script>
+
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_sa" class="rowblock">
+            <h3 data-id="h3_sa" data-vn="1">另见：</h3>
+            <ul class="intend">
+                <li data-id="li_sa_igco" data-vn="1">如何导入地面控制点，<a href="../tools/gcpimport.htm">点击此处</a>。</li>
+                <li data-id="li_sa_ifl" data-vn="1">如何导入飞行日志，<a href="../tools/flightlogimport.htm">点击此处</a>。</li>
+                <li data-id="li_sa_cosy" data-vn="1">了解坐标系的更多内容，<a href="../appbasics/coordinatesystem.htm">点击此处</a>。</li>
+                <li data-id="li_sa_ceop" data-vn="1">了解如何创建并导出正射投影，<a href="../tutorials/orthophoto.htm">点击此处</a>。</li>
+            </ul>
+        </div>
+
+        <!-- content slide end -->
+
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+    <script type="text/javascript">
+        InitializeTutorialMode();
+    </script>
+
+</body>
+</html>
+<!-- signature:KAIzDmglb99pva1GKuL0MhAEyk36PpCRC/Yy9pFI1YitKzoFgGKv337/G8S0XaDZPnYMM9UNGjTgYoERmFSbOApLF8/0iyV+bBK6Kn6m+tZGk5zgPnVMMqZO/mRo5ow23YvA+DAx9S68d3TTBMg6cHdpOhMa8W05w/9zIF4gJxU= -->

@@ -1,0 +1,267 @@
+<html>
+<head>
+    <title>RealityScan 帮助</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Epic Games Slovakia s.r.o." />
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <link type="text/css" rel="stylesheet" href="../../styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/colors.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css" />
+    <script src="../scripts/textVars.js" type="text/javascript"></script>
+    <script src="../../scripts/localization.js" type="text/javascript"></script>
+    <script src="../../scripts/main.js" type="text/javascript"></script>
+</head>
+<body ondragstart="return false;">
+
+    <div data-id="div_cs" class="content_slide">
+
+        <script type="text/javascript">RenderToolNavigation();</script>
+
+        <div data-id="div_head" class="head">
+
+            <h1 data-id="h1__v1" data-vn="2">XMP 元数据文件</h1>
+            <p data-id="p_h1__v1" data-vn="1">
+            元数据或 XMP 文件包含图像信息，可用于替代图像的 EXIF 信息，或复用对齐配置。在搭建相机装置（相机位置不再变动）时特别有用。
+            </p>
+        </div>
+            
+        <div data-id="div_sb_info" class="slideblock">
+        <ul>
+                <li data-id="li_info_asone" data-vn="2">
+                XMP 文件与图像直接关联。若放在同一文件夹且同名，导入 RealityScan 时图像与 XMP 会作为一体处理，XMP 中的全部信息会自动赋给对应图像。
+                </li>
+                <li data-id="li_info_name" data-vn="1">
+                图像应与其 XMP 文件同名。例如给 Image01.jpg 配 XMP，XMP 文件名应为 Image01.xmp。
+                </li>
+                <li data-id="li_info_cli" data-vn="1">也可以用 CLI 命令 <span class="command">addImageWithCalibration</span> 导入图像及其 XMP 文件。这种情况下两个文件不必同名，也不必放在同一文件夹。</li>
+            </ul>
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+        
+        <div data-id="div_sb_export" class="slideblock">    
+        
+            <h2 data-id="h2_export" data-vn="1">导出 XMP 文件</h2>
+
+            <p data-id="p_h2_export" data-vn="4">
+                可以用 <span class="appribbonbutton">XMP Files</span> 按钮或 <span class="appribbonbutton">Export Registration</span> 按钮导出 XMP 文件，两者都在 <span class="appribbon">ALIGNMENT</span> 选项卡的 <span class="apppanel">Export</span> 区域。
+            </p>
+
+            <p data-id="p_exp_xmpf" data-vn="1">
+                <span class="appribbonbutton">XMP Files</span> 按钮会打开 <span class="apppanel">XMP metadata export</span> 对话框：
+            </p>
+
+            <div style="padding: 10px 10px 10px 20px"><img src="images/xmp-metadata-export.png" alt="xmp-metadata-export" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/xmp-metadata-export.png';"/></div>
+
+            <ul>
+                <li data-id="p_es_mode" data-vn="1"><span class="appproperty">Camera export mode</span> 指定相机位置，以及它们在后续计算中的使用方式。
+                    <ul>
+                        <li data-id="p_es_mdr" data-vn="1" class="licircle"><span class="appproperty">Export as draft</span> “草稿导出”会使用绝对相机位置，但这些位置在对齐过程中仍会被调整。
+                        </li>
+                        <li data-id="p_es_mex" data-vn="1" class="licircle"><span class="appproperty">Export as exact</span> 精确导出可确保相机保持相对位置，适用于必须保留相机间空间关系的场景。
+                        </li>
+                        <li data-id="p_es_mab" data-vn="1" class="licircle"><span class="appproperty">Export as locked</span> 锁定导出同时保留相对与绝对相机位置。与草稿导出不同，位置固定不变，对齐阶段不会调整。
+                        </li>
+                    </ul>
+                </li>
+                <li data-id="p_es_mrge" data-vn="1"><span class="appproperty">Merge with existing XMP files</span> 为同一批图像新建 XMP 会替换已有的 XMP。
+                </li>
+                <li data-id="p_es_rigs" data-vn="1"><span class="appproperty">Export rigging setup</span> 启用后会导出激光扫描的装置配置信息；不启用则只导出位置与朝向。
+                </li>
+                <li data-id="p_es_calb" data-vn="1"><span class="appproperty">Export camera calibration groups</span> 导出标定组信息。标定组详情见 <a href="../appbasics/camerasettings.htm">此处</a>。
+                </li>
+                <li data-id="p_es_edit" data-vn="1"><span class="appproperty">Include editor options</span> 启用表示这些图像参与纹理和网格化计算。该信息可在 <span class="apppanel">Selected input</span> 面板中查看。
+                </li>
+                <li data-id="p_es_rplc" data-vn="1"><span class="appproperty">用优化后的值替换 GPS EXIF 信息</span> 用对齐过程中计算出的坐标替代 EXIF 坐标。
+                </li>
+            </ul>
+
+                <div class="clear splitSpacing">
+                    <!-- clear -->
+                </div>
+
+            <p data-id="p_exp_exreg" data-vn="2">
+                <span class="appribbonbutton">Export Registration</span> 按钮会打开文件资源管理器。要导出 XMP，把保存类型设为 <span class="appproperty">RealityScan XMPs with Image List</span> 并按 <span class="appbutton">Save</span>，随后进入 <span class="apppanel">Export Registration</span> 对话框：
+            </p>   
+
+            <div style="padding: 10px 10px 10px 20px">
+                <img src="images/xmp-metadata-exportRegistration.png" alt="xmp-metadata-exportRegistration" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/xmp-metadata-exportRegistration.png';"/>
+            </div>
+
+            <ul>
+                <li data-id="li_er_file" data-vn="2">
+                    <span class="appproperty">File name</span> 将在导出位置创建的图像列表文件名。
+                </li>
+                <li data-id="li_er_loc" data-vn="2">
+                    <span class="appproperty">Export location</span> 导出文件的存放目录路径。
+                </li>
+                <li data-id="li_er_mode" data-vn="1"><span class="appproperty">Camera export mode</span> 指定相机位置，以及它们在后续计算中的使用方式。
+                    <ul>
+                        <li data-id="li_er_mdr" data-vn="1" class="licircle"><span class="appproperty">Export as draft</span> “草稿导出”会使用绝对相机位置，但这些位置在对齐过程中仍会被调整。
+                        </li>
+                        <li data-id="li_er_mex" data-vn="1" class="licircle"><span class="appproperty">Export as exact</span> 精确导出可确保相机保持相对位置，适用于必须保留相机间空间关系的场景。
+                        </li>
+                        <li data-id="li_er_mab" data-vn="1" class="licircle"><span class="appproperty">Export as locked</span> 锁定导出同时保留相对与绝对相机位置。与草稿导出不同，位置固定不变，对齐阶段不会调整。
+                        </li>
+                    </ul>
+                </li>
+                <li data-id="li_er_mrge" data-vn="1">
+                    <span class="appproperty">Merge with existing XMP files</span> 为同一批图像新建 XMP 会替换已有的 XMP。
+                </li>
+                <li data-id="li_er_rigs" data-vn="1">
+                    <span class="appproperty">Export rigging setup</span> 启用后会导出激光扫描的装置配置信息；不启用则只导出位置与朝向。
+                </li>
+                <li data-id="li_er_calb" data-vn="1">
+                    <span class="appproperty">Export camera calibration groups</span> 导出标定组信息。标定组详情见 <a href="../appbasics/camerasettings.htm">此处</a>。
+                </li>
+                <li data-id="li_er_edit" data-vn="1">
+                    <span class="appproperty">Include editor options</span> 启用表示这些图像参与纹理和网格化计算。该信息可在 <span class="apppanel">Selected input</span> 面板中查看。
+                </li>
+                <li data-id="li_er_rplc" data-vn="1">
+                    <span class="appproperty">用优化后的值替换 GPS EXIF 信息</span> 用对齐过程中计算出的坐标替代 EXIF 坐标。
+                </li>
+
+                <li data-id="li_er_unset" data-vn="1"><span class="appproperty">Undistortion settings</span> 调整应用到 XMP 文件导出数据上的去畸变参数。
+                    <ul>
+                        <li data-id="li_undistort" data-vn="1" class="licircle"><span class="appproperty">Undistort images</span> 启用（设为 <span class="appproperty">Yes</span>）以导出与去畸变图像相对应的数值。</li>
+                        <li data-id="li_unset_fit" data-vn="1" class="licircle"><span class="appproperty">Fit</span> 指定无畸变图像中纳入输出的部分。
+                        </li>
+                        <li data-id="li_unset_res" data-vn="1" class="licircle"><span class="appproperty">Resolution</span> 设置图像分辨率。选 <span class="appproperty">Fit</span> 或 <span class="appproperty">Preserve</span> 会启用 <span class="appproperty">Downscale</span>；选 <span class="appproperty">Custom</span> 则可设置 <span class="appproperty">Custom width</span> 与 <span class="appproperty">Custom height</span>。
+                        </li>
+                        <li data-id="li_unset_down" data-vn="1" class="licircle"><span class="appproperty">Downscale</span> 指定 XMP 导出中无畸变图像的降采样系数。
+                        </li>
+                        <li data-id="li_unset_width" data-vn="1" class="licircle"><span class="appproperty">Custom width</span> 指定 XMP 导出中无畸变图像的自定义宽度。
+                        </li>
+                        <li data-id="li_unset_height" data-vn="1" class="licircle"><span class="appproperty">Custom height</span> 指定 XMP 导出中无畸变图像的自定义高度。
+                        </li>
+                        <li data-id="li_unset_pp" data-vn="1" class="licircle"><span class="appproperty">Undistort principal point</span> 调整无畸变图像中心的位置。设为 <span class="appproperty">Yes</span> 可把光学中心对齐到导出图像的实际中心。
+                        </li>
+                        <li data-id="li_unset_cut" data-vn="1" class="licircle"><span class="appproperty">Image cut-out</span> 指定 XMP 导出中用于去畸变的图像比例。
+                        </li>
+                        <li data-id="li_unset_pix" data-vn="1" class="licircle"><span class="appproperty">Max count of pixels</span> 设置图像的最大分辨率（像素），填 0 表示不限制。
+                        </li>
+                    </ul>
+                </li>
+                
+                <li data-id="li_er_eximg" data-vn="1">
+                    <span class="appproperty">Export images</span> 启用后会连同 XMP 文件一起导出图像。
+                </li>
+                
+                <li data-id="li_er_exiset" data-vn="2"><span class="appproperty">Export image settings</span> 配置导出图像的设置。
+                    <ul>
+                        <li data-id="li_eximg_layer" data-vn="1" class="licircle">
+                            <span class="appproperty">Layer</span> 选择要导出的图像图层（例如输入图像或贴图图层）。
+                        </li>
+                        <li data-id="li_eximg_format" data-vn="1" class="licircle">
+                            <span class="appproperty">Image format</span> 图像导出的格式。
+                        </li>
+                        <li data-id="li_eximg_pixel" data-vn="1" class="licircle">
+                            <span class="appproperty">Pixel format</span> 选择导出图像的像素格式：24 位 BGR、32 位 BGRA 或 64 位 RGBA。
+                        </li>
+                        <li data-id="li_eximg_name" data-vn="1" class="licircle">
+                            <span class="appproperty">Naming convention</span> 选择导出图像的命名规则。
+                        </li>
+                        <li data-id="li_eximg_custom" data-vn="1" class="licircle">
+                            <span class="appproperty">Customize image path</span> 若要自定义图像的导出路径（目录），启用此设置。 
+                        </li>
+                        <li data-id="li_eximg_path" data-vn="1" class="licircle">
+                            <span class="appproperty">Image path</span> 设置图像的导出路径（目录）。
+                        </li>
+                        <li data-id="li_eximg_bckgrd" data-vn="1" class="licircle">
+                            <span class="appproperty">Background color</span> 选择导出图像的背景色。
+                        </li>                 
+                    </ul>
+                </li>
+                
+                <li data-id="li_trans" data-vn="2"><span class="appproperty">Export transformation settings</span> 配置导出数据的变换设置。
+                    <ul>
+                        <li data-id="li_trans_coord" data-vn="2" class="licircle">
+                            <span class="appproperty">Coordinate system</span> 选择导出 XMP 元数据所使用的坐标系。
+                        </li>
+                        <li data-id="li_trans_scene" data-vn="2" class="licircle">
+                            <span class="appproperty">Scene transformation</span> 应用变换以改变场景的位置、旋转和缩放。
+                        </li>
+                        <li data-id="li_trans_normal" data-vn="1" class="licircle">
+                            <span class="appproperty">Normal transformation</span> 对法线向量应用变换设置。
+                        </li>
+                    </ul>
+                </li>
+            </ul> 
+             
+            <div class="clear splitSpacing">
+                <!-- clear -->
+            </div>
+            
+            <div data-id="div_sb_content" class="slideblock">    
+        
+                <h2 data-id="h2_content" data-vn="1">XMP 内容</h2>
+            
+             
+                <p data-id="p_hvlkxmp" data-vn="1">看一下 XMP 文件内容示例：</p>
+                           
+                <p class="codeSample">
+                &lt;x:xmpmeta xmlns:x="adobe:ns:meta/"&gt;<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"&gt;<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;rdf:Description xmlns:xcr="http://www.capturingreality.com/ns/xcr/1.1#" xcr:Version="3"<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xcr:PosePrior="initial" xcr:Rotation="-1 0 0 0 0 -1 0 -1 0" xcr:Coordinates="absolute"<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xcr:DistortionModel="division" xcr:DistortionCoeficients="0 0 0 0 0 0"<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xcr:FocalLength35mm="18" xcr:Skew="0" xcr:AspectRatio="1" xcr:PrincipalPointU="0"<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xcr:PrincipalPointV="0" xcr:CalibrationPrior="initial" xcr:CalibrationGroup="-1"<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xcr:DistortionGroup="-1" xcr:Rig="{1E204070-A17D-444E-9455-493C15B37B93}"<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xcr:RigInstance="{2DC9F356-432F-4234-9148-DC2655788342}" xcr:RigPoseIndex="3"<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xcr:InTexturing="1" xcr:InMeshing="1"&gt;<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xcr:Position&gt;0.262424475861358 -2.26397531586648 7.03879070281982&lt;/xcr:Position&gt;<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/rdf:Description&gt;<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;/rdf:RDF&gt;<br/>
+                &lt;/x:xmpmeta&gt;
+                </p>
+                
+                <div class="clear splitSpacing">
+                    <!-- clear -->
+                </div>
+                
+                <div data-id="div_im_comm" data-vn="1" class="importantMessage">
+                    提示：可以在图像文件夹中放一个名为 _common.xmp 的文件，让其中所有图像都以相同的 XMP 信息导入。
+                </div>
+            
+            </div>
+            
+        </div>
+
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+
+        <div data-id="div_bc" class="blocksContainer">
+
+            <a href="../videotutorials/fullbodyscans/fullbodyscanstutorials.htm">
+                <div class="block TileColor1">
+                    <h2 data-id="h2_bc_full" data-vn="1">全身扫描与坐标系保持</h2>
+                    <p data-id="p_h2_bc_full" data-vn="2">了解如何在不同的全身扫描仪上使用 RealityScan</p>
+                </div>
+            </a>
+                
+            <script type="text/javascript">RenderBackToStartTile();</script>
+
+        </div>
+
+        <div class="clear">
+            <!-- clear -->
+        </div>
+
+        <!-- content slide end -->
+
+    </div>
+
+    <script type="text/javascript">RenderCopyrightText();</script>
+
+    <script type="text/javascript">
+        InitializeHelpSlide();
+    </script>
+
+
+</body>
+</html>
+<!-- signature:HSHL/99oPwa6dZ/GUMN+0ioLQtodUBHeh01bXYWNzp/02KfjXpf/VY2DEgfe0La0qrLp24TFaNlaWJy3/EQKx8gTYiYrWhs9P6DF/ib4hcLmK6XVeCdLTZ+qdLFL/OcDroQ5ckB2YS7030l+IP2/Sh1RLbUlnl3hjmsg85WVMkw= -->

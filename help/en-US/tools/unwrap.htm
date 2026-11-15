@@ -1,0 +1,73 @@
+<html>
+<head>
+    <title>RealityScan 帮助</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Epic Games Slovakia s.r.o." />
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <link type="text/css" rel="stylesheet" href="../../styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/colors.css" />
+    <link type="text/css" rel="stylesheet" href="../../styles/flagStyles.css" />
+    <script src="../scripts/textVars.js" type="text/javascript"></script>
+    <script src="../../scripts/localization.js" type="text/javascript"></script>
+    <script src="../../scripts/main.js" type="text/javascript"></script>
+</head>
+<body ondragstart="return false;">
+    <div data-id="div_cs" class="content_slide">
+        <script type="text/javascript">RenderToolNavigation();</script>
+        <div data-id="div_head" class="head">
+        
+            <h1 data-id="h1" data-vn="1">展开工具</h1>
+            
+            <p data-id="p_h1" data-vn="2">用这个工具在贴图前（重新）计算模型的展开。在模型算好之后想估算合理的最小分辨率时，它同样有用。该工具位于 <span class="appribbon">MESH &amp; COLOR</span> 选项卡的 <span class="apppanel">Color &amp; Texture</span> 区域。           
+            </p>
+            
+        </div>
+        
+        <div style="padding: 10px 10px 10px 0px">
+            <img src="images/unwrap-menu-1.png" alt="unwrap-menu-1" class="autoimg" onerror="this.onerror=null;this.src='../../en-US/tools/images/unwrap-menu-1.png';">
+        </div>
+        
+        <div data-id="div_sb_seti" class="slideblock">
+            <ul>
+                <li data-id="li_seti_opts" data-vn="2"><span class="appproperty">Optimal texel size</span> 与图像所能捕捉的最小细节相对应的纹素尺寸。</li>
+                <li data-id="li_seti_gutt" data-vn="1"><span class="appproperty">Gutter</span> 表示纹理图中每个图表（chart）边界所占的像素数。留白对避免渲染时模型上出现可见瑕疵很重要：许多渲染引擎会使用 mip-mapping 这类技术，把纹理多次降采样以生成图像金字塔；若引擎从较高层级的金字塔取纹理，插值过程中一个图表的颜色就可能渗到另一个图表。只要图表之间的留白不够大，就会出现这种情况。默认值 2 在大多数渲染引擎中已足以避免此类瑕疵。
+                </li>
+                <li data-id="li_seti_mitr" data-vn="1"><span class="appproperty">Minimal texture resolution</span> 设置纹理可用的最小分辨率，可选 512x512、1024x1024、2048x2048、4096x4096、8192x8192 和 16384x16384。</li>
+                <li data-id="li_seti_mxtr" data-vn="2"><span class="appproperty">Maximal texture resolution</span> 设置纹理可用的最大分辨率，可选 512x512、1024x1024、2048x2048、4096x4096、8192x8192 和 16384x16384。</li>
+                <li data-id="li_seti_ltrt" data-vn="2"><span class="appproperty">Large triangle removal threshold</span> 指定控制大三角面如何展开的阈值。若某三角面的边长乘以该值后超过模型的平均边长，该三角面会被映射为单个纹素。例如设为 400，表示边长超过模型平均边长 400 倍的三角面会被映射到一个纹素。</li>
+                <li data-id="li_seti_mthd" data-vn="2"><span class="appproperty">Unwrap method</span> 定义展开算法。<span class="appproperty">Geometric</span> 是旧的展开方法；<span class="appproperty">Mosaicing based (experimental)</span> 是新方法，产生的 UV 岛更少，但比 <span class="appproperty">Geometric</span> 方法慢。</li>
+                <li data-id="li_seti_styl" data-vn="2"><span class="appproperty">Style</span> 定义构建 UV 贴图所用的策略。关于展开风格的更多内容<a href="../tools/texturing_part2.htm">见此处</a></li>
+                <li data-id="li_seti_defrg" data-vn="2"><span class="appproperty">Defragment charts</span> 启用此项后，展开时会采用 Maggiordomo、Cignoni 与 Tarini 的方法生成更大的 UV 岛（<a href="https://vcg.isti.cnr.it/publication/2021/MCT21/" target="_blank">阅读更多</a>）。</li>
+                <li data-id="li_seti_unwr" data-vn="1"><span class="appproperty">Calculate Unwrap</span> 点击 <span class="appbutton">Unwrap</span> 按钮计算展开并构建 UV 贴图。</li>
+                <li data-id="li_seti_uvgrid" data-vn="1"><span class="appproperty">Grid size</span> 设置棋盘格图案的尺寸。棋盘格有助于在贴图前于三维视图中预览模型上的接缝。</li>
+                <li data-id="li_seti_carts" data-vn="1"><span class="appproperty">Fill with charts</span> 启用此项后，在 <span class="appaspecttype">2D</span> 视图中把 UV 图表叠加显示在 UV 棋盘格之上。</li>
+                <li data-id="li_seti_update" data-vn="1"><span class="appproperty">Update checker</span> 按当前设置更新 UV 棋盘格。若模型此前未做 UV 展开就贴了图（即在贴图过程中自动生成了展开），则会新建一个 UV 棋盘格。</li>
+                <li data-id="li_seti_calc" data-vn="1"><span class="appproperty">Calculate Unwrap</span> 计算 UV 展开。若模型已有展开或已有纹理图层，则会生成新的展开。</li>
+            </ul>
+        </div>
+        <div class="clear splitSpacing">
+            <!-- clear -->
+        </div>
+        <div data-id="div_bc" class="blocksContainer">
+            <script type="text/javascript">RenderBackToStartTile();</script>
+        </div>
+        <div class="clear">
+            <!-- clear -->
+        </div>
+        <div data-id="div_sa" class="rowblock">
+            <h3 data-id="h3_sa" data-vn="1">另见：</h3>
+            <ul class="intend">
+                <li data-id="li_sa_cote" data-vn="1">上色与贴图 <a href="texturing.htm">点击此处</a></li>
+            </ul>
+        </div>
+        <div class="clear">
+            <!-- clear -->
+        </div>
+    </div>
+    <script type="text/javascript">RenderCopyrightText();</script>
+    <script type="text/javascript">
+        InitializeHelpSlide();
+    </script>
+</body>
+</html>
+<!-- signature:gkAU/SojhTXvW4VzhwEib8rkJ0rBQv99rVWuWJob7roAumds5sYPSMHWHwP80ITeWSav+b6wI/73VGxxsVPjlsTioLzxKxW1DbCX0Dh4gjZDrHRz0yau5KCDtRstp8a9tlvIu/7dnQve+y9O2YB3gvv9nS3TwgkkuuwY3aVJDSQ= -->
